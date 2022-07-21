@@ -15,9 +15,9 @@ class LookupTmchNoticeResponseBody extends Model
     public $claims;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $id;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class LookupTmchNoticeResponseBody extends Model
     public $label;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $notAfter;
 
     /**
      * @var string
@@ -37,14 +37,14 @@ class LookupTmchNoticeResponseBody extends Model
     /**
      * @var string
      */
-    public $notAfter;
+    public $requestId;
     protected $_name = [
         'claims'    => 'Claims',
-        'requestId' => 'RequestId',
-        'label'     => 'Label',
         'id'        => 'Id',
-        'notBefore' => 'NotBefore',
+        'label'     => 'Label',
         'notAfter'  => 'NotAfter',
+        'notBefore' => 'NotBefore',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class LookupTmchNoticeResponseBody extends Model
         if (null !== $this->claims) {
             $res['Claims'] = null !== $this->claims ? $this->claims->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->notAfter) {
+            $res['NotAfter'] = $this->notAfter;
         }
         if (null !== $this->notBefore) {
             $res['NotBefore'] = $this->notBefore;
         }
-        if (null !== $this->notAfter) {
-            $res['NotAfter'] = $this->notAfter;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -87,20 +87,20 @@ class LookupTmchNoticeResponseBody extends Model
         if (isset($map['Claims'])) {
             $model->claims = claims::fromMap($map['Claims']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['NotAfter'])) {
+            $model->notAfter = $map['NotAfter'];
         }
         if (isset($map['NotBefore'])) {
             $model->notBefore = $map['NotBefore'];
         }
-        if (isset($map['NotAfter'])) {
-            $model->notAfter = $map['NotAfter'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

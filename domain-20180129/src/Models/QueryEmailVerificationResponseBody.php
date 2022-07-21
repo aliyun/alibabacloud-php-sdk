@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryEmailVerificationResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $verificationStatus;
-
-    /**
      * @var string
      */
-    public $gmtCreate;
+    public $confirmIp;
 
     /**
      * @var string
@@ -31,17 +26,7 @@ class QueryEmailVerificationResponseBody extends Model
     /**
      * @var string
      */
-    public $confirmIp;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $gmtCreate;
 
     /**
      * @var string
@@ -51,29 +36,44 @@ class QueryEmailVerificationResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $sendIp;
 
     /**
      * @var string
      */
-    public $verificationTime;
+    public $tokenSendTime;
 
     /**
      * @var string
      */
-    public $tokenSendTime;
+    public $userId;
+
+    /**
+     * @var int
+     */
+    public $verificationStatus;
+
+    /**
+     * @var string
+     */
+    public $verificationTime;
     protected $_name = [
-        'verificationStatus'  => 'VerificationStatus',
-        'gmtCreate'           => 'GmtCreate',
+        'confirmIp'           => 'ConfirmIp',
         'email'               => 'Email',
         'emailVerificationNo' => 'EmailVerificationNo',
-        'confirmIp'           => 'ConfirmIp',
-        'requestId'           => 'RequestId',
-        'userId'              => 'UserId',
+        'gmtCreate'           => 'GmtCreate',
         'gmtModified'         => 'GmtModified',
+        'requestId'           => 'RequestId',
         'sendIp'              => 'SendIp',
-        'verificationTime'    => 'VerificationTime',
         'tokenSendTime'       => 'TokenSendTime',
+        'userId'              => 'UserId',
+        'verificationStatus'  => 'VerificationStatus',
+        'verificationTime'    => 'VerificationTime',
     ];
 
     public function validate()
@@ -83,11 +83,8 @@ class QueryEmailVerificationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->verificationStatus) {
-            $res['VerificationStatus'] = $this->verificationStatus;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
+        if (null !== $this->confirmIp) {
+            $res['ConfirmIp'] = $this->confirmIp;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
@@ -95,26 +92,29 @@ class QueryEmailVerificationResponseBody extends Model
         if (null !== $this->emailVerificationNo) {
             $res['EmailVerificationNo'] = $this->emailVerificationNo;
         }
-        if (null !== $this->confirmIp) {
-            $res['ConfirmIp'] = $this->confirmIp;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->sendIp) {
             $res['SendIp'] = $this->sendIp;
         }
-        if (null !== $this->verificationTime) {
-            $res['VerificationTime'] = $this->verificationTime;
-        }
         if (null !== $this->tokenSendTime) {
             $res['TokenSendTime'] = $this->tokenSendTime;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->verificationStatus) {
+            $res['VerificationStatus'] = $this->verificationStatus;
+        }
+        if (null !== $this->verificationTime) {
+            $res['VerificationTime'] = $this->verificationTime;
         }
 
         return $res;
@@ -128,11 +128,8 @@ class QueryEmailVerificationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VerificationStatus'])) {
-            $model->verificationStatus = $map['VerificationStatus'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
+        if (isset($map['ConfirmIp'])) {
+            $model->confirmIp = $map['ConfirmIp'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
@@ -140,26 +137,29 @@ class QueryEmailVerificationResponseBody extends Model
         if (isset($map['EmailVerificationNo'])) {
             $model->emailVerificationNo = $map['EmailVerificationNo'];
         }
-        if (isset($map['ConfirmIp'])) {
-            $model->confirmIp = $map['ConfirmIp'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SendIp'])) {
             $model->sendIp = $map['SendIp'];
         }
-        if (isset($map['VerificationTime'])) {
-            $model->verificationTime = $map['VerificationTime'];
-        }
         if (isset($map['TokenSendTime'])) {
             $model->tokenSendTime = $map['TokenSendTime'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['VerificationStatus'])) {
+            $model->verificationStatus = $map['VerificationStatus'];
+        }
+        if (isset($map['VerificationTime'])) {
+            $model->verificationTime = $map['VerificationTime'];
         }
 
         return $model;

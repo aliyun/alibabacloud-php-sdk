@@ -11,12 +11,12 @@ class SubmitEmailVerificationRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $email;
 
     /**
      * @var string
      */
-    public $email;
+    public $lang;
 
     /**
      * @var bool
@@ -28,8 +28,8 @@ class SubmitEmailVerificationRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
         'email'        => 'Email',
+        'lang'         => 'Lang',
         'sendIfExist'  => 'SendIfExist',
         'userClientIp' => 'UserClientIp',
     ];
@@ -41,11 +41,11 @@ class SubmitEmailVerificationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->sendIfExist) {
             $res['SendIfExist'] = $this->sendIfExist;
@@ -65,11 +65,11 @@ class SubmitEmailVerificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['SendIfExist'])) {
             $model->sendIfExist = $map['SendIfExist'];

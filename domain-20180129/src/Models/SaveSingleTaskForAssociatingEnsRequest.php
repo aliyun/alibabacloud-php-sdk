@@ -11,7 +11,7 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $address;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
     /**
      * @var string
      */
-    public $address;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
+        'address'      => 'Address',
         'domainName'   => 'DomainName',
         'lang'         => 'Lang',
-        'address'      => 'Address',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -50,8 +50,8 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->address) {
-            $res['Address'] = $this->address;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -74,8 +74,8 @@ class SaveSingleTaskForAssociatingEnsRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['Address'])) {
-            $model->address = $map['Address'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeleteContactTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $registrantProfileIds;
 
     /**
      * @var string
      */
-    public $registrantProfileIds;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'         => 'UserClientIp',
         'registrantProfileIds' => 'RegistrantProfileIds',
+        'userClientIp'         => 'UserClientIp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteContactTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->registrantProfileIds) {
             $res['RegistrantProfileIds'] = $this->registrantProfileIds;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteContactTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['RegistrantProfileIds'])) {
             $model->registrantProfileIds = $map['RegistrantProfileIds'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
+    public $domainName;
 
     /**
      * @var string
@@ -34,16 +29,21 @@ class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
     public $identityCredentialType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $domainName;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'           => 'UserClientIp',
-        'lang'                   => 'Lang',
+        'domainName'             => 'DomainName',
         'identityCredential'     => 'IdentityCredential',
         'identityCredentialNo'   => 'IdentityCredentialNo',
         'identityCredentialType' => 'IdentityCredentialType',
-        'domainName'             => 'DomainName',
+        'lang'                   => 'Lang',
+        'userClientIp'           => 'UserClientIp',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->identityCredential) {
             $res['IdentityCredential'] = $this->identityCredential;
@@ -68,8 +65,11 @@ class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
         if (null !== $this->identityCredentialType) {
             $res['IdentityCredentialType'] = $this->identityCredentialType;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -83,11 +83,10 @@ class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['DomainName'])) {
+            if (!empty($map['DomainName'])) {
+                $model->domainName = $map['DomainName'];
+            }
         }
         if (isset($map['IdentityCredential'])) {
             $model->identityCredential = $map['IdentityCredential'];
@@ -98,10 +97,11 @@ class SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
         if (isset($map['IdentityCredentialType'])) {
             $model->identityCredentialType = $map['IdentityCredentialType'];
         }
-        if (isset($map['DomainName'])) {
-            if (!empty($map['DomainName'])) {
-                $model->domainName = $map['DomainName'];
-            }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

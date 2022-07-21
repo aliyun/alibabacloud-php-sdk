@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CheckProcessingServerLockApplyRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $feePeriod;
-
-    /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var int
+     */
+    public $feePeriod;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class CheckProcessingServerLockApplyRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'feePeriod'    => 'FeePeriod',
         'domainName'   => 'DomainName',
+        'feePeriod'    => 'FeePeriod',
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
@@ -41,11 +41,11 @@ class CheckProcessingServerLockApplyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->feePeriod) {
-            $res['FeePeriod'] = $this->feePeriod;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->feePeriod) {
+            $res['FeePeriod'] = $this->feePeriod;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -65,11 +65,11 @@ class CheckProcessingServerLockApplyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FeePeriod'])) {
-            $model->feePeriod = $map['FeePeriod'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['FeePeriod'])) {
+            $model->feePeriod = $map['FeePeriod'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

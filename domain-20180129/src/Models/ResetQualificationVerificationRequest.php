@@ -16,16 +16,16 @@ class ResetQualificationVerificationRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $lang;
 
     /**
      * @var string
      */
-    public $lang;
+    public $userClientIp;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'userClientIp' => 'UserClientIp',
         'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ResetQualificationVerificationRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ResetQualificationVerificationRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

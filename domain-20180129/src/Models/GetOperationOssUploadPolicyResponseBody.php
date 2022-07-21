@@ -11,7 +11,7 @@ class GetOperationOssUploadPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $fileDir;
+    public $accessid;
 
     /**
      * @var string
@@ -21,17 +21,12 @@ class GetOperationOssUploadPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $expireTime;
 
     /**
      * @var string
      */
-    public $accessid;
-
-    /**
-     * @var string
-     */
-    public $signature;
+    public $fileDir;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class GetOperationOssUploadPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $expireTime;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $signature;
     protected $_name = [
-        'fileDir'       => 'FileDir',
-        'encodedPolicy' => 'EncodedPolicy',
-        'requestId'     => 'RequestId',
         'accessid'      => 'Accessid',
-        'signature'     => 'Signature',
-        'host'          => 'Host',
+        'encodedPolicy' => 'EncodedPolicy',
         'expireTime'    => 'ExpireTime',
+        'fileDir'       => 'FileDir',
+        'host'          => 'Host',
+        'requestId'     => 'RequestId',
+        'signature'     => 'Signature',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class GetOperationOssUploadPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileDir) {
-            $res['FileDir'] = $this->fileDir;
+        if (null !== $this->accessid) {
+            $res['Accessid'] = $this->accessid;
         }
         if (null !== $this->encodedPolicy) {
             $res['EncodedPolicy'] = $this->encodedPolicy;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->accessid) {
-            $res['Accessid'] = $this->accessid;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
+        if (null !== $this->fileDir) {
+            $res['FileDir'] = $this->fileDir;
         }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class GetOperationOssUploadPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileDir'])) {
-            $model->fileDir = $map['FileDir'];
+        if (isset($map['Accessid'])) {
+            $model->accessid = $map['Accessid'];
         }
         if (isset($map['EncodedPolicy'])) {
             $model->encodedPolicy = $map['EncodedPolicy'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['Accessid'])) {
-            $model->accessid = $map['Accessid'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
+        if (isset($map['FileDir'])) {
+            $model->fileDir = $map['FileDir'];
         }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

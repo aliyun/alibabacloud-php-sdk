@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class QueryChangeLogListResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $prePage;
-
-    /**
      * @var int
      */
     public $currentPageNum;
 
     /**
-     * @var string
+     * @var data
      */
-    public $requestId;
+    public $data;
+
+    /**
+     * @var bool
+     */
+    public $nextPage;
 
     /**
      * @var int
@@ -30,14 +30,14 @@ class QueryChangeLogListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $totalPageNum;
+    public $prePage;
 
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $requestId;
 
     /**
      * @var bool
@@ -50,19 +50,19 @@ class QueryChangeLogListResponseBody extends Model
     public $totalItemNum;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $nextPage;
+    public $totalPageNum;
     protected $_name = [
-        'prePage'        => 'PrePage',
         'currentPageNum' => 'CurrentPageNum',
-        'requestId'      => 'RequestId',
-        'pageSize'       => 'PageSize',
-        'totalPageNum'   => 'TotalPageNum',
         'data'           => 'Data',
+        'nextPage'       => 'NextPage',
+        'pageSize'       => 'PageSize',
+        'prePage'        => 'PrePage',
+        'requestId'      => 'RequestId',
         'resultLimit'    => 'ResultLimit',
         'totalItemNum'   => 'TotalItemNum',
-        'nextPage'       => 'NextPage',
+        'totalPageNum'   => 'TotalPageNum',
     ];
 
     public function validate()
@@ -72,23 +72,23 @@ class QueryChangeLogListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->prePage) {
-            $res['PrePage'] = $this->prePage;
-        }
         if (null !== $this->currentPageNum) {
             $res['CurrentPageNum'] = $this->currentPageNum;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->nextPage) {
+            $res['NextPage'] = $this->nextPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalPageNum) {
-            $res['TotalPageNum'] = $this->totalPageNum;
+        if (null !== $this->prePage) {
+            $res['PrePage'] = $this->prePage;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->resultLimit) {
             $res['ResultLimit'] = $this->resultLimit;
@@ -96,8 +96,8 @@ class QueryChangeLogListResponseBody extends Model
         if (null !== $this->totalItemNum) {
             $res['TotalItemNum'] = $this->totalItemNum;
         }
-        if (null !== $this->nextPage) {
-            $res['NextPage'] = $this->nextPage;
+        if (null !== $this->totalPageNum) {
+            $res['TotalPageNum'] = $this->totalPageNum;
         }
 
         return $res;
@@ -111,23 +111,23 @@ class QueryChangeLogListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrePage'])) {
-            $model->prePage = $map['PrePage'];
-        }
         if (isset($map['CurrentPageNum'])) {
             $model->currentPageNum = $map['CurrentPageNum'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['NextPage'])) {
+            $model->nextPage = $map['NextPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalPageNum'])) {
-            $model->totalPageNum = $map['TotalPageNum'];
+        if (isset($map['PrePage'])) {
+            $model->prePage = $map['PrePage'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ResultLimit'])) {
             $model->resultLimit = $map['ResultLimit'];
@@ -135,8 +135,8 @@ class QueryChangeLogListResponseBody extends Model
         if (isset($map['TotalItemNum'])) {
             $model->totalItemNum = $map['TotalItemNum'];
         }
-        if (isset($map['NextPage'])) {
-            $model->nextPage = $map['NextPage'];
+        if (isset($map['TotalPageNum'])) {
+            $model->totalPageNum = $map['TotalPageNum'];
         }
 
         return $model;

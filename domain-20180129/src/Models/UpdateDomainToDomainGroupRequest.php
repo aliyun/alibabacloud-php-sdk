@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainToDomainGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $fileToUpload;
+    public $dataSource;
 
     /**
      * @var int
@@ -29,27 +19,37 @@ class UpdateDomainToDomainGroupRequest extends Model
     public $domainGroupId;
 
     /**
+     * @var string[]
+     */
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $fileToUpload;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var bool
      */
     public $replace;
 
     /**
-     * @var int
+     * @var string
      */
-    public $dataSource;
-
-    /**
-     * @var string[]
-     */
-    public $domainName;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'  => 'UserClientIp',
-        'lang'          => 'Lang',
-        'fileToUpload'  => 'FileToUpload',
-        'domainGroupId' => 'DomainGroupId',
-        'replace'       => 'Replace',
         'dataSource'    => 'DataSource',
+        'domainGroupId' => 'DomainGroupId',
         'domainName'    => 'DomainName',
+        'fileToUpload'  => 'FileToUpload',
+        'lang'          => 'Lang',
+        'replace'       => 'Replace',
+        'userClientIp'  => 'UserClientIp',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class UpdateDomainToDomainGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->fileToUpload) {
-            $res['FileToUpload'] = $this->fileToUpload;
+        if (null !== $this->dataSource) {
+            $res['DataSource'] = $this->dataSource;
         }
         if (null !== $this->domainGroupId) {
             $res['DomainGroupId'] = $this->domainGroupId;
         }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->fileToUpload) {
+            $res['FileToUpload'] = $this->fileToUpload;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->replace) {
             $res['Replace'] = $this->replace;
         }
-        if (null !== $this->dataSource) {
-            $res['DataSource'] = $this->dataSource;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -92,28 +92,28 @@ class UpdateDomainToDomainGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['FileToUpload'])) {
-            $model->fileToUpload = $map['FileToUpload'];
+        if (isset($map['DataSource'])) {
+            $model->dataSource = $map['DataSource'];
         }
         if (isset($map['DomainGroupId'])) {
             $model->domainGroupId = $map['DomainGroupId'];
-        }
-        if (isset($map['Replace'])) {
-            $model->replace = $map['Replace'];
-        }
-        if (isset($map['DataSource'])) {
-            $model->dataSource = $map['DataSource'];
         }
         if (isset($map['DomainName'])) {
             if (!empty($map['DomainName'])) {
                 $model->domainName = $map['DomainName'];
             }
+        }
+        if (isset($map['FileToUpload'])) {
+            $model->fileToUpload = $map['FileToUpload'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Replace'])) {
+            $model->replace = $map['Replace'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

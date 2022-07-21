@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SaveRegistrantProfileResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $registrantProfileId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'registrantProfileId' => 'RegistrantProfileId',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SaveRegistrantProfileResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SaveRegistrantProfileResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

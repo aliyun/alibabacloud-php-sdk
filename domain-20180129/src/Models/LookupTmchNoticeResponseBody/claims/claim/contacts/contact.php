@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
-     * @var string
+     * @var addr
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $voice;
+    public $addr;
 
     /**
      * @var string
@@ -30,9 +25,9 @@ class contact extends Model
     public $fax;
 
     /**
-     * @var addr
+     * @var string
      */
-    public $addr;
+    public $name;
 
     /**
      * @var string
@@ -42,15 +37,20 @@ class contact extends Model
     /**
      * @var string
      */
-    public $name;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $voice;
     protected $_name = [
-        'type'  => 'Type',
-        'voice' => 'Voice',
+        'addr'  => 'Addr',
         'email' => 'Email',
         'fax'   => 'Fax',
-        'addr'  => 'Addr',
-        'org'   => 'Org',
         'name'  => 'Name',
+        'org'   => 'Org',
+        'type'  => 'Type',
+        'voice' => 'Voice',
     ];
 
     public function validate()
@@ -60,11 +60,8 @@ class contact extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->voice) {
-            $res['Voice'] = $this->voice;
+        if (null !== $this->addr) {
+            $res['Addr'] = null !== $this->addr ? $this->addr->toMap() : null;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
@@ -72,14 +69,17 @@ class contact extends Model
         if (null !== $this->fax) {
             $res['Fax'] = $this->fax;
         }
-        if (null !== $this->addr) {
-            $res['Addr'] = null !== $this->addr ? $this->addr->toMap() : null;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->org) {
             $res['Org'] = $this->org;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->voice) {
+            $res['Voice'] = $this->voice;
         }
 
         return $res;
@@ -93,11 +93,8 @@ class contact extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Voice'])) {
-            $model->voice = $map['Voice'];
+        if (isset($map['Addr'])) {
+            $model->addr = addr::fromMap($map['Addr']);
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
@@ -105,14 +102,17 @@ class contact extends Model
         if (isset($map['Fax'])) {
             $model->fax = $map['Fax'];
         }
-        if (isset($map['Addr'])) {
-            $model->addr = addr::fromMap($map['Addr']);
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Org'])) {
             $model->org = $map['Org'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Voice'])) {
+            $model->voice = $map['Voice'];
         }
 
         return $model;

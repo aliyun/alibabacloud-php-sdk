@@ -11,6 +11,11 @@ class CheckMaxYearOfServerLockRequest extends Model
     /**
      * @var string
      */
+    public $checkAction;
+
+    /**
+     * @var string
+     */
     public $domainName;
 
     /**
@@ -22,16 +27,11 @@ class CheckMaxYearOfServerLockRequest extends Model
      * @var string
      */
     public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $checkAction;
     protected $_name = [
+        'checkAction'  => 'CheckAction',
         'domainName'   => 'DomainName',
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
-        'checkAction'  => 'CheckAction',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CheckMaxYearOfServerLockRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkAction) {
+            $res['CheckAction'] = $this->checkAction;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -49,9 +52,6 @@ class CheckMaxYearOfServerLockRequest extends Model
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->checkAction) {
-            $res['CheckAction'] = $this->checkAction;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CheckMaxYearOfServerLockRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckAction'])) {
+            $model->checkAction = $map['CheckAction'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -73,9 +76,6 @@ class CheckMaxYearOfServerLockRequest extends Model
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['CheckAction'])) {
-            $model->checkAction = $map['CheckAction'];
         }
 
         return $model;

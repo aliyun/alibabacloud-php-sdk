@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskInfoHistoryRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
+    public $beginCreateTime;
+
+    /**
+     * @var int
+     */
+    public $createTimeCursor;
+
+    /**
+     * @var int
+     */
+    public $endCreateTime;
 
     /**
      * @var string
@@ -21,35 +31,25 @@ class QueryTaskInfoHistoryRequest extends Model
     /**
      * @var int
      */
-    public $beginCreateTime;
-
-    /**
-     * @var int
-     */
-    public $endCreateTime;
-
-    /**
-     * @var int
-     */
     public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $createTimeCursor;
 
     /**
      * @var string
      */
     public $taskNoCursor;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'     => 'UserClientIp',
-        'lang'             => 'Lang',
         'beginCreateTime'  => 'BeginCreateTime',
-        'endCreateTime'    => 'EndCreateTime',
-        'pageSize'         => 'PageSize',
         'createTimeCursor' => 'CreateTimeCursor',
+        'endCreateTime'    => 'EndCreateTime',
+        'lang'             => 'Lang',
+        'pageSize'         => 'PageSize',
         'taskNoCursor'     => 'TaskNoCursor',
+        'userClientIp'     => 'UserClientIp',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class QueryTaskInfoHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->beginCreateTime) {
             $res['BeginCreateTime'] = $this->beginCreateTime;
-        }
-        if (null !== $this->endCreateTime) {
-            $res['EndCreateTime'] = $this->endCreateTime;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->createTimeCursor) {
             $res['CreateTimeCursor'] = $this->createTimeCursor;
         }
+        if (null !== $this->endCreateTime) {
+            $res['EndCreateTime'] = $this->endCreateTime;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->taskNoCursor) {
             $res['TaskNoCursor'] = $this->taskNoCursor;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class QueryTaskInfoHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['BeginCreateTime'])) {
             $model->beginCreateTime = $map['BeginCreateTime'];
-        }
-        if (isset($map['EndCreateTime'])) {
-            $model->endCreateTime = $map['EndCreateTime'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['CreateTimeCursor'])) {
             $model->createTimeCursor = $map['CreateTimeCursor'];
         }
+        if (isset($map['EndCreateTime'])) {
+            $model->endCreateTime = $map['EndCreateTime'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['TaskNoCursor'])) {
             $model->taskNoCursor = $map['TaskNoCursor'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

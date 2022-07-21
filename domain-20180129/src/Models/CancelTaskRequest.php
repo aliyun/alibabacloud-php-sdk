@@ -11,21 +11,21 @@ class CancelTaskRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
      * @var string
      */
     public $taskNo;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
         'lang'         => 'Lang',
         'taskNo'       => 'TaskNo',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CancelTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->taskNo) {
             $res['TaskNo'] = $this->taskNo;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CancelTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['TaskNo'])) {
             $model->taskNo = $map['TaskNo'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

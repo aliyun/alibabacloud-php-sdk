@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SaveSingleTaskForUpdatingContactInfoRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $userClientIp;
+    public $addTransferLock;
 
     /**
      * @var string
      */
-    public $lang;
+    public $contactType;
 
     /**
      * @var string
@@ -29,6 +29,11 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @var int
      */
     public $registrantProfileId;
@@ -36,20 +41,15 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
     /**
      * @var string
      */
-    public $contactType;
-
-    /**
-     * @var bool
-     */
-    public $addTransferLock;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'        => 'UserClientIp',
-        'lang'                => 'Lang',
+        'addTransferLock'     => 'AddTransferLock',
+        'contactType'         => 'ContactType',
         'domainName'          => 'DomainName',
         'instanceId'          => 'InstanceId',
+        'lang'                => 'Lang',
         'registrantProfileId' => 'RegistrantProfileId',
-        'contactType'         => 'ContactType',
-        'addTransferLock'     => 'AddTransferLock',
+        'userClientIp'        => 'UserClientIp',
     ];
 
     public function validate()
@@ -59,11 +59,11 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->addTransferLock) {
+            $res['AddTransferLock'] = $this->addTransferLock;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->contactType) {
+            $res['ContactType'] = $this->contactType;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -71,14 +71,14 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
-        if (null !== $this->contactType) {
-            $res['ContactType'] = $this->contactType;
-        }
-        if (null !== $this->addTransferLock) {
-            $res['AddTransferLock'] = $this->addTransferLock;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -92,11 +92,11 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['AddTransferLock'])) {
+            $model->addTransferLock = $map['AddTransferLock'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['ContactType'])) {
+            $model->contactType = $map['ContactType'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -104,14 +104,14 @@ class SaveSingleTaskForUpdatingContactInfoRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
         }
-        if (isset($map['ContactType'])) {
-            $model->contactType = $map['ContactType'];
-        }
-        if (isset($map['AddTransferLock'])) {
-            $model->addTransferLock = $map['AddTransferLock'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

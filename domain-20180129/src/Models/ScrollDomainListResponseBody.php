@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ScrollDomainListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $requestId;
+    public $data;
 
     /**
      * @var int
@@ -22,22 +22,22 @@ class ScrollDomainListResponseBody extends Model
     /**
      * @var string
      */
-    public $scrollId;
+    public $requestId;
 
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $scrollId;
 
     /**
      * @var int
      */
     public $totalItemNum;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'pageSize'     => 'PageSize',
-        'scrollId'     => 'ScrollId',
         'data'         => 'Data',
+        'pageSize'     => 'PageSize',
+        'requestId'    => 'RequestId',
+        'scrollId'     => 'ScrollId',
         'totalItemNum' => 'TotalItemNum',
     ];
 
@@ -48,17 +48,17 @@ class ScrollDomainListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->scrollId) {
             $res['ScrollId'] = $this->scrollId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->totalItemNum) {
             $res['TotalItemNum'] = $this->totalItemNum;
@@ -75,17 +75,17 @@ class ScrollDomainListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ScrollId'])) {
             $model->scrollId = $map['ScrollId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['TotalItemNum'])) {
             $model->totalItemNum = $map['TotalItemNum'];

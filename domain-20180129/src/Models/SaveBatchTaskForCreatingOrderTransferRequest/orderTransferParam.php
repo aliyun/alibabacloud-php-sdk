@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class orderTransferParam extends Model
 {
     /**
-     * @var bool
-     */
-    public $permitPremiumTransfer;
-
-    /**
-     * @var int
-     */
-    public $registrantProfileId;
-
-    /**
      * @var string
      */
     public $authorizationCode;
@@ -27,11 +17,21 @@ class orderTransferParam extends Model
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var bool
+     */
+    public $permitPremiumTransfer;
+
+    /**
+     * @var int
+     */
+    public $registrantProfileId;
     protected $_name = [
-        'permitPremiumTransfer' => 'PermitPremiumTransfer',
-        'registrantProfileId'   => 'RegistrantProfileId',
         'authorizationCode'     => 'AuthorizationCode',
         'domainName'            => 'DomainName',
+        'permitPremiumTransfer' => 'PermitPremiumTransfer',
+        'registrantProfileId'   => 'RegistrantProfileId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class orderTransferParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->permitPremiumTransfer) {
-            $res['PermitPremiumTransfer'] = $this->permitPremiumTransfer;
-        }
-        if (null !== $this->registrantProfileId) {
-            $res['RegistrantProfileId'] = $this->registrantProfileId;
-        }
         if (null !== $this->authorizationCode) {
             $res['AuthorizationCode'] = $this->authorizationCode;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->permitPremiumTransfer) {
+            $res['PermitPremiumTransfer'] = $this->permitPremiumTransfer;
+        }
+        if (null !== $this->registrantProfileId) {
+            $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class orderTransferParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PermitPremiumTransfer'])) {
-            $model->permitPremiumTransfer = $map['PermitPremiumTransfer'];
-        }
-        if (isset($map['RegistrantProfileId'])) {
-            $model->registrantProfileId = $map['RegistrantProfileId'];
-        }
         if (isset($map['AuthorizationCode'])) {
             $model->authorizationCode = $map['AuthorizationCode'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['PermitPremiumTransfer'])) {
+            $model->permitPremiumTransfer = $map['PermitPremiumTransfer'];
+        }
+        if (isset($map['RegistrantProfileId'])) {
+            $model->registrantProfileId = $map['RegistrantProfileId'];
         }
 
         return $model;

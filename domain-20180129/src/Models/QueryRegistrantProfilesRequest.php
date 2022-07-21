@@ -9,29 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfilesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $registrantOrganization;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var int
-     */
-    public $registrantProfileId;
-
-    /**
      * @var bool
      */
     public $defaultRegistrantProfile;
+
+    /**
+     * @var string
+     */
+    public $email;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -46,7 +36,22 @@ class QueryRegistrantProfilesRequest extends Model
     /**
      * @var string
      */
-    public $zhRegistrantOrganization;
+    public $realNameStatus;
+
+    /**
+     * @var string
+     */
+    public $registrantOrganization;
+
+    /**
+     * @var int
+     */
+    public $registrantProfileId;
+
+    /**
+     * @var string
+     */
+    public $registrantProfileType;
 
     /**
      * @var string
@@ -56,30 +61,25 @@ class QueryRegistrantProfilesRequest extends Model
     /**
      * @var string
      */
-    public $realNameStatus;
+    public $userClientIp;
 
     /**
      * @var string
      */
-    public $email;
-
-    /**
-     * @var string
-     */
-    public $registrantProfileType;
+    public $zhRegistrantOrganization;
     protected $_name = [
-        'lang'                     => 'Lang',
-        'registrantOrganization'   => 'RegistrantOrganization',
-        'userClientIp'             => 'UserClientIp',
-        'registrantProfileId'      => 'RegistrantProfileId',
         'defaultRegistrantProfile' => 'DefaultRegistrantProfile',
+        'email'                    => 'Email',
+        'lang'                     => 'Lang',
         'pageNum'                  => 'PageNum',
         'pageSize'                 => 'PageSize',
-        'zhRegistrantOrganization' => 'ZhRegistrantOrganization',
-        'registrantType'           => 'RegistrantType',
         'realNameStatus'           => 'RealNameStatus',
-        'email'                    => 'Email',
+        'registrantOrganization'   => 'RegistrantOrganization',
+        'registrantProfileId'      => 'RegistrantProfileId',
         'registrantProfileType'    => 'RegistrantProfileType',
+        'registrantType'           => 'RegistrantType',
+        'userClientIp'             => 'UserClientIp',
+        'zhRegistrantOrganization' => 'ZhRegistrantOrganization',
     ];
 
     public function validate()
@@ -89,20 +89,14 @@ class QueryRegistrantProfilesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->registrantOrganization) {
-            $res['RegistrantOrganization'] = $this->registrantOrganization;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->registrantProfileId) {
-            $res['RegistrantProfileId'] = $this->registrantProfileId;
-        }
         if (null !== $this->defaultRegistrantProfile) {
             $res['DefaultRegistrantProfile'] = $this->defaultRegistrantProfile;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -110,20 +104,26 @@ class QueryRegistrantProfilesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->zhRegistrantOrganization) {
-            $res['ZhRegistrantOrganization'] = $this->zhRegistrantOrganization;
+        if (null !== $this->realNameStatus) {
+            $res['RealNameStatus'] = $this->realNameStatus;
+        }
+        if (null !== $this->registrantOrganization) {
+            $res['RegistrantOrganization'] = $this->registrantOrganization;
+        }
+        if (null !== $this->registrantProfileId) {
+            $res['RegistrantProfileId'] = $this->registrantProfileId;
+        }
+        if (null !== $this->registrantProfileType) {
+            $res['RegistrantProfileType'] = $this->registrantProfileType;
         }
         if (null !== $this->registrantType) {
             $res['RegistrantType'] = $this->registrantType;
         }
-        if (null !== $this->realNameStatus) {
-            $res['RealNameStatus'] = $this->realNameStatus;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
-        }
-        if (null !== $this->registrantProfileType) {
-            $res['RegistrantProfileType'] = $this->registrantProfileType;
+        if (null !== $this->zhRegistrantOrganization) {
+            $res['ZhRegistrantOrganization'] = $this->zhRegistrantOrganization;
         }
 
         return $res;
@@ -137,20 +137,14 @@ class QueryRegistrantProfilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['RegistrantOrganization'])) {
-            $model->registrantOrganization = $map['RegistrantOrganization'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['RegistrantProfileId'])) {
-            $model->registrantProfileId = $map['RegistrantProfileId'];
-        }
         if (isset($map['DefaultRegistrantProfile'])) {
             $model->defaultRegistrantProfile = $map['DefaultRegistrantProfile'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -158,20 +152,26 @@ class QueryRegistrantProfilesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ZhRegistrantOrganization'])) {
-            $model->zhRegistrantOrganization = $map['ZhRegistrantOrganization'];
+        if (isset($map['RealNameStatus'])) {
+            $model->realNameStatus = $map['RealNameStatus'];
+        }
+        if (isset($map['RegistrantOrganization'])) {
+            $model->registrantOrganization = $map['RegistrantOrganization'];
+        }
+        if (isset($map['RegistrantProfileId'])) {
+            $model->registrantProfileId = $map['RegistrantProfileId'];
+        }
+        if (isset($map['RegistrantProfileType'])) {
+            $model->registrantProfileType = $map['RegistrantProfileType'];
         }
         if (isset($map['RegistrantType'])) {
             $model->registrantType = $map['RegistrantType'];
         }
-        if (isset($map['RealNameStatus'])) {
-            $model->realNameStatus = $map['RealNameStatus'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
-        }
-        if (isset($map['RegistrantProfileType'])) {
-            $model->registrantProfileType = $map['RegistrantProfileType'];
+        if (isset($map['ZhRegistrantOrganization'])) {
+            $model->zhRegistrantOrganization = $map['ZhRegistrantOrganization'];
         }
 
         return $model;

@@ -11,21 +11,6 @@ class QueryTaskDetailHistoryRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $taskNo;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
@@ -34,9 +19,9 @@ class QueryTaskDetailHistoryRequest extends Model
     public $domainNameCursor;
 
     /**
-     * @var int
+     * @var string
      */
-    public $taskStatus;
+    public $lang;
 
     /**
      * @var int
@@ -47,15 +32,30 @@ class QueryTaskDetailHistoryRequest extends Model
      * @var string
      */
     public $taskDetailNoCursor;
+
+    /**
+     * @var string
+     */
+    public $taskNo;
+
+    /**
+     * @var int
+     */
+    public $taskStatus;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'lang'               => 'Lang',
-        'userClientIp'       => 'UserClientIp',
-        'taskNo'             => 'TaskNo',
         'domainName'         => 'DomainName',
         'domainNameCursor'   => 'DomainNameCursor',
-        'taskStatus'         => 'TaskStatus',
+        'lang'               => 'Lang',
         'pageSize'           => 'PageSize',
         'taskDetailNoCursor' => 'TaskDetailNoCursor',
+        'taskNo'             => 'TaskNo',
+        'taskStatus'         => 'TaskStatus',
+        'userClientIp'       => 'UserClientIp',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class QueryTaskDetailHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->taskNo) {
-            $res['TaskNo'] = $this->taskNo;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->domainNameCursor) {
             $res['DomainNameCursor'] = $this->domainNameCursor;
         }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->taskDetailNoCursor) {
             $res['TaskDetailNoCursor'] = $this->taskDetailNoCursor;
+        }
+        if (null !== $this->taskNo) {
+            $res['TaskNo'] = $this->taskNo;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class QueryTaskDetailHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['TaskNo'])) {
-            $model->taskNo = $map['TaskNo'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['DomainNameCursor'])) {
             $model->domainNameCursor = $map['DomainNameCursor'];
         }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['TaskDetailNoCursor'])) {
             $model->taskDetailNoCursor = $map['TaskDetailNoCursor'];
+        }
+        if (isset($map['TaskNo'])) {
+            $model->taskNo = $map['TaskNo'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

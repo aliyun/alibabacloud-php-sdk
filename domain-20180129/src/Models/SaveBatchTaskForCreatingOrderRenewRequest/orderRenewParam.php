@@ -11,7 +11,7 @@ class orderRenewParam extends Model
     /**
      * @var int
      */
-    public $subscriptionDuration;
+    public $currentExpirationDate;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class orderRenewParam extends Model
     /**
      * @var int
      */
-    public $currentExpirationDate;
+    public $subscriptionDuration;
     protected $_name = [
-        'subscriptionDuration'  => 'SubscriptionDuration',
-        'domainName'            => 'DomainName',
         'currentExpirationDate' => 'CurrentExpirationDate',
+        'domainName'            => 'DomainName',
+        'subscriptionDuration'  => 'SubscriptionDuration',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class orderRenewParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subscriptionDuration) {
-            $res['SubscriptionDuration'] = $this->subscriptionDuration;
+        if (null !== $this->currentExpirationDate) {
+            $res['CurrentExpirationDate'] = $this->currentExpirationDate;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->currentExpirationDate) {
-            $res['CurrentExpirationDate'] = $this->currentExpirationDate;
+        if (null !== $this->subscriptionDuration) {
+            $res['SubscriptionDuration'] = $this->subscriptionDuration;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class orderRenewParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubscriptionDuration'])) {
-            $model->subscriptionDuration = $map['SubscriptionDuration'];
+        if (isset($map['CurrentExpirationDate'])) {
+            $model->currentExpirationDate = $map['CurrentExpirationDate'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['CurrentExpirationDate'])) {
-            $model->currentExpirationDate = $map['CurrentExpirationDate'];
+        if (isset($map['SubscriptionDuration'])) {
+            $model->subscriptionDuration = $map['SubscriptionDuration'];
         }
 
         return $model;

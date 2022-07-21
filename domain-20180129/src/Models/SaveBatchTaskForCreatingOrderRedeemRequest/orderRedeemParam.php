@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class orderRedeemParam extends Model
 {
     /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var int
      */
     public $currentExpirationDate;
+
+    /**
+     * @var string
+     */
+    public $domainName;
     protected $_name = [
-        'domainName'            => 'DomainName',
         'currentExpirationDate' => 'CurrentExpirationDate',
+        'domainName'            => 'DomainName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class orderRedeemParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->currentExpirationDate) {
             $res['CurrentExpirationDate'] = $this->currentExpirationDate;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class orderRedeemParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['CurrentExpirationDate'])) {
             $model->currentExpirationDate = $map['CurrentExpirationDate'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         return $model;

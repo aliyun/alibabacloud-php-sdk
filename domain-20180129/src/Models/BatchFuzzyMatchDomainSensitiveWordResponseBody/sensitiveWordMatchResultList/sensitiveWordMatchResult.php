@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class sensitiveWordMatchResult extends Model
 {
     /**
-     * @var string
-     */
-    public $keyword;
-
-    /**
      * @var bool
      */
     public $exist;
+
+    /**
+     * @var string
+     */
+    public $keyword;
 
     /**
      * @var matchedSentiveWords
      */
     public $matchedSentiveWords;
     protected $_name = [
-        'keyword'             => 'Keyword',
         'exist'               => 'Exist',
+        'keyword'             => 'Keyword',
         'matchedSentiveWords' => 'MatchedSentiveWords',
     ];
 
@@ -36,11 +36,11 @@ class sensitiveWordMatchResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
         if (null !== $this->exist) {
             $res['Exist'] = $this->exist;
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
         if (null !== $this->matchedSentiveWords) {
             $res['MatchedSentiveWords'] = null !== $this->matchedSentiveWords ? $this->matchedSentiveWords->toMap() : null;
@@ -57,11 +57,11 @@ class sensitiveWordMatchResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
         if (isset($map['Exist'])) {
             $model->exist = $map['Exist'];
+        }
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
         if (isset($map['MatchedSentiveWords'])) {
             $model->matchedSentiveWords = matchedSentiveWords::fromMap($map['MatchedSentiveWords']);

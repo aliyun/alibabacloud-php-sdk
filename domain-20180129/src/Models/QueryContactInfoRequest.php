@@ -11,12 +11,7 @@ class QueryContactInfoRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
+    public $contactType;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class QueryContactInfoRequest extends Model
     /**
      * @var string
      */
-    public $contactType;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'domainName'   => 'DomainName',
         'contactType'  => 'ContactType',
+        'domainName'   => 'DomainName',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class QueryContactInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->contactType) {
+            $res['ContactType'] = $this->contactType;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->contactType) {
-            $res['ContactType'] = $this->contactType;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class QueryContactInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['ContactType'])) {
+            $model->contactType = $map['ContactType'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['ContactType'])) {
-            $model->contactType = $map['ContactType'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

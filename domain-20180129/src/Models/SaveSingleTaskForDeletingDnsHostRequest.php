@@ -11,6 +11,11 @@ class SaveSingleTaskForDeletingDnsHostRequest extends Model
     /**
      * @var string
      */
+    public $dnsName;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -21,16 +26,11 @@ class SaveSingleTaskForDeletingDnsHostRequest extends Model
     /**
      * @var string
      */
-    public $dnsName;
-
-    /**
-     * @var string
-     */
     public $userClientIp;
     protected $_name = [
+        'dnsName'      => 'DnsName',
         'instanceId'   => 'InstanceId',
         'lang'         => 'Lang',
-        'dnsName'      => 'DnsName',
         'userClientIp' => 'UserClientIp',
     ];
 
@@ -41,14 +41,14 @@ class SaveSingleTaskForDeletingDnsHostRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dnsName) {
+            $res['DnsName'] = $this->dnsName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->dnsName) {
-            $res['DnsName'] = $this->dnsName;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
@@ -65,14 +65,14 @@ class SaveSingleTaskForDeletingDnsHostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DnsName'])) {
+            $model->dnsName = $map['DnsName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['DnsName'])) {
-            $model->dnsName = $map['DnsName'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];

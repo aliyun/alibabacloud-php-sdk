@@ -17,7 +17,7 @@ class addr extends Model
     /**
      * @var string
      */
-    public $sp;
+    public $city;
 
     /**
      * @var string
@@ -27,7 +27,7 @@ class addr extends Model
     /**
      * @var string
      */
-    public $city;
+    public $sp;
 
     /**
      * @var street
@@ -35,9 +35,9 @@ class addr extends Model
     public $street;
     protected $_name = [
         'cc'     => 'Cc',
-        'sp'     => 'Sp',
-        'pc'     => 'Pc',
         'city'   => 'City',
+        'pc'     => 'Pc',
+        'sp'     => 'Sp',
         'street' => 'Street',
     ];
 
@@ -51,14 +51,14 @@ class addr extends Model
         if (null !== $this->cc) {
             $res['Cc'] = $this->cc;
         }
-        if (null !== $this->sp) {
-            $res['Sp'] = $this->sp;
+        if (null !== $this->city) {
+            $res['City'] = $this->city;
         }
         if (null !== $this->pc) {
             $res['Pc'] = $this->pc;
         }
-        if (null !== $this->city) {
-            $res['City'] = $this->city;
+        if (null !== $this->sp) {
+            $res['Sp'] = $this->sp;
         }
         if (null !== $this->street) {
             $res['Street'] = null !== $this->street ? $this->street->toMap() : null;
@@ -78,14 +78,14 @@ class addr extends Model
         if (isset($map['Cc'])) {
             $model->cc = $map['Cc'];
         }
-        if (isset($map['Sp'])) {
-            $model->sp = $map['Sp'];
+        if (isset($map['City'])) {
+            $model->city = $map['City'];
         }
         if (isset($map['Pc'])) {
             $model->pc = $map['Pc'];
         }
-        if (isset($map['City'])) {
-            $model->city = $map['City'];
+        if (isset($map['Sp'])) {
+            $model->sp = $map['Sp'];
         }
         if (isset($map['Street'])) {
             $model->street = street::fromMap($map['Street']);

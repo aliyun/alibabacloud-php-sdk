@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
+    public $domainGroupId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DeleteDomainGroupRequest extends Model
     public $lang;
 
     /**
-     * @var int
+     * @var string
      */
-    public $domainGroupId;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'  => 'UserClientIp',
-        'lang'          => 'Lang',
         'domainGroupId' => 'DomainGroupId',
+        'lang'          => 'Lang',
+        'userClientIp'  => 'UserClientIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteDomainGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->domainGroupId) {
+            $res['DomainGroupId'] = $this->domainGroupId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->domainGroupId) {
-            $res['DomainGroupId'] = $this->domainGroupId;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteDomainGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['DomainGroupId'])) {
+            $model->domainGroupId = $map['DomainGroupId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['DomainGroupId'])) {
-            $model->domainGroupId = $map['DomainGroupId'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

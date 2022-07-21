@@ -11,12 +11,7 @@ class SubmitOperationAuditInfoRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $domainName;
+    public $auditInfo;
 
     /**
      * @var int
@@ -26,18 +21,23 @@ class SubmitOperationAuditInfoRequest extends Model
     /**
      * @var string
      */
-    public $auditInfo;
+    public $domainName;
 
     /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $lang;
     protected $_name = [
-        'lang'       => 'Lang',
-        'domainName' => 'DomainName',
-        'auditType'  => 'AuditType',
         'auditInfo'  => 'AuditInfo',
+        'auditType'  => 'AuditType',
+        'domainName' => 'DomainName',
         'id'         => 'Id',
+        'lang'       => 'Lang',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SubmitOperationAuditInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->auditInfo) {
+            $res['AuditInfo'] = $this->auditInfo;
         }
         if (null !== $this->auditType) {
             $res['AuditType'] = $this->auditType;
         }
-        if (null !== $this->auditInfo) {
-            $res['AuditInfo'] = $this->auditInfo;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SubmitOperationAuditInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['AuditInfo'])) {
+            $model->auditInfo = $map['AuditInfo'];
         }
         if (isset($map['AuditType'])) {
             $model->auditType = $map['AuditType'];
         }
-        if (isset($map['AuditInfo'])) {
-            $model->auditInfo = $map['AuditInfo'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

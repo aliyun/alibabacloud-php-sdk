@@ -11,21 +11,21 @@ class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends Mod
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
      * @var int
      */
     public $registrantProfileID;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'        => 'UserClientIp',
         'lang'                => 'Lang',
         'registrantProfileID' => 'RegistrantProfileID',
+        'userClientIp'        => 'UserClientIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends Mod
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->registrantProfileID) {
             $res['RegistrantProfileID'] = $this->registrantProfileID;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryFailReasonForRegistrantProfileRealNameVerificationRequest extends Mod
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['RegistrantProfileID'])) {
             $model->registrantProfileID = $map['RegistrantProfileID'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

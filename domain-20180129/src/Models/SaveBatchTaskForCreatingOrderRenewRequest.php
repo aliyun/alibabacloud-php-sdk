@@ -12,7 +12,7 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $couponNo;
 
     /**
      * @var string
@@ -20,14 +20,9 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
     public $lang;
 
     /**
-     * @var string
+     * @var orderRenewParam[]
      */
-    public $couponNo;
-
-    /**
-     * @var bool
-     */
-    public $useCoupon;
+    public $orderRenewParam;
 
     /**
      * @var string
@@ -37,20 +32,25 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
     /**
      * @var bool
      */
+    public $useCoupon;
+
+    /**
+     * @var bool
+     */
     public $usePromotion;
 
     /**
-     * @var orderRenewParam[]
+     * @var string
      */
-    public $orderRenewParam;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'    => 'UserClientIp',
-        'lang'            => 'Lang',
         'couponNo'        => 'CouponNo',
-        'useCoupon'       => 'UseCoupon',
-        'promotionNo'     => 'PromotionNo',
-        'usePromotion'    => 'UsePromotion',
+        'lang'            => 'Lang',
         'orderRenewParam' => 'OrderRenewParam',
+        'promotionNo'     => 'PromotionNo',
+        'useCoupon'       => 'UseCoupon',
+        'usePromotion'    => 'UsePromotion',
+        'userClientIp'    => 'UserClientIp',
     ];
 
     public function validate()
@@ -60,23 +60,11 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
-        if (null !== $this->useCoupon) {
-            $res['UseCoupon'] = $this->useCoupon;
-        }
-        if (null !== $this->promotionNo) {
-            $res['PromotionNo'] = $this->promotionNo;
-        }
-        if (null !== $this->usePromotion) {
-            $res['UsePromotion'] = $this->usePromotion;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->orderRenewParam) {
             $res['OrderRenewParam'] = [];
@@ -86,6 +74,18 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
                     $res['OrderRenewParam'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->promotionNo) {
+            $res['PromotionNo'] = $this->promotionNo;
+        }
+        if (null !== $this->useCoupon) {
+            $res['UseCoupon'] = $this->useCoupon;
+        }
+        if (null !== $this->usePromotion) {
+            $res['UsePromotion'] = $this->usePromotion;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -99,23 +99,11 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
-        if (isset($map['UseCoupon'])) {
-            $model->useCoupon = $map['UseCoupon'];
-        }
-        if (isset($map['PromotionNo'])) {
-            $model->promotionNo = $map['PromotionNo'];
-        }
-        if (isset($map['UsePromotion'])) {
-            $model->usePromotion = $map['UsePromotion'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['OrderRenewParam'])) {
             if (!empty($map['OrderRenewParam'])) {
@@ -125,6 +113,18 @@ class SaveBatchTaskForCreatingOrderRenewRequest extends Model
                     $model->orderRenewParam[$n++] = null !== $item ? orderRenewParam::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PromotionNo'])) {
+            $model->promotionNo = $map['PromotionNo'];
+        }
+        if (isset($map['UseCoupon'])) {
+            $model->useCoupon = $map['UseCoupon'];
+        }
+        if (isset($map['UsePromotion'])) {
+            $model->usePromotion = $map['UsePromotion'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetDefaultRegistrantProfileRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
      * @var int
      */
     public $registrantProfileId;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'        => 'UserClientIp',
         'registrantProfileId' => 'RegistrantProfileId',
+        'userClientIp'        => 'UserClientIp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SetDefaultRegistrantProfileRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SetDefaultRegistrantProfileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

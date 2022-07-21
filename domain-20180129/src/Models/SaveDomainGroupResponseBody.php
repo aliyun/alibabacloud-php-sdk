@@ -19,9 +19,9 @@ class SaveDomainGroupResponseBody extends Model
     public $creationDate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $domainGroupId;
 
     /**
      * @var string
@@ -31,17 +31,17 @@ class SaveDomainGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $domainGroupStatus;
+
+    /**
+     * @var string
+     */
     public $modificationDate;
 
     /**
      * @var string
      */
-    public $domainGroupStatus;
-
-    /**
-     * @var int
-     */
-    public $domainGroupId;
+    public $requestId;
 
     /**
      * @var int
@@ -50,11 +50,11 @@ class SaveDomainGroupResponseBody extends Model
     protected $_name = [
         'beingDeleted'      => 'BeingDeleted',
         'creationDate'      => 'CreationDate',
-        'requestId'         => 'RequestId',
-        'domainGroupName'   => 'DomainGroupName',
-        'modificationDate'  => 'ModificationDate',
-        'domainGroupStatus' => 'DomainGroupStatus',
         'domainGroupId'     => 'DomainGroupId',
+        'domainGroupName'   => 'DomainGroupName',
+        'domainGroupStatus' => 'DomainGroupStatus',
+        'modificationDate'  => 'ModificationDate',
+        'requestId'         => 'RequestId',
         'totalNumber'       => 'TotalNumber',
     ];
 
@@ -71,20 +71,20 @@ class SaveDomainGroupResponseBody extends Model
         if (null !== $this->creationDate) {
             $res['CreationDate'] = $this->creationDate;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->domainGroupId) {
+            $res['DomainGroupId'] = $this->domainGroupId;
         }
         if (null !== $this->domainGroupName) {
             $res['DomainGroupName'] = $this->domainGroupName;
         }
-        if (null !== $this->modificationDate) {
-            $res['ModificationDate'] = $this->modificationDate;
-        }
         if (null !== $this->domainGroupStatus) {
             $res['DomainGroupStatus'] = $this->domainGroupStatus;
         }
-        if (null !== $this->domainGroupId) {
-            $res['DomainGroupId'] = $this->domainGroupId;
+        if (null !== $this->modificationDate) {
+            $res['ModificationDate'] = $this->modificationDate;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalNumber) {
             $res['TotalNumber'] = $this->totalNumber;
@@ -107,20 +107,20 @@ class SaveDomainGroupResponseBody extends Model
         if (isset($map['CreationDate'])) {
             $model->creationDate = $map['CreationDate'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DomainGroupId'])) {
+            $model->domainGroupId = $map['DomainGroupId'];
         }
         if (isset($map['DomainGroupName'])) {
             $model->domainGroupName = $map['DomainGroupName'];
         }
-        if (isset($map['ModificationDate'])) {
-            $model->modificationDate = $map['ModificationDate'];
-        }
         if (isset($map['DomainGroupStatus'])) {
             $model->domainGroupStatus = $map['DomainGroupStatus'];
         }
-        if (isset($map['DomainGroupId'])) {
-            $model->domainGroupId = $map['DomainGroupId'];
+        if (isset($map['ModificationDate'])) {
+            $model->modificationDate = $map['ModificationDate'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalNumber'])) {
             $model->totalNumber = $map['TotalNumber'];

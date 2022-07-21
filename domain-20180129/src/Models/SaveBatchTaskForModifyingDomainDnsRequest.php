@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SaveBatchTaskForModifyingDomainDnsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var bool
      */
     public $aliyunDns;
@@ -32,12 +22,22 @@ class SaveBatchTaskForModifyingDomainDnsRequest extends Model
      * @var string[]
      */
     public $domainNameServer;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'     => 'UserClientIp',
-        'lang'             => 'Lang',
         'aliyunDns'        => 'AliyunDns',
         'domainName'       => 'DomainName',
         'domainNameServer' => 'DomainNameServer',
+        'lang'             => 'Lang',
+        'userClientIp'     => 'UserClientIp',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class SaveBatchTaskForModifyingDomainDnsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->aliyunDns) {
             $res['AliyunDns'] = $this->aliyunDns;
         }
@@ -61,6 +55,12 @@ class SaveBatchTaskForModifyingDomainDnsRequest extends Model
         }
         if (null !== $this->domainNameServer) {
             $res['DomainNameServer'] = $this->domainNameServer;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class SaveBatchTaskForModifyingDomainDnsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['AliyunDns'])) {
             $model->aliyunDns = $map['AliyunDns'];
         }
@@ -92,6 +86,12 @@ class SaveBatchTaskForModifyingDomainDnsRequest extends Model
             if (!empty($map['DomainNameServer'])) {
                 $model->domainNameServer = $map['DomainNameServer'];
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

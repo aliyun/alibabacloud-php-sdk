@@ -21,17 +21,17 @@ class TransferInReenterTransferAuthorizationCodeRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $transferAuthorizationCode;
 
     /**
      * @var string
      */
-    public $transferAuthorizationCode;
+    public $userClientIp;
     protected $_name = [
         'domainName'                => 'DomainName',
         'lang'                      => 'Lang',
-        'userClientIp'              => 'UserClientIp',
         'transferAuthorizationCode' => 'TransferAuthorizationCode',
+        'userClientIp'              => 'UserClientIp',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class TransferInReenterTransferAuthorizationCodeRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->transferAuthorizationCode) {
             $res['TransferAuthorizationCode'] = $this->transferAuthorizationCode;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class TransferInReenterTransferAuthorizationCodeRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['TransferAuthorizationCode'])) {
             $model->transferAuthorizationCode = $map['TransferAuthorizationCode'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

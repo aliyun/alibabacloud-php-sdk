@@ -15,11 +15,6 @@ class QueryQualificationDetailResponseBody extends Model
     public $auditStatus;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var credentials
      */
     public $credentials;
@@ -27,11 +22,16 @@ class QueryQualificationDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $trackId;
     protected $_name = [
         'auditStatus' => 'AuditStatus',
-        'requestId'   => 'RequestId',
         'credentials' => 'Credentials',
+        'requestId'   => 'RequestId',
         'trackId'     => 'TrackId',
     ];
 
@@ -45,11 +45,11 @@ class QueryQualificationDetailResponseBody extends Model
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->credentials) {
             $res['Credentials'] = null !== $this->credentials ? $this->credentials->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->trackId) {
             $res['TrackId'] = $this->trackId;
@@ -69,11 +69,11 @@ class QueryQualificationDetailResponseBody extends Model
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Credentials'])) {
             $model->credentials = credentials::fromMap($map['Credentials']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TrackId'])) {
             $model->trackId = $map['TrackId'];

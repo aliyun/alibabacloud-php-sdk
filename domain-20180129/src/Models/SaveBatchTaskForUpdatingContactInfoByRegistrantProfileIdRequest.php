@@ -11,7 +11,12 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
     /**
      * @var string
      */
-    public $userClientIp;
+    public $contactType;
+
+    /**
+     * @var string[]
+     */
+    public $domainName;
 
     /**
      * @var string
@@ -24,26 +29,21 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
     public $registrantProfileId;
 
     /**
-     * @var string
-     */
-    public $contactType;
-
-    /**
      * @var bool
      */
     public $transferOutProhibited;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $domainName;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'          => 'UserClientIp',
+        'contactType'           => 'ContactType',
+        'domainName'            => 'DomainName',
         'lang'                  => 'Lang',
         'registrantProfileId'   => 'RegistrantProfileId',
-        'contactType'           => 'ContactType',
         'transferOutProhibited' => 'TransferOutProhibited',
-        'domainName'            => 'DomainName',
+        'userClientIp'          => 'UserClientIp',
     ];
 
     public function validate()
@@ -53,8 +53,11 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->contactType) {
+            $res['ContactType'] = $this->contactType;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -62,14 +65,11 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
-        if (null !== $this->contactType) {
-            $res['ContactType'] = $this->contactType;
-        }
         if (null !== $this->transferOutProhibited) {
             $res['TransferOutProhibited'] = $this->transferOutProhibited;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -83,8 +83,13 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['ContactType'])) {
+            $model->contactType = $map['ContactType'];
+        }
+        if (isset($map['DomainName'])) {
+            if (!empty($map['DomainName'])) {
+                $model->domainName = $map['DomainName'];
+            }
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -92,16 +97,11 @@ class SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest extends Mo
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
         }
-        if (isset($map['ContactType'])) {
-            $model->contactType = $map['ContactType'];
-        }
         if (isset($map['TransferOutProhibited'])) {
             $model->transferOutProhibited = $map['TransferOutProhibited'];
         }
-        if (isset($map['DomainName'])) {
-            if (!empty($map['DomainName'])) {
-                $model->domainName = $map['DomainName'];
-            }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

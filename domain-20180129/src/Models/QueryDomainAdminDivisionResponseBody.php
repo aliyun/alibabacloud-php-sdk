@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainAdminDivisionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var adminDivisions
      */
     public $adminDivisions;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'adminDivisions' => 'AdminDivisions',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QueryDomainAdminDivisionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->adminDivisions) {
             $res['AdminDivisions'] = null !== $this->adminDivisions ? $this->adminDivisions->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QueryDomainAdminDivisionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AdminDivisions'])) {
             $model->adminDivisions = adminDivisions::fromMap($map['AdminDivisions']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

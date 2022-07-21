@@ -11,41 +11,6 @@ class QueryAdvancedDomainListRequest extends Model
     /**
      * @var int
      */
-    public $endExpirationDate;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $startExpirationDate;
-
-    /**
-     * @var string
-     */
-    public $productDomainType;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $domainGroupId;
 
     /**
@@ -61,7 +26,17 @@ class QueryAdvancedDomainListRequest extends Model
     /**
      * @var int
      */
+    public $endExpirationDate;
+
+    /**
+     * @var int
+     */
     public $endLength;
+
+    /**
+     * @var int
+     */
+    public $endRegistrationDate;
 
     /**
      * @var string
@@ -104,6 +79,26 @@ class QueryAdvancedDomainListRequest extends Model
     public $keyWordSuffix;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $productDomainType;
+
+    /**
      * @var bool
      */
     public $productDomainTypeSort;
@@ -116,12 +111,17 @@ class QueryAdvancedDomainListRequest extends Model
     /**
      * @var int
      */
+    public $startExpirationDate;
+
+    /**
+     * @var int
+     */
     public $startLength;
 
     /**
      * @var int
      */
-    public $tradeType;
+    public $startRegistrationDate;
 
     /**
      * @var string
@@ -131,24 +131,19 @@ class QueryAdvancedDomainListRequest extends Model
     /**
      * @var int
      */
-    public $startRegistrationDate;
+    public $tradeType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $endRegistrationDate;
+    public $userClientIp;
     protected $_name = [
-        'endExpirationDate'     => 'EndExpirationDate',
-        'userClientIp'          => 'UserClientIp',
-        'lang'                  => 'Lang',
-        'startExpirationDate'   => 'StartExpirationDate',
-        'productDomainType'     => 'ProductDomainType',
-        'pageNum'               => 'PageNum',
-        'pageSize'              => 'PageSize',
         'domainGroupId'         => 'DomainGroupId',
         'domainNameSort'        => 'DomainNameSort',
         'domainStatus'          => 'DomainStatus',
+        'endExpirationDate'     => 'EndExpirationDate',
         'endLength'             => 'EndLength',
+        'endRegistrationDate'   => 'EndRegistrationDate',
         'excluded'              => 'Excluded',
         'excludedPrefix'        => 'ExcludedPrefix',
         'excludedSuffix'        => 'ExcludedSuffix',
@@ -157,13 +152,18 @@ class QueryAdvancedDomainListRequest extends Model
         'keyWord'               => 'KeyWord',
         'keyWordPrefix'         => 'KeyWordPrefix',
         'keyWordSuffix'         => 'KeyWordSuffix',
+        'lang'                  => 'Lang',
+        'pageNum'               => 'PageNum',
+        'pageSize'              => 'PageSize',
+        'productDomainType'     => 'ProductDomainType',
         'productDomainTypeSort' => 'ProductDomainTypeSort',
         'registrationDateSort'  => 'RegistrationDateSort',
+        'startExpirationDate'   => 'StartExpirationDate',
         'startLength'           => 'StartLength',
-        'tradeType'             => 'TradeType',
-        'suffixs'               => 'Suffixs',
         'startRegistrationDate' => 'StartRegistrationDate',
-        'endRegistrationDate'   => 'EndRegistrationDate',
+        'suffixs'               => 'Suffixs',
+        'tradeType'             => 'TradeType',
+        'userClientIp'          => 'UserClientIp',
     ];
 
     public function validate()
@@ -173,27 +173,6 @@ class QueryAdvancedDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endExpirationDate) {
-            $res['EndExpirationDate'] = $this->endExpirationDate;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->startExpirationDate) {
-            $res['StartExpirationDate'] = $this->startExpirationDate;
-        }
-        if (null !== $this->productDomainType) {
-            $res['ProductDomainType'] = $this->productDomainType;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->domainGroupId) {
             $res['DomainGroupId'] = $this->domainGroupId;
         }
@@ -203,8 +182,14 @@ class QueryAdvancedDomainListRequest extends Model
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
         }
+        if (null !== $this->endExpirationDate) {
+            $res['EndExpirationDate'] = $this->endExpirationDate;
+        }
         if (null !== $this->endLength) {
             $res['EndLength'] = $this->endLength;
+        }
+        if (null !== $this->endRegistrationDate) {
+            $res['EndRegistrationDate'] = $this->endRegistrationDate;
         }
         if (null !== $this->excluded) {
             $res['Excluded'] = $this->excluded;
@@ -230,26 +215,41 @@ class QueryAdvancedDomainListRequest extends Model
         if (null !== $this->keyWordSuffix) {
             $res['KeyWordSuffix'] = $this->keyWordSuffix;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productDomainType) {
+            $res['ProductDomainType'] = $this->productDomainType;
+        }
         if (null !== $this->productDomainTypeSort) {
             $res['ProductDomainTypeSort'] = $this->productDomainTypeSort;
         }
         if (null !== $this->registrationDateSort) {
             $res['RegistrationDateSort'] = $this->registrationDateSort;
         }
+        if (null !== $this->startExpirationDate) {
+            $res['StartExpirationDate'] = $this->startExpirationDate;
+        }
         if (null !== $this->startLength) {
             $res['StartLength'] = $this->startLength;
-        }
-        if (null !== $this->tradeType) {
-            $res['TradeType'] = $this->tradeType;
-        }
-        if (null !== $this->suffixs) {
-            $res['Suffixs'] = $this->suffixs;
         }
         if (null !== $this->startRegistrationDate) {
             $res['StartRegistrationDate'] = $this->startRegistrationDate;
         }
-        if (null !== $this->endRegistrationDate) {
-            $res['EndRegistrationDate'] = $this->endRegistrationDate;
+        if (null !== $this->suffixs) {
+            $res['Suffixs'] = $this->suffixs;
+        }
+        if (null !== $this->tradeType) {
+            $res['TradeType'] = $this->tradeType;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -263,27 +263,6 @@ class QueryAdvancedDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndExpirationDate'])) {
-            $model->endExpirationDate = $map['EndExpirationDate'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['StartExpirationDate'])) {
-            $model->startExpirationDate = $map['StartExpirationDate'];
-        }
-        if (isset($map['ProductDomainType'])) {
-            $model->productDomainType = $map['ProductDomainType'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['DomainGroupId'])) {
             $model->domainGroupId = $map['DomainGroupId'];
         }
@@ -293,8 +272,14 @@ class QueryAdvancedDomainListRequest extends Model
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
         }
+        if (isset($map['EndExpirationDate'])) {
+            $model->endExpirationDate = $map['EndExpirationDate'];
+        }
         if (isset($map['EndLength'])) {
             $model->endLength = $map['EndLength'];
+        }
+        if (isset($map['EndRegistrationDate'])) {
+            $model->endRegistrationDate = $map['EndRegistrationDate'];
         }
         if (isset($map['Excluded'])) {
             $model->excluded = $map['Excluded'];
@@ -320,26 +305,41 @@ class QueryAdvancedDomainListRequest extends Model
         if (isset($map['KeyWordSuffix'])) {
             $model->keyWordSuffix = $map['KeyWordSuffix'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductDomainType'])) {
+            $model->productDomainType = $map['ProductDomainType'];
+        }
         if (isset($map['ProductDomainTypeSort'])) {
             $model->productDomainTypeSort = $map['ProductDomainTypeSort'];
         }
         if (isset($map['RegistrationDateSort'])) {
             $model->registrationDateSort = $map['RegistrationDateSort'];
         }
+        if (isset($map['StartExpirationDate'])) {
+            $model->startExpirationDate = $map['StartExpirationDate'];
+        }
         if (isset($map['StartLength'])) {
             $model->startLength = $map['StartLength'];
-        }
-        if (isset($map['TradeType'])) {
-            $model->tradeType = $map['TradeType'];
-        }
-        if (isset($map['Suffixs'])) {
-            $model->suffixs = $map['Suffixs'];
         }
         if (isset($map['StartRegistrationDate'])) {
             $model->startRegistrationDate = $map['StartRegistrationDate'];
         }
-        if (isset($map['EndRegistrationDate'])) {
-            $model->endRegistrationDate = $map['EndRegistrationDate'];
+        if (isset($map['Suffixs'])) {
+            $model->suffixs = $map['Suffixs'];
+        }
+        if (isset($map['TradeType'])) {
+            $model->tradeType = $map['TradeType'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

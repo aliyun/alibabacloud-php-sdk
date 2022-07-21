@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEmailVerificationRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var int
      */
     public $beginCreateTime;
-
-    /**
-     * @var int
-     */
-    public $endCreateTime;
 
     /**
      * @var string
@@ -31,7 +21,12 @@ class ListEmailVerificationRequest extends Model
     /**
      * @var int
      */
-    public $verificationStatus;
+    public $endCreateTime;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -47,15 +42,20 @@ class ListEmailVerificationRequest extends Model
      * @var string
      */
     public $userClientIp;
+
+    /**
+     * @var int
+     */
+    public $verificationStatus;
     protected $_name = [
-        'lang'               => 'Lang',
         'beginCreateTime'    => 'BeginCreateTime',
-        'endCreateTime'      => 'EndCreateTime',
         'email'              => 'Email',
-        'verificationStatus' => 'VerificationStatus',
+        'endCreateTime'      => 'EndCreateTime',
+        'lang'               => 'Lang',
         'pageNum'            => 'PageNum',
         'pageSize'           => 'PageSize',
         'userClientIp'       => 'UserClientIp',
+        'verificationStatus' => 'VerificationStatus',
     ];
 
     public function validate()
@@ -65,20 +65,17 @@ class ListEmailVerificationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->beginCreateTime) {
             $res['BeginCreateTime'] = $this->beginCreateTime;
-        }
-        if (null !== $this->endCreateTime) {
-            $res['EndCreateTime'] = $this->endCreateTime;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-        if (null !== $this->verificationStatus) {
-            $res['VerificationStatus'] = $this->verificationStatus;
+        if (null !== $this->endCreateTime) {
+            $res['EndCreateTime'] = $this->endCreateTime;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -88,6 +85,9 @@ class ListEmailVerificationRequest extends Model
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
+        }
+        if (null !== $this->verificationStatus) {
+            $res['VerificationStatus'] = $this->verificationStatus;
         }
 
         return $res;
@@ -101,20 +101,17 @@ class ListEmailVerificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['BeginCreateTime'])) {
             $model->beginCreateTime = $map['BeginCreateTime'];
-        }
-        if (isset($map['EndCreateTime'])) {
-            $model->endCreateTime = $map['EndCreateTime'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-        if (isset($map['VerificationStatus'])) {
-            $model->verificationStatus = $map['VerificationStatus'];
+        if (isset($map['EndCreateTime'])) {
+            $model->endCreateTime = $map['EndCreateTime'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -124,6 +121,9 @@ class ListEmailVerificationRequest extends Model
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
+        }
+        if (isset($map['VerificationStatus'])) {
+            $model->verificationStatus = $map['VerificationStatus'];
         }
 
         return $model;

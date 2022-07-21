@@ -10,14 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfilesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $currentPageNum;
+
+    /**
+     * @var bool
+     */
+    public $nextPage;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var bool
      */
     public $prePage;
 
     /**
-     * @var int
+     * @var registrantProfiles
      */
-    public $currentPageNum;
+    public $registrantProfiles;
 
     /**
      * @var string
@@ -27,36 +42,21 @@ class QueryRegistrantProfilesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $totalItemNum;
 
     /**
      * @var int
      */
     public $totalPageNum;
-
-    /**
-     * @var registrantProfiles
-     */
-    public $registrantProfiles;
-
-    /**
-     * @var int
-     */
-    public $totalItemNum;
-
-    /**
-     * @var bool
-     */
-    public $nextPage;
     protected $_name = [
-        'prePage'            => 'PrePage',
         'currentPageNum'     => 'CurrentPageNum',
-        'requestId'          => 'RequestId',
-        'pageSize'           => 'PageSize',
-        'totalPageNum'       => 'TotalPageNum',
-        'registrantProfiles' => 'RegistrantProfiles',
-        'totalItemNum'       => 'TotalItemNum',
         'nextPage'           => 'NextPage',
+        'pageSize'           => 'PageSize',
+        'prePage'            => 'PrePage',
+        'registrantProfiles' => 'RegistrantProfiles',
+        'requestId'          => 'RequestId',
+        'totalItemNum'       => 'TotalItemNum',
+        'totalPageNum'       => 'TotalPageNum',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class QueryRegistrantProfilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->prePage) {
-            $res['PrePage'] = $this->prePage;
-        }
         if (null !== $this->currentPageNum) {
             $res['CurrentPageNum'] = $this->currentPageNum;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->nextPage) {
+            $res['NextPage'] = $this->nextPage;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalPageNum) {
-            $res['TotalPageNum'] = $this->totalPageNum;
+        if (null !== $this->prePage) {
+            $res['PrePage'] = $this->prePage;
         }
         if (null !== $this->registrantProfiles) {
             $res['RegistrantProfiles'] = null !== $this->registrantProfiles ? $this->registrantProfiles->toMap() : null;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalItemNum) {
             $res['TotalItemNum'] = $this->totalItemNum;
         }
-        if (null !== $this->nextPage) {
-            $res['NextPage'] = $this->nextPage;
+        if (null !== $this->totalPageNum) {
+            $res['TotalPageNum'] = $this->totalPageNum;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class QueryRegistrantProfilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrePage'])) {
-            $model->prePage = $map['PrePage'];
-        }
         if (isset($map['CurrentPageNum'])) {
             $model->currentPageNum = $map['CurrentPageNum'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['NextPage'])) {
+            $model->nextPage = $map['NextPage'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalPageNum'])) {
-            $model->totalPageNum = $map['TotalPageNum'];
+        if (isset($map['PrePage'])) {
+            $model->prePage = $map['PrePage'];
         }
         if (isset($map['RegistrantProfiles'])) {
             $model->registrantProfiles = registrantProfiles::fromMap($map['RegistrantProfiles']);
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalItemNum'])) {
             $model->totalItemNum = $map['TotalItemNum'];
         }
-        if (isset($map['NextPage'])) {
-            $model->nextPage = $map['NextPage'];
+        if (isset($map['TotalPageNum'])) {
+            $model->totalPageNum = $map['TotalPageNum'];
         }
 
         return $model;

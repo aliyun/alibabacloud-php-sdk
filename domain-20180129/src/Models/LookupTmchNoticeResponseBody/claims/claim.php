@@ -13,9 +13,9 @@ use AlibabaCloud\Tea\Model;
 class claim extends Model
 {
     /**
-     * @var string
+     * @var classDescs
      */
-    public $goodsAndServices;
+    public $classDescs;
 
     /**
      * @var contacts
@@ -25,12 +25,7 @@ class claim extends Model
     /**
      * @var string
      */
-    public $markName;
-
-    /**
-     * @var classDescs
-     */
-    public $classDescs;
+    public $goodsAndServices;
 
     /**
      * @var holders
@@ -41,13 +36,18 @@ class claim extends Model
      * @var jurDesc
      */
     public $jurDesc;
+
+    /**
+     * @var string
+     */
+    public $markName;
     protected $_name = [
-        'goodsAndServices' => 'GoodsAndServices',
-        'contacts'         => 'Contacts',
-        'markName'         => 'MarkName',
         'classDescs'       => 'ClassDescs',
+        'contacts'         => 'Contacts',
+        'goodsAndServices' => 'GoodsAndServices',
         'holders'          => 'Holders',
         'jurDesc'          => 'JurDesc',
+        'markName'         => 'MarkName',
     ];
 
     public function validate()
@@ -57,23 +57,23 @@ class claim extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->goodsAndServices) {
-            $res['GoodsAndServices'] = $this->goodsAndServices;
+        if (null !== $this->classDescs) {
+            $res['ClassDescs'] = null !== $this->classDescs ? $this->classDescs->toMap() : null;
         }
         if (null !== $this->contacts) {
             $res['Contacts'] = null !== $this->contacts ? $this->contacts->toMap() : null;
         }
-        if (null !== $this->markName) {
-            $res['MarkName'] = $this->markName;
-        }
-        if (null !== $this->classDescs) {
-            $res['ClassDescs'] = null !== $this->classDescs ? $this->classDescs->toMap() : null;
+        if (null !== $this->goodsAndServices) {
+            $res['GoodsAndServices'] = $this->goodsAndServices;
         }
         if (null !== $this->holders) {
             $res['Holders'] = null !== $this->holders ? $this->holders->toMap() : null;
         }
         if (null !== $this->jurDesc) {
             $res['JurDesc'] = null !== $this->jurDesc ? $this->jurDesc->toMap() : null;
+        }
+        if (null !== $this->markName) {
+            $res['MarkName'] = $this->markName;
         }
 
         return $res;
@@ -87,23 +87,23 @@ class claim extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GoodsAndServices'])) {
-            $model->goodsAndServices = $map['GoodsAndServices'];
+        if (isset($map['ClassDescs'])) {
+            $model->classDescs = classDescs::fromMap($map['ClassDescs']);
         }
         if (isset($map['Contacts'])) {
             $model->contacts = contacts::fromMap($map['Contacts']);
         }
-        if (isset($map['MarkName'])) {
-            $model->markName = $map['MarkName'];
-        }
-        if (isset($map['ClassDescs'])) {
-            $model->classDescs = classDescs::fromMap($map['ClassDescs']);
+        if (isset($map['GoodsAndServices'])) {
+            $model->goodsAndServices = $map['GoodsAndServices'];
         }
         if (isset($map['Holders'])) {
             $model->holders = holders::fromMap($map['Holders']);
         }
         if (isset($map['JurDesc'])) {
             $model->jurDesc = jurDesc::fromMap($map['JurDesc']);
+        }
+        if (isset($map['MarkName'])) {
+            $model->markName = $map['MarkName'];
         }
 
         return $model;

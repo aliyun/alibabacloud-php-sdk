@@ -11,15 +11,15 @@ class jurDesc extends Model
     /**
      * @var string
      */
-    public $jurCC;
+    public $desc;
 
     /**
      * @var string
      */
-    public $desc;
+    public $jurCC;
     protected $_name = [
-        'jurCC' => 'JurCC',
         'desc'  => 'Desc',
+        'jurCC' => 'JurCC',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class jurDesc extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jurCC) {
-            $res['JurCC'] = $this->jurCC;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+        if (null !== $this->jurCC) {
+            $res['JurCC'] = $this->jurCC;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class jurDesc extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JurCC'])) {
-            $model->jurCC = $map['JurCC'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+        if (isset($map['JurCC'])) {
+            $model->jurCC = $map['JurCC'];
         }
 
         return $model;

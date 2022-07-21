@@ -11,7 +11,17 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $identityCredential;
+
+    /**
+     * @var string
+     */
+    public $identityCredentialNo;
+
+    /**
+     * @var string
+     */
+    public $identityCredentialType;
 
     /**
      * @var string
@@ -26,24 +36,14 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     /**
      * @var string
      */
-    public $identityCredential;
-
-    /**
-     * @var string
-     */
-    public $identityCredentialNo;
-
-    /**
-     * @var string
-     */
-    public $identityCredentialType;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'           => 'UserClientIp',
-        'lang'                   => 'Lang',
-        'registrantProfileID'    => 'RegistrantProfileID',
         'identityCredential'     => 'IdentityCredential',
         'identityCredentialNo'   => 'IdentityCredentialNo',
         'identityCredentialType' => 'IdentityCredentialType',
+        'lang'                   => 'Lang',
+        'registrantProfileID'    => 'RegistrantProfileID',
+        'userClientIp'           => 'UserClientIp',
     ];
 
     public function validate()
@@ -53,15 +53,6 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->registrantProfileID) {
-            $res['RegistrantProfileID'] = $this->registrantProfileID;
-        }
         if (null !== $this->identityCredential) {
             $res['IdentityCredential'] = $this->identityCredential;
         }
@@ -70,6 +61,15 @@ class RegistrantProfileRealNameVerificationRequest extends Model
         }
         if (null !== $this->identityCredentialType) {
             $res['IdentityCredentialType'] = $this->identityCredentialType;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->registrantProfileID) {
+            $res['RegistrantProfileID'] = $this->registrantProfileID;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -83,15 +83,6 @@ class RegistrantProfileRealNameVerificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['RegistrantProfileID'])) {
-            $model->registrantProfileID = $map['RegistrantProfileID'];
-        }
         if (isset($map['IdentityCredential'])) {
             $model->identityCredential = $map['IdentityCredential'];
         }
@@ -100,6 +91,15 @@ class RegistrantProfileRealNameVerificationRequest extends Model
         }
         if (isset($map['IdentityCredentialType'])) {
             $model->identityCredentialType = $map['IdentityCredentialType'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['RegistrantProfileID'])) {
+            $model->registrantProfileID = $map['RegistrantProfileID'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

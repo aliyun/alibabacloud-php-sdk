@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class TransferInCheckMailTokenResponseBody extends Model
 {
     /**
+     * @var failList
+     */
+    public $failList;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -19,15 +24,10 @@ class TransferInCheckMailTokenResponseBody extends Model
      * @var successList
      */
     public $successList;
-
-    /**
-     * @var failList
-     */
-    public $failList;
     protected $_name = [
+        'failList'    => 'FailList',
         'requestId'   => 'RequestId',
         'successList' => 'SuccessList',
-        'failList'    => 'FailList',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class TransferInCheckMailTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failList) {
+            $res['FailList'] = null !== $this->failList ? $this->failList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->successList) {
             $res['SuccessList'] = null !== $this->successList ? $this->successList->toMap() : null;
-        }
-        if (null !== $this->failList) {
-            $res['FailList'] = null !== $this->failList ? $this->failList->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class TransferInCheckMailTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FailList'])) {
+            $model->failList = failList::fromMap($map['FailList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SuccessList'])) {
             $model->successList = successList::fromMap($map['SuccessList']);
-        }
-        if (isset($map['FailList'])) {
-            $model->failList = failList::fromMap($map['FailList']);
         }
 
         return $model;

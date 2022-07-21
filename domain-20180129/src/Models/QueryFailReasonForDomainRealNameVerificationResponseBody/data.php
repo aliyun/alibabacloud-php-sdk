@@ -16,16 +16,16 @@ class data extends Model
     /**
      * @var string
      */
-    public $failReason;
+    public $domainNameVerificationStatus;
 
     /**
      * @var string
      */
-    public $domainNameVerificationStatus;
+    public $failReason;
     protected $_name = [
         'date'                         => 'Date',
-        'failReason'                   => 'FailReason',
         'domainNameVerificationStatus' => 'DomainNameVerificationStatus',
+        'failReason'                   => 'FailReason',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class data extends Model
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
-        if (null !== $this->failReason) {
-            $res['FailReason'] = $this->failReason;
-        }
         if (null !== $this->domainNameVerificationStatus) {
             $res['DomainNameVerificationStatus'] = $this->domainNameVerificationStatus;
+        }
+        if (null !== $this->failReason) {
+            $res['FailReason'] = $this->failReason;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class data extends Model
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
-        if (isset($map['FailReason'])) {
-            $model->failReason = $map['FailReason'];
-        }
         if (isset($map['DomainNameVerificationStatus'])) {
             $model->domainNameVerificationStatus = $map['DomainNameVerificationStatus'];
+        }
+        if (isset($map['FailReason'])) {
+            $model->failReason = $map['FailReason'];
         }
 
         return $model;

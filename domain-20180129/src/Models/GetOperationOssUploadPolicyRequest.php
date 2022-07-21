@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetOperationOssUploadPolicyRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
      * @var int
      */
     public $auditType;
+
+    /**
+     * @var string
+     */
+    public $lang;
     protected $_name = [
-        'lang'      => 'Lang',
         'auditType' => 'AuditType',
+        'lang'      => 'Lang',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetOperationOssUploadPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->auditType) {
             $res['AuditType'] = $this->auditType;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetOperationOssUploadPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['AuditType'])) {
             $model->auditType = $map['AuditType'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

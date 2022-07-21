@@ -12,7 +12,7 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $couponNo;
 
     /**
      * @var string
@@ -20,14 +20,9 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     public $lang;
 
     /**
-     * @var string
+     * @var orderTransferParam[]
      */
-    public $couponNo;
-
-    /**
-     * @var bool
-     */
-    public $useCoupon;
+    public $orderTransferParam;
 
     /**
      * @var string
@@ -37,20 +32,25 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     /**
      * @var bool
      */
+    public $useCoupon;
+
+    /**
+     * @var bool
+     */
     public $usePromotion;
 
     /**
-     * @var orderTransferParam[]
+     * @var string
      */
-    public $orderTransferParam;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'       => 'UserClientIp',
-        'lang'               => 'Lang',
         'couponNo'           => 'CouponNo',
-        'useCoupon'          => 'UseCoupon',
-        'promotionNo'        => 'PromotionNo',
-        'usePromotion'       => 'UsePromotion',
+        'lang'               => 'Lang',
         'orderTransferParam' => 'OrderTransferParam',
+        'promotionNo'        => 'PromotionNo',
+        'useCoupon'          => 'UseCoupon',
+        'usePromotion'       => 'UsePromotion',
+        'userClientIp'       => 'UserClientIp',
     ];
 
     public function validate()
@@ -60,23 +60,11 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
-        if (null !== $this->useCoupon) {
-            $res['UseCoupon'] = $this->useCoupon;
-        }
-        if (null !== $this->promotionNo) {
-            $res['PromotionNo'] = $this->promotionNo;
-        }
-        if (null !== $this->usePromotion) {
-            $res['UsePromotion'] = $this->usePromotion;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->orderTransferParam) {
             $res['OrderTransferParam'] = [];
@@ -86,6 +74,18 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
                     $res['OrderTransferParam'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->promotionNo) {
+            $res['PromotionNo'] = $this->promotionNo;
+        }
+        if (null !== $this->useCoupon) {
+            $res['UseCoupon'] = $this->useCoupon;
+        }
+        if (null !== $this->usePromotion) {
+            $res['UsePromotion'] = $this->usePromotion;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -99,23 +99,11 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
-        if (isset($map['UseCoupon'])) {
-            $model->useCoupon = $map['UseCoupon'];
-        }
-        if (isset($map['PromotionNo'])) {
-            $model->promotionNo = $map['PromotionNo'];
-        }
-        if (isset($map['UsePromotion'])) {
-            $model->usePromotion = $map['UsePromotion'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['OrderTransferParam'])) {
             if (!empty($map['OrderTransferParam'])) {
@@ -125,6 +113,18 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
                     $model->orderTransferParam[$n++] = null !== $item ? orderTransferParam::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PromotionNo'])) {
+            $model->promotionNo = $map['PromotionNo'];
+        }
+        if (isset($map['UseCoupon'])) {
+            $model->useCoupon = $map['UseCoupon'];
+        }
+        if (isset($map['UsePromotion'])) {
+            $model->usePromotion = $map['UsePromotion'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class QueryFailingReasonListForQualificationRequest extends Model
     /**
      * @var string
      */
-    public $qualificationType;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
+    public $instanceId;
 
     /**
      * @var string
@@ -24,20 +19,25 @@ class QueryFailingReasonListForQualificationRequest extends Model
     public $lang;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $limit;
+
+    /**
+     * @var string
+     */
+    public $qualificationType;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
+        'instanceId'        => 'InstanceId',
+        'lang'              => 'Lang',
+        'limit'             => 'Limit',
         'qualificationType' => 'QualificationType',
         'userClientIp'      => 'UserClientIp',
-        'lang'              => 'Lang',
-        'instanceId'        => 'InstanceId',
-        'limit'             => 'Limit',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class QueryFailingReasonListForQualificationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
         if (null !== $this->qualificationType) {
             $res['QualificationType'] = $this->qualificationType;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class QueryFailingReasonListForQualificationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
         if (isset($map['QualificationType'])) {
             $model->qualificationType = $map['QualificationType'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDSRecordResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var DSRecordList[]
      */
     public $DSRecordList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'DSRecordList' => 'DSRecordList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class QueryDSRecordResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DSRecordList) {
             $res['DSRecordList'] = [];
             if (null !== $this->DSRecordList && \is_array($this->DSRecordList)) {
@@ -41,6 +38,9 @@ class QueryDSRecordResponseBody extends Model
                     $res['DSRecordList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class QueryDSRecordResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DSRecordList'])) {
             if (!empty($map['DSRecordList'])) {
                 $model->DSRecordList = [];
@@ -65,6 +62,9 @@ class QueryDSRecordResponseBody extends Model
                     $model->DSRecordList[$n++] = null !== $item ? DSRecordList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

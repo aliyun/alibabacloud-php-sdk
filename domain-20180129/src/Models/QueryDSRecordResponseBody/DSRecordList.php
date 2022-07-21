@@ -11,7 +11,7 @@ class DSRecordList extends Model
     /**
      * @var int
      */
-    public $digestType;
+    public $algorithm;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class DSRecordList extends Model
     /**
      * @var int
      */
-    public $algorithm;
+    public $digestType;
 
     /**
      * @var int
      */
     public $keyTag;
     protected $_name = [
-        'digestType' => 'DigestType',
-        'digest'     => 'Digest',
         'algorithm'  => 'Algorithm',
+        'digest'     => 'Digest',
+        'digestType' => 'DigestType',
         'keyTag'     => 'KeyTag',
     ];
 
@@ -41,14 +41,14 @@ class DSRecordList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->digestType) {
-            $res['DigestType'] = $this->digestType;
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
         }
-        if (null !== $this->algorithm) {
-            $res['Algorithm'] = $this->algorithm;
+        if (null !== $this->digestType) {
+            $res['DigestType'] = $this->digestType;
         }
         if (null !== $this->keyTag) {
             $res['KeyTag'] = $this->keyTag;
@@ -65,14 +65,14 @@ class DSRecordList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DigestType'])) {
-            $model->digestType = $map['DigestType'];
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
-        if (isset($map['Algorithm'])) {
-            $model->algorithm = $map['Algorithm'];
+        if (isset($map['DigestType'])) {
+            $model->digestType = $map['DigestType'];
         }
         if (isset($map['KeyTag'])) {
             $model->keyTag = $map['KeyTag'];

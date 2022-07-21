@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDnsHostResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dnsHostList[]
      */
     public $dnsHostList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'dnsHostList' => 'DnsHostList',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class QueryDnsHostResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dnsHostList) {
             $res['DnsHostList'] = [];
             if (null !== $this->dnsHostList && \is_array($this->dnsHostList)) {
@@ -41,6 +38,9 @@ class QueryDnsHostResponseBody extends Model
                     $res['DnsHostList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class QueryDnsHostResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DnsHostList'])) {
             if (!empty($map['DnsHostList'])) {
                 $model->dnsHostList = [];
@@ -65,6 +62,9 @@ class QueryDnsHostResponseBody extends Model
                     $model->dnsHostList[$n++] = null !== $item ? dnsHostList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

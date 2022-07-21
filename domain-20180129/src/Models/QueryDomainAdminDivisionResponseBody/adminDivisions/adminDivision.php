@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class adminDivision extends Model
 {
     /**
-     * @var string
-     */
-    public $divisionName;
-
-    /**
      * @var children
      */
     public $children;
+
+    /**
+     * @var string
+     */
+    public $divisionName;
     protected $_name = [
-        'divisionName' => 'DivisionName',
         'children'     => 'Children',
+        'divisionName' => 'DivisionName',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class adminDivision extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->divisionName) {
-            $res['DivisionName'] = $this->divisionName;
-        }
         if (null !== $this->children) {
             $res['Children'] = null !== $this->children ? $this->children->toMap() : null;
+        }
+        if (null !== $this->divisionName) {
+            $res['DivisionName'] = $this->divisionName;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class adminDivision extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DivisionName'])) {
-            $model->divisionName = $map['DivisionName'];
-        }
         if (isset($map['Children'])) {
             $model->children = children::fromMap($map['Children']);
+        }
+        if (isset($map['DivisionName'])) {
+            $model->divisionName = $map['DivisionName'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class SaveBatchDomainRemarkRequest extends Model
     /**
      * @var string
      */
+    public $instanceIds;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -21,16 +26,11 @@ class SaveBatchDomainRemarkRequest extends Model
     /**
      * @var string
      */
-    public $instanceIds;
-
-    /**
-     * @var string
-     */
     public $userClientIp;
     protected $_name = [
+        'instanceIds'  => 'InstanceIds',
         'lang'         => 'Lang',
         'remark'       => 'Remark',
-        'instanceIds'  => 'InstanceIds',
         'userClientIp' => 'UserClientIp',
     ];
 
@@ -41,14 +41,14 @@ class SaveBatchDomainRemarkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
@@ -65,14 +65,14 @@ class SaveBatchDomainRemarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
-        }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];

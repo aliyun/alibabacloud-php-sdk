@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $userClientIp;
+    public $domainName;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Mode
     public $transferOutProhibited;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $domainName;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'          => 'UserClientIp',
+        'domainName'            => 'DomainName',
         'lang'                  => 'Lang',
         'registrantProfileId'   => 'RegistrantProfileId',
         'transferOutProhibited' => 'TransferOutProhibited',
-        'domainName'            => 'DomainName',
+        'userClientIp'          => 'UserClientIp',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Mode
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -59,8 +59,8 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Mode
         if (null !== $this->transferOutProhibited) {
             $res['TransferOutProhibited'] = $this->transferOutProhibited;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -74,8 +74,10 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Mode
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['DomainName'])) {
+            if (!empty($map['DomainName'])) {
+                $model->domainName = $map['DomainName'];
+            }
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -86,10 +88,8 @@ class SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest extends Mode
         if (isset($map['TransferOutProhibited'])) {
             $model->transferOutProhibited = $map['TransferOutProhibited'];
         }
-        if (isset($map['DomainName'])) {
-            if (!empty($map['DomainName'])) {
-                $model->domainName = $map['DomainName'];
-            }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

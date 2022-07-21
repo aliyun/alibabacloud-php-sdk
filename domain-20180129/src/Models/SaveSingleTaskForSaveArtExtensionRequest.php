@@ -11,17 +11,7 @@ class SaveSingleTaskForSaveArtExtensionRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $objectType;
-
-    /**
-     * @var string
-     */
-    public $materialsAndTechniques;
+    public $dateOrPeriod;
 
     /**
      * @var string
@@ -31,27 +21,7 @@ class SaveSingleTaskForSaveArtExtensionRequest extends Model
     /**
      * @var string
      */
-    public $title;
-
-    /**
-     * @var string
-     */
-    public $dateOrPeriod;
-
-    /**
-     * @var string
-     */
-    public $maker;
-
-    /**
-     * @var string
-     */
-    public $inscriptionsAndMarkings;
-
-    /**
-     * @var string
-     */
-    public $subject;
+    public $domainName;
 
     /**
      * @var string
@@ -61,25 +31,55 @@ class SaveSingleTaskForSaveArtExtensionRequest extends Model
     /**
      * @var string
      */
-    public $reference;
+    public $inscriptionsAndMarkings;
 
     /**
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $maker;
+
+    /**
+     * @var string
+     */
+    public $materialsAndTechniques;
+
+    /**
+     * @var string
+     */
+    public $objectType;
+
+    /**
+     * @var string
+     */
+    public $reference;
+
+    /**
+     * @var string
+     */
+    public $subject;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'domainName'              => 'DomainName',
-        'objectType'              => 'ObjectType',
-        'materialsAndTechniques'  => 'MaterialsAndTechniques',
-        'dimensions'              => 'Dimensions',
-        'title'                   => 'Title',
         'dateOrPeriod'            => 'DateOrPeriod',
-        'maker'                   => 'Maker',
-        'inscriptionsAndMarkings' => 'InscriptionsAndMarkings',
-        'subject'                 => 'Subject',
+        'dimensions'              => 'Dimensions',
+        'domainName'              => 'DomainName',
         'features'                => 'Features',
-        'reference'               => 'Reference',
+        'inscriptionsAndMarkings' => 'InscriptionsAndMarkings',
         'lang'                    => 'Lang',
+        'maker'                   => 'Maker',
+        'materialsAndTechniques'  => 'MaterialsAndTechniques',
+        'objectType'              => 'ObjectType',
+        'reference'               => 'Reference',
+        'subject'                 => 'Subject',
+        'title'                   => 'Title',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class SaveSingleTaskForSaveArtExtensionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->objectType) {
-            $res['ObjectType'] = $this->objectType;
-        }
-        if (null !== $this->materialsAndTechniques) {
-            $res['MaterialsAndTechniques'] = $this->materialsAndTechniques;
+        if (null !== $this->dateOrPeriod) {
+            $res['DateOrPeriod'] = $this->dateOrPeriod;
         }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->dateOrPeriod) {
-            $res['DateOrPeriod'] = $this->dateOrPeriod;
-        }
-        if (null !== $this->maker) {
-            $res['Maker'] = $this->maker;
-        }
-        if (null !== $this->inscriptionsAndMarkings) {
-            $res['InscriptionsAndMarkings'] = $this->inscriptionsAndMarkings;
-        }
-        if (null !== $this->subject) {
-            $res['Subject'] = $this->subject;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->features) {
             $res['Features'] = $this->features;
         }
-        if (null !== $this->reference) {
-            $res['Reference'] = $this->reference;
+        if (null !== $this->inscriptionsAndMarkings) {
+            $res['InscriptionsAndMarkings'] = $this->inscriptionsAndMarkings;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->maker) {
+            $res['Maker'] = $this->maker;
+        }
+        if (null !== $this->materialsAndTechniques) {
+            $res['MaterialsAndTechniques'] = $this->materialsAndTechniques;
+        }
+        if (null !== $this->objectType) {
+            $res['ObjectType'] = $this->objectType;
+        }
+        if (null !== $this->reference) {
+            $res['Reference'] = $this->reference;
+        }
+        if (null !== $this->subject) {
+            $res['Subject'] = $this->subject;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class SaveSingleTaskForSaveArtExtensionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['ObjectType'])) {
-            $model->objectType = $map['ObjectType'];
-        }
-        if (isset($map['MaterialsAndTechniques'])) {
-            $model->materialsAndTechniques = $map['MaterialsAndTechniques'];
+        if (isset($map['DateOrPeriod'])) {
+            $model->dateOrPeriod = $map['DateOrPeriod'];
         }
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['DateOrPeriod'])) {
-            $model->dateOrPeriod = $map['DateOrPeriod'];
-        }
-        if (isset($map['Maker'])) {
-            $model->maker = $map['Maker'];
-        }
-        if (isset($map['InscriptionsAndMarkings'])) {
-            $model->inscriptionsAndMarkings = $map['InscriptionsAndMarkings'];
-        }
-        if (isset($map['Subject'])) {
-            $model->subject = $map['Subject'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Features'])) {
             $model->features = $map['Features'];
         }
-        if (isset($map['Reference'])) {
-            $model->reference = $map['Reference'];
+        if (isset($map['InscriptionsAndMarkings'])) {
+            $model->inscriptionsAndMarkings = $map['InscriptionsAndMarkings'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Maker'])) {
+            $model->maker = $map['Maker'];
+        }
+        if (isset($map['MaterialsAndTechniques'])) {
+            $model->materialsAndTechniques = $map['MaterialsAndTechniques'];
+        }
+        if (isset($map['ObjectType'])) {
+            $model->objectType = $map['ObjectType'];
+        }
+        if (isset($map['Reference'])) {
+            $model->reference = $map['Reference'];
+        }
+        if (isset($map['Subject'])) {
+            $model->subject = $map['Subject'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

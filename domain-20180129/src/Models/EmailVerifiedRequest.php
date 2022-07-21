@@ -11,21 +11,21 @@ class EmailVerifiedRequest extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
      * @var string
      */
     public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $email;
     protected $_name = [
+        'email'        => 'Email',
         'lang'         => 'Lang',
         'userClientIp' => 'UserClientIp',
-        'email'        => 'Email',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class EmailVerifiedRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class EmailVerifiedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
 
         return $model;

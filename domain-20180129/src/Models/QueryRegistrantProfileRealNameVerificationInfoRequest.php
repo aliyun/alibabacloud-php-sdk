@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $userClientIp;
+    public $fetchImage;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
     public $registrantProfileId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $fetchImage;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp'        => 'UserClientIp',
+        'fetchImage'          => 'FetchImage',
         'lang'                => 'Lang',
         'registrantProfileId' => 'RegistrantProfileId',
-        'fetchImage'          => 'FetchImage',
+        'userClientIp'        => 'UserClientIp',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->fetchImage) {
+            $res['FetchImage'] = $this->fetchImage;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -50,8 +50,8 @@ class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
-        if (null !== $this->fetchImage) {
-            $res['FetchImage'] = $this->fetchImage;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['FetchImage'])) {
+            $model->fetchImage = $map['FetchImage'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -74,8 +74,8 @@ class QueryRegistrantProfileRealNameVerificationInfoRequest extends Model
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
         }
-        if (isset($map['FetchImage'])) {
-            $model->fetchImage = $map['FetchImage'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

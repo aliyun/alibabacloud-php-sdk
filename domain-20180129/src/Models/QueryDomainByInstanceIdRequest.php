@@ -11,7 +11,7 @@ class QueryDomainByInstanceIdRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $instanceId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class QueryDomainByInstanceIdRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $userClientIp;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
         'instanceId'   => 'InstanceId',
+        'lang'         => 'Lang',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryDomainByInstanceIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryDomainByInstanceIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

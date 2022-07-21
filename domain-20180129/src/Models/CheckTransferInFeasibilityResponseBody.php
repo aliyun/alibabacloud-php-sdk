@@ -16,12 +16,12 @@ class CheckTransferInFeasibilityResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
+    public $code;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $message;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class CheckTransferInFeasibilityResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $requestId;
     protected $_name = [
         'canTransfer' => 'CanTransfer',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'productId'   => 'ProductId',
         'code'        => 'Code',
+        'message'     => 'Message',
+        'productId'   => 'ProductId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class CheckTransferInFeasibilityResponseBody extends Model
         if (null !== $this->canTransfer) {
             $res['CanTransfer'] = $this->canTransfer;
         }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class CheckTransferInFeasibilityResponseBody extends Model
         if (isset($map['CanTransfer'])) {
             $model->canTransfer = $map['CanTransfer'];
         }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class holder extends Model
 {
     /**
-     * @var string
-     */
-    public $entitlement;
-
-    /**
      * @var addr
      */
     public $addr;
@@ -22,10 +17,15 @@ class holder extends Model
     /**
      * @var string
      */
+    public $entitlement;
+
+    /**
+     * @var string
+     */
     public $org;
     protected $_name = [
-        'entitlement' => 'Entitlement',
         'addr'        => 'Addr',
+        'entitlement' => 'Entitlement',
         'org'         => 'Org',
     ];
 
@@ -36,11 +36,11 @@ class holder extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->entitlement) {
-            $res['Entitlement'] = $this->entitlement;
-        }
         if (null !== $this->addr) {
             $res['Addr'] = null !== $this->addr ? $this->addr->toMap() : null;
+        }
+        if (null !== $this->entitlement) {
+            $res['Entitlement'] = $this->entitlement;
         }
         if (null !== $this->org) {
             $res['Org'] = $this->org;
@@ -57,11 +57,11 @@ class holder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Entitlement'])) {
-            $model->entitlement = $map['Entitlement'];
-        }
         if (isset($map['Addr'])) {
             $model->addr = addr::fromMap($map['Addr']);
+        }
+        if (isset($map['Entitlement'])) {
+            $model->entitlement = $map['Entitlement'];
         }
         if (isset($map['Org'])) {
             $model->org = $map['Org'];

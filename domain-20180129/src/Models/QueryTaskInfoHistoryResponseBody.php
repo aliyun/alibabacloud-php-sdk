@@ -13,19 +13,14 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskInfoHistoryResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var currentPageCursor
      */
     public $currentPageCursor;
+
+    /**
+     * @var nextPageCursor
+     */
+    public $nextPageCursor;
 
     /**
      * @var objects[]
@@ -33,21 +28,26 @@ class QueryTaskInfoHistoryResponseBody extends Model
     public $objects;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var prePageCursor
      */
     public $prePageCursor;
 
     /**
-     * @var nextPageCursor
+     * @var string
      */
-    public $nextPageCursor;
+    public $requestId;
     protected $_name = [
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
         'currentPageCursor' => 'CurrentPageCursor',
-        'objects'           => 'Objects',
-        'prePageCursor'     => 'PrePageCursor',
         'nextPageCursor'    => 'NextPageCursor',
+        'objects'           => 'Objects',
+        'pageSize'          => 'PageSize',
+        'prePageCursor'     => 'PrePageCursor',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -57,14 +57,11 @@ class QueryTaskInfoHistoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->currentPageCursor) {
             $res['CurrentPageCursor'] = null !== $this->currentPageCursor ? $this->currentPageCursor->toMap() : null;
+        }
+        if (null !== $this->nextPageCursor) {
+            $res['NextPageCursor'] = null !== $this->nextPageCursor ? $this->nextPageCursor->toMap() : null;
         }
         if (null !== $this->objects) {
             $res['Objects'] = [];
@@ -75,11 +72,14 @@ class QueryTaskInfoHistoryResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->prePageCursor) {
             $res['PrePageCursor'] = null !== $this->prePageCursor ? $this->prePageCursor->toMap() : null;
         }
-        if (null !== $this->nextPageCursor) {
-            $res['NextPageCursor'] = null !== $this->nextPageCursor ? $this->nextPageCursor->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -93,14 +93,11 @@ class QueryTaskInfoHistoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CurrentPageCursor'])) {
             $model->currentPageCursor = currentPageCursor::fromMap($map['CurrentPageCursor']);
+        }
+        if (isset($map['NextPageCursor'])) {
+            $model->nextPageCursor = nextPageCursor::fromMap($map['NextPageCursor']);
         }
         if (isset($map['Objects'])) {
             if (!empty($map['Objects'])) {
@@ -111,11 +108,14 @@ class QueryTaskInfoHistoryResponseBody extends Model
                 }
             }
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['PrePageCursor'])) {
             $model->prePageCursor = prePageCursor::fromMap($map['PrePageCursor']);
         }
-        if (isset($map['NextPageCursor'])) {
-            $model->nextPageCursor = nextPageCursor::fromMap($map['NextPageCursor']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class TransferInCheckMailTokenRequest extends Model
     /**
      * @var string
      */
-    public $token;
+    public $lang;
 
     /**
      * @var string
      */
-    public $lang;
+    public $token;
 
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'token'        => 'Token',
         'lang'         => 'Lang',
+        'token'        => 'Token',
         'userClientIp' => 'UserClientIp',
     ];
 
@@ -35,11 +35,11 @@ class TransferInCheckMailTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
@@ -56,11 +56,11 @@ class TransferInCheckMailTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];

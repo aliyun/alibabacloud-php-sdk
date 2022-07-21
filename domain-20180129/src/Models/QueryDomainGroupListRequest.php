@@ -11,27 +11,27 @@ class QueryDomainGroupListRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $domainGroupName;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var bool
      */
     public $showDeletingGroup;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'lang'              => 'Lang',
-        'userClientIp'      => 'UserClientIp',
         'domainGroupName'   => 'DomainGroupName',
+        'lang'              => 'Lang',
         'showDeletingGroup' => 'ShowDeletingGroup',
+        'userClientIp'      => 'UserClientIp',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class QueryDomainGroupListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->domainGroupName) {
             $res['DomainGroupName'] = $this->domainGroupName;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->showDeletingGroup) {
             $res['ShowDeletingGroup'] = $this->showDeletingGroup;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class QueryDomainGroupListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['DomainGroupName'])) {
             $model->domainGroupName = $map['DomainGroupName'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['ShowDeletingGroup'])) {
             $model->showDeletingGroup = $map['ShowDeletingGroup'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

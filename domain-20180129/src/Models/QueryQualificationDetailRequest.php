@@ -16,22 +16,22 @@ class QueryQualificationDetailRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
 
     /**
      * @var string
      */
     public $qualificationType;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
         'instanceId'        => 'InstanceId',
-        'userClientIp'      => 'UserClientIp',
         'lang'              => 'Lang',
         'qualificationType' => 'QualificationType',
+        'userClientIp'      => 'UserClientIp',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryQualificationDetailRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->qualificationType) {
             $res['QualificationType'] = $this->qualificationType;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryQualificationDetailRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['QualificationType'])) {
             $model->qualificationType = $map['QualificationType'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;
