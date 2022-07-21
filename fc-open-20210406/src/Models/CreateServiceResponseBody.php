@@ -73,6 +73,11 @@ class CreateServiceResponseBody extends Model
     public $tracingConfig;
 
     /**
+     * @var VendorConfig
+     */
+    public $vendorConfig;
+
+    /**
      * @var VPCConfig
      */
     public $vpcConfig;
@@ -87,6 +92,7 @@ class CreateServiceResponseBody extends Model
         'serviceId'        => 'serviceId',
         'serviceName'      => 'serviceName',
         'tracingConfig'    => 'tracingConfig',
+        'vendorConfig'     => 'vendorConfig',
         'vpcConfig'        => 'vpcConfig',
     ];
 
@@ -126,6 +132,9 @@ class CreateServiceResponseBody extends Model
         }
         if (null !== $this->tracingConfig) {
             $res['tracingConfig'] = null !== $this->tracingConfig ? $this->tracingConfig->toMap() : null;
+        }
+        if (null !== $this->vendorConfig) {
+            $res['vendorConfig'] = null !== $this->vendorConfig ? $this->vendorConfig->toMap() : null;
         }
         if (null !== $this->vpcConfig) {
             $res['vpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
@@ -171,6 +180,9 @@ class CreateServiceResponseBody extends Model
         }
         if (isset($map['tracingConfig'])) {
             $model->tracingConfig = TracingConfig::fromMap($map['tracingConfig']);
+        }
+        if (isset($map['vendorConfig'])) {
+            $model->vendorConfig = VendorConfig::fromMap($map['vendorConfig']);
         }
         if (isset($map['vpcConfig'])) {
             $model->vpcConfig = VPCConfig::fromMap($map['vpcConfig']);

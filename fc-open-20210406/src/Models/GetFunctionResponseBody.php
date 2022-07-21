@@ -115,6 +115,11 @@ class GetFunctionResponseBody extends Model
     public $instanceLifecycleConfig;
 
     /**
+     * @var int
+     */
+    public $instanceSoftConcurrency;
+
+    /**
      * @var string
      */
     public $instanceType;
@@ -168,6 +173,7 @@ class GetFunctionResponseBody extends Model
         'initializer'             => 'initializer',
         'instanceConcurrency'     => 'instanceConcurrency',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
+        'instanceSoftConcurrency' => 'instanceSoftConcurrency',
         'instanceType'            => 'instanceType',
         'lastModifiedTime'        => 'lastModifiedTime',
         'layers'                  => 'layers',
@@ -230,6 +236,9 @@ class GetFunctionResponseBody extends Model
         }
         if (null !== $this->instanceLifecycleConfig) {
             $res['instanceLifecycleConfig'] = null !== $this->instanceLifecycleConfig ? $this->instanceLifecycleConfig->toMap() : null;
+        }
+        if (null !== $this->instanceSoftConcurrency) {
+            $res['instanceSoftConcurrency'] = $this->instanceSoftConcurrency;
         }
         if (null !== $this->instanceType) {
             $res['instanceType'] = $this->instanceType;
@@ -308,6 +317,9 @@ class GetFunctionResponseBody extends Model
         }
         if (isset($map['instanceLifecycleConfig'])) {
             $model->instanceLifecycleConfig = InstanceLifecycleConfig::fromMap($map['instanceLifecycleConfig']);
+        }
+        if (isset($map['instanceSoftConcurrency'])) {
+            $model->instanceSoftConcurrency = $map['instanceSoftConcurrency'];
         }
         if (isset($map['instanceType'])) {
             $model->instanceType = $map['instanceType'];
