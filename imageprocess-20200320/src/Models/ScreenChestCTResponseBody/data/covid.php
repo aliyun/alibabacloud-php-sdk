@@ -32,12 +32,18 @@ class covid extends Model
      * @var string
      */
     public $otherProbability;
+
+    /**
+     * @var string
+     */
+    public $seriesInstanceUID;
     protected $_name = [
         'lesionRatio'       => 'LesionRatio',
         'mask'              => 'Mask',
         'newProbability'    => 'NewProbability',
         'normalProbability' => 'NormalProbability',
         'otherProbability'  => 'OtherProbability',
+        'seriesInstanceUID' => 'SeriesInstanceUID',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class covid extends Model
         }
         if (null !== $this->otherProbability) {
             $res['OtherProbability'] = $this->otherProbability;
+        }
+        if (null !== $this->seriesInstanceUID) {
+            $res['SeriesInstanceUID'] = $this->seriesInstanceUID;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class covid extends Model
         }
         if (isset($map['OtherProbability'])) {
             $model->otherProbability = $map['OtherProbability'];
+        }
+        if (isset($map['SeriesInstanceUID'])) {
+            $model->seriesInstanceUID = $map['SeriesInstanceUID'];
         }
 
         return $model;

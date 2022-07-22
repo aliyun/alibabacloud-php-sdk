@@ -27,12 +27,18 @@ class CACS extends Model
     /**
      * @var string
      */
+    public $seriesInstanceUID;
+
+    /**
+     * @var string
+     */
     public $volumeScore;
     protected $_name = [
-        'detections'  => 'Detections',
-        'resultUrl'   => 'ResultUrl',
-        'score'       => 'Score',
-        'volumeScore' => 'VolumeScore',
+        'detections'        => 'Detections',
+        'resultUrl'         => 'ResultUrl',
+        'score'             => 'Score',
+        'seriesInstanceUID' => 'SeriesInstanceUID',
+        'volumeScore'       => 'VolumeScore',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class CACS extends Model
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->seriesInstanceUID) {
+            $res['SeriesInstanceUID'] = $this->seriesInstanceUID;
         }
         if (null !== $this->volumeScore) {
             $res['VolumeScore'] = $this->volumeScore;
@@ -86,6 +95,9 @@ class CACS extends Model
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['SeriesInstanceUID'])) {
+            $model->seriesInstanceUID = $map['SeriesInstanceUID'];
         }
         if (isset($map['VolumeScore'])) {
             $model->volumeScore = $map['VolumeScore'];

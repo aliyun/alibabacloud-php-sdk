@@ -58,6 +58,11 @@ class data extends Model
     /**
      * @var mixed[]
      */
+    public $nestedUrlList;
+
+    /**
+     * @var mixed[]
+     */
     public $URLList;
     protected $_name = [
         'analyzeChestVessel' => 'AnalyzeChestVessel',
@@ -68,6 +73,7 @@ class data extends Model
         'detectRibFracture'  => 'DetectRibFracture',
         'errorMessage'       => 'ErrorMessage',
         'lungNodule'         => 'LungNodule',
+        'nestedUrlList'      => 'NestedUrlList',
         'URLList'            => 'URLList',
     ];
 
@@ -101,6 +107,9 @@ class data extends Model
         }
         if (null !== $this->lungNodule) {
             $res['LungNodule'] = null !== $this->lungNodule ? $this->lungNodule->toMap() : null;
+        }
+        if (null !== $this->nestedUrlList) {
+            $res['NestedUrlList'] = $this->nestedUrlList;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = $this->URLList;
@@ -140,6 +149,9 @@ class data extends Model
         }
         if (isset($map['LungNodule'])) {
             $model->lungNodule = lungNodule::fromMap($map['LungNodule']);
+        }
+        if (isset($map['NestedUrlList'])) {
+            $model->nestedUrlList = $map['NestedUrlList'];
         }
         if (isset($map['URLList'])) {
             $model->URLList = $map['URLList'];

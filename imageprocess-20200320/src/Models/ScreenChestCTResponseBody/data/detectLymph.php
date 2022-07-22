@@ -13,8 +13,14 @@ class detectLymph extends Model
      * @var lesions[]
      */
     public $lesions;
+
+    /**
+     * @var string
+     */
+    public $seriesInstanceUID;
     protected $_name = [
-        'lesions' => 'Lesions',
+        'lesions'           => 'Lesions',
+        'seriesInstanceUID' => 'SeriesInstanceUID',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class detectLymph extends Model
                     $res['Lesions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->seriesInstanceUID) {
+            $res['SeriesInstanceUID'] = $this->seriesInstanceUID;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class detectLymph extends Model
                     $model->lesions[$n++] = null !== $item ? lesions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SeriesInstanceUID'])) {
+            $model->seriesInstanceUID = $map['SeriesInstanceUID'];
         }
 
         return $model;

@@ -13,8 +13,14 @@ class detectPdac extends Model
      * @var lesion
      */
     public $lesion;
+
+    /**
+     * @var string
+     */
+    public $seriesInstanceUID;
     protected $_name = [
-        'lesion' => 'Lesion',
+        'lesion'            => 'Lesion',
+        'seriesInstanceUID' => 'SeriesInstanceUID',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class detectPdac extends Model
         $res = [];
         if (null !== $this->lesion) {
             $res['Lesion'] = null !== $this->lesion ? $this->lesion->toMap() : null;
+        }
+        if (null !== $this->seriesInstanceUID) {
+            $res['SeriesInstanceUID'] = $this->seriesInstanceUID;
         }
 
         return $res;
@@ -41,6 +50,9 @@ class detectPdac extends Model
         $model = new self();
         if (isset($map['Lesion'])) {
             $model->lesion = lesion::fromMap($map['Lesion']);
+        }
+        if (isset($map['SeriesInstanceUID'])) {
+            $model->seriesInstanceUID = $map['SeriesInstanceUID'];
         }
 
         return $model;

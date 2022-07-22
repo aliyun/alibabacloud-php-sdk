@@ -35,6 +35,11 @@ class detectRibFracture extends Model
     public $ribSegmentMaskURL;
 
     /**
+     * @var string
+     */
+    public $seriesInstanceUID;
+
+    /**
      * @var float[]
      */
     public $spacing;
@@ -44,6 +49,7 @@ class detectRibFracture extends Model
         'origin'            => 'Origin',
         'resultURL'         => 'ResultURL',
         'ribSegmentMaskURL' => 'RibSegmentMaskURL',
+        'seriesInstanceUID' => 'SeriesInstanceUID',
         'spacing'           => 'Spacing',
     ];
 
@@ -74,6 +80,9 @@ class detectRibFracture extends Model
         }
         if (null !== $this->ribSegmentMaskURL) {
             $res['RibSegmentMaskURL'] = $this->ribSegmentMaskURL;
+        }
+        if (null !== $this->seriesInstanceUID) {
+            $res['SeriesInstanceUID'] = $this->seriesInstanceUID;
         }
         if (null !== $this->spacing) {
             $res['Spacing'] = $this->spacing;
@@ -112,6 +121,9 @@ class detectRibFracture extends Model
         }
         if (isset($map['RibSegmentMaskURL'])) {
             $model->ribSegmentMaskURL = $map['RibSegmentMaskURL'];
+        }
+        if (isset($map['SeriesInstanceUID'])) {
+            $model->seriesInstanceUID = $map['SeriesInstanceUID'];
         }
         if (isset($map['Spacing'])) {
             if (!empty($map['Spacing'])) {
