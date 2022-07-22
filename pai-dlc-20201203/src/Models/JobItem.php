@@ -60,11 +60,46 @@ class JobItem extends Model
     public $gmtCreateTime;
 
     /**
+     * @description 作业失败时间（UTC）
+     *
+     * @var string
+     */
+    public $gmtFailedTime;
+
+    /**
      * @description 作业结束时间（UTC）
      *
      * @var string
      */
     public $gmtFinishTime;
+
+    /**
+     * @description 作业开始运行时间（UTC）
+     *
+     * @var string
+     */
+    public $gmtRunningTime;
+
+    /**
+     * @description 作业停止时间（UTC）
+     *
+     * @var string
+     */
+    public $gmtStoppedTime;
+
+    /**
+     * @description 作业提交时间（UTC）
+     *
+     * @var string
+     */
+    public $gmtSubmittedTime;
+
+    /**
+     * @description 作业成功完成时间（UTC）
+     *
+     * @var string
+     */
+    public $gmtSuccessedTime;
 
     /**
      * @description 作业Id
@@ -86,6 +121,13 @@ class JobItem extends Model
      * @var string
      */
     public $jobType;
+
+    /**
+     * @description 任务优先级
+     *
+     * @var int
+     */
+    public $priority;
 
     /**
      * @description 状态详情码
@@ -185,10 +227,16 @@ class JobItem extends Model
         'enabledDebugger'  => 'EnabledDebugger',
         'envs'             => 'Envs',
         'gmtCreateTime'    => 'GmtCreateTime',
+        'gmtFailedTime'    => 'GmtFailedTime',
         'gmtFinishTime'    => 'GmtFinishTime',
+        'gmtRunningTime'   => 'GmtRunningTime',
+        'gmtStoppedTime'   => 'GmtStoppedTime',
+        'gmtSubmittedTime' => 'GmtSubmittedTime',
+        'gmtSuccessedTime' => 'GmtSuccessedTime',
         'jobId'            => 'JobId',
         'jobSpecs'         => 'JobSpecs',
         'jobType'          => 'JobType',
+        'priority'         => 'Priority',
         'reasonCode'       => 'ReasonCode',
         'reasonMessage'    => 'ReasonMessage',
         'resourceId'       => 'ResourceId',
@@ -238,8 +286,23 @@ class JobItem extends Model
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+        if (null !== $this->gmtFailedTime) {
+            $res['GmtFailedTime'] = $this->gmtFailedTime;
+        }
         if (null !== $this->gmtFinishTime) {
             $res['GmtFinishTime'] = $this->gmtFinishTime;
+        }
+        if (null !== $this->gmtRunningTime) {
+            $res['GmtRunningTime'] = $this->gmtRunningTime;
+        }
+        if (null !== $this->gmtStoppedTime) {
+            $res['GmtStoppedTime'] = $this->gmtStoppedTime;
+        }
+        if (null !== $this->gmtSubmittedTime) {
+            $res['GmtSubmittedTime'] = $this->gmtSubmittedTime;
+        }
+        if (null !== $this->gmtSuccessedTime) {
+            $res['GmtSuccessedTime'] = $this->gmtSuccessedTime;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -255,6 +318,9 @@ class JobItem extends Model
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -334,8 +400,23 @@ class JobItem extends Model
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+        if (isset($map['GmtFailedTime'])) {
+            $model->gmtFailedTime = $map['GmtFailedTime'];
+        }
         if (isset($map['GmtFinishTime'])) {
             $model->gmtFinishTime = $map['GmtFinishTime'];
+        }
+        if (isset($map['GmtRunningTime'])) {
+            $model->gmtRunningTime = $map['GmtRunningTime'];
+        }
+        if (isset($map['GmtStoppedTime'])) {
+            $model->gmtStoppedTime = $map['GmtStoppedTime'];
+        }
+        if (isset($map['GmtSubmittedTime'])) {
+            $model->gmtSubmittedTime = $map['GmtSubmittedTime'];
+        }
+        if (isset($map['GmtSuccessedTime'])) {
+            $model->gmtSuccessedTime = $map['GmtSuccessedTime'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
@@ -351,6 +432,9 @@ class JobItem extends Model
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];

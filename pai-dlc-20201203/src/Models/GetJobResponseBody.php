@@ -135,6 +135,13 @@ class GetJobResponseBody extends Model
     public $pods;
 
     /**
+     * @description 任务的优先级
+     *
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @description 状态详情码
      *
      * @var string
@@ -244,6 +251,7 @@ class GetJobResponseBody extends Model
         'jobSpecs'         => 'JobSpecs',
         'jobType'          => 'JobType',
         'pods'             => 'Pods',
+        'priority'         => 'Priority',
         'reasonCode'       => 'ReasonCode',
         'reasonMessage'    => 'ReasonMessage',
         'requestId'        => 'RequestId',
@@ -340,6 +348,9 @@ class GetJobResponseBody extends Model
                     $res['Pods'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -466,6 +477,9 @@ class GetJobResponseBody extends Model
                     $model->pods[$n++] = null !== $item ? pods::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
