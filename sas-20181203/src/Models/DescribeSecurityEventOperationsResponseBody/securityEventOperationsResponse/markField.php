@@ -34,8 +34,6 @@ class markField extends Model
     public $supportedMisType;
 
     /**
-     * @description 资产uuid
-     *
      * @var string
      */
     public $uuid;

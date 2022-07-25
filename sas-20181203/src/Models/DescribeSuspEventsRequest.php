@@ -79,15 +79,11 @@ class DescribeSuspEventsRequest extends Model
     public $operateErrorCodeList;
 
     /**
-     * @description 处理时间结束时间
-     *
      * @var string
      */
     public $operateTimeEnd;
 
     /**
-     * @description 处理时间开始时间
-     *
      * @var string
      */
     public $operateTimeStart;
@@ -133,15 +129,11 @@ class DescribeSuspEventsRequest extends Model
     public $targetType;
 
     /**
-     * @description 最新发生结束时间
-     *
      * @var string
      */
     public $timeEnd;
 
     /**
-     * @description 最新发生开始时间
-     *
      * @var string
      */
     public $timeStart;

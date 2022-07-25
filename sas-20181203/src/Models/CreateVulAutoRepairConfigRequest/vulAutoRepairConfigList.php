@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class vulAutoRepairConfigList extends Model
 {
     /**
-     * @description 漏洞别名
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description 漏洞名称
-     *
      * @var string
      */
     public $name;

@@ -14,15 +14,11 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $currentPage;
 
     /**
-     * @description 加白方式
-     *
      * @var string
      */
     public $disposalWay;
 
     /**
-     * @description 告警事件名称（子类型）
-     *
      * @var string
      */
     public $eventName;
@@ -43,8 +39,6 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $pageSize;
 
     /**
-     * @description 资产名
-     *
      * @var string
      */
     public $remark;

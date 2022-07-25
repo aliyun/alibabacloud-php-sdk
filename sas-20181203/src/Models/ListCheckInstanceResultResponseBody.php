@@ -17,7 +17,7 @@ class ListCheckInstanceResultResponseBody extends Model
     public $basicData;
 
     /**
-     * @var mixed[]
+     * @var mixed[][]
      */
     public $checks;
 
@@ -35,18 +35,12 @@ class ListCheckInstanceResultResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
-        'basicData'  => 'BasicData',
-        'checks'     => 'Checks',
-        'columns'    => 'Columns',
-        'pageInfo'   => 'PageInfo',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'basicData' => 'BasicData',
+        'checks'    => 'Checks',
+        'columns'   => 'Columns',
+        'pageInfo'  => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -83,9 +77,6 @@ class ListCheckInstanceResultResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
 
         return $res;
     }
@@ -108,7 +99,9 @@ class ListCheckInstanceResultResponseBody extends Model
             }
         }
         if (isset($map['Checks'])) {
-            $model->checks = $map['Checks'];
+            if (!empty($map['Checks'])) {
+                $model->checks = $map['Checks'];
+            }
         }
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
@@ -124,9 +117,6 @@ class ListCheckInstanceResultResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

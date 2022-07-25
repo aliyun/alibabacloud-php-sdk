@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 用户统一编号
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description 处置方式
-     *
      * @var string
      */
     public $disposalWay;
 
     /**
-     * @description 告警事件名称（子类型）
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description 告警事件名称（子类型）
-     *
      * @var string
      */
     public $eventNameOriginal;
 
     /**
-     * @description 告警事件名称（父类型）
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description 告警事件名称（父类型）
-     *
      * @var string
      */
     public $eventTypeOriginal;
 
     /**
-     * @description 加白字段
-     *
      * @var string
      */
     public $field;
 
     /**
-     * @description 加白值
-     *
      * @var string
      */
     public $fieldValue;
 
     /**
-     * @description 加白字段别名
-     *
      * @var string
      */
     public $filedAliasName;
 
     /**
-     * @description 操作符
-     *
      * @var string
      */
     public $operate;
 
     /**
-     * @description 资产ids，逗号分割
-     *
      * @var string
      */
     public $uuids;

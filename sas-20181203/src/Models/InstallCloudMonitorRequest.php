@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class InstallCloudMonitorRequest extends Model
 {
     /**
-     * @description 非阿里云主机安装云监控插件时所需要的AccessKey
-     *
      * @var string
      */
     public $agentAccessKey;
 
     /**
-     * @description 非阿里云主机安装云监控插件时所需要的AccessSecret
-     *
      * @var string
      */
     public $agentSecretKey;
 
     /**
-     * @description 云监控版本
-     *
      * @var string
      */
     public $argusVersion;
 
     /**
-     * @description 实例 instanceId
-     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
-     * @description uuid 列表
-     *
      * @var string[]
      */
     public $uuidList;

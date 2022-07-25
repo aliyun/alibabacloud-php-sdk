@@ -21,8 +21,6 @@ class DescribeImageFixTaskResponseBody extends Model
     public $pageInfo;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

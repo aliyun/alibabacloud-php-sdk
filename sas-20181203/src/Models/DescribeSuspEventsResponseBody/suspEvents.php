@@ -242,8 +242,6 @@ class suspEvents extends Model
     public $stages;
 
     /**
-     * @description 攻击阶段展示名
-     *
      * @var tacticItems[]
      */
     public $tacticItems;

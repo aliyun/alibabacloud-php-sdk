@@ -15,8 +15,6 @@ class CreateVulAutoRepairConfigRequest extends Model
     public $reason;
 
     /**
-     * @description 漏洞类型
-     *
      * @var string
      */
     public $type;

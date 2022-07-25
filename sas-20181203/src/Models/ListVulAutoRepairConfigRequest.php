@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListVulAutoRepairConfigRequest extends Model
 {
     /**
-     * @description 漏洞别名
-     *
      * @var string
      */
     public $aliasName;
@@ -26,8 +24,6 @@ class ListVulAutoRepairConfigRequest extends Model
     public $pageSize;
 
     /**
-     * @description 漏洞类型
-     *
      * @var string
      */
     public $type;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgVulItemRequest extends Model
 {
     /**
-     * @description 检测方式
-     *
      * @var int
      */
     public $checkType;
