@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQAResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponse;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARRequest;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARResponse;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedRequest;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\TranslateMedResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
@@ -1435,6 +1437,67 @@ class Imageprocess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->screenChestCTWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SegmentOARRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SegmentOARResponse
+     */
+    public function segmentOARWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->bodyPart)) {
+            $body['BodyPart'] = $request->bodyPart;
+        }
+        if (!Utils::isUnset($request->contrast)) {
+            $body['Contrast'] = $request->contrast;
+        }
+        if (!Utils::isUnset($request->dataFormat)) {
+            $body['DataFormat'] = $request->dataFormat;
+        }
+        if (!Utils::isUnset($request->maskList)) {
+            $body['MaskList'] = $request->maskList;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $body['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->orgName)) {
+            $body['OrgName'] = $request->orgName;
+        }
+        if (!Utils::isUnset($request->URLList)) {
+            $body['URLList'] = $request->URLList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SegmentOAR',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SegmentOARResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SegmentOARRequest $request
+     *
+     * @return SegmentOARResponse
+     */
+    public function segmentOAR($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->segmentOARWithOptions($request, $runtime);
     }
 
     /**
