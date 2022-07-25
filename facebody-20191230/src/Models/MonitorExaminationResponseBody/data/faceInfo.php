@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class faceInfo extends Model
 {
     /**
-     * @var int
+     * @var float
      */
     public $completeness;
 
