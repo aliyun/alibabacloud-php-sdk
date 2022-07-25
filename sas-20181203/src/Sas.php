@@ -277,6 +277,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ExportWarningResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetBackupStorageCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
@@ -293,6 +295,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulAutoRepairConfigRequest;
@@ -8082,6 +8086,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetCheckDetailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCheckDetailResponse
+     */
+    public function getCheckDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCheckDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCheckDetailRequest $request
+     *
+     * @return GetCheckDetailResponse
+     */
+    public function getCheckDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCheckDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetFileDetectResultRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -8501,6 +8551,76 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installCloudMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCheckInstanceResultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCheckInstanceResultResponse
+     */
+    public function listCheckInstanceResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkId)) {
+            $query['CheckId'] = $request->checkId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceIdKey)) {
+            $query['InstanceIdKey'] = $request->instanceIdKey;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceNameKey)) {
+            $query['InstanceNameKey'] = $request->instanceNameKey;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionIdKey)) {
+            $query['RegionIdKey'] = $request->regionIdKey;
+        }
+        if (!Utils::isUnset($request->sortTypes)) {
+            $query['SortTypes'] = $request->sortTypes;
+        }
+        if (!Utils::isUnset($request->statuses)) {
+            $query['Statuses'] = $request->statuses;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCheckInstanceResult',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCheckInstanceResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCheckInstanceResultRequest $request
+     *
+     * @return ListCheckInstanceResultResponse
+     */
+    public function listCheckInstanceResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCheckInstanceResultWithOptions($request, $runtime);
     }
 
     /**
