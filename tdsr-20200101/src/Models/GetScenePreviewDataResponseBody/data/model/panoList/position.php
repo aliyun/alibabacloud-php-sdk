@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class position extends Model
 {
     /**
-     * @description 当前点位在场景中的旋转四元素
-     *
      * @var float[]
      */
     public $rotation;
 
     /**
-     * @description 当前点位在场景中的坐标
-     *
      * @var float[]
      */
     public $spot;
 
     /**
-     * @description 当前子场景名标签在场景中的坐标
-     *
      * @var float[]
      */
     public $viewpoint;

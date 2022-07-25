@@ -14,22 +14,16 @@ class AddSceneRequest extends Model
     public $customerUid;
 
     /**
-     * @description 场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 场景类型 3D模型：MODEL_3D  全景图片：PIC  全景视频：VIDEO 混合：MIX
-     *
      * @var string
      */
     public $type;

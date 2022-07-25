@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class LinkImageRequest extends Model
 {
     /**
-     * @description 相机高度 单位 cm
-     *
      * @var int
      */
     public $cameraHeight;
 
     /**
-     * @description 图片或者视频名称xxx.jpg
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 平台标识，默认PC
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;

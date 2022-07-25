@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PublishStatusRequest extends Model
 {
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;

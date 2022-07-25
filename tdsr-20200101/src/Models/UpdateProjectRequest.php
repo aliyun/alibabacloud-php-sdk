@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
-     * @description 业务Id
-     *
      * @var string
      */
     public $businessId;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $name;

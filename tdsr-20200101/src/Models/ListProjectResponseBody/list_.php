@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 业务ID
-     *
      * @var int
      */
     public $businessId;
 
     /**
-     * @description 业务名称
-     *
      * @var string
      */
     public $businessName;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 最后修改时间
-     *
      * @var int
      */
     public $modifiedTime;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Token
-     *
      * @var string
      */
     public $token;

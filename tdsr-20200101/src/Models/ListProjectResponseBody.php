@@ -10,64 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListProjectResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description count
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description 当前页
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description 是否有下一页
-     *
      * @var bool
      */
     public $hasNext;
 
     /**
-     * @description 项目数据
-     *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 总页数
-     *
      * @var int
      */
     public $totalPage;

@@ -4,108 +4,97 @@
 
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneResponseBody\captures;
 use AlibabaCloud\Tea\Model;
 
 class DetailSceneResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
+     * @var captures[]
+     */
+    public $captures;
+
+    /**
      * @var int
      */
     public $code;
 
     /**
-     * @description 封面地址
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 最后修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 主场景Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 预览Token
-     *
      * @var string
      */
     public $previewToken;
 
     /**
-     * @description 是否已发布 true：已发布：false：未发布
-     *
      * @var bool
      */
     public $published;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 资源数
-     *
      * @var int
      */
     public $sourceNum;
 
     /**
-     * @description 子场景数
-     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $statusName;
+
+    /**
      * @var int
      */
     public $subSceneNum;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 场景类型
-     *
      * @var string
      */
     public $type;
     protected $_name = [
+        'captures'     => 'Captures',
         'code'         => 'Code',
         'coverUrl'     => 'CoverUrl',
         'gmtCreate'    => 'GmtCreate',
@@ -117,6 +106,8 @@ class DetailSceneResponseBody extends Model
         'published'    => 'Published',
         'requestId'    => 'RequestId',
         'sourceNum'    => 'SourceNum',
+        'status'       => 'Status',
+        'statusName'   => 'StatusName',
         'subSceneNum'  => 'SubSceneNum',
         'success'      => 'Success',
         'type'         => 'Type',
@@ -129,6 +120,15 @@ class DetailSceneResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->captures) {
+            $res['Captures'] = [];
+            if (null !== $this->captures && \is_array($this->captures)) {
+                $n = 0;
+                foreach ($this->captures as $item) {
+                    $res['Captures'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -162,6 +162,12 @@ class DetailSceneResponseBody extends Model
         if (null !== $this->sourceNum) {
             $res['SourceNum'] = $this->sourceNum;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusName) {
+            $res['StatusName'] = $this->statusName;
+        }
         if (null !== $this->subSceneNum) {
             $res['SubSceneNum'] = $this->subSceneNum;
         }
@@ -183,6 +189,15 @@ class DetailSceneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Captures'])) {
+            if (!empty($map['Captures'])) {
+                $model->captures = [];
+                $n               = 0;
+                foreach ($map['Captures'] as $item) {
+                    $model->captures[$n++] = null !== $item ? captures::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -215,6 +230,12 @@ class DetailSceneResponseBody extends Model
         }
         if (isset($map['SourceNum'])) {
             $model->sourceNum = $map['SourceNum'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StatusName'])) {
+            $model->statusName = $map['StatusName'];
         }
         if (isset($map['SubSceneNum'])) {
             $model->subSceneNum = $map['SubSceneNum'];

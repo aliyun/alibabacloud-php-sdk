@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class GetSingleConnDataResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 关联信息
-     *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 版本
-     *
      * @var string
      */
     public $version;

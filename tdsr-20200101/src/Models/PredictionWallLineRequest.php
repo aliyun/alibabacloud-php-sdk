@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PredictionWallLineRequest extends Model
 {
     /**
-     * @description 相机高度 单位 cm
-     *
      * @var int
      */
     public $cameraHeight;
 
     /**
-     * @description 图片地址
-     *
      * @var string
      */
     public $url;

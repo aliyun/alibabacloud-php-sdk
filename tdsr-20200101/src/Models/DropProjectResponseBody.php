@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DropProjectResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID与入参中requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetTaskStatusRequest extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $taskId;

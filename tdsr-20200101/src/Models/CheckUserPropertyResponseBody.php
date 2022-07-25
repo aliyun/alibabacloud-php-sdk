@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CheckUserPropertyResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 用户属性是否匹配
-     *
      * @var bool
      */
     public $match;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;

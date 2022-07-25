@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetLayoutDataRequest extends Model
 {
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;

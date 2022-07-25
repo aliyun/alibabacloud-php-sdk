@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CheckUserPropertyRequest extends Model
 {
     /**
-     * @description 用户uid
-     *
      * @var string
      */
     public $uid;

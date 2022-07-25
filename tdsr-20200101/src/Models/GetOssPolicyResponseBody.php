@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class GetOssPolicyResponseBody extends Model
 {
     /**
-     * @description accessId
-     *
      * @var string
      */
     public $accessId;
 
     /**
-     * @description 上传回调
-     *
      * @var string
      */
     public $callback;
 
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 授权路径
-     *
      * @var string
      */
     public $dir;
 
     /**
-     * @description 授权失效时间(s)
-     *
      * @var string
      */
     public $expire;
 
     /**
-     * @description 上传地址
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 授权
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 签名
-     *
      * @var string
      */
     public $signature;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;

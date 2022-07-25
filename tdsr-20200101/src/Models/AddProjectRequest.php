@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddProjectRequest extends Model
 {
     /**
-     * @description 业务id
-     *
      * @var int
      */
     public $businessId;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $name;

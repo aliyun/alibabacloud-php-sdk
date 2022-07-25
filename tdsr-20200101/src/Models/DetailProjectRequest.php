@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetailProjectRequest extends Model
 {
     /**
-     * @description 项目Id
-     *
      * @var string
      */
     public $id;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TempPreviewStatusRequest extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $sceneId;

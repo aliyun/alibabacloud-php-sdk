@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetScenePreviewDataRequest extends Model
 {
     /**
-     * @description 自定义oss域名（可为cdn域名）
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 是否开启自用资源访问（默认false）
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description 预览token
-     *
      * @var string
      */
     public $previewToken;
 
     /**
-     * @description 是否返回热点数据（默认false）
-     *
      * @var bool
      */
     public $showTag;

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class GetTaskStatusResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 任务执行失败错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 任务执行失败错误消息
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 未开始 :init 处理中 : processing    失败 :failure   完成 :succeed  取消 :canceled
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 墙线预测: wall_line 切图: cut_image   重建: build  直角优化：right_angle_optimization  其他：other
-     *
      * @var string
      */
     public $type;

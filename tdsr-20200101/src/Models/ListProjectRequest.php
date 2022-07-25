@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRequest extends Model
 {
     /**
-     * @description 项目名称（使用name%搜索）
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 页长
-     *
      * @var int
      */
     public $pageSize;

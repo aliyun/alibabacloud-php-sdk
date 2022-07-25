@@ -9,106 +9,76 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 2k基准图路径
-     *
      * @var string
      */
     public $baseImageUrl;
 
     /**
-     * @description 图片路径/视频封面路径
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 切图的路径
-     *
      * @var string
      */
     public $cubemapPath;
 
     /**
-     * @description 是否删除
-     *
      * @var bool
      */
     public $deleted;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 最后修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 标注数据
-     *
      * @var string
      */
     public $layoutData;
 
     /**
-     * @description 子场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 原图地址
-     *
      * @var string
      */
     public $originUrl;
 
     /**
-     * @description 图片ID/视频ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description 子场景状态 1.未重建，      * 2.中间模型重建中，      * 3.中间模型重建完成，      * 4.待重建，      * 5.服务商重建中，      * 6.服务商重建完成，      * 7.已发布      * 8.发布中
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 上传资源类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 图片路径/视频路径
-     *
      * @var string
      */
     public $url;

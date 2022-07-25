@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubSceneRequest extends Model
 {
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 子场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 视角坐标，目前支持3元坐标，4元坐标，例如：[0.94005,0.13397,-0.3136,0.782992]
-     *
      * @var float[]
      */
     public $viewPoint;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class LinkImageResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 图片/视频ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;

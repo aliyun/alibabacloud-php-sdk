@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class PredImageRequest extends Model
 {
     /**
-     * @description 是否垂直矫正
-     *
      * @var bool
      */
     public $correctVertical;
 
     /**
-     * @description 门数量(DetectDoor为false时，可为0)
-     *
      * @var int
      */
     public $countDetectDoor;
 
     /**
-     * @description 是否门预测
-     *
      * @var bool
      */
     public $detectDoor;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;

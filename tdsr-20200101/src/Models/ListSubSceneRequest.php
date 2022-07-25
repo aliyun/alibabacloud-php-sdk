@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListSubSceneRequest extends Model
 {
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 页长
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;
@@ -35,8 +29,6 @@ class ListSubSceneRequest extends Model
     public $showLayoutData;
 
     /**
-     * @description 排序字段，默认：NAME（名称），SEQUENCE（自定义排序）
-     *
      * @var string
      */
     public $sortField;

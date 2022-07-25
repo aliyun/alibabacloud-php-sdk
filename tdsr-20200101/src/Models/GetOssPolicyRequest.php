@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetOssPolicyRequest extends Model
 {
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;

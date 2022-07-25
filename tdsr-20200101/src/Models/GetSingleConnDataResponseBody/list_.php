@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 关联ID
-     *
      * @var string
      */
     public $mapId;
 
     /**
-     * @description outer:外关联 inner：内关联 stair：楼梯关联
-     *
      * @var string
      */
     public $type;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description accessId
-     *
      * @var string
      */
     public $accessId;
 
     /**
-     * @description 上传回调
-     *
      * @var string
      */
     public $callback;
 
     /**
-     * @description 授权路径
-     *
      * @var string
      */
     public $dir;
 
     /**
-     * @description 授权失效时间(s)
-     *
      * @var string
      */
     public $expire;
 
     /**
-     * @description 上传地址
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description 授权
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @description 签名
-     *
      * @var string
      */
     public $signature;

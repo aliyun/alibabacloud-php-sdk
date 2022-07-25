@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateConnDataRequest extends Model
 {
     /**
-     * @description 关联数据
-     *
      * @var string
      */
     public $connData;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;

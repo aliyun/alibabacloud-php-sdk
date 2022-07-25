@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 失效日期
-     *
      * @var string
      */
     public $expire;
 
     /**
-     * @description 打包文件地址
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 是否有效
-     *
      * @var bool
      */
     public $valid;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddRelativePositionRequest extends Model
 {
     /**
-     * @description 相对位置信息
-     *
      * @var string
      */
     public $relativePosition;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddMosaicsRequest extends Model
 {
     /**
-     * @description 马赛克位置数据
-     *
      * @var string
      */
     public $markPosition;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;

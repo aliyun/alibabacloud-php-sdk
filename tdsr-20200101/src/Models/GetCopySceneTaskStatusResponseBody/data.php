@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 任务进度
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;

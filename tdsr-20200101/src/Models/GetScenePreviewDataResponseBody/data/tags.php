@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description 配置
-     *
      * @var config
      */
     public $config;
 
     /**
-     * @description 标签ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 坐标
-     *
      * @var float[]
      */
     public $position;
@@ -36,8 +30,6 @@ class tags extends Model
     public $positionPanoCube;
 
     /**
-     * @description 热点类型
-     *
      * @var string
      */
     public $type;

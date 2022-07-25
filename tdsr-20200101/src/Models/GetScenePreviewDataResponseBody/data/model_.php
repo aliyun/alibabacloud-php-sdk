@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
-     * @description 模型地址
-     *
      * @var string
      */
     public $modelPath;
 
     /**
-     * @description 点位数据
-     *
      * @var panoList[]
      */
     public $panoList;
 
     /**
-     * @description 模型的贴图路径
-     *
      * @var string
      */
     public $textureModelPath;
 
     /**
-     * @description 漫游后预览图片路径
-     *
      * @var string
      */
     public $texturePanoPath;

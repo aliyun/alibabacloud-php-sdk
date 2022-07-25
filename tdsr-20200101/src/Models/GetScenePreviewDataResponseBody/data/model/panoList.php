@@ -10,99 +10,71 @@ use AlibabaCloud\Tea\Model;
 class panoList extends Model
 {
     /**
-     * @description 当前房间的所有点位
-     *
      * @var string[]
      */
     public $curRoomPicList;
 
     /**
-     * @description 当前点位是否渲染，false不渲染，场景无法跳转
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description 楼层号
-     *
      * @var string
      */
     public $floorIdx;
 
     /**
-     * @description 点位ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 单房间多图情况下，是否为主图，默认true
-     *
      * @var bool
      */
     public $mainImage;
 
     /**
-     * @description 当前房间邻近可视的点位id
-     *
      * @var string[]
      */
     public $neighbours;
 
     /**
-     * @description 位置数据
-     *
      * @var position
      */
     public $position;
 
     /**
-     * @description 一个名称，无实际意义
-     *
      * @var string
      */
     public $rawName;
 
     /**
-     * @description 全景贴图路径
-     *
      * @var string
      */
     public $resource;
 
     /**
-     * @description 房间号
-     *
      * @var string
      */
     public $roomIdx;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;
 
     /**
-     * @description token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description 图片虚拟ID
-     *
      * @var string
      */
     public $virtualId;
 
     /**
-     * @description 图片名称
-     *
      * @var string
      */
     public $virtualName;

@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DetailProjectResponseBody extends Model
 {
     /**
-     * @description 业务ID
-     *
      * @var int
      */
     public $businessId;
 
     /**
-     * @description 业务名称
-     *
      * @var string
      */
     public $businessName;
 
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 最后修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description Token
-     *
      * @var string
      */
     public $token;

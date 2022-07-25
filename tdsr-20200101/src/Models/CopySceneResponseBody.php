@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CopySceneResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
@@ -22,22 +20,16 @@ class CopySceneResponseBody extends Model
     public $data;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;

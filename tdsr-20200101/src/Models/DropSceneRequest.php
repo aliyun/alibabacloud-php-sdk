@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DropSceneRequest extends Model
 {
     /**
-     * @description 主场景id
-     *
      * @var string
      */
     public $id;

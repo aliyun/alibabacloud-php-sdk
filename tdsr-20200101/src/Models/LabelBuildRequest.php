@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class LabelBuildRequest extends Model
 {
     /**
-     * @description 重建模式：MANUAL：手动（云端），默认，SEMI_AUTOMATIC：半自动（移动端）
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description 模型效果 PATCH：切片模型（默认） DEPTH：深度模型 VIRTUAL：虚拟模型 MOBILE：移动重建模型
-     *
      * @var string
      */
     public $modelStyle;
 
     /**
-     * @description 墙宽优化，OFF:关闭（默认） NORMAL：标准 ENHANCED：加强
-     *
      * @var string
      */
     public $optimizeWallWidth;
 
     /**
-     * @description 户型图，DEFAULT（默认），STANDARD（标准）
-     *
      * @var string
      */
     public $planStyle;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 墙高，默认0不设置，范围200-1000. 单位cm
-     *
      * @var int
      */
     public $wallHeight;

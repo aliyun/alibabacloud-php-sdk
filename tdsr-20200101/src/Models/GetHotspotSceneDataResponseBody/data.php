@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 模型token（sgm token）
-     *
      * @var string
      */
     public $modelToken;
 
     /**
-     * @description html转译后的预览数据，包含图片、子场景ID等信息
-     *
      * @var string
      */
     public $previewData;
 
     /**
-     * @description 预览token
-     *
      * @var string
      */
     public $previewToken;
 
     /**
-     * @description 3D模型：MODEL_3D 全景图片：PIC 全景视频：VIDEO
-     *
      * @var string
      */
     public $sceneType;

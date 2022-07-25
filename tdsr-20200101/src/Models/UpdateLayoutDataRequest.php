@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateLayoutDataRequest extends Model
 {
     /**
-     * @description 标注数据
-     *
      * @var string
      */
     public $layoutData;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;

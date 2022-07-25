@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPackSceneTaskStatusRequest extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description 操作类型：download（下载），sync（同步）
-     *
      * @var string
      */
     public $type;

@@ -9,19 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CopySceneRequest extends Model
 {
     /**
-     * @description 场景Id
-     *
+     * @var string
+     */
+    public $projectId;
+
+    /**
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 新场景名称
-     *
      * @var string
      */
     public $sceneName;
     protected $_name = [
+        'projectId' => 'ProjectId',
         'sceneId'   => 'SceneId',
         'sceneName' => 'SceneName',
     ];
@@ -33,6 +35,9 @@ class CopySceneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
@@ -51,6 +56,9 @@ class CopySceneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }

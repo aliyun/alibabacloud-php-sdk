@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetSourcePackStatusRequest extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $taskId;

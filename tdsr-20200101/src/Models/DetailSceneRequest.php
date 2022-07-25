@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetailSceneRequest extends Model
 {
     /**
-     * @description 场景Id
-     *
      * @var string
      */
     public $id;

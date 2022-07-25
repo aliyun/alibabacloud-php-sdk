@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetSourcePackStatusResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
@@ -22,29 +20,21 @@ class GetSourcePackStatusResponseBody extends Model
     public $data;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 压缩包的地址
-     *
      * @var string
      */
     public $url;

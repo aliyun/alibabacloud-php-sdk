@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListSceneRequest extends Model
 {
     /**
-     * @description 主场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 当前页
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 页长
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 所有项目Id
-     *
      * @var string
      */
     public $projectId;

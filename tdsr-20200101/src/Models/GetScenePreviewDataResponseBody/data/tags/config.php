@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @description 背景色
-     *
      * @var string
      */
     public $backgroundColor;
 
     /**
-     * @description 按钮配置
-     *
      * @var buttonConfig
      */
     public $buttonConfig;
 
     /**
-     * @description 内容
-     *
      * @var string
      */
     public $content;
@@ -46,36 +40,26 @@ class config extends Model
     public $formSelectImgType;
 
     /**
-     * @description 图片链接
-     *
      * @var string[]
      */
     public $images;
 
     /**
-     * @description 是否在鸟瞰模式下显示
-     *
      * @var bool
      */
     public $isTagVisibleBy3d;
 
     /**
-     * @description 超链接
-     *
      * @var string
      */
     public $link;
 
     /**
-     * @description 点位ID
-     *
      * @var string
      */
     public $panoId;
 
     /**
-     * @description 坐标
-     *
      * @var float[]
      */
     public $position;
@@ -91,22 +75,16 @@ class config extends Model
     public $relatedPanoIds;
 
     /**
-     * @description 场景ID
-     *
      * @var int
      */
     public $sceneId;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 视频链接
-     *
      * @var string
      */
     public $video;

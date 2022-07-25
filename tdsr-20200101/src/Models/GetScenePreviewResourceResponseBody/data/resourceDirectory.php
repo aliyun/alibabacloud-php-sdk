@@ -11,6 +11,11 @@ class resourceDirectory extends Model
     /**
      * @var string
      */
+    public $hotspotTagConfig;
+
+    /**
+     * @var string
+     */
     public $modelConfig;
 
     /**
@@ -23,9 +28,10 @@ class resourceDirectory extends Model
      */
     public $rootPath;
     protected $_name = [
-        'modelConfig'    => 'ModelConfig',
-        'orthomapConfig' => 'OrthomapConfig',
-        'rootPath'       => 'RootPath',
+        'hotspotTagConfig' => 'HotspotTagConfig',
+        'modelConfig'      => 'ModelConfig',
+        'orthomapConfig'   => 'OrthomapConfig',
+        'rootPath'         => 'RootPath',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class resourceDirectory extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hotspotTagConfig) {
+            $res['HotspotTagConfig'] = $this->hotspotTagConfig;
+        }
         if (null !== $this->modelConfig) {
             $res['ModelConfig'] = $this->modelConfig;
         }
@@ -56,6 +65,9 @@ class resourceDirectory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HotspotTagConfig'])) {
+            $model->hotspotTagConfig = $map['HotspotTagConfig'];
+        }
         if (isset($map['ModelConfig'])) {
             $model->modelConfig = $map['ModelConfig'];
         }

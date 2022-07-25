@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class PredictionWallLineResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $taskId;

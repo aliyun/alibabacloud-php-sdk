@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddSubSceneRequest extends Model
 {
     /**
-     * @description 子场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 类型 图片：IMAGE 视频：VIDEO
-     *
      * @var string
      */
     public $uploadType;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PackSceneRequest extends Model
 {
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 操作类型：download（下载），sync（同步）
-     *
      * @var string
      */
     public $type;

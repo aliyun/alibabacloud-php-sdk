@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetScenePreviewResourceRequest extends Model
 {
     /**
-     * @description 预览token
-     *
+     * @var bool
+     */
+    public $draft;
+
+    /**
      * @var string
      */
     public $previewToken;
     protected $_name = [
+        'draft'        => 'Draft',
         'previewToken' => 'PreviewToken',
     ];
 
@@ -25,6 +29,9 @@ class GetScenePreviewResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->draft) {
+            $res['Draft'] = $this->draft;
+        }
         if (null !== $this->previewToken) {
             $res['PreviewToken'] = $this->previewToken;
         }
@@ -40,6 +47,9 @@ class GetScenePreviewResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Draft'])) {
+            $model->draft = $map['Draft'];
+        }
         if (isset($map['PreviewToken'])) {
             $model->previewToken = $map['PreviewToken'];
         }

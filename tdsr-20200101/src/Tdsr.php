@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckUserPropertyRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CheckUserPropertyResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CopySceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CopySceneResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateUploadPolicyRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateUploadPolicyResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneRequest;
@@ -94,6 +96,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredictionWallLineRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredictionWallLineResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PredImageResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotConfigRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishHotspotResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\PublishSceneRequest;
@@ -110,8 +114,12 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\RollbackSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\RollbackSubSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotConfigResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagListRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagListResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveModelConfigRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveModelConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ScenePublishRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ScenePublishResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\TempPreviewRequest;
@@ -509,6 +517,9 @@ class Tdsr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
         if (!Utils::isUnset($request->sceneId)) {
             $query['SceneId'] = $request->sceneId;
         }
@@ -543,6 +554,52 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->copySceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateUploadPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateUploadPolicyResponse
+     */
+    public function createUploadPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->option)) {
+            $query['Option'] = $request->option;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUploadPolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateUploadPolicyRequest $request
+     *
+     * @return CreateUploadPolicyResponse
+     */
+    public function createUploadPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUploadPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1463,6 +1520,9 @@ class Tdsr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->draft)) {
+            $query['Draft'] = $request->draft;
+        }
         if (!Utils::isUnset($request->previewToken)) {
             $query['PreviewToken'] = $request->previewToken;
         }
@@ -2254,6 +2314,49 @@ class Tdsr extends OpenApiClient
     }
 
     /**
+     * @param PublishHotspotConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PublishHotspotConfigResponse
+     */
+    public function publishHotspotConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishHotspotConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishHotspotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishHotspotConfigRequest $request
+     *
+     * @return PublishHotspotConfigResponse
+     */
+    public function publishHotspotConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishHotspotConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PublishSceneRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2613,6 +2716,98 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveHotspotTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveHotspotTagListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SaveHotspotTagListResponse
+     */
+    public function saveHotspotTagListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->hotspotListJson)) {
+            $query['HotspotListJson'] = $request->hotspotListJson;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveHotspotTagList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveHotspotTagListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveHotspotTagListRequest $request
+     *
+     * @return SaveHotspotTagListResponse
+     */
+    public function saveHotspotTagList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveHotspotTagListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveModelConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SaveModelConfigResponse
+     */
+    public function saveModelConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveModelConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveModelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveModelConfigRequest $request
+     *
+     * @return SaveModelConfigResponse
+     */
+    public function saveModelConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveModelConfigWithOptions($request, $runtime);
     }
 
     /**

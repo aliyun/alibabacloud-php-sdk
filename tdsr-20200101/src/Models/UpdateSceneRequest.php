@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateSceneRequest extends Model
 {
     /**
-     * @description 场景Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 场景名称
-     *
      * @var string
      */
     public $name;

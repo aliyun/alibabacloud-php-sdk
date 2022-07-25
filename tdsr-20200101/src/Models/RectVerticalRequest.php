@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RectVerticalRequest extends Model
 {
     /**
-     * @description 需要预测的门的数量
-     *
      * @var int
      */
     public $countDetectDoor;
 
     /**
-     * @description 是否开启门预测
-     *
      * @var bool
      */
     public $detectDoor;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;
 
     /**
-     * @description 矫正数据
-     *
      * @var string
      */
     public $verticalRect;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 任务失败错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 任务失败错误信息
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 未开始  init 处理中   processing   失败     failure  完成     succeed  取消     canceled
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 子场景ID
-     *
      * @var string
      */
     public $subSceneId;
 
     /**
-     * @description 墙线预测: wall_line   切图: cut_image 重建: build  直角优化：right_angle_optimization 其他：other
-     *
      * @var string
      */
     public $type;

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class GetSceneBuildTaskStatusResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 任务失败错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 任务失败错误消息
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 场景ID
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description 未开始  init 处理中 失败     failed   processing  完成     succeed 取消     canceled
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;

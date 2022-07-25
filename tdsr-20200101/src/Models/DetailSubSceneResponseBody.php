@@ -9,120 +9,91 @@ use AlibabaCloud\Tea\Model;
 class DetailSubSceneResponseBody extends Model
 {
     /**
-     * @description 返回码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 图片路径/视频封面路径
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 切图路径
-     *
      * @var string
      */
     public $cubemapPath;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 最后修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 子场景id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 矫正后图的路径
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 墙线标注数据
-     *
      * @var string
      */
     public $layoutData;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 子场景名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 原图路径
-     *
      * @var string
      */
     public $originUrl;
 
     /**
-     * @description 请求ID，与入参requestId对应
-     *
+     * @var string
+     */
+    public $position;
+
+    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 图片ID/视频ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 子场景状态
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 是否请求成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 图片路径/视频路径
-     *
      * @var string
      */
     public $url;
@@ -138,6 +109,7 @@ class DetailSubSceneResponseBody extends Model
         'message'     => 'Message',
         'name'        => 'Name',
         'originUrl'   => 'OriginUrl',
+        'position'    => 'Position',
         'requestId'   => 'RequestId',
         'resourceId'  => 'ResourceId',
         'status'      => 'Status',
@@ -185,6 +157,9 @@ class DetailSubSceneResponseBody extends Model
         }
         if (null !== $this->originUrl) {
             $res['OriginUrl'] = $this->originUrl;
+        }
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -248,6 +223,9 @@ class DetailSubSceneResponseBody extends Model
         }
         if (isset($map['OriginUrl'])) {
             $model->originUrl = $map['OriginUrl'];
+        }
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
