@@ -9,21 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationRequest extends Model
 {
     /**
-     * @description 阿里UID
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description 应用ID
-     *
      * @var string
      */
     public $appCode;
+
+    /**
+     * @var string
+     */
+    public $itemCode;
     protected $_name = [
-        'aliUid'  => 'AliUid',
-        'appCode' => 'AppCode',
+        'aliUid'   => 'AliUid',
+        'appCode'  => 'AppCode',
+        'itemCode' => 'ItemCode',
     ];
 
     public function validate()
@@ -38,6 +40,9 @@ class GetApplicationRequest extends Model
         }
         if (null !== $this->appCode) {
             $res['AppCode'] = $this->appCode;
+        }
+        if (null !== $this->itemCode) {
+            $res['ItemCode'] = $this->itemCode;
         }
 
         return $res;
@@ -56,6 +61,9 @@ class GetApplicationRequest extends Model
         }
         if (isset($map['AppCode'])) {
             $model->appCode = $map['AppCode'];
+        }
+        if (isset($map['ItemCode'])) {
+            $model->itemCode = $map['ItemCode'];
         }
 
         return $model;

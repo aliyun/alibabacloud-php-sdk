@@ -14,57 +14,41 @@ class OrderQosProductRequest extends Model
     public $aliUid;
 
     /**
-     * @description 渠道ID
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description C端v6 IP（移动场景下可以携带）
-     *
      * @var string
      */
     public $IPv6;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description IP类型
-     *
      * @var string
      */
     public $ipType;
 
     /**
-     * @description C端手机号
-     *
      * @var string
      */
     public $mobileNumber;
 
     /**
-     * @description 取值包括cm（中国移动）/ct（中国电信）/cu（中国联通）
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description C端用户私网IP（联通场景下必须携带)
-     *
      * @var string
      */
     public $privateIpv4;
 
     /**
-     * @description 产品ID
-     *
      * @var string
      */
     public $productId;
@@ -75,36 +59,26 @@ class OrderQosProductRequest extends Model
     public $provice;
 
     /**
-     * @description C端用户公网IP（联通场景下必须携带）
-     *
      * @var string
      */
     public $publicIpv4;
 
     /**
-     * @description 客户侧生成的QoS请求ID，需要保证请求幂等性，确保不同请求间该参数值唯一
-     *
      * @var string
      */
     public $qosRequestId;
 
     /**
-     * @description 移动场景目前ip
-     *
      * @var string[]
      */
     public $targetIpList;
 
     /**
-     * @description token获取
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description 请求次数
-     *
      * @var int
      */
     public $unitNum;

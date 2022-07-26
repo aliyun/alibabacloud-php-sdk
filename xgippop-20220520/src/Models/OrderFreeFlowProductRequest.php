@@ -14,64 +14,46 @@ class OrderFreeFlowProductRequest extends Model
     public $aliUid;
 
     /**
-     * @description 渠道ID
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description 客户侧生成的QoS请求ID，需要保证请求幂等性，确保不同请求间该参数值唯一
-     *
      * @var string
      */
     public $customerFlowRequestId;
 
     /**
-     * @description 免流产品ID
-     *
      * @var string
      */
     public $flowProductId;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 是否包月，true为包月，false为不包月
-     *
      * @var string
      */
     public $lasting;
 
     /**
-     * @description C端手机号
-     *
      * @var string
      */
     public $mobileNumber;
 
     /**
-     * @description 客户提供的回调通知接口url
-     *
      * @var string
      */
     public $notifyUrl;
 
     /**
-     * @description 取值包括cm（中国移动）/ct（中国电信）/cu（中国联通）
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description 支付订单ID
-     *
      * @var string
      */
     public $purchaseOrderId;

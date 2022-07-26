@@ -14,8 +14,6 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description 该实例对应的包类型
-     *
      * @var string
      */
     public $specType;
@@ -26,22 +24,16 @@ class data extends Model
     public $totalMoney;
 
     /**
-     * @description 该实例的订单总数
-     *
      * @var int
      */
     public $totalOrderNumber;
 
     /**
-     * @description 该实例的订单总计量单元数
-     *
      * @var int
      */
     public $totalUnitNumber;
 
     /**
-     * @description 产品规格
-     *
      * @var string
      */
     public $yunOutProduct;

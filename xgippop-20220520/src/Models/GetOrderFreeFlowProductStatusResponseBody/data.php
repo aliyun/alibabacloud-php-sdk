@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description C端免流订单ID
-     *
      * @var string
      */
     public $customerFlowOrderId;
@@ -21,15 +19,11 @@ class data extends Model
     public $customerFlowRequestId;
 
     /**
-     * @description status为fail时，描述fail的具体原因
-     *
      * @var string
      */
     public $error;
 
     /**
-     * @description 执行中ordering、成功success、失败fail
-     *
      * @var string
      */
     public $status;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ValidateStatusRequest extends Model
 {
     /**
-     * @description 阿里UID
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 凭证类型
-     *
      * @var string
      */
     public $credentialType;
 
     /**
-     * @description mobile=150xxxx4661
-     *
      * @var string
      */
     public $credentialValue;
 
     /**
-     * @description 取值包括cm（中国移动）/ct（中国电信）/cu（中国联通）
-     *
      * @var string
      */
     public $operator;

@@ -14,15 +14,11 @@ class GetFreeFlowInstanceRequest extends Model
     public $aliuid;
 
     /**
-     * @description 应用ID
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;

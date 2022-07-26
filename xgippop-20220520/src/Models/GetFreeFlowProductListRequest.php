@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetFreeFlowProductListRequest extends Model
 {
     /**
-     * @description 用户编号
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;

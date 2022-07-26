@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 产品当前状态，true为已配置，false为未配置
-     *
      * @var bool
      */
     public $configured;
 
     /**
-     * @description 产品包含的流量大小
-     *
      * @var string
      */
     public $flowProductAmount;
 
     /**
-     * @description 免流产品ID
-     *
      * @var string
      */
     public $flowProductId;
 
     /**
-     * @description 流量包名称
-     *
      * @var string
      */
     public $flowProductName;
 
     /**
-     * @description 产品周期
-     *
      * @var string
      */
     public $flowProductPeriod;
 
     /**
-     * @description 取值包括free（定向流量）/normal（通用流量）
-     *
      * @var string
      */
     public $flowType;
 
     /**
-     * @description 取值包括cm（中国移动）/ct（中国电信）/cu（中国联通）
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description 注意这里返回的全量套餐里，只能包含SpecType与该InstanceId的SpecType相同的规格
-     *
      * @var string
      */
     public $specType;

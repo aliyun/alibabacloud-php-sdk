@@ -14,8 +14,6 @@ class data extends Model
     public $bizCode;
 
     /**
-     * @description C端免流订单ID
-     *
      * @var string
      */
     public $customerFlowOrderId;
@@ -26,8 +24,6 @@ class data extends Model
     public $customerFlowRequestId;
 
     /**
-     * @description 执行中ordering、成功success、失败fail
-     *
      * @var string
      */
     public $status;

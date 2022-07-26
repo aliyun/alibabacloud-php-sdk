@@ -15,15 +15,11 @@ class data extends Model
     public $appExtPopList;
 
     /**
-     * @description 是否处于免流状态，取值范围为true/false
-     *
      * @var bool
      */
     public $freeFlow;
 
     /**
-     * @description 伪码
-     *
      * @var string
      */
     public $pseudoCode;

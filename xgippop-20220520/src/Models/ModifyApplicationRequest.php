@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyApplicationRequest extends Model
 {
     /**
-     * @description AliUid
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description AppId
-     *
      * @var string
      */
     public $appCode;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description dynamic（动态业务）/static（静态业务
-     *
      * @var string[]
      */
     public $appTypeList;
 
     /**
-     * @description 扩展属性 源域名和源ip信息保存
-     *
      * @var appingList[]
      */
     public $appingList;

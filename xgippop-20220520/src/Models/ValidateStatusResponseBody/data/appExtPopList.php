@@ -14,29 +14,21 @@ class appExtPopList extends Model
     public $extId;
 
     /**
-     * @description cdn ip
-     *
      * @var string[]
      */
     public $flowIp;
 
     /**
-     * @description cdn 域名信息
-     *
      * @var string[]
      */
     public $flowUrl;
 
     /**
-     * @description 业务方ip集合
-     *
      * @var string[]
      */
     public $originalIpList;
 
     /**
-     * @description 业务方域名集合
-     *
      * @var string[]
      */
     public $originalUrlList;

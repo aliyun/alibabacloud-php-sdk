@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationInfoRequest extends Model
 {
     /**
-     * @description 阿里UID
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description dynamic（动态业务）/static（静态业务
-     *
      * @var string[]
      */
     public $appTypeList;
@@ -36,8 +30,6 @@ class CreateApplicationInfoRequest extends Model
     public $appingList;
 
     /**
-     * @description 商品code
-     *
      * @var string
      */
     public $itemCode;

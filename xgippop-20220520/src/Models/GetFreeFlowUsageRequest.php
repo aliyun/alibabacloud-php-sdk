@@ -14,29 +14,21 @@ class GetFreeFlowUsageRequest extends Model
     public $aliUid;
 
     /**
-     * @description 当前页
-     *
      * @var int
      */
     public $curPageNum;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 查询月份
-     *
      * @var string
      */
     public $month;
 
     /**
-     * @description 每页的记录数量
-     *
      * @var int
      */
     public $numPerPage;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyApplicationResponseBody extends Model
 {
     /**
-     * @description 应用id
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 结果码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 结果描述
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否成功
-     *
      * @var bool
      */
     public $success;

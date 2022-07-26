@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SaveApplicationInfoRequest extends Model
 {
     /**
-     * @description 阿里UID
-     *
      * @var int
      */
     public $aliUid;
@@ -21,29 +19,21 @@ class SaveApplicationInfoRequest extends Model
     public $appId;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description dynamic|static
-     *
      * @var string
      */
     public $appTypeList;
 
     /**
-     * @description [
-     *
      * @var string
      */
     public $appingList;
 
     /**
-     * @description 商品code
-     *
      * @var string
      */
     public $itemCode;

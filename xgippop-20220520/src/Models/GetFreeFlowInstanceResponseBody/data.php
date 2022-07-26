@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description APP编号
-     *
      * @var string
      */
     public $appCode;
 
     /**
-     * @description APP名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 产品失效时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceMemo;
 
     /**
-     * @description 实例状态
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @description 产品开通时间
-     *
      * @var string
      */
     public $openTime;
 
     /**
-     * @description 规格类型
-     *
      * @var string
      */
     public $specType;
 
     /**
-     * @description 产品生效时间
-     *
      * @var string
      */
     public $startTime;

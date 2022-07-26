@@ -23,6 +23,18 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageStatisticRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageStatisticResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderFreeFlowProductStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderFreeFlowProductStatusResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosFlowUsageRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosFlowUsageResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosUsageStatisticRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosUsageStatisticResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetUatDataListRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetUatDataListResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetUatSpecCtDataRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetUatSpecCtDataResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\MockGetOrderFreeFlowProductStatusRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\MockGetOrderFreeFlowProductStatusResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\MockOrderFreeFlowProductRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\MockOrderFreeFlowProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ModifyApplicationRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ModifyApplicationResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderFreeFlowProductRequest;
@@ -461,6 +473,276 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOrderFreeFlowProductStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetQosFlowUsageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetQosFlowUsageResponse
+     */
+    public function getQosFlowUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQosFlowUsage',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQosFlowUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetQosFlowUsageRequest $request
+     *
+     * @return GetQosFlowUsageResponse
+     */
+    public function getQosFlowUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQosFlowUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetQosUsageStatisticRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetQosUsageStatisticResponse
+     */
+    public function getQosUsageStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQosUsageStatistic',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQosUsageStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetQosUsageStatisticRequest $request
+     *
+     * @return GetQosUsageStatisticResponse
+     */
+    public function getQosUsageStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQosUsageStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUatDataListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetUatDataListResponse
+     */
+    public function getUatDataListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUatDataList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUatDataListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUatDataListRequest $request
+     *
+     * @return GetUatDataListResponse
+     */
+    public function getUatDataList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUatDataListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUatSpecCtDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetUatSpecCtDataResponse
+     */
+    public function getUatSpecCtDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUatSpecCtData',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUatSpecCtDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUatSpecCtDataRequest $request
+     *
+     * @return GetUatSpecCtDataResponse
+     */
+    public function getUatSpecCtData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUatSpecCtDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MockGetOrderFreeFlowProductStatusRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return MockGetOrderFreeFlowProductStatusResponse
+     */
+    public function mockGetOrderFreeFlowProductStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MockGetOrderFreeFlowProductStatus',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MockGetOrderFreeFlowProductStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MockGetOrderFreeFlowProductStatusRequest $request
+     *
+     * @return MockGetOrderFreeFlowProductStatusResponse
+     */
+    public function mockGetOrderFreeFlowProductStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mockGetOrderFreeFlowProductStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MockOrderFreeFlowProductRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return MockOrderFreeFlowProductResponse
+     */
+    public function mockOrderFreeFlowProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->customerFlowRequestId)) {
+            $query['CustomerFlowRequestId'] = $request->customerFlowRequestId;
+        }
+        if (!Utils::isUnset($request->flowProductId)) {
+            $query['FlowProductId'] = $request->flowProductId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lasting)) {
+            $query['Lasting'] = $request->lasting;
+        }
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $query['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->purchaseOrderId)) {
+            $query['PurchaseOrderId'] = $request->purchaseOrderId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MockOrderFreeFlowProduct',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MockOrderFreeFlowProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MockOrderFreeFlowProductRequest $request
+     *
+     * @return MockOrderFreeFlowProductResponse
+     */
+    public function mockOrderFreeFlowProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mockOrderFreeFlowProductWithOptions($request, $runtime);
     }
 
     /**

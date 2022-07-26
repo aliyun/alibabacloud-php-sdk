@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 当前页数
-     *
      * @var int
      */
     public $curPageNum;
 
     /**
-     * @description C端用户列表
-     *
      * @var customerList[]
      */
     public $customerList;
 
     /**
-     * @description 是否有下一页
-     *
      * @var bool
      */
     public $hasNext;
 
     /**
-     * @description 是否有上一页
-     *
      * @var bool
      */
     public $hasPrev;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 每页的记录条数
-     *
      * @var int
      */
     public $numPerPage;
 
     /**
-     * @description 总记录条数
-     *
      * @var int
      */
     public $totalNum;
 
     /**
-     * @description 总页数
-     *
      * @var int
      */
     public $totalPageNum;

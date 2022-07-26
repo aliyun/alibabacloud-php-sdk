@@ -14,8 +14,6 @@ class ValidControllerAuthorRequest extends Model
     public $aliUid;
 
     /**
-     * @description 商品code
-     *
      * @var string
      */
     public $itemCode;

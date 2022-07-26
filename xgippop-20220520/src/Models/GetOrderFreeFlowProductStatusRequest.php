@@ -14,8 +14,6 @@ class GetOrderFreeFlowProductStatusRequest extends Model
     public $aliUid;
 
     /**
-     * @description 在订购接口2.1.9中引擎侧生成的id
-     *
      * @var string
      */
     public $customerFlowOrderId;

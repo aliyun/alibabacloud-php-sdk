@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class customerList extends Model
 {
     /**
-     * @description 购买渠道
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description C端产品失效时间
-     *
      * @var string
      */
     public $customerEndTime;
@@ -28,64 +24,46 @@ class customerList extends Model
     public $customerFlowOrderId;
 
     /**
-     * @description C端免流状态，取值包括create/working/expiration
-     *
      * @var string
      */
     public $customerFlowStatus;
 
     /**
-     * @description C端产品开通时间
-     *
      * @var string
      */
     public $customerOpenTime;
 
     /**
-     * @description C端产品生效时间
-     *
      * @var string
      */
     public $customerStartTime;
 
     /**
-     * @description 免流产品ID
-     *
      * @var string
      */
     public $flowProductId;
 
     /**
-     * @description 免流产品名
-     *
      * @var string
      */
     public $flowProductName;
 
     /**
-     * @description 是否包月，true或false
-     *
      * @var bool
      */
     public $isLasting;
 
     /**
-     * @description C端手机号
-     *
      * @var string
      */
     public $mobileNumber;
 
     /**
-     * @description 该流量包的计量单元数
-     *
      * @var int
      */
     public $unitNum;
 
     /**
-     * @description 流量包价格
-     *
      * @var int
      */
     public $unitPrice;

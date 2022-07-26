@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class GetFreeFlowUsageResponseBody extends Model
 {
     /**
-     * @description 结果码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 结果
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 结果描述
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求链路ID，如POP请求进来的requestId，返回时原样返回
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 服务端处理耗时，ms
-     *
      * @var int
      */
     public $rt;
 
     /**
-     * @description 是否成功
-     *
      * @var bool
      */
     public $success;
