@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ConvertPostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ConvertPostPayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateAclRequest;
@@ -151,6 +153,55 @@ class Alikafka extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -346,6 +397,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->specType)) {
             $query['SpecType'] = $request->specType;
         }
@@ -412,6 +466,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->specType)) {
             $query['SpecType'] = $request->specType;
@@ -1192,6 +1249,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -1608,6 +1668,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->isEipInner)) {
             $query['IsEipInner'] = $request->isEipInner;
         }
+        if (!Utils::isUnset($request->isForceSelectedZones)) {
+            $query['IsForceSelectedZones'] = $request->isForceSelectedZones;
+        }
         if (!Utils::isUnset($request->isSetUserAndPassword)) {
             $query['IsSetUserAndPassword'] = $request->isSetUserAndPassword;
         }
@@ -1616,6 +1679,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notifier)) {
+            $query['Notifier'] = $request->notifier;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
@@ -1626,8 +1692,14 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->securityGroup)) {
             $query['SecurityGroup'] = $request->securityGroup;
         }
+        if (!Utils::isUnset($request->selectedZones)) {
+            $query['SelectedZones'] = $request->selectedZones;
+        }
         if (!Utils::isUnset($request->serviceVersion)) {
             $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->userPhoneNum)) {
+            $query['UserPhoneNum'] = $request->userPhoneNum;
         }
         if (!Utils::isUnset($request->username)) {
             $query['Username'] = $request->username;
@@ -1681,6 +1753,9 @@ class Alikafka extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

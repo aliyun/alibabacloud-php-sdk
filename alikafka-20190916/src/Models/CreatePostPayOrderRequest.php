@@ -46,6 +46,11 @@ class CreatePostPayOrderRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $specType;
 
     /**
@@ -53,15 +58,16 @@ class CreatePostPayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'deployType' => 'DeployType',
-        'diskSize'   => 'DiskSize',
-        'diskType'   => 'DiskType',
-        'eipMax'     => 'EipMax',
-        'ioMax'      => 'IoMax',
-        'ioMaxSpec'  => 'IoMaxSpec',
-        'regionId'   => 'RegionId',
-        'specType'   => 'SpecType',
-        'topicQuota' => 'TopicQuota',
+        'deployType'      => 'DeployType',
+        'diskSize'        => 'DiskSize',
+        'diskType'        => 'DiskType',
+        'eipMax'          => 'EipMax',
+        'ioMax'           => 'IoMax',
+        'ioMaxSpec'       => 'IoMaxSpec',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'specType'        => 'SpecType',
+        'topicQuota'      => 'TopicQuota',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class CreatePostPayOrderRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->specType) {
             $res['SpecType'] = $this->specType;
@@ -130,6 +139,9 @@ class CreatePostPayOrderRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SpecType'])) {
             $model->specType = $map['SpecType'];

@@ -31,6 +31,11 @@ class StartInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $isForceSelectedZones;
+
+    /**
+     * @var bool
+     */
     public $isSetUserAndPassword;
 
     /**
@@ -42,6 +47,11 @@ class StartInstanceRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $notifier;
 
     /**
      * @var string
@@ -61,7 +71,17 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
+    public $selectedZones;
+
+    /**
+     * @var string
+     */
     public $serviceVersion;
+
+    /**
+     * @var string
+     */
+    public $userPhoneNum;
 
     /**
      * @var string
@@ -87,13 +107,17 @@ class StartInstanceRequest extends Model
         'deployModule'         => 'DeployModule',
         'instanceId'           => 'InstanceId',
         'isEipInner'           => 'IsEipInner',
+        'isForceSelectedZones' => 'IsForceSelectedZones',
         'isSetUserAndPassword' => 'IsSetUserAndPassword',
         'KMSKeyId'             => 'KMSKeyId',
         'name'                 => 'Name',
+        'notifier'             => 'Notifier',
         'password'             => 'Password',
         'regionId'             => 'RegionId',
         'securityGroup'        => 'SecurityGroup',
+        'selectedZones'        => 'SelectedZones',
         'serviceVersion'       => 'ServiceVersion',
+        'userPhoneNum'         => 'UserPhoneNum',
         'username'             => 'Username',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
@@ -119,6 +143,9 @@ class StartInstanceRequest extends Model
         if (null !== $this->isEipInner) {
             $res['IsEipInner'] = $this->isEipInner;
         }
+        if (null !== $this->isForceSelectedZones) {
+            $res['IsForceSelectedZones'] = $this->isForceSelectedZones;
+        }
         if (null !== $this->isSetUserAndPassword) {
             $res['IsSetUserAndPassword'] = $this->isSetUserAndPassword;
         }
@@ -127,6 +154,9 @@ class StartInstanceRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->notifier) {
+            $res['Notifier'] = $this->notifier;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -137,8 +167,14 @@ class StartInstanceRequest extends Model
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
         }
+        if (null !== $this->selectedZones) {
+            $res['SelectedZones'] = $this->selectedZones;
+        }
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
+        }
+        if (null !== $this->userPhoneNum) {
+            $res['UserPhoneNum'] = $this->userPhoneNum;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -176,6 +212,9 @@ class StartInstanceRequest extends Model
         if (isset($map['IsEipInner'])) {
             $model->isEipInner = $map['IsEipInner'];
         }
+        if (isset($map['IsForceSelectedZones'])) {
+            $model->isForceSelectedZones = $map['IsForceSelectedZones'];
+        }
         if (isset($map['IsSetUserAndPassword'])) {
             $model->isSetUserAndPassword = $map['IsSetUserAndPassword'];
         }
@@ -184,6 +223,9 @@ class StartInstanceRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Notifier'])) {
+            $model->notifier = $map['Notifier'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
@@ -194,8 +236,14 @@ class StartInstanceRequest extends Model
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
         }
+        if (isset($map['SelectedZones'])) {
+            $model->selectedZones = $map['SelectedZones'];
+        }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['UserPhoneNum'])) {
+            $model->userPhoneNum = $map['UserPhoneNum'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

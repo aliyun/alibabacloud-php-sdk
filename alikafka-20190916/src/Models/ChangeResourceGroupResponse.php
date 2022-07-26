@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeSaslUsersResponse extends Model
+class ChangeResourceGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeSaslUsersResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeSaslUsersResponseBody
+     * @var ChangeResourceGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeSaslUsersResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSaslUsersResponse
+     * @return ChangeResourceGroupResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeSaslUsersResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeSaslUsersResponseBody::fromMap($map['body']);
+            $model->body = ChangeResourceGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

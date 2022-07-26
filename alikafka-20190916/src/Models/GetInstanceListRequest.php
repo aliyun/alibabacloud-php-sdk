@@ -25,14 +25,20 @@ class GetInstanceListRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'orderId'    => 'OrderId',
-        'regionId'   => 'RegionId',
-        'tag'        => 'Tag',
+        'instanceId'      => 'InstanceId',
+        'orderId'         => 'OrderId',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class GetInstanceListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -82,6 +91,9 @@ class GetInstanceListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

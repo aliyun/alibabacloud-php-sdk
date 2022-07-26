@@ -88,6 +88,11 @@ class instanceVO extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $saslDomainEndpoint;
 
     /**
@@ -160,6 +165,7 @@ class instanceVO extends Model
         'name'                     => 'Name',
         'paidType'                 => 'PaidType',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'saslDomainEndpoint'       => 'SaslDomainEndpoint',
         'securityGroup'            => 'SecurityGroup',
         'serviceStatus'            => 'ServiceStatus',
@@ -225,6 +231,9 @@ class instanceVO extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->saslDomainEndpoint) {
             $res['SaslDomainEndpoint'] = $this->saslDomainEndpoint;
@@ -318,6 +327,9 @@ class instanceVO extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SaslDomainEndpoint'])) {
             $model->saslDomainEndpoint = $map['SaslDomainEndpoint'];
