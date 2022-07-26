@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 过期时间，单位ms
-     *
      * @var int
      */
     public $expire;
 
     /**
-     * @description 令牌
-     *
      * @var string
      */
     public $token;

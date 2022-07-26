@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class AccessTokenResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $code;
@@ -22,8 +20,6 @@ class AccessTokenResponseBody extends Model
     public $data;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $message;
