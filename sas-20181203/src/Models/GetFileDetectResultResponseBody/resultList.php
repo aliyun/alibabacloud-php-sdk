@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponseBody;
 
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponseBody\resultList\ext;
 use AlibabaCloud\Tea\Model;
 
 class resultList extends Model
 {
     /**
-     * @var ext
+     * @var string
      */
     public $ext;
 
@@ -49,7 +48,7 @@ class resultList extends Model
     {
         $res = [];
         if (null !== $this->ext) {
-            $res['Ext'] = null !== $this->ext ? $this->ext->toMap() : null;
+            $res['Ext'] = $this->ext;
         }
         if (null !== $this->hashKey) {
             $res['HashKey'] = $this->hashKey;
@@ -76,7 +75,7 @@ class resultList extends Model
     {
         $model = new self();
         if (isset($map['Ext'])) {
-            $model->ext = ext::fromMap($map['Ext']);
+            $model->ext = $map['Ext'];
         }
         if (isset($map['HashKey'])) {
             $model->hashKey = $map['HashKey'];
