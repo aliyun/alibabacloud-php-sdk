@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class Workspace extends Model
 {
     /**
-     * @description 创建者
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 最近修改时间
-     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
-     * @description 成员列表
-     *
      * @var Member[]
      */
     public $members;
 
     /**
-     * @description 资源配额列表
-     *
      * @var Quota[]
      */
     public $quotas;
 
     /**
-     * @description 资源总量
-     *
      * @var Resources
      */
     public $totalResources;
 
     /**
-     * @description 管理员列表
-     *
      * @var Member[]
      */
     public $workspaceAdmins;
 
     /**
-     * @description 工作空间id
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspaceName;

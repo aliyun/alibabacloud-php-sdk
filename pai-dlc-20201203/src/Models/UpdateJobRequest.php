@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateJobRequest extends Model
 {
     /**
-     * @description 设置优先级
-     *
      * @var int
      */
     public $priority;

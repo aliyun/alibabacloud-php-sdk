@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardRequest extends Model
 {
     /**
-     * @description DataSource Id
-     *
      * @var string
      */
     public $dataSourceId;
@@ -26,22 +24,16 @@ class CreateTensorboardRequest extends Model
     public $dataSources;
 
     /**
-     * @description Tensorboard名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 最长运行时长
-     *
      * @var int
      */
     public $maxRunningTimeMinutes;
@@ -62,8 +54,6 @@ class CreateTensorboardRequest extends Model
     public $sourceType;
 
     /**
-     * @description Summary 目录
-     *
      * @var string
      */
     public $summaryPath;

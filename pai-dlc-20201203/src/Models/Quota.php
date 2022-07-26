@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class Quota extends Model
 {
     /**
-     * @description 集群id
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 集群名称
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description 是否允许使用潮汐资源
-     *
      * @var bool
      */
     public $enableTideResource;
 
     /**
-     * @description 是否是独占Quota组
-     *
      * @var bool
      */
     public $isExclusiveQuota;
 
     /**
-     * @description 资源配额id
-     *
      * @var string
      */
     public $quotaId;
 
     /**
-     * @description 资源配额名称
-     *
      * @var string
      */
     public $quotaName;
 
     /**
-     * @description 资源配额类型
-     *
      * @var string
      */
     public $quotaType;
 
     /**
-     * @description 资源组允许使用的潮汐资源级别
-     *
      * @var string
      */
     public $resourceLevel;
 
     /**
-     * @description 资源总量
-     *
      * @var QuotaDetail
      */
     public $totalQuota;
 
     /**
-     * @description 潮汐资源总量
-     *
      * @var QuotaDetail
      */
     public $totalTideQuota;
 
     /**
-     * @description 资源用量
-     *
      * @var QuotaDetail
      */
     public $usedQuota;
 
     /**
-     * @description 潮汐资源用量
-     *
      * @var QuotaDetail
      */
     public $usedTideQuota;

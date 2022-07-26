@@ -6,23 +6,13 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateCodeSourceRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateCodeSourceResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateDataSourceRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteCodeSourceResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobsRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetCodeSourceResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobMetricsRequest;
@@ -34,14 +24,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListCodeSourcesRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListCodeSourcesResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListDataSourcesRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListDataSourcesResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListImagesRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListImagesResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsShrinkRequest;
@@ -50,8 +34,6 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobsRequest;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobRequest;
@@ -96,137 +78,6 @@ class Paidlc extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param CreateCodeSourceRequest $request
-     *
-     * @return CreateCodeSourceResponse
-     */
-    public function createCodeSource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createCodeSourceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateCodeSourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateCodeSourceResponse
-     */
-    public function createCodeSourceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->codeBranch)) {
-            $body['CodeBranch'] = $request->codeBranch;
-        }
-        if (!Utils::isUnset($request->codeRepo)) {
-            $body['CodeRepo'] = $request->codeRepo;
-        }
-        if (!Utils::isUnset($request->codeRepoAccessToken)) {
-            $body['CodeRepoAccessToken'] = $request->codeRepoAccessToken;
-        }
-        if (!Utils::isUnset($request->codeRepoUserName)) {
-            $body['CodeRepoUserName'] = $request->codeRepoUserName;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
-        }
-        if (!Utils::isUnset($request->mountPath)) {
-            $body['MountPath'] = $request->mountPath;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCodeSource',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDataSourceRequest $request
-     *
-     * @return CreateDataSourceResponse
-     */
-    public function createDataSource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createDataSourceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateDataSourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDataSourceResponse
-     */
-    public function createDataSourceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['DataSourceType'] = $request->dataSourceType;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
-        }
-        if (!Utils::isUnset($request->endpoint)) {
-            $body['Endpoint'] = $request->endpoint;
-        }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $body['FileSystemId'] = $request->fileSystemId;
-        }
-        if (!Utils::isUnset($request->mountPath)) {
-            $body['MountPath'] = $request->mountPath;
-        }
-        if (!Utils::isUnset($request->options)) {
-            $body['Options'] = $request->options;
-        }
-        if (!Utils::isUnset($request->path)) {
-            $body['Path'] = $request->path;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataSource',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -409,88 +260,6 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string $CodeSourceId
-     *
-     * @return DeleteCodeSourceResponse
-     */
-    public function deleteCodeSource($CodeSourceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteCodeSourceWithOptions($CodeSourceId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteCodeSourceResponse
-     */
-    public function deleteCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
-    {
-        $CodeSourceId = OpenApiUtilClient::getEncodeParam($CodeSourceId);
-        $req          = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteCodeSource',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources/' . $CodeSourceId . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $DataSourceId
-     *
-     * @return DeleteDataSourceResponse
-     */
-    public function deleteDataSource($DataSourceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteDataSourceWithOptions($DataSourceId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $DataSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteDataSourceResponse
-     */
-    public function deleteDataSourceWithOptions($DataSourceId, $headers, $runtime)
-    {
-        $DataSourceId = OpenApiUtilClient::getEncodeParam($DataSourceId);
-        $req          = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDataSource',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources/' . $DataSourceId . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
      * @param string $JobId
      *
      * @return DeleteJobResponse
@@ -529,52 +298,6 @@ class Paidlc extends OpenApiClient
         ]);
 
         return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteJobsRequest $request
-     *
-     * @return DeleteJobsResponse
-     */
-    public function deleteJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteJobsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param DeleteJobsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteJobsResponse
-     */
-    public function deleteJobsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $body['JobIds'] = $request->jobIds;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteJobs',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/batch/jobs/delete',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -624,88 +347,6 @@ class Paidlc extends OpenApiClient
         ]);
 
         return DeleteTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $CodeSourceId
-     *
-     * @return GetCodeSourceResponse
-     */
-    public function getCodeSource($CodeSourceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getCodeSourceWithOptions($CodeSourceId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetCodeSourceResponse
-     */
-    public function getCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
-    {
-        $CodeSourceId = OpenApiUtilClient::getEncodeParam($CodeSourceId);
-        $req          = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetCodeSource',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources/' . $CodeSourceId . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $DataSourceId
-     *
-     * @return GetDataSourceResponse
-     */
-    public function getDataSource($DataSourceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getDataSourceWithOptions($DataSourceId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $DataSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetDataSourceResponse
-     */
-    public function getDataSourceWithOptions($DataSourceId, $headers, $runtime)
-    {
-        $DataSourceId = OpenApiUtilClient::getEncodeParam($DataSourceId);
-        $req          = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetDataSource',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources/' . $DataSourceId . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1043,125 +684,6 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param ListCodeSourcesRequest $request
-     *
-     * @return ListCodeSourcesResponse
-     */
-    public function listCodeSources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listCodeSourcesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListCodeSourcesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListCodeSourcesResponse
-     */
-    public function listCodeSourcesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListCodeSources',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListCodeSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDataSourcesRequest $request
-     *
-     * @return ListDataSourcesResponse
-     */
-    public function listDataSources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listDataSourcesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListDataSourcesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListDataSourcesResponse
-     */
-    public function listDataSourcesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $query['DataSourceType'] = $request->dataSourceType;
-        }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDataSources',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
      * @param ListEcsSpecsRequest $request
      *
      * @return ListEcsSpecsResponse
@@ -1217,67 +739,6 @@ class Paidlc extends OpenApiClient
         ]);
 
         return ListEcsSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListImagesRequest $request
-     *
-     * @return ListImagesResponse
-     */
-    public function listImages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listImagesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListImagesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListImagesResponse
-     */
-    public function listImagesWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceleratorType)) {
-            $query['AcceleratorType'] = $request->acceleratorType;
-        }
-        if (!Utils::isUnset($request->framework)) {
-            $query['Framework'] = $request->framework;
-        }
-        if (!Utils::isUnset($request->imageProviderType)) {
-            $query['ImageProviderType'] = $request->imageProviderType;
-        }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
-        }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListImages',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1552,52 +1013,6 @@ class Paidlc extends OpenApiClient
         ]);
 
         return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param StopJobsRequest $request
-     *
-     * @return StopJobsResponse
-     */
-    public function stopJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->stopJobsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param StopJobsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
-     *
-     * @return StopJobsResponse
-     */
-    public function stopJobsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $body['JobIds'] = $request->jobIds;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'StopJobs',
-            'version'     => '2020-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/batch/jobs/stop',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return StopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

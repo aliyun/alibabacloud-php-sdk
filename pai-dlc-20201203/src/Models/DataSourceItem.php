@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DataSourceItem extends Model
 {
     /**
-     * @description 数据源Id
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description 数据源类型
-     *
      * @var string
      */
     public $dataSourceType;
 
     /**
-     * @description 数据源描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 数据源显示名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 阿里云OSS文件系统服务端点
-     *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description 阿里云NAS文件系统Id
-     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @description 创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 修改时间（UTC）
-     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
-     * @description 本地挂载目录
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description 阿里云OSS文件系统配置选项
-     *
      * @var string
      */
     public $options;
 
     /**
-     * @description 阿里云OSS文件系统路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 创建人Id
-     *
      * @var string
      */
     public $userId;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ImageItem extends Model
 {
     /**
-     * @description 加速器类型
-     *
      * @var string
      */
     public $acceleratorType;
 
     /**
-     * @description 镜像作者
-     *
      * @var string
      */
     public $authorId;
 
     /**
-     * @description 镜像包含的框架类型
-     *
      * @var string
      */
     public $framework;
 
     /**
-     * @description 镜像类型
-     *
      * @var string
      */
     public $imageProviderType;
 
     /**
-     * @description 镜像Tag
-     *
      * @var string
      */
     public $imageTag;
 
     /**
-     * @description 镜像地址
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 镜像vpc地址
-     *
      * @var string
      */
     public $imageUrlVpc;

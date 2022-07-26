@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetJobEventsRequest extends Model
 {
     /**
-     * @description 查询事件的时间区间的截止时间，默认值是当前。
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 获取事件的最大数目，默认值：2000
-     *
      * @var int
      */
     public $maxEventsNum;
 
     /**
-     * @description 查询事件的时间区间的起始时间，默认值是7天前。
-     *
      * @var string
      */
     public $startTime;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListJobsResponseBody extends Model
 {
     /**
-     * @description 作业列表
-     *
      * @var JobItem[]
      */
     public $jobs;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 符合过滤条件的总作业数
-     *
      * @var int
      */
     public $totalCount;

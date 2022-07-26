@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnvVar extends Model
 {
     /**
-     * @description 环境变量名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 环境变量值
-     *
      * @var string
      */
     public $value;

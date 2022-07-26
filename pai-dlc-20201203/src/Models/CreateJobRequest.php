@@ -12,29 +12,21 @@ use AlibabaCloud\Tea\Model;
 class CreateJobRequest extends Model
 {
     /**
-     * @description 代码源配置
-     *
      * @var codeSource
      */
     public $codeSource;
 
     /**
-     * @description 数据源配置列表
-     *
      * @var dataSources[]
      */
     public $dataSources;
 
     /**
-     * @description debugger参数
-     *
      * @var string
      */
     public $debuggerConfigContent;
 
     /**
-     * @description 作业显示名称
-     *
      * @var string
      */
     public $displayName;
@@ -45,29 +37,21 @@ class CreateJobRequest extends Model
     public $elasticSpec;
 
     /**
-     * @description 环境变量配置
-     *
      * @var string[]
      */
     public $envs;
 
     /**
-     * @description 作业最大运行时间
-     *
      * @var int
      */
     public $jobMaxRunningTimeMinutes;
 
     /**
-     * @description 作业规格配置
-     *
      * @var JobSpec[]
      */
     public $jobSpecs;
 
     /**
-     * @description 作业类型
-     *
      * @var string
      */
     public $jobType;
@@ -78,15 +62,11 @@ class CreateJobRequest extends Model
     public $options;
 
     /**
-     * @description 作业优先级
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 资源组编号
-     *
      * @var string
      */
     public $resourceId;
@@ -97,36 +77,26 @@ class CreateJobRequest extends Model
     public $settings;
 
     /**
-     * @description 三方库(requirements.txt)文件路径
-     *
      * @var string
      */
     public $thirdpartyLibDir;
 
     /**
-     * @description 三方库配置列表
-     *
      * @var string[]
      */
     public $thirdpartyLibs;
 
     /**
-     * @description 作业命令
-     *
      * @var string
      */
     public $userCommand;
 
     /**
-     * @description 用户VPC
-     *
      * @var userVpc
      */
     public $userVpc;
 
     /**
-     * @description 工作空间编号
-     *
      * @var string
      */
     public $workspaceId;

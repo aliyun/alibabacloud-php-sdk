@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Metric extends Model
 {
     /**
-     * @description 时间戳（毫秒）
-     *
      * @var int
      */
     public $time;
 
     /**
-     * @description 样本值
-     *
      * @var float
      */
     public $value;

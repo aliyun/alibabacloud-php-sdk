@@ -9,99 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DebuggerJob extends Model
 {
     /**
-     * @description debugger分析作业ID
-     *
      * @var string
      */
     public $debuggerJobId;
 
     /**
-     * @description 作业显示名
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 作业运行的时长（单位秒）
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 失败时间（UTC）
-     *
      * @var string
      */
     public $gmtFailedTime;
 
     /**
-     * @description 任务完成时间（UTC）
-     *
      * @var string
      */
     public $gmtFinishTime;
 
     /**
-     * @description 运行开始时间（UTC）
-     *
      * @var string
      */
     public $gmtRunningTime;
 
     /**
-     * @description 结束时间（UTC）
-     *
      * @var string
      */
     public $gmtStoppedTime;
 
     /**
-     * @description 提交时间（UTC）
-     *
      * @var string
      */
     public $gmtSubmittedTime;
 
     /**
-     * @description 成功结束时间（UTC）
-     *
      * @var string
      */
     public $gmtSucceedTime;
 
     /**
-     * @description 作业运行状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 用户ID
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 作业所属的运行工作空间
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description 作业所属的运行工作空间名称
-     *
      * @var string
      */
     public $workspaceName;

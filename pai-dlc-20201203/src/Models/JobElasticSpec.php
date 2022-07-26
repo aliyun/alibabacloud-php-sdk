@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class JobElasticSpec extends Model
 {
     /**
-     * @description aimaster角色使用的资源规格
-     *
      * @var string
      */
     public $AIMasterType;
 
     /**
-     * @description 打开弹性训练
-     *
      * @var bool
      */
     public $enableElasticTraining;
 
     /**
-     * @description 最大并行度
-     *
      * @var int
      */
     public $maxParallelism;
 
     /**
-     * @description 最小并行度
-     *
      * @var int
      */
     public $minParallelism;

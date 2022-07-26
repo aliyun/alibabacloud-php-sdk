@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetPodEventsRequest extends Model
 {
     /**
-     * @description 截止时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 返回的事件最大数量
-     *
      * @var int
      */
     public $maxEventsNum;
 
     /**
-     * @description 运行实例UID
-     *
      * @var string
      */
     public $podUid;
 
     /**
-     * @description 起始时间
-     *
      * @var string
      */
     public $startTime;

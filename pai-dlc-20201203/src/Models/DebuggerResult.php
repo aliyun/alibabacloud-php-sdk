@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DebuggerResult extends Model
 {
     /**
-     * @description 配置项细节，json结构
-     *
      * @var string
      */
     public $debuggerConfigContent;
 
     /**
-     * @description 规则报告细节信息
-     *
      * @var string
      */
     public $debuggerJobIssues;
 
     /**
-     * @description debugger job运行状态描述
-     *
      * @var string
      */
     public $debuggerJobStatus;
 
     /**
-     * @description 报告文件下载地址
-     *
      * @var string
      */
     public $debuggerReportURL;
 
     /**
-     * @description 作业显示名
-     *
      * @var string
      */
     public $jobDisplayName;
 
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 用户ID
-     *
      * @var string
      */
     public $jobUserId;

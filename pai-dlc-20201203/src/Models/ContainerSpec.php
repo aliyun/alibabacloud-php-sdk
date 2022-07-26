@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ContainerSpec extends Model
 {
     /**
-     * @description 命令参数
-     *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description 用户命令
-     *
      * @var string[]
      */
     public $command;
 
     /**
-     * @description 环境变量
-     *
      * @var EnvVar[]
      */
     public $env;
 
     /**
-     * @description 容器镜像地址
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description 容器名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 容器资源
-     *
      * @var ResourceRequirements
      */
     public $resources;
 
     /**
-     * @description 容器内工作目录
-     *
      * @var string
      */
     public $workingDir;

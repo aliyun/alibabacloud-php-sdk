@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DebuggerJobIssue extends Model
 {
     /**
-     * @description 规则报告的具体json描述
-     *
      * @var string
      */
     public $debuggerJobIssue;
 
     /**
-     * @description 创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description event的全局唯一ID
-     *
      * @var string
      */
     public $jobDebuggerIssueId;
 
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 规则触发原因的编码
-     *
      * @var string
      */
     public $reasonCode;
 
     /**
-     * @description 规则触发的原因
-     *
      * @var string
      */
     public $reasonMessage;
 
     /**
-     * @description 规则名称
-     *
      * @var string
      */
     public $ruleName;

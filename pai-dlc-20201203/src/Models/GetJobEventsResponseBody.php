@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetJobEventsResponseBody extends Model
 {
     /**
-     * @description 事件
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 请求ID
-     *
      * @var int
      */
     public $requestId;

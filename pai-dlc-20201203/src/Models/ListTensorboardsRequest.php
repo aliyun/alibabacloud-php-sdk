@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListTensorboardsRequest extends Model
 {
     /**
-     * @description 展示名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 截止时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description JobId
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 排序顺序
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description 当前页
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页返回的作业数
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 按返回字段排序
-     *
      * @var string
      */
     public $sortBy;
@@ -68,36 +54,26 @@ class ListTensorboardsRequest extends Model
     public $sourceType;
 
     /**
-     * @description 起始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 根据状态过滤
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description TensorboardId
-     *
      * @var string
      */
     public $tensorboardId;
 
     /**
-     * @description 是否显示详情
-     *
      * @var bool
      */
     public $verbose;
 
     /**
-     * @description 工作空间ID
-     *
      * @var string
      */
     public $workspaceId;

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class JobSettings extends Model
 {
     /**
-     * @description 作业关联用户ID
-     *
      * @var string
      */
     public $businessUserId;
 
     /**
-     * @description 调用方
-     *
      * @var string
      */
     public $caller;
 
     /**
-     * @description 允许打开作业容错监控
-     *
      * @var bool
      */
     public $enableErrorMonitoringInAIMaster;
 
     /**
-     * @description 允许作业使用RDMA
-     *
      * @var bool
      */
     public $enableRDMA;
 
     /**
-     * @description 允许作业使用潮汐资源
-     *
      * @var bool
      */
     public $enableTideResource;
 
     /**
-     * @description 用户指定容错监控的配置参数，比如指定是否启动基于log hang的检测
-     *
      * @var string
      */
     public $errorMonitoringArgs;
 
     /**
-     * @description 工作流ID
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description 自定义标签
-     *
      * @var string[]
      */
     public $tags;

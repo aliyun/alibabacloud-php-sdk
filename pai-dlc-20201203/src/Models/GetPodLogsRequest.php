@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetPodLogsRequest extends Model
 {
     /**
-     * @description 是否下载日志文件，默认：false。
-     *
      * @var bool
      */
     public $downloadToFile;
 
     /**
-     * @description 查询的截止时间，默认值：当前。
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 返回的日志的最大行数，默认值：2000。
-     *
      * @var int
      */
     public $maxLines;
@@ -35,8 +29,6 @@ class GetPodLogsRequest extends Model
     public $podUid;
 
     /**
-     * @description 查询的起始时间，默认值：7天前。
-     *
      * @var string
      */
     public $startTime;

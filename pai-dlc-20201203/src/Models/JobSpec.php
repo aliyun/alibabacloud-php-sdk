@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class JobSpec extends Model
 {
     /**
-     * @description Ecs实例规格
-     *
      * @var string
      */
     public $ecsSpec;
 
     /**
-     * @description 额外的Pod配置
-     *
      * @var ExtraPodSpec
      */
     public $extraPodSpec;
 
     /**
-     * @description 镜像
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description 实例数量
-     *
      * @var int
      */
     public $podCount;
 
     /**
-     * @description 资源配置
-     *
      * @var ResourceConfig
      */
     public $resourceConfig;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 是否使用竞价实例
-     *
      * @var bool
      */
     public $useSpotInstance;

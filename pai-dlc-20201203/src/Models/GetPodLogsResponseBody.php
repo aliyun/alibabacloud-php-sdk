@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetPodLogsResponseBody extends Model
 {
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 日志列表
-     *
      * @var string[]
      */
     public $logs;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $podId;
 
     /**
-     * @description 实例UID
-     *
      * @var string
      */
     public $podUid;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

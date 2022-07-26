@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetPodEventsResponseBody extends Model
 {
     /**
-     * @description 事件列表
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 运行示例ID
-     *
      * @var string
      */
     public $podId;
@@ -35,8 +29,6 @@ class GetPodEventsResponseBody extends Model
     public $podUid;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

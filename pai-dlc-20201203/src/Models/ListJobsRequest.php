@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListJobsRequest extends Model
 {
     /**
-     * @description 作业关联用户ID
-     *
      * @var string
      */
     public $businessUserId;
 
     /**
-     * @description 调用方
-     *
      * @var string
      */
     public $caller;
 
     /**
-     * @description 作业显示名称，支持模糊查询
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 截止时间
-     *
      * @var string
      */
     public $endTime;
@@ -42,85 +34,61 @@ class ListJobsRequest extends Model
     public $fromAllWorkspaces;
 
     /**
-     * @description 作业类型
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description 排序顺序
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description 当前页
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页返回的作业数
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 工作流ID
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description 资源组ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 是否只返回当前登录者所提交的作业
-     *
      * @var bool
      */
     public $showOwn;
 
     /**
-     * @description 按返回字段排序
-     *
      * @var string
      */
     public $sortBy;
 
     /**
-     * @description 起始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 作业状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 自定义标签
-     *
      * @var string[]
      */
     public $tags;
 
     /**
-     * @description 工作空间ID
-     *
      * @var string
      */
     public $workspaceId;

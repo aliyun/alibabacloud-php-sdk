@@ -12,64 +12,46 @@ use AlibabaCloud\Tea\Model;
 class GetJobResponseBody extends Model
 {
     /**
-     * @description 集群ID
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 代码源配置
-     *
      * @var codeSource
      */
     public $codeSource;
 
     /**
-     * @description 数据源配置列表
-     *
      * @var dataSources[]
      */
     public $dataSources;
 
     /**
-     * @description 作业显示名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 作业运行时长（s）
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 弹性任务参数
-     *
      * @var JobElasticSpec
      */
     public $elasticSpec;
 
     /**
-     * @description 是否开启debugger任务
-     *
      * @var bool
      */
     public $enabledDebugger;
 
     /**
-     * @description 环境变量配置
-     *
      * @var string[]
      */
     public $envs;
 
     /**
-     * @description 作业创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
@@ -80,8 +62,6 @@ class GetJobResponseBody extends Model
     public $gmtFailedTime;
 
     /**
-     * @description 作业结束时间（UTC）
-     *
      * @var string
      */
     public $gmtFinishTime;
@@ -107,127 +87,91 @@ class GetJobResponseBody extends Model
     public $gmtSuccessedTime;
 
     /**
-     * @description 作业Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 作业规格配置
-     *
      * @var JobSpec[]
      */
     public $jobSpecs;
 
     /**
-     * @description 作业类型
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description 作业所以运行Pod列表
-     *
      * @var pods[]
      */
     public $pods;
 
     /**
-     * @description 任务的优先级
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 状态详情码
-     *
      * @var string
      */
     public $reasonCode;
 
     /**
-     * @description 状态详情
-     *
      * @var string
      */
     public $reasonMessage;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 作业运行所在的资源组ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 作业运行时使用的资源级别
-     *
      * @var string
      */
     public $resourceLevel;
 
     /**
-     * @description 作业额外参数配置
-     *
      * @var JobSettings
      */
     public $settings;
 
     /**
-     * @description 作业状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 三方库(requirements.txt)文件路径
-     *
      * @var string
      */
     public $thirdpartyLibDir;
 
     /**
-     * @description 三方库配置列表
-     *
      * @var string[]
      */
     public $thirdpartyLibs;
 
     /**
-     * @description 用户命令
-     *
      * @var string
      */
     public $userCommand;
 
     /**
-     * @description 作业提交人Id
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 作业所属工作空间ID
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description 作业所属工作空间名称
-     *
      * @var string
      */
     public $workspaceName;

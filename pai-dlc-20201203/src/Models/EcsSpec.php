@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class EcsSpec extends Model
 {
     /**
-     * @description 加速器类型
-     *
      * @var string
      */
     public $acceleratorType;
 
     /**
-     * @description cpu数量
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description gpu数量
-     *
      * @var int
      */
     public $gpu;
 
     /**
-     * @description gpu类型
-     *
      * @var string
      */
     public $gpuType;
 
     /**
-     * @description 规格类型
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 是否有库存
-     *
      * @var bool
      */
     public $isAvailable;
 
     /**
-     * @description Memory数量
-     *
      * @var int
      */
     public $memory;

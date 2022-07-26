@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ResourceConfig extends Model
 {
     /**
-     * @description CPU核心数
-     *
      * @var string
      */
     public $CPU;
 
     /**
-     * @description GPU核心数
-     *
      * @var string
      */
     public $GPU;
 
     /**
-     * @description 显卡类型
-     *
      * @var string
      */
     public $GPUType;
 
     /**
-     * @description 内存容量
-     *
      * @var string
      */
     public $memory;
 
     /**
-     * @description 共享内存容量
-     *
      * @var string
      */
     public $sharedMemory;

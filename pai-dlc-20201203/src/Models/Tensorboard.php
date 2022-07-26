@@ -9,99 +9,71 @@ use AlibabaCloud\Tea\Model;
 class Tensorboard extends Model
 {
     /**
-     * @description 数据源Id
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description 展示名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 运行时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 修改时间（UTC）
-     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 状态详情码
-     *
      * @var string
      */
     public $reasonCode;
 
     /**
-     * @description 状态详情
-     *
      * @var string
      */
     public $reasonMessage;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 文件路径
-     *
      * @var string
      */
     public $summaryPath;
 
     /**
-     * @description Tensorboard Id
-     *
      * @var string
      */
     public $tensorboardId;
 
     /**
-     * @description Tensorboard URL
-     *
      * @var string
      */
     public $tensorboardUrl;
 
     /**
-     * @description 创建者
-     *
      * @var string
      */
     public $userId;

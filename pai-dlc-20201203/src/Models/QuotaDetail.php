@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class QuotaDetail extends Model
 {
     /**
-     * @description CPU核数
-     *
      * @var string
      */
     public $CPU;
 
     /**
-     * @description GPU卡数
-     *
      * @var string
      */
     public $GPU;
 
     /**
-     * @description GPU详情
-     *
      * @var GPUDetail[]
      */
     public $GPUDetails;
 
     /**
-     * @description GPU卡型
-     *
      * @var string
      */
     public $GPUType;
 
     /**
-     * @description GPU卡型全名
-     *
      * @var string
      */
     public $GPUTypeFullName;
 
     /**
-     * @description 内存容量
-     *
      * @var string
      */
     public $memory;

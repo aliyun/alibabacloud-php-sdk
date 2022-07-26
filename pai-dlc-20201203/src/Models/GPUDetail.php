@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GPUDetail extends Model
 {
     /**
-     * @description GPU卡数
-     *
      * @var string
      */
     public $GPU;
 
     /**
-     * @description GPU卡型
-     *
      * @var string
      */
     public $GPUType;
 
     /**
-     * @description GPU卡型全名
-     *
      * @var string
      */
     public $GPUTypeFullName;

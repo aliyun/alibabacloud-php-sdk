@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class CodeSourceItem extends Model
 {
     /**
-     * @description 代码分支
-     *
      * @var string
      */
     public $codeBranch;
 
     /**
-     * @description 代码Commit ID
-     *
      * @var string
      */
     public $codeCommit;
 
     /**
-     * @description 代码仓库地址
-     *
      * @var string
      */
     public $codeRepo;
 
     /**
-     * @description 访问代码仓库所用的AccessToken
-     *
      * @var string
      */
     public $codeRepoAccessToken;
 
     /**
-     * @description 访问代码仓库的用户名
-     *
      * @var string
      */
     public $codeRepoUserName;
 
     /**
-     * @description 代码源ID
-     *
      * @var string
      */
     public $codeSourceId;
 
     /**
-     * @description 代码源详细描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 代码源配置的名字
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 修改时间
-     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
-     * @description 代码源配置的用户ID
-     *
      * @var string
      */
     public $userId;

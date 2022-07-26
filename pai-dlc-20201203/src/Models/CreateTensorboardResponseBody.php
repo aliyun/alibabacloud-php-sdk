@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardResponseBody extends Model
 {
     /**
-     * @description DataSourceId
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Tensorboard id
-     *
      * @var string
      */
     public $tensorboardId;

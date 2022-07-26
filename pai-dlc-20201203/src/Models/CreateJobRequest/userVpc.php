@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class userVpc extends Model
 {
     /**
-     * @description 扩展网段
-     *
      * @var string[]
      */
     public $extendedCIDRs;
 
     /**
-     * @description 用户安全组的id
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description 用户交换机的id
-     *
      * @var string
      */
     public $switchId;
 
     /**
-     * @description 用户VPC的id
-     *
      * @var string
      */
     public $vpcId;

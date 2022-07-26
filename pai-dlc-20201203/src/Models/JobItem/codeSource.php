@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class codeSource extends Model
 {
     /**
-     * @description 代码分支
-     *
      * @var string
      */
     public $branch;
 
     /**
-     * @description 代码源Id
-     *
      * @var string
      */
     public $codeSourceId;
 
     /**
-     * @description 代码Commit
-     *
      * @var string
      */
     public $commit;
 
     /**
-     * @description 本地挂载路径
-     *
      * @var string
      */
     public $mountPath;

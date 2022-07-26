@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ExtraPodSpec extends Model
 {
     /**
-     * @description 初始化容器
-     *
      * @var ContainerSpec[]
      */
     public $initContainers;
 
     /**
-     * @description Pod注解
-     *
      * @var string[]
      */
     public $podAnnotations;
 
     /**
-     * @description Pod标签
-     *
      * @var string[]
      */
     public $podLabels;
 
     /**
-     * @description 容器间共享的本地目录
-     *
      * @var string[]
      */
     public $sharedVolumeMountPaths;
 
     /**
-     * @description 伴随容器
-     *
      * @var ContainerSpec[]
      */
     public $sideCarContainers;

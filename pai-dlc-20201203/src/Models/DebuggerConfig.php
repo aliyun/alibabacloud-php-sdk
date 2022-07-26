@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DebuggerConfig extends Model
 {
     /**
-     * @description 配置项细节，json结构
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 系统生成的debug config唯一ID
-     *
      * @var string
      */
     public $debuggerConfigId;
 
     /**
-     * @description 配置项描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 模板配置项名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 修改时间（UTC）
-     *
      * @var string
      */
     public $gmtModifyTime;

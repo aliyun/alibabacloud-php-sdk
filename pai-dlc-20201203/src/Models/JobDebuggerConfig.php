@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class JobDebuggerConfig extends Model
 {
     /**
-     * @description debugger配置信息
-     *
      * @var string
      */
     public $debuggerConfigContent;
 
     /**
-     * @description debugger配置项ID
-     *
      * @var string
      */
     public $debuggerConfigId;
 
     /**
-     * @description debugger配置创建的时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;

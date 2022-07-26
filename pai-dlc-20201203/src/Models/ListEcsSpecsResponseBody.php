@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListEcsSpecsResponseBody extends Model
 {
     /**
-     * @description ECS规格列表
-     *
      * @var EcsSpec[]
      */
     public $ecsSpecs;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 符合过滤条件的总数量
-     *
      * @var int
      */
     public $totalCount;

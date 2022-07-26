@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PodMetric extends Model
 {
     /**
-     * @description 监控指标样本序列
-     *
      * @var Metric[]
      */
     public $metrics;
 
     /**
-     * @description Pod编号
-     *
      * @var string
      */
     public $podId;

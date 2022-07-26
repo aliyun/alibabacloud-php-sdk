@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AliyunAccounts extends Model
 {
     /**
-     * @description Aliyun账号的UID
-     *
      * @var string
      */
     public $aliyunUid;
 
     /**
-     * @description 弹内用户的工号
-     *
      * @var string
      */
     public $employeeId;
 
     /**
-     * @description 这条记录的创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 这条记录的上次修改时间
-     *
      * @var string
      */
     public $gmtModifyTime;

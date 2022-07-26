@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ResourceRequirements extends Model
 {
     /**
-     * @description 资源限制
-     *
      * @var string[]
      */
     public $limits;
 
     /**
-     * @description 资源需求
-     *
      * @var string[]
      */
     public $requests;

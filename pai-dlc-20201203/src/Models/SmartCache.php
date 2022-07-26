@@ -9,113 +9,81 @@ use AlibabaCloud\Tea\Model;
 class SmartCache extends Model
 {
     /**
-     * @description cache worker的数量单位是个
-     *
      * @var int
      */
     public $cacheWorkerNum;
 
     /**
-     * @description 每个cache worker的cache大小单位是GB
-     *
      * @var int
      */
     public $cacheWorkerSize;
 
     /**
-     * @description SmartCache 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description SmartCache 名称
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 已运行时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description OSS Endpoint
-     *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description 阿里云的NAS文件系统ID
-     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @description 创建时间（UTC）
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 修改时间（UTC）
-     *
      * @var string
      */
     public $gmtModifyTime;
 
     /**
-     * @description 数据源本地挂载目录
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description 可选的超参数
-     *
      * @var string
      */
     public $options;
 
     /**
-     * @description OSS数据源路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description SmartCacheId
-     *
      * @var string
      */
     public $smartCacheId;
 
     /**
-     * @description 运行状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 挂载的数据类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 创建者Id
-     *
      * @var string
      */
     public $userId;

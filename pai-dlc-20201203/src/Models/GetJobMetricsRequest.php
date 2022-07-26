@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetJobMetricsRequest extends Model
 {
     /**
-     * @description 截止时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 指标类型
-     *
      * @var string
      */
     public $metricType;
 
     /**
-     * @description 起始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 时间间隔
-     *
      * @var string
      */
     public $timeStep;
 
     /**
-     * @description Token
-     *
      * @var string
      */
     public $token;

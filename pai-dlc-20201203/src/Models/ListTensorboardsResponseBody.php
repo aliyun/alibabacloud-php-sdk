@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListTensorboardsResponseBody extends Model
 {
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Tensorboard 列表
-     *
      * @var Tensorboard[]
      */
     public $tensorboards;
 
     /**
-     * @description 符合条件的数据源总数量
-     *
      * @var int
      */
     public $totalCount;

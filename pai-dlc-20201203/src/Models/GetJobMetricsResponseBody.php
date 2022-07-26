@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetJobMetricsResponseBody extends Model
 {
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 任务监控指标序列集合
-     *
      * @var PodMetric[]
      */
     public $podMetrics;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartTensorboardResponseBody extends Model
 {
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Tensorboad Id
-     *
      * @var string
      */
     public $tensorboardId;

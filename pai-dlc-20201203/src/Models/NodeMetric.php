@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class NodeMetric extends Model
 {
     /**
-     * @description 监控指标样本序列
-     *
      * @var Metric[]
      */
     public $metrics;
 
     /**
-     * @description 节点名称
-     *
      * @var string
      */
     public $nodeName;

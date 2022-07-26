@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateJobResponseBody extends Model
 {
     /**
-     * @description 作业ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
