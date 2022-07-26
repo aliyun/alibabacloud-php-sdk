@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class ScanTextRequest extends Model
 {
     /**
-     * @var tasks[]
-     */
-    public $tasks;
-
-    /**
      * @var labels[]
      */
     public $labels;
+
+    /**
+     * @var tasks[]
+     */
+    public $tasks;
     protected $_name = [
-        'tasks'  => 'Tasks',
         'labels' => 'Labels',
+        'tasks'  => 'Tasks',
     ];
 
     public function validate()
@@ -31,21 +31,21 @@ class ScanTextRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tasks) {
-            $res['Tasks'] = [];
-            if (null !== $this->tasks && \is_array($this->tasks)) {
-                $n = 0;
-                foreach ($this->tasks as $item) {
-                    $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->labels) {
             $res['Labels'] = [];
             if (null !== $this->labels && \is_array($this->labels)) {
                 $n = 0;
                 foreach ($this->labels as $item) {
                     $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tasks) {
+            $res['Tasks'] = [];
+            if (null !== $this->tasks && \is_array($this->tasks)) {
+                $n = 0;
+                foreach ($this->tasks as $item) {
+                    $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,21 +61,21 @@ class ScanTextRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tasks'])) {
-            if (!empty($map['Tasks'])) {
-                $model->tasks = [];
-                $n            = 0;
-                foreach ($map['Tasks'] as $item) {
-                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
                 $n             = 0;
                 foreach ($map['Labels'] as $item) {
                     $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tasks'])) {
+            if (!empty($map['Tasks'])) {
+                $model->tasks = [];
+                $n            = 0;
+                foreach ($map['Tasks'] as $item) {
+                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
                 }
             }
         }

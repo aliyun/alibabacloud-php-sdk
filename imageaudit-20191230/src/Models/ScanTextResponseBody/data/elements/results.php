@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var string
+     * @var details[]
      */
-    public $suggestion;
+    public $details;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class results extends Model
     public $rate;
 
     /**
-     * @var details[]
+     * @var string
      */
-    public $details;
+    public $suggestion;
     protected $_name = [
-        'suggestion' => 'Suggestion',
+        'details'    => 'Details',
         'label'      => 'Label',
         'rate'       => 'Rate',
-        'details'    => 'Details',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
-        if (null !== $this->rate) {
-            $res['Rate'] = $this->rate;
-        }
         if (null !== $this->details) {
             $res['Details'] = [];
             if (null !== $this->details && \is_array($this->details)) {
@@ -59,6 +50,15 @@ class results extends Model
                     $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->rate) {
+            $res['Rate'] = $this->rate;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
-        if (isset($map['Rate'])) {
-            $model->rate = $map['Rate'];
-        }
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
@@ -89,6 +80,15 @@ class results extends Model
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
+        if (isset($map['Rate'])) {
+            $model->rate = $map['Rate'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;

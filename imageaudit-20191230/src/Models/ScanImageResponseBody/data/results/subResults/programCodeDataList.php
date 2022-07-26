@@ -11,27 +11,27 @@ class programCodeDataList extends Model
     /**
      * @var float
      */
-    public $width;
-
-    /**
-     * @var float
-     */
     public $height;
 
     /**
      * @var float
      */
-    public $y;
+    public $width;
 
     /**
      * @var float
      */
     public $x;
+
+    /**
+     * @var float
+     */
+    public $y;
     protected $_name = [
-        'width'  => 'Width',
         'height' => 'Height',
-        'y'      => 'Y',
+        'width'  => 'Width',
         'x'      => 'X',
+        'y'      => 'Y',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class programCodeDataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
         if (null !== $this->x) {
             $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class programCodeDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
         if (isset($map['X'])) {
             $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

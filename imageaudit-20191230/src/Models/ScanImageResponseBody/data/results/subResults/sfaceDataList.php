@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class sfaceDataList extends Model
 {
     /**
-     * @var float
-     */
-    public $width;
-
-    /**
      * @var faces[]
      */
     public $faces;
@@ -27,18 +22,23 @@ class sfaceDataList extends Model
     /**
      * @var float
      */
-    public $y;
+    public $width;
 
     /**
      * @var float
      */
     public $x;
+
+    /**
+     * @var float
+     */
+    public $y;
     protected $_name = [
-        'width'  => 'Width',
         'faces'  => 'Faces',
         'height' => 'Height',
-        'y'      => 'Y',
+        'width'  => 'Width',
         'x'      => 'X',
+        'y'      => 'Y',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class sfaceDataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->faces) {
             $res['Faces'] = [];
             if (null !== $this->faces && \is_array($this->faces)) {
@@ -63,11 +60,14 @@ class sfaceDataList extends Model
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
         if (null !== $this->x) {
             $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -81,9 +81,6 @@ class sfaceDataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
                 $model->faces = [];
@@ -96,11 +93,14 @@ class sfaceDataList extends Model
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
         if (isset($map['X'])) {
             $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

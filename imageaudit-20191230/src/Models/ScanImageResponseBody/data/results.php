@@ -12,12 +12,12 @@ class results extends Model
     /**
      * @var string
      */
-    public $imageURL;
+    public $dataId;
 
     /**
      * @var string
      */
-    public $dataId;
+    public $imageURL;
 
     /**
      * @var subResults[]
@@ -29,8 +29,8 @@ class results extends Model
      */
     public $taskId;
     protected $_name = [
-        'imageURL'   => 'ImageURL',
         'dataId'     => 'DataId',
+        'imageURL'   => 'ImageURL',
         'subResults' => 'SubResults',
         'taskId'     => 'TaskId',
     ];
@@ -42,11 +42,11 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->subResults) {
             $res['SubResults'] = [];
@@ -72,11 +72,11 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['SubResults'])) {
             if (!empty($map['SubResults'])) {

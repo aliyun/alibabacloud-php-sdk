@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class details extends Model
 {
     /**
-     * @var string
-     */
-    public $label;
-
-    /**
      * @var contexts[]
      */
     public $contexts;
+
+    /**
+     * @var string
+     */
+    public $label;
     protected $_name = [
-        'label'    => 'Label',
         'contexts' => 'Contexts',
+        'label'    => 'Label',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class details extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
         if (null !== $this->contexts) {
             $res['Contexts'] = [];
             if (null !== $this->contexts && \is_array($this->contexts)) {
@@ -41,6 +38,9 @@ class details extends Model
                     $res['Contexts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class details extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
         if (isset($map['Contexts'])) {
             if (!empty($map['Contexts'])) {
                 $model->contexts = [];
@@ -65,6 +62,9 @@ class details extends Model
                     $model->contexts[$n++] = null !== $item ? contexts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ScanImageRequest extends Model
 {
     /**
-     * @var task[]
-     */
-    public $task;
-
-    /**
      * @var string[]
      */
     public $scene;
+
+    /**
+     * @var task[]
+     */
+    public $task;
     protected $_name = [
-        'task'  => 'Task',
         'scene' => 'Scene',
+        'task'  => 'Task',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class ScanImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
+        }
         if (null !== $this->task) {
             $res['Task'] = [];
             if (null !== $this->task && \is_array($this->task)) {
@@ -38,9 +41,6 @@ class ScanImageRequest extends Model
                     $res['Task'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->scene) {
-            $res['Scene'] = $this->scene;
         }
 
         return $res;
@@ -54,6 +54,11 @@ class ScanImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Scene'])) {
+            if (!empty($map['Scene'])) {
+                $model->scene = $map['Scene'];
+            }
+        }
         if (isset($map['Task'])) {
             if (!empty($map['Task'])) {
                 $model->task = [];
@@ -61,11 +66,6 @@ class ScanImageRequest extends Model
                 foreach ($map['Task'] as $item) {
                     $model->task[$n++] = null !== $item ? task::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['Scene'])) {
-            if (!empty($map['Scene'])) {
-                $model->scene = $map['Scene'];
             }
         }
 

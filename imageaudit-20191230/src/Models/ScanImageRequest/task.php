@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $imageTimeMillisecond;
+    public $dataId;
 
     /**
      * @var int
      */
-    public $interval;
+    public $imageTimeMillisecond;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class task extends Model
     /**
      * @var int
      */
-    public $maxFrames;
+    public $interval;
 
     /**
-     * @var string
+     * @var int
      */
-    public $dataId;
+    public $maxFrames;
     protected $_name = [
-        'imageTimeMillisecond' => 'ImageTimeMillisecond',
-        'interval'             => 'Interval',
-        'imageURL'             => 'ImageURL',
-        'maxFrames'            => 'MaxFrames',
         'dataId'               => 'DataId',
+        'imageTimeMillisecond' => 'ImageTimeMillisecond',
+        'imageURL'             => 'ImageURL',
+        'interval'             => 'Interval',
+        'maxFrames'            => 'MaxFrames',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class task extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
+        }
         if (null !== $this->imageTimeMillisecond) {
             $res['ImageTimeMillisecond'] = $this->imageTimeMillisecond;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
         }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
         if (null !== $this->maxFrames) {
             $res['MaxFrames'] = $this->maxFrames;
-        }
-        if (null !== $this->dataId) {
-            $res['DataId'] = $this->dataId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
+        }
         if (isset($map['ImageTimeMillisecond'])) {
             $model->imageTimeMillisecond = $map['ImageTimeMillisecond'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
         }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
         if (isset($map['MaxFrames'])) {
             $model->maxFrames = $map['MaxFrames'];
-        }
-        if (isset($map['DataId'])) {
-            $model->dataId = $map['DataId'];
         }
 
         return $model;

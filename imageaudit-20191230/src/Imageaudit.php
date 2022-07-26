@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Imageaudit\V20191230;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageRequest;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanImageResponse;
 use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextRequest;
@@ -12,6 +13,7 @@ use AlibabaCloud\SDK\Imageaudit\V20191230\Models\ScanTextResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Imageaudit extends OpenApiClient
@@ -48,34 +50,6 @@ class Imageaudit extends OpenApiClient
     }
 
     /**
-     * @param ScanTextRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ScanTextResponse
-     */
-    public function scanTextWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ScanTextResponse::fromMap($this->doRPCRequest('ScanText', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ScanTextRequest $request
-     *
-     * @return ScanTextResponse
-     */
-    public function scanText($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->scanTextWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ScanImageRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -84,11 +58,29 @@ class Imageaudit extends OpenApiClient
     public function scanImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->task)) {
+            $body['Task'] = $request->task;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ScanImage',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ScanImageResponse::fromMap($this->doRPCRequest('ScanImage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ScanImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -101,5 +93,51 @@ class Imageaudit extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->scanImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ScanTextRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ScanTextResponse
+     */
+    public function scanTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->tasks)) {
+            $body['Tasks'] = $request->tasks;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ScanText',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ScanTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ScanTextRequest $request
+     *
+     * @return ScanTextResponse
+     */
+    public function scanText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scanTextWithOptions($request, $runtime);
     }
 }
