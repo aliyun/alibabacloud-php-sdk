@@ -20,8 +20,6 @@ class RescaleDeviceServiceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -20,15 +20,11 @@ class DescribeEnsRouteEntryListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 路由条目信息。
-     *
      * @var routeEntrys[]
      */
     public $routeEntrys;

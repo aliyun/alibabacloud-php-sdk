@@ -15,8 +15,6 @@ class SetBackendServersResponseBody extends Model
     public $backendServers;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExportBillDetailDataRequest extends Model
 {
     /**
-     * @description 结束时间UTC格式
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description 开始时间，UTC格式
-     *
      * @var string
      */
     public $startDate;

@@ -11,134 +11,96 @@ use AlibabaCloud\Tea\Model;
 class RunInstancesRequest extends Model
 {
     /**
-     * @description 数量
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 是否自动续费，默认为false
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description 运营商
-     *
      * @var string
      */
     public $carrier;
 
     /**
-     * @description 数据盘规格
-     *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
-     * @description 节点id
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description 主机名称
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description 镜像id
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 实例付费方式，PrePaid:预付费，包年包月 PostPaid:按量付费
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description 实例名称。长度为2~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、点号（.）或者连字符（-）。默认值为实例的InstanceId
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 实例规格
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 带宽计费方式
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description 公网最大带宽，如果参数InternetMaxBandwidthOut的值大于0，则自动为实例分配公网IP。
-     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
-     * @description 密钥对名称
-     *
      * @var string
      */
     public $keyPairName;
 
     /**
-     * @description 地区code
-     *
      * @var string
      */
     public $netDistrictCode;
 
     /**
-     * @description 网络id
-     *
      * @var string
      */
     public $netWorkId;
 
     /**
-     * @description 实例密码
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description 购买资源的时长，单位为：月
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description 查询云服务器ENS不同计费周期的价格。取值范围：
-     * Day：按天计费的价格单位。
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description 私网ip
-     *
      * @var string
      */
     public $privateIpAddress;
@@ -149,57 +111,41 @@ class RunInstancesRequest extends Model
     public $publicIpIdentification;
 
     /**
-     * @description 调度层级
-     *
      * @var string
      */
     public $scheduleAreaLevel;
 
     /**
-     * @description 调度价格策略
-     *
      * @var string
      */
     public $schedulingPriceStrategy;
 
     /**
-     * @description 调度策略
-     *
      * @var string
      */
     public $schedulingStrategy;
 
     /**
-     * @description 安全组id
-     *
      * @var string
      */
     public $securityId;
 
     /**
-     * @description 系统盘规格
-     *
      * @var systemDisk
      */
     public $systemDisk;
 
     /**
-     * @description 是否为HostName和InstanceName添加有序后缀，有序后缀从001开始递增，最大不能超过999
-     *
      * @var bool
      */
     public $uniqueSuffix;
 
     /**
-     * @description 用户自定义数据，最大支持16KB 您可传入UserData信息。UserData以Base64的方式编码
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description 交换机id
-     *
      * @var string
      */
     public $vSwitchId;

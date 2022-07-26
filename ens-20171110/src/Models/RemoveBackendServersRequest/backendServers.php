@@ -14,8 +14,6 @@ class backendServers extends Model
     public $ip;
 
     /**
-     * @description 端口
-     *
      * @var int
      */
     public $port;
@@ -26,15 +24,11 @@ class backendServers extends Model
     public $serverId;
 
     /**
-     * @description 后端服务器类型。  ens：ENS实例（默认）
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 后端服务器的权重。  取值：0~100  默认值为100，如果值为0，则不会将请求转发给该后端服务器。
-     *
      * @var int
      */
     public $weight;

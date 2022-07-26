@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyPrepayInstanceSpecRequest extends Model
 {
     /**
-     * @description 变配实例id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 更新的配置
-     *
      * @var string
      */
     public $instanceType;

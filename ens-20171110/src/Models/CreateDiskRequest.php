@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskRequest extends Model
 {
     /**
-     * @description 磁盘种类 高效云盘:cloud_efficiency 全闪云盘:cloud_ssd
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 节点ID
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description 实例付费方式，取值 PrePaid:预付费，包年包月 PostPaid:按量付费。目前只支持：PostPaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description 磁盘大小,单位GB
-     *
      * @var string
      */
     public $size;

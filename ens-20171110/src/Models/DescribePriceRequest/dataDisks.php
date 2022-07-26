@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataDisks extends Model
 {
     /**
-     * @description 磁盘类型
-     *
      * @var string
      */
     public $category;

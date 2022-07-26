@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateEipInstanceResponseBody extends Model
 {
     /**
-     * @description EIP的ID。
-     *
      * @var string
      */
     public $allocationId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

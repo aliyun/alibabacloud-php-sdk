@@ -14,8 +14,6 @@ class AddDeviceInternetPortRequest extends Model
     public $ISP;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskResponseBody extends Model
 {
     /**
-     * @description 实列ID集合
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description 订单id,多个以逗号分割，可以直接跳转到收银行台 只有预付费返回订单号，后付费不返回
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description 请求唯一ID
-     *
      * @var string
      */
     public $requestId;

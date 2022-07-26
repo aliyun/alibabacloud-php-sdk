@@ -89,8 +89,6 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
     public $persistenceTimeout;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

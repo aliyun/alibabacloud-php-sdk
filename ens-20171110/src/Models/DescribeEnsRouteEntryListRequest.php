@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRouteEntryListRequest extends Model
 {
     /**
-     * @description 路由条目的目标网段
-     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
-     * @description 下一跳实例ID。
-     *
      * @var string
      */
     public $nextHopId;
 
     /**
-     * @description 下一跳类型
-     *
      * @var string
      */
     public $nextHopType;
 
     /**
-     * @description 列表的页码，默认值为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页查询时每页的行数，最大值为100，默认值为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 要查询的路由条目的ID。
-     *
      * @var string
      */
     public $routeEntryId;
 
     /**
-     * @description 路由条目的名称。
-     *
      * @var string
      */
     public $routeEntryName;
 
     /**
-     * @description 路由条目的类型
-     *
      * @var string
      */
     public $routeEntryType;
 
     /**
-     * @description 要查询的路由表的ID。
-     *
      * @var string
      */
     public $routeTableId;

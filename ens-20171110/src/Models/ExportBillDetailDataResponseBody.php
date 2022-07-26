@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExportBillDetailDataResponseBody extends Model
 {
     /**
-     * @description 文件下载地址
-     *
      * @var string
      */
     public $filePath;
 
     /**
-     * @description 请求ID，公共字段
-     *
      * @var string
      */
     public $requestId;

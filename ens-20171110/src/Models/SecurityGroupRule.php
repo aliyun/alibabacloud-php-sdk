@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class SecurityGroupRule extends Model
 {
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 目标网段
-     *
      * @var string
      */
     public $destCidrIp;
 
     /**
-     * @description 方向
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description 协议
-     *
      * @var string
      */
     public $ipProtocol;
 
     /**
-     * @description 授权策略
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @description 目的端口
-     *
      * @var string
      */
     public $portRange;
 
     /**
-     * @description 源网段
-     *
      * @var string
      */
     public $sourceCidrIp;
 
     /**
-     * @description 源端口
-     *
      * @var string
      */
     public $sourcePortRange;
 
     /**
-     * @description 优先级
-     *
      * @var int
      */
     public $priority;

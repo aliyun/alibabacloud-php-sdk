@@ -14,8 +14,6 @@ class CreateForwardEntryResponseBody extends Model
     public $forwardEntryId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

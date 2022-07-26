@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateARMServerInstancesRequest extends Model
 {
     /**
-     * @description 数量，最大支持10
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 是否自动续费，默认为false。
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description ENS节点ID。
-     *
      * @var string
      */
     public $ensRegionId;
@@ -35,60 +29,41 @@ class CreateARMServerInstancesRequest extends Model
     public $frequency;
 
     /**
-     * @description 镜像ID。
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description AIC容器实例规格。
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description keypair名称
-     *
      * @var string
      */
     public $keyPairName;
 
     /**
-     * @description 付费类型。PrePaid（目前只支持此种）：包年包月
-     *
      * @var string
      */
     public $payType;
 
     /**
-     * @description 购买周期。
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description Month（默认）：按月计费的价格单位。
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description 分辨率。目前取值
-     * 1920*1080
-     * 1280*720
-     * 1080*1920
-     * 720*1280
      * @var string
      */
     public $resolution;
 
     /**
-     * @description 服务器规格。
-     *
      * @var string
      */
     public $serverType;

@@ -15,8 +15,6 @@ class AssignPrivateIpAddressesResponseBody extends Model
     public $assignedPrivateIpAddressesSet;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

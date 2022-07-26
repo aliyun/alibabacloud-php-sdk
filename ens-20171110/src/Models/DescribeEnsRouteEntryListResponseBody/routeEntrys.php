@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class routeEntrys extends Model
 {
     /**
-     * @description 路由条目的描述信息。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 路由条目的目标网段。
-     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
-     * @description 下一跳
-     *
      * @var nextHops[]
      */
     public $nextHops;
 
     /**
-     * @description 路由条目的ID。
-     *
      * @var string
      */
     public $routeEntryId;
 
     /**
-     * @description 路由条目的名称。
-     *
      * @var string
      */
     public $routeEntryName;
 
     /**
-     * @description 路由表ID。
-     *
      * @var string
      */
     public $routeTableId;
 
     /**
-     * @description 路由条目的状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 路由条目的类型
-     *
      * @var string
      */
     public $type;

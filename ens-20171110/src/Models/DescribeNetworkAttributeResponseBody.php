@@ -46,8 +46,6 @@ class DescribeNetworkAttributeResponseBody extends Model
     public $networkName;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
-     * @description 需要续费的实例ID。
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 包年包月续费时长。
-     *
      * @var int
      */
     public $period;

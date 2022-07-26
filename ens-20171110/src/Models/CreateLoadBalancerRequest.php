@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerRequest extends Model
 {
     /**
-     * @description ENS节点ID。
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description 负载均衡实例的名称。
-     *
      * @var string
      */
     public $loadBalancerName;
 
     /**
-     * @description 负载均衡实例的名称。
-     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
-     * @description 要创建的ELB实例的网络ID
-     *
      * @var string
      */
     public $networkId;
 
     /**
-     * @description 付费类型。PostPaid（目前只支持此种）：按量付费
-     *
      * @var string
      */
     public $payType;
 
     /**
-     * @description 专有网络实例的所属的交换机ID。
-     *
      * @var string
      */
     public $vSwitchId;

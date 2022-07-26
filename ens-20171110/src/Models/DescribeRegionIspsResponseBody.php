@@ -15,8 +15,6 @@ class DescribeRegionIspsResponseBody extends Model
     public $isps;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -14,8 +14,6 @@ class CreateNetworkResponseBody extends Model
     public $networkId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

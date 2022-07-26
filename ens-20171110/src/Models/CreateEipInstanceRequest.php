@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateEipInstanceRequest extends Model
 {
     /**
-     * @description EIP的带宽峰值
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description ENS节点ID
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description EIP的计费方式，取值：  PrePaid：包年包月。 PostPaid（默认值）：按量计费。 当InstanceChargeType取值为PostPaid时，InternetChargeType不能为PayByBandwidth
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description EIP的计量方式，取值：  PayByBandwidth（默认值）：按带宽计费。 取值：95BandwidthByMonth：月95。
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description 运营商信息
-     *
      * @var string
      */
     public $isp;
 
     /**
-     * @description EIP实例名称。
-     *
      * @var string
      */
     public $name;

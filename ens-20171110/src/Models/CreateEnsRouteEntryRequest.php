@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateEnsRouteEntryRequest extends Model
 {
     /**
-     * @description 自定义路由条目的描述信息。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 自定义路由条目的目标网段。
-     *
      * @var string
      */
     public $destinationCidrBlock;
 
     /**
-     * @description 自定义路由条目的下一跳实例的ID。
-     *
      * @var string
      */
     public $nextHopId;
 
     /**
-     * @description 自定义路由条目的下一跳的类型
-     *
      * @var string
      */
     public $nextHopType;
 
     /**
-     * @description 要创建的自定义路由条目的名称。
-     *
      * @var string
      */
     public $routeEntryName;
 
     /**
-     * @description 要创建自定义路由条目的路由表ID。
-     *
      * @var string
      */
     public $routeTableId;

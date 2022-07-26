@@ -14,8 +14,6 @@ class CreateImageResponseBody extends Model
     public $code;
 
     /**
-     * @description 镜像ID
-     *
      * @var string
      */
     public $imageId;

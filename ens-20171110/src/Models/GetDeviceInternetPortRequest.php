@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceInternetPortRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $instanceId;

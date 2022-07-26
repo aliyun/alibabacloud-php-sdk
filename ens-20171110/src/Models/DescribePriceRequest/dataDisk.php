@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @description 数据盘大小，单位GB。如果此字段不为空，则以此段为准。
-     *
      * @var int
      */
     public $size;

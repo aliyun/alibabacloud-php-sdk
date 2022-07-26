@@ -12,14 +12,8 @@ class ReleasePostPaidInstanceRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'version'    => 'Version',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class ReleasePostPaidInstanceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class ReleasePostPaidInstanceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

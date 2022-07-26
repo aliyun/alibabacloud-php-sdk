@@ -99,6 +99,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResourceSummaryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResourceSummaryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceRequest;
@@ -252,6 +255,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyForwardEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageSharePermissionRequest;
@@ -274,6 +279,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\PreCreateEnsServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreCreateEnsServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootAICInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootAICInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskRequest;
@@ -301,6 +310,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceRequest;
@@ -345,6 +356,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationResponse;
 use AlibabaCloud\Tea\Tea;
@@ -1309,6 +1323,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->forwardEntryName)) {
             $query['ForwardEntryName'] = $request->forwardEntryName;
+        }
+        if (!Utils::isUnset($request->healthCheckPort)) {
+            $query['HealthCheckPort'] = $request->healthCheckPort;
         }
         if (!Utils::isUnset($request->internalIp)) {
             $query['InternalIp'] = $request->internalIp;
@@ -2825,6 +2842,54 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeARMServerInstancesRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeARMServerInstancesResponse
+     */
+    public function describeARMServerInstancesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeARMServerInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ensRegionIds)) {
+            $request->ensRegionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ensRegionIds, 'EnsRegionIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->serverIds)) {
+            $request->serverIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverIds, 'ServerIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeARMServerInstances',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeARMServerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeARMServerInstancesRequest $request
+     *
+     * @return DescribeARMServerInstancesResponse
+     */
+    public function describeARMServerInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeARMServerInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -6780,6 +6845,55 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param ModifyForwardEntryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyForwardEntryResponse
+     */
+    public function modifyForwardEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->forwardEntryId)) {
+            $query['ForwardEntryId'] = $request->forwardEntryId;
+        }
+        if (!Utils::isUnset($request->forwardEntryName)) {
+            $query['ForwardEntryName'] = $request->forwardEntryName;
+        }
+        if (!Utils::isUnset($request->healthCheckPort)) {
+            $query['HealthCheckPort'] = $request->healthCheckPort;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyForwardEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyForwardEntryRequest $request
+     *
+     * @return ModifyForwardEntryResponse
+     */
+    public function modifyForwardEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyForwardEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyImageAttributeRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -7410,6 +7524,86 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param RebootAICInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RebootAICInstanceResponse
+     */
+    public function rebootAICInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootAICInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebootAICInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebootAICInstanceRequest $request
+     *
+     * @return RebootAICInstanceResponse
+     */
+    public function rebootAICInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootAICInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RebootARMServerInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RebootARMServerInstanceResponse
+     */
+    public function rebootARMServerInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RebootARMServerInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RebootARMServerInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RebootARMServerInstanceRequest $request
+     *
+     * @return RebootARMServerInstanceResponse
+     */
+    public function rebootARMServerInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rebootARMServerInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RebootInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -7556,9 +7750,6 @@ class Ens extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7993,6 +8184,46 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rescaleDeviceServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetAICInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ResetAICInstanceResponse
+     */
+    public function resetAICInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetAICInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetAICInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetAICInstanceRequest $request
+     *
+     * @return ResetAICInstanceResponse
+     */
+    public function resetAICInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetAICInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -9260,6 +9491,51 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unassignPrivateIpAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeAICInstanceImageRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpgradeAICInstanceImageResponse
+     */
+    public function upgradeAICInstanceImageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpgradeAICInstanceImageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverIds)) {
+            $request->serverIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverIds, 'ServerIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeAICInstanceImage',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeAICInstanceImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeAICInstanceImageRequest $request
+     *
+     * @return UpgradeAICInstanceImageResponse
+     */
+    public function upgradeAICInstanceImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeAICInstanceImageWithOptions($request, $runtime);
     }
 
     /**

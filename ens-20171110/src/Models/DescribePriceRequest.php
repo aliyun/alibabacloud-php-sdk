@@ -22,50 +22,36 @@ class DescribePriceRequest extends Model
     public $systemDisk;
 
     /**
-     * @description 如果DataDisk.1.Size为空且此字段不为空时的则以此字段为准
-     *
      * @var dataDisks[]
      */
     public $dataDisks;
 
     /**
-     * @description 节点ID。
-     *
      * @var string
      */
     public $ensRegionId;
 
     /**
-     * @description 实列规格。
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 带宽计费方式
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description 购买资源的时长，如果不指定PeriodUnit，则默认按月购买。目前只支持按Days和Month。如果PeriodUnit=Day时，Period仅可以3。如果PeriodUnit=Monthc时，则Period可以为1-9,12。
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description 查询云服务器ENS不同计费周期的价格。取值范围：
-     * Day：按天计费的价格单位。
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description 数量。
-     *
      * @var int
      */
     public $quantity;

@@ -84,8 +84,6 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
     public $listenerPort;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

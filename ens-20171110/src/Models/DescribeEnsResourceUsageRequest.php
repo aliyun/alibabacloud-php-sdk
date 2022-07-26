@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsResourceUsageRequest extends Model
 {
     /**
-     * @description vm实例使用结束时间查询结束范围，，格式： yyyy-MM-dd或yyyy-MM-dd HH:mm:ss
-     *
      * @var string
      */
     public $expiredEndTime;
 
     /**
-     * @description vm实例使用结束时间查询开始范围，格式： yyyy-MM-dd或yyyy-MM-dd HH:mm:ss
-     *
      * @var string
      */
     public $expiredStartTime;

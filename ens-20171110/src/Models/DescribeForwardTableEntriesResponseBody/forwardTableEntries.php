@@ -31,6 +31,11 @@ class forwardTableEntries extends Model
     /**
      * @var string
      */
+    public $healthCheckPort;
+
+    /**
+     * @var string
+     */
     public $internalIp;
 
     /**
@@ -57,6 +62,7 @@ class forwardTableEntries extends Model
         'externalPort'     => 'ExternalPort',
         'forwardEntryId'   => 'ForwardEntryId',
         'forwardEntryName' => 'ForwardEntryName',
+        'healthCheckPort'  => 'HealthCheckPort',
         'internalIp'       => 'InternalIp',
         'internalPort'     => 'InternalPort',
         'ipProtocol'       => 'IpProtocol',
@@ -82,6 +88,9 @@ class forwardTableEntries extends Model
         }
         if (null !== $this->forwardEntryName) {
             $res['ForwardEntryName'] = $this->forwardEntryName;
+        }
+        if (null !== $this->healthCheckPort) {
+            $res['HealthCheckPort'] = $this->healthCheckPort;
         }
         if (null !== $this->internalIp) {
             $res['InternalIp'] = $this->internalIp;
@@ -121,6 +130,9 @@ class forwardTableEntries extends Model
         }
         if (isset($map['ForwardEntryName'])) {
             $model->forwardEntryName = $map['ForwardEntryName'];
+        }
+        if (isset($map['HealthCheckPort'])) {
+            $model->healthCheckPort = $map['HealthCheckPort'];
         }
         if (isset($map['InternalIp'])) {
             $model->internalIp = $map['InternalIp'];

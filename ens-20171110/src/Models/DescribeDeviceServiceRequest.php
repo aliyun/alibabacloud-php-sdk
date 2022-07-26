@@ -34,8 +34,6 @@ class DescribeDeviceServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description Service ID
-     *
      * @var string
      */
     public $serviceId;

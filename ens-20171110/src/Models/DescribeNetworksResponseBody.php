@@ -25,8 +25,6 @@ class DescribeNetworksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
