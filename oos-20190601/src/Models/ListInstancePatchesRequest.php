@@ -11,11 +11,6 @@ class ListInstancePatchesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -32,12 +27,17 @@ class ListInstancePatchesRequest extends Model
      * @var string
      */
     public $patchStatuses;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
         'instanceId'    => 'InstanceId',
         'maxResults'    => 'MaxResults',
         'nextToken'     => 'NextToken',
         'patchStatuses' => 'PatchStatuses',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class ListInstancePatchesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,6 +58,9 @@ class ListInstancePatchesRequest extends Model
         }
         if (null !== $this->patchStatuses) {
             $res['PatchStatuses'] = $this->patchStatuses;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class ListInstancePatchesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -88,6 +85,9 @@ class ListInstancePatchesRequest extends Model
         }
         if (isset($map['PatchStatuses'])) {
             $model->patchStatuses = $map['PatchStatuses'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

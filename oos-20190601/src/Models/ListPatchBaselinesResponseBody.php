@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListPatchBaselinesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var patchBaselines[]
      */
     public $patchBaselines;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
         'maxResults'     => 'MaxResults',
+        'nextToken'      => 'NextToken',
         'patchBaselines' => 'PatchBaselines',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -42,14 +42,11 @@ class ListPatchBaselinesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->patchBaselines) {
             $res['PatchBaselines'] = [];
@@ -59,6 +56,9 @@ class ListPatchBaselinesResponseBody extends Model
                     $res['PatchBaselines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,14 +72,11 @@ class ListPatchBaselinesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PatchBaselines'])) {
             if (!empty($map['PatchBaselines'])) {
@@ -89,6 +86,9 @@ class ListPatchBaselinesResponseBody extends Model
                     $model->patchBaselines[$n++] = null !== $item ? patchBaselines::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

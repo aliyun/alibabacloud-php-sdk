@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePatchesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var patches[]
      */
     public $patches;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'patches'    => 'Patches',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -42,14 +42,11 @@ class ListInstancePatchesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->patches) {
             $res['Patches'] = [];
@@ -59,6 +56,9 @@ class ListInstancePatchesResponseBody extends Model
                     $res['Patches'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,14 +72,11 @@ class ListInstancePatchesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Patches'])) {
             if (!empty($map['Patches'])) {
@@ -89,6 +86,9 @@ class ListInstancePatchesResponseBody extends Model
                     $model->patches[$n++] = null !== $item ? patches::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

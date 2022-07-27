@@ -11,17 +11,17 @@ class CreateTemplateRequest extends Model
     /**
      * @var string
      */
+    public $content;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public $content;
+    public $resourceGroupId;
 
     /**
      * @var mixed[]
@@ -31,19 +31,19 @@ class CreateTemplateRequest extends Model
     /**
      * @var string
      */
-    public $versionName;
+    public $templateName;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $versionName;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'templateName'    => 'TemplateName',
         'content'         => 'Content',
-        'tags'            => 'Tags',
-        'versionName'     => 'VersionName',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
+        'templateName'    => 'TemplateName',
+        'versionName'     => 'VersionName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

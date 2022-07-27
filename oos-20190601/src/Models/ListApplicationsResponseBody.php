@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsResponseBody extends Model
 {
     /**
+     * @var applications[]
+     */
+    public $applications;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,21 +28,11 @@ class ListApplicationsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var applications[]
-     */
-    public $applications;
     protected $_name = [
+        'applications' => 'Applications',
+        'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
-        'maxResults'   => 'MaxResults',
-        'applications' => 'Applications',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class ListApplicationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->applications) {
             $res['Applications'] = [];
             if (null !== $this->applications && \is_array($this->applications)) {
@@ -59,6 +50,15 @@ class ListApplicationsResponseBody extends Model
                     $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class ListApplicationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
@@ -89,6 +80,15 @@ class ListApplicationsResponseBody extends Model
                     $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

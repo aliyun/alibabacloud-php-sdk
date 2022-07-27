@@ -10,10 +10,13 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\CancelExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CancelExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ContinueDeployApplicationGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ContinueDeployApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterShrinkRequest;
@@ -45,6 +48,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplatesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteTemplatesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeployApplicationGroupRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeployApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GenerateExecutionPolicyRequest;
@@ -81,6 +86,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationGroupsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationGroupsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionLogsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionLogsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionRiskyTasksRequest;
@@ -92,8 +98,6 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesResponse;
-use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstanceStateReportsRequest;
-use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstanceStateReportsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInventoryEntriesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInventoryEntriesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersRequest;
@@ -148,10 +152,11 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionResponse;
-use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstanceInformationRequest;
-use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstanceInformationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineRequest;
@@ -170,6 +175,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ValidateTemplateContentResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Oos extends OpenApiClient
@@ -214,11 +220,29 @@ class Oos extends OpenApiClient
     public function cancelExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelExecution',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelExecutionResponse::fromMap($this->doRPCRequest('CancelExecution', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -242,11 +266,35 @@ class Oos extends OpenApiClient
     public function changeResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeResourceGroupResponse::fromMap($this->doRPCRequest('ChangeResourceGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -262,19 +310,106 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @param ContinueDeployApplicationGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ContinueDeployApplicationGroupResponse
+     */
+    public function continueDeployApplicationGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->deployParameters)) {
+            $query['DeployParameters'] = $request->deployParameters;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ContinueDeployApplicationGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ContinueDeployApplicationGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ContinueDeployApplicationGroupRequest $request
+     *
+     * @return ContinueDeployApplicationGroupResponse
+     */
+    public function continueDeployApplicationGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->continueDeployApplicationGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateApplicationRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return CreateApplicationResponse
      */
-    public function createApplicationWithOptions($request, $runtime)
+    public function createApplicationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateApplicationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplication',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApplicationResponse::fromMap($this->doRPCRequest('CreateApplication', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -298,11 +433,50 @@ class Oos extends OpenApiClient
     public function createApplicationGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->cmsGroupId)) {
+            $query['CmsGroupId'] = $request->cmsGroupId;
+        }
+        if (!Utils::isUnset($request->deployRegionId)) {
+            $query['DeployRegionId'] = $request->deployRegionId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->importTagKey)) {
+            $query['ImportTagKey'] = $request->importTagKey;
+        }
+        if (!Utils::isUnset($request->importTagValue)) {
+            $query['ImportTagValue'] = $request->importTagValue;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplicationGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApplicationGroupResponse::fromMap($this->doRPCRequest('CreateApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApplicationGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -331,11 +505,50 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->constraints)) {
+            $query['Constraints'] = $request->constraints;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateParameterResponse::fromMap($this->doRPCRequest('CreateParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -359,11 +572,41 @@ class Oos extends OpenApiClient
     public function createPatchBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->approvalRules)) {
+            $query['ApprovalRules'] = $request->approvalRules;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->operationSystem)) {
+            $query['OperationSystem'] = $request->operationSystem;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePatchBaseline',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePatchBaselineResponse::fromMap($this->doRPCRequest('CreatePatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -387,11 +630,53 @@ class Oos extends OpenApiClient
     public function createSecretParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->constraints)) {
+            $query['Constraints'] = $request->constraints;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecretParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSecretParameterResponse::fromMap($this->doRPCRequest('CreateSecretParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSecretParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -420,11 +705,59 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configureMode)) {
+            $query['ConfigureMode'] = $request->configureMode;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scheduleExpression)) {
+            $query['ScheduleExpression'] = $request->scheduleExpression;
+        }
+        if (!Utils::isUnset($request->scheduleType)) {
+            $query['ScheduleType'] = $request->scheduleType;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targets)) {
+            $query['Targets'] = $request->targets;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStateConfiguration',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateStateConfigurationResponse::fromMap($this->doRPCRequest('CreateStateConfiguration', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateStateConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -453,11 +786,41 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTemplate',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTemplateResponse::fromMap($this->doRPCRequest('CreateTemplate', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -481,11 +844,29 @@ class Oos extends OpenApiClient
     public function deleteApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApplication',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteApplicationResponse::fromMap($this->doRPCRequest('DeleteApplication', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -509,11 +890,32 @@ class Oos extends OpenApiClient
     public function deleteApplicationGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApplicationGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteApplicationGroupResponse::fromMap($this->doRPCRequest('DeleteApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteApplicationGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -537,11 +939,29 @@ class Oos extends OpenApiClient
     public function deleteExecutionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->executionIds)) {
+            $query['ExecutionIds'] = $request->executionIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExecutions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteExecutionsResponse::fromMap($this->doRPCRequest('DeleteExecutions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -565,11 +985,29 @@ class Oos extends OpenApiClient
     public function deleteParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteParameterResponse::fromMap($this->doRPCRequest('DeleteParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -593,11 +1031,29 @@ class Oos extends OpenApiClient
     public function deletePatchBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePatchBaseline',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePatchBaselineResponse::fromMap($this->doRPCRequest('DeletePatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -621,11 +1077,29 @@ class Oos extends OpenApiClient
     public function deleteSecretParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecretParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSecretParameterResponse::fromMap($this->doRPCRequest('DeleteSecretParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSecretParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -649,11 +1123,32 @@ class Oos extends OpenApiClient
     public function deleteStateConfigurationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->stateConfigurationIds)) {
+            $query['StateConfigurationIds'] = $request->stateConfigurationIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStateConfigurations',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteStateConfigurationsResponse::fromMap($this->doRPCRequest('DeleteStateConfigurations', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteStateConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -677,11 +1172,32 @@ class Oos extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoDeleteExecutions)) {
+            $query['AutoDeleteExecutions'] = $request->autoDeleteExecutions;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplate',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTemplateResponse::fromMap($this->doRPCRequest('DeleteTemplate', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -705,11 +1221,32 @@ class Oos extends OpenApiClient
     public function deleteTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoDeleteExecutions)) {
+            $query['AutoDeleteExecutions'] = $request->autoDeleteExecutions;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateNames)) {
+            $query['TemplateNames'] = $request->templateNames;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplates',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTemplatesResponse::fromMap($this->doRPCRequest('DeleteTemplates', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -725,6 +1262,58 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param DeployApplicationGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeployApplicationGroupResponse
+     */
+    public function deployApplicationGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->deployParameters)) {
+            $query['DeployParameters'] = $request->deployParameters;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployApplicationGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeployApplicationGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeployApplicationGroupRequest $request
+     *
+     * @return DeployApplicationGroupResponse
+     */
+    public function deployApplicationGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployApplicationGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -733,11 +1322,29 @@ class Oos extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -761,11 +1368,32 @@ class Oos extends OpenApiClient
     public function generateExecutionPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateExecutionPolicy',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateExecutionPolicyResponse::fromMap($this->doRPCRequest('GenerateExecutionPolicy', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateExecutionPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -789,11 +1417,29 @@ class Oos extends OpenApiClient
     public function getApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplication',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetApplicationResponse::fromMap($this->doRPCRequest('GetApplication', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -817,11 +1463,32 @@ class Oos extends OpenApiClient
     public function getApplicationGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplicationGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetApplicationGroupResponse::fromMap($this->doRPCRequest('GetApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetApplicationGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -845,11 +1512,29 @@ class Oos extends OpenApiClient
     public function getExecutionTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetExecutionTemplate',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetExecutionTemplateResponse::fromMap($this->doRPCRequest('GetExecutionTemplate', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetExecutionTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -873,11 +1558,38 @@ class Oos extends OpenApiClient
     public function getInventorySchemaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregator)) {
+            $query['Aggregator'] = $request->aggregator;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $query['TypeName'] = $request->typeName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInventorySchema',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetInventorySchemaResponse::fromMap($this->doRPCRequest('GetInventorySchema', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInventorySchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -901,11 +1613,35 @@ class Oos extends OpenApiClient
     public function getParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parameterVersion)) {
+            $query['ParameterVersion'] = $request->parameterVersion;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetParameterResponse::fromMap($this->doRPCRequest('GetParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -929,11 +1665,29 @@ class Oos extends OpenApiClient
     public function getParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetParameters',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetParametersResponse::fromMap($this->doRPCRequest('GetParameters', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -957,11 +1711,38 @@ class Oos extends OpenApiClient
     public function getParametersByPathWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->recursive)) {
+            $query['Recursive'] = $request->recursive;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetParametersByPath',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetParametersByPathResponse::fromMap($this->doRPCRequest('GetParametersByPath', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetParametersByPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -985,11 +1766,29 @@ class Oos extends OpenApiClient
     public function getPatchBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPatchBaseline',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPatchBaselineResponse::fromMap($this->doRPCRequest('GetPatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1013,11 +1812,35 @@ class Oos extends OpenApiClient
     public function getSecretParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->parameterVersion)) {
+            $query['ParameterVersion'] = $request->parameterVersion;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->withDecryption)) {
+            $query['WithDecryption'] = $request->withDecryption;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSecretParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSecretParameterResponse::fromMap($this->doRPCRequest('GetSecretParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSecretParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1041,11 +1864,32 @@ class Oos extends OpenApiClient
     public function getSecretParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->withDecryption)) {
+            $query['WithDecryption'] = $request->withDecryption;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSecretParameters',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSecretParametersResponse::fromMap($this->doRPCRequest('GetSecretParameters', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSecretParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1069,11 +1913,41 @@ class Oos extends OpenApiClient
     public function getSecretParametersByPathWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->recursive)) {
+            $query['Recursive'] = $request->recursive;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->withDecryption)) {
+            $query['WithDecryption'] = $request->withDecryption;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSecretParametersByPath',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSecretParametersByPathResponse::fromMap($this->doRPCRequest('GetSecretParametersByPath', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSecretParametersByPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1097,11 +1971,26 @@ class Oos extends OpenApiClient
     public function getServiceSettingsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceSettings',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceSettingsResponse::fromMap($this->doRPCRequest('GetServiceSettings', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1125,11 +2014,32 @@ class Oos extends OpenApiClient
     public function getTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplate',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateResponse::fromMap($this->doRPCRequest('GetTemplate', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1153,11 +2063,35 @@ class Oos extends OpenApiClient
     public function listActionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->OOSActionName)) {
+            $query['OOSActionName'] = $request->OOSActionName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListActions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListActionsResponse::fromMap($this->doRPCRequest('ListActions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListActionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1181,11 +2115,38 @@ class Oos extends OpenApiClient
     public function listApplicationGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->deployRegionId)) {
+            $query['DeployRegionId'] = $request->deployRegionId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationGroups',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListApplicationGroupsResponse::fromMap($this->doRPCRequest('ListApplicationGroups', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListApplicationGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1201,19 +2162,54 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @param ListApplicationsRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return ListApplicationsResponse
      */
-    public function listApplicationsWithOptions($request, $runtime)
+    public function listApplicationsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListApplicationsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplications',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListApplicationsResponse::fromMap($this->doRPCRequest('ListApplications', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1237,11 +2233,41 @@ class Oos extends OpenApiClient
     public function listExecutionLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->logType)) {
+            $query['LogType'] = $request->logType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskExecutionId)) {
+            $query['TaskExecutionId'] = $request->taskExecutionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExecutionLogs',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListExecutionLogsResponse::fromMap($this->doRPCRequest('ListExecutionLogs', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListExecutionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1265,11 +2291,29 @@ class Oos extends OpenApiClient
     public function listExecutionRiskyTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExecutionRiskyTasks',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListExecutionRiskyTasksResponse::fromMap($this->doRPCRequest('ListExecutionRiskyTasks', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListExecutionRiskyTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1298,11 +2342,89 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->endDateAfter)) {
+            $query['EndDateAfter'] = $request->endDateAfter;
+        }
+        if (!Utils::isUnset($request->endDateBefore)) {
+            $query['EndDateBefore'] = $request->endDateBefore;
+        }
+        if (!Utils::isUnset($request->executedBy)) {
+            $query['ExecutedBy'] = $request->executedBy;
+        }
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->includeChildExecution)) {
+            $query['IncludeChildExecution'] = $request->includeChildExecution;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->parentExecutionId)) {
+            $query['ParentExecutionId'] = $request->parentExecutionId;
+        }
+        if (!Utils::isUnset($request->ramRole)) {
+            $query['RamRole'] = $request->ramRole;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceTemplateName)) {
+            $query['ResourceTemplateName'] = $request->resourceTemplateName;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $query['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->startDateAfter)) {
+            $query['StartDateAfter'] = $request->startDateAfter;
+        }
+        if (!Utils::isUnset($request->startDateBefore)) {
+            $query['StartDateBefore'] = $request->startDateBefore;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExecutions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListExecutionsResponse::fromMap($this->doRPCRequest('ListExecutions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1318,34 +2440,6 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInstancePatchesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListInstancePatchesResponse
-     */
-    public function listInstancePatchesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListInstancePatchesResponse::fromMap($this->doRPCRequest('ListInstancePatches', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListInstancePatchesRequest $request
-     *
-     * @return ListInstancePatchesResponse
-     */
-    public function listInstancePatches($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listInstancePatchesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListInstancePatchStatesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1354,11 +2448,35 @@ class Oos extends OpenApiClient
     public function listInstancePatchStatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstancePatchStates',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInstancePatchStatesResponse::fromMap($this->doRPCRequest('ListInstancePatchStates', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListInstancePatchStatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1374,31 +2492,58 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceStateReportsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListInstancePatchesRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ListInstanceStateReportsResponse
+     * @return ListInstancePatchesResponse
      */
-    public function listInstanceStateReportsWithOptions($request, $runtime)
+    public function listInstancePatchesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->patchStatuses)) {
+            $query['PatchStatuses'] = $request->patchStatuses;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstancePatches',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInstanceStateReportsResponse::fromMap($this->doRPCRequest('ListInstanceStateReports', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListInstancePatchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListInstanceStateReportsRequest $request
+     * @param ListInstancePatchesRequest $request
      *
-     * @return ListInstanceStateReportsResponse
+     * @return ListInstancePatchesResponse
      */
-    public function listInstanceStateReports($request)
+    public function listInstancePatches($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listInstanceStateReportsWithOptions($request, $runtime);
+        return $this->listInstancePatchesWithOptions($request, $runtime);
     }
 
     /**
@@ -1410,11 +2555,41 @@ class Oos extends OpenApiClient
     public function listInventoryEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $query['TypeName'] = $request->typeName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInventoryEntries',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInventoryEntriesResponse::fromMap($this->doRPCRequest('ListInventoryEntries', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListInventoryEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1427,6 +2602,61 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInventoryEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListParameterVersionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListParameterVersionsResponse
+     */
+    public function listParameterVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListParameterVersions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListParameterVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListParameterVersionsRequest $request
+     *
+     * @return ListParameterVersionsResponse
+     */
+    public function listParameterVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listParameterVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1443,11 +2673,56 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->recursive)) {
+            $query['Recursive'] = $request->recursive;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $query['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListParameters',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListParametersResponse::fromMap($this->doRPCRequest('ListParameters', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1463,34 +2738,6 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListParameterVersionsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListParameterVersionsResponse
-     */
-    public function listParameterVersionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListParameterVersionsResponse::fromMap($this->doRPCRequest('ListParameterVersions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListParameterVersionsRequest $request
-     *
-     * @return ListParameterVersionsResponse
-     */
-    public function listParameterVersions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listParameterVersionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListPatchBaselinesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1499,11 +2746,41 @@ class Oos extends OpenApiClient
     public function listPatchBaselinesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->operationSystem)) {
+            $query['OperationSystem'] = $request->operationSystem;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPatchBaselines',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPatchBaselinesResponse::fromMap($this->doRPCRequest('ListPatchBaselines', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPatchBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1527,11 +2804,35 @@ class Oos extends OpenApiClient
     public function listResourceExecutionStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceExecutionStatus',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourceExecutionStatusResponse::fromMap($this->doRPCRequest('ListResourceExecutionStatus', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourceExecutionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1544,6 +2845,64 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listResourceExecutionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSecretParameterVersionsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListSecretParameterVersionsResponse
+     */
+    public function listSecretParameterVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
+        if (!Utils::isUnset($request->withDecryption)) {
+            $query['WithDecryption'] = $request->withDecryption;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecretParameterVersions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSecretParameterVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSecretParameterVersionsRequest $request
+     *
+     * @return ListSecretParameterVersionsResponse
+     */
+    public function listSecretParameterVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecretParameterVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1560,11 +2919,53 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->recursive)) {
+            $query['Recursive'] = $request->recursive;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $query['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecretParameters',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSecretParametersResponse::fromMap($this->doRPCRequest('ListSecretParameters', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSecretParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1577,34 +2978,6 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSecretParametersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSecretParameterVersionsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListSecretParameterVersionsResponse
-     */
-    public function listSecretParameterVersionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSecretParameterVersionsResponse::fromMap($this->doRPCRequest('ListSecretParameterVersions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSecretParameterVersionsRequest $request
-     *
-     * @return ListSecretParameterVersionsResponse
-     */
-    public function listSecretParameterVersions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSecretParameterVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1621,11 +2994,47 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->stateConfigurationIds)) {
+            $query['StateConfigurationIds'] = $request->stateConfigurationIds;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStateConfigurations',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStateConfigurationsResponse::fromMap($this->doRPCRequest('ListStateConfigurations', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStateConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1649,11 +3058,35 @@ class Oos extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1685,11 +3118,38 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['ResourceIds'] = $request->resourceIdsShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1713,11 +3173,38 @@ class Oos extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1741,11 +3228,71 @@ class Oos extends OpenApiClient
     public function listTaskExecutionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDateAfter)) {
+            $query['EndDateAfter'] = $request->endDateAfter;
+        }
+        if (!Utils::isUnset($request->endDateBefore)) {
+            $query['EndDateBefore'] = $request->endDateBefore;
+        }
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->includeChildTaskExecution)) {
+            $query['IncludeChildTaskExecution'] = $request->includeChildTaskExecution;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->parentTaskExecutionId)) {
+            $query['ParentTaskExecutionId'] = $request->parentTaskExecutionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $query['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->startDateAfter)) {
+            $query['StartDateAfter'] = $request->startDateAfter;
+        }
+        if (!Utils::isUnset($request->startDateBefore)) {
+            $query['StartDateBefore'] = $request->startDateBefore;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskAction)) {
+            $query['TaskAction'] = $request->taskAction;
+        }
+        if (!Utils::isUnset($request->taskExecutionId)) {
+            $query['TaskExecutionId'] = $request->taskExecutionId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskExecutions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTaskExecutionsResponse::fromMap($this->doRPCRequest('ListTaskExecutions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTaskExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1758,6 +3305,61 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTaskExecutionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTemplateVersionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListTemplateVersionsResponse
+     */
+    public function listTemplateVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplateVersions',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTemplateVersionsRequest $request
+     *
+     * @return ListTemplateVersionsResponse
+     */
+    public function listTemplateVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTemplateVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1774,11 +3376,71 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->createdBy)) {
+            $query['CreatedBy'] = $request->createdBy;
+        }
+        if (!Utils::isUnset($request->createdDateAfter)) {
+            $query['CreatedDateAfter'] = $request->createdDateAfter;
+        }
+        if (!Utils::isUnset($request->createdDateBefore)) {
+            $query['CreatedDateBefore'] = $request->createdDateBefore;
+        }
+        if (!Utils::isUnset($request->hasTrigger)) {
+            $query['HasTrigger'] = $request->hasTrigger;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
+        if (!Utils::isUnset($request->sortField)) {
+            $query['SortField'] = $request->sortField;
+        }
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->templateFormat)) {
+            $query['TemplateFormat'] = $request->templateFormat;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplates',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1794,34 +3456,6 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListTemplateVersionsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListTemplateVersionsResponse
-     */
-    public function listTemplateVersionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListTemplateVersionsResponse::fromMap($this->doRPCRequest('ListTemplateVersions', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListTemplateVersionsRequest $request
-     *
-     * @return ListTemplateVersionsResponse
-     */
-    public function listTemplateVersions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTemplateVersionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param NotifyExecutionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1830,11 +3464,53 @@ class Oos extends OpenApiClient
     public function notifyExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->executionStatus)) {
+            $query['ExecutionStatus'] = $request->executionStatus;
+        }
+        if (!Utils::isUnset($request->loopItem)) {
+            $query['LoopItem'] = $request->loopItem;
+        }
+        if (!Utils::isUnset($request->notifyNote)) {
+            $query['NotifyNote'] = $request->notifyNote;
+        }
+        if (!Utils::isUnset($request->notifyType)) {
+            $query['NotifyType'] = $request->notifyType;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskExecutionId)) {
+            $query['TaskExecutionId'] = $request->taskExecutionId;
+        }
+        if (!Utils::isUnset($request->taskExecutionIds)) {
+            $query['TaskExecutionIds'] = $request->taskExecutionIds;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NotifyExecution',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return NotifyExecutionResponse::fromMap($this->doRPCRequest('NotifyExecution', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return NotifyExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1858,11 +3534,29 @@ class Oos extends OpenApiClient
     public function registerDefaultPatchBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterDefaultPatchBaseline',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterDefaultPatchBaselineResponse::fromMap($this->doRPCRequest('RegisterDefaultPatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterDefaultPatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1886,11 +3580,38 @@ class Oos extends OpenApiClient
     public function searchInventoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregator)) {
+            $query['Aggregator'] = $request->aggregator;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchInventory',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchInventoryResponse::fromMap($this->doRPCRequest('SearchInventory', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1914,11 +3635,44 @@ class Oos extends OpenApiClient
     public function setServiceSettingsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deliveryOssBucketName)) {
+            $query['DeliveryOssBucketName'] = $request->deliveryOssBucketName;
+        }
+        if (!Utils::isUnset($request->deliveryOssEnabled)) {
+            $query['DeliveryOssEnabled'] = $request->deliveryOssEnabled;
+        }
+        if (!Utils::isUnset($request->deliveryOssKeyPrefix)) {
+            $query['DeliveryOssKeyPrefix'] = $request->deliveryOssKeyPrefix;
+        }
+        if (!Utils::isUnset($request->deliverySlsEnabled)) {
+            $query['DeliverySlsEnabled'] = $request->deliverySlsEnabled;
+        }
+        if (!Utils::isUnset($request->deliverySlsProjectName)) {
+            $query['DeliverySlsProjectName'] = $request->deliverySlsProjectName;
+        }
+        if (!Utils::isUnset($request->rdcEnterpriseId)) {
+            $query['RdcEnterpriseId'] = $request->rdcEnterpriseId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetServiceSettings',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetServiceSettingsResponse::fromMap($this->doRPCRequest('SetServiceSettings', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetServiceSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1947,11 +3701,62 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->loopMode)) {
+            $query['LoopMode'] = $request->loopMode;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->parentExecutionId)) {
+            $query['ParentExecutionId'] = $request->parentExecutionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->safetyCheck)) {
+            $query['SafetyCheck'] = $request->safetyCheck;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartExecution',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartExecutionResponse::fromMap($this->doRPCRequest('StartExecution', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1983,11 +3788,35 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['ResourceIds'] = $request->resourceIdsShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2011,11 +3840,38 @@ class Oos extends OpenApiClient
     public function triggerExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TriggerExecution',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TriggerExecutionResponse::fromMap($this->doRPCRequest('TriggerExecution', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TriggerExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2047,11 +3903,38 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tagKeys)) {
             $request->tagKeysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'TagKeys', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['ResourceIds'] = $request->resourceIdsShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKeysShrink)) {
+            $query['TagKeys'] = $request->tagKeysShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2067,6 +3950,63 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param UpdateApplicationRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateApplicationResponse
+     */
+    public function updateApplicationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateApplicationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplication',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateApplicationRequest $request
+     *
+     * @return UpdateApplicationResponse
+     */
+    public function updateApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateApplicationGroupRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2075,11 +4015,35 @@ class Oos extends OpenApiClient
     public function updateApplicationGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->newName)) {
+            $query['NewName'] = $request->newName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationGroup',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateApplicationGroupResponse::fromMap($this->doRPCRequest('UpdateApplicationGroup', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateApplicationGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2103,11 +4067,35 @@ class Oos extends OpenApiClient
     public function updateExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->executionId)) {
+            $query['ExecutionId'] = $request->executionId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateExecution',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateExecutionResponse::fromMap($this->doRPCRequest('UpdateExecution', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2123,34 +4111,6 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceInformationRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpdateInstanceInformationResponse
-     */
-    public function updateInstanceInformationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateInstanceInformationResponse::fromMap($this->doRPCRequest('UpdateInstanceInformation', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateInstanceInformationRequest $request
-     *
-     * @return UpdateInstanceInformationResponse
-     */
-    public function updateInstanceInformation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateInstanceInformationWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateParameterRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2159,11 +4119,41 @@ class Oos extends OpenApiClient
     public function updateParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateParameterResponse::fromMap($this->doRPCRequest('UpdateParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2187,11 +4177,38 @@ class Oos extends OpenApiClient
     public function updatePatchBaselineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->approvalRules)) {
+            $query['ApprovalRules'] = $request->approvalRules;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePatchBaseline',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePatchBaselineResponse::fromMap($this->doRPCRequest('UpdatePatchBaseline', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePatchBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2220,11 +4237,41 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSecretParameter',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSecretParameterResponse::fromMap($this->doRPCRequest('UpdateSecretParameter', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSecretParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2256,11 +4303,56 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configureMode)) {
+            $query['ConfigureMode'] = $request->configureMode;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scheduleExpression)) {
+            $query['ScheduleExpression'] = $request->scheduleExpression;
+        }
+        if (!Utils::isUnset($request->scheduleType)) {
+            $query['ScheduleType'] = $request->scheduleType;
+        }
+        if (!Utils::isUnset($request->stateConfigurationId)) {
+            $query['StateConfigurationId'] = $request->stateConfigurationId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targets)) {
+            $query['Targets'] = $request->targets;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStateConfiguration',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateStateConfigurationResponse::fromMap($this->doRPCRequest('UpdateStateConfiguration', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateStateConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2289,11 +4381,41 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplate',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTemplateResponse::fromMap($this->doRPCRequest('UpdateTemplate', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2317,11 +4439,29 @@ class Oos extends OpenApiClient
     public function validateTemplateContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateTemplateContent',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ValidateTemplateContentResponse::fromMap($this->doRPCRequest('ValidateTemplateContent', '2019-06-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ValidateTemplateContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePatchStatesResponseBody extends Model
 {
     /**
+     * @var instancePatchStates[]
+     */
+    public $instancePatchStates;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,21 +28,11 @@ class ListInstancePatchStatesResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var instancePatchStates[]
-     */
-    public $instancePatchStates;
     protected $_name = [
+        'instancePatchStates' => 'InstancePatchStates',
+        'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
         'requestId'           => 'RequestId',
-        'maxResults'          => 'MaxResults',
-        'instancePatchStates' => 'InstancePatchStates',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class ListInstancePatchStatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->instancePatchStates) {
             $res['InstancePatchStates'] = [];
             if (null !== $this->instancePatchStates && \is_array($this->instancePatchStates)) {
@@ -59,6 +50,15 @@ class ListInstancePatchStatesResponseBody extends Model
                     $res['InstancePatchStates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class ListInstancePatchStatesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['InstancePatchStates'])) {
             if (!empty($map['InstancePatchStates'])) {
                 $model->instancePatchStates = [];
@@ -89,6 +80,15 @@ class ListInstancePatchStatesResponseBody extends Model
                     $model->instancePatchStates[$n++] = null !== $item ? instancePatchStates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -12,21 +12,21 @@ class CreateTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $templateType;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var template
      */
     public $template;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
-        'templateType' => 'TemplateType',
         'requestId'    => 'RequestId',
         'template'     => 'Template',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class CreateTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateType) {
-            $res['TemplateType'] = $this->templateType;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->template) {
             $res['Template'] = null !== $this->template ? $this->template->toMap() : null;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class CreateTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateType'])) {
-            $model->templateType = $map['TemplateType'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Template'])) {
             $model->template = template::fromMap($map['Template']);
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

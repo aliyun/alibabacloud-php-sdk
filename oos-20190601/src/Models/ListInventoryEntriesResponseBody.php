@@ -11,6 +11,26 @@ class ListInventoryEntriesResponseBody extends Model
     /**
      * @var string
      */
+    public $captureTime;
+
+    /**
+     * @var mixed[][]
+     */
+    public $entries;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -24,38 +44,18 @@ class ListInventoryEntriesResponseBody extends Model
     public $schemaVersion;
 
     /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $captureTime;
-
-    /**
      * @var string
      */
     public $typeName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var mixed[][]
-     */
-    public $entries;
     protected $_name = [
+        'captureTime'   => 'CaptureTime',
+        'entries'       => 'Entries',
+        'instanceId'    => 'InstanceId',
+        'maxResults'    => 'MaxResults',
         'nextToken'     => 'NextToken',
         'requestId'     => 'RequestId',
         'schemaVersion' => 'SchemaVersion',
-        'maxResults'    => 'MaxResults',
-        'captureTime'   => 'CaptureTime',
         'typeName'      => 'TypeName',
-        'instanceId'    => 'InstanceId',
-        'entries'       => 'Entries',
     ];
 
     public function validate()
@@ -65,6 +65,18 @@ class ListInventoryEntriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->captureTime) {
+            $res['CaptureTime'] = $this->captureTime;
+        }
+        if (null !== $this->entries) {
+            $res['Entries'] = $this->entries;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -74,20 +86,8 @@ class ListInventoryEntriesResponseBody extends Model
         if (null !== $this->schemaVersion) {
             $res['SchemaVersion'] = $this->schemaVersion;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->captureTime) {
-            $res['CaptureTime'] = $this->captureTime;
-        }
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->entries) {
-            $res['Entries'] = $this->entries;
         }
 
         return $res;
@@ -101,6 +101,20 @@ class ListInventoryEntriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CaptureTime'])) {
+            $model->captureTime = $map['CaptureTime'];
+        }
+        if (isset($map['Entries'])) {
+            if (!empty($map['Entries'])) {
+                $model->entries = $map['Entries'];
+            }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -110,22 +124,8 @@ class ListInventoryEntriesResponseBody extends Model
         if (isset($map['SchemaVersion'])) {
             $model->schemaVersion = $map['SchemaVersion'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['CaptureTime'])) {
-            $model->captureTime = $map['CaptureTime'];
-        }
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Entries'])) {
-            if (!empty($map['Entries'])) {
-                $model->entries = $map['Entries'];
-            }
         }
 
         return $model;

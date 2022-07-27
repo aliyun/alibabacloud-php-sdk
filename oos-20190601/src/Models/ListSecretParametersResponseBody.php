@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListSecretParametersResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var parameters[]
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'parameters' => 'Parameters',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -42,14 +42,11 @@ class ListSecretParametersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -59,6 +56,9 @@ class ListSecretParametersResponseBody extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,14 +72,11 @@ class ListSecretParametersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -89,6 +86,9 @@ class ListSecretParametersResponseBody extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

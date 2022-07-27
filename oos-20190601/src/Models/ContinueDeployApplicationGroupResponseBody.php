@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateInstanceInformationResponseBody extends Model
+class ContinueDeployApplicationGroupResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class UpdateInstanceInformationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateInstanceInformationResponseBody
+     * @return ContinueDeployApplicationGroupResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -11,15 +11,15 @@ class CancelExecutionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $executionId;
 
     /**
      * @var string
      */
-    public $executionId;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'executionId' => 'ExecutionId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CancelExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CancelExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class RegisterDefaultPatchBaselineResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var patchBaseline
      */
     public $patchBaseline;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'patchBaseline' => 'PatchBaseline',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class RegisterDefaultPatchBaselineResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->patchBaseline) {
             $res['PatchBaseline'] = null !== $this->patchBaseline ? $this->patchBaseline->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class RegisterDefaultPatchBaselineResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PatchBaseline'])) {
             $model->patchBaseline = patchBaseline::fromMap($map['PatchBaseline']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

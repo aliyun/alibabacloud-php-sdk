@@ -11,12 +11,12 @@ class riskyTasks extends Model
     /**
      * @var string
      */
-    public $service;
+    public $API;
 
     /**
      * @var string
      */
-    public $API;
+    public $service;
 
     /**
      * @var string[]
@@ -28,8 +28,8 @@ class riskyTasks extends Model
      */
     public $template;
     protected $_name = [
-        'service'  => 'Service',
         'API'      => 'API',
+        'service'  => 'Service',
         'task'     => 'Task',
         'template' => 'Template',
     ];
@@ -41,11 +41,11 @@ class riskyTasks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->service) {
-            $res['Service'] = $this->service;
-        }
         if (null !== $this->API) {
             $res['API'] = $this->API;
+        }
+        if (null !== $this->service) {
+            $res['Service'] = $this->service;
         }
         if (null !== $this->task) {
             $res['Task'] = $this->task;
@@ -65,11 +65,11 @@ class riskyTasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Service'])) {
-            $model->service = $map['Service'];
-        }
         if (isset($map['API'])) {
             $model->API = $map['API'];
+        }
+        if (isset($map['Service'])) {
+            $model->service = $map['Service'];
         }
         if (isset($map['Task'])) {
             if (!empty($map['Task'])) {

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $value;
+    public $name;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class filter extends Model
     public $operator;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $name;
+    public $value;
     protected $_name = [
-        'value'    => 'Value',
-        'operator' => 'Operator',
         'name'     => 'Name',
+        'operator' => 'Operator',
+        'value'    => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class filter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class filter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
-            }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Value'])) {
+            if (!empty($map['Value'])) {
+                $model->value = $map['Value'];
+            }
         }
 
         return $model;

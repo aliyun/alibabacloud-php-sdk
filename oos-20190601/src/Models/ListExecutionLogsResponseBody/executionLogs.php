@@ -11,7 +11,7 @@ class executionLogs extends Model
     /**
      * @var string
      */
-    public $taskExecutionId;
+    public $logType;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class executionLogs extends Model
     /**
      * @var string
      */
-    public $logType;
+    public $taskExecutionId;
 
     /**
      * @var string
      */
     public $timestamp;
     protected $_name = [
-        'taskExecutionId' => 'TaskExecutionId',
-        'message'         => 'Message',
         'logType'         => 'LogType',
+        'message'         => 'Message',
+        'taskExecutionId' => 'TaskExecutionId',
         'timestamp'       => 'Timestamp',
     ];
 
@@ -41,14 +41,14 @@ class executionLogs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskExecutionId) {
-            $res['TaskExecutionId'] = $this->taskExecutionId;
+        if (null !== $this->logType) {
+            $res['LogType'] = $this->logType;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->logType) {
-            $res['LogType'] = $this->logType;
+        if (null !== $this->taskExecutionId) {
+            $res['TaskExecutionId'] = $this->taskExecutionId;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -65,14 +65,14 @@ class executionLogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskExecutionId'])) {
-            $model->taskExecutionId = $map['TaskExecutionId'];
+        if (isset($map['LogType'])) {
+            $model->logType = $map['LogType'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['LogType'])) {
-            $model->logType = $map['LogType'];
+        if (isset($map['TaskExecutionId'])) {
+            $model->taskExecutionId = $map['TaskExecutionId'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];

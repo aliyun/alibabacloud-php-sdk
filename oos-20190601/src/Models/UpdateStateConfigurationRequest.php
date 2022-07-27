@@ -11,7 +11,12 @@ class UpdateStateConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $configureMode;
 
     /**
      * @var string
@@ -26,12 +31,12 @@ class UpdateStateConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $configureMode;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $scheduleType;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -41,12 +46,7 @@ class UpdateStateConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $targets;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
+    public $scheduleType;
 
     /**
      * @var string
@@ -61,19 +61,19 @@ class UpdateStateConfigurationRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $targets;
     protected $_name = [
-        'regionId'             => 'RegionId',
+        'clientToken'          => 'ClientToken',
+        'configureMode'        => 'ConfigureMode',
         'description'          => 'Description',
         'parameters'           => 'Parameters',
-        'configureMode'        => 'ConfigureMode',
-        'scheduleType'         => 'ScheduleType',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'scheduleExpression'   => 'ScheduleExpression',
-        'targets'              => 'Targets',
-        'clientToken'          => 'ClientToken',
+        'scheduleType'         => 'ScheduleType',
         'stateConfigurationId' => 'StateConfigurationId',
         'tags'                 => 'Tags',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'targets'              => 'Targets',
     ];
 
     public function validate()
@@ -83,8 +83,11 @@ class UpdateStateConfigurationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->configureMode) {
+            $res['ConfigureMode'] = $this->configureMode;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -92,20 +95,17 @@ class UpdateStateConfigurationRequest extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->configureMode) {
-            $res['ConfigureMode'] = $this->configureMode;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->scheduleType) {
-            $res['ScheduleType'] = $this->scheduleType;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->scheduleExpression) {
             $res['ScheduleExpression'] = $this->scheduleExpression;
         }
-        if (null !== $this->targets) {
-            $res['Targets'] = $this->targets;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->scheduleType) {
+            $res['ScheduleType'] = $this->scheduleType;
         }
         if (null !== $this->stateConfigurationId) {
             $res['StateConfigurationId'] = $this->stateConfigurationId;
@@ -113,8 +113,8 @@ class UpdateStateConfigurationRequest extends Model
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->targets) {
+            $res['Targets'] = $this->targets;
         }
 
         return $res;
@@ -128,8 +128,11 @@ class UpdateStateConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ConfigureMode'])) {
+            $model->configureMode = $map['ConfigureMode'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -137,20 +140,17 @@ class UpdateStateConfigurationRequest extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-        if (isset($map['ConfigureMode'])) {
-            $model->configureMode = $map['ConfigureMode'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ScheduleType'])) {
-            $model->scheduleType = $map['ScheduleType'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ScheduleExpression'])) {
             $model->scheduleExpression = $map['ScheduleExpression'];
         }
-        if (isset($map['Targets'])) {
-            $model->targets = $map['Targets'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ScheduleType'])) {
+            $model->scheduleType = $map['ScheduleType'];
         }
         if (isset($map['StateConfigurationId'])) {
             $model->stateConfigurationId = $map['StateConfigurationId'];
@@ -158,8 +158,8 @@ class UpdateStateConfigurationRequest extends Model
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Targets'])) {
+            $model->targets = $map['Targets'];
         }
 
         return $model;

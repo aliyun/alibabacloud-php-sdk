@@ -11,20 +11,20 @@ class GetSecretParametersRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $names;
 
     /**
      * @var string
      */
-    public $names;
+    public $regionId;
 
     /**
      * @var bool
      */
     public $withDecryption;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'names'          => 'Names',
+        'regionId'       => 'RegionId',
         'withDecryption' => 'WithDecryption',
     ];
 
@@ -35,11 +35,11 @@ class GetSecretParametersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->names) {
             $res['Names'] = $this->names;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->withDecryption) {
             $res['WithDecryption'] = $this->withDecryption;
@@ -56,11 +56,11 @@ class GetSecretParametersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Names'])) {
             $model->names = $map['Names'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['WithDecryption'])) {
             $model->withDecryption = $map['WithDecryption'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -26,11 +21,16 @@ class ListTagKeysRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceType;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
+        'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
     ];
 
@@ -41,14 +41,14 @@ class ListTagKeysRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -65,14 +65,14 @@ class ListTagKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $keys;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -17,21 +27,11 @@ class ListTagKeysResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string[]
-     */
-    public $keys;
     protected $_name = [
+        'keys'       => 'Keys',
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
-        'maxResults' => 'MaxResults',
-        'keys'       => 'Keys',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListTagKeysResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keys) {
+            $res['Keys'] = $this->keys;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->keys) {
-            $res['Keys'] = $this->keys;
         }
 
         return $res;
@@ -65,19 +65,19 @@ class ListTagKeysResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Keys'])) {
+            if (!empty($map['Keys'])) {
+                $model->keys = $map['Keys'];
+            }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['Keys'])) {
-            if (!empty($map['Keys'])) {
-                $model->keys = $map['Keys'];
-            }
         }
 
         return $model;

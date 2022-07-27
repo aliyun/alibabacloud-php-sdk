@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionLogsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var executionLogs[]
      */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $executionLogs;
 
     /**
      * @var bool
@@ -30,15 +25,20 @@ class ListExecutionLogsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @var executionLogs[]
+     * @var string
      */
-    public $executionLogs;
+    public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
+        'executionLogs' => 'ExecutionLogs',
         'isTruncated'   => 'IsTruncated',
         'maxResults'    => 'MaxResults',
-        'executionLogs' => 'ExecutionLogs',
+        'nextToken'     => 'NextToken',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListExecutionLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->isTruncated) {
-            $res['IsTruncated'] = $this->isTruncated;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->executionLogs) {
             $res['ExecutionLogs'] = [];
             if (null !== $this->executionLogs && \is_array($this->executionLogs)) {
@@ -68,6 +56,18 @@ class ListExecutionLogsResponseBody extends Model
                     $res['ExecutionLogs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isTruncated) {
+            $res['IsTruncated'] = $this->isTruncated;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListExecutionLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['IsTruncated'])) {
-            $model->isTruncated = $map['IsTruncated'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['ExecutionLogs'])) {
             if (!empty($map['ExecutionLogs'])) {
                 $model->executionLogs = [];
@@ -101,6 +89,18 @@ class ListExecutionLogsResponseBody extends Model
                     $model->executionLogs[$n++] = null !== $item ? executionLogs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsTruncated'])) {
+            $model->isTruncated = $map['IsTruncated'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

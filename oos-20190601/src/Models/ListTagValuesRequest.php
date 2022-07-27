@@ -11,7 +11,7 @@ class ListTagValuesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $key;
 
     /**
      * @var int
@@ -26,18 +26,18 @@ class ListTagValuesRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $key;
+    public $resourceType;
     protected $_name = [
-        'regionId'     => 'RegionId',
+        'key'          => 'Key',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
+        'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
-        'key'          => 'Key',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class ListTagValuesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -56,11 +56,11 @@ class ListTagValuesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class ListTagValuesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -83,11 +83,11 @@ class ListTagValuesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
         }
 
         return $model;

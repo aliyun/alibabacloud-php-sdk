@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInventoryEntriesRequest extends Model
 {
     /**
-     * @var string
+     * @var filter[]
      */
-    public $instanceId;
+    public $filter;
 
     /**
      * @var string
      */
-    public $typeName;
+    public $instanceId;
 
     /**
      * @var int
@@ -30,15 +30,21 @@ class ListInventoryEntriesRequest extends Model
     public $nextToken;
 
     /**
-     * @var filter[]
+     * @var string
      */
-    public $filter;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $typeName;
     protected $_name = [
+        'filter'     => 'Filter',
         'instanceId' => 'InstanceId',
-        'typeName'   => 'TypeName',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
-        'filter'     => 'Filter',
+        'regionId'   => 'RegionId',
+        'typeName'   => 'TypeName',
     ];
 
     public function validate()
@@ -48,18 +54,6 @@ class ListInventoryEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->typeName) {
-            $res['TypeName'] = $this->typeName;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->filter) {
             $res['Filter'] = [];
             if (null !== $this->filter && \is_array($this->filter)) {
@@ -68,6 +62,21 @@ class ListInventoryEntriesRequest extends Model
                     $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->typeName) {
+            $res['TypeName'] = $this->typeName;
         }
 
         return $res;
@@ -81,18 +90,6 @@ class ListInventoryEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['TypeName'])) {
-            $model->typeName = $map['TypeName'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
@@ -101,6 +98,21 @@ class ListInventoryEntriesRequest extends Model
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TypeName'])) {
+            $model->typeName = $map['TypeName'];
         }
 
         return $model;

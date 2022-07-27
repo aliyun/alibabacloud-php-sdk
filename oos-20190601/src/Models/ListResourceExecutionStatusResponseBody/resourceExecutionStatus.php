@@ -11,12 +11,7 @@ class resourceExecutionStatus extends Model
     /**
      * @var string
      */
-    public $outputs;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $executionId;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class resourceExecutionStatus extends Model
     /**
      * @var string
      */
+    public $outputs;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
      * @var string
      */
-    public $executionId;
+    public $status;
     protected $_name = [
-        'outputs'       => 'Outputs',
-        'status'        => 'Status',
-        'executionTime' => 'ExecutionTime',
-        'resourceId'    => 'ResourceId',
         'executionId'   => 'ExecutionId',
+        'executionTime' => 'ExecutionTime',
+        'outputs'       => 'Outputs',
+        'resourceId'    => 'ResourceId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class resourceExecutionStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outputs) {
-            $res['Outputs'] = $this->outputs;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->executionId) {
+            $res['ExecutionId'] = $this->executionId;
         }
         if (null !== $this->executionTime) {
             $res['ExecutionTime'] = $this->executionTime;
         }
+        if (null !== $this->outputs) {
+            $res['Outputs'] = $this->outputs;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->executionId) {
-            $res['ExecutionId'] = $this->executionId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class resourceExecutionStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Outputs'])) {
-            $model->outputs = $map['Outputs'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ExecutionId'])) {
+            $model->executionId = $map['ExecutionId'];
         }
         if (isset($map['ExecutionTime'])) {
             $model->executionTime = $map['ExecutionTime'];
         }
+        if (isset($map['Outputs'])) {
+            $model->outputs = $map['Outputs'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['ExecutionId'])) {
-            $model->executionId = $map['ExecutionId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

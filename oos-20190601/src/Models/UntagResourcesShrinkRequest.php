@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $all;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -27,17 +32,12 @@ class UntagResourcesShrinkRequest extends Model
      * @var string
      */
     public $tagKeysShrink;
-
-    /**
-     * @var bool
-     */
-    public $all;
     protected $_name = [
+        'all'               => 'All',
         'regionId'          => 'RegionId',
         'resourceIdsShrink' => 'ResourceIds',
         'resourceType'      => 'ResourceType',
         'tagKeysShrink'     => 'TagKeys',
-        'all'               => 'All',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class UntagResourcesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -58,9 +61,6 @@ class UntagResourcesShrinkRequest extends Model
         }
         if (null !== $this->tagKeysShrink) {
             $res['TagKeys'] = $this->tagKeysShrink;
-        }
-        if (null !== $this->all) {
-            $res['All'] = $this->all;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class UntagResourcesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -85,9 +88,6 @@ class UntagResourcesShrinkRequest extends Model
         }
         if (isset($map['TagKeys'])) {
             $model->tagKeysShrink = $map['TagKeys'];
-        }
-        if (isset($map['All'])) {
-            $model->all = $map['All'];
         }
 
         return $model;

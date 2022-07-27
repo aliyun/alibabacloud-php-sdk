@@ -11,6 +11,31 @@ class applicationGroup extends Model
     /**
      * @var string
      */
+    public $applicationName;
+
+    /**
+     * @var string
+     */
+    public $cmsGroupId;
+
+    /**
+     * @var string
+     */
+    public $createDate;
+
+    /**
+     * @var string
+     */
+    public $deployOutputs;
+
+    /**
+     * @var string
+     */
+    public $deployParameters;
+
+    /**
+     * @var string
+     */
     public $deployRegionId;
 
     /**
@@ -21,17 +46,12 @@ class applicationGroup extends Model
     /**
      * @var string
      */
-    public $updatedDate;
+    public $importTagKey;
 
     /**
      * @var string
      */
-    public $createdDate;
-
-    /**
-     * @var string
-     */
-    public $applicationName;
+    public $importTagValue;
 
     /**
      * @var string
@@ -41,33 +61,31 @@ class applicationGroup extends Model
     /**
      * @var string
      */
-    public $environment;
+    public $status;
 
     /**
      * @var string
      */
-    public $createType;
+    public $statusReason;
 
     /**
      * @var string
      */
-    public $scalingGroupId;
-
-    /**
-     * @var string
-     */
-    public $importClusterId;
+    public $updateDate;
     protected $_name = [
-        'deployRegionId'  => 'DeployRegionId',
-        'description'     => 'Description',
-        'updatedDate'     => 'UpdatedDate',
-        'createdDate'     => 'CreatedDate',
-        'applicationName' => 'ApplicationName',
-        'name'            => 'Name',
-        'environment'     => 'Environment',
-        'createType'      => 'CreateType',
-        'scalingGroupId'  => 'ScalingGroupId',
-        'importClusterId' => 'ImportClusterId',
+        'applicationName'  => 'ApplicationName',
+        'cmsGroupId'       => 'CmsGroupId',
+        'createDate'       => 'CreateDate',
+        'deployOutputs'    => 'DeployOutputs',
+        'deployParameters' => 'DeployParameters',
+        'deployRegionId'   => 'DeployRegionId',
+        'description'      => 'Description',
+        'importTagKey'     => 'ImportTagKey',
+        'importTagValue'   => 'ImportTagValue',
+        'name'             => 'Name',
+        'status'           => 'Status',
+        'statusReason'     => 'StatusReason',
+        'updateDate'       => 'UpdateDate',
     ];
 
     public function validate()
@@ -77,35 +95,44 @@ class applicationGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
+        }
+        if (null !== $this->cmsGroupId) {
+            $res['CmsGroupId'] = $this->cmsGroupId;
+        }
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
+        }
+        if (null !== $this->deployOutputs) {
+            $res['DeployOutputs'] = $this->deployOutputs;
+        }
+        if (null !== $this->deployParameters) {
+            $res['DeployParameters'] = $this->deployParameters;
+        }
         if (null !== $this->deployRegionId) {
             $res['DeployRegionId'] = $this->deployRegionId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
+        if (null !== $this->importTagKey) {
+            $res['ImportTagKey'] = $this->importTagKey;
         }
-        if (null !== $this->createdDate) {
-            $res['CreatedDate'] = $this->createdDate;
-        }
-        if (null !== $this->applicationName) {
-            $res['ApplicationName'] = $this->applicationName;
+        if (null !== $this->importTagValue) {
+            $res['ImportTagValue'] = $this->importTagValue;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->environment) {
-            $res['Environment'] = $this->environment;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->createType) {
-            $res['CreateType'] = $this->createType;
+        if (null !== $this->statusReason) {
+            $res['StatusReason'] = $this->statusReason;
         }
-        if (null !== $this->scalingGroupId) {
-            $res['ScalingGroupId'] = $this->scalingGroupId;
-        }
-        if (null !== $this->importClusterId) {
-            $res['ImportClusterId'] = $this->importClusterId;
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
         }
 
         return $res;
@@ -119,35 +146,44 @@ class applicationGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
+        }
+        if (isset($map['CmsGroupId'])) {
+            $model->cmsGroupId = $map['CmsGroupId'];
+        }
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
+        }
+        if (isset($map['DeployOutputs'])) {
+            $model->deployOutputs = $map['DeployOutputs'];
+        }
+        if (isset($map['DeployParameters'])) {
+            $model->deployParameters = $map['DeployParameters'];
+        }
         if (isset($map['DeployRegionId'])) {
             $model->deployRegionId = $map['DeployRegionId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
+        if (isset($map['ImportTagKey'])) {
+            $model->importTagKey = $map['ImportTagKey'];
         }
-        if (isset($map['CreatedDate'])) {
-            $model->createdDate = $map['CreatedDate'];
-        }
-        if (isset($map['ApplicationName'])) {
-            $model->applicationName = $map['ApplicationName'];
+        if (isset($map['ImportTagValue'])) {
+            $model->importTagValue = $map['ImportTagValue'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Environment'])) {
-            $model->environment = $map['Environment'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['CreateType'])) {
-            $model->createType = $map['CreateType'];
+        if (isset($map['StatusReason'])) {
+            $model->statusReason = $map['StatusReason'];
         }
-        if (isset($map['ScalingGroupId'])) {
-            $model->scalingGroupId = $map['ScalingGroupId'];
-        }
-        if (isset($map['ImportClusterId'])) {
-            $model->importClusterId = $map['ImportClusterId'];
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

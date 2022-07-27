@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationResponseBody;
 
-use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationResponseBody\application\cloudMonitorRule;
 use AlibabaCloud\Tea\Model;
 
 class application extends Model
@@ -12,7 +11,7 @@ class application extends Model
     /**
      * @var string
      */
-    public $isSystem;
+    public $createDate;
 
     /**
      * @var string
@@ -22,7 +21,7 @@ class application extends Model
     /**
      * @var string
      */
-    public $updatedDate;
+    public $name;
 
     /**
      * @var string
@@ -30,27 +29,21 @@ class application extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $createdDate;
+    public $tags;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var cloudMonitorRule
-     */
-    public $cloudMonitorRule;
+    public $updateDate;
     protected $_name = [
-        'isSystem'         => 'IsSystem',
-        'description'      => 'Description',
-        'updatedDate'      => 'UpdatedDate',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'createdDate'      => 'CreatedDate',
-        'name'             => 'Name',
-        'cloudMonitorRule' => 'CloudMonitorRule',
+        'createDate'      => 'CreateDate',
+        'description'     => 'Description',
+        'name'            => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
+        'updateDate'      => 'UpdateDate',
     ];
 
     public function validate()
@@ -60,26 +53,23 @@ class application extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isSystem) {
-            $res['IsSystem'] = $this->isSystem;
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->createdDate) {
-            $res['CreatedDate'] = $this->createdDate;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->cloudMonitorRule) {
-            $res['CloudMonitorRule'] = null !== $this->cloudMonitorRule ? $this->cloudMonitorRule->toMap() : null;
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
         }
 
         return $res;
@@ -93,26 +83,23 @@ class application extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsSystem'])) {
-            $model->isSystem = $map['IsSystem'];
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['CreatedDate'])) {
-            $model->createdDate = $map['CreatedDate'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['CloudMonitorRule'])) {
-            $model->cloudMonitorRule = cloudMonitorRule::fromMap($map['CloudMonitorRule']);
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

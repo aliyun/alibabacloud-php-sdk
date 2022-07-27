@@ -12,31 +12,6 @@ class ListSecretParameterVersionsResponseBody extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
     public $createdBy;
 
     /**
@@ -47,7 +22,37 @@ class ListSecretParameterVersionsResponseBody extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var parameterVersions[]
+     */
+    public $parameterVersions;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -57,24 +62,19 @@ class ListSecretParameterVersionsResponseBody extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var parameterVersions[]
-     */
-    public $parameterVersions;
+    public $type;
     protected $_name = [
-        'type'              => 'Type',
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
-        'description'       => 'Description',
-        'maxResults'        => 'MaxResults',
         'createdBy'         => 'CreatedBy',
         'createdDate'       => 'CreatedDate',
-        'name'              => 'Name',
-        'totalCount'        => 'TotalCount',
+        'description'       => 'Description',
         'id'                => 'Id',
+        'maxResults'        => 'MaxResults',
+        'name'              => 'Name',
+        'nextToken'         => 'NextToken',
         'parameterVersions' => 'ParameterVersions',
+        'requestId'         => 'RequestId',
+        'totalCount'        => 'TotalCount',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -84,35 +84,26 @@ class ListSecretParameterVersionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->parameterVersions) {
             $res['ParameterVersions'] = [];
@@ -122,6 +113,15 @@ class ListSecretParameterVersionsResponseBody extends Model
                     $res['ParameterVersions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -135,35 +135,26 @@ class ListSecretParameterVersionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ParameterVersions'])) {
             if (!empty($map['ParameterVersions'])) {
@@ -173,6 +164,15 @@ class ListSecretParameterVersionsResponseBody extends Model
                     $model->parameterVersions[$n++] = null !== $item ? parameterVersions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

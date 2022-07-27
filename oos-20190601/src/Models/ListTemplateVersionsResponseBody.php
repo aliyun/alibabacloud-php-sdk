@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -20,18 +25,13 @@ class ListTemplateVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
      * @var templateVersions[]
      */
     public $templateVersions;
     protected $_name = [
+        'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
         'requestId'        => 'RequestId',
-        'maxResults'       => 'MaxResults',
         'templateVersions' => 'TemplateVersions',
     ];
 
@@ -42,14 +42,14 @@ class ListTemplateVersionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->templateVersions) {
             $res['TemplateVersions'] = [];
@@ -72,14 +72,14 @@ class ListTemplateVersionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['TemplateVersions'])) {
             if (!empty($map['TemplateVersions'])) {

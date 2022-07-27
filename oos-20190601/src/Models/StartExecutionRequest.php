@@ -11,7 +11,57 @@ class StartExecutionRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $loopMode;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $parameters;
+
+    /**
+     * @var string
+     */
+    public $parentExecutionId;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $safetyCheck;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $templateContent;
 
     /**
      * @var string
@@ -22,70 +72,20 @@ class StartExecutionRequest extends Model
      * @var string
      */
     public $templateVersion;
-
-    /**
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @var string
-     */
-    public $loopMode;
-
-    /**
-     * @var string
-     */
-    public $parentExecutionId;
-
-    /**
-     * @var string
-     */
-    public $safetyCheck;
-
-    /**
-     * @var string
-     */
-    public $parameters;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $templateContent;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
+        'clientToken'       => 'ClientToken',
+        'description'       => 'Description',
+        'loopMode'          => 'LoopMode',
+        'mode'              => 'Mode',
+        'parameters'        => 'Parameters',
+        'parentExecutionId' => 'ParentExecutionId',
         'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'safetyCheck'       => 'SafetyCheck',
+        'tags'              => 'Tags',
+        'templateContent'   => 'TemplateContent',
         'templateName'      => 'TemplateName',
         'templateVersion'   => 'TemplateVersion',
-        'mode'              => 'Mode',
-        'loopMode'          => 'LoopMode',
-        'parentExecutionId' => 'ParentExecutionId',
-        'safetyCheck'       => 'SafetyCheck',
-        'parameters'        => 'Parameters',
-        'clientToken'       => 'ClientToken',
-        'tags'              => 'Tags',
-        'description'       => 'Description',
-        'templateContent'   => 'TemplateContent',
-        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -95,44 +95,44 @@ class StartExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->loopMode) {
+            $res['LoopMode'] = $this->loopMode;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->parentExecutionId) {
+            $res['ParentExecutionId'] = $this->parentExecutionId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->safetyCheck) {
+            $res['SafetyCheck'] = $this->safetyCheck;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->loopMode) {
-            $res['LoopMode'] = $this->loopMode;
-        }
-        if (null !== $this->parentExecutionId) {
-            $res['ParentExecutionId'] = $this->parentExecutionId;
-        }
-        if (null !== $this->safetyCheck) {
-            $res['SafetyCheck'] = $this->safetyCheck;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->templateContent) {
-            $res['TemplateContent'] = $this->templateContent;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -146,44 +146,44 @@ class StartExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['LoopMode'])) {
+            $model->loopMode = $map['LoopMode'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['ParentExecutionId'])) {
+            $model->parentExecutionId = $map['ParentExecutionId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SafetyCheck'])) {
+            $model->safetyCheck = $map['SafetyCheck'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['LoopMode'])) {
-            $model->loopMode = $map['LoopMode'];
-        }
-        if (isset($map['ParentExecutionId'])) {
-            $model->parentExecutionId = $map['ParentExecutionId'];
-        }
-        if (isset($map['SafetyCheck'])) {
-            $model->safetyCheck = $map['SafetyCheck'];
-        }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['TemplateContent'])) {
-            $model->templateContent = $map['TemplateContent'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

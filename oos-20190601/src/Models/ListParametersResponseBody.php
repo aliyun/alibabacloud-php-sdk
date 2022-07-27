@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListParametersResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
 
     /**
      * @var string
@@ -23,22 +33,12 @@ class ListParametersResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var parameters[]
-     */
-    public $parameters;
     protected $_name = [
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
+        'parameters' => 'Parameters',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'maxResults' => 'MaxResults',
-        'parameters' => 'Parameters',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class ListParametersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -68,6 +62,12 @@ class ListParametersResponseBody extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class ListParametersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -101,6 +95,12 @@ class ListParametersResponseBody extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

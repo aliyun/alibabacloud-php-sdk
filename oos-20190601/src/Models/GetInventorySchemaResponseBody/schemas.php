@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class schemas extends Model
 {
     /**
-     * @var string
+     * @var attributes[]
      */
-    public $version;
+    public $attributes;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class schemas extends Model
     public $typeName;
 
     /**
-     * @var attributes[]
+     * @var string
      */
-    public $attributes;
+    public $version;
     protected $_name = [
-        'version'    => 'Version',
-        'typeName'   => 'TypeName',
         'attributes' => 'Attributes',
+        'typeName'   => 'TypeName',
+        'version'    => 'Version',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class schemas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->typeName) {
-            $res['TypeName'] = $this->typeName;
-        }
         if (null !== $this->attributes) {
             $res['Attributes'] = [];
             if (null !== $this->attributes && \is_array($this->attributes)) {
@@ -50,6 +44,12 @@ class schemas extends Model
                     $res['Attributes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->typeName) {
+            $res['TypeName'] = $this->typeName;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class schemas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['TypeName'])) {
-            $model->typeName = $map['TypeName'];
-        }
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
@@ -77,6 +71,12 @@ class schemas extends Model
                     $model->attributes[$n++] = null !== $item ? attributes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TypeName'])) {
+            $model->typeName = $map['TypeName'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

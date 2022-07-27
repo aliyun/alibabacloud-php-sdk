@@ -11,7 +11,7 @@ class UpdateSecretParameterRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class UpdateSecretParameterRequest extends Model
     /**
      * @var string
      */
-    public $value;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $description;
+    public $resourceGroupId;
 
     /**
      * @var mixed[]
@@ -36,14 +36,14 @@ class UpdateSecretParameterRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $value;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'name'            => 'Name',
-        'value'           => 'Value',
         'description'     => 'Description',
-        'tags'            => 'Tags',
+        'name'            => 'Name',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
+        'value'           => 'Value',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class UpdateSecretParameterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class UpdateSecretParameterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

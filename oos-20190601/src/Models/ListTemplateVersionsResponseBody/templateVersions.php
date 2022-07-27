@@ -16,17 +16,7 @@ class templateVersions extends Model
     /**
      * @var string
      */
-    public $updatedDate;
-
-    /**
-     * @var string
-     */
-    public $updatedBy;
-
-    /**
-     * @var string
-     */
-    public $versionName;
+    public $templateFormat;
 
     /**
      * @var string
@@ -36,14 +26,24 @@ class templateVersions extends Model
     /**
      * @var string
      */
-    public $templateFormat;
+    public $updatedBy;
+
+    /**
+     * @var string
+     */
+    public $updatedDate;
+
+    /**
+     * @var string
+     */
+    public $versionName;
     protected $_name = [
         'description'     => 'Description',
-        'updatedDate'     => 'UpdatedDate',
-        'updatedBy'       => 'UpdatedBy',
-        'versionName'     => 'VersionName',
-        'templateVersion' => 'TemplateVersion',
         'templateFormat'  => 'TemplateFormat',
+        'templateVersion' => 'TemplateVersion',
+        'updatedBy'       => 'UpdatedBy',
+        'updatedDate'     => 'UpdatedDate',
+        'versionName'     => 'VersionName',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class templateVersions extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
-        }
-        if (null !== $this->updatedBy) {
-            $res['UpdatedBy'] = $this->updatedBy;
-        }
-        if (null !== $this->versionName) {
-            $res['VersionName'] = $this->versionName;
+        if (null !== $this->templateFormat) {
+            $res['TemplateFormat'] = $this->templateFormat;
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->templateFormat) {
-            $res['TemplateFormat'] = $this->templateFormat;
+        if (null !== $this->updatedBy) {
+            $res['UpdatedBy'] = $this->updatedBy;
+        }
+        if (null !== $this->updatedDate) {
+            $res['UpdatedDate'] = $this->updatedDate;
+        }
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class templateVersions extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
-        }
-        if (isset($map['UpdatedBy'])) {
-            $model->updatedBy = $map['UpdatedBy'];
-        }
-        if (isset($map['VersionName'])) {
-            $model->versionName = $map['VersionName'];
+        if (isset($map['TemplateFormat'])) {
+            $model->templateFormat = $map['TemplateFormat'];
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
-        if (isset($map['TemplateFormat'])) {
-            $model->templateFormat = $map['TemplateFormat'];
+        if (isset($map['UpdatedBy'])) {
+            $model->updatedBy = $map['UpdatedBy'];
+        }
+        if (isset($map['UpdatedDate'])) {
+            $model->updatedDate = $map['UpdatedDate'];
+        }
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
         }
 
         return $model;

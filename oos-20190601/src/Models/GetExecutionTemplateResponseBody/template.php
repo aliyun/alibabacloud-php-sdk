@@ -11,22 +11,42 @@ class template extends Model
     /**
      * @var string
      */
+    public $createdBy;
+
+    /**
+     * @var string
+     */
+    public $createdDate;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $hash;
 
     /**
      * @var string
      */
-    public $updatedDate;
-
-    /**
-     * @var string
-     */
-    public $updatedBy;
+    public $shareType;
 
     /**
      * @var mixed[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $templateFormat;
+
+    /**
+     * @var string
+     */
+    public $templateId;
 
     /**
      * @var string
@@ -41,45 +61,25 @@ class template extends Model
     /**
      * @var string
      */
-    public $templateFormat;
+    public $updatedBy;
 
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $createdBy;
-
-    /**
-     * @var string
-     */
-    public $createdDate;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $shareType;
+    public $updatedDate;
     protected $_name = [
-        'hash'            => 'Hash',
-        'updatedDate'     => 'UpdatedDate',
-        'updatedBy'       => 'UpdatedBy',
-        'tags'            => 'Tags',
-        'templateName'    => 'TemplateName',
-        'templateVersion' => 'TemplateVersion',
-        'templateFormat'  => 'TemplateFormat',
-        'description'     => 'Description',
         'createdBy'       => 'CreatedBy',
         'createdDate'     => 'CreatedDate',
-        'templateId'      => 'TemplateId',
+        'description'     => 'Description',
+        'hash'            => 'Hash',
         'shareType'       => 'ShareType',
+        'tags'            => 'Tags',
+        'templateFormat'  => 'TemplateFormat',
+        'templateId'      => 'TemplateId',
+        'templateName'    => 'TemplateName',
+        'templateVersion' => 'TemplateVersion',
+        'updatedBy'       => 'UpdatedBy',
+        'updatedDate'     => 'UpdatedDate',
     ];
 
     public function validate()
@@ -89,17 +89,29 @@ class template extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createdBy) {
+            $res['CreatedBy'] = $this->createdBy;
+        }
+        if (null !== $this->createdDate) {
+            $res['CreatedDate'] = $this->createdDate;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->hash) {
             $res['Hash'] = $this->hash;
         }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
-        }
-        if (null !== $this->updatedBy) {
-            $res['UpdatedBy'] = $this->updatedBy;
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->templateFormat) {
+            $res['TemplateFormat'] = $this->templateFormat;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -107,23 +119,11 @@ class template extends Model
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->templateFormat) {
-            $res['TemplateFormat'] = $this->templateFormat;
+        if (null !== $this->updatedBy) {
+            $res['UpdatedBy'] = $this->updatedBy;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->createdBy) {
-            $res['CreatedBy'] = $this->createdBy;
-        }
-        if (null !== $this->createdDate) {
-            $res['CreatedDate'] = $this->createdDate;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->shareType) {
-            $res['ShareType'] = $this->shareType;
+        if (null !== $this->updatedDate) {
+            $res['UpdatedDate'] = $this->updatedDate;
         }
 
         return $res;
@@ -137,17 +137,29 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreatedBy'])) {
+            $model->createdBy = $map['CreatedBy'];
+        }
+        if (isset($map['CreatedDate'])) {
+            $model->createdDate = $map['CreatedDate'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Hash'])) {
             $model->hash = $map['Hash'];
         }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
-        }
-        if (isset($map['UpdatedBy'])) {
-            $model->updatedBy = $map['UpdatedBy'];
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['TemplateFormat'])) {
+            $model->templateFormat = $map['TemplateFormat'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
@@ -155,23 +167,11 @@ class template extends Model
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
-        if (isset($map['TemplateFormat'])) {
-            $model->templateFormat = $map['TemplateFormat'];
+        if (isset($map['UpdatedBy'])) {
+            $model->updatedBy = $map['UpdatedBy'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CreatedBy'])) {
-            $model->createdBy = $map['CreatedBy'];
-        }
-        if (isset($map['CreatedDate'])) {
-            $model->createdDate = $map['CreatedDate'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['ShareType'])) {
-            $model->shareType = $map['ShareType'];
+        if (isset($map['UpdatedDate'])) {
+            $model->updatedDate = $map['UpdatedDate'];
         }
 
         return $model;

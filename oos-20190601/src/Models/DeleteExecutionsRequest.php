@@ -11,15 +11,15 @@ class DeleteExecutionsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $executionIds;
 
     /**
      * @var string
      */
-    public $executionIds;
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'executionIds' => 'ExecutionIds',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteExecutionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->executionIds) {
             $res['ExecutionIds'] = $this->executionIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteExecutionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ExecutionIds'])) {
             $model->executionIds = $map['ExecutionIds'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

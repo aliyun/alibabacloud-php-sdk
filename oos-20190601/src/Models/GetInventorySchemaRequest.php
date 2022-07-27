@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInventorySchemaRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var bool
      */
     public $aggregator;
-
-    /**
-     * @var string
-     */
-    public $typeName;
 
     /**
      * @var int
@@ -32,12 +22,22 @@ class GetInventorySchemaRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $typeName;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'aggregator' => 'Aggregator',
-        'typeName'   => 'TypeName',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
+        'regionId'   => 'RegionId',
+        'typeName'   => 'TypeName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetInventorySchemaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aggregator) {
             $res['Aggregator'] = $this->aggregator;
-        }
-        if (null !== $this->typeName) {
-            $res['TypeName'] = $this->typeName;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->typeName) {
+            $res['TypeName'] = $this->typeName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetInventorySchemaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Aggregator'])) {
             $model->aggregator = $map['Aggregator'];
-        }
-        if (isset($map['TypeName'])) {
-            $model->typeName = $map['TypeName'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TypeName'])) {
+            $model->typeName = $map['TypeName'];
         }
 
         return $model;

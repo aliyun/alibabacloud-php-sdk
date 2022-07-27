@@ -11,6 +11,11 @@ class ListTagResourcesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -27,17 +32,12 @@ class ListTagResourcesShrinkRequest extends Model
      * @var string
      */
     public $tagsShrink;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
+        'nextToken'         => 'NextToken',
         'regionId'          => 'RegionId',
         'resourceIdsShrink' => 'ResourceIds',
         'resourceType'      => 'ResourceType',
         'tagsShrink'        => 'Tags',
-        'nextToken'         => 'NextToken',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class ListTagResourcesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -58,9 +61,6 @@ class ListTagResourcesShrinkRequest extends Model
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class ListTagResourcesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -85,9 +88,6 @@ class ListTagResourcesShrinkRequest extends Model
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

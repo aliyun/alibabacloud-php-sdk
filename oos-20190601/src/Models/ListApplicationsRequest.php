@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $isSystem;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -26,12 +16,34 @@ class ListApplicationsRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $names;
+
+    /**
+     * @var string
+     */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'isSystem'   => 'IsSystem',
         'maxResults' => 'MaxResults',
+        'name'       => 'Name',
+        'names'      => 'Names',
         'nextToken'  => 'NextToken',
+        'regionId'   => 'RegionId',
+        'tags'       => 'Tags',
     ];
 
     public function validate()
@@ -41,17 +53,23 @@ class ListApplicationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->isSystem) {
-            $res['IsSystem'] = $this->isSystem;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->names) {
+            $res['Names'] = $this->names;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -65,17 +83,23 @@ class ListApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IsSystem'])) {
-            $model->isSystem = $map['IsSystem'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Names'])) {
+            $model->names = $map['Names'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

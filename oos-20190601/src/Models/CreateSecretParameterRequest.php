@@ -11,22 +11,12 @@ class CreateSecretParameterRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $value;
+    public $constraints;
 
     /**
      * @var string
@@ -41,12 +31,17 @@ class CreateSecretParameterRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $name;
 
     /**
      * @var string
      */
-    public $constraints;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -56,18 +51,23 @@ class CreateSecretParameterRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'name'            => 'Name',
-        'type'            => 'Type',
-        'value'           => 'Value',
-        'description'     => 'Description',
-        'keyId'           => 'KeyId',
         'clientToken'     => 'ClientToken',
         'constraints'     => 'Constraints',
-        'tags'            => 'Tags',
+        'description'     => 'Description',
+        'keyId'           => 'KeyId',
+        'name'            => 'Name',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
+        'type'            => 'Type',
+        'value'           => 'Value',
     ];
 
     public function validate()
@@ -77,17 +77,11 @@ class CreateSecretParameterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->constraints) {
+            $res['Constraints'] = $this->constraints;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -95,17 +89,23 @@ class CreateSecretParameterRequest extends Model
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
-        if (null !== $this->constraints) {
-            $res['Constraints'] = $this->constraints;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -119,17 +119,11 @@ class CreateSecretParameterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Constraints'])) {
+            $model->constraints = $map['Constraints'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -137,17 +131,23 @@ class CreateSecretParameterRequest extends Model
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
-        if (isset($map['Constraints'])) {
-            $model->constraints = $map['Constraints'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class ValidateTemplateContentRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'content'  => 'Content',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ValidateTemplateContentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ValidateTemplateContentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

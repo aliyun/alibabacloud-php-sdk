@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionsResponseBody extends Model
 {
     /**
+     * @var executions[]
+     */
+    public $executions;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,21 +28,11 @@ class ListExecutionsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var executions[]
-     */
-    public $executions;
     protected $_name = [
+        'executions' => 'Executions',
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
-        'maxResults' => 'MaxResults',
-        'executions' => 'Executions',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class ListExecutionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->executions) {
             $res['Executions'] = [];
             if (null !== $this->executions && \is_array($this->executions)) {
@@ -59,6 +50,15 @@ class ListExecutionsResponseBody extends Model
                     $res['Executions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class ListExecutionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Executions'])) {
             if (!empty($map['Executions'])) {
                 $model->executions = [];
@@ -89,6 +80,15 @@ class ListExecutionsResponseBody extends Model
                     $model->executions[$n++] = null !== $item ? executions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

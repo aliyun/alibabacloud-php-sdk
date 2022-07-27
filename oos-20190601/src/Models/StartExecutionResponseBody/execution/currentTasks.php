@@ -11,21 +11,21 @@ class currentTasks extends Model
     /**
      * @var string
      */
+    public $taskAction;
+
+    /**
+     * @var string
+     */
     public $taskExecutionId;
 
     /**
      * @var string
      */
     public $taskName;
-
-    /**
-     * @var string
-     */
-    public $taskAction;
     protected $_name = [
+        'taskAction'      => 'TaskAction',
         'taskExecutionId' => 'TaskExecutionId',
         'taskName'        => 'TaskName',
-        'taskAction'      => 'TaskAction',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class currentTasks extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->taskAction) {
+            $res['TaskAction'] = $this->taskAction;
+        }
         if (null !== $this->taskExecutionId) {
             $res['TaskExecutionId'] = $this->taskExecutionId;
         }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->taskAction) {
-            $res['TaskAction'] = $this->taskAction;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class currentTasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TaskAction'])) {
+            $model->taskAction = $map['TaskAction'];
+        }
         if (isset($map['TaskExecutionId'])) {
             $model->taskExecutionId = $map['TaskExecutionId'];
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['TaskAction'])) {
-            $model->taskAction = $map['TaskAction'];
         }
 
         return $model;

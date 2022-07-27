@@ -11,15 +11,21 @@ class GetApplicationGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $applicationName;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'name'     => 'Name',
+        'applicationName' => 'ApplicationName',
+        'name'            => 'Name',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class GetApplicationGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class GetApplicationGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

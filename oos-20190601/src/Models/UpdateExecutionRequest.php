@@ -11,7 +11,7 @@ class UpdateExecutionRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class UpdateExecutionRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'clientToken' => 'ClientToken',
         'executionId' => 'ExecutionId',
         'parameters'  => 'Parameters',
-        'clientToken' => 'ClientToken',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class UpdateExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
@@ -50,8 +50,8 @@ class UpdateExecutionRequest extends Model
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class UpdateExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
@@ -74,8 +74,8 @@ class UpdateExecutionRequest extends Model
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

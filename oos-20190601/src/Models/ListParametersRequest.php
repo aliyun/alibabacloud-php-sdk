@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListParametersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -26,22 +16,12 @@ class ListParametersRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $sortField;
-
-    /**
-     * @var string
-     */
-    public $sortOrder;
-
-    /**
-     * @var string
-     */
-    public $type;
 
     /**
      * @var string
@@ -54,6 +34,26 @@ class ListParametersRequest extends Model
     public $recursive;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $sortField;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
      * @var mixed[]
      */
     public $tags;
@@ -61,19 +61,19 @@ class ListParametersRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $type;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'name'            => 'Name',
         'maxResults'      => 'MaxResults',
+        'name'            => 'Name',
         'nextToken'       => 'NextToken',
-        'sortField'       => 'SortField',
-        'sortOrder'       => 'SortOrder',
-        'type'            => 'Type',
         'path'            => 'Path',
         'recursive'       => 'Recursive',
-        'tags'            => 'Tags',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'sortField'       => 'SortField',
+        'sortOrder'       => 'SortOrder',
+        'tags'            => 'Tags',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -83,26 +83,14 @@ class ListParametersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->sortField) {
-            $res['SortField'] = $this->sortField;
-        }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -110,11 +98,23 @@ class ListParametersRequest extends Model
         if (null !== $this->recursive) {
             $res['Recursive'] = $this->recursive;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sortField) {
+            $res['SortField'] = $this->sortField;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -128,26 +128,14 @@ class ListParametersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['SortField'])) {
-            $model->sortField = $map['SortField'];
-        }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
@@ -155,11 +143,23 @@ class ListParametersRequest extends Model
         if (isset($map['Recursive'])) {
             $model->recursive = $map['Recursive'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SortField'])) {
+            $model->sortField = $map['SortField'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

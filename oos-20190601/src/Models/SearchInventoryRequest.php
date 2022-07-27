@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SearchInventoryRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
+    public $aggregator;
 
     /**
      * @var filter[]
@@ -30,15 +20,25 @@ class SearchInventoryRequest extends Model
     public $filter;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $aggregator;
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
-        'filter'     => 'Filter',
         'aggregator' => 'Aggregator',
+        'filter'     => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -48,14 +48,8 @@ class SearchInventoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->aggregator) {
+            $res['Aggregator'] = $this->aggregator;
         }
         if (null !== $this->filter) {
             $res['Filter'] = [];
@@ -66,8 +60,14 @@ class SearchInventoryRequest extends Model
                 }
             }
         }
-        if (null !== $this->aggregator) {
-            $res['Aggregator'] = $this->aggregator;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -81,14 +81,10 @@ class SearchInventoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['Aggregator'])) {
+            if (!empty($map['Aggregator'])) {
+                $model->aggregator = $map['Aggregator'];
+            }
         }
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
@@ -99,10 +95,14 @@ class SearchInventoryRequest extends Model
                 }
             }
         }
-        if (isset($map['Aggregator'])) {
-            if (!empty($map['Aggregator'])) {
-                $model->aggregator = $map['Aggregator'];
-            }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

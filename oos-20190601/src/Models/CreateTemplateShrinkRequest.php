@@ -11,17 +11,17 @@ class CreateTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $content;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public $content;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class CreateTemplateShrinkRequest extends Model
     /**
      * @var string
      */
-    public $versionName;
+    public $templateName;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $versionName;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'templateName'    => 'TemplateName',
         'content'         => 'Content',
-        'tagsShrink'      => 'Tags',
-        'versionName'     => 'VersionName',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tagsShrink'      => 'Tags',
+        'templateName'    => 'TemplateName',
+        'versionName'     => 'VersionName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateTemplateShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
         }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateTemplateShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
         }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

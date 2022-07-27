@@ -11,17 +11,7 @@ class UpdatePatchBaselineRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $approvalRules;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class UpdatePatchBaselineRequest extends Model
     /**
      * @var string
      */
-    public $approvalRules;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'name'          => 'Name',
-        'description'   => 'Description',
-        'clientToken'   => 'ClientToken',
         'approvalRules' => 'ApprovalRules',
+        'clientToken'   => 'ClientToken',
+        'description'   => 'Description',
+        'name'          => 'Name',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdatePatchBaselineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->approvalRules) {
+            $res['ApprovalRules'] = $this->approvalRules;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->approvalRules) {
-            $res['ApprovalRules'] = $this->approvalRules;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdatePatchBaselineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ApprovalRules'])) {
+            $model->approvalRules = $map['ApprovalRules'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ApprovalRules'])) {
-            $model->approvalRules = $map['ApprovalRules'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

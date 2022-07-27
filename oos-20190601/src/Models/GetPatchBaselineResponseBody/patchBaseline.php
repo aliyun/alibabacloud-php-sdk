@@ -11,27 +11,7 @@ class patchBaseline extends Model
     /**
      * @var string
      */
-    public $operationSystem;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $updatedDate;
-
-    /**
-     * @var string
-     */
-    public $updatedBy;
+    public $approvalRules;
 
     /**
      * @var string
@@ -46,12 +26,7 @@ class patchBaseline extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $approvalRules;
+    public $description;
 
     /**
      * @var string
@@ -59,21 +34,46 @@ class patchBaseline extends Model
     public $id;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $operationSystem;
+
+    /**
      * @var string
      */
     public $shareType;
+
+    /**
+     * @var string
+     */
+    public $updatedBy;
+
+    /**
+     * @var string
+     */
+    public $updatedDate;
     protected $_name = [
-        'operationSystem' => 'OperationSystem',
-        'isDefault'       => 'IsDefault',
-        'description'     => 'Description',
-        'updatedDate'     => 'UpdatedDate',
-        'updatedBy'       => 'UpdatedBy',
+        'approvalRules'   => 'ApprovalRules',
         'createdBy'       => 'CreatedBy',
         'createdDate'     => 'CreatedDate',
-        'name'            => 'Name',
-        'approvalRules'   => 'ApprovalRules',
+        'description'     => 'Description',
         'id'              => 'Id',
+        'isDefault'       => 'IsDefault',
+        'name'            => 'Name',
+        'operationSystem' => 'OperationSystem',
         'shareType'       => 'ShareType',
+        'updatedBy'       => 'UpdatedBy',
+        'updatedDate'     => 'UpdatedDate',
     ];
 
     public function validate()
@@ -83,20 +83,8 @@ class patchBaseline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operationSystem) {
-            $res['OperationSystem'] = $this->operationSystem;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
-        }
-        if (null !== $this->updatedBy) {
-            $res['UpdatedBy'] = $this->updatedBy;
+        if (null !== $this->approvalRules) {
+            $res['ApprovalRules'] = $this->approvalRules;
         }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
@@ -104,17 +92,29 @@ class patchBaseline extends Model
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->approvalRules) {
-            $res['ApprovalRules'] = $this->approvalRules;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->operationSystem) {
+            $res['OperationSystem'] = $this->operationSystem;
+        }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->updatedBy) {
+            $res['UpdatedBy'] = $this->updatedBy;
+        }
+        if (null !== $this->updatedDate) {
+            $res['UpdatedDate'] = $this->updatedDate;
         }
 
         return $res;
@@ -128,20 +128,8 @@ class patchBaseline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperationSystem'])) {
-            $model->operationSystem = $map['OperationSystem'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
-        }
-        if (isset($map['UpdatedBy'])) {
-            $model->updatedBy = $map['UpdatedBy'];
+        if (isset($map['ApprovalRules'])) {
+            $model->approvalRules = $map['ApprovalRules'];
         }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
@@ -149,17 +137,29 @@ class patchBaseline extends Model
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['ApprovalRules'])) {
-            $model->approvalRules = $map['ApprovalRules'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OperationSystem'])) {
+            $model->operationSystem = $map['OperationSystem'];
+        }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['UpdatedBy'])) {
+            $model->updatedBy = $map['UpdatedBy'];
+        }
+        if (isset($map['UpdatedDate'])) {
+            $model->updatedDate = $map['UpdatedDate'];
         }
 
         return $model;

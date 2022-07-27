@@ -11,37 +11,7 @@ class ListExecutionsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $executionId;
-
-    /**
-     * @var string
-     */
-    public $startDateBefore;
-
-    /**
-     * @var string
-     */
-    public $startDateAfter;
-
-    /**
-     * @var string
-     */
-    public $endDateBefore;
+    public $category;
 
     /**
      * @var string
@@ -51,12 +21,37 @@ class ListExecutionsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $mode;
+    public $endDateBefore;
 
     /**
      * @var string
      */
     public $executedBy;
+
+    /**
+     * @var string
+     */
+    public $executionId;
+
+    /**
+     * @var bool
+     */
+    public $includeChildExecution;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -69,39 +64,14 @@ class ListExecutionsShrinkRequest extends Model
     public $ramRole;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $includeChildExecution;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $tagsShrink;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $sortField;
-
-    /**
-     * @var string
-     */
-    public $sortOrder;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -116,30 +86,60 @@ class ListExecutionsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $sortField;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
+     * @var string
+     */
+    public $startDateAfter;
+
+    /**
+     * @var string
+     */
+    public $startDateBefore;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
-        'regionId'              => 'RegionId',
-        'templateName'          => 'TemplateName',
-        'status'                => 'Status',
-        'executionId'           => 'ExecutionId',
-        'startDateBefore'       => 'StartDateBefore',
-        'startDateAfter'        => 'StartDateAfter',
-        'endDateBefore'         => 'EndDateBefore',
+        'category'              => 'Category',
         'endDateAfter'          => 'EndDateAfter',
-        'mode'                  => 'Mode',
+        'endDateBefore'         => 'EndDateBefore',
         'executedBy'            => 'ExecutedBy',
+        'executionId'           => 'ExecutionId',
+        'includeChildExecution' => 'IncludeChildExecution',
+        'maxResults'            => 'MaxResults',
+        'mode'                  => 'Mode',
+        'nextToken'             => 'NextToken',
         'parentExecutionId'     => 'ParentExecutionId',
         'ramRole'               => 'RamRole',
-        'includeChildExecution' => 'IncludeChildExecution',
-        'category'              => 'Category',
-        'tagsShrink'            => 'Tags',
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'sortField'             => 'SortField',
-        'sortOrder'             => 'SortOrder',
+        'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'resourceId'            => 'ResourceId',
         'resourceTemplateName'  => 'ResourceTemplateName',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'sortField'             => 'SortField',
+        'sortOrder'             => 'SortOrder',
+        'startDateAfter'        => 'StartDateAfter',
+        'startDateBefore'       => 'StartDateBefore',
+        'status'                => 'Status',
+        'tagsShrink'            => 'Tags',
+        'templateName'          => 'TemplateName',
     ];
 
     public function validate()
@@ -149,35 +149,32 @@ class ListExecutionsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->executionId) {
-            $res['ExecutionId'] = $this->executionId;
-        }
-        if (null !== $this->startDateBefore) {
-            $res['StartDateBefore'] = $this->startDateBefore;
-        }
-        if (null !== $this->startDateAfter) {
-            $res['StartDateAfter'] = $this->startDateAfter;
-        }
-        if (null !== $this->endDateBefore) {
-            $res['EndDateBefore'] = $this->endDateBefore;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->endDateAfter) {
             $res['EndDateAfter'] = $this->endDateAfter;
         }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
+        if (null !== $this->endDateBefore) {
+            $res['EndDateBefore'] = $this->endDateBefore;
         }
         if (null !== $this->executedBy) {
             $res['ExecutedBy'] = $this->executedBy;
+        }
+        if (null !== $this->executionId) {
+            $res['ExecutionId'] = $this->executionId;
+        }
+        if (null !== $this->includeChildExecution) {
+            $res['IncludeChildExecution'] = $this->includeChildExecution;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->parentExecutionId) {
             $res['ParentExecutionId'] = $this->parentExecutionId;
@@ -185,26 +182,11 @@ class ListExecutionsShrinkRequest extends Model
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
         }
-        if (null !== $this->includeChildExecution) {
-            $res['IncludeChildExecution'] = $this->includeChildExecution;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->tagsShrink) {
-            $res['Tags'] = $this->tagsShrink;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->sortField) {
-            $res['SortField'] = $this->sortField;
-        }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -212,8 +194,26 @@ class ListExecutionsShrinkRequest extends Model
         if (null !== $this->resourceTemplateName) {
             $res['ResourceTemplateName'] = $this->resourceTemplateName;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->sortField) {
+            $res['SortField'] = $this->sortField;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
+        }
+        if (null !== $this->startDateAfter) {
+            $res['StartDateAfter'] = $this->startDateAfter;
+        }
+        if (null !== $this->startDateBefore) {
+            $res['StartDateBefore'] = $this->startDateBefore;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -227,35 +227,32 @@ class ListExecutionsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ExecutionId'])) {
-            $model->executionId = $map['ExecutionId'];
-        }
-        if (isset($map['StartDateBefore'])) {
-            $model->startDateBefore = $map['StartDateBefore'];
-        }
-        if (isset($map['StartDateAfter'])) {
-            $model->startDateAfter = $map['StartDateAfter'];
-        }
-        if (isset($map['EndDateBefore'])) {
-            $model->endDateBefore = $map['EndDateBefore'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['EndDateAfter'])) {
             $model->endDateAfter = $map['EndDateAfter'];
         }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
+        if (isset($map['EndDateBefore'])) {
+            $model->endDateBefore = $map['EndDateBefore'];
         }
         if (isset($map['ExecutedBy'])) {
             $model->executedBy = $map['ExecutedBy'];
+        }
+        if (isset($map['ExecutionId'])) {
+            $model->executionId = $map['ExecutionId'];
+        }
+        if (isset($map['IncludeChildExecution'])) {
+            $model->includeChildExecution = $map['IncludeChildExecution'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ParentExecutionId'])) {
             $model->parentExecutionId = $map['ParentExecutionId'];
@@ -263,26 +260,11 @@ class ListExecutionsShrinkRequest extends Model
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];
         }
-        if (isset($map['IncludeChildExecution'])) {
-            $model->includeChildExecution = $map['IncludeChildExecution'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tagsShrink = $map['Tags'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['SortField'])) {
-            $model->sortField = $map['SortField'];
-        }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
@@ -290,8 +272,26 @@ class ListExecutionsShrinkRequest extends Model
         if (isset($map['ResourceTemplateName'])) {
             $model->resourceTemplateName = $map['ResourceTemplateName'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['SortField'])) {
+            $model->sortField = $map['SortField'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['StartDateAfter'])) {
+            $model->startDateAfter = $map['StartDateAfter'];
+        }
+        if (isset($map['StartDateBefore'])) {
+            $model->startDateBefore = $map['StartDateBefore'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

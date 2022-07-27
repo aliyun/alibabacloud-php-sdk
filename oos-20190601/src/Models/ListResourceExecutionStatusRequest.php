@@ -11,11 +11,6 @@ class ListResourceExecutionStatusRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $executionId;
 
     /**
@@ -27,11 +22,16 @@ class ListResourceExecutionStatusRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'executionId' => 'ExecutionId',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListResourceExecutionStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
         }
@@ -52,6 +49,9 @@ class ListResourceExecutionStatusRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListResourceExecutionStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
         }
@@ -76,6 +73,9 @@ class ListResourceExecutionStatusRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

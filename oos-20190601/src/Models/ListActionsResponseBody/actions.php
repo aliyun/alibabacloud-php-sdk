@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
-     * @var int
-     */
-    public $popularity;
-
-    /**
      * @var string
      */
     public $actionType;
-
-    /**
-     * @var string
-     */
-    public $description;
 
     /**
      * @var string
@@ -31,7 +21,7 @@ class actions extends Model
     /**
      * @var string
      */
-    public $templateVersion;
+    public $description;
 
     /**
      * @var string
@@ -39,17 +29,27 @@ class actions extends Model
     public $OOSActionName;
 
     /**
+     * @var int
+     */
+    public $popularity;
+
+    /**
      * @var string
      */
     public $properties;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
     protected $_name = [
-        'popularity'      => 'Popularity',
         'actionType'      => 'ActionType',
-        'description'     => 'Description',
         'createdDate'     => 'CreatedDate',
-        'templateVersion' => 'TemplateVersion',
+        'description'     => 'Description',
         'OOSActionName'   => 'OOSActionName',
+        'popularity'      => 'Popularity',
         'properties'      => 'Properties',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class actions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->popularity) {
-            $res['Popularity'] = $this->popularity;
-        }
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->OOSActionName) {
             $res['OOSActionName'] = $this->OOSActionName;
         }
+        if (null !== $this->popularity) {
+            $res['Popularity'] = $this->popularity;
+        }
         if (null !== $this->properties) {
             $res['Properties'] = $this->properties;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class actions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Popularity'])) {
-            $model->popularity = $map['Popularity'];
-        }
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['OOSActionName'])) {
             $model->OOSActionName = $map['OOSActionName'];
         }
+        if (isset($map['Popularity'])) {
+            $model->popularity = $map['Popularity'];
+        }
         if (isset($map['Properties'])) {
             $model->properties = $map['Properties'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

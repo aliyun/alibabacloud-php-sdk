@@ -11,17 +11,7 @@ class ListExecutionLogsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $executionId;
-
-    /**
-     * @var string
-     */
-    public $taskExecutionId;
 
     /**
      * @var string
@@ -37,13 +27,23 @@ class ListExecutionLogsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $taskExecutionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'executionId'     => 'ExecutionId',
-        'taskExecutionId' => 'TaskExecutionId',
         'logType'         => 'LogType',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'taskExecutionId' => 'TaskExecutionId',
     ];
 
     public function validate()
@@ -53,14 +53,8 @@ class ListExecutionLogsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->executionId) {
             $res['ExecutionId'] = $this->executionId;
-        }
-        if (null !== $this->taskExecutionId) {
-            $res['TaskExecutionId'] = $this->taskExecutionId;
         }
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
@@ -70,6 +64,12 @@ class ListExecutionLogsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->taskExecutionId) {
+            $res['TaskExecutionId'] = $this->taskExecutionId;
         }
 
         return $res;
@@ -83,14 +83,8 @@ class ListExecutionLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ExecutionId'])) {
             $model->executionId = $map['ExecutionId'];
-        }
-        if (isset($map['TaskExecutionId'])) {
-            $model->taskExecutionId = $map['TaskExecutionId'];
         }
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
@@ -100,6 +94,12 @@ class ListExecutionLogsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TaskExecutionId'])) {
+            $model->taskExecutionId = $map['TaskExecutionId'];
         }
 
         return $model;

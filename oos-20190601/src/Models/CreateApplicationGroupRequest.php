@@ -11,17 +11,17 @@ class CreateApplicationGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $applicationName;
 
     /**
      * @var string
      */
-    public $description;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $cmsGroupId;
 
     /**
      * @var string
@@ -31,31 +31,37 @@ class CreateApplicationGroupRequest extends Model
     /**
      * @var string
      */
-    public $environment;
+    public $description;
 
     /**
      * @var string
      */
-    public $createType;
+    public $importTagKey;
 
     /**
      * @var string
      */
-    public $importClusterId;
+    public $importTagValue;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'applicationName' => 'ApplicationName',
-        'description'     => 'Description',
+        'clientToken'     => 'ClientToken',
+        'cmsGroupId'      => 'CmsGroupId',
         'deployRegionId'  => 'DeployRegionId',
-        'environment'     => 'Environment',
-        'createType'      => 'CreateType',
-        'importClusterId' => 'ImportClusterId',
+        'description'     => 'Description',
+        'importTagKey'    => 'ImportTagKey',
+        'importTagValue'  => 'ImportTagValue',
         'name'            => 'Name',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -65,29 +71,32 @@ class CreateApplicationGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->cmsGroupId) {
+            $res['CmsGroupId'] = $this->cmsGroupId;
         }
         if (null !== $this->deployRegionId) {
             $res['DeployRegionId'] = $this->deployRegionId;
         }
-        if (null !== $this->environment) {
-            $res['Environment'] = $this->environment;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->createType) {
-            $res['CreateType'] = $this->createType;
+        if (null !== $this->importTagKey) {
+            $res['ImportTagKey'] = $this->importTagKey;
         }
-        if (null !== $this->importClusterId) {
-            $res['ImportClusterId'] = $this->importClusterId;
+        if (null !== $this->importTagValue) {
+            $res['ImportTagValue'] = $this->importTagValue;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -101,29 +110,32 @@ class CreateApplicationGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CmsGroupId'])) {
+            $model->cmsGroupId = $map['CmsGroupId'];
         }
         if (isset($map['DeployRegionId'])) {
             $model->deployRegionId = $map['DeployRegionId'];
         }
-        if (isset($map['Environment'])) {
-            $model->environment = $map['Environment'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['CreateType'])) {
-            $model->createType = $map['CreateType'];
+        if (isset($map['ImportTagKey'])) {
+            $model->importTagKey = $map['ImportTagKey'];
         }
-        if (isset($map['ImportClusterId'])) {
-            $model->importClusterId = $map['ImportClusterId'];
+        if (isset($map['ImportTagValue'])) {
+            $model->importTagValue = $map['ImportTagValue'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

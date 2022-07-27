@@ -11,12 +11,7 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $clientToken;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -34,40 +34,16 @@ class CreateApplicationRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @var mixed[]
      */
-    public $cloudMonitorContactGroupList;
-
-    /**
-     * @var bool
-     */
-    public $cloudMonitorEnableSubscribeEvent;
-
-    /**
-     * @var bool
-     */
-    public $cloudMonitorEnableInstallAgent;
-
-    /**
-     * @var string
-     */
-    public $cloudMonitorTemplateIdList;
-
-    /**
-     * @var bool
-     */
-    public $cloudMonitorRuleEnabled;
+    public $tags;
     protected $_name = [
-        'regionId'                         => 'RegionId',
-        'name'                             => 'Name',
-        'description'                      => 'Description',
-        'type'                             => 'Type',
-        'resourceGroupId'                  => 'ResourceGroupId',
-        'cloudMonitorContactGroupList'     => 'CloudMonitorContactGroupList',
-        'cloudMonitorEnableSubscribeEvent' => 'CloudMonitorEnableSubscribeEvent',
-        'cloudMonitorEnableInstallAgent'   => 'CloudMonitorEnableInstallAgent',
-        'cloudMonitorTemplateIdList'       => 'CloudMonitorTemplateIdList',
-        'cloudMonitorRuleEnabled'          => 'CloudMonitorRuleEnabled',
+        'clientToken'     => 'ClientToken',
+        'description'     => 'Description',
+        'name'            => 'Name',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -77,35 +53,23 @@ class CreateApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->cloudMonitorContactGroupList) {
-            $res['CloudMonitorContactGroupList'] = $this->cloudMonitorContactGroupList;
-        }
-        if (null !== $this->cloudMonitorEnableSubscribeEvent) {
-            $res['CloudMonitorEnableSubscribeEvent'] = $this->cloudMonitorEnableSubscribeEvent;
-        }
-        if (null !== $this->cloudMonitorEnableInstallAgent) {
-            $res['CloudMonitorEnableInstallAgent'] = $this->cloudMonitorEnableInstallAgent;
-        }
-        if (null !== $this->cloudMonitorTemplateIdList) {
-            $res['CloudMonitorTemplateIdList'] = $this->cloudMonitorTemplateIdList;
-        }
-        if (null !== $this->cloudMonitorRuleEnabled) {
-            $res['CloudMonitorRuleEnabled'] = $this->cloudMonitorRuleEnabled;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -119,35 +83,23 @@ class CreateApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['CloudMonitorContactGroupList'])) {
-            $model->cloudMonitorContactGroupList = $map['CloudMonitorContactGroupList'];
-        }
-        if (isset($map['CloudMonitorEnableSubscribeEvent'])) {
-            $model->cloudMonitorEnableSubscribeEvent = $map['CloudMonitorEnableSubscribeEvent'];
-        }
-        if (isset($map['CloudMonitorEnableInstallAgent'])) {
-            $model->cloudMonitorEnableInstallAgent = $map['CloudMonitorEnableInstallAgent'];
-        }
-        if (isset($map['CloudMonitorTemplateIdList'])) {
-            $model->cloudMonitorTemplateIdList = $map['CloudMonitorTemplateIdList'];
-        }
-        if (isset($map['CloudMonitorRuleEnabled'])) {
-            $model->cloudMonitorRuleEnabled = $map['CloudMonitorRuleEnabled'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

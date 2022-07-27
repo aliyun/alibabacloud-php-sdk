@@ -11,37 +11,7 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $updatedDate;
-
-    /**
-     * @var string
-     */
-    public $updatedBy;
-
-    /**
-     * @var mixed[]
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $createdBy;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var string
@@ -51,12 +21,7 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $parameterVersion;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $description;
 
     /**
      * @var string
@@ -66,20 +31,55 @@ class parameters extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $parameterVersion;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $shareType;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $updatedBy;
+
+    /**
+     * @var string
+     */
+    public $updatedDate;
     protected $_name = [
-        'type'             => 'Type',
-        'updatedDate'      => 'UpdatedDate',
-        'updatedBy'        => 'UpdatedBy',
-        'tags'             => 'Tags',
-        'description'      => 'Description',
         'createdBy'        => 'CreatedBy',
-        'resourceGroupId'  => 'ResourceGroupId',
         'createdDate'      => 'CreatedDate',
-        'parameterVersion' => 'ParameterVersion',
-        'name'             => 'Name',
+        'description'      => 'Description',
         'id'               => 'Id',
+        'name'             => 'Name',
+        'parameterVersion' => 'ParameterVersion',
+        'resourceGroupId'  => 'ResourceGroupId',
         'shareType'        => 'ShareType',
+        'tags'             => 'Tags',
+        'type'             => 'Type',
+        'updatedBy'        => 'UpdatedBy',
+        'updatedDate'      => 'UpdatedDate',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class parameters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
-        }
-        if (null !== $this->updatedBy) {
-            $res['UpdatedBy'] = $this->updatedBy;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
-        if (null !== $this->parameterVersion) {
-            $res['ParameterVersion'] = $this->parameterVersion;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parameterVersion) {
+            $res['ParameterVersion'] = $this->parameterVersion;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updatedBy) {
+            $res['UpdatedBy'] = $this->updatedBy;
+        }
+        if (null !== $this->updatedDate) {
+            $res['UpdatedDate'] = $this->updatedDate;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class parameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
-        }
-        if (isset($map['UpdatedBy'])) {
-            $model->updatedBy = $map['UpdatedBy'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
-        if (isset($map['ParameterVersion'])) {
-            $model->parameterVersion = $map['ParameterVersion'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParameterVersion'])) {
+            $model->parameterVersion = $map['ParameterVersion'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdatedBy'])) {
+            $model->updatedBy = $map['UpdatedBy'];
+        }
+        if (isset($map['UpdatedDate'])) {
+            $model->updatedDate = $map['UpdatedDate'];
         }
 
         return $model;

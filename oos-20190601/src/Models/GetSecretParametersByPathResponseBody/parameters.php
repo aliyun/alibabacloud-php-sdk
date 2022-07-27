@@ -11,36 +11,6 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $updatedDate;
-
-    /**
-     * @var string
-     */
-    public $updatedBy;
-
-    /**
-     * @var string
-     */
-    public $keyId;
-
-    /**
-     * @var string
-     */
-    public $value;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $constraints;
 
     /**
@@ -54,14 +24,9 @@ class parameters extends Model
     public $createdDate;
 
     /**
-     * @var int
-     */
-    public $parameterVersion;
-
-    /**
      * @var string
      */
-    public $name;
+    public $description;
 
     /**
      * @var string
@@ -71,21 +36,56 @@ class parameters extends Model
     /**
      * @var string
      */
+    public $keyId;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $parameterVersion;
+
+    /**
+     * @var string
+     */
     public $shareType;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $updatedBy;
+
+    /**
+     * @var string
+     */
+    public $updatedDate;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'type'             => 'Type',
-        'updatedDate'      => 'UpdatedDate',
-        'updatedBy'        => 'UpdatedBy',
-        'keyId'            => 'KeyId',
-        'value'            => 'Value',
-        'description'      => 'Description',
         'constraints'      => 'Constraints',
         'createdBy'        => 'CreatedBy',
         'createdDate'      => 'CreatedDate',
-        'parameterVersion' => 'ParameterVersion',
-        'name'             => 'Name',
+        'description'      => 'Description',
         'id'               => 'Id',
+        'keyId'            => 'KeyId',
+        'name'             => 'Name',
+        'parameterVersion' => 'ParameterVersion',
         'shareType'        => 'ShareType',
+        'type'             => 'Type',
+        'updatedBy'        => 'UpdatedBy',
+        'updatedDate'      => 'UpdatedDate',
+        'value'            => 'Value',
     ];
 
     public function validate()
@@ -95,24 +95,6 @@ class parameters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->updatedDate) {
-            $res['UpdatedDate'] = $this->updatedDate;
-        }
-        if (null !== $this->updatedBy) {
-            $res['UpdatedBy'] = $this->updatedBy;
-        }
-        if (null !== $this->keyId) {
-            $res['KeyId'] = $this->keyId;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->constraints) {
             $res['Constraints'] = $this->constraints;
         }
@@ -122,17 +104,35 @@ class parameters extends Model
         if (null !== $this->createdDate) {
             $res['CreatedDate'] = $this->createdDate;
         }
-        if (null !== $this->parameterVersion) {
-            $res['ParameterVersion'] = $this->parameterVersion;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parameterVersion) {
+            $res['ParameterVersion'] = $this->parameterVersion;
+        }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updatedBy) {
+            $res['UpdatedBy'] = $this->updatedBy;
+        }
+        if (null !== $this->updatedDate) {
+            $res['UpdatedDate'] = $this->updatedDate;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -146,24 +146,6 @@ class parameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['UpdatedDate'])) {
-            $model->updatedDate = $map['UpdatedDate'];
-        }
-        if (isset($map['UpdatedBy'])) {
-            $model->updatedBy = $map['UpdatedBy'];
-        }
-        if (isset($map['KeyId'])) {
-            $model->keyId = $map['KeyId'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Constraints'])) {
             $model->constraints = $map['Constraints'];
         }
@@ -173,17 +155,35 @@ class parameters extends Model
         if (isset($map['CreatedDate'])) {
             $model->createdDate = $map['CreatedDate'];
         }
-        if (isset($map['ParameterVersion'])) {
-            $model->parameterVersion = $map['ParameterVersion'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParameterVersion'])) {
+            $model->parameterVersion = $map['ParameterVersion'];
+        }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdatedBy'])) {
+            $model->updatedBy = $map['UpdatedBy'];
+        }
+        if (isset($map['UpdatedDate'])) {
+            $model->updatedDate = $map['UpdatedDate'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParametersByPathRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $nextToken;
 
     /**
      * @var string
@@ -26,23 +31,18 @@ class GetSecretParametersByPathRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
+    public $regionId;
 
     /**
      * @var bool
      */
     public $withDecryption;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'maxResults'     => 'MaxResults',
+        'nextToken'      => 'NextToken',
         'path'           => 'Path',
         'recursive'      => 'Recursive',
-        'nextToken'      => 'NextToken',
-        'maxResults'     => 'MaxResults',
+        'regionId'       => 'RegionId',
         'withDecryption' => 'WithDecryption',
     ];
 
@@ -53,8 +53,11 @@ class GetSecretParametersByPathRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -62,11 +65,8 @@ class GetSecretParametersByPathRequest extends Model
         if (null !== $this->recursive) {
             $res['Recursive'] = $this->recursive;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->withDecryption) {
             $res['WithDecryption'] = $this->withDecryption;
@@ -83,8 +83,11 @@ class GetSecretParametersByPathRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
@@ -92,11 +95,8 @@ class GetSecretParametersByPathRequest extends Model
         if (isset($map['Recursive'])) {
             $model->recursive = $map['Recursive'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['WithDecryption'])) {
             $model->withDecryption = $map['WithDecryption'];

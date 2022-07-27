@@ -17,11 +17,6 @@ class ValidateTemplateContentResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $parameters;
 
     /**
@@ -30,14 +25,19 @@ class ValidateTemplateContentResponseBody extends Model
     public $ramRole;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var tasks[]
      */
     public $tasks;
     protected $_name = [
         'outputs'    => 'Outputs',
-        'requestId'  => 'RequestId',
         'parameters' => 'Parameters',
         'ramRole'    => 'RamRole',
+        'requestId'  => 'RequestId',
         'tasks'      => 'Tasks',
     ];
 
@@ -51,14 +51,14 @@ class ValidateTemplateContentResponseBody extends Model
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
         }
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->tasks) {
             $res['Tasks'] = [];
@@ -84,14 +84,14 @@ class ValidateTemplateContentResponseBody extends Model
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
         }
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetServiceSettingsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $deliveryOssBucketName;
+
+    /**
      * @var bool
      */
     public $deliveryOssEnabled;
@@ -16,17 +21,7 @@ class SetServiceSettingsRequest extends Model
     /**
      * @var string
      */
-    public $deliveryOssBucketName;
-
-    /**
-     * @var string
-     */
     public $deliveryOssKeyPrefix;
-
-    /**
-     * @var string
-     */
-    public $deliverySlsProjectName;
 
     /**
      * @var bool
@@ -36,20 +31,25 @@ class SetServiceSettingsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $deliverySlsProjectName;
 
     /**
      * @var string
      */
     public $rdcEnterpriseId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'deliveryOssEnabled'     => 'DeliveryOssEnabled',
         'deliveryOssBucketName'  => 'DeliveryOssBucketName',
+        'deliveryOssEnabled'     => 'DeliveryOssEnabled',
         'deliveryOssKeyPrefix'   => 'DeliveryOssKeyPrefix',
-        'deliverySlsProjectName' => 'DeliverySlsProjectName',
         'deliverySlsEnabled'     => 'DeliverySlsEnabled',
-        'regionId'               => 'RegionId',
+        'deliverySlsProjectName' => 'DeliverySlsProjectName',
         'rdcEnterpriseId'        => 'RdcEnterpriseId',
+        'regionId'               => 'RegionId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class SetServiceSettingsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deliveryOssEnabled) {
-            $res['DeliveryOssEnabled'] = $this->deliveryOssEnabled;
-        }
         if (null !== $this->deliveryOssBucketName) {
             $res['DeliveryOssBucketName'] = $this->deliveryOssBucketName;
+        }
+        if (null !== $this->deliveryOssEnabled) {
+            $res['DeliveryOssEnabled'] = $this->deliveryOssEnabled;
         }
         if (null !== $this->deliveryOssKeyPrefix) {
             $res['DeliveryOssKeyPrefix'] = $this->deliveryOssKeyPrefix;
         }
-        if (null !== $this->deliverySlsProjectName) {
-            $res['DeliverySlsProjectName'] = $this->deliverySlsProjectName;
-        }
         if (null !== $this->deliverySlsEnabled) {
             $res['DeliverySlsEnabled'] = $this->deliverySlsEnabled;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->deliverySlsProjectName) {
+            $res['DeliverySlsProjectName'] = $this->deliverySlsProjectName;
         }
         if (null !== $this->rdcEnterpriseId) {
             $res['RdcEnterpriseId'] = $this->rdcEnterpriseId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class SetServiceSettingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeliveryOssEnabled'])) {
-            $model->deliveryOssEnabled = $map['DeliveryOssEnabled'];
-        }
         if (isset($map['DeliveryOssBucketName'])) {
             $model->deliveryOssBucketName = $map['DeliveryOssBucketName'];
+        }
+        if (isset($map['DeliveryOssEnabled'])) {
+            $model->deliveryOssEnabled = $map['DeliveryOssEnabled'];
         }
         if (isset($map['DeliveryOssKeyPrefix'])) {
             $model->deliveryOssKeyPrefix = $map['DeliveryOssKeyPrefix'];
         }
-        if (isset($map['DeliverySlsProjectName'])) {
-            $model->deliverySlsProjectName = $map['DeliverySlsProjectName'];
-        }
         if (isset($map['DeliverySlsEnabled'])) {
             $model->deliverySlsEnabled = $map['DeliverySlsEnabled'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DeliverySlsProjectName'])) {
+            $model->deliverySlsProjectName = $map['DeliverySlsProjectName'];
         }
         if (isset($map['RdcEnterpriseId'])) {
             $model->rdcEnterpriseId = $map['RdcEnterpriseId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

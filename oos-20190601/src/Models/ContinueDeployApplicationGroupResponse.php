@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateInstanceInformationResponse extends Model
+class ContinueDeployApplicationGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -14,17 +14,24 @@ class UpdateInstanceInformationResponse extends Model
     public $headers;
 
     /**
-     * @var UpdateInstanceInformationResponseBody
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var ContinueDeployApplicationGroupResponseBody
      */
     public $body;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
         Model::validateRequired('body', $this->body, true);
     }
 
@@ -33,6 +40,9 @@ class UpdateInstanceInformationResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toMap() : null;
@@ -44,7 +54,7 @@ class UpdateInstanceInformationResponse extends Model
     /**
      * @param array $map
      *
-     * @return UpdateInstanceInformationResponse
+     * @return ContinueDeployApplicationGroupResponse
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +62,11 @@ class UpdateInstanceInformationResponse extends Model
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
         }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
         if (isset($map['body'])) {
-            $model->body = UpdateInstanceInformationResponseBody::fromMap($map['body']);
+            $model->body = ContinueDeployApplicationGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

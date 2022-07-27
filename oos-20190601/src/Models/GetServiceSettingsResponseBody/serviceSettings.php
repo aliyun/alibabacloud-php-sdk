@@ -14,14 +14,14 @@ class serviceSettings extends Model
     public $deliveryOssBucketName;
 
     /**
-     * @var string
-     */
-    public $deliveryOssKeyPrefix;
-
-    /**
      * @var bool
      */
     public $deliveryOssEnabled;
+
+    /**
+     * @var string
+     */
+    public $deliveryOssKeyPrefix;
 
     /**
      * @var bool
@@ -39,8 +39,8 @@ class serviceSettings extends Model
     public $rdcEnterpriseId;
     protected $_name = [
         'deliveryOssBucketName'  => 'DeliveryOssBucketName',
-        'deliveryOssKeyPrefix'   => 'DeliveryOssKeyPrefix',
         'deliveryOssEnabled'     => 'DeliveryOssEnabled',
+        'deliveryOssKeyPrefix'   => 'DeliveryOssKeyPrefix',
         'deliverySlsEnabled'     => 'DeliverySlsEnabled',
         'deliverySlsProjectName' => 'DeliverySlsProjectName',
         'rdcEnterpriseId'        => 'RdcEnterpriseId',
@@ -56,11 +56,11 @@ class serviceSettings extends Model
         if (null !== $this->deliveryOssBucketName) {
             $res['DeliveryOssBucketName'] = $this->deliveryOssBucketName;
         }
-        if (null !== $this->deliveryOssKeyPrefix) {
-            $res['DeliveryOssKeyPrefix'] = $this->deliveryOssKeyPrefix;
-        }
         if (null !== $this->deliveryOssEnabled) {
             $res['DeliveryOssEnabled'] = $this->deliveryOssEnabled;
+        }
+        if (null !== $this->deliveryOssKeyPrefix) {
+            $res['DeliveryOssKeyPrefix'] = $this->deliveryOssKeyPrefix;
         }
         if (null !== $this->deliverySlsEnabled) {
             $res['DeliverySlsEnabled'] = $this->deliverySlsEnabled;
@@ -86,11 +86,11 @@ class serviceSettings extends Model
         if (isset($map['DeliveryOssBucketName'])) {
             $model->deliveryOssBucketName = $map['DeliveryOssBucketName'];
         }
-        if (isset($map['DeliveryOssKeyPrefix'])) {
-            $model->deliveryOssKeyPrefix = $map['DeliveryOssKeyPrefix'];
-        }
         if (isset($map['DeliveryOssEnabled'])) {
             $model->deliveryOssEnabled = $map['DeliveryOssEnabled'];
+        }
+        if (isset($map['DeliveryOssKeyPrefix'])) {
+            $model->deliveryOssKeyPrefix = $map['DeliveryOssKeyPrefix'];
         }
         if (isset($map['DeliverySlsEnabled'])) {
             $model->deliverySlsEnabled = $map['DeliverySlsEnabled'];

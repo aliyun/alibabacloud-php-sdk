@@ -11,7 +11,7 @@ class ListInstancePatchStatesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceIds;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListInstancePatchStatesRequest extends Model
     /**
      * @var string
      */
-    public $instanceIds;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'instanceIds' => 'InstanceIds',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
-        'instanceIds' => 'InstanceIds',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListInstancePatchStatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -50,8 +50,8 @@ class ListInstancePatchStatesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListInstancePatchStatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = $map['InstanceIds'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -74,8 +74,8 @@ class ListInstancePatchStatesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,22 +11,7 @@ class ListTemplatesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public $templateFormat;
-
-    /**
-     * @var string
-     */
-    public $shareType;
+    public $category;
 
     /**
      * @var string
@@ -36,22 +21,17 @@ class ListTemplatesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $createdDateBefore;
-
-    /**
-     * @var string
-     */
     public $createdDateAfter;
 
     /**
      * @var string
      */
-    public $tagsShrink;
+    public $createdDateBefore;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $category;
+    public $hasTrigger;
 
     /**
      * @var int
@@ -66,6 +46,21 @@ class ListTemplatesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @var string
+     */
     public $sortField;
 
     /**
@@ -74,36 +69,41 @@ class ListTemplatesShrinkRequest extends Model
     public $sortOrder;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $hasTrigger;
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $templateFormat;
+
+    /**
+     * @var string
+     */
+    public $templateName;
 
     /**
      * @var string
      */
     public $templateType;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'templateName'      => 'TemplateName',
-        'templateFormat'    => 'TemplateFormat',
-        'shareType'         => 'ShareType',
-        'createdBy'         => 'CreatedBy',
-        'createdDateBefore' => 'CreatedDateBefore',
-        'createdDateAfter'  => 'CreatedDateAfter',
-        'tagsShrink'        => 'Tags',
         'category'          => 'Category',
+        'createdBy'         => 'CreatedBy',
+        'createdDateAfter'  => 'CreatedDateAfter',
+        'createdDateBefore' => 'CreatedDateBefore',
+        'hasTrigger'        => 'HasTrigger',
         'maxResults'        => 'MaxResults',
         'nextToken'         => 'NextToken',
+        'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'shareType'         => 'ShareType',
         'sortField'         => 'SortField',
         'sortOrder'         => 'SortOrder',
-        'hasTrigger'        => 'HasTrigger',
+        'tagsShrink'        => 'Tags',
+        'templateFormat'    => 'TemplateFormat',
+        'templateName'      => 'TemplateName',
         'templateType'      => 'TemplateType',
-        'resourceGroupId'   => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -113,32 +113,20 @@ class ListTemplatesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->templateFormat) {
-            $res['TemplateFormat'] = $this->templateFormat;
-        }
-        if (null !== $this->shareType) {
-            $res['ShareType'] = $this->shareType;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
         }
-        if (null !== $this->createdDateBefore) {
-            $res['CreatedDateBefore'] = $this->createdDateBefore;
-        }
         if (null !== $this->createdDateAfter) {
             $res['CreatedDateAfter'] = $this->createdDateAfter;
         }
-        if (null !== $this->tagsShrink) {
-            $res['Tags'] = $this->tagsShrink;
+        if (null !== $this->createdDateBefore) {
+            $res['CreatedDateBefore'] = $this->createdDateBefore;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->hasTrigger) {
+            $res['HasTrigger'] = $this->hasTrigger;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -146,20 +134,32 @@ class ListTemplatesShrinkRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
+        }
         if (null !== $this->sortField) {
             $res['SortField'] = $this->sortField;
         }
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
         }
-        if (null !== $this->hasTrigger) {
-            $res['HasTrigger'] = $this->hasTrigger;
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->templateFormat) {
+            $res['TemplateFormat'] = $this->templateFormat;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -173,32 +173,20 @@ class ListTemplatesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['TemplateFormat'])) {
-            $model->templateFormat = $map['TemplateFormat'];
-        }
-        if (isset($map['ShareType'])) {
-            $model->shareType = $map['ShareType'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
-        if (isset($map['CreatedDateBefore'])) {
-            $model->createdDateBefore = $map['CreatedDateBefore'];
-        }
         if (isset($map['CreatedDateAfter'])) {
             $model->createdDateAfter = $map['CreatedDateAfter'];
         }
-        if (isset($map['Tags'])) {
-            $model->tagsShrink = $map['Tags'];
+        if (isset($map['CreatedDateBefore'])) {
+            $model->createdDateBefore = $map['CreatedDateBefore'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['HasTrigger'])) {
+            $model->hasTrigger = $map['HasTrigger'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -206,20 +194,32 @@ class ListTemplatesShrinkRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
+        }
         if (isset($map['SortField'])) {
             $model->sortField = $map['SortField'];
         }
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
         }
-        if (isset($map['HasTrigger'])) {
-            $model->hasTrigger = $map['HasTrigger'];
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['TemplateFormat'])) {
+            $model->templateFormat = $map['TemplateFormat'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

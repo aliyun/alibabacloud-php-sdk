@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoDeleteExecutions;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -17,15 +22,10 @@ class DeleteTemplateRequest extends Model
      * @var string
      */
     public $templateName;
-
-    /**
-     * @var bool
-     */
-    public $autoDeleteExecutions;
     protected $_name = [
+        'autoDeleteExecutions' => 'AutoDeleteExecutions',
         'regionId'             => 'RegionId',
         'templateName'         => 'TemplateName',
-        'autoDeleteExecutions' => 'AutoDeleteExecutions',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoDeleteExecutions) {
+            $res['AutoDeleteExecutions'] = $this->autoDeleteExecutions;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->autoDeleteExecutions) {
-            $res['AutoDeleteExecutions'] = $this->autoDeleteExecutions;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoDeleteExecutions'])) {
+            $model->autoDeleteExecutions = $map['AutoDeleteExecutions'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['AutoDeleteExecutions'])) {
-            $model->autoDeleteExecutions = $map['AutoDeleteExecutions'];
         }
 
         return $model;

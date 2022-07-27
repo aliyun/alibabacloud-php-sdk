@@ -16,7 +16,7 @@ class parameterVersions extends Model
     /**
      * @var string
      */
-    public $value;
+    public $updatedBy;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class parameterVersions extends Model
     /**
      * @var string
      */
-    public $updatedBy;
+    public $value;
     protected $_name = [
         'parameterVersion' => 'ParameterVersion',
-        'value'            => 'Value',
-        'updatedDate'      => 'UpdatedDate',
         'updatedBy'        => 'UpdatedBy',
+        'updatedDate'      => 'UpdatedDate',
+        'value'            => 'Value',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class parameterVersions extends Model
         if (null !== $this->parameterVersion) {
             $res['ParameterVersion'] = $this->parameterVersion;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->updatedBy) {
+            $res['UpdatedBy'] = $this->updatedBy;
         }
         if (null !== $this->updatedDate) {
             $res['UpdatedDate'] = $this->updatedDate;
         }
-        if (null !== $this->updatedBy) {
-            $res['UpdatedBy'] = $this->updatedBy;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class parameterVersions extends Model
         if (isset($map['ParameterVersion'])) {
             $model->parameterVersion = $map['ParameterVersion'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['UpdatedBy'])) {
+            $model->updatedBy = $map['UpdatedBy'];
         }
         if (isset($map['UpdatedDate'])) {
             $model->updatedDate = $map['UpdatedDate'];
         }
-        if (isset($map['UpdatedBy'])) {
-            $model->updatedBy = $map['UpdatedBy'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

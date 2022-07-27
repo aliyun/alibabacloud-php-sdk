@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationResponseBody;
 
-use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationResponseBody\application\cloudMonitorRule;
 use AlibabaCloud\Tea\Model;
 
 class application extends Model
@@ -12,12 +11,7 @@ class application extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var bool
-     */
-    public $isSystem;
+    public $createDate;
 
     /**
      * @var string
@@ -27,30 +21,23 @@ class application extends Model
     /**
      * @var string
      */
-    public $updateDate;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $createDate;
+    public $tags;
 
     /**
-     * @var cloudMonitorRule
+     * @var string
      */
-    public $cloudMonitorRule;
+    public $updateDate;
     protected $_name = [
-        'type'             => 'Type',
-        'isSystem'         => 'IsSystem',
-        'description'      => 'Description',
-        'updateDate'       => 'UpdateDate',
-        'name'             => 'Name',
-        'createDate'       => 'CreateDate',
-        'cloudMonitorRule' => 'CloudMonitorRule',
+        'createDate'  => 'CreateDate',
+        'description' => 'Description',
+        'name'        => 'Name',
+        'tags'        => 'Tags',
+        'updateDate'  => 'UpdateDate',
     ];
 
     public function validate()
@@ -60,26 +47,20 @@ class application extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->isSystem) {
-            $res['IsSystem'] = $this->isSystem;
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
-        if (null !== $this->cloudMonitorRule) {
-            $res['CloudMonitorRule'] = null !== $this->cloudMonitorRule ? $this->cloudMonitorRule->toMap() : null;
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
         }
 
         return $res;
@@ -93,26 +74,20 @@ class application extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['IsSystem'])) {
-            $model->isSystem = $map['IsSystem'];
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
-        if (isset($map['CloudMonitorRule'])) {
-            $model->cloudMonitorRule = cloudMonitorRule::fromMap($map['CloudMonitorRule']);
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class UpdateApplicationGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $applicationName;
 
     /**
      * @var string
@@ -21,11 +21,17 @@ class UpdateApplicationGroupRequest extends Model
     /**
      * @var string
      */
-    public $scalingGroupId;
+    public $newName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'name'           => 'Name',
-        'scalingGroupId' => 'ScalingGroupId',
+        'applicationName' => 'ApplicationName',
+        'name'            => 'Name',
+        'newName'         => 'NewName',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class UpdateApplicationGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->scalingGroupId) {
-            $res['ScalingGroupId'] = $this->scalingGroupId;
+        if (null !== $this->newName) {
+            $res['NewName'] = $this->newName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class UpdateApplicationGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ScalingGroupId'])) {
-            $model->scalingGroupId = $map['ScalingGroupId'];
+        if (isset($map['NewName'])) {
+            $model->newName = $map['NewName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -19,18 +24,13 @@ class ListTagValuesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
      * @var string[]
      */
     public $values;
     protected $_name = [
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
-        'maxResults' => 'MaxResults',
         'values'     => 'Values',
     ];
 
@@ -41,14 +41,14 @@ class ListTagValuesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->values) {
             $res['Values'] = $this->values;
@@ -65,14 +65,14 @@ class ListTagValuesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

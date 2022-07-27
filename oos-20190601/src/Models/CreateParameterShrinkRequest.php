@@ -11,31 +11,6 @@ class CreateParameterShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $value;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -46,22 +21,47 @@ class CreateParameterShrinkRequest extends Model
     /**
      * @var string
      */
-    public $tagsShrink;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'name'            => 'Name',
-        'type'            => 'Type',
-        'value'           => 'Value',
-        'description'     => 'Description',
         'clientToken'     => 'ClientToken',
         'constraints'     => 'Constraints',
-        'tagsShrink'      => 'Tags',
+        'description'     => 'Description',
+        'name'            => 'Name',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'tagsShrink'      => 'Tags',
+        'type'            => 'Type',
+        'value'           => 'Value',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class CreateParameterShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->constraints) {
             $res['Constraints'] = $this->constraints;
         }
-        if (null !== $this->tagsShrink) {
-            $res['Tags'] = $this->tagsShrink;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class CreateParameterShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Constraints'])) {
             $model->constraints = $map['Constraints'];
         }
-        if (isset($map['Tags'])) {
-            $model->tagsShrink = $map['Tags'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

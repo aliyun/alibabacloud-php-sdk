@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSecretParametersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -26,17 +16,12 @@ class ListSecretParametersRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $sortField;
-
-    /**
-     * @var string
-     */
-    public $sortOrder;
 
     /**
      * @var string
@@ -49,25 +34,40 @@ class ListSecretParametersRequest extends Model
     public $recursive;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $tags;
+    public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $sortField;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'name'            => 'Name',
         'maxResults'      => 'MaxResults',
+        'name'            => 'Name',
         'nextToken'       => 'NextToken',
-        'sortField'       => 'SortField',
-        'sortOrder'       => 'SortOrder',
         'path'            => 'Path',
         'recursive'       => 'Recursive',
-        'tags'            => 'Tags',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'sortField'       => 'SortField',
+        'sortOrder'       => 'SortOrder',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -77,23 +77,14 @@ class ListSecretParametersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->sortField) {
-            $res['SortField'] = $this->sortField;
-        }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -101,11 +92,20 @@ class ListSecretParametersRequest extends Model
         if (null !== $this->recursive) {
             $res['Recursive'] = $this->recursive;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->sortField) {
+            $res['SortField'] = $this->sortField;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -119,23 +119,14 @@ class ListSecretParametersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['SortField'])) {
-            $model->sortField = $map['SortField'];
-        }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
@@ -143,11 +134,20 @@ class ListSecretParametersRequest extends Model
         if (isset($map['Recursive'])) {
             $model->recursive = $map['Recursive'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SortField'])) {
+            $model->sortField = $map['SortField'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

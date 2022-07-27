@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParametersResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $invalidParameters;
@@ -23,10 +18,15 @@ class GetSecretParametersResponseBody extends Model
      * @var parameters[]
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'invalidParameters' => 'InvalidParameters',
         'parameters'        => 'Parameters',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +36,6 @@ class GetSecretParametersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->invalidParameters) {
             $res['InvalidParameters'] = $this->invalidParameters;
         }
@@ -50,6 +47,9 @@ class GetSecretParametersResponseBody extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,9 +63,6 @@ class GetSecretParametersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InvalidParameters'])) {
             if (!empty($map['InvalidParameters'])) {
                 $model->invalidParameters = $map['InvalidParameters'];
@@ -79,6 +76,9 @@ class GetSecretParametersResponseBody extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

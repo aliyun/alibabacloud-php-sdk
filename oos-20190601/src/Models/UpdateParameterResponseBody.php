@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateParameterResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var parameter
      */
     public $parameter;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'parameter' => 'Parameter',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class UpdateParameterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->parameter) {
             $res['Parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class UpdateParameterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Parameter'])) {
             $model->parameter = parameter::fromMap($map['Parameter']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

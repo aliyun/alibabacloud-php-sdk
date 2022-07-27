@@ -12,6 +12,11 @@ class GetInventorySchemaResponseBody extends Model
     /**
      * @var string
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
     public $nextToken;
 
     /**
@@ -20,18 +25,13 @@ class GetInventorySchemaResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $maxResults;
-
-    /**
      * @var schemas[]
      */
     public $schemas;
     protected $_name = [
+        'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
-        'maxResults' => 'MaxResults',
         'schemas'    => 'Schemas',
     ];
 
@@ -42,14 +42,14 @@ class GetInventorySchemaResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->schemas) {
             $res['Schemas'] = [];
@@ -72,14 +72,14 @@ class GetInventorySchemaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['Schemas'])) {
             if (!empty($map['Schemas'])) {
