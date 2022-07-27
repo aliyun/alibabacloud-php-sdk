@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class fileds extends Model
 {
     /**
-     * @description 展示的值
-     *
      * @var string
      */
     public $displayValue;
 
     /**
-     * @description 字段唯一标识
-     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
-     * @description 迭代唯一标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 展示级别，数字范围1~9，数字越大，颜色越浅
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 待选值顺序
-     *
      * @var int
      */
     public $position;
 
     /**
-     * @description 字段中文名称
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 字段英文名称
-     *
      * @var string
      */
     public $valueEn;

@@ -20,8 +20,6 @@ class GetProjectInfoResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description 项目信息
-     *
      * @var project
      */
     public $project;

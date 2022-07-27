@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListWorkItemAllFieldsRequest extends Model
 {
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $spaceType;
 
     /**
-     * @description 工作项类型id，工作项类型的列表和id可以从ListProjectWorkitemType中获取
-     *
      * @var string
      */
     public $workitemTypeIdentifier;

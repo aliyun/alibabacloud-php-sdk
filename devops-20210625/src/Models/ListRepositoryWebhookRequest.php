@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryWebhookRequest extends Model
 {
     /**
-     * @description accessToken
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 企业Id
-     *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description 每页数据量
-     *
      * @var int
      */
     public $pageSize;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateRepositoryResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
@@ -36,8 +30,6 @@ class CreateRepositoryResponseBody extends Model
     public $result;
 
     /**
-     * @description 调用是否成功
-     *
      * @var bool
      */
     public $success;

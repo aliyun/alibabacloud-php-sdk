@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ListPipelinesRequest extends Model
 {
     /**
-     * @description 创建结束时间
-     *
      * @var int
      */
     public $createEndTime;
 
     /**
-     * @description 创建开始时间
-     *
      * @var int
      */
     public $createStartTime;
 
     /**
-     * @description 创建人阿里云账号Id
-     *
      * @var string
      */
     public $creatorAccountIds;
 
     /**
-     * @description 执行人阿里云账号id
-     *
      * @var string
      */
     public $executeAccountIds;
 
     /**
-     * @description 执行结束时间
-     *
      * @var int
      */
     public $executeEndTime;
 
     /**
-     * @description 执行开始时间
-     *
      * @var int
      */
     public $executeStartTime;
 
     /**
-     * @description 返回的总数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 流水线名称
-     *
      * @var string
      */
     public $pipelineName;
 
     /**
-     * @description 状态列表，多个逗号分割
-     *
      * @var string
      */
     public $statusList;

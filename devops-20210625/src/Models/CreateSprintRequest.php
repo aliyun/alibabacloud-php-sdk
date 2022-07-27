@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateSprintRequest extends Model
 {
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description 迭代名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 负责人列表
-     *
      * @var string[]
      */
     public $staffIds;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startDate;

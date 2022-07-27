@@ -9,113 +9,81 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 分支
-     *
      * @var string
      */
     public $branch;
 
     /**
-     * @description 克隆深度
-     *
      * @var int
      */
     public $cloneDepth;
 
     /**
-     * @description Credential Id
-     *
      * @var int
      */
     public $credentialId;
 
     /**
-     * @description Credential Label
-     *
      * @var string
      */
     public $credentialLabel;
 
     /**
-     * @description Credential Type
-     *
      * @var string
      */
     public $credentialType;
 
     /**
-     * @description 触发事件
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description 是否分支模式
-     *
      * @var bool
      */
     public $isBranchMode;
 
     /**
-     * @description 是否设置clone深度
-     *
      * @var bool
      */
     public $isCloneDepth;
 
     /**
-     * @description 是否子模块
-     *
      * @var bool
      */
     public $isSubmodule;
 
     /**
-     * @description 是否提交触发
-     *
      * @var bool
      */
     public $isTrigger;
 
     /**
-     * @description 代码源显示标签
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description github命名空间
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description 代码库地址
-     *
      * @var string
      */
     public $repo;
 
     /**
-     * @description 服务连接Id
-     *
      * @var int
      */
     public $serviceConnectionId;
 
     /**
-     * @description 触发过滤条件
-     *
      * @var string
      */
     public $triggerFilter;
 
     /**
-     * @description webhhook地址
-     *
      * @var string
      */
     public $webhook;

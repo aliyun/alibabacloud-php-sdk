@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class stages extends Model
 {
     /**
-     * @description 阶段名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 阶段详情
-     *
      * @var stageInfo
      */
     public $stageInfo;

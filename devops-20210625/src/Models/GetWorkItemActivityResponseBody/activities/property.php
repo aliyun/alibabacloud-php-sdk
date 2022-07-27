@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
-     * @description 属性的展示名
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 资源id
-     *
      * @var string
      */
     public $propertyIdentifier;
 
     /**
-     * @description 属性key
-     *
      * @var string
      */
     public $propertyName;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $propertyType;

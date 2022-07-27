@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class valueList extends Model
 {
     /**
-     * @description 根据语言环境获取当前展示的值
-     *
      * @var string
      */
     public $displayValue;
 
     /**
-     * @description 字段值为对象类型时，值所对应的对象的唯一标识 例如：option表中的id
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 展示级别，数字范围1~9，数字越大，颜色越浅。
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 字段值
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 字段英文值，目前只有列表类有英文值
-     *
      * @var string
      */
     public $valueEn;

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceRequest extends Model
 {
     /**
-     * @description 代码来源URL（当前仅支持云效 Codeup 来源）
-     *
      * @var string
      */
     public $codeUrl;
 
     /**
-     * @description 代码版本，支持 commitSHA、分支、标签
-     *
      * @var string
      */
     public $codeVersion;
 
     /**
-     * @description 打开空间默认打开的文件相对路径
-     *
      * @var string
      */
     public $filePath;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 请求来源（用于统计，云产品集成时需要传入）
-     *
      * @var string
      */
     public $requestFrom;
 
     /**
-     * @description 资源标识，提供给非标代码源作为空间复用的唯一标识
-     *
      * @var string
      */
     public $resourceIdentifier;
 
     /**
-     * @description 工作空间复用标识，按照"用户+技术栈+代码地址+版本"进行复用 true - 复用 false - 不复用，每次均为新创建
-     *
      * @var bool
      */
     public $reuse;
 
     /**
-     * @description 技术栈
-     *
      * @var string
      */
     public $workspaceTemplate;

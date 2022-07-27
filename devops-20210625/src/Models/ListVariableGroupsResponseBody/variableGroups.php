@@ -11,64 +11,46 @@ use AlibabaCloud\Tea\Model;
 class variableGroups extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 创建人阿里云账号id
-     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
-     * @description 变量组描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 变量组id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 更新人阿里云账号id
-     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
-     * @description 变量组名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 关联的流水线
-     *
      * @var relatedPipelines[]
      */
     public $relatedPipelines;
 
     /**
-     * @description 更新时间
-     *
      * @var int
      */
     public $updateTime;
 
     /**
-     * @description 变量
-     *
      * @var variables[]
      */
     public $variables;

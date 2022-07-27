@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineRunsRequest extends Model
 {
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 最大返回数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 状态 状态 FAIL 运行失败 SUCCESS 运行成功 RUNNING 运行中
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 触发模式 1人工触发 2定时触发 3代码提交触发
-     *
      * @var int
      */
     public $triggerMode;

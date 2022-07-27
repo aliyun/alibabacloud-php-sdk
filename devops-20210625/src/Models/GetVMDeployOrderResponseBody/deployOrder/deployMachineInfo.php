@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class deployMachineInfo extends Model
 {
     /**
-     * @description 发布批次
-     *
      * @var int
      */
     public $batchNum;
 
     /**
-     * @description 部署机器列表
-     *
      * @var deployMachines[]
      */
     public $deployMachines;
 
     /**
-     * @description 主机组ID
-     *
      * @var int
      */
     public $hostGroupId;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetProjectMemberRequest extends Model
 {
     /**
-     * @description accessToken（选填），使用AK方式调用时无需填accessToken
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 企业ID
-     *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description 代码仓库Id
-     *
      * @var int
      */
     public $repositoryId;
 
     /**
-     * @description 用户阿里云PK
-     *
      * @var string
      */
     public $userAliyunPk;

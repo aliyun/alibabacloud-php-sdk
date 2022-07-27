@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class member extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 角色id
-     *
      * @var string
      */
     public $roleIdentifier;
 
     /**
-     * @description 资源id，也就是项目id
-     *
      * @var string
      */
     public $targetIdentifier;
 
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userIdentifier;
 
     /**
-     * @description 用户类型
-     *
      * @var string
      */
     public $userType;

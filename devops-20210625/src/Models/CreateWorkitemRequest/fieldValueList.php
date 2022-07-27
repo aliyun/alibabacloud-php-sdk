@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class fieldValueList extends Model
 {
     /**
-     * @description 字段唯一标识
-     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
-     * @description 字段值，写入时使用
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 工作项的唯一标识
-     *
      * @var string
      */
     public $workitemIdentifier;

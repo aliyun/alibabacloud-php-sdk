@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class options extends Model
 {
     /**
-     * @description 根据语言环境获取当前展示的值
-     *
      * @var string
      */
     public $displayValue;
 
     /**
-     * @description 字段唯一标识
-     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
-     * @description 待选值的唯一标识
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 展示级别，数字范围1~9，数字越大，颜色越浅。
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 待选值顺序
-     *
      * @var int
      */
     public $position;
 
     /**
-     * @description 待选值中文名称
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 待选值英文名称
-     *
      * @var string
      */
     public $valueEn;

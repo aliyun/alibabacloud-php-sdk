@@ -10,120 +10,86 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
-     * @description 字段类型
-     *
      * @var string
      */
     public $className;
 
     /**
-     * @description 创建人id
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 默认值
-     *
      * @var string
      */
     public $defaultValue;
 
     /**
-     * @description 描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 字段格式
-     *
      * @var string
      */
     public $format;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 字段唯一标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 是否必填
-     *
      * @var bool
      */
     public $isRequired;
 
     /**
-     * @description 创建时是否展示
-     *
      * @var bool
      */
     public $isShowWhenCreate;
 
     /**
-     * @description 是否是系统必须字段，比如：负责人、状态等。
-     *
      * @var bool
      */
     public $isSystemRequired;
 
     /**
-     * @description 联动的服务，比如：迭代 迭代服务开启/关闭，这个字段字段加进/剔除出对应的模板； 字段模板里，这类字段不能手动添加或删除
-     *
      * @var string
      */
     public $linkWithService;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 字段名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 待选值
-     *
      * @var options[]
      */
     public $options;
 
     /**
-     * @description 区分不同的适用对象
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 区分不同的类型，如系统字段、用户自定义字段
-     *
      * @var string
      */
     public $type;

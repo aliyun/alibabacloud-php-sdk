@@ -10,134 +10,96 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 从SVN导入
-     *
      * @var bool
      */
     public $importFromSvn;
 
     /**
-     * @description 归档标识
-     *
      * @var bool
      */
     public $archived;
 
     /**
-     * @description 代码库头像地址
-     *
      * @var string
      */
     public $avatarUrl;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description 创建者id
-     *
      * @var int
      */
     public $creatorId;
 
     /**
-     * @description 默认分支
-     *
      * @var string
      */
     public $defaultBranch;
 
     /**
-     * @description demo库标识
-     *
      * @var bool
      */
     public $demoProject;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description http地址
-     *
      * @var string
      */
     public $httpUrlToRepo;
 
     /**
-     * @description id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 最后活跃时间
-     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 名称（含父路径）
-     *
      * @var string
      */
     public $nameWithNamespace;
 
     /**
-     * @description 父路径信息
-     *
      * @var namespace_
      */
     public $namespace;
 
     /**
-     * @description 路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 路径（含父路径）
-     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
-     * @description ssh地址
-     *
      * @var string
      */
     public $sshUrlToRepo;
 
     /**
-     * @description 可见性。0：私有，10：内部公开
-     *
      * @var string
      */
     public $visibilityLevel;
 
     /**
-     * @description web url
-     *
      * @var string
      */
     public $webUrl;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
-     * @description 是否可用
-     *
      * @var bool
      */
     public $disable;
 
     /**
-     * @description API参数
-     *
-     * @var mixed[]
+     * @var mixed
      */
     public $params;
 
     /**
-     * @description API名称
-     *
      * @var string
      */
     public $type;

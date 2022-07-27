@@ -24,8 +24,6 @@ class CreateHostGroupResponseBody extends Model
     public $hostGroupId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

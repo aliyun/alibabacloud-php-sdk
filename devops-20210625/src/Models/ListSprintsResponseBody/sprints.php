@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class sprints extends Model
 {
     /**
-     * @description 创建人id
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 迭代唯一标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 迭代名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 可见范围
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startDate;
 
     /**
-     * @description 状态，未开始:Todo, 进行中:Doing, 已完成:Done
-     *
      * @var string
      */
     public $status;

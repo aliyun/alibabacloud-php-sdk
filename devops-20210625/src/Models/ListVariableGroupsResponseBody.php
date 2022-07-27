@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListVariableGroupsResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 下一次查询的token，为空表示最后一页
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description true 接口调用成功，false 接口调用失败
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 变量组总数
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description 变量组
-     *
      * @var variableGroups[]
      */
     public $variableGroups;

@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class namespace_ extends Model
 {
     /**
-     * @description 头像地址
-     *
      * @var string
      */
     public $avatar;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 归属者ID
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description 路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $updatedAt;
 
     /**
-     * @description 可见性。0：私有，10：内部公开
-     *
      * @var int
      */
     public $visibilityLevel;

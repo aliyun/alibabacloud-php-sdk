@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
-     * @description 项目类型
-     *
      * @var string
      */
     public $category;
@@ -26,22 +24,16 @@ class ListProjectsRequest extends Model
     public $extraConditions;
 
     /**
-     * @description 每页最大返回数量，0-200，默认值20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页中的起始序列
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 公开类型
-     *
      * @var string
      */
     public $scope;

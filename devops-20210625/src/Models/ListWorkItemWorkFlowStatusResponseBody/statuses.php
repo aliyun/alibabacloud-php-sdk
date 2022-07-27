@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class statuses extends Model
 {
     /**
-     * @description 状态的创建人
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 更新时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 工作流状态id
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 工作流状态名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 状态作用的资源类型
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 状态来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 阶段信息-阶段的唯一标识
-     *
      * @var string
      */
     public $workflowStageIdentifier;
 
     /**
-     * @description 阶段信息-名称
-     *
      * @var string
      */
     public $workflowStageName;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateVariableGroupRequest extends Model
 {
     /**
-     * @description 变量组描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 变量组名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 变量信息json字符串 isEncrypted 是否加密 name 变量名称 value 变量值
-     *
      * @var string
      */
     public $variables;

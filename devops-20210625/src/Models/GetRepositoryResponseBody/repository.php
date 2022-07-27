@@ -10,127 +10,91 @@ use AlibabaCloud\Tea\Model;
 class repository extends Model
 {
     /**
-     * @description 归档标识
-     *
      * @var bool
      */
     public $archive;
 
     /**
-     * @description 代码库头像地址
-     *
      * @var string
      */
     public $avatarUrl;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description 创建者ID
-     *
      * @var int
      */
     public $creatorId;
 
     /**
-     * @description 默认分支
-     *
      * @var string
      */
     public $defaultBranch;
 
     /**
-     * @description DEMO库标识
-     *
      * @var bool
      */
     public $demoProjectStatus;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description HTTP克隆地址
-     *
      * @var string
      */
     public $httpUrlToRepository;
 
     /**
-     * @description 代码库ID
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 最后活跃时间
-     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 名称（含父名称）
-     *
      * @var string
      */
     public $nameWithNamespace;
 
     /**
-     * @description 父空间
-     *
      * @var namespace_
      */
     public $namespace;
 
     /**
-     * @description 路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 路径（含父路径）
-     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
-     * @description SSH克隆地址
-     *
      * @var string
      */
     public $sshUrlToRepository;
 
     /**
-     * @description 可见性。0：私有，10：内部公开
-     *
      * @var int
      */
     public $visibilityLevel;
 
     /**
-     * @description 页面访问地址
-     *
      * @var string
      */
     public $webUrl;

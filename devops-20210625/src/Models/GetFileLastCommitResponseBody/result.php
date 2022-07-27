@@ -10,92 +10,66 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 作者提交时间
-     *
      * @var string
      */
     public $authorDate;
 
     /**
-     * @description 提交者邮箱
-     *
      * @var string
      */
     public $authorEmail;
 
     /**
-     * @description 作者姓名
-     *
      * @var string
      */
     public $authorName;
 
     /**
-     * @description 提交者提交时间
-     *
      * @var string
      */
     public $committedDate;
 
     /**
-     * @description 提交者邮箱
-     *
      * @var string
      */
     public $committerEmail;
 
     /**
-     * @description 提交者姓名
-     *
      * @var string
      */
     public $committerName;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description Commit ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 提交内容
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 父提交ID
-     *
      * @var string[]
      */
     public $parentIds;
 
     /**
-     * @description Commit短ID
-     *
      * @var string
      */
     public $shortId;
 
     /**
-     * @description 签名
-     *
      * @var signature
      */
     public $signature;
 
     /**
-     * @description 标题，提交的第一行内容
-     *
      * @var string
      */
     public $title;

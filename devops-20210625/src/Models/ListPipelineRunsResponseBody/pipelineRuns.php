@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class pipelineRuns extends Model
 {
     /**
-     * @description 运行人阿里云账号id
-     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 流水线id
-     *
      * @var int
      */
     public $pipelineId;
 
     /**
-     * @description 流水线实例id
-     *
      * @var int
      */
     public $pipelineRunId;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 运行状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 触发模式
-     *
      * @var int
      */
     public $triggerMode;

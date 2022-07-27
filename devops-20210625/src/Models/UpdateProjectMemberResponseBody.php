@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectMemberResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description 成员信息
-     *
      * @var member
      */
     public $member;
 
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description true或者false
-     *
      * @var bool
      */
     public $success;

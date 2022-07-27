@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetFlowTagGroupResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
@@ -29,15 +25,11 @@ class GetFlowTagGroupResponseBody extends Model
     public $flowTagGroup;
 
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description true 接口调用成功，false 接口调用失败
-     *
      * @var bool
      */
     public $success;

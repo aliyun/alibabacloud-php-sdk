@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relatedPipelines extends Model
 {
     /**
-     * @description 关联的流水线Id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 关联的流水线名称
-     *
      * @var string
      */
     public $name;

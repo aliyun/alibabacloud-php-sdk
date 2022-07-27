@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoriesRequest extends Model
 {
     /**
-     * @description accessToken
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 是否列出归档项目
-     *
      * @var bool
      */
     public $archived;
 
     /**
-     * @description 排序字段
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 企业ID
-     *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description 每页大小
-     *
      * @var int
      */
     public $perPage;
 
     /**
-     * @description 搜索关键字
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 排序方式 (desc: 降序, asc: 升序)
-     *
      * @var string
      */
     public $sort;

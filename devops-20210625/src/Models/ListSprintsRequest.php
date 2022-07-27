@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListSprintsRequest extends Model
 {
     /**
-     * @description 每页最大返回数量，0-200，默认值20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页中的起始序列
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $spaceType;

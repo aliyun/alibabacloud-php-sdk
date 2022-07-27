@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class pipelines extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 创建人阿里云账号id
-     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
-     * @description 流水线id
-     *
      * @var int
      */
     public $pipelineId;
 
     /**
-     * @description 流水线名称
-     *
      * @var string
      */
     public $pipelineName;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoriesResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var int
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 请求requestId
-     *
      * @var string
      */
     public $requestId;
@@ -36,15 +30,11 @@ class ListRepositoriesResponseBody extends Model
     public $result;
 
     /**
-     * @description 调用是否成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 总数量
-     *
      * @var int
      */
     public $total;

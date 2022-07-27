@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class serviceConnections extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 服务连接Id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 服务连接名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 拥有者阿里云账号id
-     *
      * @var int
      */
     public $ownerAccountId;
 
     /**
-     * @description 服务连接类型
-     *
      * @var string
      */
     public $type;

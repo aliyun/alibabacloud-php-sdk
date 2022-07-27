@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ListWorkitemsRequest extends Model
 {
     /**
-     * @description 工作项类型，需求为Req，缺陷为Bug，任务为Task，风险为Risk
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 过滤条件
-     *
      * @var string
      */
     public $conditions;
 
     /**
-     * @description 额外条件
-     *
      * @var string
      */
     public $extraConditions;
 
     /**
-     * @description 分组条件
-     *
      * @var string
      */
     public $groupCondition;
 
     /**
-     * @description 每页最大返回数量，0-200，默认值20
-     *
      * @var string
      */
     public $maxResults;
 
     /**
-     * @description 分页中的起始序列
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序顺序
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 查询类型
-     *
      * @var string
      */
     public $searchType;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 项目类型
-     *
      * @var string
      */
     public $spaceType;

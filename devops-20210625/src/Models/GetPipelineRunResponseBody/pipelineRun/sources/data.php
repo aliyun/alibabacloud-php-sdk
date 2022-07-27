@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 分支
-     *
      * @var string
      */
     public $branch;
 
     /**
-     * @description 提交信息 json数据
-     *
      * @var string
      */
     public $commint;
 
     /**
-     * @description 代码库地址
-     *
      * @var string
      */
     public $repo;

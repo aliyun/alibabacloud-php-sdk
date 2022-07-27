@@ -11,71 +11,51 @@ use AlibabaCloud\Tea\Model;
 class pipeline extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 创建者阿里云账号id
-     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
-     * @description 环境id 0 日常环境  1预发环境 2正式环境
-     *
      * @var int
      */
     public $envId;
 
     /**
-     * @description 环境名称
-     *
      * @var string
      */
     public $envName;
 
     /**
-     * @description 流水线分组id
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description 更新人阿里云账号id
-     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
-     * @description 流水线名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 流水线配置
-     *
      * @var pipelineConfig
      */
     public $pipelineConfig;
 
     /**
-     * @description 标签
-     *
      * @var tagList[]
      */
     public $tagList;
 
     /**
-     * @description 更新时间
-     *
      * @var int
      */
     public $updateTime;

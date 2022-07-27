@@ -15,8 +15,6 @@ class CreateOAuthTokenResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $errorMessage;

@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description MaxResults本次请求所返回的最大记录条数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 请求是否成功
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description 工作空间列表
-     *
      * @var workspaces[]
      */
     public $workspaces;

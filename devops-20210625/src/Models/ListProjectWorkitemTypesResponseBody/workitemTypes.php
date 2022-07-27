@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class workitemTypes extends Model
 {
     /**
-     * @description 添加到项目中的添加人
-     *
      * @var string
      */
     public $addUser;
 
     /**
-     * @description 工作项类型
-     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
-     * @description 工作项类型创建人
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 在项目中是否为默认类型
-     *
      * @var bool
      */
     public $defaultType;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 是否启用
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 添加到项目中的时间
-     *
      * @var int
      */
     public $gmtAdd;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 工作项类型id
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 工作项类型的名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 工作项类型的英文名称
-     *
      * @var string
      */
     public $nameEn;
 
     /**
-     * @description 是否系统默认
-     *
      * @var bool
      */
     public $systemDefault;

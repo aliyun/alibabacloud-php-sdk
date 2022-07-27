@@ -14,71 +14,51 @@ class templates extends Model
     public $copyFrom;
 
     /**
-     * @description 创建人id
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 模板封面
-     *
      * @var string
      */
     public $icon;
 
     /**
-     * @description 模板唯一标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 模板英文名称
-     *
      * @var string
      */
     public $nameEn;
 
     /**
-     * @description 所属资源类型
-     *
      * @var string
      */
     public $resourceCategory;
@@ -99,8 +79,6 @@ class templates extends Model
     public $spaceType;
 
     /**
-     * @description 模板类型 0-system/4-custom/16-instance
-     *
      * @var int
      */
     public $type;

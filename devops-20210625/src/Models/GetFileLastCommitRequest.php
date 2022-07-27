@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetFileLastCommitRequest extends Model
 {
     /**
-     * @description 个人访问令牌
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 文件路径
-     *
      * @var string
      */
     public $filepath;
 
     /**
-     * @description 云效企业ID
-     *
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description 分支名称、标签名称或Commit ID
-     *
      * @var string
      */
     public $sha;

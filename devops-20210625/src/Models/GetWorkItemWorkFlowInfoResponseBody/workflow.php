@@ -11,106 +11,76 @@ use AlibabaCloud\Tea\Model;
 class workflow extends Model
 {
     /**
-     * @description 创建人
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 工作流的默认状态
-     *
      * @var string
      */
     public $defaultStatusIdentifier;
 
     /**
-     * @description 工作流的描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 工作流唯一标识
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 工作流名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 工作流所属的团队空间或项目的identifier
-     *
      * @var string
      */
     public $ownerSpaceIdentifier;
 
     /**
-     * @description 工作流所属的团队项目类型
-     *
      * @var string
      */
     public $ownerSpaceType;
 
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 工作流来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 工作流的状态顺序
-     *
      * @var string
      */
     public $statusOrder;
 
     /**
-     * @description 状态列表
-     *
      * @var statuses[]
      */
     public $statuses;
 
     /**
-     * @description 工作流的流转步骤
-     *
      * @var workflowActions[]
      */
     public $workflowActions;

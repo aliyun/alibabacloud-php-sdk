@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class workitemTime extends Model
 {
     /**
-     * @description 实际工时，小时为单位
-     *
      * @var int
      */
     public $actualTime;
 
     /**
-     * @description 工时描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 工时记录的创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $gmtEnd;
 
     /**
-     * @description 工时记录的修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $gmtStart;
 
     /**
-     * @description 工时唯一标识
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 登记人的account Id
-     *
      * @var string
      */
     public $recordUser;
 
     /**
-     * @description 工时类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 工作项id，唯一标识
-     *
      * @var string
      */
     public $workitemIdentifier;

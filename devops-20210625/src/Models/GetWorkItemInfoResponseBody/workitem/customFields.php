@@ -10,64 +10,46 @@ use AlibabaCloud\Tea\Model;
 class customFields extends Model
 {
     /**
-     * @description 字段的className，便于数据查询
-     *
      * @var string
      */
     public $fieldClassName;
 
     /**
-     * @description 字段格式，便于查询数据
-     *
      * @var string
      */
     public $fieldFormat;
 
     /**
-     * @description 字段的唯一标识
-     *
      * @var string
      */
     public $fieldIdentifier;
 
     /**
-     * @description 展示级别，数字范围1~9，数字越大，颜色越浅。
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 值对象列表
-     *
      * @var string
      */
     public $objectValue;
 
     /**
-     * @description 自定义字段值的position
-     *
      * @var int
      */
     public $position;
 
     /**
-     * @description 字段值，写入时使用
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 值对象列表，查询时使用
-     *
      * @var valueList[]
      */
     public $valueList;
 
     /**
-     * @description 工作项的唯一标识
-     *
      * @var string
      */
     public $workitemIdentifier;

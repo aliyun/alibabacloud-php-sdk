@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ReleaseWorkspaceResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 请求是否成功
-     *
      * @var bool
      */
     public $success;

@@ -25,8 +25,6 @@ class GetSprintInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 迭代信息
-     *
      * @var sprint
      */
     public $sprint;

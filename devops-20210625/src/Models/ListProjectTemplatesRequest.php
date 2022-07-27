@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListProjectTemplatesRequest extends Model
 {
     /**
-     * @description 模板类型
-     *
      * @var string
      */
     public $category;

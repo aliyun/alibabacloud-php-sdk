@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class deployMachines extends Model
 {
     /**
-     * @description 后续action
-     *
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description 部署批次
-     *
      * @var int
      */
     public $batchNum;
 
     /**
-     * @description 机器状态
-     *
      * @var string
      */
     public $clientStatus;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 机器IP
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description 机器sn
-     *
      * @var string
      */
     public $machineSn;
 
     /**
-     * @description 部署状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $updateTime;

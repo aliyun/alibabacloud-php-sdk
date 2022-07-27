@@ -10,106 +10,76 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkitemRequest extends Model
 {
     /**
-     * @description 工作项负责人的account id，或者企业中的用户名
-     *
      * @var string
      */
     public $assignedTo;
 
     /**
-     * @description 工作项的类型id，比如：Bug、Task对应id
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 工作项内容
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 内容格式
-     *
      * @var string
      */
     public $descriptionFormat;
 
     /**
-     * @description 自定义字段
-     *
      * @var fieldValueList[]
      */
     public $fieldValueList;
 
     /**
-     * @description 所属父工作项的唯一标识
-     *
      * @var string
      */
     public $parent;
 
     /**
-     * @description 参与人account id列表，或者企业名称列表
-     *
      * @var string[]
      */
     public $participant;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $space;
 
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $spaceType;
 
     /**
-     * @description 要关联迭代
-     *
      * @var string[]
      */
     public $sprint;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $subject;
 
     /**
-     * @description 抄送人account id列表
-     *
      * @var string[]
      */
     public $tracker;
 
     /**
-     * @description 验证者account id列表，或者企业名称列表
-     *
      * @var string[]
      */
     public $verifier;
 
     /**
-     * @description 工作项小类型id
-     *
      * @var string
      */
     public $workitemType;

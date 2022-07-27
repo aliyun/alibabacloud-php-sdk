@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class division extends Model
 {
     /**
-     * @description 部门唯一标识
-     *
      * @var string
      */
     public $identifier;

@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
-     * @description 创建人
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 自定义编号
-     *
      * @var string
      */
     public $customCode;
 
     /**
-     * @description 删除时间
-     *
      * @var int
      */
     public $deleteTime;
 
     /**
-     * @description 描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 项目封面
-     *
      * @var string
      */
     public $icon;
 
     /**
-     * @description 项目唯一标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 逻辑状态
-     *
      * @var string
      */
     public $logicalStatus;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 公开还是私有
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 状态阶段
-     *
      * @var string
      */
     public $statusStageIdentifier;
 
     /**
-     * @description 类型id
-     *
      * @var string
      */
     public $typeIdentifier;

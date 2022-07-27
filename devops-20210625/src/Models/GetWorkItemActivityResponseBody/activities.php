@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class activities extends Model
 {
     /**
-     * @description 动作类型
-     *
      * @var string
      */
     public $actionType;
 
     /**
-     * @description 事件id
-     *
      * @var int
      */
     public $eventId;
 
     /**
-     * @description 事件时间
-     *
      * @var int
      */
     public $eventTime;
 
     /**
-     * @description 事件类型
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description 操作者
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description 父事件id
-     *
      * @var int
      */
     public $parentEventId;
 
     /**
-     * @description 修改属性
-     *
      * @var property
      */
     public $property;
 
     /**
-     * @description 操作对象
-     *
      * @var string
      */
     public $resourceIdentifier;

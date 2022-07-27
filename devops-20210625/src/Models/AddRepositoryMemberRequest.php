@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddRepositoryMemberRequest extends Model
 {
     /**
-     * @description Codeup访问令牌，使用AK/SK方式访问可以不用填AccessToken
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 成员权限
-     *
      * @var int
      */
     public $accessLevel;
 
     /**
-     * @description 需要添加为代码库成员的用户阿里云ID。支持多个，以","分割
-     *
      * @var string
      */
     public $aliyunPks;
 
     /**
-     * @description 企业ID
-     *
      * @var string
      */
     public $organizationId;

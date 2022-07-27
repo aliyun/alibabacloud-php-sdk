@@ -9,113 +9,81 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
-     * @description 空间大类id
-     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
-     * @description 创建人id
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 自定义编号
-     *
      * @var string
      */
     public $customCode;
 
     /**
-     * @description 描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 图标
-     *
      * @var string
      */
     public $icon;
 
     /**
-     * @description 项目唯一标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 项目状态
-     *
      * @var string
      */
     public $logicalStatus;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 企业id
-     *
      * @var string
      */
     public $organizationIdentifier;
 
     /**
-     * @description 可见范围
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 状态id
-     *
      * @var string
      */
     public $statusIdentifier;
 
     /**
-     * @description 状态阶段
-     *
      * @var string
      */
     public $statusStageIdentifier;
 
     /**
-     * @description 空间小类id
-     *
      * @var string
      */
     public $typeIdentifier;

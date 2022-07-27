@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
-     * @description 代码源信息
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 代码源唯一标识
-     *
      * @var string
      */
     public $sign;
 
     /**
-     * @description 代码库类型
-     *
      * @var string
      */
     public $type;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class workflowActions extends Model
 {
     /**
-     * @description 流转步骤的id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description action的名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description action对应的下个状态的信息id
-     *
      * @var string
      */
     public $nextWorkflowStatusIdentifier;
 
     /**
-     * @description action对应的工作流
-     *
      * @var string
      */
     public $workflowIdentifier;
 
     /**
-     * @description action对应的当前状态id
-     *
      * @var string
      */
     public $workflowStatusIdentifier;

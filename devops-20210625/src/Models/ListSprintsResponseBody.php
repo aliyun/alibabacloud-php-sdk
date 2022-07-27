@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class ListSprintsResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description 每页数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页Token，没有下一页则为空
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求id，每次请求都是唯一值，便于后续排查问题
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 迭代信息
-     *
      * @var sprints[]
      */
     public $sprints;
 
     /**
-     * @description true或者false
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 总数
-     *
      * @var int
      */
     public $totalCount;

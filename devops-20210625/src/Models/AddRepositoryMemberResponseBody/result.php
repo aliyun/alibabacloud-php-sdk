@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 权限类型
-     *
      * @var int
      */
     public $accessLevel;
 
     /**
-     * @description 头像地址
-     *
      * @var string
      */
     public $avatarUrl;
 
     /**
-     * @description 邮箱
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description 云效用户ID
-     *
      * @var string
      */
     public $externUserId;
 
     /**
-     * @description Codeup用户Id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $state;

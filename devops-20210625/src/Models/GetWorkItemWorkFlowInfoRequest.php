@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetWorkItemWorkFlowInfoRequest extends Model
 {
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $configurationId;

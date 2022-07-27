@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceMemberRequest extends Model
 {
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 角色部署组 deployGroup   user  成员，使用权限   admin 管理员，使用编辑权限 流水线 pipeline   admin 查看、运行、编辑权限   member  运行权限   viewer 查看权限
-     *
      * @var string
      */
     public $roleName;

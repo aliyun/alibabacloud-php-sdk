@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListHostGroupsRequest extends Model
 {
     /**
-     * @description 主机组结束时间
-     *
      * @var int
      */
     public $createEndTime;
 
     /**
-     * @description 主机组创建时间
-     *
      * @var int
      */
     public $createStartTime;
 
     /**
-     * @description 创建阿里云账号id，多个逗号分割
-     *
      * @var string
      */
     public $creatorAccountIds;
 
     /**
-     * @description 主机组id，多个逗号分割
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @description 结果返回个数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 主机组名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序顺序
-     *
      * @var string
      */
     public $pageOrder;
 
     /**
-     * @description 排序条件ID
-     *
      * @var string
      */
     public $pageSort;

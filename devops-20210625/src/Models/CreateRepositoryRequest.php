@@ -14,113 +14,81 @@ class CreateRepositoryRequest extends Model
     public $accessToken;
 
     /**
-     * @description 代码库头像地址
-     *
      * @var string
      */
     public $avatarUrl;
 
     /**
-     * @description 代码库描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description gitignore模板类型
-     *
      * @var string
      */
     public $gitignoreType;
 
     /**
-     * @description 导入时使用的账号
-     *
      * @var string
      */
     public $importAccount;
 
     /**
-     * @description 使用使用demo库内容进行初始化
-     *
      * @var bool
      */
     public $importDemoProject;
 
     /**
-     * @description 导入代码库类型 (GIT: Git库, SVN: SVN库)
-     *
      * @var string
      */
     public $importRepoType;
 
     /**
-     * @description 导入时账号的token
-     *
      * @var string
      */
     public $importToken;
 
     /**
-     * @description import_token字段的传输格式，使用明文或rsa加密
-     *
      * @var string
      */
     public $importTokenEncrypted;
 
     /**
-     * @description 导入地址（http协议地址）
-     *
      * @var string
      */
     public $importUrl;
 
     /**
-     * @description 初始化标准智能化服务
-     *
      * @var bool
      */
     public $initStandardService;
 
     /**
-     * @description 是否启用加密
-     *
      * @var bool
      */
     public $isCryptoEnabled;
 
     /**
-     * @description 本地导入代码库的远程地址
-     *
      * @var string
      */
     public $localImportUrl;
 
     /**
-     * @description 代码库名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 代码库父路径id
-     *
      * @var int
      */
     public $namespaceId;
 
     /**
-     * @description 代码库路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 自动创建readme类型 (EMPTY: 仅创建README.md, USER_GUIDE: 包含新手引导)
-     *
      * @var string
      */
     public $readmeType;

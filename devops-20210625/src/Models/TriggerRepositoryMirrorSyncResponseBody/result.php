@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 仓库同步触发结果
-     *
      * @var bool
      */
     public $result;

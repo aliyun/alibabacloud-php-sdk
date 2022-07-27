@@ -11,134 +11,96 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
-     * @description 登陆账号
-     *
      * @var string
      */
     public $account;
 
     /**
-     * @description 用户头像
-     *
      * @var string
      */
     public $avatar;
 
     /**
-     * @description 钉钉id
-     *
      * @var string
      */
     public $dingTalkId;
 
     /**
-     * @description 展示名
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 展示昵称
-     *
      * @var string
      */
     public $displayNickName;
 
     /**
-     * @description 展示真名
-     *
      * @var string
      */
     public $displayRealName;
 
     /**
-     * @description 部门信息
-     *
      * @var division
      */
     public $division;
 
     /**
-     * @description 邮箱
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description 性别
-     *
      * @var string
      */
     public $gender;
 
     /**
-     * @description 用户唯一 标识符
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 手机号
-     *
      * @var string
      */
     public $mobile;
 
     /**
-     * @description 英文名
-     *
      * @var string
      */
     public $nameEn;
 
     /**
-     * @description 昵称
-     *
      * @var string
      */
     public $nickName;
 
     /**
-     * @description 昵称拼音
-     *
      * @var string
      */
     public $nickNamePinyin;
 
     /**
-     * @description 企业信息
-     *
      * @var organizationUserInfo
      */
     public $organizationUserInfo;
 
     /**
-     * @description 真名
-     *
      * @var string
      */
     public $realName;
 
     /**
-     * @description 真名拼音
-     *
      * @var string
      */
     public $realNamePinyin;
 
     /**
-     * @description 用户类型
-     *
      * @var string
      */
     public $stamp;
 
     /**
-     * @description 角色id
-     *
      * @var string
      */
     public $tbRoleId;

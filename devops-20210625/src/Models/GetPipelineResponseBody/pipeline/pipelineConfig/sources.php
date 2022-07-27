@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
-     * @description 代码数据
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 代码源唯一标识
-     *
      * @var string
      */
     public $sign;
 
     /**
-     * @description 代码源类型aliyunGit 阿里云代码库 customGitlab  自建git giteeGit 码云 codeup Codeup git 通用git gitlab gitlab bitbucket bitbucket githubOAuth github
-     *
      * @var string
      */
     public $type;

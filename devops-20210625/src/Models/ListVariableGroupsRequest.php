@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListVariableGroupsRequest extends Model
 {
     /**
-     * @description 最大返回数，默认30
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页token，上一次请求的出参nextToken
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序顺序
-     *
      * @var string
      */
     public $pageOrder;
 
     /**
-     * @description 排序条件
-     *
      * @var string
      */
     public $pageSort;

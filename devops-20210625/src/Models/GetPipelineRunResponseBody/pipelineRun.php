@@ -11,78 +11,56 @@ use AlibabaCloud\Tea\Model;
 class pipelineRun extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 创建者阿里云账号id
-     *
      * @var string
      */
     public $creatorAccountId;
 
     /**
-     * @description 更新人阿里云账号id
-     *
      * @var string
      */
     public $modifierAccountId;
 
     /**
-     * @description 流水线Id
-     *
      * @var int
      */
     public $pipelineId;
 
     /**
-     * @description 流水线运行实例id
-     *
      * @var int
      */
     public $pipelineRunId;
 
     /**
-     * @description 代码源
-     *
      * @var sources[]
      */
     public $sources;
 
     /**
-     * @description 阶段拓扑信息
-     *
      * @var string[][]
      */
     public $stageGroup;
 
     /**
-     * @description 阶段信息
-     *
      * @var stages[]
      */
     public $stages;
 
     /**
-     * @description 状态 FAIL 运行失败 SUCCESS 运行成功 RUNNING 运行中
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 触发模式 1人工触发 2定时触发 3代码提交触发
-     *
      * @var int
      */
     public $triggerMode;
 
     /**
-     * @description 更新时间
-     *
      * @var int
      */
     public $updateTime;

@@ -10,183 +10,131 @@ use AlibabaCloud\Tea\Model;
 class workitem extends Model
 {
     /**
-     * @description 负责人
-     *
      * @var string
      */
     public $assignedTo;
 
     /**
-     * @description 工作项的类型id
-     *
      * @var string
      */
     public $categoryIdentifier;
 
     /**
-     * @description 创建人
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 自定义字段列表
-     *
      * @var customFields[]
      */
     public $customFields;
 
     /**
-     * @description 工作项内容
-     *
      * @var string
      */
     public $document;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 工作项唯一标识
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description 逻辑状态
-     *
      * @var string
      */
     public $logicalStatus;
 
     /**
-     * @description 修改人
-     *
      * @var string
      */
     public $modifier;
 
     /**
-     * @description 父工作项id
-     *
      * @var string
      */
     public $parentIdentifier;
 
     /**
-     * @description 参与人account id列表
-     *
      * @var string[]
      */
     public $participant;
 
     /**
-     * @description 编号
-     *
      * @var string
      */
     public $serialNumber;
 
     /**
-     * @description 所属项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 所属项目名称
-     *
      * @var string
      */
     public $spaceName;
 
     /**
-     * @description 项目类型
-     *
      * @var string
      */
     public $spaceType;
 
     /**
-     * @description 关联的迭代id
-     *
      * @var string[]
      */
     public $sprint;
 
     /**
-     * @description 状态名称
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 状态id
-     *
      * @var string
      */
     public $statusIdentifier;
 
     /**
-     * @description 状态阶段id
-     *
      * @var string
      */
     public $statusStageIdentifier;
 
     /**
-     * @description 工作项标题
-     *
      * @var string
      */
     public $subject;
 
     /**
-     * @description 标签id列表
-     *
      * @var string[]
      */
     public $tag;
 
     /**
-     * @description 抄送人的account id列表
-     *
      * @var string[]
      */
     public $tracker;
 
     /**
-     * @description 状态更新时间
-     *
      * @var int
      */
     public $updateStatusAt;
 
     /**
-     * @description 验证者的account id列表
-     *
      * @var string[]
      */
     public $verifier;
 
     /**
-     * @description 工作项类型id
-     *
      * @var string
      */
     public $workitemTypeIdentifier;

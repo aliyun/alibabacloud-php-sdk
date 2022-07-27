@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListProjectWorkitemTypesResponseBody extends Model
 {
     /**
-     * @description 错误返回码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误返回信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description openapi平台的request id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 接口是否正常返回
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 工作项类型
-     *
      * @var workitemTypes[]
      */
     public $workitemTypes;

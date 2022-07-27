@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class stageInfo extends Model
 {
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 任务
-     *
      * @var jobs[]
      */
     public $jobs;
 
     /**
-     * @description 阶段名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;

@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class TriggerRepositoryMirrorSyncResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 响应结果
-     *
      * @var result
      */
     public $result;
 
     /**
-     * @description 请求结果
-     *
      * @var bool
      */
     public $success;

@@ -19,36 +19,26 @@ class AddWebhookRequest extends Model
     public $organizationId;
 
     /**
-     * @description webhook描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 使用ssl认证
-     *
      * @var bool
      */
     public $enableSslVerification;
 
     /**
-     * @description 合并请求事件
-     *
      * @var bool
      */
     public $mergeRequestsEvents;
 
     /**
-     * @description 评论事件
-     *
      * @var bool
      */
     public $noteEvents;
 
     /**
-     * @description 分支推送事件
-     *
      * @var bool
      */
     public $pushEvents;
@@ -59,15 +49,11 @@ class AddWebhookRequest extends Model
     public $secretToken;
 
     /**
-     * @description 标签推送事件
-     *
      * @var bool
      */
     public $tagPushEvents;
 
     /**
-     * @description hook url
-     *
      * @var string
      */
     public $url;

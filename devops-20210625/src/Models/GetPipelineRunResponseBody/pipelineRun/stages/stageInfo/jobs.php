@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
-     * @description 后续操作
-     *
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 任务Id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 触发参数
-     *
      * @var string
      */
     public $params;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;

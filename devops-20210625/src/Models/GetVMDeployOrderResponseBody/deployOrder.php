@@ -11,71 +11,51 @@ use AlibabaCloud\Tea\Model;
 class deployOrder extends Model
 {
     /**
-     * @description 后续action
-     *
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description 创建时时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 创建人
-     *
      * @var string
      */
     public $creator;
 
     /**
-     * @description 当前发布批次
-     *
      * @var int
      */
     public $currentBatch;
 
     /**
-     * @description 部署机器信息
-     *
      * @var deployMachineInfo
      */
     public $deployMachineInfo;
 
     /**
-     * @description 部署单ID
-     *
      * @var string
      */
     public $deployOrderId;
 
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $exceptionCode;
 
     /**
-     * @description 发布状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 总发布批次
-     *
      * @var int
      */
     public $totalBatch;
 
     /**
-     * @description 修改时间
-     *
      * @var int
      */
     public $updateTime;

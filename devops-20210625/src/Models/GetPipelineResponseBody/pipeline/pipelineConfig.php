@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class pipelineConfig extends Model
 {
     /**
-     * @description 流水线配置信息
-     *
      * @var string
      */
     public $flow;
 
     /**
-     * @description 流水线环境变量等
-     *
      * @var string
      */
     public $settings;
 
     /**
-     * @description 代码源
-     *
      * @var sources[]
      */
     public $sources;

@@ -10,92 +10,66 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
-     * @description 阿里云用户ID
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 生日
-     *
      * @var int
      */
     public $birthday;
 
     /**
-     * @description 部门名称列表
-     *
      * @var string[]
      */
     public $deptLists;
 
     /**
-     * @description 邮箱
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description 入职时间
-     *
      * @var int
      */
     public $hiredDate;
 
     /**
-     * @description 第三方信息
-     *
      * @var identities
      */
     public $identities;
 
     /**
-     * @description 加入云效企业时间
-     *
      * @var int
      */
     public $joinTime;
 
     /**
-     * @description 最近一次访问时间
-     *
      * @var int
      */
     public $lastVisitTime;
 
     /**
-     * @description 手机号
-     *
      * @var string
      */
     public $mobile;
 
     /**
-     * @description 企业成员名
-     *
      * @var string
      */
     public $organizationMemberName;
 
     /**
-     * @description 企业角色Id
-     *
      * @var string
      */
     public $organizationRoleId;
 
     /**
-     * @description 企业角色名字
-     *
      * @var string
      */
     public $organizationRoleName;
 
     /**
-     * @description 用户状态
-     *
      * @var string
      */
     public $state;

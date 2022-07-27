@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetCustomFieldOptionRequest extends Model
 {
     /**
-     * @description 项目id
-     *
      * @var string
      */
     public $spaceIdentifier;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $spaceType;
 
     /**
-     * @description 工作项类型id
-     *
      * @var string
      */
     public $workitemTypeIdentifier;

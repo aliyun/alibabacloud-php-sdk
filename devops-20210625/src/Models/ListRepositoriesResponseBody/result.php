@@ -9,127 +9,91 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 代码库Id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 当前用户在该代码库上的权限类型
-     *
      * @var int
      */
     public $accessLevel;
 
     /**
-     * @description 代码库是否归档
-     *
      * @var bool
      */
     public $archive;
 
     /**
-     * @description 头像地址
-     *
      * @var string
      */
     public $avatarUrl;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description 代码库描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 代码库导入状态
-     *
      * @var string
      */
     public $importStatus;
 
     /**
-     * @description 最后活跃时间
-     *
      * @var string
      */
     public $lastActivityAt;
 
     /**
-     * @description 代码库名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 代码库完整名称（含完整组名称）
-     *
      * @var string
      */
     public $nameWithNamespace;
 
     /**
-     * @description 上级路径的id
-     *
      * @var int
      */
     public $namespaceId;
 
     /**
-     * @description 代码库路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 代码库完整路径（含完整组路径）
-     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
-     * @description 是否被收藏
-     *
      * @var bool
      */
     public $star;
 
     /**
-     * @description 被收藏的数量
-     *
      * @var int
      */
     public $starCount;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $updatedAt;
 
     /**
-     * @description 可见性;0标识私有的/10标识企业内公开
-     *
      * @var string
      */
     public $visibilityLevel;
 
     /**
-     * @description 页面访问时的URL
-     *
      * @var string
      */
     public $webUrl;
