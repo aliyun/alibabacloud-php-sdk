@@ -102,6 +102,8 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -1574,8 +1576,8 @@ class BtripOpen extends OpenApiClient
             'action'      => 'EntityDelete',
             'version'     => '2022-05-20',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/costcenter/v1/delete-entity',
-            'method'      => 'DELETE',
+            'pathname'    => '/costcenter/v1/entity/action/delete',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
@@ -2933,5 +2935,66 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return TrainOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UserQueryRequest $request
+     *
+     * @return UserQueryResponse
+     */
+    public function userQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->userQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UserQueryRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UserQueryResponse
+     */
+    public function userQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->modifiedTimeGreaterOrEqualThan)) {
+            $query['modified_time_greater_or_equal_than'] = $request->modifiedTimeGreaterOrEqualThan;
+        }
+        if (!Utils::isUnset($request->thirdPartCorpId)) {
+            $query['third_part_corp_id'] = $request->thirdPartCorpId;
+        }
+        if (!Utils::isUnset($request->thirdPartJobNo)) {
+            $query['third_part_job_no'] = $request->thirdPartJobNo;
+        }
+        if (!Utils::isUnset($request->topAppKeyOwnerId)) {
+            $query['top_app_key_owner_id'] = $request->topAppKeyOwnerId;
+        }
+        if (!Utils::isUnset($request->topAuthorizedHavanaId)) {
+            $query['top_authorized_havana_id'] = $request->topAuthorizedHavanaId;
+        }
+        if (!Utils::isUnset($request->topAuthorizedUserNick)) {
+            $query['top_authorized_user_nick'] = $request->topAuthorizedUserNick;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UserQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/user',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UserQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

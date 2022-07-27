@@ -4,25 +4,20 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityDeleteResponseBody\module;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponseBody\module;
 use AlibabaCloud\Tea\Model;
 
-class EntityDeleteResponseBody extends Model
+class UserQueryResponseBody extends Model
 {
-    /**
-     * @var module
-     */
-    public $module;
-
-    /**
-     * @var bool
-     */
-    public $morePage;
-
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var module
+     */
+    public $module;
 
     /**
      * @var int
@@ -44,9 +39,8 @@ class EntityDeleteResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
+        'requestId'  => 'RequestId',
         'module'     => 'module',
-        'morePage'   => 'more_page',
-        'requestId'  => 'requestId',
         'resultCode' => 'result_code',
         'resultMsg'  => 'result_msg',
         'success'    => 'success',
@@ -60,14 +54,11 @@ class EntityDeleteResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->module) {
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
-        }
-        if (null !== $this->morePage) {
-            $res['more_page'] = $this->morePage;
-        }
-        if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->resultCode) {
             $res['result_code'] = $this->resultCode;
@@ -88,19 +79,16 @@ class EntityDeleteResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return EntityDeleteResponseBody
+     * @return UserQueryResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
-        }
-        if (isset($map['more_page'])) {
-            $model->morePage = $map['more_page'];
-        }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
         }
         if (isset($map['result_code'])) {
             $model->resultCode = $map['result_code'];

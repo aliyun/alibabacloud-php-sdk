@@ -36,14 +36,14 @@ class IsvUserSaveResponseBody extends Model
     /**
      * @var string
      */
-    public $traceid;
+    public $traceId;
     protected $_name = [
         'requestId'  => 'RequestId',
         'module'     => 'module',
         'resultCode' => 'result_code',
         'resultMsg'  => 'result_msg',
         'success'    => 'success',
-        'traceid'    => 'traceid',
+        'traceId'    => 'traceId',
     ];
 
     public function validate()
@@ -68,8 +68,8 @@ class IsvUserSaveResponseBody extends Model
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
-        if (null !== $this->traceid) {
-            $res['traceid'] = $this->traceid;
+        if (null !== $this->traceId) {
+            $res['traceId'] = $this->traceId;
         }
 
         return $res;
@@ -98,8 +98,8 @@ class IsvUserSaveResponseBody extends Model
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-        if (isset($map['traceid'])) {
-            $model->traceid = $map['traceid'];
+        if (isset($map['traceId'])) {
+            $model->traceId = $map['traceId'];
         }
 
         return $model;
