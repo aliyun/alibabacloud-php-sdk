@@ -24,8 +24,6 @@ class GetDBTaskSQLJobLogResponseBody extends Model
     public $log;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

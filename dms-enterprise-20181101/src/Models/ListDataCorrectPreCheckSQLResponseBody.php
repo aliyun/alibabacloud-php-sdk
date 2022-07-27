@@ -25,8 +25,6 @@ class ListDataCorrectPreCheckSQLResponseBody extends Model
     public $preCheckSQLList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

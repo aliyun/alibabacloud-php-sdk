@@ -24,8 +24,6 @@ class ChangeColumnSecLevelRequest extends Model
     public $isLogic;
 
     /**
-     * @description 新的敏感等级
-     *
      * @var string
      */
     public $newLevel;

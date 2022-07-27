@@ -25,8 +25,6 @@ class GetOwnerApplyOrderDetailResponseBody extends Model
     public $ownerApplyOrderDetail;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

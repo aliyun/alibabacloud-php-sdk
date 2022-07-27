@@ -29,11 +29,6 @@ class proxyList extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $mysqlPort;
-
-    /**
      * @var bool
      */
     public $privateEnable;
@@ -42,6 +37,16 @@ class proxyList extends Model
      * @var string
      */
     public $privateHost;
+
+    /**
+     * @var int
+     */
+    public $protocolPort;
+
+    /**
+     * @var string
+     */
+    public $protocolType;
 
     /**
      * @var int
@@ -62,9 +67,10 @@ class proxyList extends Model
         'creatorName'   => 'CreatorName',
         'httpsPort'     => 'HttpsPort',
         'instanceId'    => 'InstanceId',
-        'mysqlPort'     => 'MysqlPort',
         'privateEnable' => 'PrivateEnable',
         'privateHost'   => 'PrivateHost',
+        'protocolPort'  => 'ProtocolPort',
+        'protocolType'  => 'ProtocolType',
         'proxyId'       => 'ProxyId',
         'publicEnable'  => 'PublicEnable',
         'publicHost'    => 'PublicHost',
@@ -89,14 +95,17 @@ class proxyList extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->mysqlPort) {
-            $res['MysqlPort'] = $this->mysqlPort;
-        }
         if (null !== $this->privateEnable) {
             $res['PrivateEnable'] = $this->privateEnable;
         }
         if (null !== $this->privateHost) {
             $res['PrivateHost'] = $this->privateHost;
+        }
+        if (null !== $this->protocolPort) {
+            $res['ProtocolPort'] = $this->protocolPort;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
@@ -131,14 +140,17 @@ class proxyList extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['MysqlPort'])) {
-            $model->mysqlPort = $map['MysqlPort'];
-        }
         if (isset($map['PrivateEnable'])) {
             $model->privateEnable = $map['PrivateEnable'];
         }
         if (isset($map['PrivateHost'])) {
             $model->privateHost = $map['PrivateHost'];
+        }
+        if (isset($map['ProtocolPort'])) {
+            $model->protocolPort = $map['ProtocolPort'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];

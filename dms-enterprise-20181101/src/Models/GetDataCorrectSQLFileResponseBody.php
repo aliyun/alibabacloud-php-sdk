@@ -24,8 +24,6 @@ class GetDataCorrectSQLFileResponseBody extends Model
     public $fileUrl;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

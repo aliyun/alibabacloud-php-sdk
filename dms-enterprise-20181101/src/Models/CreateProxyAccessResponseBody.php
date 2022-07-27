@@ -24,8 +24,6 @@ class CreateProxyAccessResponseBody extends Model
     public $proxyAccessId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

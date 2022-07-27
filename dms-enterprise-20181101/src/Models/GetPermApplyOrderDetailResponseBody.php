@@ -25,8 +25,6 @@ class GetPermApplyOrderDetailResponseBody extends Model
     public $permApplyOrderDetail;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

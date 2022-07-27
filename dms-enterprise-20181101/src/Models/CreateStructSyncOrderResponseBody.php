@@ -24,8 +24,6 @@ class CreateStructSyncOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

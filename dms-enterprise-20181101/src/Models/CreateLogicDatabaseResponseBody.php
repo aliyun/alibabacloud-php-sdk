@@ -24,8 +24,6 @@ class CreateLogicDatabaseResponseBody extends Model
     public $logicDbId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -15,8 +15,6 @@ class ListDesensitizationRuleResponseBody extends Model
     public $desensitizationRuleList;
 
     /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var string
      */
     public $errorCode;
@@ -27,8 +25,6 @@ class ListDesensitizationRuleResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -39,8 +35,6 @@ class ListDesensitizationRuleResponseBody extends Model
     public $success;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-     *
      * @var int
      */
     public $totalCount;

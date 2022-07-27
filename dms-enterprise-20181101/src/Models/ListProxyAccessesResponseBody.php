@@ -25,8 +25,6 @@ class ListProxyAccessesResponseBody extends Model
     public $proxyAccessList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

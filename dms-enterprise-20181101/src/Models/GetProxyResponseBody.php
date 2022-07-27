@@ -39,11 +39,6 @@ class GetProxyResponseBody extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $mysqlPort;
-
-    /**
      * @var bool
      */
     public $privateEnable;
@@ -52,6 +47,16 @@ class GetProxyResponseBody extends Model
      * @var string
      */
     public $privateHost;
+
+    /**
+     * @var int
+     */
+    public $protocolPort;
+
+    /**
+     * @var string
+     */
+    public $protocolType;
 
     /**
      * @var int
@@ -69,8 +74,6 @@ class GetProxyResponseBody extends Model
     public $publicHost;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -86,9 +89,10 @@ class GetProxyResponseBody extends Model
         'errorMessage'  => 'ErrorMessage',
         'httpsPort'     => 'HttpsPort',
         'instanceId'    => 'InstanceId',
-        'mysqlPort'     => 'MysqlPort',
         'privateEnable' => 'PrivateEnable',
         'privateHost'   => 'PrivateHost',
+        'protocolPort'  => 'ProtocolPort',
+        'protocolType'  => 'ProtocolType',
         'proxyId'       => 'ProxyId',
         'publicEnable'  => 'PublicEnable',
         'publicHost'    => 'PublicHost',
@@ -121,14 +125,17 @@ class GetProxyResponseBody extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->mysqlPort) {
-            $res['MysqlPort'] = $this->mysqlPort;
-        }
         if (null !== $this->privateEnable) {
             $res['PrivateEnable'] = $this->privateEnable;
         }
         if (null !== $this->privateHost) {
             $res['PrivateHost'] = $this->privateHost;
+        }
+        if (null !== $this->protocolPort) {
+            $res['ProtocolPort'] = $this->protocolPort;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
@@ -175,14 +182,17 @@ class GetProxyResponseBody extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['MysqlPort'])) {
-            $model->mysqlPort = $map['MysqlPort'];
-        }
         if (isset($map['PrivateEnable'])) {
             $model->privateEnable = $map['PrivateEnable'];
         }
         if (isset($map['PrivateHost'])) {
             $model->privateHost = $map['PrivateHost'];
+        }
+        if (isset($map['ProtocolPort'])) {
+            $model->protocolPort = $map['ProtocolPort'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
