@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceDLinkResponseBody extends Model
 {
     /**
-     * @description 已打通直连的副VSwitch ID
-     *
      * @var string[]
      */
     public $auxVSwitchList;
 
     /**
-     * @description 要打通的客户端的网段信息，会将该网段加入到服务端的回包路由中，与VSwitchIdList可二选一
-     *
      * @var string
      */
     public $destinationCIDRs;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 已打通直连的安全组
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description 已打通直连的主VSwitch ID
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description 已打通直接的Vpc ID
-     *
      * @var string
      */
     public $vpcId;

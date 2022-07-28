@@ -14,8 +14,6 @@ class CreateServiceMirrorResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

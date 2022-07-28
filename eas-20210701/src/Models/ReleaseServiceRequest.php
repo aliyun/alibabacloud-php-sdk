@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ReleaseServiceRequest extends Model
 {
     /**
-     * @description 灰度权重，范围 [0, 100]
-     *
      * @var int
      */
     public $weight;

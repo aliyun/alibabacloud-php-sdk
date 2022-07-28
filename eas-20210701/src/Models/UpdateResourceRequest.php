@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceRequest extends Model
 {
     /**
-     * @description 新的资源组名称
-     *
      * @var string
      */
     public $resourceName;

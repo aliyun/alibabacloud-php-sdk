@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesRequest extends Model
 {
     /**
-     * @description 请求的页码（默认为1）
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页的大小（默认为100）
-     *
      * @var int
      */
     public $pageSize;

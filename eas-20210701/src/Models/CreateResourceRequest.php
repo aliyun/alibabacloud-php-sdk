@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceRequest extends Model
 {
     /**
-     * @description 是否自动续费
-     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
-     * @description 付费类型，预付费PrePaid，后付费PostPaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description 实例数量
-     *
      * @var int
      */
     public $ecsInstanceCount;
 
     /**
-     * @description 实例机型，对应ecs机型
-     *
      * @var string
      */
     public $ecsInstanceType;

@@ -24,8 +24,6 @@ class CreateServiceResponseBody extends Model
     public $region;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

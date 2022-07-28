@@ -14,36 +14,26 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public $currentValues;
 
     /**
-     * @description 服务最大实例数
-     *
      * @var int
      */
     public $maxReplica;
 
     /**
-     * @description 服务最小实例数
-     *
      * @var int
      */
     public $minReplica;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 服务名字
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 扩缩控制器控制策略
-     *
      * @var mixed[]
      */
     public $strategies;

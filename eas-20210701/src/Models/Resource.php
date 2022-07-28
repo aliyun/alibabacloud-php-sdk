@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class Resource extends Model
 {
     /**
-     * @description 资源组所在的集群
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 资源组CPU数量
-     *
      * @var int
      */
     public $cpuCount;
 
     /**
-     * @description 资源组创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 资源组自定义数据
-     *
      * @var mixed[]
      */
     public $extraData;
 
     /**
-     * @description 资源组GPU个数
-     *
      * @var int
      */
     public $gpuCount;
 
     /**
-     * @description 资源组实例个数
-     *
      * @var int
      */
     public $instanceCount;
 
     /**
-     * @description 资源组摘要信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 资源组按量付费实例个数
-     *
      * @var int
      */
     public $postPaidInstanceCount;
 
     /**
-     * @description 资源组预付费实例个数
-     *
      * @var int
      */
     public $prePaidInstanceCount;
 
     /**
-     * @description 资源组ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 资源组名字
-     *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description 资源组的状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 资源组更新时间
-     *
      * @var string
      */
     public $updateTime;

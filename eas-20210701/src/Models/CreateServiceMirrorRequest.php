@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceMirrorRequest extends Model
 {
     /**
-     * @description 比例 [0, 100]
-     *
      * @var int
      */
     public $ratio;
 
     /**
-     * @description 服务实例列表
-     *
      * @var string[]
      */
     public $target;

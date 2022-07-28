@@ -14,15 +14,11 @@ class scaleJobs extends Model
     public $name;
 
     /**
-     * @description 要执行伸缩任务的cron表达式
-     *
      * @var string
      */
     public $schedule;
 
     /**
-     * @description 执行伸缩任务的目标replica
-     *
      * @var int
      */
     public $targetSize;

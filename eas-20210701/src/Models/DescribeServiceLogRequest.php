@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLogRequest extends Model
 {
     /**
-     * @description 查询的结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 要查询的机器ip
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description 查询的关键字
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 请求的页码（默认为1）
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 每页的大小（默认为500）
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 查询的开始时间
-     *
      * @var string
      */
     public $startTime;

@@ -9,106 +9,76 @@ use AlibabaCloud\Tea\Model;
 class ResourceInstance extends Model
 {
     /**
-     * @description 实例是否自动续费
-     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
-     * @description 实例的计费类型
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description 实例的创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 实例过期时间
-     *
      * @var string
      */
     public $expiredTime;
 
     /**
-     * @description 实例的Cpu个数
-     *
      * @var int
      */
     public $instanceCpuCount;
 
     /**
-     * @description 实例的Gpu个数
-     *
      * @var int
      */
     public $instanceGpuCount;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 实例IP
-     *
      * @var string
      */
     public $instanceIp;
 
     /**
-     * @description 实例的内存大小
-     *
      * @var string
      */
     public $instanceMemory;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 实例状态
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @description 实例的机型
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 实例被使用的CPU数量
-     *
      * @var float
      */
     public $instanceUsedCpu;
 
     /**
-     * @description 实例被使用的GPU数量
-     *
      * @var int
      */
     public $instanceUsedGpu;
 
     /**
-     * @description 实例被使用的内存大小
-     *
      * @var string
      */
     public $instanceUsedMemory;

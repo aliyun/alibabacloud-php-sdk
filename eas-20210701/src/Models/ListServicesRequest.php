@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
-     * @description 模糊匹配字段（只支持按服务名字模糊匹配）
-     *
      * @var string
      */
     public $filter;
 
     /**
-     * @description 排序方式（默认降序）
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description 请求的页码（默认为1）
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页的大小（默认为100）
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 排序字段 （时间戳类型默认倒序排序）
-     *
      * @var string
      */
     public $sort;

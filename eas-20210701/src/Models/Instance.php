@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class Instance extends Model
 {
     /**
-     * @description 实例所在的宿主机IP
-     *
      * @var string
      */
     public $hostIP;
 
     /**
-     * @description 实例所在的宿主机名字
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description 实例的内网IP
-     *
      * @var string
      */
     public $innerIP;
 
     /**
-     * @description 实例的名字
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 实例的网络端口
-     *
      * @var int
      */
     public $instancePort;
 
     /**
-     * @description 实例上一次退出的状态
-     *
      * @var mixed[][]
      */
     public $lastState;
 
     /**
-     * @description 实例的命名空间
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description 实例已经启动完成的进程数
-     *
      * @var int
      */
     public $readyProcesses;
 
     /**
-     * @description 实例当前状态的标识
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description 实例重启次数
-     *
      * @var int
      */
     public $restartCount;
 
     /**
-     * @description 实例的启动时间
-     *
      * @var string
      */
     public $startAt;
 
     /**
-     * @description 实例状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 实例总的进程数
-     *
      * @var int
      */
     public $totalProcesses;

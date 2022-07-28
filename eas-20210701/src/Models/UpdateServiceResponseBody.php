@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceResponseBody extends Model
 {
     /**
-     * @description 请求返回消息。
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;

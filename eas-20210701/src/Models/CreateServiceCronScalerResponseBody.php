@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceCronScalerResponseBody extends Model
 {
     /**
-     * @description 操作成功消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

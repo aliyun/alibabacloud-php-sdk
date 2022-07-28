@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLogResponseBody extends Model
 {
     /**
-     * @description 返回的日志信息
-     *
      * @var string[]
      */
     public $logs;
 
     /**
-     * @description 当前页码
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总计数量
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description 总计页码
-     *
      * @var int
      */
     public $totalPageNum;

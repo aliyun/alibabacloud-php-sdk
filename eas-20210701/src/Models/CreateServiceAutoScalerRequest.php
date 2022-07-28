@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceAutoScalerRequest extends Model
 {
     /**
-     * @description 最大 replica 数，需要大于MinReplica
-     *
      * @var int
      */
     public $max;
 
     /**
-     * @description 最小 replica 数，需要大于0
-     *
      * @var int
      */
     public $min;
 
     /**
-     * @description map 类型的策略定义
-     *
      * @var strategies
      */
     public $strategies;

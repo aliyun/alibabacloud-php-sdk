@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceLogResponseBody extends Model
 {
     /**
-     * @description sls日志库
-     *
      * @var string
      */
     public $logStore;
 
     /**
-     * @description sls日志信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 资源组对应的sls日志管理项目
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 资源组状态
-     *
      * @var string
      */
     public $status;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMirrorResponseBody extends Model
 {
     /**
-     * @description 比例[0,100]
-     *
      * @var string
      */
     public $ratio;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 服务名字
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 设置流量镜像对服务列表
-     *
      * @var string
      */
     public $target;

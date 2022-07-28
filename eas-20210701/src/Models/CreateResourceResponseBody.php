@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceResponseBody extends Model
 {
     /**
-     * @description 资源组所在集群ID
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 资源组的Owner UID
-     *
      * @var string
      */
     public $ownerUid;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 资源组ID
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 资源组名称
-     *
      * @var string
      */
     public $resourceName;

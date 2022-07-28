@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class ResourceInstanceWorker extends Model
 {
     /**
-     * @description CpuLimit
-     *
      * @var int
      */
     public $cpuLimit;
 
     /**
-     * @description CpuRequest
-     *
      * @var int
      */
     public $cpuRequest;
 
     /**
-     * @description GpuLimit
-     *
      * @var int
      */
     public $gpuLimit;
 
     /**
-     * @description GpuRequest
-     *
      * @var int
      */
     public $gpuRequest;
 
     /**
-     * @description MemoryLimit
-     *
      * @var int
      */
     public $memoryLimit;
 
     /**
-     * @description MemoryRquest
-     *
      * @var int
      */
     public $memoryRquest;
 
     /**
-     * @description pod名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否ready
-     *
      * @var bool
      */
     public $ready;
 
     /**
-     * @description RestartCount
-     *
      * @var int
      */
     public $restartCount;
 
     /**
-     * @description 服务名
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description StartTime
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description pod状态
-     *
      * @var string
      */
     public $status;

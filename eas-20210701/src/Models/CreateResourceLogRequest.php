@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceLogRequest extends Model
 {
     /**
-     * @description sls日志库
-     *
      * @var string
      */
     public $logStore;
 
     /**
-     * @description 资源组对应的sls日志管理项目
-     *
      * @var string
      */
     public $projectName;

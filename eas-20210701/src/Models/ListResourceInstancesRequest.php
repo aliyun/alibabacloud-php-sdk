@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstancesRequest extends Model
 {
     /**
-     * @description 付费类型
-     * PostPaid后付费
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description 请求的页码（默认为1）
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页的大小（默认为100）
-     *
      * @var int
      */
     public $pageSize;

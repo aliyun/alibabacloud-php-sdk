@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class strategies extends Model
 {
     /**
-     * @description 最大 replica 数，需要大于MinReplica
-     *
      * @var float
      */
     public $cpu;
 
     /**
-     * @description 每个实例支持的最大qps数，超出即扩容
-     *
      * @var float
      */
     public $qps;

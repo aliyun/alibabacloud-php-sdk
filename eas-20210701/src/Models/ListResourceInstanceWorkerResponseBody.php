@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListResourceInstanceWorkerResponseBody extends Model
 {
     /**
-     * @description 当前页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页大小
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description pod列表
-     *
      * @var ResourceInstanceWorker[]
      */
     public $pods;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description pod总数
-     *
      * @var int
      */
     public $totalCount;

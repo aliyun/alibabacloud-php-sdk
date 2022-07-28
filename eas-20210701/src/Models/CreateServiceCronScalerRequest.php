@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceCronScalerRequest extends Model
 {
     /**
-     * @description 需要排除的时间点的cron表达式
-     *
      * @var string[]
      */
     public $excludeDates;
 
     /**
-     * @description 定时伸缩任务描述
-     *
      * @var scaleJobs[]
      */
     public $scaleJobs;

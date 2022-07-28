@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceInstancesRequest extends Model
 {
     /**
-     * @description 删除的实例列表，多个实例名字之间逗号隔开
-     *
      * @var string
      */
     public $instanceList;
