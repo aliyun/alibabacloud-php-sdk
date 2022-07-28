@@ -11,7 +11,7 @@ class item extends Model
     /**
      * @var string
      */
-    public $jobState;
+    public $errorCode;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $errorCode;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $jobId;
+    public $jobState;
 
     /**
      * @var string
@@ -38,10 +38,10 @@ class item extends Model
      */
     public $language;
     protected $_name = [
-        'jobState'     => 'JobState',
-        'errorMessage' => 'ErrorMessage',
         'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'jobId'        => 'JobId',
+        'jobState'     => 'JobState',
         'jobType'      => 'JobType',
         'language'     => 'Language',
     ];
@@ -53,17 +53,17 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobState) {
-            $res['JobState'] = $this->jobState;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->jobState) {
+            $res['JobState'] = $this->jobState;
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
@@ -83,17 +83,17 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobState'])) {
-            $model->jobState = $map['JobState'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['JobState'])) {
+            $model->jobState = $map['JobState'];
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];

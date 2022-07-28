@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateGetDBListFromAgentTaskResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $taskId;
+    public $errCode;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $errMessage;
 
     /**
      * @var int
@@ -26,7 +26,7 @@ class CreateGetDBListFromAgentTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $errMessage;
+    public $requestId;
 
     /**
      * @var bool
@@ -34,16 +34,16 @@ class CreateGetDBListFromAgentTaskResponseBody extends Model
     public $success;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errCode;
+    public $taskId;
     protected $_name = [
-        'taskId'         => 'TaskId',
-        'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'errMessage'     => 'ErrMessage',
-        'success'        => 'Success',
         'errCode'        => 'ErrCode',
+        'errMessage'     => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
+        'taskId'         => 'TaskId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateGetDBListFromAgentTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->errCode) {
+            $res['ErrCode'] = $this->errCode;
         }
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->errCode) {
-            $res['ErrCode'] = $this->errCode;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateGetDBListFromAgentTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['ErrCode'])) {
+            $model->errCode = $map['ErrCode'];
         }
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
-        if (isset($map['ErrCode'])) {
-            $model->errCode = $map['ErrCode'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class DescribeNodeCidrListRequest extends Model
     /**
      * @var string
      */
-    public $region;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeNodeCidrListRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $region;
     protected $_name = [
-        'region'      => 'Region',
-        'ownerId'     => 'OwnerId',
         'clientToken' => 'ClientToken',
+        'ownerId'     => 'OwnerId',
+        'region'      => 'Region',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeNodeCidrListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeNodeCidrListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

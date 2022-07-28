@@ -6,12 +6,17 @@ namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpgradeBackupPlanResponseBody extends Model
+class CreateAndStartBackupPlanResponseBody extends Model
 {
     /**
      * @var string
      */
     public $backupPlanId;
+
+    /**
+     * @var bool
+     */
+    public $createBackupSet;
 
     /**
      * @var string
@@ -43,13 +48,14 @@ class UpgradeBackupPlanResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'backupPlanId'   => 'BackupPlanId',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
-        'httpStatusCode' => 'HttpStatusCode',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'backupPlanId'    => 'BackupPlanId',
+        'createBackupSet' => 'CreateBackupSet',
+        'errCode'         => 'ErrCode',
+        'errMessage'      => 'ErrMessage',
+        'httpStatusCode'  => 'HttpStatusCode',
+        'orderId'         => 'OrderId',
+        'requestId'       => 'RequestId',
+        'success'         => 'Success',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class UpgradeBackupPlanResponseBody extends Model
         $res = [];
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
+        }
+        if (null !== $this->createBackupSet) {
+            $res['CreateBackupSet'] = $this->createBackupSet;
         }
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
@@ -87,13 +96,16 @@ class UpgradeBackupPlanResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpgradeBackupPlanResponseBody
+     * @return CreateAndStartBackupPlanResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
+        }
+        if (isset($map['CreateBackupSet'])) {
+            $model->createBackupSet = $map['CreateBackupSet'];
         }
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];

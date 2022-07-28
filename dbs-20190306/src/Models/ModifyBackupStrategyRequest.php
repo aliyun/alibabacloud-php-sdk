@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupStrategyRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $backupPlanId;
+    public $backupLogIntervalSeconds;
 
     /**
      * @var string
      */
     public $backupPeriod;
+
+    /**
+     * @var string
+     */
+    public $backupPlanId;
 
     /**
      * @var string
@@ -29,27 +34,22 @@ class ModifyBackupStrategyRequest extends Model
     public $backupStrategyType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $backupLogIntervalSeconds;
+    public $clientToken;
 
     /**
      * @var string
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
-        'backupPlanId'             => 'BackupPlanId',
+        'backupLogIntervalSeconds' => 'BackupLogIntervalSeconds',
         'backupPeriod'             => 'BackupPeriod',
+        'backupPlanId'             => 'BackupPlanId',
         'backupStartTime'          => 'BackupStartTime',
         'backupStrategyType'       => 'BackupStrategyType',
-        'backupLogIntervalSeconds' => 'BackupLogIntervalSeconds',
-        'ownerId'                  => 'OwnerId',
         'clientToken'              => 'ClientToken',
+        'ownerId'                  => 'OwnerId',
     ];
 
     public function validate()
@@ -59,11 +59,14 @@ class ModifyBackupStrategyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupPlanId) {
-            $res['BackupPlanId'] = $this->backupPlanId;
+        if (null !== $this->backupLogIntervalSeconds) {
+            $res['BackupLogIntervalSeconds'] = $this->backupLogIntervalSeconds;
         }
         if (null !== $this->backupPeriod) {
             $res['BackupPeriod'] = $this->backupPeriod;
+        }
+        if (null !== $this->backupPlanId) {
+            $res['BackupPlanId'] = $this->backupPlanId;
         }
         if (null !== $this->backupStartTime) {
             $res['BackupStartTime'] = $this->backupStartTime;
@@ -71,14 +74,11 @@ class ModifyBackupStrategyRequest extends Model
         if (null !== $this->backupStrategyType) {
             $res['BackupStrategyType'] = $this->backupStrategyType;
         }
-        if (null !== $this->backupLogIntervalSeconds) {
-            $res['BackupLogIntervalSeconds'] = $this->backupLogIntervalSeconds;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -92,11 +92,14 @@ class ModifyBackupStrategyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupPlanId'])) {
-            $model->backupPlanId = $map['BackupPlanId'];
+        if (isset($map['BackupLogIntervalSeconds'])) {
+            $model->backupLogIntervalSeconds = $map['BackupLogIntervalSeconds'];
         }
         if (isset($map['BackupPeriod'])) {
             $model->backupPeriod = $map['BackupPeriod'];
+        }
+        if (isset($map['BackupPlanId'])) {
+            $model->backupPlanId = $map['BackupPlanId'];
         }
         if (isset($map['BackupStartTime'])) {
             $model->backupStartTime = $map['BackupStartTime'];
@@ -104,14 +107,11 @@ class ModifyBackupStrategyRequest extends Model
         if (isset($map['BackupStrategyType'])) {
             $model->backupStrategyType = $map['BackupStrategyType'];
         }
-        if (isset($map['BackupLogIntervalSeconds'])) {
-            $model->backupLogIntervalSeconds = $map['BackupLogIntervalSeconds'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

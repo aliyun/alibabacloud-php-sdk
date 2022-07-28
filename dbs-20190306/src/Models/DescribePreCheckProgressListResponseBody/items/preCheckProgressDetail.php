@@ -11,22 +11,17 @@ class preCheckProgressDetail extends Model
     /**
      * @var int
      */
-    public $finishTime;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var int
-     */
     public $bootTime;
 
     /**
      * @var string
      */
-    public $jobId;
+    public $errMsg;
+
+    /**
+     * @var int
+     */
+    public $finishTime;
 
     /**
      * @var string
@@ -36,7 +31,12 @@ class preCheckProgressDetail extends Model
     /**
      * @var string
      */
-    public $errMsg;
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $names;
 
     /**
      * @var string
@@ -46,16 +46,16 @@ class preCheckProgressDetail extends Model
     /**
      * @var string
      */
-    public $names;
+    public $state;
     protected $_name = [
-        'finishTime' => 'FinishTime',
-        'state'      => 'State',
         'bootTime'   => 'BootTime',
-        'jobId'      => 'JobId',
-        'item'       => 'Item',
         'errMsg'     => 'ErrMsg',
-        'orderNum'   => 'OrderNum',
+        'finishTime' => 'FinishTime',
+        'item'       => 'Item',
+        'jobId'      => 'JobId',
         'names'      => 'Names',
+        'orderNum'   => 'OrderNum',
+        'state'      => 'State',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class preCheckProgressDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->bootTime) {
             $res['BootTime'] = $this->bootTime;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->item) {
-            $res['Item'] = $this->item;
         }
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
-        if (null !== $this->orderNum) {
-            $res['OrderNum'] = $this->orderNum;
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+        if (null !== $this->item) {
+            $res['Item'] = $this->item;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->names) {
             $res['Names'] = $this->names;
+        }
+        if (null !== $this->orderNum) {
+            $res['OrderNum'] = $this->orderNum;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class preCheckProgressDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['BootTime'])) {
             $model->bootTime = $map['BootTime'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['Item'])) {
-            $model->item = $map['Item'];
         }
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
-        if (isset($map['OrderNum'])) {
-            $model->orderNum = $map['OrderNum'];
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+        if (isset($map['Item'])) {
+            $model->item = $map['Item'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['Names'])) {
             $model->names = $map['Names'];
+        }
+        if (isset($map['OrderNum'])) {
+            $model->orderNum = $map['OrderNum'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class DisableBackupLogRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $ownerId;
     protected $_name = [
         'backupPlanId' => 'BackupPlanId',
-        'ownerId'      => 'OwnerId',
         'clientToken'  => 'ClientToken',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DisableBackupLogRequest extends Model
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DisableBackupLogRequest extends Model
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

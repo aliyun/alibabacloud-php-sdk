@@ -19,14 +19,9 @@ class DescribeBackupSetDownloadTaskListRequest extends Model
     public $backupSetDownloadTaskId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
+    public $clientToken;
 
     /**
      * @var string
@@ -34,16 +29,21 @@ class DescribeBackupSetDownloadTaskListRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'backupPlanId'            => 'BackupPlanId',
         'backupSetDownloadTaskId' => 'BackupSetDownloadTaskId',
-        'pageSize'                => 'PageSize',
-        'pageNum'                 => 'PageNum',
-        'ownerId'                 => 'OwnerId',
         'clientToken'             => 'ClientToken',
+        'ownerId'                 => 'OwnerId',
+        'pageNum'                 => 'PageNum',
+        'pageSize'                => 'PageSize',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class DescribeBackupSetDownloadTaskListRequest extends Model
         if (null !== $this->backupSetDownloadTaskId) {
             $res['BackupSetDownloadTaskId'] = $this->backupSetDownloadTaskId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class DescribeBackupSetDownloadTaskListRequest extends Model
         if (isset($map['BackupSetDownloadTaskId'])) {
             $model->backupSetDownloadTaskId = $map['BackupSetDownloadTaskId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

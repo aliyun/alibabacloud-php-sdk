@@ -11,7 +11,7 @@ class StartRestoreTaskRequest extends Model
     /**
      * @var string
      */
-    public $restoreTaskId;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class StartRestoreTaskRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $restoreTaskId;
     protected $_name = [
-        'restoreTaskId' => 'RestoreTaskId',
-        'ownerId'       => 'OwnerId',
         'clientToken'   => 'ClientToken',
+        'ownerId'       => 'OwnerId',
+        'restoreTaskId' => 'RestoreTaskId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class StartRestoreTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->restoreTaskId) {
-            $res['RestoreTaskId'] = $this->restoreTaskId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->restoreTaskId) {
+            $res['RestoreTaskId'] = $this->restoreTaskId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class StartRestoreTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RestoreTaskId'])) {
-            $model->restoreTaskId = $map['RestoreTaskId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['RestoreTaskId'])) {
+            $model->restoreTaskId = $map['RestoreTaskId'];
         }
 
         return $model;

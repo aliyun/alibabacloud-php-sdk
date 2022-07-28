@@ -16,12 +16,7 @@ class GetDBListFromAgentRequest extends Model
     /**
      * @var string
      */
-    public $sourceEndpointRegion;
-
-    /**
-     * @var int
-     */
-    public $taskId;
+    public $clientToken;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class GetDBListFromAgentRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $sourceEndpointRegion;
+
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'backupGatewayId'      => 'BackupGatewayId',
+        'clientToken'          => 'ClientToken',
+        'ownerId'              => 'OwnerId',
         'sourceEndpointRegion' => 'SourceEndpointRegion',
         'taskId'               => 'TaskId',
-        'ownerId'              => 'OwnerId',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class GetDBListFromAgentRequest extends Model
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->sourceEndpointRegion) {
             $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class GetDBListFromAgentRequest extends Model
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SourceEndpointRegion'])) {
             $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

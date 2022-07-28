@@ -12,12 +12,12 @@ class DBSRecoverRange extends Model
     /**
      * @var int
      */
-    public $endTimestampForRestore;
+    public $beginTimestampForRestore;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sourceEndpointInstanceType;
+    public $endTimestampForRestore;
 
     /**
      * @var fullBackupList
@@ -30,21 +30,21 @@ class DBSRecoverRange extends Model
     public $rangeType;
 
     /**
-     * @var int
+     * @var string
      */
-    public $beginTimestampForRestore;
+    public $sourceEndpointInstanceID;
 
     /**
      * @var string
      */
-    public $sourceEndpointInstanceID;
+    public $sourceEndpointInstanceType;
     protected $_name = [
+        'beginTimestampForRestore'   => 'BeginTimestampForRestore',
         'endTimestampForRestore'     => 'EndTimestampForRestore',
-        'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
         'fullBackupList'             => 'FullBackupList',
         'rangeType'                  => 'RangeType',
-        'beginTimestampForRestore'   => 'BeginTimestampForRestore',
         'sourceEndpointInstanceID'   => 'SourceEndpointInstanceID',
+        'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
     ];
 
     public function validate()
@@ -54,11 +54,11 @@ class DBSRecoverRange extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->beginTimestampForRestore) {
+            $res['BeginTimestampForRestore'] = $this->beginTimestampForRestore;
+        }
         if (null !== $this->endTimestampForRestore) {
             $res['EndTimestampForRestore'] = $this->endTimestampForRestore;
-        }
-        if (null !== $this->sourceEndpointInstanceType) {
-            $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
         }
         if (null !== $this->fullBackupList) {
             $res['FullBackupList'] = null !== $this->fullBackupList ? $this->fullBackupList->toMap() : null;
@@ -66,11 +66,11 @@ class DBSRecoverRange extends Model
         if (null !== $this->rangeType) {
             $res['RangeType'] = $this->rangeType;
         }
-        if (null !== $this->beginTimestampForRestore) {
-            $res['BeginTimestampForRestore'] = $this->beginTimestampForRestore;
-        }
         if (null !== $this->sourceEndpointInstanceID) {
             $res['SourceEndpointInstanceID'] = $this->sourceEndpointInstanceID;
+        }
+        if (null !== $this->sourceEndpointInstanceType) {
+            $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
         }
 
         return $res;
@@ -84,11 +84,11 @@ class DBSRecoverRange extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BeginTimestampForRestore'])) {
+            $model->beginTimestampForRestore = $map['BeginTimestampForRestore'];
+        }
         if (isset($map['EndTimestampForRestore'])) {
             $model->endTimestampForRestore = $map['EndTimestampForRestore'];
-        }
-        if (isset($map['SourceEndpointInstanceType'])) {
-            $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
         }
         if (isset($map['FullBackupList'])) {
             $model->fullBackupList = fullBackupList::fromMap($map['FullBackupList']);
@@ -96,11 +96,11 @@ class DBSRecoverRange extends Model
         if (isset($map['RangeType'])) {
             $model->rangeType = $map['RangeType'];
         }
-        if (isset($map['BeginTimestampForRestore'])) {
-            $model->beginTimestampForRestore = $map['BeginTimestampForRestore'];
-        }
         if (isset($map['SourceEndpointInstanceID'])) {
             $model->sourceEndpointInstanceID = $map['SourceEndpointInstanceID'];
+        }
+        if (isset($map['SourceEndpointInstanceType'])) {
+            $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
         }
 
         return $model;

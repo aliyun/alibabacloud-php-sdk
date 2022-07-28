@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobErrorCodeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $errCode;
+
+    /**
+     * @var string
+     */
+    public $errMessage;
+
+    /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var item
      */
     public $item;
@@ -20,31 +35,16 @@ class DescribeJobErrorCodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $errMessage;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errCode;
     protected $_name = [
+        'errCode'        => 'ErrCode',
+        'errMessage'     => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
         'item'           => 'Item',
         'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
-        'errMessage'     => 'ErrMessage',
         'success'        => 'Success',
-        'errCode'        => 'ErrCode',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeJobErrorCodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errCode) {
+            $res['ErrCode'] = $this->errCode;
+        }
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->item) {
             $res['Item'] = null !== $this->item ? $this->item->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errCode) {
-            $res['ErrCode'] = $this->errCode;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeJobErrorCodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrCode'])) {
+            $model->errCode = $map['ErrCode'];
+        }
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Item'])) {
             $model->item = item::fromMap($map['Item']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrCode'])) {
-            $model->errCode = $map['ErrCode'];
         }
 
         return $model;

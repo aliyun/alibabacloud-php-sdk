@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupSetDownloadRulesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $backupPlanId;
-
-    /**
-     * @var bool
-     */
-    public $openAutoDownload;
-
-    /**
      * @var int
      */
     public $backupGatewayId;
@@ -26,12 +16,7 @@ class ModifyBackupSetDownloadRulesRequest extends Model
     /**
      * @var string
      */
-    public $fullDataFormat;
-
-    /**
-     * @var string
-     */
-    public $incrementDataFormat;
+    public $backupPlanId;
 
     /**
      * @var string
@@ -51,23 +36,38 @@ class ModifyBackupSetDownloadRulesRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $fullDataFormat;
+
+    /**
+     * @var string
+     */
+    public $incrementDataFormat;
+
+    /**
+     * @var bool
+     */
+    public $openAutoDownload;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
     protected $_name = [
-        'backupPlanId'                        => 'BackupPlanId',
-        'openAutoDownload'                    => 'OpenAutoDownload',
         'backupGatewayId'                     => 'BackupGatewayId',
-        'fullDataFormat'                      => 'FullDataFormat',
-        'incrementDataFormat'                 => 'IncrementDataFormat',
+        'backupPlanId'                        => 'BackupPlanId',
         'backupSetDownloadDir'                => 'BackupSetDownloadDir',
         'backupSetDownloadTargetType'         => 'BackupSetDownloadTargetType',
         'backupSetDownloadTargetTypeLocation' => 'BackupSetDownloadTargetTypeLocation',
-        'ownerId'                             => 'OwnerId',
         'clientToken'                         => 'ClientToken',
+        'fullDataFormat'                      => 'FullDataFormat',
+        'incrementDataFormat'                 => 'IncrementDataFormat',
+        'openAutoDownload'                    => 'OpenAutoDownload',
+        'ownerId'                             => 'OwnerId',
     ];
 
     public function validate()
@@ -77,20 +77,11 @@ class ModifyBackupSetDownloadRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupPlanId) {
-            $res['BackupPlanId'] = $this->backupPlanId;
-        }
-        if (null !== $this->openAutoDownload) {
-            $res['OpenAutoDownload'] = $this->openAutoDownload;
-        }
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
         }
-        if (null !== $this->fullDataFormat) {
-            $res['FullDataFormat'] = $this->fullDataFormat;
-        }
-        if (null !== $this->incrementDataFormat) {
-            $res['IncrementDataFormat'] = $this->incrementDataFormat;
+        if (null !== $this->backupPlanId) {
+            $res['BackupPlanId'] = $this->backupPlanId;
         }
         if (null !== $this->backupSetDownloadDir) {
             $res['BackupSetDownloadDir'] = $this->backupSetDownloadDir;
@@ -101,11 +92,20 @@ class ModifyBackupSetDownloadRulesRequest extends Model
         if (null !== $this->backupSetDownloadTargetTypeLocation) {
             $res['BackupSetDownloadTargetTypeLocation'] = $this->backupSetDownloadTargetTypeLocation;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->fullDataFormat) {
+            $res['FullDataFormat'] = $this->fullDataFormat;
+        }
+        if (null !== $this->incrementDataFormat) {
+            $res['IncrementDataFormat'] = $this->incrementDataFormat;
+        }
+        if (null !== $this->openAutoDownload) {
+            $res['OpenAutoDownload'] = $this->openAutoDownload;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -119,20 +119,11 @@ class ModifyBackupSetDownloadRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupPlanId'])) {
-            $model->backupPlanId = $map['BackupPlanId'];
-        }
-        if (isset($map['OpenAutoDownload'])) {
-            $model->openAutoDownload = $map['OpenAutoDownload'];
-        }
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
         }
-        if (isset($map['FullDataFormat'])) {
-            $model->fullDataFormat = $map['FullDataFormat'];
-        }
-        if (isset($map['IncrementDataFormat'])) {
-            $model->incrementDataFormat = $map['IncrementDataFormat'];
+        if (isset($map['BackupPlanId'])) {
+            $model->backupPlanId = $map['BackupPlanId'];
         }
         if (isset($map['BackupSetDownloadDir'])) {
             $model->backupSetDownloadDir = $map['BackupSetDownloadDir'];
@@ -143,11 +134,20 @@ class ModifyBackupSetDownloadRulesRequest extends Model
         if (isset($map['BackupSetDownloadTargetTypeLocation'])) {
             $model->backupSetDownloadTargetTypeLocation = $map['BackupSetDownloadTargetTypeLocation'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['FullDataFormat'])) {
+            $model->fullDataFormat = $map['FullDataFormat'];
+        }
+        if (isset($map['IncrementDataFormat'])) {
+            $model->incrementDataFormat = $map['IncrementDataFormat'];
+        }
+        if (isset($map['OpenAutoDownload'])) {
+            $model->openAutoDownload = $map['OpenAutoDownload'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

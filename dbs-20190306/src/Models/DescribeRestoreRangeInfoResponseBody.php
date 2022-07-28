@@ -12,7 +12,12 @@ class DescribeRestoreRangeInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $errCode;
+
+    /**
+     * @var string
+     */
+    public $errMessage;
 
     /**
      * @var int
@@ -27,24 +32,19 @@ class DescribeRestoreRangeInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $errMessage;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $errCode;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'errCode'        => 'ErrCode',
+        'errMessage'     => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'items'          => 'Items',
-        'errMessage'     => 'ErrMessage',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
-        'errCode'        => 'ErrCode',
     ];
 
     public function validate()
@@ -54,8 +54,11 @@ class DescribeRestoreRangeInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errCode) {
+            $res['ErrCode'] = $this->errCode;
+        }
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -63,14 +66,11 @@ class DescribeRestoreRangeInfoResponseBody extends Model
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
-        if (null !== $this->errMessage) {
-            $res['ErrMessage'] = $this->errMessage;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->errCode) {
-            $res['ErrCode'] = $this->errCode;
         }
 
         return $res;
@@ -84,8 +84,11 @@ class DescribeRestoreRangeInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrCode'])) {
+            $model->errCode = $map['ErrCode'];
+        }
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
@@ -93,14 +96,11 @@ class DescribeRestoreRangeInfoResponseBody extends Model
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
-        if (isset($map['ErrMessage'])) {
-            $model->errMessage = $map['ErrMessage'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ErrCode'])) {
-            $model->errCode = $map['ErrCode'];
         }
 
         return $model;

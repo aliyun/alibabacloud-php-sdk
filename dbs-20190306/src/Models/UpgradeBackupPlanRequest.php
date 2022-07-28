@@ -16,22 +16,22 @@ class UpgradeBackupPlanRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $instanceClass;
 
     /**
      * @var string
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'backupPlanId'  => 'BackupPlanId',
+        'clientToken'   => 'ClientToken',
         'instanceClass' => 'InstanceClass',
         'ownerId'       => 'OwnerId',
-        'clientToken'   => 'ClientToken',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class UpgradeBackupPlanRequest extends Model
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class UpgradeBackupPlanRequest extends Model
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

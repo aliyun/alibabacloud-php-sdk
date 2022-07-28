@@ -16,17 +16,12 @@ class DescribeRestoreTaskListRequest extends Model
     /**
      * @var string
      */
-    public $restoreTaskId;
+    public $clientToken;
 
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
+    public $endTimestamp;
 
     /**
      * @var string
@@ -34,16 +29,33 @@ class DescribeRestoreTaskListRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
-    public $clientToken;
+    public $restoreTaskId;
+
+    /**
+     * @var int
+     */
+    public $startTimestamp;
     protected $_name = [
-        'backupPlanId'  => 'BackupPlanId',
-        'restoreTaskId' => 'RestoreTaskId',
-        'pageSize'      => 'PageSize',
-        'pageNum'       => 'PageNum',
-        'ownerId'       => 'OwnerId',
-        'clientToken'   => 'ClientToken',
+        'backupPlanId'   => 'BackupPlanId',
+        'clientToken'    => 'ClientToken',
+        'endTimestamp'   => 'EndTimestamp',
+        'ownerId'        => 'OwnerId',
+        'pageNum'        => 'PageNum',
+        'pageSize'       => 'PageSize',
+        'restoreTaskId'  => 'RestoreTaskId',
+        'startTimestamp' => 'StartTimestamp',
     ];
 
     public function validate()
@@ -56,20 +68,26 @@ class DescribeRestoreTaskListRequest extends Model
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
-        if (null !== $this->restoreTaskId) {
-            $res['RestoreTaskId'] = $this->restoreTaskId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->restoreTaskId) {
+            $res['RestoreTaskId'] = $this->restoreTaskId;
+        }
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
         }
 
         return $res;
@@ -86,20 +104,26 @@ class DescribeRestoreTaskListRequest extends Model
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
-        if (isset($map['RestoreTaskId'])) {
-            $model->restoreTaskId = $map['RestoreTaskId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RestoreTaskId'])) {
+            $model->restoreTaskId = $map['RestoreTaskId'];
+        }
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
         }
 
         return $model;

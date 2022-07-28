@@ -11,7 +11,7 @@ class DescribeBackupGatewayListRequest extends Model
     /**
      * @var string
      */
-    public $region;
+    public $clientToken;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class DescribeBackupGatewayListRequest extends Model
     public $identifier;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $ownerId;
 
     /**
      * @var int
@@ -29,21 +29,21 @@ class DescribeBackupGatewayListRequest extends Model
     public $pageNum;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ownerId;
+    public $pageSize;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $region;
     protected $_name = [
-        'region'      => 'Region',
-        'identifier'  => 'Identifier',
-        'pageSize'    => 'PageSize',
-        'pageNum'     => 'PageNum',
-        'ownerId'     => 'OwnerId',
         'clientToken' => 'ClientToken',
+        'identifier'  => 'Identifier',
+        'ownerId'     => 'OwnerId',
+        'pageNum'     => 'PageNum',
+        'pageSize'    => 'PageSize',
+        'region'      => 'Region',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeBackupGatewayListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeBackupGatewayListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpgradeBackupPlanResponseBody extends Model
+class DescribeDLAServiceResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $backupPlanId;
+    public $autoAdd;
 
     /**
      * @var string
@@ -24,6 +24,11 @@ class UpgradeBackupPlanResponseBody extends Model
     public $errMessage;
 
     /**
+     * @var bool
+     */
+    public $haveJobFailed;
+
+    /**
      * @var int
      */
     public $httpStatusCode;
@@ -31,24 +36,25 @@ class UpgradeBackupPlanResponseBody extends Model
     /**
      * @var string
      */
-    public $orderId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $state;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'backupPlanId'   => 'BackupPlanId',
+        'autoAdd'        => 'AutoAdd',
         'errCode'        => 'ErrCode',
         'errMessage'     => 'ErrMessage',
+        'haveJobFailed'  => 'HaveJobFailed',
         'httpStatusCode' => 'HttpStatusCode',
-        'orderId'        => 'OrderId',
         'requestId'      => 'RequestId',
+        'state'          => 'State',
         'success'        => 'Success',
     ];
 
@@ -59,8 +65,8 @@ class UpgradeBackupPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupPlanId) {
-            $res['BackupPlanId'] = $this->backupPlanId;
+        if (null !== $this->autoAdd) {
+            $res['AutoAdd'] = $this->autoAdd;
         }
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
@@ -68,14 +74,17 @@ class UpgradeBackupPlanResponseBody extends Model
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+        if (null !== $this->haveJobFailed) {
+            $res['HaveJobFailed'] = $this->haveJobFailed;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -87,13 +96,13 @@ class UpgradeBackupPlanResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpgradeBackupPlanResponseBody
+     * @return DescribeDLAServiceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupPlanId'])) {
-            $model->backupPlanId = $map['BackupPlanId'];
+        if (isset($map['AutoAdd'])) {
+            $model->autoAdd = $map['AutoAdd'];
         }
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
@@ -101,14 +110,17 @@ class UpgradeBackupPlanResponseBody extends Model
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+        if (isset($map['HaveJobFailed'])) {
+            $model->haveJobFailed = $map['HaveJobFailed'];
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

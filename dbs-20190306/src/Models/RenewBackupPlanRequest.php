@@ -16,12 +16,7 @@ class RenewBackupPlanRequest extends Model
     /**
      * @var string
      */
-    public $period;
-
-    /**
-     * @var int
-     */
-    public $usedTime;
+    public $clientToken;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class RenewBackupPlanRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $period;
+
+    /**
+     * @var int
+     */
+    public $usedTime;
     protected $_name = [
         'backupPlanId' => 'BackupPlanId',
+        'clientToken'  => 'ClientToken',
+        'ownerId'      => 'OwnerId',
         'period'       => 'Period',
         'usedTime'     => 'UsedTime',
-        'ownerId'      => 'OwnerId',
-        'clientToken'  => 'ClientToken',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class RenewBackupPlanRequest extends Model
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class RenewBackupPlanRequest extends Model
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

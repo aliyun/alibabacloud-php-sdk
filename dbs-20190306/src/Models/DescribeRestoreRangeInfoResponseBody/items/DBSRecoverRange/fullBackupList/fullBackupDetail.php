@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class fullBackupDetail extends Model
 {
     /**
+     * @var string
+     */
+    public $backupSetId;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -17,15 +22,10 @@ class fullBackupDetail extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $backupSetId;
     protected $_name = [
+        'backupSetId' => 'BackupSetId',
         'endTime'     => 'EndTime',
         'startTime'   => 'StartTime',
-        'backupSetId' => 'BackupSetId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class fullBackupDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupSetId) {
+            $res['BackupSetId'] = $this->backupSetId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->backupSetId) {
-            $res['BackupSetId'] = $this->backupSetId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class fullBackupDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupSetId'])) {
+            $model->backupSetId = $map['BackupSetId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['BackupSetId'])) {
-            $model->backupSetId = $map['BackupSetId'];
         }
 
         return $model;

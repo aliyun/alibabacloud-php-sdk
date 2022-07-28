@@ -16,12 +16,17 @@ class CreateGetDBListFromAgentTaskRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $databaseType;
 
     /**
      * @var string
      */
-    public $sourceEndpointRegion;
+    public $ownerId;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class CreateGetDBListFromAgentTaskRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
+    public $sourceEndpointRegion;
     protected $_name = [
         'backupGatewayId'      => 'BackupGatewayId',
+        'clientToken'          => 'ClientToken',
         'databaseType'         => 'DatabaseType',
-        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'ownerId'              => 'OwnerId',
         'sourceEndpointIP'     => 'SourceEndpointIP',
         'sourceEndpointPort'   => 'SourceEndpointPort',
-        'ownerId'              => 'OwnerId',
-        'clientToken'          => 'ClientToken',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
     ];
 
     public function validate()
@@ -62,11 +62,14 @@ class CreateGetDBListFromAgentTaskRequest extends Model
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->databaseType) {
             $res['DatabaseType'] = $this->databaseType;
         }
-        if (null !== $this->sourceEndpointRegion) {
-            $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->sourceEndpointIP) {
             $res['SourceEndpointIP'] = $this->sourceEndpointIP;
@@ -74,11 +77,8 @@ class CreateGetDBListFromAgentTaskRequest extends Model
         if (null !== $this->sourceEndpointPort) {
             $res['SourceEndpointPort'] = $this->sourceEndpointPort;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->sourceEndpointRegion) {
+            $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
         }
 
         return $res;
@@ -95,11 +95,14 @@ class CreateGetDBListFromAgentTaskRequest extends Model
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['DatabaseType'])) {
             $model->databaseType = $map['DatabaseType'];
         }
-        if (isset($map['SourceEndpointRegion'])) {
-            $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SourceEndpointIP'])) {
             $model->sourceEndpointIP = $map['SourceEndpointIP'];
@@ -107,11 +110,8 @@ class CreateGetDBListFromAgentTaskRequest extends Model
         if (isset($map['SourceEndpointPort'])) {
             $model->sourceEndpointPort = $map['SourceEndpointPort'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['SourceEndpointRegion'])) {
+            $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
         }
 
         return $model;

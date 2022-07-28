@@ -11,7 +11,7 @@ class DescribeJobErrorCodeRequest extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $clientToken;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeJobErrorCodeRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $taskId;
     protected $_name = [
-        'taskId'      => 'TaskId',
+        'clientToken' => 'ClientToken',
         'language'    => 'Language',
         'ownerId'     => 'OwnerId',
-        'clientToken' => 'ClientToken',
+        'taskId'      => 'TaskId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DescribeJobErrorCodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -50,8 +50,8 @@ class DescribeJobErrorCodeRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DescribeJobErrorCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
@@ -74,8 +74,8 @@ class DescribeJobErrorCodeRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

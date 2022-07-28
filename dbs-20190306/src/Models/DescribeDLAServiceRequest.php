@@ -6,26 +6,26 @@ namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartTaskRequest extends Model
+class DescribeDLAServiceRequest extends Model
 {
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $ownerId;
+    public $backupPlanId;
 
     /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
     protected $_name = [
-        'taskId'      => 'TaskId',
-        'ownerId'     => 'OwnerId',
-        'clientToken' => 'ClientToken',
+        'backupPlanId' => 'BackupPlanId',
+        'clientToken'  => 'ClientToken',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class StartTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->backupPlanId) {
+            $res['BackupPlanId'] = $this->backupPlanId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class StartTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartTaskRequest
+     * @return DescribeDLAServiceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BackupPlanId'])) {
+            $model->backupPlanId = $map['BackupPlanId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

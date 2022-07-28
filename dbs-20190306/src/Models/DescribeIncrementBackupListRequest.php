@@ -14,14 +14,14 @@ class DescribeIncrementBackupListRequest extends Model
     public $backupPlanId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $clientToken;
 
     /**
      * @var int
      */
-    public $pageNum;
+    public $endTimestamp;
 
     /**
      * @var string
@@ -29,21 +29,33 @@ class DescribeIncrementBackupListRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var bool
      */
     public $showStorageType;
+
+    /**
+     * @var int
+     */
+    public $startTimestamp;
     protected $_name = [
         'backupPlanId'    => 'BackupPlanId',
-        'pageSize'        => 'PageSize',
-        'pageNum'         => 'PageNum',
-        'ownerId'         => 'OwnerId',
         'clientToken'     => 'ClientToken',
+        'endTimestamp'    => 'EndTimestamp',
+        'ownerId'         => 'OwnerId',
+        'pageNum'         => 'PageNum',
+        'pageSize'        => 'PageSize',
         'showStorageType' => 'ShowStorageType',
+        'startTimestamp'  => 'StartTimestamp',
     ];
 
     public function validate()
@@ -56,20 +68,26 @@ class DescribeIncrementBackupListRequest extends Model
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->showStorageType) {
             $res['ShowStorageType'] = $this->showStorageType;
+        }
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
         }
 
         return $res;
@@ -86,20 +104,26 @@ class DescribeIncrementBackupListRequest extends Model
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ShowStorageType'])) {
             $model->showStorageType = $map['ShowStorageType'];
+        }
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
         }
 
         return $model;

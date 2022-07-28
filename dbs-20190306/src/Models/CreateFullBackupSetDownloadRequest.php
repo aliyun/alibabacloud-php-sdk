@@ -11,27 +11,27 @@ class CreateFullBackupSetDownloadRequest extends Model
     /**
      * @var string
      */
-    public $backupSetId;
-
-    /**
-     * @var string
-     */
     public $backupSetDataFormat;
 
     /**
      * @var string
      */
-    public $ownerId;
+    public $backupSetId;
 
     /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
     protected $_name = [
-        'backupSetId'         => 'BackupSetId',
         'backupSetDataFormat' => 'BackupSetDataFormat',
-        'ownerId'             => 'OwnerId',
+        'backupSetId'         => 'BackupSetId',
         'clientToken'         => 'ClientToken',
+        'ownerId'             => 'OwnerId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateFullBackupSetDownloadRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupSetId) {
-            $res['BackupSetId'] = $this->backupSetId;
-        }
         if (null !== $this->backupSetDataFormat) {
             $res['BackupSetDataFormat'] = $this->backupSetDataFormat;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->backupSetId) {
+            $res['BackupSetId'] = $this->backupSetId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateFullBackupSetDownloadRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupSetId'])) {
-            $model->backupSetId = $map['BackupSetId'];
-        }
         if (isset($map['BackupSetDataFormat'])) {
             $model->backupSetDataFormat = $map['BackupSetDataFormat'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BackupSetId'])) {
+            $model->backupSetId = $map['BackupSetId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

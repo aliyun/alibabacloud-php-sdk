@@ -14,19 +14,9 @@ class DescribeFullBackupListRequest extends Model
     public $backupPlanId;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
      * @var string
      */
-    public $ownerId;
+    public $backupSetId;
 
     /**
      * @var string
@@ -34,22 +24,44 @@ class DescribeFullBackupListRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $endTimestamp;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var bool
      */
     public $showStorageType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $backupSetId;
+    public $startTimestamp;
     protected $_name = [
         'backupPlanId'    => 'BackupPlanId',
-        'pageSize'        => 'PageSize',
-        'pageNum'         => 'PageNum',
-        'ownerId'         => 'OwnerId',
-        'clientToken'     => 'ClientToken',
-        'showStorageType' => 'ShowStorageType',
         'backupSetId'     => 'BackupSetId',
+        'clientToken'     => 'ClientToken',
+        'endTimestamp'    => 'EndTimestamp',
+        'ownerId'         => 'OwnerId',
+        'pageNum'         => 'PageNum',
+        'pageSize'        => 'PageSize',
+        'showStorageType' => 'ShowStorageType',
+        'startTimestamp'  => 'StartTimestamp',
     ];
 
     public function validate()
@@ -62,23 +74,29 @@ class DescribeFullBackupListRequest extends Model
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->backupSetId) {
+            $res['BackupSetId'] = $this->backupSetId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->showStorageType) {
             $res['ShowStorageType'] = $this->showStorageType;
         }
-        if (null !== $this->backupSetId) {
-            $res['BackupSetId'] = $this->backupSetId;
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
         }
 
         return $res;
@@ -95,23 +113,29 @@ class DescribeFullBackupListRequest extends Model
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BackupSetId'])) {
+            $model->backupSetId = $map['BackupSetId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['ShowStorageType'])) {
             $model->showStorageType = $map['ShowStorageType'];
         }
-        if (isset($map['BackupSetId'])) {
-            $model->backupSetId = $map['BackupSetId'];
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
         }
 
         return $model;

@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Dbs\V20190306\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateRestoreTaskResponseBody extends Model
+class InitializeDbsServiceLinkedRoleResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $errCode;
+    public $data;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class CreateRestoreTaskResponseBody extends Model
     public $errMessage;
 
     /**
-     * @var int
+     * @var string
      */
-    public $httpStatusCode;
+    public $errorCode;
 
     /**
      * @var string
@@ -31,19 +31,13 @@ class CreateRestoreTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $restoreTaskId;
-
-    /**
-     * @var bool
-     */
     public $success;
     protected $_name = [
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
-        'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'restoreTaskId'  => 'RestoreTaskId',
-        'success'        => 'Success',
+        'data'       => 'Data',
+        'errMessage' => 'ErrMessage',
+        'errorCode'  => 'ErrorCode',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
     ];
 
     public function validate()
@@ -53,20 +47,17 @@ class CreateRestoreTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errCode) {
-            $res['ErrCode'] = $this->errCode;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->restoreTaskId) {
-            $res['RestoreTaskId'] = $this->restoreTaskId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -78,25 +69,22 @@ class CreateRestoreTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateRestoreTaskResponseBody
+     * @return InitializeDbsServiceLinkedRoleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrCode'])) {
-            $model->errCode = $map['ErrCode'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RestoreTaskId'])) {
-            $model->restoreTaskId = $map['RestoreTaskId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

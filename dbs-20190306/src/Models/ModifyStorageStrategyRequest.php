@@ -19,9 +19,9 @@ class ModifyStorageStrategyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
-     * @var int
+     * @var string
      */
-    public $duplicationInfrequentAccessPeriod;
+    public $clientToken;
 
     /**
      * @var int
@@ -29,21 +29,21 @@ class ModifyStorageStrategyRequest extends Model
     public $duplicationArchivePeriod;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ownerId;
+    public $duplicationInfrequentAccessPeriod;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $ownerId;
     protected $_name = [
         'backupPlanId'                      => 'BackupPlanId',
         'backupRetentionPeriod'             => 'BackupRetentionPeriod',
-        'duplicationInfrequentAccessPeriod' => 'DuplicationInfrequentAccessPeriod',
-        'duplicationArchivePeriod'          => 'DuplicationArchivePeriod',
-        'ownerId'                           => 'OwnerId',
         'clientToken'                       => 'ClientToken',
+        'duplicationArchivePeriod'          => 'DuplicationArchivePeriod',
+        'duplicationInfrequentAccessPeriod' => 'DuplicationInfrequentAccessPeriod',
+        'ownerId'                           => 'OwnerId',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class ModifyStorageStrategyRequest extends Model
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
-        if (null !== $this->duplicationInfrequentAccessPeriod) {
-            $res['DuplicationInfrequentAccessPeriod'] = $this->duplicationInfrequentAccessPeriod;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->duplicationArchivePeriod) {
             $res['DuplicationArchivePeriod'] = $this->duplicationArchivePeriod;
         }
+        if (null !== $this->duplicationInfrequentAccessPeriod) {
+            $res['DuplicationInfrequentAccessPeriod'] = $this->duplicationInfrequentAccessPeriod;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class ModifyStorageStrategyRequest extends Model
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
-        if (isset($map['DuplicationInfrequentAccessPeriod'])) {
-            $model->duplicationInfrequentAccessPeriod = $map['DuplicationInfrequentAccessPeriod'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DuplicationArchivePeriod'])) {
             $model->duplicationArchivePeriod = $map['DuplicationArchivePeriod'];
         }
+        if (isset($map['DuplicationInfrequentAccessPeriod'])) {
+            $model->duplicationInfrequentAccessPeriod = $map['DuplicationInfrequentAccessPeriod'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

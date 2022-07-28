@@ -11,15 +11,15 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $ownerId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
         'clientToken' => 'ClientToken',
+        'ownerId'     => 'OwnerId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

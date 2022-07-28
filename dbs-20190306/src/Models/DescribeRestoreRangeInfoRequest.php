@@ -19,6 +19,11 @@ class DescribeRestoreRangeInfoRequest extends Model
     public $beginTimestampForRestore;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var int
      */
     public $endTimestampForRestore;
@@ -29,20 +34,15 @@ class DescribeRestoreRangeInfoRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @var bool
      */
     public $recentlyRestore;
     protected $_name = [
         'backupPlanId'             => 'BackupPlanId',
         'beginTimestampForRestore' => 'BeginTimestampForRestore',
+        'clientToken'              => 'ClientToken',
         'endTimestampForRestore'   => 'EndTimestampForRestore',
         'ownerId'                  => 'OwnerId',
-        'clientToken'              => 'ClientToken',
         'recentlyRestore'          => 'RecentlyRestore',
     ];
 
@@ -59,14 +59,14 @@ class DescribeRestoreRangeInfoRequest extends Model
         if (null !== $this->beginTimestampForRestore) {
             $res['BeginTimestampForRestore'] = $this->beginTimestampForRestore;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->endTimestampForRestore) {
             $res['EndTimestampForRestore'] = $this->endTimestampForRestore;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->recentlyRestore) {
             $res['RecentlyRestore'] = $this->recentlyRestore;
@@ -89,14 +89,14 @@ class DescribeRestoreRangeInfoRequest extends Model
         if (isset($map['BeginTimestampForRestore'])) {
             $model->beginTimestampForRestore = $map['BeginTimestampForRestore'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['EndTimestampForRestore'])) {
             $model->endTimestampForRestore = $map['EndTimestampForRestore'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['RecentlyRestore'])) {
             $model->recentlyRestore = $map['RecentlyRestore'];
