@@ -14,7 +14,7 @@ class actions extends Model
     public $disable;
 
     /**
-     * @var mixed
+     * @var mixed[]
      */
     public $params;
 
