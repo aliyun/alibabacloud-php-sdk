@@ -11,15 +11,15 @@ class FtDynamicAddressHttpVpcResponseBody extends Model
     /**
      * @var string
      */
-    public $serviceRpcSign;
+    public $params;
 
     /**
      * @var string
      */
-    public $params;
+    public $serviceRpcSign;
     protected $_name = [
-        'serviceRpcSign' => 'ServiceRpcSign',
         'params'         => 'Params',
+        'serviceRpcSign' => 'ServiceRpcSign',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class FtDynamicAddressHttpVpcResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceRpcSign) {
-            $res['ServiceRpcSign'] = $this->serviceRpcSign;
-        }
         if (null !== $this->params) {
             $res['Params'] = $this->params;
+        }
+        if (null !== $this->serviceRpcSign) {
+            $res['ServiceRpcSign'] = $this->serviceRpcSign;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class FtDynamicAddressHttpVpcResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceRpcSign'])) {
-            $model->serviceRpcSign = $map['ServiceRpcSign'];
-        }
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
+        }
+        if (isset($map['ServiceRpcSign'])) {
+            $model->serviceRpcSign = $map['ServiceRpcSign'];
         }
 
         return $model;

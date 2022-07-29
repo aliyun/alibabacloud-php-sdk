@@ -11,20 +11,20 @@ class FtEagleEyeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
 
     /**
      * @var string
      */
     public $eagleEyeTraceId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'name'            => 'Name',
+        'requestId'       => 'RequestId',
         'eagleEyeTraceId' => 'eagleEyeTraceId',
     ];
 
@@ -35,11 +35,11 @@ class FtEagleEyeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->eagleEyeTraceId) {
             $res['eagleEyeTraceId'] = $this->eagleEyeTraceId;
@@ -56,11 +56,11 @@ class FtEagleEyeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['eagleEyeTraceId'])) {
             $model->eagleEyeTraceId = $map['eagleEyeTraceId'];

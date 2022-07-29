@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class FtDynamicAddressDubboResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $intValue;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class FtDynamicAddressDubboResponseBody extends Model
      * @var string
      */
     public $stringValue;
-
-    /**
-     * @var int
-     */
-    public $intValue;
     protected $_name = [
+        'intValue'    => 'IntValue',
         'requestId'   => 'RequestId',
         'stringValue' => 'StringValue',
-        'intValue'    => 'IntValue',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class FtDynamicAddressDubboResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->intValue) {
+            $res['IntValue'] = $this->intValue;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->stringValue) {
             $res['StringValue'] = $this->stringValue;
-        }
-        if (null !== $this->intValue) {
-            $res['IntValue'] = $this->intValue;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class FtDynamicAddressDubboResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IntValue'])) {
+            $model->intValue = $map['IntValue'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['StringValue'])) {
             $model->stringValue = $map['StringValue'];
-        }
-        if (isset($map['IntValue'])) {
-            $model->intValue = $map['IntValue'];
         }
 
         return $model;

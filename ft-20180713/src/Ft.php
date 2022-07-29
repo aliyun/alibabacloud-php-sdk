@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\Ft\V20180713\Models\TestHttpApiShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ft extends OpenApiClient
@@ -42,8 +43,9 @@ class Ft extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'ft.aliyuncs.com',
             'ap-south-1'                  => 'ft.aliyuncs.com',
             'ap-southeast-1'              => 'ft.aliyuncs.com',
@@ -130,11 +132,37 @@ class Ft extends OpenApiClient
     public function batchAuditTest01WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchAuditTest01)) {
+            $query['BatchAuditTest01'] = $request->batchAuditTest01;
+        }
+        if (!Utils::isUnset($request->demo01)) {
+            $query['Demo01'] = $request->demo01;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->test010101)) {
+            $body['Test010101'] = $request->test010101;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAuditTest01',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchAuditTest01Response::fromMap($this->doRPCRequest('BatchAuditTest01', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchAuditTest01Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -158,11 +186,26 @@ class Ft extends OpenApiClient
     public function fTApiAliasApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FTApiAliasApi',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FTApiAliasApiResponse::fromMap($this->doRPCRequest('FTApiAliasApi', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FTApiAliasApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -186,11 +229,29 @@ class Ft extends OpenApiClient
     public function ftDynamicAddressDubboWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->intValue)) {
+            $query['IntValue'] = $request->intValue;
+        }
+        if (!Utils::isUnset($request->stringValue)) {
+            $query['StringValue'] = $request->stringValue;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtDynamicAddressDubbo',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtDynamicAddressDubboResponse::fromMap($this->doRPCRequest('FtDynamicAddressDubbo', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtDynamicAddressDubboResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -212,9 +273,20 @@ class Ft extends OpenApiClient
      */
     public function ftDynamicAddressHsfWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'FtDynamicAddressHsf',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return FtDynamicAddressHsfResponse::fromMap($this->doRPCRequest('FtDynamicAddressHsf', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtDynamicAddressHsfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -238,20 +310,47 @@ class Ft extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new FtDynamicAddressHttpVpcShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->stringValue)) {
-            $request->stringValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stringValue, 'StringValue', 'json');
-        }
         if (!Utils::isUnset($tmpReq->defaultValue)) {
             $request->defaultValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultValue, 'DefaultValue', 'json');
         }
         if (!Utils::isUnset($tmpReq->otherParam)) {
             $request->otherParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->otherParam, 'OtherParam', 'json');
         }
+        if (!Utils::isUnset($tmpReq->stringValue)) {
+            $request->stringValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stringValue, 'StringValue', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->booleanParam)) {
+            $query['BooleanParam'] = $request->booleanParam;
+        }
+        if (!Utils::isUnset($request->defaultValueShrink)) {
+            $query['DefaultValue'] = $request->defaultValueShrink;
+        }
+        if (!Utils::isUnset($request->otherParamShrink)) {
+            $query['OtherParam'] = $request->otherParamShrink;
+        }
+        if (!Utils::isUnset($request->p1)) {
+            $query['P1'] = $request->p1;
+        }
+        if (!Utils::isUnset($request->stringValueShrink)) {
+            $query['StringValue'] = $request->stringValueShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtDynamicAddressHttpVpc',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtDynamicAddressHttpVpcResponse::fromMap($this->doRPCRequest('FtDynamicAddressHttpVpc', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtDynamicAddressHttpVpcResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -275,11 +374,26 @@ class Ft extends OpenApiClient
     public function ftEagleEyeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtEagleEye',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtEagleEyeResponse::fromMap($this->doRPCRequest('FtEagleEye', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtEagleEyeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -303,11 +417,26 @@ class Ft extends OpenApiClient
     public function ftFlowSpecialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtFlowSpecial',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtFlowSpecialResponse::fromMap($this->doRPCRequest('FtFlowSpecial', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtFlowSpecialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -331,11 +460,26 @@ class Ft extends OpenApiClient
     public function ftGatedLaunchPolicy4WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isGatedLaunch)) {
+            $query['IsGatedLaunch'] = $request->isGatedLaunch;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtGatedLaunchPolicy4',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtGatedLaunchPolicy4Response::fromMap($this->doRPCRequest('FtGatedLaunchPolicy4', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtGatedLaunchPolicy4Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -359,11 +503,26 @@ class Ft extends OpenApiClient
     public function ftIpFlowControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtIpFlowControl',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtIpFlowControlResponse::fromMap($this->doRPCRequest('FtIpFlowControl', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtIpFlowControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -387,11 +546,29 @@ class Ft extends OpenApiClient
     public function ftParamListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->disk)) {
+            $query['Disk'] = $request->disk;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FtParamList',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return FtParamListResponse::fromMap($this->doRPCRequest('FtParamList', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FtParamListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -420,11 +597,26 @@ class Ft extends OpenApiClient
         if (!Utils::isUnset($tmpReq->names)) {
             $request->namesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
         }
+        $body = [];
+        if (!Utils::isUnset($request->namesShrink)) {
+            $body['Names'] = $request->namesShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TestFlowStrategy01',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TestFlowStrategy01Response::fromMap($this->doRPCRequest('TestFlowStrategy01', '2018-07-13', 'HTTPS', 'PUT', 'AK', 'json', $req, $runtime));
+        return TestFlowStrategy01Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,20 +642,44 @@ class Ft extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new TestHttpApiShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->stringValue)) {
-            $request->stringValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stringValue, 'StringValue', 'json');
-        }
         if (!Utils::isUnset($tmpReq->defaultValue)) {
             $request->defaultValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->defaultValue, 'DefaultValue', 'json');
         }
         if (!Utils::isUnset($tmpReq->otherParam)) {
             $request->otherParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->otherParam, 'OtherParam', 'json');
         }
+        if (!Utils::isUnset($tmpReq->stringValue)) {
+            $request->stringValueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stringValue, 'StringValue', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->booleanParam)) {
+            $query['BooleanParam'] = $request->booleanParam;
+        }
+        if (!Utils::isUnset($request->defaultValueShrink)) {
+            $query['DefaultValue'] = $request->defaultValueShrink;
+        }
+        if (!Utils::isUnset($request->otherParamShrink)) {
+            $query['OtherParam'] = $request->otherParamShrink;
+        }
+        if (!Utils::isUnset($request->stringValueShrink)) {
+            $query['StringValue'] = $request->stringValueShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TestHttpApi',
+            'version'     => '2018-07-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TestHttpApiResponse::fromMap($this->doRPCRequest('TestHttpApi', '2018-07-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TestHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

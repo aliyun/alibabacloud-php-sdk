@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TestFlowStrategy01ResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $list;
@@ -22,10 +17,15 @@ class TestFlowStrategy01ResponseBody extends Model
      * @var string[]
      */
     public $names;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'list'      => 'List',
         'names'     => 'Names',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class TestFlowStrategy01ResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->list) {
             $res['List'] = $this->list;
         }
         if (null !== $this->names) {
             $res['Names'] = $this->names;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class TestFlowStrategy01ResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = $map['List'];
@@ -68,6 +65,9 @@ class TestFlowStrategy01ResponseBody extends Model
             if (!empty($map['Names'])) {
                 $model->names = $map['Names'];
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

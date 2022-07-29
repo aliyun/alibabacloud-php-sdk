@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class FtParamListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var disk[]
      */
     public $disk;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name' => 'Name',
         'disk' => 'Disk',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class FtParamListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->disk) {
             $res['Disk'] = [];
             if (null !== $this->disk && \is_array($this->disk)) {
@@ -41,6 +38,9 @@ class FtParamListRequest extends Model
                     $res['Disk'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class FtParamListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Disk'])) {
             if (!empty($map['Disk'])) {
                 $model->disk = [];
@@ -65,6 +62,9 @@ class FtParamListRequest extends Model
                     $model->disk[$n++] = null !== $item ? disk::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

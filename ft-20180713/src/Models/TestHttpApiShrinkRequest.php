@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TestHttpApiShrinkRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $stringValueShrink;
+    public $booleanParam;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class TestHttpApiShrinkRequest extends Model
     public $otherParamShrink;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $booleanParam;
+    public $stringValueShrink;
     protected $_name = [
-        'stringValueShrink'  => 'StringValue',
+        'booleanParam'       => 'BooleanParam',
         'defaultValueShrink' => 'DefaultValue',
         'otherParamShrink'   => 'OtherParam',
-        'booleanParam'       => 'BooleanParam',
+        'stringValueShrink'  => 'StringValue',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class TestHttpApiShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stringValueShrink) {
-            $res['StringValue'] = $this->stringValueShrink;
+        if (null !== $this->booleanParam) {
+            $res['BooleanParam'] = $this->booleanParam;
         }
         if (null !== $this->defaultValueShrink) {
             $res['DefaultValue'] = $this->defaultValueShrink;
@@ -50,8 +50,8 @@ class TestHttpApiShrinkRequest extends Model
         if (null !== $this->otherParamShrink) {
             $res['OtherParam'] = $this->otherParamShrink;
         }
-        if (null !== $this->booleanParam) {
-            $res['BooleanParam'] = $this->booleanParam;
+        if (null !== $this->stringValueShrink) {
+            $res['StringValue'] = $this->stringValueShrink;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class TestHttpApiShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StringValue'])) {
-            $model->stringValueShrink = $map['StringValue'];
+        if (isset($map['BooleanParam'])) {
+            $model->booleanParam = $map['BooleanParam'];
         }
         if (isset($map['DefaultValue'])) {
             $model->defaultValueShrink = $map['DefaultValue'];
@@ -74,8 +74,8 @@ class TestHttpApiShrinkRequest extends Model
         if (isset($map['OtherParam'])) {
             $model->otherParamShrink = $map['OtherParam'];
         }
-        if (isset($map['BooleanParam'])) {
-            $model->booleanParam = $map['BooleanParam'];
+        if (isset($map['StringValue'])) {
+            $model->stringValueShrink = $map['StringValue'];
         }
 
         return $model;

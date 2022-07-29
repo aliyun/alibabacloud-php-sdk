@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class FtDynamicAddressHttpVpcRequest extends Model
 {
     /**
-     * @var mixed[]
+     * @var bool
      */
-    public $stringValue;
+    public $booleanParam;
 
     /**
      * @var mixed[]
@@ -24,20 +24,20 @@ class FtDynamicAddressHttpVpcRequest extends Model
     public $otherParam;
 
     /**
-     * @var bool
-     */
-    public $booleanParam;
-
-    /**
      * @var string
      */
     public $p1;
+
+    /**
+     * @var mixed[]
+     */
+    public $stringValue;
     protected $_name = [
-        'stringValue'  => 'StringValue',
+        'booleanParam' => 'BooleanParam',
         'defaultValue' => 'DefaultValue',
         'otherParam'   => 'OtherParam',
-        'booleanParam' => 'BooleanParam',
         'p1'           => 'P1',
+        'stringValue'  => 'StringValue',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class FtDynamicAddressHttpVpcRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stringValue) {
-            $res['StringValue'] = $this->stringValue;
+        if (null !== $this->booleanParam) {
+            $res['BooleanParam'] = $this->booleanParam;
         }
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
@@ -56,11 +56,11 @@ class FtDynamicAddressHttpVpcRequest extends Model
         if (null !== $this->otherParam) {
             $res['OtherParam'] = $this->otherParam;
         }
-        if (null !== $this->booleanParam) {
-            $res['BooleanParam'] = $this->booleanParam;
-        }
         if (null !== $this->p1) {
             $res['P1'] = $this->p1;
+        }
+        if (null !== $this->stringValue) {
+            $res['StringValue'] = $this->stringValue;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class FtDynamicAddressHttpVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StringValue'])) {
-            $model->stringValue = $map['StringValue'];
+        if (isset($map['BooleanParam'])) {
+            $model->booleanParam = $map['BooleanParam'];
         }
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
@@ -83,11 +83,11 @@ class FtDynamicAddressHttpVpcRequest extends Model
         if (isset($map['OtherParam'])) {
             $model->otherParam = $map['OtherParam'];
         }
-        if (isset($map['BooleanParam'])) {
-            $model->booleanParam = $map['BooleanParam'];
-        }
         if (isset($map['P1'])) {
             $model->p1 = $map['P1'];
+        }
+        if (isset($map['StringValue'])) {
+            $model->stringValue = $map['StringValue'];
         }
 
         return $model;

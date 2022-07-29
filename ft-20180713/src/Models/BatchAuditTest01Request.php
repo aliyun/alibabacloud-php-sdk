@@ -11,11 +11,6 @@ class BatchAuditTest01Request extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $batchAuditTest01;
 
     /**
@@ -24,13 +19,18 @@ class BatchAuditTest01Request extends Model
     public $demo01;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var bool
      */
     public $test010101;
     protected $_name = [
-        'name'             => 'Name',
         'batchAuditTest01' => 'BatchAuditTest01',
         'demo01'           => 'Demo01',
+        'name'             => 'Name',
         'test010101'       => 'Test010101',
     ];
 
@@ -41,14 +41,14 @@ class BatchAuditTest01Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->batchAuditTest01) {
             $res['BatchAuditTest01'] = $this->batchAuditTest01;
         }
         if (null !== $this->demo01) {
             $res['Demo01'] = $this->demo01;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->test010101) {
             $res['Test010101'] = $this->test010101;
@@ -65,14 +65,14 @@ class BatchAuditTest01Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['BatchAuditTest01'])) {
             $model->batchAuditTest01 = $map['BatchAuditTest01'];
         }
         if (isset($map['Demo01'])) {
             $model->demo01 = $map['Demo01'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Test010101'])) {
             $model->test010101 = $map['Test010101'];
