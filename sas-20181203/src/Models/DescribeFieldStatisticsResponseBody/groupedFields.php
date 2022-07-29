@@ -76,6 +76,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $outMachineInstanceCount;
+
+    /**
+     * @var int
+     */
     public $pauseInstanceCount;
 
     /**
@@ -121,6 +126,7 @@ class groupedFields extends Model
         'newInstanceCount'         => 'NewInstanceCount',
         'notRunningStatusCount'    => 'NotRunningStatusCount',
         'offlineInstanceCount'     => 'OfflineInstanceCount',
+        'outMachineInstanceCount'  => 'OutMachineInstanceCount',
         'pauseInstanceCount'       => 'PauseInstanceCount',
         'regionCount'              => 'RegionCount',
         'riskInstanceCount'        => 'RiskInstanceCount',
@@ -175,6 +181,9 @@ class groupedFields extends Model
         }
         if (null !== $this->offlineInstanceCount) {
             $res['OfflineInstanceCount'] = $this->offlineInstanceCount;
+        }
+        if (null !== $this->outMachineInstanceCount) {
+            $res['OutMachineInstanceCount'] = $this->outMachineInstanceCount;
         }
         if (null !== $this->pauseInstanceCount) {
             $res['PauseInstanceCount'] = $this->pauseInstanceCount;
@@ -247,6 +256,9 @@ class groupedFields extends Model
         }
         if (isset($map['OfflineInstanceCount'])) {
             $model->offlineInstanceCount = $map['OfflineInstanceCount'];
+        }
+        if (isset($map['OutMachineInstanceCount'])) {
+            $model->outMachineInstanceCount = $map['OutMachineInstanceCount'];
         }
         if (isset($map['PauseInstanceCount'])) {
             $model->pauseInstanceCount = $map['PauseInstanceCount'];

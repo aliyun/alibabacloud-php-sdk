@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Sas\V20181203;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
@@ -89,6 +91,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudProductFieldStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonOverallConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonOverallConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsRequest;
@@ -237,6 +241,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventQuaraFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponse;
@@ -246,6 +252,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationRequest
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVendorListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaResponse;
@@ -362,6 +369,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateCommonOverallConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateCommonOverallConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousOverallConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousOverallConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsRequest;
@@ -498,6 +509,61 @@ class Sas extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddInstallCodeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddInstallCodeResponse
+     */
+    public function addInstallCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expiredDate)) {
+            $query['ExpiredDate'] = $request->expiredDate;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->onlyImage)) {
+            $query['OnlyImage'] = $request->onlyImage;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->vendorName)) {
+            $query['VendorName'] = $request->vendorName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddInstallCode',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddInstallCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddInstallCodeRequest $request
+     *
+     * @return AddInstallCodeResponse
+     */
+    public function addInstallCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addInstallCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -2710,6 +2776,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudProductFieldStatisticsWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeCommonOverallConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCommonOverallConfigResponse
+     */
+    public function describeCommonOverallConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCommonOverallConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCommonOverallConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommonOverallConfigRequest $request
+     *
+     * @return DescribeCommonOverallConfigResponse
+     */
+    public function describeCommonOverallConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommonOverallConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -6931,6 +7043,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeSuspiciousOverallConfigRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSuspiciousOverallConfigResponse
+     */
+    public function describeSuspiciousOverallConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSuspiciousOverallConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSuspiciousOverallConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSuspiciousOverallConfigRequest $request
+     *
+     * @return DescribeSuspiciousOverallConfigResponse
+     */
+    public function describeSuspiciousOverallConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSuspiciousOverallConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSuspiciousUUIDConfigRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -7187,6 +7345,39 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUuidsByVulNamesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeVendorListResponse
+     */
+    public function describeVendorListWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeVendorList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVendorListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeVendorListResponse
+     */
+    public function describeVendorList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVendorListWithOptions($runtime);
     }
 
     /**
@@ -10377,6 +10568,110 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateAgentClientInstallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OperateCommonOverallConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return OperateCommonOverallConfigResponse
+     */
+    public function operateCommonOverallConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateCommonOverallConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OperateCommonOverallConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OperateCommonOverallConfigRequest $request
+     *
+     * @return OperateCommonOverallConfigResponse
+     */
+    public function operateCommonOverallConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateCommonOverallConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OperateSuspiciousOverallConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return OperateSuspiciousOverallConfigResponse
+     */
+    public function operateSuspiciousOverallConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->noTargetAsOn)) {
+            $query['NoTargetAsOn'] = $request->noTargetAsOn;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateSuspiciousOverallConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OperateSuspiciousOverallConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OperateSuspiciousOverallConfigRequest $request
+     *
+     * @return OperateSuspiciousOverallConfigResponse
+     */
+    public function operateSuspiciousOverallConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateSuspiciousOverallConfigWithOptions($request, $runtime);
     }
 
     /**
