@@ -1,3 +1,6 @@
+2022-07-30 Version: 3.0.0
+- AMP Version Change.
+
 2022-07-29 Version: 3.0.0
 - AMP Version Change.
 
