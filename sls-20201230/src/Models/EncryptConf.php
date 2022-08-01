@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EncryptConf extends Model
 {
     /**
-     * @description enable
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 加密算法，只支持default和m4。当 enable 为 true 时，此项必选。
-     *
      * @var string
      */
     public $encryptType;

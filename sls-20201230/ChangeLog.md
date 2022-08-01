@@ -1,3 +1,7 @@
+2022-08-01 Version: 1.5.0
+- Add resource Shipper.
+- Add resource ExternalStore.
+
 2022-07-20 Version: 1.4.1
 - Generated php 2020-12-30 for Sls.
 

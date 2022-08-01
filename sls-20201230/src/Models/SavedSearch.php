@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SavedSearch extends Model
 {
     /**
-     * @description displayName
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description logstore
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description savedsearchName
-     *
      * @var string
      */
     public $savedsearchName;
 
     /**
-     * @description searchQuery
-     *
      * @var string
      */
     public $searchQuery;
 
     /**
-     * @description topic
-     *
      * @var string
      */
     public $topic;

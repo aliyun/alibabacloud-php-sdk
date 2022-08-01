@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListMachineGroupRequest extends Model
 {
     /**
-     * @description 可将 groupName 作为 pattern 匹配名称，只会返回匹配的机器组。例如 test 可以匹配机器组 test-group。
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 分页请求的起始位置。默认为0。
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description 分页查询时，设置的每页行数。默认值为2000。
-     *
      * @var int
      */
     public $size;

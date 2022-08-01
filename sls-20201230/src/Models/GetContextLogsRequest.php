@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsRequest extends Model
 {
     /**
-     * @description 指定起始日志往前（上文）的日志条数，取值范围为(0,100]。
-     *
      * @var int
      */
     public $backLines;
 
     /**
-     * @description 指定起始日志往后（下文）的日志条数，取值范围为(0,100]。
-     *
      * @var int
      */
     public $forwardLines;
 
     /**
-     * @description 起始日志所属的LogGroup的唯一身份标识。
-     *
      * @var string
      */
     public $packId;
 
     /**
-     * @description 起始日志在对应LogGroup内的唯一上下文结构标识。
-     *
      * @var string
      */
     public $packMeta;
 
     /**
-     * @description Logstore中数据的类型。该接口中该参数固定为context_log。
-     *
      * @var string
      */
     public $type;

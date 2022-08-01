@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateCheckPointRequest extends Model
 {
     /**
-     * @description checkpoint值。
-     *
      * @var string
      */
     public $checkpoint;
 
     /**
-     * @description shard 的 id。
-     *
      * @var int
      */
     public $shard;
 
     /**
-     * @description 消费者。
-     *
      * @var string
      */
     public $consumer;
 
     /**
-     * @description 当不指定消费者时，必须指定forceSuccess为true才能更新checkpoint。
-     *
      * @var bool
      */
     public $forceSuccess;
 
     /**
-     * @description 固定为 checkpoint。
-     *
      * @var string
      */
     public $type;

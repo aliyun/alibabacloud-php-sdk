@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class line extends Model
 {
     /**
-     * @description 大小写敏感
-     *
      * @var bool
      */
     public $caseSensitive;
 
     /**
-     * @description 是否包含中文。
-     *
      * @var bool
      */
     public $chn;
 
     /**
-     * @description 排除的字段列表。
-     *
      * @var string[]
      */
     public $excludeKeys;
 
     /**
-     * @description 包含的字段列表。
-     *
      * @var string[]
      */
     public $includeKeys;
 
     /**
-     * @description 分词符列表。
-     *
      * @var string[]
      */
     public $token;

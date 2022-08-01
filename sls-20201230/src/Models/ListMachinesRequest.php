@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMachinesRequest extends Model
 {
     /**
-     * @description 查询开始行。默认值为0。
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description 分页查询时，设置的每页行数。默认值为2000。
-     *
      * @var int
      */
     public $size;

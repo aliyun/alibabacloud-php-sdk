@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class Logging extends Model
 {
     /**
-     * @description logging 配置项
-     *
      * @var loggingDetails[]
      */
     public $loggingDetails;
 
     /**
-     * @description project 名称。
-     *
      * @var string
      */
     public $loggingProject;

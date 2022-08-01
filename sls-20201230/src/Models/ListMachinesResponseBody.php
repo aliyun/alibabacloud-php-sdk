@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListMachinesResponseBody extends Model
 {
     /**
-     * @description 当前页返回的机器数目。
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description 返回的机器信息列表。
-     *
      * @var Machine[]
      */
     public $machines;
 
     /**
-     * @description 机器总数。
-     *
      * @var int
      */
     public $total;

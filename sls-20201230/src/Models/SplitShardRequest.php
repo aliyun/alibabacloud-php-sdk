@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SplitShardRequest extends Model
 {
     /**
-     * @description 这里固定为 split。
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description 分裂的位置。
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description 要分裂成的 shard 数量，默认为 2。
-     *
      * @var int
      */
     public $shardCount;

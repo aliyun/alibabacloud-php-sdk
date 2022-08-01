@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ExternalStore extends Model
 {
     /**
-     * @description 外部存储的名称。
-     *
      * @var string
      */
     public $externalStoreName;
 
     /**
-     * @description 参数
-     *
      * @var mixed[]
      */
     public $parameter;
 
     /**
-     * @description 类型。可选 rds-vpc 或者 oss
-     *
      * @var string
      */
     public $storeType;

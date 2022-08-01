@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description shard id。
-     *
      * @var int
      */
     public $shard;
 
     /**
-     * @description checkpoint 值。
-     *
      * @var string
      */
     public $checkpoint;
 
     /**
-     * @description checkpoint最后的更新时间。Unix时间戳格式，表示从1970-1-1 00:00:00 UTC计算起的秒数。
-     *
      * @var int
      */
     public $updateTime;
 
     /**
-     * @description 消费者。
-     *
      * @var string
      */
     public $consumer;

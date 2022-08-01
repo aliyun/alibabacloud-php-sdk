@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class Dashboard extends Model
 {
     /**
-     * @description 属性值，可用于修改仪表盘的布局等属性，例如 "type": "free" 自由布局， "type":"grid" 网格布局。
-     *
      * @var string[]
      */
     public $attribute;
 
     /**
-     * @description 仪表盘内包含的图表。
-     *
      * @var Chart[]
      */
     public $charts;
 
     /**
-     * @description 仪表盘ID。同一个Project下，仪表盘ID唯一，不可重复。
-     *
      * @var string
      */
     public $dashboardName;
 
     /**
-     * @description 描述信息。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 仪表盘的展示名称。
-     *
      * @var string
      */
     public $displayName;

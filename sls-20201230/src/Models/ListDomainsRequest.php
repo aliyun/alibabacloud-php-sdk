@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
-     * @description 用于搜索匹配的自定义域名
-     *
      * @var string
      */
     public $domainName;

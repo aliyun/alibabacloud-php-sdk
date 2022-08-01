@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetContextLogsResponseBody extends Model
 {
     /**
-     * @description 向前查询到的日志条数。
-     *
      * @var int
      */
     public $backLines;
 
     /**
-     * @description 向后查询到的日志条数。
-     *
      * @var int
      */
     public $forwardLines;
 
     /**
-     * @description 获取到的日志，按上下文顺序排列。当根据指定起始日志查询不到上下文日志时，此参数为空。
-     *
      * @var mixed[][]
      */
     public $logs;
 
     /**
-     * @description 查询的结果是否完整。
-     * Incomplete：查询已经完成，返回结果为不完整结果，需要重复请求以获得完整结果。
      * @var string
      */
     public $progress;
 
     /**
-     * @description 返回的总日志条数，包含请求参数中所指定的起始日志。
-     *
      * @var int
      */
     public $totalLines;

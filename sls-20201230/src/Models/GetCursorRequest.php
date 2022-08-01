@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCursorRequest extends Model
 {
     /**
-     * @description 时间点（Unix时间戳）或者字符串begin、end。
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description 这里固定为 cursor。
-     *
      * @var string
      */
     public $type;

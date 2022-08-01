@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class MachineGroup extends Model
 {
     /**
-     * @description 机器组属性。
-     *
      * @var groupAttribute
      */
     public $groupAttribute;
 
     /**
-     * @description 机器组名称。
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 机器组种类。目前固定为空字符串。
-     *
      * @var string
      */
     public $groupType;
 
     /**
-     * @description 机器组标识种类，支持 IP 标识或者用户自定义标识，即 ip 、userdefined。
-     *
      * @var string
      */
     public $machineIdentifyType;
 
     /**
-     * @description 机器组标识列表。
-     *
      * @var string[]
      */
     public $machineList;

@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateIndexRequest extends Model
 {
     /**
-     * @description 字段索引配置，key为字段名称，value为字段索引配置。
-     *
      * @var KeysValue[]
      */
     public $keys;
 
     /**
-     * @description 配置全文索引。
-     *
      * @var line
      */
     public $line;
 
     /**
-     * @description 开启日志聚类，开启后白名单与黑名单至多生效其中一个。
-     *
      * @var bool
      */
     public $logReduce;
 
     /**
-     * @description 日志聚类的聚类字段黑名单
-     *
      * @var string[]
      */
     public $logReduceBlackList;
 
     /**
-     * @description 日志聚类的聚类字段白名单
-     *
      * @var string[]
      */
     public $logReduceWhiteList;
 
     /**
-     * @description 统计字段的最大长度
-     *
      * @var int
      */
     public $maxTextLen;
 
     /**
-     * @description 保存时间，单位为天
-     *
      * @var int
      */
     public $ttl;

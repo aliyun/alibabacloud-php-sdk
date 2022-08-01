@@ -19,8 +19,6 @@ class ListProjectRequest extends Model
     public $projectName;
 
     /**
-     * @description 默认值为 500。
-     *
      * @var int
      */
     public $size;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description 资源的 id 列表，可以一次为多个同类型资源打上相同的标签。
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源的类型。目前取值范围：project。
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 标签列表。
-     *
      * @var tags[]
      */
     public $tags;

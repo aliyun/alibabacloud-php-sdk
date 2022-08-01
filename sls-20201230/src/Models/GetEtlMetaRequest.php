@@ -19,8 +19,6 @@ class GetEtlMetaRequest extends Model
     public $etlMetaKey;
 
     /**
-     * @description 此处固定为 "__all_etl_meta_tag_match__"。
-     *
      * @var string
      */
     public $etlMetaTag;

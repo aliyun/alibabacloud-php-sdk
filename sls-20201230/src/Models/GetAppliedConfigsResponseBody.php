@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAppliedConfigsResponseBody extends Model
 {
     /**
-     * @description Logtail配置名称列表。
-     *
      * @var string[]
      */
     public $configs;
 
     /**
-     * @description Logtail配置数量。
-     *
      * @var int
      */
     public $count;

@@ -19,8 +19,6 @@ class ListLogStoresRequest extends Model
     public $offset;
 
     /**
-     * @description 默认值为 500。
-     *
      * @var int
      */
     public $size;

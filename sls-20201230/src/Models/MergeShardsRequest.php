@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class MergeShardsRequest extends Model
 {
     /**
-     * @description 固定为 merge。
-     *
      * @var string
      */
     public $action;

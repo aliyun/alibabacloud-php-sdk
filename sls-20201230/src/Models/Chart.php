@@ -4,43 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
-use AlibabaCloud\SDK\Sls\V20201230\Models\Chart\display;
-use AlibabaCloud\SDK\Sls\V20201230\Models\Chart\search;
 use AlibabaCloud\Tea\Model;
 
 class Chart extends Model
 {
     /**
-     * @description action
-     *
      * @var mixed[]
      */
     public $action;
 
     /**
-     * @description 图表的显示配置
-     *
-     * @var display
+     * @var mixed[]
      */
     public $display;
 
     /**
-     * @description 查询配置
-     *
-     * @var search
+     * @var mixed[]
      */
     public $search;
 
     /**
-     * @description 图表标题。支持大小写英文字母、数字、下划线_、连字符-，连字符与下划线不能作为名称开头与结尾，长度必须在[2,64] 之间。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 图表的类型。
-     *
      * @var string
      */
     public $type;
@@ -63,10 +51,10 @@ class Chart extends Model
             $res['action'] = $this->action;
         }
         if (null !== $this->display) {
-            $res['display'] = null !== $this->display ? $this->display->toMap() : null;
+            $res['display'] = $this->display;
         }
         if (null !== $this->search) {
-            $res['search'] = null !== $this->search ? $this->search->toMap() : null;
+            $res['search'] = $this->search;
         }
         if (null !== $this->title) {
             $res['title'] = $this->title;
@@ -90,10 +78,10 @@ class Chart extends Model
             $model->action = $map['action'];
         }
         if (isset($map['display'])) {
-            $model->display = display::fromMap($map['display']);
+            $model->display = $map['display'];
         }
         if (isset($map['search'])) {
-            $model->search = search::fromMap($map['search']);
+            $model->search = $map['search'];
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];

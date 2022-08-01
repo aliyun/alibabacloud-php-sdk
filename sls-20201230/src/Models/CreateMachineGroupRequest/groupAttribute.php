@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class groupAttribute extends Model
 {
     /**
-     * @description 机器组所依赖的外部管理系统标识。
-     *
      * @var string
      */
     public $externalName;
 
     /**
-     * @description 机器组的日志主题。
-     *
      * @var string
      */
     public $groupTopic;

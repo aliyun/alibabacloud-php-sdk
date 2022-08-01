@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class triggerConfig extends Model
 {
     /**
-     * @description 最大重试次数，必须在[0,100] 之间
-     *
      * @var int
      */
     public $maxRetryTime;
 
     /**
-     * @description 角色授权配置
-     *
      * @var string
      */
     public $roleArn;
 
     /**
-     * @description 开始位置，可选 latest、at-unixtime， 默认 latest。
-     *
      * @var string
      */
     public $startingPosition;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startingUnixtime;
 
     /**
-     * @description 触发间隔，单位为秒，必须在 [3,600] 之间
-     *
      * @var int
      */
     public $triggerInterval;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCursorTimeRequest extends Model
 {
     /**
-     * @description 游标。
-     *
      * @var string
      */
     public $cursor;
 
     /**
-     * @description 固定为 cursor_time 。
-     *
      * @var string
      */
     public $type;

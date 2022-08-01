@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class EtlMeta extends Model
 {
     /**
-     * @description 是否启用
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description key
-     *
      * @var string
      */
     public $etlMetaKey;
 
     /**
-     * @description 名字
-     *
      * @var string
      */
     public $etlMetaName;
 
     /**
-     * @description tag
-     *
      * @var string
      */
     public $etlMetaTag;
 
     /**
-     * @description value
-     *
      * @var string
      */
     public $etlMetaValue;

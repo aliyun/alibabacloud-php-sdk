@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class Logstore extends Model
 {
     /**
-     * @description 接收日志后，自动添加客户端外网IP和日志到达时间
-     *
      * @var bool
      */
     public $appendMeta;
 
     /**
-     * @description 是否开启 shard 自动分裂。当写入数据量超过已有分区（Shard）写入服务能力且持续5分钟以上时，开启自动分裂功能可自动根据数据量增加分区数量
-     *
      * @var bool
      */
     public $autoSplit;
 
     /**
-     * @description 创建时间。
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description WebTracking功能支持快速采集各种浏览器以及iOS/Android/APP访问信息，默认关闭
-     *
      * @var bool
      */
     public $enableTracking;
 
     /**
-     * @description Encrypt configuration
-     *
      * @var EncryptConf
      */
     public $encryptConf;
 
     /**
-     * @description 必须在 (30, ttl) 之间
-     *
      * @var int
      */
     public $hotTtl;
 
     /**
-     * @description 最后修改时间。
-     *
      * @var int
      */
     public $lastModifyTime;
 
     /**
-     * @description logstore 的名称。
-     *
      * @var string
      */
     public $logstoreName;
 
     /**
-     * @description 最大 shard 数量。
-     *
      * @var int
      */
     public $maxSplitShard;
 
     /**
-     * @description shard 数量。
-     *
      * @var int
      */
     public $shardCount;
 
     /**
-     * @description telemetryType
-     *
      * @var string
      */
     public $telemetryType;
 
     /**
-     * @description 数据保存的天数。
-     *
      * @var int
      */
     public $ttl;

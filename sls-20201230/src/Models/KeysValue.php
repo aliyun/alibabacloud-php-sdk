@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class KeysValue extends Model
 {
     /**
-     * @description 大小写敏感
-     *
      * @var bool
      */
     public $caseSensitive;
 
     /**
-     * @description 包含中文
-     *
      * @var bool
      */
     public $chn;
 
     /**
-     * @description 字段的索引类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 别名
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @description 分词符列表。仅当type参数取值为text时，必须设置。
-     *
      * @var string[]
      */
     public $token;
 
     /**
-     * @description 开启统计
-     *
      * @var bool
      */
     public $docValue;

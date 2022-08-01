@@ -24,15 +24,11 @@ class ListEtlMetaRequest extends Model
     public $etlMetaTag;
 
     /**
-     * @description 默认值 0。
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description 默认值 200.
-     *
      * @var int
      */
     public $size;

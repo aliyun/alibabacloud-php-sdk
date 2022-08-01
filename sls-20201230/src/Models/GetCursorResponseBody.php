@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetCursorResponseBody extends Model
 {
     /**
-     * @description 游标位置。
-     *
      * @var string
      */
     public $cursor;

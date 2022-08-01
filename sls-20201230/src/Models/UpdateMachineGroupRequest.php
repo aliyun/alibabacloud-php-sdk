@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateMachineGroupRequest extends Model
 {
     /**
-     * @description 机器组属性。
-     *
      * @var groupAttribute
      */
     public $groupAttribute;
 
     /**
-     * @description 机器组名称。
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 机器组类型，可选值，默认为空。
-     *
      * @var string
      */
     public $groupType;
 
     /**
-     * @description 机器组标识种类，支持 ip 、userdefined 两种。
-     *
      * @var string
      */
     public $machineIdentifyType;
 
     /**
-     * @description 机器列表。
-     *
      * @var string[]
      */
     public $machineList;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description 精确过滤的标签的键。
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description 精确过滤的标签的值。
-     *
      * @var string
      */
     public $value;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetCheckPointRequest extends Model
 {
     /**
-     * @description Shard ID。
-     * 如果不指定Shard，则返回所有Shard的checkpoint。
      * @var int
      */
     public $shard;

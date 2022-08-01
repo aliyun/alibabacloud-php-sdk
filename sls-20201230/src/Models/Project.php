@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class Project extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 最后更新时间
-     *
      * @var string
      */
     public $lastModifyTime;
 
     /**
-     * @description owner
-     *
      * @var string
      */
     public $owner;
 
     /**
-     * @description Project名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 所在区域
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;

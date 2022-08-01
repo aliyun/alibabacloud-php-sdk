@@ -13,50 +13,36 @@ use AlibabaCloud\Tea\Model;
 class EtlJob extends Model
 {
     /**
-     * @description 是否启用
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $etlJobName;
 
     /**
-     * @description 运行函数配置
-     *
      * @var functionConfig
      */
     public $functionConfig;
 
     /**
-     * @description 参数列表
-     *
      * @var mixed[]
      */
     public $functionParameter;
 
     /**
-     * @description 日志配置
-     *
      * @var logConfig
      */
     public $logConfig;
 
     /**
-     * @description 配置数据来源
-     *
      * @var sourceConfig
      */
     public $sourceConfig;
 
     /**
-     * @description 触发器配置
-     *
      * @var triggerConfig
      */
     public $triggerConfig;

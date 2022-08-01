@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateLoggingRequest extends Model
 {
     /**
-     * @description 服务日志配置列表。
-     *
      * @var loggingDetails[]
      */
     public $loggingDetails;
 
     /**
-     * @description 服务日志要保存到的 project 名称。
-     *
      * @var string
      */
     public $loggingProject;

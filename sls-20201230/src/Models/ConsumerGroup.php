@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ConsumerGroup extends Model
 {
     /**
-     * @description 消费者名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否有序消费
-     *
      * @var bool
      */
     public $order;
 
     /**
-     * @description 消费超时时长，单位为妙
-     *
      * @var int
      */
     public $timeout;

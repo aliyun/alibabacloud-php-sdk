@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description 查询的资源的 id 列表。resource id 与 tags 应至少存在一个。
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源类型。目前取值范围：project。
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 精确查找时过滤的标签键值对。resource id 与 tags 应至少存在一个。
-     *
      * @var tags[]
      */
     public $tags;

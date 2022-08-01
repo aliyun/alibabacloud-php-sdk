@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class loggingDetails extends Model
 {
     /**
-     * @description logstore 名称。
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description logging 类型。
-     *
      * @var string
      */
     public $type;

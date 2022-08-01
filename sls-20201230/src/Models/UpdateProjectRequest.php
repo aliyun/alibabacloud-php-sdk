@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
-     * @description Project description
-     *
      * @var string
      */
     public $description;

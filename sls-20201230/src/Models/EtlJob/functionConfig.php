@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class functionConfig extends Model
 {
     /**
-     * @description 账户 id
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description endpoint
-     *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description 函数名
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description 函数 provider，可选值为 FunctionCompute 、CloudProdLogDispatch。当值为 FunctionCompute 时，endpoint、accountid 、regionName 、serviceName 、functionName 必选。
-     *
      * @var string
      */
     public $functionProvider;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description 角色授权
-     *
      * @var string
      */
     public $roleArn;
 
     /**
-     * @description 服务名
-     *
      * @var string
      */
     public $serviceName;

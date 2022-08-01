@@ -26,20 +26,30 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOdpsShipperRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOdpsShipperResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssExternalStoreRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssExternalStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssShipperRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOssShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlMetaResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
@@ -52,6 +62,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlMetaResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetIndexResponse;
@@ -64,6 +75,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperConfigResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
@@ -71,6 +85,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaNameRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaNameResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
@@ -82,6 +98,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListShardsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
@@ -108,8 +125,16 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOdpsShipperRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOdpsShipperResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssExternalStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssShipperRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOssShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateSavedSearchResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -789,6 +814,183 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param CreateOdpsShipperRequest $request
+     *
+     * @return CreateOdpsShipperResponse
+     */
+    public function createOdpsShipper($project, $logstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOdpsShipperWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param CreateOdpsShipperRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateOdpsShipperResponse
+     */
+    public function createOdpsShipperWithOptions($project, $logstore, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $body               = [];
+        if (!Utils::isUnset($request->shipperName)) {
+            $body['shipperName'] = $request->shipperName;
+        }
+        if (!Utils::isUnset($request->targetConfiguration)) {
+            $body['targetConfiguration'] = $request->targetConfiguration;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['targetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOdpsShipper',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateOdpsShipperResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $project
+     * @param CreateOssExternalStoreRequest $request
+     *
+     * @return CreateOssExternalStoreResponse
+     */
+    public function createOssExternalStore($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOssExternalStoreWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $project
+     * @param CreateOssExternalStoreRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateOssExternalStoreResponse
+     */
+    public function createOssExternalStoreWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->externalStoreName)) {
+            $body['externalStoreName'] = $request->externalStoreName;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $body['parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->storeType)) {
+            $body['storeType'] = $request->storeType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOssExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateOssExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param CreateOssShipperRequest $request
+     *
+     * @return CreateOssShipperResponse
+     */
+    public function createOssShipper($project, $logstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOssShipperWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param CreateOssShipperRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOssShipperResponse
+     */
+    public function createOssShipperWithOptions($project, $logstore, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $body               = [];
+        if (!Utils::isUnset($request->shipperName)) {
+            $body['shipperName'] = $request->shipperName;
+        }
+        if (!Utils::isUnset($request->targetConfiguration)) {
+            $body['targetConfiguration'] = $request->targetConfiguration;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['targetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOssShipper',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateOssShipperResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
      * @param CreateProjectRequest $request
      *
      * @return CreateProjectResponse
@@ -835,6 +1037,63 @@ class Sls extends OpenApiClient
         ]);
 
         return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $project
+     * @param CreateRdsExternalStoreRequest $request
+     *
+     * @return CreateRdsExternalStoreResponse
+     */
+    public function createRdsExternalStore($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRdsExternalStoreWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $project
+     * @param CreateRdsExternalStoreRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateRdsExternalStoreResponse
+     */
+    public function createRdsExternalStoreWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->externalStoreName)) {
+            $body['externalStoreName'] = $request->externalStoreName;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $body['parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->storeType)) {
+            $body['storeType'] = $request->storeType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRdsExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateRdsExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1050,6 +1309,52 @@ class Sls extends OpenApiClient
         ]);
 
         return DeleteEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $externalStoreName
+     *
+     * @return DeleteExternalStoreResponse
+     */
+    public function deleteExternalStore($project, $externalStoreName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $externalStoreName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteExternalStoreResponse
+     */
+    public function deleteExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores/' . $externalStoreName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1320,6 +1625,55 @@ class Sls extends OpenApiClient
         ]);
 
         return DeleteSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $logstore
+     * @param string $shipperName
+     *
+     * @return DeleteShipperResponse
+     */
+    public function deleteShipper($project, $logstore, $shipperName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $logstore
+     * @param string         $shipperName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteShipperResponse
+     */
+    public function deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteShipper',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteShipperResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1712,6 +2066,52 @@ class Sls extends OpenApiClient
         ]);
 
         return GetEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $externalStoreName
+     *
+     * @return GetExternalStoreResponse
+     */
+    public function getExternalStore($project, $externalStoreName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $externalStoreName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetExternalStoreResponse
+     */
+    public function getExternalStoreWithOptions($project, $externalStoreName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores/' . $externalStoreName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2185,6 +2585,124 @@ class Sls extends OpenApiClient
     /**
      * @param string $project
      * @param string $logstore
+     * @param string $shipperName
+     *
+     * @return GetShipperConfigResponse
+     */
+    public function getShipperConfig($project, $logstore, $shipperName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getShipperConfigWithOptions($project, $logstore, $shipperName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $logstore
+     * @param string         $shipperName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetShipperConfigResponse
+     */
+    public function getShipperConfigWithOptions($project, $logstore, $shipperName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetShipperConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetShipperConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $shipperName
+     * @param GetShipperStatusRequest $request
+     *
+     * @return GetShipperStatusResponse
+     */
+    public function getShipperStatus($project, $logstore, $shipperName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $shipperName
+     * @param GetShipperStatusRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetShipperStatusResponse
+     */
+    public function getShipperStatusWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
+        $query              = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['from'] = $request->from;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['to'] = $request->to;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetShipperStatus',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '/tasks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetShipperStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $logstore
      *
      * @return ListConsumerGroupResponse
      */
@@ -2400,6 +2918,63 @@ class Sls extends OpenApiClient
         ]);
 
         return ListEtlMetaNameResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $project
+     * @param ListExternalStoreRequest $request
+     *
+     * @return ListExternalStoreResponse
+     */
+    public function listExternalStore($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listExternalStoreWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $project
+     * @param ListExternalStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListExternalStoreResponse
+     */
+    public function listExternalStoreWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->externalStoreName)) {
+            $query['externalStoreName'] = $request->externalStoreName;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->sizs)) {
+            $query['sizs'] = $request->sizs;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2726,6 +3301,52 @@ class Sls extends OpenApiClient
         ]);
 
         return ListShardsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $logstore
+     *
+     * @return ListShipperResponse
+     */
+    public function listShipper($project, $logstore)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listShipperWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $logstore
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListShipperResponse
+     */
+    public function listShipperWithOptions($project, $logstore, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListShipper',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListShipperResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3532,6 +4153,192 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param string                   $shipperName
+     * @param UpdateOdpsShipperRequest $request
+     *
+     * @return UpdateOdpsShipperResponse
+     */
+    public function updateOdpsShipper($project, $logstore, $shipperName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOdpsShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param string                   $shipperName
+     * @param UpdateOdpsShipperRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateOdpsShipperResponse
+     */
+    public function updateOdpsShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
+        $body               = [];
+        if (!Utils::isUnset($request->shipperName)) {
+            $body['shipperName'] = $request->shipperName;
+        }
+        if (!Utils::isUnset($request->targetConfiguration)) {
+            $body['targetConfiguration'] = $request->targetConfiguration;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['targetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOdpsShipper',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateOdpsShipperResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $project
+     * @param string                        $externalStoreName
+     * @param UpdateOssExternalStoreRequest $request
+     *
+     * @return UpdateOssExternalStoreResponse
+     */
+    public function updateOssExternalStore($project, $externalStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $project
+     * @param string                        $externalStoreName
+     * @param UpdateOssExternalStoreRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateOssExternalStoreResponse
+     */
+    public function updateOssExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
+        $body               = [];
+        if (!Utils::isUnset($request->externalStoreName)) {
+            $body['externalStoreName'] = $request->externalStoreName;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $body['parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->storeType)) {
+            $body['storeType'] = $request->storeType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOssExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores/' . $externalStoreName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateOssExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $shipperName
+     * @param UpdateOssShipperRequest $request
+     *
+     * @return UpdateOssShipperResponse
+     */
+    public function updateOssShipper($project, $logstore, $shipperName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOssShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $project
+     * @param string                  $logstore
+     * @param string                  $shipperName
+     * @param UpdateOssShipperRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateOssShipperResponse
+     */
+    public function updateOssShipperWithOptions($project, $logstore, $shipperName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
+        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
+        $body               = [];
+        if (!Utils::isUnset($request->shipperName)) {
+            $body['shipperName'] = $request->shipperName;
+        }
+        if (!Utils::isUnset($request->targetConfiguration)) {
+            $body['targetConfiguration'] = $request->targetConfiguration;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['targetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOssShipper',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateOssShipperResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
      * @param string               $project
      * @param UpdateProjectRequest $request
      *
@@ -3580,6 +4387,66 @@ class Sls extends OpenApiClient
         ]);
 
         return UpdateProjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $project
+     * @param string                        $externalStoreName
+     * @param UpdateRdsExternalStoreRequest $request
+     *
+     * @return UpdateRdsExternalStoreResponse
+     */
+    public function updateRdsExternalStore($project, $externalStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $project
+     * @param string                        $externalStoreName
+     * @param UpdateRdsExternalStoreRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateRdsExternalStoreResponse
+     */
+    public function updateRdsExternalStoreWithOptions($project, $externalStoreName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
+        $body               = [];
+        if (!Utils::isUnset($request->externalStoreName)) {
+            $body['externalStoreName'] = $request->externalStoreName;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $body['parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->storeType)) {
+            $body['storeType'] = $request->storeType;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRdsExternalStore',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/externalstores/' . $externalStoreName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateRdsExternalStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description 下一个查询开始Token。
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 返回的标签列表。
-     *
      * @var tagResources[]
      */
     public $tagResources;
