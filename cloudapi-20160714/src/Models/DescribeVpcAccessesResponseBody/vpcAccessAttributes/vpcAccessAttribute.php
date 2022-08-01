@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class vpcAccessAttribute extends Model
 {
     /**
-     * @description VPC授权的创建时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description VPC授权的描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description VPC中的后端服务信息
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description VPC授权名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description VPC中的后端服务端口
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description 地域id
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description vpc授权ID
-     *
      * @var string
      */
     public $vpcAccessId;
 
     /**
-     * @description VPC的ID
-     *
      * @var string
      */
     public $vpcId;

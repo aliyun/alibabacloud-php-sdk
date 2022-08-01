@@ -15,29 +15,21 @@ class DescribeApisByAppResponseBody extends Model
     public $appApiRelationInfos;
 
     /**
-     * @description 当前页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页条目
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总条目数
-     *
      * @var int
      */
     public $totalCount;

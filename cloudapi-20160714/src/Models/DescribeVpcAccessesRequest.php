@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description VPC授权名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 当前页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页展示条目
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 端口号
-     *
      * @var string
      */
     public $port;
@@ -49,15 +39,11 @@ class DescribeVpcAccessesRequest extends Model
     public $securityToken;
 
     /**
-     * @description Vpc授权ID
-     *
      * @var string
      */
     public $vpcAccessId;
 
     /**
-     * @description Vpc ID
-     *
      * @var string
      */
     public $vpcId;

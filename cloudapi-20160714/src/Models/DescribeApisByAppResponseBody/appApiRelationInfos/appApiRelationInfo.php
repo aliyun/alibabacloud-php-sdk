@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class appApiRelationInfo extends Model
 {
     /**
-     * @description API的ID
-     *
      * @var string
      */
     public $apiId;
 
     /**
-     * @description API名称
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description 授权有效时间
-     *
      * @var string
      */
     public $authVaildTime;
 
     /**
-     * @description 授权来源
-     *
      * @var string
      */
     public $authorizationSource;
 
     /**
-     * @description 授权时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 分组ID
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 分组名称
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description API的请求HTTP Method
-     *
      * @var string
      */
     public $method;
@@ -77,22 +59,16 @@ class appApiRelationInfo extends Model
     public $operator;
 
     /**
-     * @description API的请求路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 地区ID
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 环境名称
-     *
      * @var string
      */
     public $stageName;

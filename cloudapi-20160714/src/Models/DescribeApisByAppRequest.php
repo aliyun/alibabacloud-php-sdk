@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByAppRequest extends Model
 {
     /**
-     * @description API名称
-     *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description API的ID
-     *
      * @var string
      */
     public $apiUid;
 
     /**
-     * @description APP的ID
-     *
      * @var int
      */
     public $appId;
@@ -35,29 +29,21 @@ class DescribeApisByAppRequest extends Model
     public $description;
 
     /**
-     * @description API的请求HTTP Method
-     *
      * @var string
      */
     public $method;
 
     /**
-     * @description 当前页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页条目
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description API请求路径
-     *
      * @var string
      */
     public $path;
