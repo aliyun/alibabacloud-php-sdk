@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowJobResponseBody extends Model
 {
     /**
-     * @description API调用结果：true（修改成功），false（修改失败）
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;

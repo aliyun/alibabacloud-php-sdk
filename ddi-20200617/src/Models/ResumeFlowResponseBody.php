@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ResumeFlowResponseBody extends Model
 {
     /**
-     * @description 返回执行结果。
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;

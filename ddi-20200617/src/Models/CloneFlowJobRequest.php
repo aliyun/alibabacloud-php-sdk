@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CloneFlowJobRequest extends Model
 {
     /**
-     * @description 克隆的目标作业ID。您可以调用ListFlowJob查看。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 克隆的目标作业名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 克隆的目标作业所属项目。您可以调用ListFlowProject查看项目的ID。
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 地域ID。您可以调用DescribeRegions查看最新的阿里云地域列表。
-     *
      * @var string
      */
     public $regionId;

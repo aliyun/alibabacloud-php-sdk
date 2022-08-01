@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListFlowJobHistoryResponseBody extends Model
 {
     /**
-     * @description 作业实例列表。
-     *
      * @var nodeInstances
      */
     public $nodeInstances;
 
     /**
-     * @description 当前页码。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页查询时设置的每页行数。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 记录总数。
-     *
      * @var int
      */
     public $total;

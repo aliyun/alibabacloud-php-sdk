@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RerunFlowResponseBody extends Model
 {
     /**
-     * @description 返回执行结果，包含如下：true: 重试工作流成功，false: 重试工作流失败。
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;

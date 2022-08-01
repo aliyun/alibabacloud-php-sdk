@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitFlowResponseBody extends Model
 {
     /**
-     * @description 过期参数。
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description 工作流实例ID。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 过期参数。
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;

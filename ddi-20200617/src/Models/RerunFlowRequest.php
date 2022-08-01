@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RerunFlowRequest extends Model
 {
     /**
-     * @description 工作流实例ID。您可以调用ListFlowInstance查看工作流实例ID。
-     *
      * @var string
      */
     public $flowInstanceId;
 
     /**
-     * @description 项目ID。您可以调用ListFlowProject查看项目的ID。
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 是否只重试失败节点。
-     *
      * @var bool
      */
     public $reRunFail;
 
     /**
-     * @description 地域ID。您可以调用DescribeRegions查看最新的阿里云地域列表。
-     *
      * @var string
      */
     public $regionId;

@@ -15,29 +15,21 @@ class ListFlowJobsResponseBody extends Model
     public $jobList;
 
     /**
-     * @description 当前页数。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页的作业数量。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 作业数量。
-     *
      * @var int
      */
     public $total;

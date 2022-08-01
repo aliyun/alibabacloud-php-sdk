@@ -20,8 +20,6 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowProjectUserRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowProjectUserResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateFlowResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateLibraryRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\CreateLibraryResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowCategoryRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowCategoryResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowProjectRequest;
@@ -30,8 +28,6 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowProjectUserRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowProjectUserResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteFlowResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteLibrariesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\DeleteLibrariesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Request;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeClusterV2Response;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowCategoryTreeRequest;
@@ -44,12 +40,6 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowProjectRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowProjectResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeFlowResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryDetailRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryDetailResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryInstallTaskDetailRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\DescribeLibraryInstallTaskDetailResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\InstallLibrariesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\InstallLibrariesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\KillFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\KillFlowJobResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListClustersRequest;
@@ -64,14 +54,6 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectUserRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowProjectUserResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ListFlowResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibrariesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibrariesResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryInstallTasksRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryInstallTasksResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryStatusRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListLibraryStatusResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListTagResourcesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowForWebRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowForWebResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\ModifyFlowJobRequest;
@@ -88,14 +70,6 @@ use AlibabaCloud\SDK\Ddi\V20200617\Models\SubmitFlowJobRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\SubmitFlowJobResponse;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\SubmitFlowRequest;
 use AlibabaCloud\SDK\Ddi\V20200617\Models\SubmitFlowResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\TagResourcesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\TagResourcesResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\UninstallLibrariesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\UninstallLibrariesResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\UntagResourcesRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\UntagResourcesResponse;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\UpdateLibraryInstallTaskStatusRequest;
-use AlibabaCloud\SDK\Ddi\V20200617\Models\UpdateLibraryInstallTaskStatusResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -747,76 +721,6 @@ class Ddi extends OpenApiClient
     }
 
     /**
-     * @param CreateLibraryRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateLibraryResponse
-     */
-    public function createLibraryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
-        }
-        if (!Utils::isUnset($request->libraryVersion)) {
-            $query['LibraryVersion'] = $request->libraryVersion;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->properties)) {
-            $query['Properties'] = $request->properties;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
-        }
-        if (!Utils::isUnset($request->sourceLocation)) {
-            $query['SourceLocation'] = $request->sourceLocation;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateLibrary',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateLibraryRequest $request
-     *
-     * @return CreateLibraryResponse
-     */
-    public function createLibrary($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createLibraryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteFlowRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1007,55 +911,6 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFlowProjectUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteLibrariesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteLibrariesResponse
-     */
-    public function deleteLibrariesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->libraryBizIdList)) {
-            $query['LibraryBizIdList'] = $request->libraryBizIdList;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteLibraries',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteLibrariesRequest $request
-     *
-     * @return DeleteLibrariesResponse
-     */
-    public function deleteLibraries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteLibrariesWithOptions($request, $runtime);
     }
 
     /**
@@ -1356,156 +1211,6 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFlowProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLibraryDetailRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeLibraryDetailResponse
-     */
-    public function describeLibraryDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->libraryBizId)) {
-            $query['LibraryBizId'] = $request->libraryBizId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLibraryDetail',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLibraryDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLibraryDetailRequest $request
-     *
-     * @return DescribeLibraryDetailResponse
-     */
-    public function describeLibraryDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLibraryDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLibraryInstallTaskDetailRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeLibraryInstallTaskDetailResponse
-     */
-    public function describeLibraryInstallTaskDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->taskBizId)) {
-            $query['TaskBizId'] = $request->taskBizId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLibraryInstallTaskDetail',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLibraryInstallTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLibraryInstallTaskDetailRequest $request
-     *
-     * @return DescribeLibraryInstallTaskDetailResponse
-     */
-    public function describeLibraryInstallTaskDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLibraryInstallTaskDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param InstallLibrariesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return InstallLibrariesResponse
-     */
-    public function installLibrariesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterBizIdList)) {
-            $query['ClusterBizIdList'] = $request->clusterBizIdList;
-        }
-        if (!Utils::isUnset($request->libraryBizId)) {
-            $query['LibraryBizId'] = $request->libraryBizId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InstallLibraries',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return InstallLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param InstallLibrariesRequest $request
-     *
-     * @return InstallLibrariesResponse
-     */
-    public function installLibraries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->installLibrariesWithOptions($request, $runtime);
     }
 
     /**
@@ -1960,262 +1665,6 @@ class Ddi extends OpenApiClient
     }
 
     /**
-     * @param ListLibrariesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListLibrariesResponse
-     */
-    public function listLibrariesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterBizId)) {
-            $query['ClusterBizId'] = $request->clusterBizId;
-        }
-        if (!Utils::isUnset($request->currentSize)) {
-            $query['CurrentSize'] = $request->currentSize;
-        }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->orderField)) {
-            $query['OrderField'] = $request->orderField;
-        }
-        if (!Utils::isUnset($request->orderMode)) {
-            $query['OrderMode'] = $request->orderMode;
-        }
-        if (!Utils::isUnset($request->pageCount)) {
-            $query['PageCount'] = $request->pageCount;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListLibraries',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListLibrariesRequest $request
-     *
-     * @return ListLibrariesResponse
-     */
-    public function listLibraries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listLibrariesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListLibraryInstallTasksRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListLibraryInstallTasksResponse
-     */
-    public function listLibraryInstallTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterBizId)) {
-            $query['ClusterBizId'] = $request->clusterBizId;
-        }
-        if (!Utils::isUnset($request->currentSize)) {
-            $query['CurrentSize'] = $request->currentSize;
-        }
-        if (!Utils::isUnset($request->libraryBizId)) {
-            $query['LibraryBizId'] = $request->libraryBizId;
-        }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->orderField)) {
-            $query['OrderField'] = $request->orderField;
-        }
-        if (!Utils::isUnset($request->orderMode)) {
-            $query['OrderMode'] = $request->orderMode;
-        }
-        if (!Utils::isUnset($request->pageCount)) {
-            $query['PageCount'] = $request->pageCount;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListLibraryInstallTasks',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListLibraryInstallTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListLibraryInstallTasksRequest $request
-     *
-     * @return ListLibraryInstallTasksResponse
-     */
-    public function listLibraryInstallTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listLibraryInstallTasksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListLibraryStatusRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListLibraryStatusResponse
-     */
-    public function listLibraryStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterBizId)) {
-            $query['ClusterBizId'] = $request->clusterBizId;
-        }
-        if (!Utils::isUnset($request->currentSize)) {
-            $query['CurrentSize'] = $request->currentSize;
-        }
-        if (!Utils::isUnset($request->libraryBizId)) {
-            $query['LibraryBizId'] = $request->libraryBizId;
-        }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->orderField)) {
-            $query['OrderField'] = $request->orderField;
-        }
-        if (!Utils::isUnset($request->orderMode)) {
-            $query['OrderMode'] = $request->orderMode;
-        }
-        if (!Utils::isUnset($request->pageCount)) {
-            $query['PageCount'] = $request->pageCount;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListLibraryStatus',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListLibraryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListLibraryStatusRequest $request
-     *
-     * @return ListLibraryStatusResponse
-     */
-    public function listLibraryStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listLibraryStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
-     */
-    public function listTagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyFlowForWebRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2352,6 +1801,9 @@ class Ddi extends OpenApiClient
         if (!Utils::isUnset($request->knoxUser)) {
             $query['KnoxUser'] = $request->knoxUser;
         }
+        if (!Utils::isUnset($request->maxRetry)) {
+            $query['MaxRetry'] = $request->maxRetry;
+        }
         if (!Utils::isUnset($request->mode)) {
             $query['Mode'] = $request->mode;
         }
@@ -2375,6 +1827,9 @@ class Ddi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceList)) {
             $query['ResourceList'] = $request->resourceList;
+        }
+        if (!Utils::isUnset($request->retryInterval)) {
+            $query['RetryInterval'] = $request->retryInterval;
         }
         if (!Utils::isUnset($request->retryPolicy)) {
             $query['RetryPolicy'] = $request->retryPolicy;
@@ -2725,228 +2180,5 @@ class Ddi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitFlowJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UninstallLibrariesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UninstallLibrariesResponse
-     */
-    public function uninstallLibrariesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterBizIdList)) {
-            $query['ClusterBizIdList'] = $request->clusterBizIdList;
-        }
-        if (!Utils::isUnset($request->libraryBizId)) {
-            $query['LibraryBizId'] = $request->libraryBizId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UninstallLibraries',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UninstallLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UninstallLibrariesRequest $request
-     *
-     * @return UninstallLibrariesResponse
-     */
-    public function uninstallLibraries($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uninstallLibrariesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
-     */
-    public function untagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
-     */
-    public function untagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->untagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateLibraryInstallTaskStatusRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpdateLibraryInstallTaskStatusResponse
-     */
-    public function updateLibraryInstallTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskBizId)) {
-            $query['TaskBizId'] = $request->taskBizId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateLibraryInstallTaskStatus',
-            'version'     => '2020-06-17',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateLibraryInstallTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateLibraryInstallTaskStatusRequest $request
-     *
-     * @return UpdateLibraryInstallTaskStatusResponse
-     */
-    public function updateLibraryInstallTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateLibraryInstallTaskStatusWithOptions($request, $runtime);
     }
 }

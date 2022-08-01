@@ -9,29 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowCategoryResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $flowId;
-
-    /**
-     * @var string
-     */
-    public $jobId;
+    public $data;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $result;
     protected $_name = [
-        'flowId'    => 'FlowId',
-        'jobId'     => 'JobId',
+        'data'      => 'Data',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
     ];
 
     public function validate()
@@ -41,17 +29,11 @@ class DeleteFlowCategoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -65,17 +47,11 @@ class DeleteFlowCategoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
         }
 
         return $model;

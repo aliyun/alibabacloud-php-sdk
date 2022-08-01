@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ListFlowRequest extends Model
 {
     /**
-     * @description 集群ID。您可以调用ListClusters查看集群的ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 工作流ID。您可以调用ListFlowInstance查看工作流ID。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 作业ID。您可以调用ListFlowJob查看。
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 工作流名称。您可以调用ListFlowInstance查看。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 页码。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页查询数量。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 是否调度。
-     *
      * @var bool
      */
     public $periodic;
 
     /**
-     * @description 项目ID。您可以调用ListFlowProject查看项目的ID。
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 地域ID。您可以调用DescribeRegions查看最新的阿里云地域列表。
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 状态：  STOP_SCHEDULE（停止调度） UNDER_SCHEDULE（调度中）
-     *
      * @var string
      */
     public $status;

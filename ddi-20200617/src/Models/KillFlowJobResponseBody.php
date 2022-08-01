@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class KillFlowJobResponseBody extends Model
 {
     /**
-     * @description 返回执行结果，包含如下：true（执行成功），false（执行失败）
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
