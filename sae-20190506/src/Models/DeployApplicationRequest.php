@@ -14,8 +14,6 @@ class DeployApplicationRequest extends Model
     public $acrAssumeRoleArn;
 
     /**
-     * @description ACR 企业版实例 ID
-     *
      * @var string
      */
     public $acrInstanceId;
@@ -26,8 +24,6 @@ class DeployApplicationRequest extends Model
     public $appId;
 
     /**
-     * @description 是否绑定EIP
-     *
      * @var bool
      */
     public $associateEip;
@@ -78,8 +74,6 @@ class DeployApplicationRequest extends Model
     public $enableAhas;
 
     /**
-     * @description 是否开启发布流量灰度规则
-     *
      * @var bool
      */
     public $enableGreyTagRoute;
@@ -117,21 +111,6 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
-    public $kafkaEndpoint;
-
-    /**
-     * @var string
-     */
-    public $kafkaInstanceId;
-
-    /**
-     * @var string
-     */
-    public $kafkaLogfileConfig;
-
-    /**
-     * @var string
-     */
     public $liveness;
 
     /**
@@ -157,35 +136,19 @@ class DeployApplicationRequest extends Model
     /**
      * @var string
      */
-    public $mseFeatureConfig;
-
-    /**
-     * @var string
-     */
     public $nasId;
 
     /**
-     * @var bool
-     */
-    public $openCollectToKafka;
-
-    /**
-     * @description OSS使用的AKID
-     *
      * @var string
      */
     public $ossAkId;
 
     /**
-     * @description OSS AKID对应的secret
-     *
      * @var string
      */
     public $ossAkSecret;
 
     /**
-     * @description OSS挂载描述信息
-     *
      * @var string
      */
     public $ossMountDescs;
@@ -285,17 +248,12 @@ class DeployApplicationRequest extends Model
         'jarStartOptions'                  => 'JarStartOptions',
         'jdk'                              => 'Jdk',
         'kafkaConfigs'                     => 'KafkaConfigs',
-        'kafkaEndpoint'                    => 'KafkaEndpoint',
-        'kafkaInstanceId'                  => 'KafkaInstanceId',
-        'kafkaLogfileConfig'               => 'KafkaLogfileConfig',
         'liveness'                         => 'Liveness',
         'minReadyInstanceRatio'            => 'MinReadyInstanceRatio',
         'minReadyInstances'                => 'MinReadyInstances',
         'mountDesc'                        => 'MountDesc',
         'mountHost'                        => 'MountHost',
-        'mseFeatureConfig'                 => 'MseFeatureConfig',
         'nasId'                            => 'NasId',
-        'openCollectToKafka'               => 'OpenCollectToKafka',
         'ossAkId'                          => 'OssAkId',
         'ossAkSecret'                      => 'OssAkSecret',
         'ossMountDescs'                    => 'OssMountDescs',
@@ -383,15 +341,6 @@ class DeployApplicationRequest extends Model
         if (null !== $this->kafkaConfigs) {
             $res['KafkaConfigs'] = $this->kafkaConfigs;
         }
-        if (null !== $this->kafkaEndpoint) {
-            $res['KafkaEndpoint'] = $this->kafkaEndpoint;
-        }
-        if (null !== $this->kafkaInstanceId) {
-            $res['KafkaInstanceId'] = $this->kafkaInstanceId;
-        }
-        if (null !== $this->kafkaLogfileConfig) {
-            $res['KafkaLogfileConfig'] = $this->kafkaLogfileConfig;
-        }
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
         }
@@ -407,14 +356,8 @@ class DeployApplicationRequest extends Model
         if (null !== $this->mountHost) {
             $res['MountHost'] = $this->mountHost;
         }
-        if (null !== $this->mseFeatureConfig) {
-            $res['MseFeatureConfig'] = $this->mseFeatureConfig;
-        }
         if (null !== $this->nasId) {
             $res['NasId'] = $this->nasId;
-        }
-        if (null !== $this->openCollectToKafka) {
-            $res['OpenCollectToKafka'] = $this->openCollectToKafka;
         }
         if (null !== $this->ossAkId) {
             $res['OssAkId'] = $this->ossAkId;
@@ -542,15 +485,6 @@ class DeployApplicationRequest extends Model
         if (isset($map['KafkaConfigs'])) {
             $model->kafkaConfigs = $map['KafkaConfigs'];
         }
-        if (isset($map['KafkaEndpoint'])) {
-            $model->kafkaEndpoint = $map['KafkaEndpoint'];
-        }
-        if (isset($map['KafkaInstanceId'])) {
-            $model->kafkaInstanceId = $map['KafkaInstanceId'];
-        }
-        if (isset($map['KafkaLogfileConfig'])) {
-            $model->kafkaLogfileConfig = $map['KafkaLogfileConfig'];
-        }
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
         }
@@ -566,14 +500,8 @@ class DeployApplicationRequest extends Model
         if (isset($map['MountHost'])) {
             $model->mountHost = $map['MountHost'];
         }
-        if (isset($map['MseFeatureConfig'])) {
-            $model->mseFeatureConfig = $map['MseFeatureConfig'];
-        }
         if (isset($map['NasId'])) {
             $model->nasId = $map['NasId'];
-        }
-        if (isset($map['OpenCollectToKafka'])) {
-            $model->openCollectToKafka = $map['OpenCollectToKafka'];
         }
         if (isset($map['OssAkId'])) {
             $model->ossAkId = $map['OssAkId'];

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListGreyTagRouteRequest extends Model
 {
     /**
-     * @description 应用ID
-     *
      * @var string
      */
     public $appId;

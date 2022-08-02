@@ -24,8 +24,6 @@ class items extends Model
     public $index;
 
     /**
-     * @description abandon
-     *
      * @var string
      */
     public $name;
@@ -36,8 +34,6 @@ class items extends Model
     public $operator;
 
     /**
-     * @description abandon
-     *
      * @var string
      */
     public $type;

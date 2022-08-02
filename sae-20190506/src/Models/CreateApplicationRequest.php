@@ -14,8 +14,6 @@ class CreateApplicationRequest extends Model
     public $acrAssumeRoleArn;
 
     /**
-     * @description ACR 企业版实例 ID
-     *
      * @var string
      */
     public $acrInstanceId;
@@ -31,8 +29,6 @@ class CreateApplicationRequest extends Model
     public $appName;
 
     /**
-     * @description 是否绑定EIP
-     *
      * @var bool
      */
     public $associateEip;
@@ -110,21 +106,6 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
-    public $kafkaEndpoint;
-
-    /**
-     * @var string
-     */
-    public $kafkaInstanceId;
-
-    /**
-     * @var string
-     */
-    public $kafkaLogfileConfig;
-
-    /**
-     * @var string
-     */
     public $liveness;
 
     /**
@@ -153,27 +134,16 @@ class CreateApplicationRequest extends Model
     public $nasId;
 
     /**
-     * @var bool
-     */
-    public $openCollectToKafka;
-
-    /**
-     * @description OSS使用的AKID
-     *
      * @var string
      */
     public $ossAkId;
 
     /**
-     * @description OSS AKID对应的secret
-     *
      * @var string
      */
     public $ossAkSecret;
 
     /**
-     * @description OSS挂载描述信息
-     *
      * @var string
      */
     public $ossMountDescs;
@@ -277,11 +247,6 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $webContainer;
-
-    /**
-     * @var string
-     */
-    public $mseFeatureConfig;
     protected $_name = [
         'acrAssumeRoleArn'              => 'AcrAssumeRoleArn',
         'acrInstanceId'                 => 'AcrInstanceId',
@@ -302,16 +267,12 @@ class CreateApplicationRequest extends Model
         'jarStartOptions'               => 'JarStartOptions',
         'jdk'                           => 'Jdk',
         'kafkaConfigs'                  => 'KafkaConfigs',
-        'kafkaEndpoint'                 => 'KafkaEndpoint',
-        'kafkaInstanceId'               => 'KafkaInstanceId',
-        'kafkaLogfileConfig'            => 'KafkaLogfileConfig',
         'liveness'                      => 'Liveness',
         'memory'                        => 'Memory',
         'mountDesc'                     => 'MountDesc',
         'mountHost'                     => 'MountHost',
         'namespaceId'                   => 'NamespaceId',
         'nasId'                         => 'NasId',
-        'openCollectToKafka'            => 'OpenCollectToKafka',
         'ossAkId'                       => 'OssAkId',
         'ossAkSecret'                   => 'OssAkSecret',
         'ossMountDescs'                 => 'OssMountDescs',
@@ -335,7 +296,6 @@ class CreateApplicationRequest extends Model
         'vpcId'                         => 'VpcId',
         'warStartOptions'               => 'WarStartOptions',
         'webContainer'                  => 'WebContainer',
-        'mseFeatureConfig'              => 'mseFeatureConfig',
     ];
 
     public function validate()
@@ -402,15 +362,6 @@ class CreateApplicationRequest extends Model
         if (null !== $this->kafkaConfigs) {
             $res['KafkaConfigs'] = $this->kafkaConfigs;
         }
-        if (null !== $this->kafkaEndpoint) {
-            $res['KafkaEndpoint'] = $this->kafkaEndpoint;
-        }
-        if (null !== $this->kafkaInstanceId) {
-            $res['KafkaInstanceId'] = $this->kafkaInstanceId;
-        }
-        if (null !== $this->kafkaLogfileConfig) {
-            $res['KafkaLogfileConfig'] = $this->kafkaLogfileConfig;
-        }
         if (null !== $this->liveness) {
             $res['Liveness'] = $this->liveness;
         }
@@ -428,9 +379,6 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->nasId) {
             $res['NasId'] = $this->nasId;
-        }
-        if (null !== $this->openCollectToKafka) {
-            $res['OpenCollectToKafka'] = $this->openCollectToKafka;
         }
         if (null !== $this->ossAkId) {
             $res['OssAkId'] = $this->ossAkId;
@@ -501,9 +449,6 @@ class CreateApplicationRequest extends Model
         if (null !== $this->webContainer) {
             $res['WebContainer'] = $this->webContainer;
         }
-        if (null !== $this->mseFeatureConfig) {
-            $res['mseFeatureConfig'] = $this->mseFeatureConfig;
-        }
 
         return $res;
     }
@@ -573,15 +518,6 @@ class CreateApplicationRequest extends Model
         if (isset($map['KafkaConfigs'])) {
             $model->kafkaConfigs = $map['KafkaConfigs'];
         }
-        if (isset($map['KafkaEndpoint'])) {
-            $model->kafkaEndpoint = $map['KafkaEndpoint'];
-        }
-        if (isset($map['KafkaInstanceId'])) {
-            $model->kafkaInstanceId = $map['KafkaInstanceId'];
-        }
-        if (isset($map['KafkaLogfileConfig'])) {
-            $model->kafkaLogfileConfig = $map['KafkaLogfileConfig'];
-        }
         if (isset($map['Liveness'])) {
             $model->liveness = $map['Liveness'];
         }
@@ -599,9 +535,6 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['NasId'])) {
             $model->nasId = $map['NasId'];
-        }
-        if (isset($map['OpenCollectToKafka'])) {
-            $model->openCollectToKafka = $map['OpenCollectToKafka'];
         }
         if (isset($map['OssAkId'])) {
             $model->ossAkId = $map['OssAkId'];
@@ -671,9 +604,6 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['WebContainer'])) {
             $model->webContainer = $map['WebContainer'];
-        }
-        if (isset($map['mseFeatureConfig'])) {
-            $model->mseFeatureConfig = $map['mseFeatureConfig'];
         }
 
         return $model;

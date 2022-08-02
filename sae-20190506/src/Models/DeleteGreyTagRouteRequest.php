@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteGreyTagRouteRequest extends Model
 {
     /**
-     * @description 规则ID
-     *
      * @var int
      */
     public $greyTagRouteId;

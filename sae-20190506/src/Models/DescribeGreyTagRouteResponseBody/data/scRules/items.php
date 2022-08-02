@@ -14,15 +14,11 @@ class items extends Model
     public $cond;
 
     /**
-     * @description abandon
-     *
      * @var string
      */
     public $expr;
 
     /**
-     * @description abandon
-     *
      * @var int
      */
     public $index;

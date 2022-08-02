@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppServiceDetailRequest extends Model
 {
     /**
-     * @description mse 的 appId
-     *
      * @var string
      */
     public $appId;

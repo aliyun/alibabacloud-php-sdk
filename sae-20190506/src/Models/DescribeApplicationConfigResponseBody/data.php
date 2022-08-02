@@ -18,8 +18,6 @@ class data extends Model
     public $acrAssumeRoleArn;
 
     /**
-     * @description ACR 企业版实例 ID
-     *
      * @var string
      */
     public $acrInstanceId;
@@ -40,8 +38,6 @@ class data extends Model
     public $appName;
 
     /**
-     * @description 是否绑定EIP
-     *
      * @var bool
      */
     public $associateEip;
@@ -87,8 +83,6 @@ class data extends Model
     public $enableAhas;
 
     /**
-     * @description 开启流量灰度
-     *
      * @var bool
      */
     public $enableGreyTagRoute;
@@ -154,8 +148,6 @@ class data extends Model
     public $mountHost;
 
     /**
-     * @description 对应MSE产品侧应用ID
-     *
      * @var string
      */
     public $mseApplicationId;
@@ -176,22 +168,16 @@ class data extends Model
     public $nasId;
 
     /**
-     * @description OSS读写的AK
-     *
      * @var string
      */
     public $ossAkId;
 
     /**
-     * @description OSS读写的secret
-     *
      * @var string
      */
     public $ossAkSecret;
 
     /**
-     * @description OSS挂载描述信息
-     *
      * @var ossMountDescs[]
      */
     public $ossMountDescs;

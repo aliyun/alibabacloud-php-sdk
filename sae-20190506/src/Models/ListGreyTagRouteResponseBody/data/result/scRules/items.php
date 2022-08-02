@@ -19,8 +19,6 @@ class items extends Model
     public $expr;
 
     /**
-     * @description abandon
-     *
      * @var int
      */
     public $index;

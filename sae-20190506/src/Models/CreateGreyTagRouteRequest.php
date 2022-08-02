@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateGreyTagRouteRequest extends Model
 {
     /**
-     * @description 应用ID
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 规则名称
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Dubbo规则
-     *
      * @var string
      */
     public $dubboRules;
 
     /**
-     * @description 规则名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description SpringCloud规则
-     *
      * @var string
      */
     public $scRules;

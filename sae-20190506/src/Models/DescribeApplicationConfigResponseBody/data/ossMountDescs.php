@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ossMountDescs extends Model
 {
     /**
-     * @description Bucket名称
-     *
      * @var string
      */
     public $bucketName;
 
     /**
-     * @description Bucket中Oss Key名称
-     *
      * @var string
      */
     public $bucketPath;
 
     /**
-     * @description 挂载到容器的路径
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description 是否只读
-     *
      * @var bool
      */
     public $readOnly;
