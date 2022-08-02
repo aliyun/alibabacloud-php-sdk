@@ -136,6 +136,21 @@ class instanceVO extends Model
     public $upgradeServiceDetailInfo;
 
     /**
+     * @var int
+     */
+    public $usedGroupCount;
+
+    /**
+     * @var int
+     */
+    public $usedPartitionCount;
+
+    /**
+     * @var int
+     */
+    public $usedTopicCount;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -175,6 +190,9 @@ class instanceVO extends Model
         'tags'                     => 'Tags',
         'topicNumLimit'            => 'TopicNumLimit',
         'upgradeServiceDetailInfo' => 'UpgradeServiceDetailInfo',
+        'usedGroupCount'           => 'UsedGroupCount',
+        'usedPartitionCount'       => 'UsedPartitionCount',
+        'usedTopicCount'           => 'UsedTopicCount',
         'vSwitchId'                => 'VSwitchId',
         'vpcId'                    => 'VpcId',
         'zoneId'                   => 'ZoneId',
@@ -261,6 +279,15 @@ class instanceVO extends Model
         }
         if (null !== $this->upgradeServiceDetailInfo) {
             $res['UpgradeServiceDetailInfo'] = null !== $this->upgradeServiceDetailInfo ? $this->upgradeServiceDetailInfo->toMap() : null;
+        }
+        if (null !== $this->usedGroupCount) {
+            $res['UsedGroupCount'] = $this->usedGroupCount;
+        }
+        if (null !== $this->usedPartitionCount) {
+            $res['UsedPartitionCount'] = $this->usedPartitionCount;
+        }
+        if (null !== $this->usedTopicCount) {
+            $res['UsedTopicCount'] = $this->usedTopicCount;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -357,6 +384,15 @@ class instanceVO extends Model
         }
         if (isset($map['UpgradeServiceDetailInfo'])) {
             $model->upgradeServiceDetailInfo = upgradeServiceDetailInfo::fromMap($map['UpgradeServiceDetailInfo']);
+        }
+        if (isset($map['UsedGroupCount'])) {
+            $model->usedGroupCount = $map['UsedGroupCount'];
+        }
+        if (isset($map['UsedPartitionCount'])) {
+            $model->usedPartitionCount = $map['UsedPartitionCount'];
+        }
+        if (isset($map['UsedTopicCount'])) {
+            $model->usedTopicCount = $map['UsedTopicCount'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
