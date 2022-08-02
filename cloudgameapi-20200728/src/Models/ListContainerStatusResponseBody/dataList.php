@@ -55,8 +55,6 @@ class dataList extends Model
     public $tags;
 
     /**
-     * @description 系统时间戳
-     *
      * @var int
      */
     public $timestamp;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AdaptGameVersionRequest extends Model
 {
     /**
-     * @description 帧率
-     *
      * @var string
      */
     public $frameRate;
 
     /**
-     * @description 分辨率
-     *
      * @var string
      */
     public $resolution;
 
     /**
-     * @description 游戏版本ID
-     *
      * @var string
      */
     public $versionId;

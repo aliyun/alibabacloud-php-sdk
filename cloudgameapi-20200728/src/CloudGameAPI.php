@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CreateTokenRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\CreateTokenResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DeleteGameArchiveRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DeleteGameArchiveResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DeleteGameRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DeleteGameResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DeleteGameVersionRequest;
@@ -76,6 +78,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGameVersionsRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListGameVersionsResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListHistoryContainerStatusRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListHistoryContainerStatusResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListLatestGameArchiveRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListLatestGameArchiveResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryGameHangRequest;
@@ -94,6 +98,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryTenantRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryTenantResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RemoveGameFromProjectRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RemoveGameFromProjectResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RestoreGameArchiveRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RestoreGameArchiveResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameAliveRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameAliveResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SetGameHangRequest;
@@ -115,6 +121,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SubmitInternalPurchaseOrdersR
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SubmitInternalPurchaseOrdersResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SubmitInternalPurchaseReadyFlagRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\SubmitInternalPurchaseReadyFlagResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\UpdateGameArchiveTagStatusRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\UpdateGameArchiveTagStatusResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\UploadGameVersionByDownloadRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\UploadGameVersionByDownloadResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -766,6 +774,55 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGameArchiveRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteGameArchiveResponse
+     */
+    public function deleteGameArchiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->archiveId)) {
+            $query['ArchiveId'] = $request->archiveId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGameArchive',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGameArchiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGameArchiveRequest $request
+     *
+     * @return DeleteGameArchiveResponse
+     */
+    public function deleteGameArchive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGameArchiveWithOptions($request, $runtime);
     }
 
     /**
@@ -1878,6 +1935,61 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
+     * @param ListLatestGameArchiveRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLatestGameArchiveResponse
+     */
+    public function listLatestGameArchiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tagStatus)) {
+            $query['TagStatus'] = $request->tagStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLatestGameArchive',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLatestGameArchiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLatestGameArchiveRequest $request
+     *
+     * @return ListLatestGameArchiveResponse
+     */
+    public function listLatestGameArchive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLatestGameArchiveWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListProjectsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2310,6 +2422,55 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeGameFromProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestoreGameArchiveRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RestoreGameArchiveResponse
+     */
+    public function restoreGameArchiveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->archiveId)) {
+            $query['ArchiveId'] = $request->archiveId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestoreGameArchive',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestoreGameArchiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestoreGameArchiveRequest $request
+     *
+     * @return RestoreGameArchiveResponse
+     */
+    public function restoreGameArchive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreGameArchiveWithOptions($request, $runtime);
     }
 
     /**
@@ -2856,6 +3017,58 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitInternalPurchaseReadyFlagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGameArchiveTagStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateGameArchiveTagStatusResponse
+     */
+    public function updateGameArchiveTagStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->archiveId)) {
+            $query['ArchiveId'] = $request->archiveId;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $query['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->tagStatus)) {
+            $query['TagStatus'] = $request->tagStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGameArchiveTagStatus',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGameArchiveTagStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGameArchiveTagStatusRequest $request
+     *
+     * @return UpdateGameArchiveTagStatusResponse
+     */
+    public function updateGameArchiveTagStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGameArchiveTagStatusWithOptions($request, $runtime);
     }
 
     /**

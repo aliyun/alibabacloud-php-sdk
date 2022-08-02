@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteGameVersionRequest extends Model
 {
     /**
-     * @description 游戏版本ID
-     *
      * @var string
      */
     public $versionId;

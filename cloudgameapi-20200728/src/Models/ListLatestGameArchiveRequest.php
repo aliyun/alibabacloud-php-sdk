@@ -6,8 +6,18 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDeployableInstancesRequest extends Model
+class ListLatestGameArchiveRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $accountId;
+
+    /**
+     * @var string
+     */
+    public $gameId;
+
     /**
      * @var int
      */
@@ -19,19 +29,15 @@ class ListDeployableInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
+     * @var int
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $versionId;
+    public $tagStatus;
     protected $_name = [
+        'accountId'  => 'AccountId',
+        'gameId'     => 'GameId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'projectId'  => 'ProjectId',
-        'versionId'  => 'VersionId',
+        'tagStatus'  => 'TagStatus',
     ];
 
     public function validate()
@@ -41,17 +47,20 @@ class ListDeployableInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->gameId) {
+            $res['GameId'] = $this->gameId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
+        if (null !== $this->tagStatus) {
+            $res['TagStatus'] = $this->tagStatus;
         }
 
         return $res;
@@ -60,22 +69,25 @@ class ListDeployableInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListDeployableInstancesRequest
+     * @return ListLatestGameArchiveRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['GameId'])) {
+            $model->gameId = $map['GameId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
+        if (isset($map['TagStatus'])) {
+            $model->tagStatus = $map['TagStatus'];
         }
 
         return $model;

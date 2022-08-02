@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetGameVersionProgressRequest extends Model
 {
     /**
-     * @description 任务id
-     *
      * @var string
      */
     public $taskId;

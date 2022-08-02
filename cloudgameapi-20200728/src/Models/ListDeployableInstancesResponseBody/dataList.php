@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $cloudGameInstanceId;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $cloudGameInstanceName;

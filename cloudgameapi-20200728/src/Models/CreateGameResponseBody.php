@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateGameResponseBody extends Model
 {
     /**
-     * @description 游戏ID
-     *
      * @var string
      */
     public $gameId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

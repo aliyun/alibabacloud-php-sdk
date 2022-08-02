@@ -19,22 +19,16 @@ class ListGameServerIpResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description MaxResults本次请求所返回的最大记录条数
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-     *
      * @var int
      */
     public $totalCount;

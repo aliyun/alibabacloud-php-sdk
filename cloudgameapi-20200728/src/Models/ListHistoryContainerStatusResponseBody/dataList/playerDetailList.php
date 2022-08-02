@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class playerDetailList extends Model
 {
     /**
-     * @description 账号ID
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 是否主机
-     *
      * @var bool
      */
     public $isInitiator;
 
     /**
-     * @description 玩家进入游戏时间
-     *
      * @var int
      */
     public $startTime;

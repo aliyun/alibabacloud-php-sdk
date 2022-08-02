@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetGameVersionResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 版本ID
-     *
      * @var string
      */
     public $versionId;
 
     /**
-     * @description 版本名称
-     *
      * @var string
      */
     public $versionName;
 
     /**
-     * @description 版本号
-     *
      * @var string
      */
     public $versionNumber;

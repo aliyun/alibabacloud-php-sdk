@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
-use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListProjectsResponseBody\dataList;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListLatestGameArchiveResponseBody\dataList;
 use AlibabaCloud\Tea\Model;
 
-class ListProjectsResponseBody extends Model
+class ListLatestGameArchiveResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $count;
-
     /**
      * @var dataList[]
      */
@@ -22,23 +17,28 @@ class ListProjectsResponseBody extends Model
     /**
      * @var int
      */
-    public $maxResults;
+    public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $nextToken;
+    public $pageSize;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'count'      => 'Count',
         'dataList'   => 'DataList',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class ListProjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
-        }
         if (null !== $this->dataList) {
             $res['DataList'] = [];
             if (null !== $this->dataList && \is_array($this->dataList)) {
@@ -60,14 +57,17 @@ class ListProjectsResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -76,14 +76,11 @@ class ListProjectsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListProjectsResponseBody
+     * @return ListLatestGameArchiveResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
-        }
         if (isset($map['DataList'])) {
             if (!empty($map['DataList'])) {
                 $model->dataList = [];
@@ -93,14 +90,17 @@ class ListProjectsResponseBody extends Model
                 }
             }
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

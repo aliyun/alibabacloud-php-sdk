@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitDeploymentResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $taskId;

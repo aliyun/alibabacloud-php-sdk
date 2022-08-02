@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddGameToProjectRequest extends Model
 {
     /**
-     * @description 游戏iD
-     *
      * @var string
      */
     public $gameId;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteProjectRequest extends Model
 {
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;

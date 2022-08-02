@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateGameRequest extends Model
 {
     /**
-     * @description 幂等参数，1-64位建议使用uuid
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 游戏名称
-     *
      * @var string
      */
     public $gameName;
 
     /**
-     * @description 平台类型
-     *
      * @var int
      */
     public $platformType;

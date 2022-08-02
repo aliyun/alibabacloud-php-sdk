@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteGameRequest extends Model
 {
     /**
-     * @description 游戏ID
-     *
      * @var string
      */
     public $gameId;

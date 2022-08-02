@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListGameVersionsRequest extends Model
 {
     /**
-     * @description 游戏ID
-     *
      * @var string
      */
     public $gameId;
 
     /**
-     * @description 本次读取的最大数据记录数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;

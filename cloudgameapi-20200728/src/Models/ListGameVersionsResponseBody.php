@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListGameVersionsResponseBody extends Model
 {
     /**
-     * @description 总记录数
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description 数据列表
-     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
-     * @description 本次请求所返回的最大记录条数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

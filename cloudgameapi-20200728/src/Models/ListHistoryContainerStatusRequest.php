@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListHistoryContainerStatusRequest extends Model
 {
     /**
-     * @description 结束时间（Linux时间戳，单位毫秒）
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 上一个游戏会话ID
-     *
      * @var string
      */
     public $lastGameSessionId;
 
     /**
-     * @description 每页数量
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 开始时间（Linux时间戳，单位毫秒）
-     *
      * @var int
      */
     public $startTime;

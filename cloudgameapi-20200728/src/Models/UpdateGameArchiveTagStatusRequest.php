@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetGameTrialSurplusDurationRequest extends Model
+class UpdateGameArchiveTagStatusRequest extends Model
 {
     /**
      * @var string
@@ -16,16 +16,22 @@ class GetGameTrialSurplusDurationRequest extends Model
     /**
      * @var string
      */
-    public $gameId;
+    public $archiveId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $gameId;
+
+    /**
+     * @var int
+     */
+    public $tagStatus;
     protected $_name = [
         'accountId' => 'AccountId',
+        'archiveId' => 'ArchiveId',
         'gameId'    => 'GameId',
-        'projectId' => 'ProjectId',
+        'tagStatus' => 'TagStatus',
     ];
 
     public function validate()
@@ -38,11 +44,14 @@ class GetGameTrialSurplusDurationRequest extends Model
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+        if (null !== $this->archiveId) {
+            $res['ArchiveId'] = $this->archiveId;
+        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->tagStatus) {
+            $res['TagStatus'] = $this->tagStatus;
         }
 
         return $res;
@@ -51,7 +60,7 @@ class GetGameTrialSurplusDurationRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetGameTrialSurplusDurationRequest
+     * @return UpdateGameArchiveTagStatusRequest
      */
     public static function fromMap($map = [])
     {
@@ -59,11 +68,14 @@ class GetGameTrialSurplusDurationRequest extends Model
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+        if (isset($map['ArchiveId'])) {
+            $model->archiveId = $map['ArchiveId'];
+        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['TagStatus'])) {
+            $model->tagStatus = $map['TagStatus'];
         }
 
         return $model;

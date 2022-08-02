@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListDeployableInstancesResponseBody extends Model
 {
     /**
-     * @description 数据列表
-     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description MaxResults本次请求所返回的最大记录条数
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-     *
      * @var int
      */
     public $totalCount;

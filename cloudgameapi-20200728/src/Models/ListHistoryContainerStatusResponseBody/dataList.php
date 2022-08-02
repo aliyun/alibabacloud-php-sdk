@@ -10,71 +10,51 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
-     * @description 主机账号ID
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description 容器退出时间（Linux时间戳，单位毫秒）
-     *
      * @var int
      */
     public $containerQuitTime;
 
     /**
-     * @description 容器启动时间（Linux时间戳，单位毫秒）
-     *
      * @var int
      */
     public $containerStartTime;
 
     /**
-     * @description 容器状态
-     *
      * @var string
      */
     public $containerState;
 
     /**
-     * @description 游戏ID
-     *
      * @var string
      */
     public $gameId;
 
     /**
-     * @description 游戏会话ID
-     *
      * @var string
      */
     public $gameSessionId;
 
     /**
-     * @description 玩家信息集合
-     *
      * @var playerDetailList[]
      */
     public $playerDetailList;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 自定义标识
-     *
      * @var string
      */
     public $tags;
 
     /**
-     * @description 系统时间戳
-     *
      * @var int
      */
     public $timestamp;

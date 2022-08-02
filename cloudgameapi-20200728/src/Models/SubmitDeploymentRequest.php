@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SubmitDeploymentRequest extends Model
 {
     /**
-     * @description 实例ID列表
-     *
      * @var string
      */
     public $cloudGameInstanceIds;
 
     /**
-     * @description 游戏iD
-     *
      * @var string
      */
     public $gameId;
 
     /**
-     * @description 操作类型
-     *
      * @var string
      */
     public $operationType;
 
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 游戏版本ID
-     *
      * @var string
      */
     public $versionId;

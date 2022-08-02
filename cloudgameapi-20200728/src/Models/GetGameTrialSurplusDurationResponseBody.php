@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetGameTrialSurplusDurationResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 状态
-     *
      * @var float
      */
     public $status;
 
     /**
-     * @description 剩余试玩时长
-     *
      * @var float
      */
     public $surplusDuration;

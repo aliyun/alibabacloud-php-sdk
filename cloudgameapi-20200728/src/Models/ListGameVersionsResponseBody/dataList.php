@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
-     * @description 版本ID
-     *
      * @var string
      */
     public $versionId;
 
     /**
-     * @description 版本名称
-     *
      * @var string
      */
     public $versionName;
 
     /**
-     * @description 版本号
-     *
      * @var string
      */
     public $versionNumber;

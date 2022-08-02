@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UploadGameVersionByDownloadResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务id
-     *
      * @var string
      */
     public $taskId;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListHistoryContainerStatusResponseBody extends Model
 {
     /**
-     * @description 容器状态信息集合
-     *
      * @var dataList[]
      */
     public $dataList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

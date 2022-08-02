@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AdaptGameVersionResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Id of the task
-     *
      * @var string
      */
     public $taskId;

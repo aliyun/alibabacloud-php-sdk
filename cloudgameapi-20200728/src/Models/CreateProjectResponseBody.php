@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
-     * @description 项目ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

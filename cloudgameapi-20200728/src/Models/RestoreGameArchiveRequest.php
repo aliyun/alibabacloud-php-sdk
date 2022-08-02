@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RemoveGameFromProjectRequest extends Model
+class RestoreGameArchiveRequest extends Model
 {
     /**
      * @var string
      */
-    public $gameId;
+    public $accountId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $archiveId;
+
+    /**
+     * @var string
+     */
+    public $gameId;
     protected $_name = [
+        'accountId' => 'AccountId',
+        'archiveId' => 'ArchiveId',
         'gameId'    => 'GameId',
-        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class RemoveGameFromProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->archiveId) {
+            $res['ArchiveId'] = $this->archiveId;
+        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -42,16 +51,19 @@ class RemoveGameFromProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return RemoveGameFromProjectRequest
+     * @return RestoreGameArchiveRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['ArchiveId'])) {
+            $model->archiveId = $map['ArchiveId'];
+        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

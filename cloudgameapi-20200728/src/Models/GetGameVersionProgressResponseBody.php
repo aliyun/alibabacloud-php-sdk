@@ -24,8 +24,6 @@ class GetGameVersionProgressResponseBody extends Model
     public $extra;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

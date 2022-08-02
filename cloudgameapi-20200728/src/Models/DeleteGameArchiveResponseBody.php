@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\CloudGameAPI\V20200728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RemoveGameFromProjectResponseBody extends Model
+class DeleteGameArchiveResponseBody extends Model
 {
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'requestId' => 'RequestId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class RemoveGameFromProjectResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
 
         return $res;
     }
@@ -33,13 +42,16 @@ class RemoveGameFromProjectResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RemoveGameFromProjectResponseBody
+     * @return DeleteGameArchiveResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
