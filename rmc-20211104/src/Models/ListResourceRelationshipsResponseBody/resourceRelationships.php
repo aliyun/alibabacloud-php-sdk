@@ -16,11 +16,6 @@ class resourceRelationships extends Model
     /**
      * @var string
      */
-    public $relationshipType;
-
-    /**
-     * @var string
-     */
     public $sourceRegionId;
 
     /**
@@ -49,7 +44,6 @@ class resourceRelationships extends Model
     public $targetResourceType;
     protected $_name = [
         'accountId'          => 'AccountId',
-        'relationshipType'   => 'RelationshipType',
         'sourceRegionId'     => 'SourceRegionId',
         'sourceResourceId'   => 'SourceResourceId',
         'sourceResourceType' => 'SourceResourceType',
@@ -67,9 +61,6 @@ class resourceRelationships extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->relationshipType) {
-            $res['RelationshipType'] = $this->relationshipType;
         }
         if (null !== $this->sourceRegionId) {
             $res['SourceRegionId'] = $this->sourceRegionId;
@@ -103,9 +94,6 @@ class resourceRelationships extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['RelationshipType'])) {
-            $model->relationshipType = $map['RelationshipType'];
         }
         if (isset($map['SourceRegionId'])) {
             $model->sourceRegionId = $map['SourceRegionId'];
