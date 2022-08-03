@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListResourceSharesRequest extends Model
+class ListResourceShareInvitationsRequest extends Model
 {
     /**
      * @var int
@@ -19,31 +19,19 @@ class ListResourceSharesRequest extends Model
     public $nextToken;
 
     /**
-     * @var string
-     */
-    public $resourceOwner;
-
-    /**
      * @var string[]
      */
     public $resourceShareIds;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $resourceShareName;
-
-    /**
-     * @var string
-     */
-    public $resourceShareStatus;
+    public $resourceShareInvitationIds;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'resourceOwner'       => 'ResourceOwner',
-        'resourceShareIds'    => 'ResourceShareIds',
-        'resourceShareName'   => 'ResourceShareName',
-        'resourceShareStatus' => 'ResourceShareStatus',
+        'maxResults'                 => 'MaxResults',
+        'nextToken'                  => 'NextToken',
+        'resourceShareIds'           => 'ResourceShareIds',
+        'resourceShareInvitationIds' => 'ResourceShareInvitationIds',
     ];
 
     public function validate()
@@ -59,17 +47,11 @@ class ListResourceSharesRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->resourceOwner) {
-            $res['ResourceOwner'] = $this->resourceOwner;
-        }
         if (null !== $this->resourceShareIds) {
             $res['ResourceShareIds'] = $this->resourceShareIds;
         }
-        if (null !== $this->resourceShareName) {
-            $res['ResourceShareName'] = $this->resourceShareName;
-        }
-        if (null !== $this->resourceShareStatus) {
-            $res['ResourceShareStatus'] = $this->resourceShareStatus;
+        if (null !== $this->resourceShareInvitationIds) {
+            $res['ResourceShareInvitationIds'] = $this->resourceShareInvitationIds;
         }
 
         return $res;
@@ -78,7 +60,7 @@ class ListResourceSharesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListResourceSharesRequest
+     * @return ListResourceShareInvitationsRequest
      */
     public static function fromMap($map = [])
     {
@@ -89,19 +71,15 @@ class ListResourceSharesRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['ResourceOwner'])) {
-            $model->resourceOwner = $map['ResourceOwner'];
-        }
         if (isset($map['ResourceShareIds'])) {
             if (!empty($map['ResourceShareIds'])) {
                 $model->resourceShareIds = $map['ResourceShareIds'];
             }
         }
-        if (isset($map['ResourceShareName'])) {
-            $model->resourceShareName = $map['ResourceShareName'];
-        }
-        if (isset($map['ResourceShareStatus'])) {
-            $model->resourceShareStatus = $map['ResourceShareStatus'];
+        if (isset($map['ResourceShareInvitationIds'])) {
+            if (!empty($map['ResourceShareInvitationIds'])) {
+                $model->resourceShareInvitationIds = $map['ResourceShareInvitationIds'];
+            }
         }
 
         return $model;

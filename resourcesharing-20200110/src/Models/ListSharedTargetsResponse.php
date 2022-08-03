@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
-use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListSharedTargetsResponse\sharedTargets;
 use AlibabaCloud\Tea\Model;
 
 class ListSharedTargetsResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $nextToken;
+    public $statusCode;
 
     /**
-     * @var sharedTargets[]
+     * @var ListSharedTargetsResponseBody
      */
-    public $sharedTargets;
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'nextToken'     => 'NextToken',
-        'sharedTargets' => 'SharedTargets',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('nextToken', $this->nextToken, true);
-        Model::validateRequired('sharedTargets', $this->sharedTargets, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->sharedTargets) {
-            $res['SharedTargets'] = [];
-            if (null !== $this->sharedTargets && \is_array($this->sharedTargets)) {
-                $n = 0;
-                foreach ($this->sharedTargets as $item) {
-                    $res['SharedTargets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class ListSharedTargetsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['SharedTargets'])) {
-            if (!empty($map['SharedTargets'])) {
-                $model->sharedTargets = [];
-                $n                    = 0;
-                foreach ($map['SharedTargets'] as $item) {
-                    $model->sharedTargets[$n++] = null !== $item ? sharedTargets::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListSharedTargetsResponseBody::fromMap($map['body']);
         }
 
         return $model;

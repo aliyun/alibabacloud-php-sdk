@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteResourceShareRequest extends Model
+class AcceptResourceShareInvitationRequest extends Model
 {
     /**
      * @var string
      */
-    public $resourceShareId;
+    public $resourceShareInvitationId;
     protected $_name = [
-        'resourceShareId' => 'ResourceShareId',
+        'resourceShareInvitationId' => 'ResourceShareInvitationId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DeleteResourceShareRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceShareId) {
-            $res['ResourceShareId'] = $this->resourceShareId;
+        if (null !== $this->resourceShareInvitationId) {
+            $res['ResourceShareInvitationId'] = $this->resourceShareInvitationId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DeleteResourceShareRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteResourceShareRequest
+     * @return AcceptResourceShareInvitationRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceShareId'])) {
-            $model->resourceShareId = $map['ResourceShareId'];
+        if (isset($map['ResourceShareInvitationId'])) {
+            $model->resourceShareInvitationId = $map['ResourceShareInvitationId'];
         }
 
         return $model;

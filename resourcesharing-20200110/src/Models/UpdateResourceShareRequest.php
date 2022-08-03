@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceShareRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowExternalTargets;
+
+    /**
      * @var string
      */
     public $resourceShareId;
@@ -18,19 +23,21 @@ class UpdateResourceShareRequest extends Model
      */
     public $resourceShareName;
     protected $_name = [
-        'resourceShareId'   => 'ResourceShareId',
-        'resourceShareName' => 'ResourceShareName',
+        'allowExternalTargets' => 'AllowExternalTargets',
+        'resourceShareId'      => 'ResourceShareId',
+        'resourceShareName'    => 'ResourceShareName',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceShareId', $this->resourceShareId, true);
-        Model::validateRequired('resourceShareName', $this->resourceShareName, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowExternalTargets) {
+            $res['AllowExternalTargets'] = $this->allowExternalTargets;
+        }
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
@@ -49,6 +56,9 @@ class UpdateResourceShareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowExternalTargets'])) {
+            $model->allowExternalTargets = $map['AllowExternalTargets'];
+        }
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }

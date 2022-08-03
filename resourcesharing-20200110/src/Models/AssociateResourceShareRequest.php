@@ -31,7 +31,6 @@ class AssociateResourceShareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceShareId', $this->resourceShareId, true);
     }
 
     public function toMap()

@@ -2,12 +2,22 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharesResponse;
+namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models\UpdateResourceShareResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class resourceShares extends Model
+class resourceShare extends Model
 {
+    /**
+     * @var bool
+     */
+    public $allowExternalTargets;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
     /**
      * @var string
      */
@@ -31,34 +41,30 @@ class resourceShares extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $updateTime;
     protected $_name = [
-        'resourceShareId'     => 'ResourceShareId',
-        'resourceShareName'   => 'ResourceShareName',
-        'resourceShareOwner'  => 'ResourceShareOwner',
-        'resourceShareStatus' => 'ResourceShareStatus',
-        'createTime'          => 'CreateTime',
-        'updateTime'          => 'UpdateTime',
+        'allowExternalTargets' => 'AllowExternalTargets',
+        'createTime'           => 'CreateTime',
+        'resourceShareId'      => 'ResourceShareId',
+        'resourceShareName'    => 'ResourceShareName',
+        'resourceShareOwner'   => 'ResourceShareOwner',
+        'resourceShareStatus'  => 'ResourceShareStatus',
+        'updateTime'           => 'UpdateTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceShareId', $this->resourceShareId, true);
-        Model::validateRequired('resourceShareName', $this->resourceShareName, true);
-        Model::validateRequired('resourceShareOwner', $this->resourceShareOwner, true);
-        Model::validateRequired('resourceShareStatus', $this->resourceShareStatus, true);
-        Model::validateRequired('createTime', $this->createTime, true);
-        Model::validateRequired('updateTime', $this->updateTime, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowExternalTargets) {
+            $res['AllowExternalTargets'] = $this->allowExternalTargets;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
@@ -71,9 +77,6 @@ class resourceShares extends Model
         if (null !== $this->resourceShareStatus) {
             $res['ResourceShareStatus'] = $this->resourceShareStatus;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -84,11 +87,17 @@ class resourceShares extends Model
     /**
      * @param array $map
      *
-     * @return resourceShares
+     * @return resourceShare
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowExternalTargets'])) {
+            $model->allowExternalTargets = $map['AllowExternalTargets'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }
@@ -100,9 +109,6 @@ class resourceShares extends Model
         }
         if (isset($map['ResourceShareStatus'])) {
             $model->resourceShareStatus = $map['ResourceShareStatus'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

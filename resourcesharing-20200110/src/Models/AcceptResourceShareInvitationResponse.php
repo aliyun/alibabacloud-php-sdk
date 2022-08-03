@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateResourceShareResponse extends Model
+class AcceptResourceShareInvitationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateResourceShareResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateResourceShareResponseBody
+     * @var AcceptResourceShareInvitationResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class UpdateResourceShareResponse extends Model
     /**
      * @param array $map
      *
-     * @return UpdateResourceShareResponse
+     * @return AcceptResourceShareInvitationResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class UpdateResourceShareResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = UpdateResourceShareResponseBody::fromMap($map['body']);
+            $model->body = AcceptResourceShareInvitationResponseBody::fromMap($map['body']);
         }
 
         return $model;

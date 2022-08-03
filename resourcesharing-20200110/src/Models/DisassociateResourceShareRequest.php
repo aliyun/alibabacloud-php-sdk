@@ -12,6 +12,11 @@ class DisassociateResourceShareRequest extends Model
     /**
      * @var string
      */
+    public $resourceOwner;
+
+    /**
+     * @var string
+     */
     public $resourceShareId;
 
     /**
@@ -24,6 +29,7 @@ class DisassociateResourceShareRequest extends Model
      */
     public $targets;
     protected $_name = [
+        'resourceOwner'   => 'ResourceOwner',
         'resourceShareId' => 'ResourceShareId',
         'resources'       => 'Resources',
         'targets'         => 'Targets',
@@ -31,12 +37,14 @@ class DisassociateResourceShareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('resourceShareId', $this->resourceShareId, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceOwner) {
+            $res['ResourceOwner'] = $this->resourceOwner;
+        }
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
@@ -64,6 +72,9 @@ class DisassociateResourceShareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceOwner'])) {
+            $model->resourceOwner = $map['ResourceOwner'];
+        }
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }

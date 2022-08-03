@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListSharedResourcesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $resourceIds;
+
+    /**
      * @var string
      */
     public $resourceOwner;
@@ -24,42 +39,35 @@ class ListSharedResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var string[]
-     */
-    public $resourceIds;
-
-    /**
      * @var string
      */
     public $target;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'resourceIds'      => 'ResourceIds',
         'resourceOwner'    => 'ResourceOwner',
         'resourceShareIds' => 'ResourceShareIds',
         'resourceType'     => 'ResourceType',
-        'resourceIds'      => 'ResourceIds',
         'target'           => 'Target',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
     ];
 
     public function validate()
     {
-        Model::validateRequired('resourceOwner', $this->resourceOwner, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
+        }
         if (null !== $this->resourceOwner) {
             $res['ResourceOwner'] = $this->resourceOwner;
         }
@@ -69,17 +77,8 @@ class ListSharedResourcesRequest extends Model
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
-        }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -93,6 +92,17 @@ class ListSharedResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = $map['ResourceIds'];
+            }
+        }
         if (isset($map['ResourceOwner'])) {
             $model->resourceOwner = $map['ResourceOwner'];
         }
@@ -104,19 +114,8 @@ class ListSharedResourcesRequest extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['ResourceIds'])) {
-            if (!empty($map['ResourceIds'])) {
-                $model->resourceIds = $map['ResourceIds'];
-            }
-        }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
 
         return $model;
