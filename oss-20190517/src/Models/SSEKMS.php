@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SSEKMS extends Model
 {
     /**
-     * @description The CMK used in the SSE-KMS encryption method
-     *
      * @var string
      */
     public $keyId;

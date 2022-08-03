@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class LiveChannelConfiguration extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $description;
@@ -21,8 +19,6 @@ class LiveChannelConfiguration extends Model
     public $snapshot;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $status;

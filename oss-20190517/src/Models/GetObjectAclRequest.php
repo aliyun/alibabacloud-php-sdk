@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetObjectAclRequest extends Model
 {
     /**
-     * @description The version of a object
-     *
      * @var string
      */
     public $versionId;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListObjectsResponseBody extends Model
 {
     /**
-     * @description Objects whose names contain the same string that ranges from the prefix to the next occurrence of the delimiter are grouped as a single result element
-     *
      * @var CommonPrefix[]
      */
     public $commonPrefixes;
 
     /**
-     * @description The container that stores the returned object metadata
-     *
      * @var ObjectSummary[]
      */
     public $contents;
 
     /**
-     * @description The character used to group objects by name
-     *
      * @var string
      */
     public $delimiter;
@@ -35,29 +29,21 @@ class ListObjectsResponseBody extends Model
     public $encodingType;
 
     /**
-     * @description Indicates whether the returned results are truncated
-     *
      * @var bool
      */
     public $isTruncated;
 
     /**
-     * @description The name of the object from which the list operation begins
-     *
      * @var string
      */
     public $marker;
 
     /**
-     * @description The maximum number of returned objects in the response
-     *
      * @var int
      */
     public $maxKeys;
 
     /**
-     * @description The bucket name
-     *
      * @var string
      */
     public $name;
@@ -68,8 +54,6 @@ class ListObjectsResponseBody extends Model
     public $nextMarker;
 
     /**
-     * @description The prefix that the names of returned objects contain
-     *
      * @var string
      */
     public $prefix;

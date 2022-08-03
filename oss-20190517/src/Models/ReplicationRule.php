@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ReplicationRule extends Model
 {
     /**
-     * @description A short description of action
-     *
      * @var string
      */
     public $action;
@@ -22,22 +20,16 @@ class ReplicationRule extends Model
     public $destination;
 
     /**
-     * @description A short description of EncryptionConfiguration
-     *
      * @var encryptionConfiguration
      */
     public $encryptionConfiguration;
 
     /**
-     * @description A short description of HistoricalObjectReplication
-     *
      * @var string
      */
     public $historicalObjectReplication;
 
     /**
-     * @description rule id
-     *
      * @var string
      */
     public $ID;
@@ -53,15 +45,11 @@ class ReplicationRule extends Model
     public $sourceSelectionCriteria;
 
     /**
-     * @description A short description of action
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description A short description of SyncRole
-     *
      * @var string
      */
     public $syncRole;

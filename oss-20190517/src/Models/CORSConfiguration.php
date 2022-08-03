@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CORSConfiguration extends Model
 {
     /**
-     * @description description
-     *
      * @var CORSRule[]
      */
     public $CORSRule;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $responseVary;

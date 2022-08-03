@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CompleteBucketWormRequest extends Model
 {
     /**
-     * @description The ID of the retention policy
-     *
      * @var string
      */
     public $wormId;

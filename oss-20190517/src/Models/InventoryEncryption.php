@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InventoryEncryption extends Model
 {
     /**
-     * @description The container that stores the CMK used in the SSE-KMS encryption method
-     *
      * @var SSEKMS
      */
     public $SSEKMS;
 
     /**
-     * @description The container that stores the information about the SSE-OSS encryption method
-     *
      * @var SSEOSS
      */
     public $SSEOSS;

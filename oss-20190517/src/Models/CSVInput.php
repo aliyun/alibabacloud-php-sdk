@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CSVInput extends Model
 {
     /**
-     * @description description
-     *
      * @var bool
      */
     public $allowQuotedRecordDelimiter;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $commentCharacter;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $fieldDelimiter;
@@ -35,22 +29,16 @@ class CSVInput extends Model
     public $fileHeaderInfo;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $quoteCharacter;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $range;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $recordDelimiter;

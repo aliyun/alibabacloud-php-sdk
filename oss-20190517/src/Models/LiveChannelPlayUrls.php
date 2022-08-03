@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class LiveChannelPlayUrls extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $url;

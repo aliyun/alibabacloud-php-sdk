@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class IndexDocument extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $suffix;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $supportSubDir;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $type;

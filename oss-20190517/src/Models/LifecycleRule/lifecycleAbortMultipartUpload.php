@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class lifecycleAbortMultipartUpload extends Model
 {
     /**
-     * @description 日期
-     *
      * @var string
      */
     public $createdBeforeDate;
 
     /**
-     * @description 天数
-     *
      * @var int
      */
     public $days;

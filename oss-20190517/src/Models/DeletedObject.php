@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeletedObject extends Model
 {
     /**
-     * @description description
-     *
      * @var bool
      */
     public $deleteMarker;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $deleteMarkerVersionId;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $versionId;

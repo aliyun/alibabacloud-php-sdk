@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CORSRule extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $allowedHeader;
 
     /**
-     * @description description
-     *
      * @var string[]
      */
     public $allowedMethod;
 
     /**
-     * @description description
-     *
      * @var string[]
      */
     public $allowedOrigin;
 
     /**
-     * @description description
-     *
      * @var string[]
      */
     public $exposeHeader;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $maxAgeSeconds;

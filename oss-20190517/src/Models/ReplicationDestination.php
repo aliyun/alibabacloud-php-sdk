@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ReplicationDestination extends Model
 {
     /**
-     * @description The destination bucket to which the data is replicated
-     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description The region in which the destination bucket is located
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description The link used to transfer data in CRR
-     *
      * @var string
      */
     public $transferType;

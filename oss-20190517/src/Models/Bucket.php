@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class Bucket extends Model
 {
     /**
-     * @description The time when the bucket is created.
-     *
      * @var string
      */
     public $creationDate;
 
     /**
-     * @description The public endpoint used to access the bucket over the Internet.
-     *
      * @var string
      */
     public $extranetEndpoint;
 
     /**
-     * @description The internal endpoint used to access the bucket from ECS instances in the same region.
-     *
      * @var string
      */
     public $intranetEndpoint;
 
     /**
-     * @description The data center in which the bucket is located.
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description The name of the bucket.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The physical location of the bucket.
-     *
      * @var string
      */
     public $region;

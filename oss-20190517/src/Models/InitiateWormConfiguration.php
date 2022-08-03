@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InitiateWormConfiguration extends Model
 {
     /**
-     * @description The number of days for which objects can be retained
-     *
      * @var int
      */
     public $retentionPeriodInDays;

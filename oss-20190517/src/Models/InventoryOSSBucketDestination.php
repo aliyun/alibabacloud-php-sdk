@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InventoryOSSBucketDestination extends Model
 {
     /**
-     * @description The account ID granted by the bucket owner
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description The bucket that stores the exported inventory list
-     *
      * @var string
      */
     public $bucket;
@@ -33,15 +29,11 @@ class InventoryOSSBucketDestination extends Model
     public $format;
 
     /**
-     * @description The path of the exported inventory list
-     *
      * @var string
      */
     public $prefix;
 
     /**
-     * @description The name of the role to which the bucket owner grants permissions
-     *
      * @var string
      */
     public $roleArn;

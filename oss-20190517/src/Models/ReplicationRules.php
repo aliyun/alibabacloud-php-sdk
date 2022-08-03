@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ReplicationRules extends Model
 {
     /**
-     * @description the container of id
-     *
      * @var string[]
      */
     public $ids;

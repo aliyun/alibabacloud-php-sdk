@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class LiveRecord extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $remoteAddr;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $startTime;

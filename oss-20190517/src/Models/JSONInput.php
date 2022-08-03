@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class JSONInput extends Model
 {
     /**
-     * @description description
-     *
      * @var bool
      */
     public $parseJsonNumberAsString;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $range;

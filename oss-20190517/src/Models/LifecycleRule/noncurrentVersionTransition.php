@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class noncurrentVersionTransition extends Model
 {
     /**
-     * @description 天数
-     *
      * @var int
      */
     public $noncurrentDays;
 
     /**
-     * @description 存储类型
-     *
      * @var string
      */
     public $storageClass;

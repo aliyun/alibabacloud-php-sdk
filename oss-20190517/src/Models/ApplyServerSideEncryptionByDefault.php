@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ApplyServerSideEncryptionByDefault extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $KMSDataEncryption;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $KMSMasterKeyID;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $SSEAlgorithm;

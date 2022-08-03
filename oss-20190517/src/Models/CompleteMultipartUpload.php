@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CompleteMultipartUpload extends Model
 {
     /**
-     * @description description
-     *
      * @var Part[]
      */
     public $part;

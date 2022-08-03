@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ObjectSummary extends Model
 {
     /**
-     * @description The entity tag is a hash of the object.
-     *
      * @var string
      */
     public $ETag;
 
     /**
-     * @description The name of the object.
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The last modification time of the object.
-     *
      * @var string
      */
     public $lastModified;
@@ -35,8 +29,6 @@ class ObjectSummary extends Model
     public $owner;
 
     /**
-     * @description The size in bytes of the object
-     *
      * @var int
      */
     public $size;
@@ -47,8 +39,6 @@ class ObjectSummary extends Model
     public $storageClass;
 
     /**
-     * @description The type of the object.
-     *
      * @var string
      */
     public $type;

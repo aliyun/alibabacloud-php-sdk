@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Delete extends Model
 {
     /**
-     * @description description
-     *
      * @var ObjectIdentifier[]
      */
     public $objects;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $quiet;

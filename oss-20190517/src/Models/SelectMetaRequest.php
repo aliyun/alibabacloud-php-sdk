@@ -14,8 +14,6 @@ class SelectMetaRequest extends Model
     public $inputSerialization;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $overwriteIfExists;

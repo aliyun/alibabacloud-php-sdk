@@ -20,8 +20,6 @@ class GetBucketInventoryResponseBody extends Model
     public $filter;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $id;
@@ -32,8 +30,6 @@ class GetBucketInventoryResponseBody extends Model
     public $includedObjectVersions;
 
     /**
-     * @description status
-     *
      * @var bool
      */
     public $isEnabled;

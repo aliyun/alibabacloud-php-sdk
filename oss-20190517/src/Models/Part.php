@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class Part extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $ETag;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $partNumber;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $size;

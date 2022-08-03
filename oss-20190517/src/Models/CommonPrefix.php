@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CommonPrefix extends Model
 {
     /**
-     * @description The prefix that the names of returned objects contain
-     *
      * @var string
      */
     public $prefix;

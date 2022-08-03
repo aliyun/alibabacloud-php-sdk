@@ -14,8 +14,6 @@ class OutputSerialization extends Model
     public $csv;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $enablePayloadCrc;
@@ -26,22 +24,16 @@ class OutputSerialization extends Model
     public $json;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $keepAllColumns;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $outputHeader;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $outputRawData;

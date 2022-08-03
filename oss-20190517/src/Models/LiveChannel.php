@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class LiveChannel extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $name;
@@ -40,8 +34,6 @@ class LiveChannel extends Model
     public $publishUrls;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $status;

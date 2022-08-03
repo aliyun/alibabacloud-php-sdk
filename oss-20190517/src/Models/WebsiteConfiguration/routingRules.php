@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class routingRules extends Model
 {
     /**
-     * @description description
-     *
      * @var RoutingRule[]
      */
     public $routingRule;

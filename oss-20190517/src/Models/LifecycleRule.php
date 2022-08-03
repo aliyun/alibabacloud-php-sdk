@@ -15,64 +15,46 @@ use AlibabaCloud\Tea\Model;
 class LifecycleRule extends Model
 {
     /**
-     * @description 未完成分片上传的过期属性
-     *
      * @var lifecycleAbortMultipartUpload
      */
     public $lifecycleAbortMultipartUpload;
 
     /**
-     * @description 过期属性
-     *
      * @var lifecycleExpiration
      */
     public $lifecycleExpiration;
 
     /**
-     * @description 规则标识
-     *
      * @var string
      */
     public $ID;
 
     /**
-     * @description 非当前版本生命周期规则的过期属性
-     *
      * @var noncurrentVersionExpiration
      */
     public $noncurrentVersionExpiration;
 
     /**
-     * @description 非当前版本生命周期规则的转储属性
-     *
      * @var noncurrentVersionTransition[]
      */
     public $noncurrentVersionTransition;
 
     /**
-     * @description 指定规则所适用的前缀
-     *
      * @var string
      */
     public $prefix;
 
     /**
-     * @description 规则的状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 标签列表
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description 存储类型转换
-     *
      * @var lifecycleTransition[]
      */
     public $lifecycleTransition;

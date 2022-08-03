@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteBucketInventoryRequest extends Model
 {
     /**
-     * @description The ID of the inventory task to delete
-     *
      * @var string
      */
     public $inventoryId;

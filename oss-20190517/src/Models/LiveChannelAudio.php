@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class LiveChannelAudio extends Model
 {
     /**
-     * @description description
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $codec;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $sampleRate;

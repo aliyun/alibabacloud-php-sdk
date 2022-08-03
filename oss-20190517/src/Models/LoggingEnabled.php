@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class LoggingEnabled extends Model
 {
     /**
-     * @description 存储访问日志的存储空间
-     *
      * @var string
      */
     public $targetBucket;
 
     /**
-     * @description 保存的日志文件前缀
-     *
      * @var string
      */
     public $targetPrefix;

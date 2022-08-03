@@ -256,7 +256,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->uploadId)) {
             $query['uploadId'] = $request->uploadId;
@@ -310,7 +309,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->position)) {
             $query['position'] = $request->position;
@@ -448,7 +446,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->encodingType)) {
             $query['encoding-type'] = $request->encodingType;
@@ -517,7 +514,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $realHeaders       = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -612,7 +608,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1101,7 +1096,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1202,7 +1196,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -1256,7 +1249,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -2242,7 +2234,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2288,7 +2279,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2334,7 +2324,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2383,7 +2372,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->responseCacheControl)) {
             $query['response-cache-control'] = $request->responseCacheControl;
@@ -2474,7 +2462,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -2528,7 +2515,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -2582,7 +2568,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -2636,7 +2621,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -2690,7 +2674,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $query             = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
@@ -2747,7 +2730,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -2864,7 +2846,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->encodingType)) {
             $query['encoding-type'] = $request->encodingType;
@@ -3376,7 +3357,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($tmpReq);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $request           = new ListPartsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->encodingType)) {
@@ -3441,7 +3421,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $realHeaders       = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -3510,7 +3489,7 @@ class Oss extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'none',
+            'reqBodyType' => 'multiFormData',
             'bodyType'    => 'xml',
         ]);
 
@@ -3548,8 +3527,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
-        $playlist          = OpenApiUtilClient::getEncodeParam($playlist);
         $query             = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
@@ -4326,7 +4303,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -4376,7 +4352,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $channel           = OpenApiUtilClient::getEncodeParam($channel);
         $query             = [];
         if (!Utils::isUnset($request->status)) {
             $query['status'] = $request->status;
@@ -4430,7 +4405,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $realHeaders       = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -4509,7 +4483,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -4570,7 +4543,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -4622,7 +4594,6 @@ class Oss extends OpenApiClient
     {
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $realHeaders       = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -4687,7 +4658,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->versionId)) {
             $query['versionId'] = $request->versionId;
@@ -4742,7 +4712,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -4792,7 +4761,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->partNumber)) {
             $query['partNumber'] = $request->partNumber;
@@ -4851,7 +4819,6 @@ class Oss extends OpenApiClient
         Utils::validateModel($request);
         $hostMap           = [];
         $hostMap['bucket'] = $bucket;
-        $key               = OpenApiUtilClient::getEncodeParam($key);
         $query             = [];
         if (!Utils::isUnset($request->partNumber)) {
             $query['partNumber'] = $request->partNumber;

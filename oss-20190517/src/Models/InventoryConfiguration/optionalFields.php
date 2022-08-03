@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class optionalFields extends Model
 {
     /**
-     * @description field list
-     *
      * @var string[]
      */
     public $fields;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetBucketInventoryRequest extends Model
 {
     /**
-     * @description The ID of the inventory rule to query
-     *
      * @var string
      */
     public $inventoryId;

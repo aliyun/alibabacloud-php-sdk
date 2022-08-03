@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Owner extends Model
 {
     /**
-     * @description The display name of the owner
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description The ID of the owner
-     *
      * @var string
      */
     public $ID;

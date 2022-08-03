@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InventoryDestination extends Model
 {
     /**
-     * @description The information about the bucket that stores the exported inventory list
-     *
      * @var InventoryOSSBucketDestination
      */
     public $OSSBucketDestination;

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ObjectVersion extends Model
 {
     /**
-     * @description The entity tag
-     *
      * @var string
      */
     public $ETag;
 
     /**
-     * @description Indicates whether the version is the current version
-     *
      * @var bool
      */
     public $isLatest;
 
     /**
-     * @description The name of the object
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The last modified time of the object
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description The information about the bucket owner
-     *
      * @var Owner
      */
     public $owner;
 
     /**
-     * @description The size of the returned object
-     *
      * @var int
      */
     public $size;
@@ -56,8 +44,6 @@ class ObjectVersion extends Model
     public $storageClass;
 
     /**
-     * @description The version ID of the object
-     *
      * @var string
      */
     public $versionId;

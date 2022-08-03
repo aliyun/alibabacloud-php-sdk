@@ -20,8 +20,6 @@ class WebsiteConfiguration extends Model
     public $indexDocument;
 
     /**
-     * @description description
-     *
      * @var routingRules
      */
     public $routingRules;

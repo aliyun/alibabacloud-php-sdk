@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ReplicationProgressRule extends Model
 {
     /**
-     * @description A short description of action
-     *
      * @var string
      */
     public $action;
@@ -22,15 +20,11 @@ class ReplicationProgressRule extends Model
     public $destination;
 
     /**
-     * @description A short description of HistoricalObjectReplication
-     *
      * @var string
      */
     public $historicalObjectReplication;
 
     /**
-     * @description rule id
-     *
      * @var string
      */
     public $ID;
@@ -41,15 +35,11 @@ class ReplicationProgressRule extends Model
     public $prefixSet;
 
     /**
-     * @description A short description of Progress
-     *
      * @var progress
      */
     public $progress;
 
     /**
-     * @description A short description of action
-     *
      * @var string
      */
     public $status;

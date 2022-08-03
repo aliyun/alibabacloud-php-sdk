@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ReplicationSourceSelectionCriteria extends Model
 {
     /**
-     * @description A short description of SseKmsEncryptedObjects
-     *
      * @var sseKmsEncryptedObjects
      */
     public $sseKmsEncryptedObjects;

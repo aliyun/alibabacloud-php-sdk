@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class RefererConfiguration extends Model
 {
     /**
-     * @description 是否允许Referer字段为空的请求访问
-     *
      * @var bool
      */
     public $allowEmptyReferer;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $allowTruncateQueryString;
 
     /**
-     * @description 保存Referer访问白名单
-     *
      * @var refererList
      */
     public $refererList;

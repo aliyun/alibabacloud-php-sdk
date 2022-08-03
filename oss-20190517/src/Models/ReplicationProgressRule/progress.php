@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class progress extends Model
 {
     /**
-     * @description A short description of HistoricalObject
-     *
      * @var string
      */
     public $historicalObject;
 
     /**
-     * @description A short description of NewObject
-     *
      * @var string
      */
     public $newObject;

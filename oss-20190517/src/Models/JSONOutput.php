@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class JSONOutput extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $recordDelimiter;

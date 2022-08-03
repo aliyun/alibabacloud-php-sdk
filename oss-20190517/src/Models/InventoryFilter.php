@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InventoryFilter extends Model
 {
     /**
-     * @description The prefix specified in the inventory rule
-     *
      * @var string
      */
     public $prefix;

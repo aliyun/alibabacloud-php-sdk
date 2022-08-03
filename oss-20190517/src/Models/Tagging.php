@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class Tagging extends Model
 {
     /**
-     * @description the container of tags
-     *
      * @var TagSet
      */
     public $tagSet;

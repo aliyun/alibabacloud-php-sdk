@@ -20,8 +20,6 @@ class InventoryConfiguration extends Model
     public $filter;
 
     /**
-     * @description The specified inventory list name, which must be globally unique in the bucket
-     *
      * @var string
      */
     public $id;
@@ -32,15 +30,11 @@ class InventoryConfiguration extends Model
     public $includedObjectVersions;
 
     /**
-     * @description Indicates whether the inventory function is enabled
-     *
      * @var bool
      */
     public $isEnabled;
 
     /**
-     * @description The container that stores the configuration fields included in the inventory list
-     *
      * @var optionalFields
      */
     public $optionalFields;

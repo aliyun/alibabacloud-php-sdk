@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class mirrorHeaders extends Model
 {
     /**
-     * @description description
-     *
      * @var string[]
      */
     public $pass;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $passAll;
 
     /**
-     * @description description
-     *
      * @var string[]
      */
     public $remove;
 
     /**
-     * @description description
-     *
      * @var set[]
      */
     public $set;

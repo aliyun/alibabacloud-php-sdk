@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class jobParameters extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $tier;

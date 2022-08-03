@@ -10,99 +10,71 @@ use AlibabaCloud\Tea\Model;
 class RoutingRuleRedirect extends Model
 {
     /**
-     * @description description
-     *
      * @var bool
      */
     public $enableReplacePrefix;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $httpRedirectCode;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $mirrorCheckMd5;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $mirrorFollowRedirect;
 
     /**
-     * @description description
-     *
      * @var mirrorHeaders
      */
     public $mirrorHeaders;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $mirrorPassQueryString;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $mirrorURL;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $passQueryString;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $redirectType;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $replaceKeyPrefixWith;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $replaceKeyWith;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $transparentMirrorResponseCodes;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SelectMetaStatus extends Model
 {
     /**
-     * @description description
-     *
      * @var int
      */
     public $colsCount;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $rowsCount;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $splitsCount;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $totalScannedBytes;

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListObjectVersionsRequest extends Model
 {
     /**
-     * @description The character used to group objects by name
-     *
      * @var string
      */
     public $delimiter;
 
     /**
-     * @description The encoding type of the object name in the response
-     *
      * @var string
      */
     public $encodingType;
 
     /**
-     * @description The name of the object from which the list operation begins
-     *
      * @var string
      */
     public $keyMarker;
 
     /**
-     * @description The maximum number of objects to return
-     *
      * @var int
      */
     public $maxKeys;
 
     /**
-     * @description The prefix that the returned object names must contain
-     *
      * @var string
      */
     public $prefix;
 
     /**
-     * @description The version id of the object from which the list operation begins
-     *
      * @var string
      */
     public $versionIdMarker;

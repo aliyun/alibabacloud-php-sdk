@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class TransferAccelerationConfiguration extends Model
 {
     /**
-     * @description 是否开启传输加速
-     *
      * @var bool
      */
     public $enabled;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class transferTypes extends Model
 {
     /**
-     * @description The link used to transfer data in Cross-region replication
-     *
      * @var string
      */
     public $type;

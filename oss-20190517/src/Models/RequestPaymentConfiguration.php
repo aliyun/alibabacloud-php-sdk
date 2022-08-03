@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RequestPaymentConfiguration extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $payer;

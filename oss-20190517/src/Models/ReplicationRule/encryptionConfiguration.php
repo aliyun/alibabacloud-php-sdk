@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class encryptionConfiguration extends Model
 {
     /**
-     * @description kms id
-     *
      * @var string
      */
     public $replicaKmsKeyID;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CSVOutput extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $fieldDelimiter;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $recordDelimiter;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RoutingRuleCondition extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var int
      */
     public $httpErrorCodeReturnedEquals;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $keyPrefixEquals;

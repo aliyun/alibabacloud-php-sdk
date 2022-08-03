@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class lifecycleExpiration extends Model
 {
     /**
-     * @description 日期
-     *
      * @var string
      */
     public $createdBeforeDate;
 
     /**
-     * @description 天数
-     *
      * @var int
      */
     public $days;
 
     /**
-     * @description 自动移除过期删除标记
-     *
      * @var bool
      */
     public $expiredObjectDeleteMarker;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ObjectIdentifier extends Model
 {
     /**
-     * @description key
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description version id
-     *
      * @var string
      */
     public $versionId;

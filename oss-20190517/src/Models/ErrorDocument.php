@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ErrorDocument extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $httpStatus;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $key;

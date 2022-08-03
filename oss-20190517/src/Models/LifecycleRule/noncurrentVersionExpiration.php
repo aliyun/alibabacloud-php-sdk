@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class noncurrentVersionExpiration extends Model
 {
     /**
-     * @description 天数
-     *
      * @var int
      */
     public $noncurrentDays;

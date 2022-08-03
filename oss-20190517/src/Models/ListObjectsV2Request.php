@@ -14,15 +14,11 @@ class ListObjectsV2Request extends Model
     public $continuationToken;
 
     /**
-     * @description The character used to group objects by name
-     *
      * @var string
      */
     public $delimiter;
 
     /**
-     * @description The encoding type of the object name in the response
-     *
      * @var string
      */
     public $encodingType;
@@ -33,15 +29,11 @@ class ListObjectsV2Request extends Model
     public $fetchOwner;
 
     /**
-     * @description The maximum number of objects to return
-     *
      * @var int
      */
     public $maxKeys;
 
     /**
-     * @description The prefix that the returned object names must contain
-     *
      * @var string
      */
     public $prefix;

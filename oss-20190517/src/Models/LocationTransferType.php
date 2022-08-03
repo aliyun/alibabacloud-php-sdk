@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class LocationTransferType extends Model
 {
     /**
-     * @description The region in which the destination bucket can be located
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description The container that stores the transmission type
-     *
      * @var transferTypes
      */
     public $transferTypes;

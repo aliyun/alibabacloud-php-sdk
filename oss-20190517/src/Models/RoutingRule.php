@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RoutingRule extends Model
 {
     /**
-     * @description description
-     *
      * @var RoutingRuleCondition
      */
     public $condition;
 
     /**
-     * @description description
-     *
      * @var RoutingRuleRedirect
      */
     public $redirect;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $ruleNumber;

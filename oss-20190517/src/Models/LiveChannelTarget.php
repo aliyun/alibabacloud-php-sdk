@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class LiveChannelTarget extends Model
 {
     /**
-     * @description description
-     *
      * @var int
      */
     public $fragCount;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $fragDuration;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $playlistName;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $type;

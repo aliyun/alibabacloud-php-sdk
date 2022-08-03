@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class Upload extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $initiated;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $uploadId;

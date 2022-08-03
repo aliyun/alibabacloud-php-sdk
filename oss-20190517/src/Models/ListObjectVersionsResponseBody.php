@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListObjectVersionsResponseBody extends Model
 {
     /**
-     * @description Objects whose names contain the same string that ranges from the prefix to the next occurrence of the delimiter are grouped as a single result element
-     *
      * @var CommonPrefix[]
      */
     public $commonPrefixes;
 
     /**
-     * @description The container that stores delete markers
-     *
      * @var DeleteMarkerEntry[]
      */
     public $deleteMarkers;
@@ -33,29 +29,21 @@ class ListObjectVersionsResponseBody extends Model
     public $encodingType;
 
     /**
-     * @description Indicates whether the returned results are truncated
-     *
      * @var bool
      */
     public $isTruncated;
 
     /**
-     * @description Indicates the object from which the operation starts
-     *
      * @var string
      */
     public $keyMarker;
 
     /**
-     * @description The maximum number of returned objects in the response
-     *
      * @var int
      */
     public $maxKeys;
 
     /**
-     * @description The bucket name
-     *
      * @var string
      */
     public $name;
@@ -71,22 +59,16 @@ class ListObjectVersionsResponseBody extends Model
     public $nextVersionIdMarker;
 
     /**
-     * @description The prefix that the names of returned objects must contain
-     *
      * @var string
      */
     public $prefix;
 
     /**
-     * @description The container that stores the versions of objects except for delete markers
-     *
      * @var ObjectVersion[]
      */
     public $versions;
 
     /**
-     * @description This parameter is returned with KeyMarker together to indicate the version from which the operation starts
-     *
      * @var string
      */
     public $versionIdMarker;

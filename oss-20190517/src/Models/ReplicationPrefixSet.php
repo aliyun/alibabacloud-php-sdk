@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ReplicationPrefixSet extends Model
 {
     /**
-     * @description Prefixs used to specify the object to replicate
-     *
      * @var string[]
      */
     public $prefixs;

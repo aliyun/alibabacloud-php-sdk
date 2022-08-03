@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class LiveChannelSnapshot extends Model
 {
     /**
-     * @description description
-     *
      * @var string
      */
     public $destBucket;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $interval;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $notifyTopic;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $roleName;

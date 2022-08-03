@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class sseKmsEncryptedObjects extends Model
 {
     /**
-     * @description A short description of Status
-     *
      * @var string
      */
     public $status;

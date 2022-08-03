@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SelectRequestOptions extends Model
 {
     /**
-     * @description description
-     *
      * @var int
      */
     public $maxSkippedRecordsAllowed;
 
     /**
-     * @description description
-     *
      * @var bool
      */
     public $skipPartialDataRecord;

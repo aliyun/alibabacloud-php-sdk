@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class RestoreRequest extends Model
 {
     /**
-     * @description description
-     *
      * @var int
      */
     public $days;
 
     /**
-     * @description description
-     *
      * @var jobParameters
      */
     public $jobParameters;

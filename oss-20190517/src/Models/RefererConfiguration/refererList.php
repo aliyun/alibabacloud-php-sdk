@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class refererList extends Model
 {
     /**
-     * @description 指定一条Referer访问白名单
-     *
      * @var string[]
      */
     public $referer;

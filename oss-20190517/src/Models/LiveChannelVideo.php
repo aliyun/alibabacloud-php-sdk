@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class LiveChannelVideo extends Model
 {
     /**
-     * @description description
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $codec;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $frameRate;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description description
-     *
      * @var int
      */
     public $width;

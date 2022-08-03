@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteMarkerEntry extends Model
 {
     /**
-     * @description Indicates whether the version is the current version
-     *
      * @var bool
      */
     public $isLatest;
 
     /**
-     * @description The name of the object
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The last modified time of the object
-     *
      * @var string
      */
     public $lastModified;
@@ -35,8 +29,6 @@ class DeleteMarkerEntry extends Model
     public $owner;
 
     /**
-     * @description The version ID of the object
-     *
      * @var string
      */
     public $versionId;
