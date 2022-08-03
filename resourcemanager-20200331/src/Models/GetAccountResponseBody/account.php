@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountResponseBody;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountResponseBody\account\tags;
 use AlibabaCloud\Tea\Model;
 
 class account extends Model
@@ -46,6 +47,11 @@ class account extends Model
     /**
      * @var string
      */
+    public $location;
+
+    /**
+     * @var string
+     */
     public $modifyTime;
 
     /**
@@ -64,6 +70,11 @@ class account extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $type;
@@ -75,10 +86,12 @@ class account extends Model
         'identityInformation'   => 'IdentityInformation',
         'joinMethod'            => 'JoinMethod',
         'joinTime'              => 'JoinTime',
+        'location'              => 'Location',
         'modifyTime'            => 'ModifyTime',
         'resourceDirectoryId'   => 'ResourceDirectoryId',
         'resourceDirectoryPath' => 'ResourceDirectoryPath',
         'status'                => 'Status',
+        'tags'                  => 'Tags',
         'type'                  => 'Type',
     ];
 
@@ -110,6 +123,9 @@ class account extends Model
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
         }
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
+        }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
@@ -121,6 +137,15 @@ class account extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -158,6 +183,9 @@ class account extends Model
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
         }
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
+        }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
@@ -169,6 +197,15 @@ class account extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

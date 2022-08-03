@@ -12,8 +12,14 @@ class GetAccountRequest extends Model
      * @var string
      */
     public $accountId;
+
+    /**
+     * @var bool
+     */
+    public $includeTags;
     protected $_name = [
-        'accountId' => 'AccountId',
+        'accountId'   => 'AccountId',
+        'includeTags' => 'IncludeTags',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class GetAccountRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->includeTags) {
+            $res['IncludeTags'] = $this->includeTags;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class GetAccountRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['IncludeTags'])) {
+            $model->includeTags = $map['IncludeTags'];
         }
 
         return $model;

@@ -21,6 +21,11 @@ class resourceDirectory extends Model
     /**
      * @var string
      */
+    public $identityInformation;
+
+    /**
+     * @var string
+     */
     public $masterAccountId;
 
     /**
@@ -45,6 +50,7 @@ class resourceDirectory extends Model
     protected $_name = [
         'controlPolicyStatus'  => 'ControlPolicyStatus',
         'createTime'           => 'CreateTime',
+        'identityInformation'  => 'IdentityInformation',
         'masterAccountId'      => 'MasterAccountId',
         'masterAccountName'    => 'MasterAccountName',
         'memberDeletionStatus' => 'MemberDeletionStatus',
@@ -64,6 +70,9 @@ class resourceDirectory extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->identityInformation) {
+            $res['IdentityInformation'] = $this->identityInformation;
         }
         if (null !== $this->masterAccountId) {
             $res['MasterAccountId'] = $this->masterAccountId;
@@ -97,6 +106,9 @@ class resourceDirectory extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['IdentityInformation'])) {
+            $model->identityInformation = $map['IdentityInformation'];
         }
         if (isset($map['MasterAccountId'])) {
             $model->masterAccountId = $map['MasterAccountId'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsResponseBody\resourceGroups;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsResponseBody\resourceGroups\resourceGroup\tags;
 use AlibabaCloud\Tea\Model;
 
 class resourceGroup extends Model
@@ -37,6 +38,11 @@ class resourceGroup extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'accountId'   => 'AccountId',
         'createDate'  => 'CreateDate',
@@ -44,6 +50,7 @@ class resourceGroup extends Model
         'id'          => 'Id',
         'name'        => 'Name',
         'status'      => 'Status',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
@@ -70,6 +77,9 @@ class resourceGroup extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -100,6 +110,9 @@ class resourceGroup extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

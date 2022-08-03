@@ -81,6 +81,7 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyVersionRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyVersionResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupListAclModeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetRoleRequest;
@@ -122,6 +123,12 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListRolesRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListRolesResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTagKeysRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTagKeysResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTagValuesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTargetAttachmentsForControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListTrustedServiceStatusRequest;
@@ -146,6 +153,12 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForEna
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SendVerificationCodeForEnableRDResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetDefaultPolicyVersionRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetDefaultPolicyVersionResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetMemberDeletionPermissionRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\SetMemberDeletionPermissionResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\UpdateControlPolicyRequest;
@@ -168,6 +181,31 @@ class ResourceManager extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
+        $this->_endpointMap  = [
+            'ap-northeast-1'        => 'resourcemanager.ap-northeast-1.aliyuncs.com',
+            'ap-south-1'            => 'resourcemanager.ap-south-1.aliyuncs.com',
+            'ap-southeast-1'        => 'resourcemanager.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2'        => 'resourcemanager.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-3'        => 'resourcemanager.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5'        => 'resourcemanager.ap-southeast-5.aliyuncs.com',
+            'cn-beijing'            => 'resourcemanager.cn-beijing.aliyuncs.com',
+            'cn-chengdu'            => 'resourcemanager.cn-chengdu.aliyuncs.com',
+            'cn-hangzhou-finance'   => 'resourcemanager.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hongkong'           => 'resourcemanager.cn-hongkong.aliyuncs.com',
+            'cn-huhehaote'          => 'resourcemanager.cn-huhehaote.aliyuncs.com',
+            'cn-north-2-gov-1'      => 'resourcemanager.cn-north-2-gov-1.aliyuncs.com',
+            'cn-qingdao'            => 'resourcemanager.cn-qingdao.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'resourcemanager.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shenzhen'           => 'resourcemanager.cn-shenzhen.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'resourcemanager.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-wulanchabu'         => 'resourcemanager.cn-wulanchabu.aliyuncs.com',
+            'cn-zhangjiakou'        => 'resourcemanager.cn-zhangjiakou.aliyuncs.com',
+            'eu-central-1'          => 'resourcemanager.eu-central-1.aliyuncs.com',
+            'eu-west-1'             => 'resourcemanager.eu-west-1.aliyuncs.com',
+            'me-east-1'             => 'resourcemanager.me-east-1.aliyuncs.com',
+            'us-east-1'             => 'resourcemanager.us-east-1.aliyuncs.com',
+            'us-west-1'             => 'resourcemanager.us-west-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('resourcemanager', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -786,6 +824,9 @@ class ResourceManager extends OpenApiClient
         }
         if (!Utils::isUnset($request->payerAccountId)) {
             $query['PayerAccountId'] = $request->payerAccountId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1622,6 +1663,9 @@ class ResourceManager extends OpenApiClient
         if (!Utils::isUnset($request->accountId)) {
             $query['AccountId'] = $request->accountId;
         }
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2001,6 +2045,9 @@ class ResourceManager extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -2032,6 +2079,39 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceGroupListAclModeResponse
+     */
+    public function getResourceGroupListAclModeWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetResourceGroupListAclMode',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceGroupListAclModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetResourceGroupListAclModeResponse
+     */
+    public function getResourceGroupListAclMode()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceGroupListAclModeWithOptions($runtime);
     }
 
     /**
@@ -2169,6 +2249,9 @@ class ResourceManager extends OpenApiClient
         if (!Utils::isUnset($request->note)) {
             $query['Note'] = $request->note;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->targetEntity)) {
             $query['TargetEntity'] = $request->targetEntity;
         }
@@ -2215,11 +2298,17 @@ class ResourceManager extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2261,6 +2350,9 @@ class ResourceManager extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -2272,6 +2364,9 @@ class ResourceManager extends OpenApiClient
         }
         if (!Utils::isUnset($request->queryKeyword)) {
             $query['QueryKeyword'] = $request->queryKeyword;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2855,6 +2950,9 @@ class ResourceManager extends OpenApiClient
         if (!Utils::isUnset($request->displayName)) {
             $query['DisplayName'] = $request->displayName;
         }
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -2867,8 +2965,14 @@ class ResourceManager extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->resourceGroupIds)) {
+            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3008,6 +3112,168 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyFilter)) {
+            $query['KeyFilter'] = $request->keyFilter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
+     */
+    public function listTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
+     */
+    public function listTagValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        if (!Utils::isUnset($request->valueFilter)) {
+            $query['ValueFilter'] = $request->valueFilter;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
+     */
+    public function listTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagValuesWithOptions($request, $runtime);
     }
 
     /**
@@ -3554,6 +3820,150 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDefaultPolicyVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetMemberDeletionPermissionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetMemberDeletionPermissionResponse
+     */
+    public function setMemberDeletionPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetMemberDeletionPermission',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetMemberDeletionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetMemberDeletionPermissionRequest $request
+     *
+     * @return SetMemberDeletionPermissionResponse
+     */
+    public function setMemberDeletionPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setMemberDeletionPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**

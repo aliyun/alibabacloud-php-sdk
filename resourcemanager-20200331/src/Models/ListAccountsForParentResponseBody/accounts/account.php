@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsForParentResponseBody\accounts;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListAccountsForParentResponseBody\accounts\account\tags;
 use AlibabaCloud\Tea\Model;
 
 class account extends Model
@@ -49,6 +50,11 @@ class account extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $type;
@@ -61,6 +67,7 @@ class account extends Model
         'modifyTime'          => 'ModifyTime',
         'resourceDirectoryId' => 'ResourceDirectoryId',
         'status'              => 'Status',
+        'tags'                => 'Tags',
         'type'                => 'Type',
     ];
 
@@ -94,6 +101,9 @@ class account extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -133,6 +143,9 @@ class account extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

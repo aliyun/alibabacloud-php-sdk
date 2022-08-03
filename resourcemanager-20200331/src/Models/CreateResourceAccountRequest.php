@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateResourceAccountRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateResourceAccountRequest extends Model
@@ -27,11 +28,17 @@ class CreateResourceAccountRequest extends Model
      * @var string
      */
     public $payerAccountId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'accountNamePrefix' => 'AccountNamePrefix',
         'displayName'       => 'DisplayName',
         'parentFolderId'    => 'ParentFolderId',
         'payerAccountId'    => 'PayerAccountId',
+        'tag'               => 'Tag',
     ];
 
     public function validate()
@@ -52,6 +59,15 @@ class CreateResourceAccountRequest extends Model
         }
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -76,6 +92,15 @@ class CreateResourceAccountRequest extends Model
         }
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

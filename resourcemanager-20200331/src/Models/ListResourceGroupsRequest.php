@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourceGroupsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListResourceGroupsRequest extends Model
@@ -12,6 +13,11 @@ class ListResourceGroupsRequest extends Model
      * @var string
      */
     public $displayName;
+
+    /**
+     * @var bool
+     */
+    public $includeTags;
 
     /**
      * @var string
@@ -34,16 +40,29 @@ class ListResourceGroupsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string[]
+     */
+    public $resourceGroupIds;
+
+    /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'displayName'     => 'DisplayName',
-        'name'            => 'Name',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
+        'displayName'      => 'DisplayName',
+        'includeTags'      => 'IncludeTags',
+        'name'             => 'Name',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'resourceGroupIds' => 'ResourceGroupIds',
+        'status'           => 'Status',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -55,6 +74,9 @@ class ListResourceGroupsRequest extends Model
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->includeTags) {
+            $res['IncludeTags'] = $this->includeTags;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -68,8 +90,20 @@ class ListResourceGroupsRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->resourceGroupIds) {
+            $res['ResourceGroupIds'] = $this->resourceGroupIds;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -86,6 +120,9 @@ class ListResourceGroupsRequest extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+        if (isset($map['IncludeTags'])) {
+            $model->includeTags = $map['IncludeTags'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -98,8 +135,22 @@ class ListResourceGroupsRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['ResourceGroupIds'])) {
+            if (!empty($map['ResourceGroupIds'])) {
+                $model->resourceGroupIds = $map['ResourceGroupIds'];
+            }
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\InviteAccountToResourceDirectoryRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class InviteAccountToResourceDirectoryRequest extends Model
@@ -12,6 +13,11 @@ class InviteAccountToResourceDirectoryRequest extends Model
      * @var string
      */
     public $note;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -24,6 +30,7 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $targetType;
     protected $_name = [
         'note'         => 'Note',
+        'tag'          => 'Tag',
         'targetEntity' => 'TargetEntity',
         'targetType'   => 'TargetType',
     ];
@@ -37,6 +44,15 @@ class InviteAccountToResourceDirectoryRequest extends Model
         $res = [];
         if (null !== $this->note) {
             $res['Note'] = $this->note;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->targetEntity) {
             $res['TargetEntity'] = $this->targetEntity;
@@ -58,6 +74,15 @@ class InviteAccountToResourceDirectoryRequest extends Model
         $model = new self();
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TargetEntity'])) {
             $model->targetEntity = $map['TargetEntity'];

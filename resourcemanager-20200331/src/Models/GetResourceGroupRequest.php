@@ -9,10 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $includeTags;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
+        'includeTags'     => 'IncludeTags',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -23,6 +29,9 @@ class GetResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->includeTags) {
+            $res['IncludeTags'] = $this->includeTags;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -38,6 +47,9 @@ class GetResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IncludeTags'])) {
+            $model->includeTags = $map['IncludeTags'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
