@@ -1099,8 +1099,14 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
         if (!Utils::isUnset($request->startDate)) {
             $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

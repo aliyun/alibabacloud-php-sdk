@@ -46,7 +46,17 @@ class QuerySendStatisticsRequest extends Model
     /**
      * @var string
      */
+    public $signName;
+
+    /**
+     * @var string
+     */
     public $startDate;
+
+    /**
+     * @var int
+     */
+    public $templateType;
     protected $_name = [
         'endDate'              => 'EndDate',
         'isGlobe'              => 'IsGlobe',
@@ -55,7 +65,9 @@ class QuerySendStatisticsRequest extends Model
         'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'signName'             => 'SignName',
         'startDate'            => 'StartDate',
+        'templateType'         => 'TemplateType',
     ];
 
     public function validate()
@@ -86,8 +98,14 @@ class QuerySendStatisticsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->signName) {
+            $res['SignName'] = $this->signName;
+        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -122,8 +140,14 @@ class QuerySendStatisticsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['SignName'])) {
+            $model->signName = $map['SignName'];
+        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;
