@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\Viapiregen\V20211119;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateLabelsetRequest;
@@ -18,6 +24,15 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateTrainTaskRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateTrainTaskResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeClassifyImageAdvanceRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeClassifyImageRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeClassifyImageResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeDetectImageAdvanceRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeDetectImageRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeDetectImageResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeInstanceSegmentImageAdvanceRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeInstanceSegmentImageRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeInstanceSegmentImageResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DebugServiceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DebugServiceResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteDatasetRequest;
@@ -91,6 +106,8 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateTrainTaskRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateTrainTaskResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateWorkspaceResponse;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -443,6 +460,378 @@ class Viapiregen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CustomizeClassifyImageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CustomizeClassifyImageResponse
+     */
+    public function customizeClassifyImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CustomizeClassifyImage',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CustomizeClassifyImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CustomizeClassifyImageRequest $request
+     *
+     * @return CustomizeClassifyImageResponse
+     */
+    public function customizeClassifyImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customizeClassifyImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CustomizeClassifyImageAdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CustomizeClassifyImageResponse
+     */
+    public function customizeClassifyImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'viapi-regen',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $customizeClassifyImageReq = new CustomizeClassifyImageRequest([]);
+        OpenApiUtilClient::convert($request, $customizeClassifyImageReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $customizeClassifyImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->customizeClassifyImageWithOptions($customizeClassifyImageReq, $runtime);
+    }
+
+    /**
+     * @param CustomizeDetectImageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CustomizeDetectImageResponse
+     */
+    public function customizeDetectImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CustomizeDetectImage',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CustomizeDetectImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CustomizeDetectImageRequest $request
+     *
+     * @return CustomizeDetectImageResponse
+     */
+    public function customizeDetectImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customizeDetectImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CustomizeDetectImageAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CustomizeDetectImageResponse
+     */
+    public function customizeDetectImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'viapi-regen',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $customizeDetectImageReq = new CustomizeDetectImageRequest([]);
+        OpenApiUtilClient::convert($request, $customizeDetectImageReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $customizeDetectImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->customizeDetectImageWithOptions($customizeDetectImageReq, $runtime);
+    }
+
+    /**
+     * @param CustomizeInstanceSegmentImageRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CustomizeInstanceSegmentImageResponse
+     */
+    public function customizeInstanceSegmentImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CustomizeInstanceSegmentImage',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CustomizeInstanceSegmentImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CustomizeInstanceSegmentImageRequest $request
+     *
+     * @return CustomizeInstanceSegmentImageResponse
+     */
+    public function customizeInstanceSegmentImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customizeInstanceSegmentImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CustomizeInstanceSegmentImageAdvanceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CustomizeInstanceSegmentImageResponse
+     */
+    public function customizeInstanceSegmentImageAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'viapi-regen',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $customizeInstanceSegmentImageReq = new CustomizeInstanceSegmentImageRequest([]);
+        OpenApiUtilClient::convert($request, $customizeInstanceSegmentImageReq);
+        if (!Utils::isUnset($request->imageUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->objectKey,
+                'content'     => $request->imageUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->accessKeyId,
+                'policy'              => $authResponse->encodedPolicy,
+                'signature'           => $authResponse->signature,
+                'key'                 => $authResponse->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $customizeInstanceSegmentImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+        }
+
+        return $this->customizeInstanceSegmentImageWithOptions($customizeInstanceSegmentImageReq, $runtime);
     }
 
     /**

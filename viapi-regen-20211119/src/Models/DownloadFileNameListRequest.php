@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DownloadFileNameListRequest extends Model
 {
     /**
-     * @description 空间id
-     *
      * @var int
      */
     public $datasetId;
 
     /**
-     * @description 数据集名称
-     *
      * @var string
      */
     public $identity;

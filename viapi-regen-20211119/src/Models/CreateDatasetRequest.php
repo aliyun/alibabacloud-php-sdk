@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetRequest extends Model
 {
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 数据集名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 空间id
-     *
      * @var int
      */
     public $workspaceId;
