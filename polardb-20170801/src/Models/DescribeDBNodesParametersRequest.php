@@ -14,8 +14,6 @@ class DescribeDBNodesParametersRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description 查询指定节点的参数列表
-     *
      * @var string
      */
     public $DBNodeIds;

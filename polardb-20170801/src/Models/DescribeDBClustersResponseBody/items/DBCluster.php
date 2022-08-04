@@ -106,6 +106,16 @@ class DBCluster extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $storagePayType;
+
+    /**
+     * @var int
+     */
+    public $storageSpace;
+
+    /**
      * @var int
      */
     public $storageUsed;
@@ -144,6 +154,8 @@ class DBCluster extends Model
         'payType'              => 'PayType',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
+        'storagePayType'       => 'StoragePayType',
+        'storageSpace'         => 'StorageSpace',
         'storageUsed'          => 'StorageUsed',
         'tags'                 => 'Tags',
         'vpcId'                => 'VpcId',
@@ -213,6 +225,12 @@ class DBCluster extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->storagePayType) {
+            $res['StoragePayType'] = $this->storagePayType;
+        }
+        if (null !== $this->storageSpace) {
+            $res['StorageSpace'] = $this->storageSpace;
         }
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
@@ -294,6 +312,12 @@ class DBCluster extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StoragePayType'])) {
+            $model->storagePayType = $map['StoragePayType'];
+        }
+        if (isset($map['StorageSpace'])) {
+            $model->storageSpace = $map['StorageSpace'];
         }
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];

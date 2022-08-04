@@ -11,6 +11,11 @@ class DescribeBackupLogsRequest extends Model
     /**
      * @var string
      */
+    public $backupRegion;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -53,6 +58,7 @@ class DescribeBackupLogsRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'backupRegion'         => 'BackupRegion',
         'DBClusterId'          => 'DBClusterId',
         'endTime'              => 'EndTime',
         'ownerAccount'         => 'OwnerAccount',
@@ -71,6 +77,9 @@ class DescribeBackupLogsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupRegion) {
+            $res['BackupRegion'] = $this->backupRegion;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -110,6 +119,9 @@ class DescribeBackupLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupRegion'])) {
+            $model->backupRegion = $map['BackupRegion'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

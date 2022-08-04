@@ -46,6 +46,11 @@ class DescribeDBClusterVersionResponseBody extends Model
     /**
      * @var string
      */
+    public $isProxyLatestVersion;
+
+    /**
+     * @var string
+     */
     public $proxyLatestVersion;
 
     /**
@@ -70,6 +75,7 @@ class DescribeDBClusterVersionResponseBody extends Model
         'DBVersion'            => 'DBVersion',
         'DBVersionStatus'      => 'DBVersionStatus',
         'isLatestVersion'      => 'IsLatestVersion',
+        'isProxyLatestVersion' => 'IsProxyLatestVersion',
         'proxyLatestVersion'   => 'ProxyLatestVersion',
         'proxyRevisionVersion' => 'ProxyRevisionVersion',
         'proxyVersionStatus'   => 'ProxyVersionStatus',
@@ -103,6 +109,9 @@ class DescribeDBClusterVersionResponseBody extends Model
         }
         if (null !== $this->isLatestVersion) {
             $res['IsLatestVersion'] = $this->isLatestVersion;
+        }
+        if (null !== $this->isProxyLatestVersion) {
+            $res['IsProxyLatestVersion'] = $this->isProxyLatestVersion;
         }
         if (null !== $this->proxyLatestVersion) {
             $res['ProxyLatestVersion'] = $this->proxyLatestVersion;
@@ -148,6 +157,9 @@ class DescribeDBClusterVersionResponseBody extends Model
         }
         if (isset($map['IsLatestVersion'])) {
             $model->isLatestVersion = $map['IsLatestVersion'];
+        }
+        if (isset($map['IsProxyLatestVersion'])) {
+            $model->isProxyLatestVersion = $map['IsProxyLatestVersion'];
         }
         if (isset($map['ProxyLatestVersion'])) {
             $model->proxyLatestVersion = $map['ProxyLatestVersion'];

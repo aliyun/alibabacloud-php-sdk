@@ -14,11 +14,14 @@ class ModifyDBNodesParametersRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description 节点名称，多个节点名按照“，”分割
-     *
      * @var string
      */
     public $DBNodeIds;
+
+    /**
+     * @var bool
+     */
+    public $fromTimeService;
 
     /**
      * @var string
@@ -31,18 +34,24 @@ class ModifyDBNodesParametersRequest extends Model
     public $ownerId;
 
     /**
-     * @description 参数模板ID。
-     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
-     * @description 参数及其值的JSON串，参数的值都是字符串类型，例如{"wait_timeout":"86","innodb_old_blocks_time":"10"}
-     *
      * @var string
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $plannedEndTime;
+
+    /**
+     * @var string
+     */
+    public $plannedStartTime;
 
     /**
      * @var string
@@ -56,10 +65,13 @@ class ModifyDBNodesParametersRequest extends Model
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
         'DBNodeIds'            => 'DBNodeIds',
+        'fromTimeService'      => 'FromTimeService',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'parameterGroupId'     => 'ParameterGroupId',
         'parameters'           => 'Parameters',
+        'plannedEndTime'       => 'PlannedEndTime',
+        'plannedStartTime'     => 'PlannedStartTime',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -77,6 +89,9 @@ class ModifyDBNodesParametersRequest extends Model
         if (null !== $this->DBNodeIds) {
             $res['DBNodeIds'] = $this->DBNodeIds;
         }
+        if (null !== $this->fromTimeService) {
+            $res['FromTimeService'] = $this->fromTimeService;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -88,6 +103,12 @@ class ModifyDBNodesParametersRequest extends Model
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->plannedEndTime) {
+            $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedStartTime) {
+            $res['PlannedStartTime'] = $this->plannedStartTime;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -113,6 +134,9 @@ class ModifyDBNodesParametersRequest extends Model
         if (isset($map['DBNodeIds'])) {
             $model->DBNodeIds = $map['DBNodeIds'];
         }
+        if (isset($map['FromTimeService'])) {
+            $model->fromTimeService = $map['FromTimeService'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -124,6 +148,12 @@ class ModifyDBNodesParametersRequest extends Model
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['PlannedEndTime'])) {
+            $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedStartTime'])) {
+            $model->plannedStartTime = $map['PlannedStartTime'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

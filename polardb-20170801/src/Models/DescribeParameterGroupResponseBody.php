@@ -15,8 +15,6 @@ class DescribeParameterGroupResponseBody extends Model
     public $parameterGroup;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

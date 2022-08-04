@@ -38,6 +38,11 @@ class DescribeDBClusterMigrationResponseBody extends Model
     /**
      * @var string
      */
+    public $dtsInstanceId;
+
+    /**
+     * @var string
+     */
     public $expiredTime;
 
     /**
@@ -75,6 +80,7 @@ class DescribeDBClusterMigrationResponseBody extends Model
         'DBClusterId'            => 'DBClusterId',
         'DBClusterReadWriteMode' => 'DBClusterReadWriteMode',
         'delayedSeconds'         => 'DelayedSeconds',
+        'dtsInstanceId'          => 'DtsInstanceId',
         'expiredTime'            => 'ExpiredTime',
         'migrationStatus'        => 'MigrationStatus',
         'rdsEndpointList'        => 'RdsEndpointList',
@@ -111,6 +117,9 @@ class DescribeDBClusterMigrationResponseBody extends Model
         }
         if (null !== $this->delayedSeconds) {
             $res['DelayedSeconds'] = $this->delayedSeconds;
+        }
+        if (null !== $this->dtsInstanceId) {
+            $res['DtsInstanceId'] = $this->dtsInstanceId;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -171,6 +180,9 @@ class DescribeDBClusterMigrationResponseBody extends Model
         }
         if (isset($map['DelayedSeconds'])) {
             $model->delayedSeconds = $map['DelayedSeconds'];
+        }
+        if (isset($map['DtsInstanceId'])) {
+            $model->dtsInstanceId = $map['DtsInstanceId'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];

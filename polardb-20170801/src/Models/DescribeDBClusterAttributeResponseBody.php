@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $blktagTotal;
+
+    /**
+     * @var int
+     */
+    public $blktagUsed;
+
+    /**
      * @var string
      */
     public $category;
@@ -86,6 +96,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $expired;
 
     /**
+     * @var int
+     */
+    public $inodeTotal;
+
+    /**
+     * @var int
+     */
+    public $inodeUsed;
+
+    /**
      * @var bool
      */
     public $isLatestVersion;
@@ -158,6 +178,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $storagePayType;
+
+    /**
+     * @var int
+     */
+    public $storageSpace;
+
+    /**
+     * @var string
+     */
     public $storageType;
 
     /**
@@ -190,6 +220,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
      */
     public $zoneIds;
     protected $_name = [
+        'blktagTotal'               => 'BlktagTotal',
+        'blktagUsed'                => 'BlktagUsed',
         'category'                  => 'Category',
         'creationTime'              => 'CreationTime',
         'DBClusterDescription'      => 'DBClusterDescription',
@@ -205,6 +237,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'engine'                    => 'Engine',
         'expireTime'                => 'ExpireTime',
         'expired'                   => 'Expired',
+        'inodeTotal'                => 'InodeTotal',
+        'inodeUsed'                 => 'InodeUsed',
         'isLatestVersion'           => 'IsLatestVersion',
         'isProxyLatestVersion'      => 'IsProxyLatestVersion',
         'lockMode'                  => 'LockMode',
@@ -219,6 +253,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'resourceGroupId'           => 'ResourceGroupId',
         'SQLSize'                   => 'SQLSize',
         'storageMax'                => 'StorageMax',
+        'storagePayType'            => 'StoragePayType',
+        'storageSpace'              => 'StorageSpace',
         'storageType'               => 'StorageType',
         'storageUsed'               => 'StorageUsed',
         'subCategory'               => 'SubCategory',
@@ -235,6 +271,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->blktagTotal) {
+            $res['BlktagTotal'] = $this->blktagTotal;
+        }
+        if (null !== $this->blktagUsed) {
+            $res['BlktagUsed'] = $this->blktagUsed;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -286,6 +328,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
         }
+        if (null !== $this->inodeTotal) {
+            $res['InodeTotal'] = $this->inodeTotal;
+        }
+        if (null !== $this->inodeUsed) {
+            $res['InodeUsed'] = $this->inodeUsed;
+        }
         if (null !== $this->isLatestVersion) {
             $res['IsLatestVersion'] = $this->isLatestVersion;
         }
@@ -328,6 +376,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (null !== $this->storageMax) {
             $res['StorageMax'] = $this->storageMax;
         }
+        if (null !== $this->storagePayType) {
+            $res['StoragePayType'] = $this->storagePayType;
+        }
+        if (null !== $this->storageSpace) {
+            $res['StorageSpace'] = $this->storageSpace;
+        }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -367,6 +421,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlktagTotal'])) {
+            $model->blktagTotal = $map['BlktagTotal'];
+        }
+        if (isset($map['BlktagUsed'])) {
+            $model->blktagUsed = $map['BlktagUsed'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -418,6 +478,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
         }
+        if (isset($map['InodeTotal'])) {
+            $model->inodeTotal = $map['InodeTotal'];
+        }
+        if (isset($map['InodeUsed'])) {
+            $model->inodeUsed = $map['InodeUsed'];
+        }
         if (isset($map['IsLatestVersion'])) {
             $model->isLatestVersion = $map['IsLatestVersion'];
         }
@@ -459,6 +525,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['StorageMax'])) {
             $model->storageMax = $map['StorageMax'];
+        }
+        if (isset($map['StoragePayType'])) {
+            $model->storagePayType = $map['StoragePayType'];
+        }
+        if (isset($map['StorageSpace'])) {
+            $model->storageSpace = $map['StorageSpace'];
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];

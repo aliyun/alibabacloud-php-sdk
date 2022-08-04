@@ -9,106 +9,76 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description AliUid
-     *
      * @var string
      */
     public $aliUid;
 
     /**
-     * @description 商品代码
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTimes;
 
     /**
-     * @description 容量单位
-     *
      * @var string
      */
     public $initCapaCityViewUnit;
 
     /**
-     * @description 总量
-     *
      * @var string
      */
     public $initCapacityViewValue;
 
     /**
-     * @description 资源实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 周期容量单位
-     *
      * @var string
      */
     public $periodCapaCityViewUnit;
 
     /**
-     * @description 周期容量
-     *
      * @var string
      */
     public $periodCapacityViewValue;
 
     /**
-     * @description 周期时长
-     *
      * @var string
      */
     public $periodTime;
 
     /**
-     * @description 产品Code
-     *
      * @var string
      */
     public $prodCode;
 
     /**
-     * @description 购买时间
-     *
      * @var string
      */
     public $purchaseTimes;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTimes;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 存储包类型
-     *
      * @var string
      */
     public $storageType;
 
     /**
-     * @description 资源包类型
-     *
      * @var string
      */
     public $templateName;

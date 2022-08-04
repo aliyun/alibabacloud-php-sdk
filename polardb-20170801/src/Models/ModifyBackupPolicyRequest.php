@@ -46,6 +46,16 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
+    public $dataLevel2BackupAnotherRegionRegion;
+
+    /**
+     * @var string
+     */
+    public $dataLevel2BackupAnotherRegionRetentionPeriod;
+
+    /**
+     * @var string
+     */
     public $dataLevel2BackupPeriod;
 
     /**
@@ -83,21 +93,23 @@ class ModifyBackupPolicyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupFrequency'                        => 'BackupFrequency',
-        'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
-        'DBClusterId'                            => 'DBClusterId',
-        'dataLevel1BackupFrequency'              => 'DataLevel1BackupFrequency',
-        'dataLevel1BackupPeriod'                 => 'DataLevel1BackupPeriod',
-        'dataLevel1BackupRetentionPeriod'        => 'DataLevel1BackupRetentionPeriod',
-        'dataLevel1BackupTime'                   => 'DataLevel1BackupTime',
-        'dataLevel2BackupPeriod'                 => 'DataLevel2BackupPeriod',
-        'dataLevel2BackupRetentionPeriod'        => 'DataLevel2BackupRetentionPeriod',
-        'ownerAccount'                           => 'OwnerAccount',
-        'ownerId'                                => 'OwnerId',
-        'preferredBackupPeriod'                  => 'PreferredBackupPeriod',
-        'preferredBackupTime'                    => 'PreferredBackupTime',
-        'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
-        'resourceOwnerId'                        => 'ResourceOwnerId',
+        'backupFrequency'                              => 'BackupFrequency',
+        'backupRetentionPolicyOnClusterDeletion'       => 'BackupRetentionPolicyOnClusterDeletion',
+        'DBClusterId'                                  => 'DBClusterId',
+        'dataLevel1BackupFrequency'                    => 'DataLevel1BackupFrequency',
+        'dataLevel1BackupPeriod'                       => 'DataLevel1BackupPeriod',
+        'dataLevel1BackupRetentionPeriod'              => 'DataLevel1BackupRetentionPeriod',
+        'dataLevel1BackupTime'                         => 'DataLevel1BackupTime',
+        'dataLevel2BackupAnotherRegionRegion'          => 'DataLevel2BackupAnotherRegionRegion',
+        'dataLevel2BackupAnotherRegionRetentionPeriod' => 'DataLevel2BackupAnotherRegionRetentionPeriod',
+        'dataLevel2BackupPeriod'                       => 'DataLevel2BackupPeriod',
+        'dataLevel2BackupRetentionPeriod'              => 'DataLevel2BackupRetentionPeriod',
+        'ownerAccount'                                 => 'OwnerAccount',
+        'ownerId'                                      => 'OwnerId',
+        'preferredBackupPeriod'                        => 'PreferredBackupPeriod',
+        'preferredBackupTime'                          => 'PreferredBackupTime',
+        'resourceOwnerAccount'                         => 'ResourceOwnerAccount',
+        'resourceOwnerId'                              => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -127,6 +139,12 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (null !== $this->dataLevel1BackupTime) {
             $res['DataLevel1BackupTime'] = $this->dataLevel1BackupTime;
+        }
+        if (null !== $this->dataLevel2BackupAnotherRegionRegion) {
+            $res['DataLevel2BackupAnotherRegionRegion'] = $this->dataLevel2BackupAnotherRegionRegion;
+        }
+        if (null !== $this->dataLevel2BackupAnotherRegionRetentionPeriod) {
+            $res['DataLevel2BackupAnotherRegionRetentionPeriod'] = $this->dataLevel2BackupAnotherRegionRetentionPeriod;
         }
         if (null !== $this->dataLevel2BackupPeriod) {
             $res['DataLevel2BackupPeriod'] = $this->dataLevel2BackupPeriod;
@@ -184,6 +202,12 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['DataLevel1BackupTime'])) {
             $model->dataLevel1BackupTime = $map['DataLevel1BackupTime'];
+        }
+        if (isset($map['DataLevel2BackupAnotherRegionRegion'])) {
+            $model->dataLevel2BackupAnotherRegionRegion = $map['DataLevel2BackupAnotherRegionRegion'];
+        }
+        if (isset($map['DataLevel2BackupAnotherRegionRetentionPeriod'])) {
+            $model->dataLevel2BackupAnotherRegionRetentionPeriod = $map['DataLevel2BackupAnotherRegionRetentionPeriod'];
         }
         if (isset($map['DataLevel2BackupPeriod'])) {
             $model->dataLevel2BackupPeriod = $map['DataLevel2BackupPeriod'];

@@ -21,6 +21,11 @@ class DescribeDetachedBackupsRequest extends Model
     /**
      * @var string
      */
+    public $backupRegion;
+
+    /**
+     * @var string
+     */
     public $backupStatus;
 
     /**
@@ -70,6 +75,7 @@ class DescribeDetachedBackupsRequest extends Model
     protected $_name = [
         'backupId'             => 'BackupId',
         'backupMode'           => 'BackupMode',
+        'backupRegion'         => 'BackupRegion',
         'backupStatus'         => 'BackupStatus',
         'DBClusterId'          => 'DBClusterId',
         'endTime'              => 'EndTime',
@@ -94,6 +100,9 @@ class DescribeDetachedBackupsRequest extends Model
         }
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
+        }
+        if (null !== $this->backupRegion) {
+            $res['BackupRegion'] = $this->backupRegion;
         }
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
@@ -142,6 +151,9 @@ class DescribeDetachedBackupsRequest extends Model
         }
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
+        }
+        if (isset($map['BackupRegion'])) {
+            $model->backupRegion = $map['BackupRegion'];
         }
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];

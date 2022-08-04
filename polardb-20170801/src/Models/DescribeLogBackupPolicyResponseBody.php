@@ -14,6 +14,16 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
+     * @var string
+     */
+    public $logBackupAnotherRegionRegion;
+
+    /**
+     * @var string
+     */
+    public $logBackupAnotherRegionRetentionPeriod;
+
+    /**
      * @var int
      */
     public $logBackupRetentionPeriod;
@@ -23,9 +33,11 @@ class DescribeLogBackupPolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'enableBackupLog'          => 'EnableBackupLog',
-        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
-        'requestId'                => 'RequestId',
+        'enableBackupLog'                       => 'EnableBackupLog',
+        'logBackupAnotherRegionRegion'          => 'LogBackupAnotherRegionRegion',
+        'logBackupAnotherRegionRetentionPeriod' => 'LogBackupAnotherRegionRetentionPeriod',
+        'logBackupRetentionPeriod'              => 'LogBackupRetentionPeriod',
+        'requestId'                             => 'RequestId',
     ];
 
     public function validate()
@@ -37,6 +49,12 @@ class DescribeLogBackupPolicyResponseBody extends Model
         $res = [];
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+        if (null !== $this->logBackupAnotherRegionRegion) {
+            $res['LogBackupAnotherRegionRegion'] = $this->logBackupAnotherRegionRegion;
+        }
+        if (null !== $this->logBackupAnotherRegionRetentionPeriod) {
+            $res['LogBackupAnotherRegionRetentionPeriod'] = $this->logBackupAnotherRegionRetentionPeriod;
         }
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
@@ -58,6 +76,12 @@ class DescribeLogBackupPolicyResponseBody extends Model
         $model = new self();
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+        if (isset($map['LogBackupAnotherRegionRegion'])) {
+            $model->logBackupAnotherRegionRegion = $map['LogBackupAnotherRegionRegion'];
+        }
+        if (isset($map['LogBackupAnotherRegionRetentionPeriod'])) {
+            $model->logBackupAnotherRegionRetentionPeriod = $map['LogBackupAnotherRegionRetentionPeriod'];
         }
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];

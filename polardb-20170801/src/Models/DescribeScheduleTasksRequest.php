@@ -46,6 +46,16 @@ class DescribeScheduleTasksRequest extends Model
     /**
      * @var string
      */
+    public $plannedEndTime;
+
+    /**
+     * @var string
+     */
+    public $plannedStartTime;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -75,6 +85,8 @@ class DescribeScheduleTasksRequest extends Model
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'plannedEndTime'       => 'PlannedEndTime',
+        'plannedStartTime'     => 'PlannedStartTime',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -109,6 +121,12 @@ class DescribeScheduleTasksRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->plannedEndTime) {
+            $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedStartTime) {
+            $res['PlannedStartTime'] = $this->plannedStartTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -157,6 +175,12 @@ class DescribeScheduleTasksRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PlannedEndTime'])) {
+            $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedStartTime'])) {
+            $model->plannedStartTime = $map['PlannedStartTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

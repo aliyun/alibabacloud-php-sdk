@@ -11,6 +11,11 @@ class DescribePolarSQLCollectorPolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -18,6 +23,7 @@ class DescribePolarSQLCollectorPolicyResponseBody extends Model
      */
     public $SQLCollectorStatus;
     protected $_name = [
+        'DBClusterId'        => 'DBClusterId',
         'requestId'          => 'RequestId',
         'SQLCollectorStatus' => 'SQLCollectorStatus',
     ];
@@ -29,6 +35,9 @@ class DescribePolarSQLCollectorPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,6 +56,9 @@ class DescribePolarSQLCollectorPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

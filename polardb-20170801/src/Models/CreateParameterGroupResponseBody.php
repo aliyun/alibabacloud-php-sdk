@@ -14,8 +14,6 @@ class CreateParameterGroupResponseBody extends Model
     public $parameterGroupId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

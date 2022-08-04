@@ -16,6 +16,16 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
     /**
      * @var string
      */
+    public $GDNDescription;
+
+    /**
+     * @var string
+     */
+    public $GDNId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -49,6 +59,8 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
     public $securityToken;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'GDNDescription'       => 'GDNDescription',
+        'GDNId'                => 'GDNId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -67,6 +79,12 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->GDNDescription) {
+            $res['GDNDescription'] = $this->GDNDescription;
+        }
+        if (null !== $this->GDNId) {
+            $res['GDNId'] = $this->GDNId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -103,6 +121,12 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['GDNDescription'])) {
+            $model->GDNDescription = $map['GDNDescription'];
+        }
+        if (isset($map['GDNId'])) {
+            $model->GDNId = $map['GDNId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

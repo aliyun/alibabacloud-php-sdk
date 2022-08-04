@@ -14,6 +14,11 @@ class ModifyDBClusterParametersRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var bool
+     */
+    public $fromTimeService;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -24,18 +29,24 @@ class ModifyDBClusterParametersRequest extends Model
     public $ownerId;
 
     /**
-     * @description Parameters与ParamGroupId二选一必传
-     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
-     * @description Parameters与ParamGroupId二选一必传
-     *
      * @var string
      */
     public $parameters;
+
+    /**
+     * @var string
+     */
+    public $plannedEndTime;
+
+    /**
+     * @var string
+     */
+    public $plannedStartTime;
 
     /**
      * @var string
@@ -48,10 +59,13 @@ class ModifyDBClusterParametersRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'fromTimeService'      => 'FromTimeService',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'parameterGroupId'     => 'ParameterGroupId',
         'parameters'           => 'Parameters',
+        'plannedEndTime'       => 'PlannedEndTime',
+        'plannedStartTime'     => 'PlannedStartTime',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -66,6 +80,9 @@ class ModifyDBClusterParametersRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+        if (null !== $this->fromTimeService) {
+            $res['FromTimeService'] = $this->fromTimeService;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -77,6 +94,12 @@ class ModifyDBClusterParametersRequest extends Model
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->plannedEndTime) {
+            $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedStartTime) {
+            $res['PlannedStartTime'] = $this->plannedStartTime;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -99,6 +122,9 @@ class ModifyDBClusterParametersRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+        if (isset($map['FromTimeService'])) {
+            $model->fromTimeService = $map['FromTimeService'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -110,6 +136,12 @@ class ModifyDBClusterParametersRequest extends Model
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['PlannedEndTime'])) {
+            $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedStartTime'])) {
+            $model->plannedStartTime = $map['PlannedStartTime'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

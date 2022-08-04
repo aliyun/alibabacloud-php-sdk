@@ -16,6 +16,16 @@ class ModifyLogBackupPolicyRequest extends Model
     /**
      * @var string
      */
+    public $logBackupAnotherRegionRegion;
+
+    /**
+     * @var string
+     */
+    public $logBackupAnotherRegionRetentionPeriod;
+
+    /**
+     * @var string
+     */
     public $logBackupRetentionPeriod;
 
     /**
@@ -38,12 +48,14 @@ class ModifyLogBackupPolicyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'              => 'DBClusterId',
-        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
+        'DBClusterId'                           => 'DBClusterId',
+        'logBackupAnotherRegionRegion'          => 'LogBackupAnotherRegionRegion',
+        'logBackupAnotherRegionRetentionPeriod' => 'LogBackupAnotherRegionRetentionPeriod',
+        'logBackupRetentionPeriod'              => 'LogBackupRetentionPeriod',
+        'ownerAccount'                          => 'OwnerAccount',
+        'ownerId'                               => 'OwnerId',
+        'resourceOwnerAccount'                  => 'ResourceOwnerAccount',
+        'resourceOwnerId'                       => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -55,6 +67,12 @@ class ModifyLogBackupPolicyRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->logBackupAnotherRegionRegion) {
+            $res['LogBackupAnotherRegionRegion'] = $this->logBackupAnotherRegionRegion;
+        }
+        if (null !== $this->logBackupAnotherRegionRetentionPeriod) {
+            $res['LogBackupAnotherRegionRetentionPeriod'] = $this->logBackupAnotherRegionRetentionPeriod;
         }
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
@@ -85,6 +103,12 @@ class ModifyLogBackupPolicyRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['LogBackupAnotherRegionRegion'])) {
+            $model->logBackupAnotherRegionRegion = $map['LogBackupAnotherRegionRegion'];
+        }
+        if (isset($map['LogBackupAnotherRegionRetentionPeriod'])) {
+            $model->logBackupAnotherRegionRetentionPeriod = $map['LogBackupAnotherRegionRetentionPeriod'];
         }
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];

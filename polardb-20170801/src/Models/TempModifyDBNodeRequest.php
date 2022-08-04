@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class TempModifyDBNodeRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 实例Id
-     *
      * @var string
      */
     public $DBClusterId;
@@ -29,15 +25,11 @@ class TempModifyDBNodeRequest extends Model
     public $DBNode;
 
     /**
-     * @description 变更类型
-     *
      * @var string
      */
     public $modifyType;
 
     /**
-     * @description 操作类型（Add:增加节点; Modify:变配）
-     *
      * @var string
      */
     public $operationType;
@@ -63,8 +55,6 @@ class TempModifyDBNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 变更还原时间(说明：还原时间不能早于当前时间推后1小时，不能晚于集群到期时间的前1天)
-     *
      * @var string
      */
     public $restoreTime;

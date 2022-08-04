@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateStoragePlanRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
      * @var string
      */
     public $clientToken;

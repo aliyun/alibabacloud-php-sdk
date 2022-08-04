@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMaskingRulesResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
      * @var data
      */
     public $data;
@@ -20,8 +25,6 @@ class DescribeMaskingRulesResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -31,10 +34,11 @@ class DescribeMaskingRulesResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'DBClusterId' => 'DBClusterId',
+        'data'        => 'Data',
+        'message'     => 'Message',
+        'requestId'   => 'RequestId',
+        'success'     => 'Success',
     ];
 
     public function validate()
@@ -44,6 +48,9 @@ class DescribeMaskingRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
@@ -68,6 +75,9 @@ class DescribeMaskingRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }

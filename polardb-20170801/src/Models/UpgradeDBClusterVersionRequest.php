@@ -51,6 +51,16 @@ class UpgradeDBClusterVersionRequest extends Model
     /**
      * @var string
      */
+    public $upgradeLabel;
+
+    /**
+     * @var string
+     */
+    public $upgradePolicy;
+
+    /**
+     * @var string
+     */
     public $upgradeType;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
@@ -61,6 +71,8 @@ class UpgradeDBClusterVersionRequest extends Model
         'plannedStartTime'     => 'PlannedStartTime',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'upgradeLabel'         => 'UpgradeLabel',
+        'upgradePolicy'        => 'UpgradePolicy',
         'upgradeType'          => 'UpgradeType',
     ];
 
@@ -94,6 +106,12 @@ class UpgradeDBClusterVersionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->upgradeLabel) {
+            $res['UpgradeLabel'] = $this->upgradeLabel;
+        }
+        if (null !== $this->upgradePolicy) {
+            $res['UpgradePolicy'] = $this->upgradePolicy;
         }
         if (null !== $this->upgradeType) {
             $res['UpgradeType'] = $this->upgradeType;
@@ -133,6 +151,12 @@ class UpgradeDBClusterVersionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['UpgradeLabel'])) {
+            $model->upgradeLabel = $map['UpgradeLabel'];
+        }
+        if (isset($map['UpgradePolicy'])) {
+            $model->upgradePolicy = $map['UpgradePolicy'];
         }
         if (isset($map['UpgradeType'])) {
             $model->upgradeType = $map['UpgradeType'];

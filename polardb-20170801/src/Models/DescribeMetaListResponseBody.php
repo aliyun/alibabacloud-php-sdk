@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetaListResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
      * @var items[]
      */
     public $items;
@@ -39,6 +44,7 @@ class DescribeMetaListResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
+        'DBClusterId'      => 'DBClusterId',
         'items'            => 'Items',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
@@ -54,6 +60,9 @@ class DescribeMetaListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -90,6 +99,9 @@ class DescribeMetaListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];

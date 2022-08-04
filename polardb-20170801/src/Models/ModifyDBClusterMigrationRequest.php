@@ -11,6 +11,11 @@ class ModifyDBClusterMigrationRequest extends Model
     /**
      * @var string
      */
+    public $connectionStrings;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -53,6 +58,7 @@ class ModifyDBClusterMigrationRequest extends Model
      */
     public $swapConnectionString;
     protected $_name = [
+        'connectionStrings'     => 'ConnectionStrings',
         'DBClusterId'           => 'DBClusterId',
         'newMasterInstanceId'   => 'NewMasterInstanceId',
         'ownerAccount'          => 'OwnerAccount',
@@ -71,6 +77,9 @@ class ModifyDBClusterMigrationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionStrings) {
+            $res['ConnectionStrings'] = $this->connectionStrings;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -110,6 +119,9 @@ class ModifyDBClusterMigrationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionStrings'])) {
+            $model->connectionStrings = $map['ConnectionStrings'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

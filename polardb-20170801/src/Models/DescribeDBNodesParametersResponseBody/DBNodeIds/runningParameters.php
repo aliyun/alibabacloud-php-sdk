@@ -24,6 +24,11 @@ class runningParameters extends Model
     public $defaultParameterValue;
 
     /**
+     * @var string
+     */
+    public $factor;
+
+    /**
      * @var bool
      */
     public $forceRestart;
@@ -66,6 +71,7 @@ class runningParameters extends Model
         'checkingCode'          => 'CheckingCode',
         'dataType'              => 'DataType',
         'defaultParameterValue' => 'DefaultParameterValue',
+        'factor'                => 'Factor',
         'forceRestart'          => 'ForceRestart',
         'isModifiable'          => 'IsModifiable',
         'isNodeAvailable'       => 'IsNodeAvailable',
@@ -91,6 +97,9 @@ class runningParameters extends Model
         }
         if (null !== $this->defaultParameterValue) {
             $res['DefaultParameterValue'] = $this->defaultParameterValue;
+        }
+        if (null !== $this->factor) {
+            $res['Factor'] = $this->factor;
         }
         if (null !== $this->forceRestart) {
             $res['ForceRestart'] = $this->forceRestart;
@@ -136,6 +145,9 @@ class runningParameters extends Model
         }
         if (isset($map['DefaultParameterValue'])) {
             $model->defaultParameterValue = $map['DefaultParameterValue'];
+        }
+        if (isset($map['Factor'])) {
+            $model->factor = $map['Factor'];
         }
         if (isset($map['ForceRestart'])) {
             $model->forceRestart = $map['ForceRestart'];
