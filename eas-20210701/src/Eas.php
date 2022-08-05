@@ -425,13 +425,13 @@ class Eas extends OpenApiClient
         $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
         $body        = [];
         if (!Utils::isUnset($request->max)) {
-            $body['Max'] = $request->max;
+            $body['max'] = $request->max;
         }
         if (!Utils::isUnset($request->min)) {
-            $body['Min'] = $request->min;
+            $body['min'] = $request->min;
         }
         if (!Utils::isUnset($request->strategies)) {
-            $body['Strategies'] = $request->strategies;
+            $body['strategies'] = $request->strategies;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2322,13 +2322,13 @@ class Eas extends OpenApiClient
         $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
         $body        = [];
         if (!Utils::isUnset($request->max)) {
-            $body['Max'] = $request->max;
+            $body['max'] = $request->max;
         }
         if (!Utils::isUnset($request->min)) {
-            $body['Min'] = $request->min;
+            $body['min'] = $request->min;
         }
         if (!Utils::isUnset($request->strategies)) {
-            $body['Strategies'] = $request->strategies;
+            $body['strategies'] = $request->strategies;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

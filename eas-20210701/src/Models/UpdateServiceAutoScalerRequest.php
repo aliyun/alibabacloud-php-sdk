@@ -24,9 +24,9 @@ class UpdateServiceAutoScalerRequest extends Model
      */
     public $strategies;
     protected $_name = [
-        'max'        => 'Max',
-        'min'        => 'Min',
-        'strategies' => 'Strategies',
+        'max'        => 'max',
+        'min'        => 'min',
+        'strategies' => 'strategies',
     ];
 
     public function validate()
@@ -37,13 +37,13 @@ class UpdateServiceAutoScalerRequest extends Model
     {
         $res = [];
         if (null !== $this->max) {
-            $res['Max'] = $this->max;
+            $res['max'] = $this->max;
         }
         if (null !== $this->min) {
-            $res['Min'] = $this->min;
+            $res['min'] = $this->min;
         }
         if (null !== $this->strategies) {
-            $res['Strategies'] = null !== $this->strategies ? $this->strategies->toMap() : null;
+            $res['strategies'] = null !== $this->strategies ? $this->strategies->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class UpdateServiceAutoScalerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Max'])) {
-            $model->max = $map['Max'];
+        if (isset($map['max'])) {
+            $model->max = $map['max'];
         }
-        if (isset($map['Min'])) {
-            $model->min = $map['Min'];
+        if (isset($map['min'])) {
+            $model->min = $map['min'];
         }
-        if (isset($map['Strategies'])) {
-            $model->strategies = strategies::fromMap($map['Strategies']);
+        if (isset($map['strategies'])) {
+            $model->strategies = strategies::fromMap($map['strategies']);
         }
 
         return $model;

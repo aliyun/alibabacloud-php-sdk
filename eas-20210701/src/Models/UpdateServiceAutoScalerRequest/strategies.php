@@ -18,8 +18,8 @@ class strategies extends Model
      */
     public $qps;
     protected $_name = [
-        'cpu' => 'Cpu',
-        'qps' => 'Qps',
+        'cpu' => 'cpu',
+        'qps' => 'qps',
     ];
 
     public function validate()
@@ -30,10 +30,10 @@ class strategies extends Model
     {
         $res = [];
         if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
+            $res['cpu'] = $this->cpu;
         }
         if (null !== $this->qps) {
-            $res['Qps'] = $this->qps;
+            $res['qps'] = $this->qps;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class strategies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
+        if (isset($map['cpu'])) {
+            $model->cpu = $map['cpu'];
         }
-        if (isset($map['Qps'])) {
-            $model->qps = $map['Qps'];
+        if (isset($map['qps'])) {
+            $model->qps = $map['qps'];
         }
 
         return $model;

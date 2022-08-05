@@ -11,6 +11,11 @@ class DescribeServiceAutoScalerResponseBody extends Model
     /**
      * @var mixed[]
      */
+    public $behavior;
+
+    /**
+     * @var mixed[]
+     */
     public $currentValues;
 
     /**
@@ -38,6 +43,7 @@ class DescribeServiceAutoScalerResponseBody extends Model
      */
     public $strategies;
     protected $_name = [
+        'behavior'      => 'Behavior',
         'currentValues' => 'CurrentValues',
         'maxReplica'    => 'MaxReplica',
         'minReplica'    => 'MinReplica',
@@ -53,6 +59,9 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->behavior) {
+            $res['Behavior'] = $this->behavior;
+        }
         if (null !== $this->currentValues) {
             $res['CurrentValues'] = $this->currentValues;
         }
@@ -83,6 +92,9 @@ class DescribeServiceAutoScalerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Behavior'])) {
+            $model->behavior = $map['Behavior'];
+        }
         if (isset($map['CurrentValues'])) {
             $model->currentValues = $map['CurrentValues'];
         }
