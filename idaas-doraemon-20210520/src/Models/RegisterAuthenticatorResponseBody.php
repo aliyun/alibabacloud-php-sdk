@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RegisterAuthenticatorResponseBody extends Model
 {
     /**
-     * @description 认证器UUID
-     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
-     * @description 仅IFAA认证器注册返回
-     *
      * @var string
      */
     public $etasResponseSting;

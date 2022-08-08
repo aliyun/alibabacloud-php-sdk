@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class authenticator extends Model
 {
     /**
-     * @description 认证器名字
-     *
      * @var string
      */
     public $authenticatorName;
@@ -21,8 +19,6 @@ class authenticator extends Model
     public $authenticatorUuid;
 
     /**
-     * @description 创建认证器的Options
-     *
      * @var string
      */
     public $credentialId;
@@ -33,43 +29,31 @@ class authenticator extends Model
     public $customAuthenticator;
 
     /**
-     * @description 用户最后签名IP
-     *
      * @var string
      */
     public $lastVerifySourceIp;
 
     /**
-     * @description 最后验证时间
-     *
      * @var int
      */
     public $lastVerifyTime;
 
     /**
-     * @description 用户最后签名userAgent
-     *
      * @var string
      */
     public $lastVerifyUserAgent;
 
     /**
-     * @description 用户注册IP
-     *
      * @var string
      */
     public $registerSourceIp;
 
     /**
-     * @description 注册时间
-     *
      * @var int
      */
     public $registerTime;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $type;

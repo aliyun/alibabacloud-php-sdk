@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateUserAuthenticateOptionsRequest extends Model
 {
     /**
-     * @description 应用外部Id
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $authenticatorType;
 
     /**
-     * @description 操作hash，用来和认证绑定
-     *
      * @var string
      */
     public $bindHashBase64;
 
     /**
-     * @description 客户端SDK生成认证上下文
-     *
      * @var string
      */
     public $clientExtendParamsJson;
 
     /**
-     * @description 客户端SDK生成认证上下文签名信息
-     *
      * @var string
      */
     public $clientExtendParamsJsonSign;
 
     /**
-     * @description 服务端配置项，决定认证要求属性
-     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userId;

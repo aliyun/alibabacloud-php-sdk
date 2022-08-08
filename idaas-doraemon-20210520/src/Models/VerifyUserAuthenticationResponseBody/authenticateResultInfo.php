@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class authenticateResultInfo extends Model
 {
     /**
-     * @description 这次认证绑定的操作hash
-     *
      * @var string
      */
     public $bindHashBase64;
 
     /**
-     * @description 认证使用的凭据Id
-     *
      * @var string
      */
     public $credentialId;
 
     /**
-     * @description 认证通过的用户Id
-     *
      * @var string
      */
     public $userId;

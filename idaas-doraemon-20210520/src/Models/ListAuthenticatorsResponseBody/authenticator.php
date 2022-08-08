@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class authenticator extends Model
 {
     /**
-     * @description 应用ID
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 身份认证对应的认证器名称
-     *
      * @var string
      */
     public $authenticatorName;
 
     /**
-     * @description 认证器uuid
-     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
-     * @description 身份认证ID
-     *
      * @var string
      */
     public $credentialId;
 
     /**
-     * @description 最后验证时间，如果新注册则为注册时间
-     *
      * @var int
      */
     public $lastVerifyTime;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $registerTime;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $type;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthenticatorRegistrationResponseBody extends Model
 {
     /**
-     * @description 防重放挑战码
-     *
      * @var string
      */
     public $challengeBase64;
 
     /**
-     * @description 创建认证器的Options
-     *
      * @var string
      */
     public $options;

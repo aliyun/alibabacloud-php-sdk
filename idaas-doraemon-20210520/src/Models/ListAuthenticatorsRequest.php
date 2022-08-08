@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListAuthenticatorsRequest extends Model
 {
     /**
-     * @description 应用外部Id
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $authenticatorType;
 
     /**
-     * @description 当前开始读取的位置，不设置时默认为1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 本次读取的最大数据记录数量，不指定时使用默认值
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userId;

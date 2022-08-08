@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class VerifyUserAuthenticationRequest extends Model
 {
     /**
-     * @description 应用外部Id
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 认证上下文，由AuthenticatorType决定格式
-     *
      * @var string
      */
     public $authenticationContext;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $authenticatorType;
 
     /**
-     * @description 客户端SDK生成认证上下文
-     *
      * @var string
      */
     public $clientExtendParamsJson;
 
     /**
-     * @description 客户端SDK生成认证上下文签名信息
-     *
      * @var string
      */
     public $clientExtendParamsJsonSign;
 
     /**
-     * @description 用户自定义记录审计日志信息
-     *
      * @var string
      */
     public $logParams;
 
     /**
-     * @description 用户自定义记录审计日志标签
-     *
      * @var string
      */
     public $logTag;
 
     /**
-     * @description 认证绑定的操作hash base64标识
-     *
      * @var string
      */
     public $requireBindHashBase64;
 
     /**
-     * @description 会话绑定的challenge base64标识
-     *
      * @var string
      */
     public $requireChallengeBase64;
 
     /**
-     * @description 服务端配置项，决定认证要求属性
-     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户端来源IP地址，用于审计
-     *
      * @var string
      */
     public $userSourceIp;

@@ -15,15 +15,11 @@ class ListAuthenticatorsResponseBody extends Model
     public $authenticator;
 
     /**
-     * @description 读取到的位置
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页记录数量
-     *
      * @var int
      */
     public $pageSize;
@@ -34,8 +30,6 @@ class ListAuthenticatorsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 查询结果数据总数
-     *
      * @var int
      */
     public $totalCount;

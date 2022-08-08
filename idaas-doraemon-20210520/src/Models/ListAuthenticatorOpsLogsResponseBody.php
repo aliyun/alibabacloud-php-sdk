@@ -30,8 +30,6 @@ class ListAuthenticatorOpsLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 返回列表长度
-     *
      * @var int
      */
     public $totalCount;

@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthenticatorRegistrationRequest extends Model
 {
     /**
-     * @description 应用外部Id
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $authenticatorType;
 
     /**
-     * @description 客户端SDK生成认证上下文
-     *
      * @var string
      */
     public $clientExtendParamsJson;
 
     /**
-     * @description 客户端SDK生成认证上下文签名信息
-     *
      * @var string
      */
     public $clientExtendParamsJsonSign;
 
     /**
-     * @description 注册上下文
-     *
      * @var string
      */
     public $registrationContext;
 
     /**
-     * @description 服务端配置项，决定认证要求属性
-     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
-     * @description 用户展示名
-     *
      * @var string
      */
     public $userDisplayName;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户姓名
-     *
      * @var string
      */
     public $userName;

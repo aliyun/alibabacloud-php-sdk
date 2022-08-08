@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class VerifyUserAuthenticationResponseBody extends Model
 {
     /**
-     * @description 认证结果
-     *
      * @var authenticateResultInfo
      */
     public $authenticateResultInfo;
@@ -32,8 +30,6 @@ class VerifyUserAuthenticationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 认证结果，true or false
-     *
      * @var bool
      */
     public $verifyResult;

@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class RegisterAuthenticatorRequest extends Model
 {
     /**
-     * @description 应用外部Id
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 认证器名字
-     *
      * @var string
      */
     public $authenticatorName;
 
     /**
-     * @description 认证器类型
-     *
      * @var string
      */
     public $authenticatorType;
 
     /**
-     * @description 客户端SDK生成认证上下文
-     *
      * @var string
      */
     public $clientExtendParamsJson;
 
     /**
-     * @description 客户端SDK生成认证上下文签名信息
-     *
      * @var string
      */
     public $clientExtendParamsJsonSign;
 
     /**
-     * @description 用户自定义记录审计日志信息
-     *
      * @var string
      */
     public $logParams;
 
     /**
-     * @description 注册上下文
-     *
      * @var string
      */
     public $registrationContext;
 
     /**
-     * @description 会话绑定的challenge base64标识
-     *
      * @var string
      */
     public $requireChallengeBase64;
 
     /**
-     * @description 服务端配置项，决定认证要求属性
-     *
      * @var string
      */
     public $serverExtendParamsJson;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户端来源IP地址，用于审计
-     *
      * @var string
      */
     public $userSourceIp;

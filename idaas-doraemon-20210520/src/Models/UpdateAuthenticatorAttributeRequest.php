@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateAuthenticatorAttributeRequest extends Model
 {
     /**
-     * @description 应用外部Id
-     *
      * @var string
      */
     public $applicationExternalId;
 
     /**
-     * @description 认证器名字
-     *
      * @var string
      */
     public $authenticatorName;
 
     /**
-     * @description 认证器uuid
-     *
      * @var string
      */
     public $authenticatorUuid;
 
     /**
-     * @description 用户id
-     *
      * @var string
      */
     public $userId;

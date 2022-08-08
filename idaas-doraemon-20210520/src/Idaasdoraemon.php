@@ -22,6 +22,10 @@ use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListAuthenticatorOpsLogsRequ
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListAuthenticatorOpsLogsResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListAuthenticatorsRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListAuthenticatorsResponse;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListCostUnitOrdersRequest;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListCostUnitOrdersResponse;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListOrderConsumeStatisticRecordsRequest;
+use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListOrderConsumeStatisticRecordsResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListPwnedPasswordsRequest;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListPwnedPasswordsResponse;
 use AlibabaCloud\SDK\Idaasdoraemon\V20210520\Models\ListUsersRequest;
@@ -549,6 +553,113 @@ class Idaasdoraemon extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuthenticatorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCostUnitOrdersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCostUnitOrdersResponse
+     */
+    public function listCostUnitOrdersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginDate)) {
+            $query['BeginDate'] = $request->beginDate;
+        }
+        if (!Utils::isUnset($request->finalDate)) {
+            $query['FinalDate'] = $request->finalDate;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCostUnitOrders',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCostUnitOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCostUnitOrdersRequest $request
+     *
+     * @return ListCostUnitOrdersResponse
+     */
+    public function listCostUnitOrders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCostUnitOrdersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOrderConsumeStatisticRecordsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListOrderConsumeStatisticRecordsResponse
+     */
+    public function listOrderConsumeStatisticRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliOrderCode)) {
+            $query['AliOrderCode'] = $request->aliOrderCode;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->statisticTimeMax)) {
+            $query['StatisticTimeMax'] = $request->statisticTimeMax;
+        }
+        if (!Utils::isUnset($request->statisticTimeMin)) {
+            $query['StatisticTimeMin'] = $request->statisticTimeMin;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOrderConsumeStatisticRecords',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOrderConsumeStatisticRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOrderConsumeStatisticRecordsRequest $request
+     *
+     * @return ListOrderConsumeStatisticRecordsResponse
+     */
+    public function listOrderConsumeStatisticRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOrderConsumeStatisticRecordsWithOptions($request, $runtime);
     }
 
     /**

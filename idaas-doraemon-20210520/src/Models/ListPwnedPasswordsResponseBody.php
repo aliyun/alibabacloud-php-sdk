@@ -25,8 +25,6 @@ class ListPwnedPasswordsResponseBody extends Model
     public $pwnedPasswordInfos;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateUserAuthenticateOptionsResponseBody extends Model
 {
     /**
-     * @description 防重放挑战码
-     *
      * @var string
      */
     public $challengeBase64;
 
     /**
-     * @description 创建认证的Options，内容是JSON
-     *
      * @var string
      */
     public $options;
