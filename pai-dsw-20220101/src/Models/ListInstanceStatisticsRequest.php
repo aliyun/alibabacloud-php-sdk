@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceStatisticsRequest extends Model
 {
     /**
-     * @description 工作空间列表
-     *
      * @var string
      */
     public $workspaceIds;

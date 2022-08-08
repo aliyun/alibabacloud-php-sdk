@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInstanceStatisticsResponseBody extends Model
+class GetTokenResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
-
-    /**
-     * @var int
-     */
-    public $httpStatusCode;
 
     /**
      * @var string
@@ -29,21 +24,20 @@ class ListInstanceStatisticsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var mixed[][]
-     */
-    public $statistics;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var string
+     */
+    public $token;
     protected $_name = [
-        'code'           => 'Code',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'statistics'     => 'Statistics',
-        'success'        => 'Success',
+        'code'      => 'Code',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
+        'token'     => 'Token',
     ];
 
     public function validate()
@@ -56,20 +50,17 @@ class ListInstanceStatisticsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -78,7 +69,7 @@ class ListInstanceStatisticsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListInstanceStatisticsResponseBody
+     * @return GetTokenResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -86,20 +77,17 @@ class ListInstanceStatisticsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

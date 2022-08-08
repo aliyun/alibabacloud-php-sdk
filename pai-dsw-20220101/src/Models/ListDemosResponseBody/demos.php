@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class demos extends Model
 {
     /**
-     * @description 所在目录
-     *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description 样例描述
-     *
      * @var string
      */
     public $demoDescription;
 
     /**
-     * @description 样例名称
-     *
      * @var string
      */
     public $demoName;
 
     /**
-     * @description 样例地址
-     *
      * @var string
      */
     public $demoUrl;
 
     /**
-     * @description 序号
-     *
      * @var int
      */
     public $order;
 
     /**
-     * @description 大小
-     *
      * @var int
      */
     public $size;

@@ -12,85 +12,61 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description 工作空间内是否他人可见
-     *
      * @var string
      */
     public $accessibility;
 
     /**
-     * @description 数据集集合
-     *
      * @var datasets[]
      */
     public $datasets;
 
     /**
-     * @description 实例对应的Ecs规格
-     *
      * @var string
      */
     public $ecsSpec;
 
     /**
-     * @description 环境变量
-     *
      * @var string[]
      */
     public $environmentVariables;
 
     /**
-     * @description 镜像Id
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 镜像地址
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 优先级，在分配资源给实例时，优先级越高的实例越优先
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 资源配置，弹内或者轻量化时使用
-     *
      * @var requestedResource
      */
     public $requestedResource;
 
     /**
-     * @description 资源Id,预付费时填写
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description user vpc配置
-     *
      * @var userVpc
      */
     public $userVpc;
 
     /**
-     * @description 工作空间Id
-     *
      * @var string
      */
     public $workspaceId;

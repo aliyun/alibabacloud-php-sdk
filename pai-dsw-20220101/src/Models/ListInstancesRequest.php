@@ -19,29 +19,21 @@ class ListInstancesRequest extends Model
     public $accessibility;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 排列顺序
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页数量大小
-     *
      * @var int
      */
     public $pageSize;
@@ -57,22 +49,16 @@ class ListInstancesRequest extends Model
     public $resourceId;
 
     /**
-     * @description 排序字段
-     *
      * @var string
      */
     public $sortBy;
 
     /**
-     * @description 实例状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 工作空间Id
-     *
      * @var string
      */
     public $workspaceId;

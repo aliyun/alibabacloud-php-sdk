@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DemoCategory extends Model
 {
     /**
-     * @description 目录码
-     *
      * @var string
      */
     public $categoryCode;
 
     /**
-     * @description 目录名
-     *
      * @var string
      */
     public $categoryName;
 
     /**
-     * @description 序号
-     *
      * @var int
      */
     public $order;
 
     /**
-     * @description 目录列表
-     *
      * @var \AlibabaCloud\SDK\Paidsw\V20220101\Models\DemoCategory[]
      */
     public $subCategories;

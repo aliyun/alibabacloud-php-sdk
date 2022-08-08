@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDemoCategoriesResponseBody extends Model
 {
     /**
-     * @description 样例列表
-     *
      * @var DemoCategory[]
      */
     public $categories;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

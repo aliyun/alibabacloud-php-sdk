@@ -14,162 +14,116 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description 实例计算类型
-     *
      * @var string
      */
     public $acceleratorType;
 
     /**
-     * @description 工作空间内是否他人可见
-     *
      * @var string
      */
     public $accessibility;
 
     /**
-     * @description 累计运行时间（ms）
-     *
      * @var int
      */
     public $accumulatedRunningTimeInMs;
 
     /**
-     * @description 数据集集合
-     *
      * @var datasets[]
      */
     public $datasets;
 
     /**
-     * @description 实例对应的Ecs规格
-     *
      * @var string
      */
     public $ecsSpec;
 
     /**
-     * @description 环境变量
-     *
      * @var string[]
      */
     public $environmentVariables;
 
     /**
-     * @description 实例创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 实例修改时间
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @description 镜像Id
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 镜像名称
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @description 镜像地址
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 实例Id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 定时关机任务
-     *
      * @var instanceShutdownTimer
      */
     public $instanceShutdownTimer;
 
     /**
-     * @description 实例Url
-     *
      * @var string
      */
     public $instanceUrl;
 
     /**
-     * @description Jupyterlab Url
-     *
      * @var string
      */
     public $jupyterlabUrl;
 
     /**
-     * @description 最新保存的用户镜像
-     *
      * @var latestSnapshot
      */
     public $latestSnapshot;
 
     /**
-     * @description 支付类型
-     *
      * @var string
      */
     public $paymentType;
 
     /**
-     * @description 优先级，在分配资源给实例时，优先级越高的实例越优先
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 实例错误代码
-     *
      * @var string
      */
     public $reasonCode;
 
     /**
-     * @description 实例错误原因
-     *
      * @var string
      */
     public $reasonMessage;
 
     /**
-     * @description 资源配置，弹内或者轻量化时使用
-     *
      * @var requestedResource
      */
     public $requestedResource;
 
     /**
-     * @description 资源Id,预付费时填写
-     *
      * @var string
      */
     public $resourceId;
@@ -180,57 +134,41 @@ class instances extends Model
     public $resourceName;
 
     /**
-     * @description 实例状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 终端url
-     *
      * @var string
      */
     public $terminalUrl;
 
     /**
-     * @description 用户Id
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户名称
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @description user vpc配置
-     *
      * @var userVpc
      */
     public $userVpc;
 
     /**
-     * @description Web IDE url
-     *
      * @var string
      */
     public $webIDEUrl;
 
     /**
-     * @description 工作空间Id
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspaceName;

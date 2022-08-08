@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
-     * @description 实例快照创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 实例快照修改时间
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @description 实例快照的镜像Id
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 实例快照的镜像地址
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 实例Id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 实例快照错误代码
-     *
      * @var string
      */
     public $reasonCode;
 
     /**
-     * @description 实例快照错误消息
-     *
      * @var string
      */
     public $reasonMessage;
 
     /**
-     * @description 实例快照Id
-     *
      * @var string
      */
     public $snapshotId;
 
     /**
-     * @description 实例快照名称
-     *
      * @var string
      */
     public $snapshotName;
 
     /**
-     * @description 实例快照状态
-     *
      * @var string
      */
     public $status;

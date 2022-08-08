@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
-     * @description 状态码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description http状态码
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 本分页中请求的实例列表
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description 说明
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 成功标志
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 实例总数
-     *
      * @var int
      */
     public $totalCount;

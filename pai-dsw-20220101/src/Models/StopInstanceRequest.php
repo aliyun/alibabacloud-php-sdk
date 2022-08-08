@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class StopInstanceRequest extends Model
 {
     /**
-     * @description 是否保存环境后再关闭实例
-     *
      * @var bool
      */
     public $saveImage;

@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceSnapshotResponseBody extends Model
 {
     /**
-     * @description 状态码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description http状态码
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 说明
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 本分页中请求的实例镜像列表
-     *
      * @var snapshots[]
      */
     public $snapshots;
 
     /**
-     * @description 成功标志
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description 实例总数
-     *
      * @var int
      */
     public $totalCount;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListDemosResponseBody extends Model
 {
     /**
-     * @description 样例列表
-     *
      * @var demos[]
      */
     public $demos;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总数
-     *
      * @var int
      */
     public $totalCount;

@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceShutdownTimerResponseBody extends Model
 {
     /**
-     * @description 状态码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 设定关机时间
-     *
      * @var string
      */
     public $dueTime;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 修改时间
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @description http状态码
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 实例Id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 说明
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 剩余关机时间（ms）
-     *
      * @var int
      */
     public $remainingTimeInMs;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 成功标志
-     *
      * @var bool
      */
     public $success;

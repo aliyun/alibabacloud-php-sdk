@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDemosRequest extends Model
 {
     /**
-     * @description 目录
-     *
      * @var string
      */
     public $category;

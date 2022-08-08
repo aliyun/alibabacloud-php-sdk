@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;

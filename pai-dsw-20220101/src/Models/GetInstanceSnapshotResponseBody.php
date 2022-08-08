@@ -9,106 +9,76 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceSnapshotResponseBody extends Model
 {
     /**
-     * @description 状态码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 实例快照创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 实例快照修改时间
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @description http状态码
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 实例快照的镜像Id
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 实例快照的镜像地址
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 实例Id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 说明
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 实例快照错误代码
-     *
      * @var string
      */
     public $reasonCode;
 
     /**
-     * @description 实例快照错误消息
-     *
      * @var string
      */
     public $reasonMessage;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 实例快照Id
-     *
      * @var string
      */
     public $snapshotId;
 
     /**
-     * @description 实例快照名称
-     *
      * @var string
      */
     public $snapshotName;
 
     /**
-     * @description 实例快照状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 成功标志
-     *
      * @var bool
      */
     public $success;

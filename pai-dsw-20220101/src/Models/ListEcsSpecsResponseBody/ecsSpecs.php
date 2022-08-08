@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ecsSpecs extends Model
 {
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $acceleratorType;
 
     /**
-     * @description CPU核数
-     *
      * @var int
      */
     public $CPU;
 
     /**
-     * @description 货币单位
-     *
      * @var string
      */
     public $currency;
 
     /**
-     * @description GPU卡数
-     *
      * @var int
      */
     public $GPU;
 
     /**
-     * @description 显卡类型
-     *
      * @var string
      */
     public $GPUType;
 
     /**
-     * @description 实例接收带宽
-     *
      * @var int
      */
     public $instanceBandwidthRx;
 
     /**
-     * @description 实例规格
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 内存大小(GB)
-     *
      * @var float
      */
     public $memory;
 
     /**
-     * @description 价格
-     *
      * @var float
      */
     public $price;
 
     /**
-     * @description 系统盘大小(GB)
-     *
      * @var int
      */
     public $systemDiskCapacity;

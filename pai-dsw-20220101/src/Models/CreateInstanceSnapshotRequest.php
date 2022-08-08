@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceSnapshotRequest extends Model
 {
     /**
-     * @description 镜像地址
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 实例快照描述
-     *
      * @var string
      */
     public $snapshotDescription;
 
     /**
-     * @description 实例快照名称
-     *
      * @var string
      */
     public $snapshotName;

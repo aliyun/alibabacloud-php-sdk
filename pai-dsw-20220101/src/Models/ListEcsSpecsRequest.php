@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListEcsSpecsRequest extends Model
 {
     /**
-     * @description 加速类型
-     *
      * @var string
      */
     public $acceleratorType;
 
     /**
-     * @description 排序顺序
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description 页数
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页大小
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 排序字段
-     *
      * @var string
      */
     public $sortBy;

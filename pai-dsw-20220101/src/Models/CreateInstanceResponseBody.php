@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @description 状态码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description http状态码
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 实例Id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 说明
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 成功标志
-     *
      * @var bool
      */
     public $success;

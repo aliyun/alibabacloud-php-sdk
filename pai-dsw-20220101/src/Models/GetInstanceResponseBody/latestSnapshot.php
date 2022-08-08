@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class latestSnapshot extends Model
 {
     /**
-     * @description 快照创建时间
-     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
-     * @description 快照修改时间
-     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
-     * @description 镜像Id
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 镜像名称
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @description 镜像Url
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description 镜像仓库Url
-     *
      * @var string
      */
     public $repositoryUrl;

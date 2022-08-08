@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class userVpc extends Model
 {
     /**
-     * @description Security Group Id
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description VSwitch Id
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description Vpc Id
-     *
      * @var string
      */
     public $vpcId;

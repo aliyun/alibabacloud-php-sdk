@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceSnapshotResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserConfigResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemoCategoriesResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemosRequest;
@@ -510,6 +512,55 @@ class Paidsw extends OpenApiClient
         ]);
 
         return GetInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
+     */
+    public function getToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetTokenRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTokenResponse
+     */
+    public function getTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetToken',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/tokens',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

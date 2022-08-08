@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceShutdownTimerRequest extends Model
 {
     /**
-     * @description 定时关机设定时间
-     *
      * @var string
      */
     public $dueTime;
 
     /**
-     * @description 距离定时关机时间段
-     *
      * @var int
      */
     public $remainingTimeInMs;
