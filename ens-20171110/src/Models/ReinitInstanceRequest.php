@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RebootInstanceRequest extends Model
+class ReinitInstanceRequest extends Model
 {
     /**
      * @var string
      */
-    public $forceStop;
+    public $imageId;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $password;
     protected $_name = [
-        'forceStop'  => 'ForceStop',
+        'imageId'    => 'ImageId',
         'instanceId' => 'InstanceId',
+        'password'   => 'Password',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class RebootInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->forceStop) {
-            $res['ForceStop'] = $this->forceStop;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
 
         return $res;
@@ -42,16 +51,19 @@ class RebootInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RebootInstanceRequest
+     * @return ReinitInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ForceStop'])) {
-            $model->forceStop = $map['ForceStop'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
 
         return $model;

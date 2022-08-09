@@ -36,6 +36,11 @@ class natGateways extends Model
     /**
      * @var string
      */
+    public $spec;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
     protected $_name = [
         'creationTime' => 'CreationTime',
@@ -43,6 +48,7 @@ class natGateways extends Model
         'name'         => 'Name',
         'natGatewayId' => 'NatGatewayId',
         'networkId'    => 'NetworkId',
+        'spec'         => 'Spec',
         'vSwitchId'    => 'VSwitchId',
     ];
 
@@ -67,6 +73,9 @@ class natGateways extends Model
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -97,6 +106,9 @@ class natGateways extends Model
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

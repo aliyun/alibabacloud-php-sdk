@@ -16,6 +16,11 @@ class CreateNatGatewayRequest extends Model
     /**
      * @var string
      */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -28,10 +33,11 @@ class CreateNatGatewayRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId' => 'EnsRegionId',
-        'name'        => 'Name',
-        'networkId'   => 'NetworkId',
-        'vSwitchId'   => 'VSwitchId',
+        'ensRegionId'  => 'EnsRegionId',
+        'instanceType' => 'InstanceType',
+        'name'         => 'Name',
+        'networkId'    => 'NetworkId',
+        'vSwitchId'    => 'VSwitchId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class CreateNatGatewayRequest extends Model
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -67,6 +76,9 @@ class CreateNatGatewayRequest extends Model
         $model = new self();
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

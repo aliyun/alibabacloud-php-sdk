@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartInstanceRequest extends Model
+class ReinitInstanceResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $requestId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class StartInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class StartInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartInstanceRequest
+     * @return ReinitInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

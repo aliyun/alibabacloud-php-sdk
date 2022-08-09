@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StartInstanceRequest extends Model
+class GetOssStorageAndAccByBucketsRequest extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $bucketList;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'bucketList' => 'BucketList',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class StartInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->bucketList) {
+            $res['BucketList'] = $this->bucketList;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class StartInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartInstanceRequest
+     * @return GetOssStorageAndAccByBucketsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['BucketList'])) {
+            $model->bucketList = $map['BucketList'];
         }
 
         return $model;

@@ -31,12 +31,18 @@ class CreateSnatEntryRequest extends Model
     /**
      * @var string
      */
+    public $sourceNetworkId;
+
+    /**
+     * @var string
+     */
     public $sourceVSwitchId;
     protected $_name = [
         'natGatewayId'    => 'NatGatewayId',
         'snatEntryName'   => 'SnatEntryName',
         'snatIp'          => 'SnatIp',
         'sourceCIDR'      => 'SourceCIDR',
+        'sourceNetworkId' => 'SourceNetworkId',
         'sourceVSwitchId' => 'SourceVSwitchId',
     ];
 
@@ -58,6 +64,9 @@ class CreateSnatEntryRequest extends Model
         }
         if (null !== $this->sourceCIDR) {
             $res['SourceCIDR'] = $this->sourceCIDR;
+        }
+        if (null !== $this->sourceNetworkId) {
+            $res['SourceNetworkId'] = $this->sourceNetworkId;
         }
         if (null !== $this->sourceVSwitchId) {
             $res['SourceVSwitchId'] = $this->sourceVSwitchId;
@@ -85,6 +94,9 @@ class CreateSnatEntryRequest extends Model
         }
         if (isset($map['SourceCIDR'])) {
             $model->sourceCIDR = $map['SourceCIDR'];
+        }
+        if (isset($map['SourceNetworkId'])) {
+            $model->sourceNetworkId = $map['SourceNetworkId'];
         }
         if (isset($map['SourceVSwitchId'])) {
             $model->sourceVSwitchId = $map['SourceVSwitchId'];

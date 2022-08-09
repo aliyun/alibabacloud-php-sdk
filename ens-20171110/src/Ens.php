@@ -239,6 +239,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ExportMeasurementDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ExportMeasurementDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetDeviceInternetPortResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceRequest;
@@ -287,6 +289,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReInitDiskResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ReinitInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseARMServerInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ReleaseInstanceRequest;
@@ -2020,6 +2024,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
         }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -2181,6 +2188,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceCIDR)) {
             $query['SourceCIDR'] = $request->sourceCIDR;
+        }
+        if (!Utils::isUnset($request->sourceNetworkId)) {
+            $query['SourceNetworkId'] = $request->sourceNetworkId;
         }
         if (!Utils::isUnset($request->sourceVSwitchId)) {
             $query['SourceVSwitchId'] = $request->sourceVSwitchId;
@@ -6441,6 +6451,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param GetOssStorageAndAccByBucketsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetOssStorageAndAccByBucketsResponse
+     */
+    public function getOssStorageAndAccByBucketsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOssStorageAndAccByBuckets',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOssStorageAndAccByBucketsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOssStorageAndAccByBucketsRequest $request
+     *
+     * @return GetOssStorageAndAccByBucketsResponse
+     */
+    public function getOssStorageAndAccByBuckets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssStorageAndAccByBucketsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ImportKeyPairRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -7619,9 +7669,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7650,6 +7697,55 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReinitInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReinitInstanceResponse
+     */
+    public function reinitInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $body['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['Password'] = $request->password;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReinitInstance',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReinitInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReinitInstanceRequest $request
+     *
+     * @return ReinitInstanceResponse
+     */
+    public function reinitInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reinitInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -9180,9 +9276,6 @@ class Ens extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
