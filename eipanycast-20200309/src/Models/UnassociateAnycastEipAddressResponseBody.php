@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UnassociateAnycastEipAddressResponseBody extends Model
 {
     /**
-     * @description 私网IP地址
-     *
      * @var string
      */
     public $requestId;

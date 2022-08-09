@@ -16,8 +16,6 @@ class UpdateAnycastEipAddressAssociationsRequest extends Model
     public $anycastId;
 
     /**
-     * @description 关联模式，默认模式、普通模式Default/Normal
-     *
      * @var string
      */
     public $associationMode;
@@ -38,15 +36,11 @@ class UpdateAnycastEipAddressAssociationsRequest extends Model
     public $dryRun;
 
     /**
-     * @description 新增关联的pop location
-     *
      * @var popLocationAddList[]
      */
     public $popLocationAddList;
 
     /**
-     * @description 待删除的关联pop location
-     *
      * @var popLocationDeleteList[]
      */
     public $popLocationDeleteList;

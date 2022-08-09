@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class anycastEipBindInfoList extends Model
 {
     /**
-     * @description 绑定模式 Normal、Default
-     *
      * @var string
      */
     public $associationMode;
@@ -37,15 +35,11 @@ class anycastEipBindInfoList extends Model
     public $bindTime;
 
     /**
-     * @description 关联的pop点
-     *
      * @var popLocations[]
      */
     public $popLocations;
 
     /**
-     * @description ip地址
-     *
      * @var string
      */
     public $privateIpAddress;

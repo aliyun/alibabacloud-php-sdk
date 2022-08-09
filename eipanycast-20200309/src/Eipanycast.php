@@ -76,15 +76,29 @@ class Eipanycast extends OpenApiClient
     public function allocateAnycastEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['Bandwidth']          = $request->bandwidth;
-        $query['ClientToken']        = $request->clientToken;
-        $query['Description']        = $request->description;
-        $query['InstanceChargeType'] = $request->instanceChargeType;
-        $query['InternetChargeType'] = $request->internetChargeType;
-        $query['Name']               = $request->name;
-        $query['ServiceLocation']    = $request->serviceLocation;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->serviceLocation)) {
+            $query['ServiceLocation'] = $request->serviceLocation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -123,17 +137,35 @@ class Eipanycast extends OpenApiClient
     public function associateAnycastEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnycastId']            = $request->anycastId;
-        $query['AssociationMode']      = $request->associationMode;
-        $query['BindInstanceId']       = $request->bindInstanceId;
-        $query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
-        $query['BindInstanceType']     = $request->bindInstanceType;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DryRun']               = $request->dryRun;
-        $query['PopLocations']         = $request->popLocations;
-        $query['PrivateIpAddress']     = $request->privateIpAddress;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->associationMode)) {
+            $query['AssociationMode'] = $request->associationMode;
+        }
+        if (!Utils::isUnset($request->bindInstanceId)) {
+            $query['BindInstanceId'] = $request->bindInstanceId;
+        }
+        if (!Utils::isUnset($request->bindInstanceRegionId)) {
+            $query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
+        }
+        if (!Utils::isUnset($request->bindInstanceType)) {
+            $query['BindInstanceType'] = $request->bindInstanceType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->popLocations)) {
+            $query['PopLocations'] = $request->popLocations;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -172,11 +204,17 @@ class Eipanycast extends OpenApiClient
     public function describeAnycastEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AnycastId']      = $request->anycastId;
-        $query['BindInstanceId'] = $request->bindInstanceId;
-        $query['Ip']             = $request->ip;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->bindInstanceId)) {
+            $query['BindInstanceId'] = $request->bindInstanceId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -215,9 +253,11 @@ class Eipanycast extends OpenApiClient
     public function describeAnycastPopLocationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ServiceLocation'] = $request->serviceLocation;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->serviceLocation)) {
+            $query['ServiceLocation'] = $request->serviceLocation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -256,9 +296,11 @@ class Eipanycast extends OpenApiClient
     public function describeAnycastServerRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ServiceLocation'] = $request->serviceLocation;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->serviceLocation)) {
+            $query['ServiceLocation'] = $request->serviceLocation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -297,19 +339,44 @@ class Eipanycast extends OpenApiClient
     public function listAnycastEipAddressesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['AnycastEipAddress']  = $request->anycastEipAddress;
-        $query['AnycastId']          = $request->anycastId;
-        $query['BindInstanceIds']    = $request->bindInstanceIds;
-        $query['BusinessStatus']     = $request->businessStatus;
-        $query['InstanceChargeType'] = $request->instanceChargeType;
-        $query['InternetChargeType'] = $request->internetChargeType;
-        $query['MaxResults']         = $request->maxResults;
-        $query['Name']               = $request->name;
-        $query['NextToken']          = $request->nextToken;
-        $query['ServiceLocation']    = $request->serviceLocation;
-        $query['Status']             = $request->status;
-        $req                         = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastEipAddress)) {
+            $query['AnycastEipAddress'] = $request->anycastEipAddress;
+        }
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->anycastIds)) {
+            $query['AnycastIds'] = $request->anycastIds;
+        }
+        if (!Utils::isUnset($request->bindInstanceIds)) {
+            $query['BindInstanceIds'] = $request->bindInstanceIds;
+        }
+        if (!Utils::isUnset($request->businessStatus)) {
+            $query['BusinessStatus'] = $request->businessStatus;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->serviceLocation)) {
+            $query['ServiceLocation'] = $request->serviceLocation;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -348,11 +415,17 @@ class Eipanycast extends OpenApiClient
     public function modifyAnycastEipAddressAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AnycastId']   = $request->anycastId;
-        $query['Description'] = $request->description;
-        $query['Name']        = $request->name;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -391,10 +464,14 @@ class Eipanycast extends OpenApiClient
     public function modifyAnycastEipAddressSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AnycastId'] = $request->anycastId;
-        $query['Bandwidth'] = $request->bandwidth;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -433,10 +510,14 @@ class Eipanycast extends OpenApiClient
     public function releaseAnycastEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['AnycastId']   = $request->anycastId;
-        $query['ClientToken'] = $request->clientToken;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -475,15 +556,29 @@ class Eipanycast extends OpenApiClient
     public function unassociateAnycastEipAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AnycastId']            = $request->anycastId;
-        $query['BindInstanceId']       = $request->bindInstanceId;
-        $query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
-        $query['BindInstanceType']     = $request->bindInstanceType;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DryRun']               = $request->dryRun;
-        $query['PrivateIpAddress']     = $request->privateIpAddress;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->bindInstanceId)) {
+            $query['BindInstanceId'] = $request->bindInstanceId;
+        }
+        if (!Utils::isUnset($request->bindInstanceRegionId)) {
+            $query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
+        }
+        if (!Utils::isUnset($request->bindInstanceType)) {
+            $query['BindInstanceType'] = $request->bindInstanceType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -522,15 +617,29 @@ class Eipanycast extends OpenApiClient
     public function updateAnycastEipAddressAssociationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AnycastId']             = $request->anycastId;
-        $query['AssociationMode']       = $request->associationMode;
-        $query['BindInstanceId']        = $request->bindInstanceId;
-        $query['ClientToken']           = $request->clientToken;
-        $query['DryRun']                = $request->dryRun;
-        $query['PopLocationAddList']    = $request->popLocationAddList;
-        $query['PopLocationDeleteList'] = $request->popLocationDeleteList;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->anycastId)) {
+            $query['AnycastId'] = $request->anycastId;
+        }
+        if (!Utils::isUnset($request->associationMode)) {
+            $query['AssociationMode'] = $request->associationMode;
+        }
+        if (!Utils::isUnset($request->bindInstanceId)) {
+            $query['BindInstanceId'] = $request->bindInstanceId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->popLocationAddList)) {
+            $query['PopLocationAddList'] = $request->popLocationAddList;
+        }
+        if (!Utils::isUnset($request->popLocationDeleteList)) {
+            $query['PopLocationDeleteList'] = $request->popLocationDeleteList;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

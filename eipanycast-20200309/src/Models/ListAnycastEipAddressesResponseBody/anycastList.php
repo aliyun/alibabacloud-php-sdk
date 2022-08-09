@@ -32,11 +32,6 @@ class anycastList extends Model
     /**
      * @var string
      */
-    public $bid;
-
-    /**
-     * @var string
-     */
     public $businessStatus;
 
     /**
@@ -75,6 +70,11 @@ class anycastList extends Model
     public $serviceLocation;
 
     /**
+     * @var int
+     */
+    public $serviceManaged;
+
+    /**
      * @var string
      */
     public $status;
@@ -83,7 +83,6 @@ class anycastList extends Model
         'anycastEipBindInfoList' => 'AnycastEipBindInfoList',
         'anycastId'              => 'AnycastId',
         'bandwidth'              => 'Bandwidth',
-        'bid'                    => 'Bid',
         'businessStatus'         => 'BusinessStatus',
         'createTime'             => 'CreateTime',
         'description'            => 'Description',
@@ -92,6 +91,7 @@ class anycastList extends Model
         'ipAddress'              => 'IpAddress',
         'name'                   => 'Name',
         'serviceLocation'        => 'ServiceLocation',
+        'serviceManaged'         => 'ServiceManaged',
         'status'                 => 'Status',
     ];
 
@@ -120,9 +120,6 @@ class anycastList extends Model
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->bid) {
-            $res['Bid'] = $this->bid;
-        }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
@@ -146,6 +143,9 @@ class anycastList extends Model
         }
         if (null !== $this->serviceLocation) {
             $res['ServiceLocation'] = $this->serviceLocation;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -180,9 +180,6 @@ class anycastList extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['Bid'])) {
-            $model->bid = $map['Bid'];
-        }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }
@@ -206,6 +203,9 @@ class anycastList extends Model
         }
         if (isset($map['ServiceLocation'])) {
             $model->serviceLocation = $map['ServiceLocation'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -21,6 +21,11 @@ class ListAnycastEipAddressesRequest extends Model
     /**
      * @var string[]
      */
+    public $anycastIds;
+
+    /**
+     * @var string[]
+     */
     public $bindInstanceIds;
 
     /**
@@ -65,6 +70,7 @@ class ListAnycastEipAddressesRequest extends Model
     protected $_name = [
         'anycastEipAddress'  => 'AnycastEipAddress',
         'anycastId'          => 'AnycastId',
+        'anycastIds'         => 'AnycastIds',
         'bindInstanceIds'    => 'BindInstanceIds',
         'businessStatus'     => 'BusinessStatus',
         'instanceChargeType' => 'InstanceChargeType',
@@ -88,6 +94,9 @@ class ListAnycastEipAddressesRequest extends Model
         }
         if (null !== $this->anycastId) {
             $res['AnycastId'] = $this->anycastId;
+        }
+        if (null !== $this->anycastIds) {
+            $res['AnycastIds'] = $this->anycastIds;
         }
         if (null !== $this->bindInstanceIds) {
             $res['BindInstanceIds'] = $this->bindInstanceIds;
@@ -133,6 +142,11 @@ class ListAnycastEipAddressesRequest extends Model
         }
         if (isset($map['AnycastId'])) {
             $model->anycastId = $map['AnycastId'];
+        }
+        if (isset($map['AnycastIds'])) {
+            if (!empty($map['AnycastIds'])) {
+                $model->anycastIds = $map['AnycastIds'];
+            }
         }
         if (isset($map['BindInstanceIds'])) {
             if (!empty($map['BindInstanceIds'])) {

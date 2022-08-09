@@ -15,8 +15,6 @@ class AssociateAnycastEipAddressRequest extends Model
     public $anycastId;
 
     /**
-     * @description 关联模式，默认模式、普通模式Default/Normal
-     *
      * @var string
      */
     public $associationMode;
@@ -47,15 +45,11 @@ class AssociateAnycastEipAddressRequest extends Model
     public $dryRun;
 
     /**
-     * @description 绑定时关联的pop location，如果是绑定的第一个实例，该参数会忽略，会下发到全部pop点
-     *
      * @var popLocations[]
      */
     public $popLocations;
 
     /**
-     * @description 私网ip地址
-     *
      * @var string
      */
     public $privateIpAddress;

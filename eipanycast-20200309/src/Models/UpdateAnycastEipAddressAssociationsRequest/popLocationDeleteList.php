@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class popLocationDeleteList extends Model
 {
     /**
-     * @description pop location
-     *
      * @var string
      */
     public $popLocation;

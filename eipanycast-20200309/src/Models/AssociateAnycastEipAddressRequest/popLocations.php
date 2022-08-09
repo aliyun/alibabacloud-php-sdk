@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class popLocations extends Model
 {
     /**
-     * @description pop location
-     *
      * @var string
      */
     public $popLocation;
