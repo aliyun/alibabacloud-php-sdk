@@ -1,3 +1,6 @@
+2022-08-09 Version: 1.0.4
+- Generated php 2019-05-17 for Oss.
+
 2022-08-03 Version: 1.0.3
 - Generated php 2019-05-17 for Oss.
 
