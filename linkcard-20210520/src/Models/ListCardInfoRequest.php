@@ -86,6 +86,16 @@ class ListCardInfoRequest extends Model
     /**
      * @var string
      */
+    public $maxFlow;
+
+    /**
+     * @var string
+     */
+    public $minFlow;
+
+    /**
+     * @var string
+     */
     public $msisdn;
 
     /**
@@ -153,6 +163,8 @@ class ListCardInfoRequest extends Model
         'iccid'              => 'Iccid',
         'imsi'               => 'Imsi',
         'isAutoRecharge'     => 'IsAutoRecharge',
+        'maxFlow'            => 'MaxFlow',
+        'minFlow'            => 'MinFlow',
         'msisdn'             => 'Msisdn',
         'notifyId'           => 'NotifyId',
         'osStatus'           => 'OsStatus',
@@ -217,6 +229,12 @@ class ListCardInfoRequest extends Model
         }
         if (null !== $this->isAutoRecharge) {
             $res['IsAutoRecharge'] = $this->isAutoRecharge;
+        }
+        if (null !== $this->maxFlow) {
+            $res['MaxFlow'] = $this->maxFlow;
+        }
+        if (null !== $this->minFlow) {
+            $res['MinFlow'] = $this->minFlow;
         }
         if (null !== $this->msisdn) {
             $res['Msisdn'] = $this->msisdn;
@@ -307,6 +325,12 @@ class ListCardInfoRequest extends Model
         }
         if (isset($map['IsAutoRecharge'])) {
             $model->isAutoRecharge = $map['IsAutoRecharge'];
+        }
+        if (isset($map['MaxFlow'])) {
+            $model->maxFlow = $map['MaxFlow'];
+        }
+        if (isset($map['MinFlow'])) {
+            $model->minFlow = $map['MinFlow'];
         }
         if (isset($map['Msisdn'])) {
             $model->msisdn = $map['Msisdn'];

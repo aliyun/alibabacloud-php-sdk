@@ -65,6 +65,11 @@ class list_ extends Model
     public $dataType;
 
     /**
+     * @var int
+     */
+    public $directionalGroupId;
+
+    /**
      * @var string
      */
     public $directionalGroupName;
@@ -175,6 +180,7 @@ class list_ extends Model
         'credentialType'        => 'CredentialType',
         'dataLevel'             => 'DataLevel',
         'dataType'              => 'DataType',
+        'directionalGroupId'    => 'DirectionalGroupId',
         'directionalGroupName'  => 'DirectionalGroupName',
         'expireTime'            => 'ExpireTime',
         'iccid'                 => 'Iccid',
@@ -236,6 +242,9 @@ class list_ extends Model
         }
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
+        }
+        if (null !== $this->directionalGroupId) {
+            $res['DirectionalGroupId'] = $this->directionalGroupId;
         }
         if (null !== $this->directionalGroupName) {
             $res['DirectionalGroupName'] = $this->directionalGroupName;
@@ -347,6 +356,9 @@ class list_ extends Model
         }
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
+        }
+        if (isset($map['DirectionalGroupId'])) {
+            $model->directionalGroupId = $map['DirectionalGroupId'];
         }
         if (isset($map['DirectionalGroupName'])) {
             $model->directionalGroupName = $map['DirectionalGroupName'];

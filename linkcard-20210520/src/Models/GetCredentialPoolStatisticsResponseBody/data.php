@@ -49,6 +49,11 @@ class data extends Model
     public $monthFeatureFee;
 
     /**
+     * @var int
+     */
+    public $monthUsedAmount;
+
+    /**
      * @var string
      */
     public $poolAvaiable;
@@ -86,6 +91,7 @@ class data extends Model
         'effectiveAvailableFlow' => 'EffectiveAvailableFlow',
         'effectiveTotalFlow'     => 'EffectiveTotalFlow',
         'monthFeatureFee'        => 'MonthFeatureFee',
+        'monthUsedAmount'        => 'MonthUsedAmount',
         'poolAvaiable'           => 'PoolAvaiable',
         'poolGrandTotal'         => 'PoolGrandTotal',
         'poolGrandTotalUsed'     => 'PoolGrandTotalUsed',
@@ -124,6 +130,9 @@ class data extends Model
         }
         if (null !== $this->monthFeatureFee) {
             $res['MonthFeatureFee'] = $this->monthFeatureFee;
+        }
+        if (null !== $this->monthUsedAmount) {
+            $res['MonthUsedAmount'] = $this->monthUsedAmount;
         }
         if (null !== $this->poolAvaiable) {
             $res['PoolAvaiable'] = $this->poolAvaiable;
@@ -178,6 +187,9 @@ class data extends Model
         }
         if (isset($map['MonthFeatureFee'])) {
             $model->monthFeatureFee = $map['MonthFeatureFee'];
+        }
+        if (isset($map['MonthUsedAmount'])) {
+            $model->monthUsedAmount = $map['MonthUsedAmount'];
         }
         if (isset($map['PoolAvaiable'])) {
             $model->poolAvaiable = $map['PoolAvaiable'];

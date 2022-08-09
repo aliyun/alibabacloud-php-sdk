@@ -6,6 +6,13 @@ namespace AlibabaCloud\SDK\Linkcard\V20210520;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardShrinkRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\CardStatisticsResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ForceActivationRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ForceActivationResponse;
@@ -17,6 +24,10 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCredentialPoolStatisticsReques
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCredentialPoolStatisticsResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListCardInfoRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListCardInfoResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListDirectionalAddressRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListDirectionalAddressResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListDirectionalDetailRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListDirectionalDetailResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListOrderRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListOrderResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\RebindResumeSingleCardRequest;
@@ -34,6 +45,8 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\StopSingleCardResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\StopSingleCardShrinkRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\UpdateAutoRechargeSwitchRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\UpdateAutoRechargeSwitchResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\VerifyIotCardRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\VerifyIotCardResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -45,7 +58,8 @@ class Linkcard extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('linkcard', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -71,6 +85,170 @@ class Linkcard extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddDirectionalCardRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddDirectionalCardResponse
+     */
+    public function addDirectionalCardWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddDirectionalCardShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->orderList)) {
+            $request->orderListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderList, 'OrderList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tagList)) {
+            $request->tagListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagList, 'TagList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->fileUri)) {
+            $query['FileUri'] = $request->fileUri;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->orderListShrink)) {
+            $query['OrderList'] = $request->orderListShrink;
+        }
+        if (!Utils::isUnset($request->tagListShrink)) {
+            $query['TagList'] = $request->tagListShrink;
+        }
+        if (!Utils::isUnset($request->uploadMethod)) {
+            $query['UploadMethod'] = $request->uploadMethod;
+        }
+        if (!Utils::isUnset($request->uploadType)) {
+            $query['UploadType'] = $request->uploadType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDirectionalCard',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDirectionalCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDirectionalCardRequest $request
+     *
+     * @return AddDirectionalCardResponse
+     */
+    public function addDirectionalCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDirectionalCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddDirectionalGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddDirectionalGroupResponse
+     */
+    public function addDirectionalGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDirectionalGroup',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDirectionalGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDirectionalGroupRequest $request
+     *
+     * @return AddDirectionalGroupResponse
+     */
+    public function addDirectionalGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDirectionalGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchAddDirectionalAddressRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchAddDirectionalAddressResponse
+     */
+    public function batchAddDirectionalAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->listAddress)) {
+            $query['ListAddress'] = $request->listAddress;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddDirectionalAddress',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchAddDirectionalAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchAddDirectionalAddressRequest $request
+     *
+     * @return BatchAddDirectionalAddressResponse
+     */
+    public function batchAddDirectionalAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchAddDirectionalAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -351,6 +529,12 @@ class Linkcard extends OpenApiClient
         if (!Utils::isUnset($request->isAutoRecharge)) {
             $query['IsAutoRecharge'] = $request->isAutoRecharge;
         }
+        if (!Utils::isUnset($request->maxFlow)) {
+            $query['MaxFlow'] = $request->maxFlow;
+        }
+        if (!Utils::isUnset($request->minFlow)) {
+            $query['MinFlow'] = $request->minFlow;
+        }
         if (!Utils::isUnset($request->msisdn)) {
             $query['Msisdn'] = $request->msisdn;
         }
@@ -412,6 +596,104 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCardInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDirectionalAddressRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDirectionalAddressResponse
+     */
+    public function listDirectionalAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDirectionalAddress',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDirectionalAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDirectionalAddressRequest $request
+     *
+     * @return ListDirectionalAddressResponse
+     */
+    public function listDirectionalAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDirectionalAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDirectionalDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDirectionalDetailResponse
+     */
+    public function listDirectionalDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iccid)) {
+            $query['Iccid'] = $request->iccid;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDirectionalDetail',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDirectionalDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDirectionalDetailRequest $request
+     *
+     * @return ListDirectionalDetailResponse
+     */
+    public function listDirectionalDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDirectionalDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -784,5 +1066,48 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAutoRechargeSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyIotCardRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return VerifyIotCardResponse
+     */
+    public function verifyIotCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->iccid)) {
+            $query['Iccid'] = $request->iccid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyIotCard',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyIotCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyIotCardRequest $request
+     *
+     * @return VerifyIotCardResponse
+     */
+    public function verifyIotCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyIotCardWithOptions($request, $runtime);
     }
 }

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
-use AlibabaCloud\SDK\Linkcard\V20210520\Models\RenewResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class RenewResponseBody extends Model
+class VerifyIotCardResponseBody extends Model
 {
     /**
      * @var string
@@ -15,7 +14,7 @@ class RenewResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var bool
      */
     public $data;
 
@@ -58,7 +57,7 @@ class RenewResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
@@ -79,7 +78,7 @@ class RenewResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RenewResponseBody
+     * @return VerifyIotCardResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -88,7 +87,7 @@ class RenewResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];

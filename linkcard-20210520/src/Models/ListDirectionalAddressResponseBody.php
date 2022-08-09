@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Linkcard\V20210520\Models;
 
-use AlibabaCloud\SDK\Linkcard\V20210520\Models\RenewResponseBody\data;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\ListDirectionalAddressResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class RenewResponseBody extends Model
+class ListDirectionalAddressResponseBody extends Model
 {
     /**
      * @var string
@@ -79,7 +79,7 @@ class RenewResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RenewResponseBody
+     * @return ListDirectionalAddressResponseBody
      */
     public static function fromMap($map = [])
     {
