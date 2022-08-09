@@ -26,11 +26,6 @@ class InvoiceModifyRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $taxNo;
 
     /**
@@ -52,22 +47,15 @@ class InvoiceModifyRequest extends Model
      * @var int
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'address'     => 'address',
         'bankName'    => 'bank_name',
         'bankNo'      => 'bank_no',
-        'corpId'      => 'corp_id',
         'taxNo'       => 'tax_no',
         'tel'         => 'tel',
         'thirdPartId' => 'third_part_id',
         'title'       => 'title',
         'type'        => 'type',
-        'userId'      => 'user_id',
     ];
 
     public function validate()
@@ -86,9 +74,6 @@ class InvoiceModifyRequest extends Model
         if (null !== $this->bankNo) {
             $res['bank_no'] = $this->bankNo;
         }
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
-        }
         if (null !== $this->taxNo) {
             $res['tax_no'] = $this->taxNo;
         }
@@ -103,9 +88,6 @@ class InvoiceModifyRequest extends Model
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -128,9 +110,6 @@ class InvoiceModifyRequest extends Model
         if (isset($map['bank_no'])) {
             $model->bankNo = $map['bank_no'];
         }
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
-        }
         if (isset($map['tax_no'])) {
             $model->taxNo = $map['tax_no'];
         }
@@ -145,9 +124,6 @@ class InvoiceModifyRequest extends Model
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

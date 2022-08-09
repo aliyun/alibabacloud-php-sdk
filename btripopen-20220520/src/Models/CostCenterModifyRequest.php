@@ -32,18 +32,12 @@ class CostCenterModifyRequest extends Model
      * @var string
      */
     public $title;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'alipayNo'    => 'alipay_no',
         'number'      => 'number',
         'scope'       => 'scope',
         'thirdpartId' => 'thirdpart_id',
         'title'       => 'title',
-        'userId'      => 'user_id',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class CostCenterModifyRequest extends Model
         }
         if (null !== $this->title) {
             $res['title'] = $this->title;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class CostCenterModifyRequest extends Model
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

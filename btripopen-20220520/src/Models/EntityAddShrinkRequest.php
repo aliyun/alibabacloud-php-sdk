@@ -17,15 +17,9 @@ class EntityAddShrinkRequest extends Model
      * @var string
      */
     public $thirdpartId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'entityDOListShrink' => 'entity_d_o_list',
         'thirdpartId'        => 'thirdpart_id',
-        'userId'             => 'user_id',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class EntityAddShrinkRequest extends Model
         }
         if (null !== $this->thirdpartId) {
             $res['thirdpart_id'] = $this->thirdpartId;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class EntityAddShrinkRequest extends Model
         }
         if (isset($map['thirdpart_id'])) {
             $model->thirdpartId = $map['thirdpart_id'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class CostCenterSaveRequest extends Model
     /**
      * @var string
      */
-    public $alipayId;
-
-    /**
-     * @var string
-     */
     public $alipayNo;
 
     /**
@@ -42,20 +37,13 @@ class CostCenterSaveRequest extends Model
      * @var string
      */
     public $title;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
-        'alipayId'    => 'alipay_id',
         'alipayNo'    => 'alipay_no',
         'corpId'      => 'corp_id',
         'number'      => 'number',
         'scope'       => 'scope',
         'thirdpartId' => 'thirdpart_id',
         'title'       => 'title',
-        'userId'      => 'user_id',
     ];
 
     public function validate()
@@ -65,9 +53,6 @@ class CostCenterSaveRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alipayId) {
-            $res['alipay_id'] = $this->alipayId;
-        }
         if (null !== $this->alipayNo) {
             $res['alipay_no'] = $this->alipayNo;
         }
@@ -86,9 +71,6 @@ class CostCenterSaveRequest extends Model
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
-        }
 
         return $res;
     }
@@ -101,9 +83,6 @@ class CostCenterSaveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['alipay_id'])) {
-            $model->alipayId = $map['alipay_id'];
-        }
         if (isset($map['alipay_no'])) {
             $model->alipayNo = $map['alipay_no'];
         }
@@ -121,9 +100,6 @@ class CostCenterSaveRequest extends Model
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

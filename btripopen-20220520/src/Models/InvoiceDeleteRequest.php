@@ -12,14 +12,8 @@ class InvoiceDeleteRequest extends Model
      * @var string
      */
     public $thirdPartId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'thirdPartId' => 'third_part_id',
-        'userId'      => 'user_id',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class InvoiceDeleteRequest extends Model
         $res = [];
         if (null !== $this->thirdPartId) {
             $res['third_part_id'] = $this->thirdPartId;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class InvoiceDeleteRequest extends Model
         $model = new self();
         if (isset($map['third_part_id'])) {
             $model->thirdPartId = $map['third_part_id'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

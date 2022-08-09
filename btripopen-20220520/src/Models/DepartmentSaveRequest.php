@@ -13,14 +13,8 @@ class DepartmentSaveRequest extends Model
      * @var departList[]
      */
     public $departList;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'departList' => 'depart_list',
-        'userId'     => 'user_id',
     ];
 
     public function validate()
@@ -38,9 +32,6 @@ class DepartmentSaveRequest extends Model
                     $res['depart_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -62,9 +53,6 @@ class DepartmentSaveRequest extends Model
                     $model->departList[$n++] = null !== $item ? departList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

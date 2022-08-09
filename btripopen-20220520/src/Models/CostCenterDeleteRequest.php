@@ -12,14 +12,8 @@ class CostCenterDeleteRequest extends Model
      * @var string
      */
     public $thirdpartId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'thirdpartId' => 'thirdpart_id',
-        'userId'      => 'user_id',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class CostCenterDeleteRequest extends Model
         $res = [];
         if (null !== $this->thirdpartId) {
             $res['thirdpart_id'] = $this->thirdpartId;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class CostCenterDeleteRequest extends Model
         $model = new self();
         if (isset($map['thirdpart_id'])) {
             $model->thirdpartId = $map['thirdpart_id'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

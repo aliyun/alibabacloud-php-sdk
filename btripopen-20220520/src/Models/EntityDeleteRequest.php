@@ -23,16 +23,10 @@ class EntityDeleteRequest extends Model
      * @var string
      */
     public $thirdpartId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'delAll'       => 'del_all',
         'entityDOList' => 'entity_d_o_list',
         'thirdpartId'  => 'thirdpart_id',
-        'userId'       => 'user_id',
     ];
 
     public function validate()
@@ -56,9 +50,6 @@ class EntityDeleteRequest extends Model
         }
         if (null !== $this->thirdpartId) {
             $res['thirdpart_id'] = $this->thirdpartId;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -86,9 +77,6 @@ class EntityDeleteRequest extends Model
         }
         if (isset($map['thirdpart_id'])) {
             $model->thirdpartId = $map['thirdpart_id'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

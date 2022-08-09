@@ -22,28 +22,10 @@ class UserQueryRequest extends Model
      * @var string
      */
     public $thirdPartJobNo;
-
-    /**
-     * @var string
-     */
-    public $topAppKeyOwnerId;
-
-    /**
-     * @var string
-     */
-    public $topAuthorizedHavanaId;
-
-    /**
-     * @var string
-     */
-    public $topAuthorizedUserNick;
     protected $_name = [
         'modifiedTimeGreaterOrEqualThan' => 'modified_time_greater_or_equal_than',
         'thirdPartCorpId'                => 'third_part_corp_id',
         'thirdPartJobNo'                 => 'third_part_job_no',
-        'topAppKeyOwnerId'               => 'top_app_key_owner_id',
-        'topAuthorizedHavanaId'          => 'top_authorized_havana_id',
-        'topAuthorizedUserNick'          => 'top_authorized_user_nick',
     ];
 
     public function validate()
@@ -61,15 +43,6 @@ class UserQueryRequest extends Model
         }
         if (null !== $this->thirdPartJobNo) {
             $res['third_part_job_no'] = $this->thirdPartJobNo;
-        }
-        if (null !== $this->topAppKeyOwnerId) {
-            $res['top_app_key_owner_id'] = $this->topAppKeyOwnerId;
-        }
-        if (null !== $this->topAuthorizedHavanaId) {
-            $res['top_authorized_havana_id'] = $this->topAuthorizedHavanaId;
-        }
-        if (null !== $this->topAuthorizedUserNick) {
-            $res['top_authorized_user_nick'] = $this->topAuthorizedUserNick;
         }
 
         return $res;
@@ -91,15 +64,6 @@ class UserQueryRequest extends Model
         }
         if (isset($map['third_part_job_no'])) {
             $model->thirdPartJobNo = $map['third_part_job_no'];
-        }
-        if (isset($map['top_app_key_owner_id'])) {
-            $model->topAppKeyOwnerId = $map['top_app_key_owner_id'];
-        }
-        if (isset($map['top_authorized_havana_id'])) {
-            $model->topAuthorizedHavanaId = $map['top_authorized_havana_id'];
-        }
-        if (isset($map['top_authorized_user_nick'])) {
-            $model->topAuthorizedUserNick = $map['top_authorized_user_nick'];
         }
 
         return $model;

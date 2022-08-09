@@ -1204,9 +1204,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdpartId)) {
             $query['thirdpart_id'] = $request->thirdpartId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1264,9 +1261,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->title)) {
             $body['title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1371,9 +1365,6 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->alipayId)) {
-            $body['alipay_id'] = $request->alipayId;
-        }
         if (!Utils::isUnset($request->alipayNo)) {
             $body['alipay_no'] = $request->alipayNo;
         }
@@ -1391,9 +1382,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->title)) {
             $body['title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1445,9 +1433,6 @@ class BtripOpen extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->departListShrink)) {
             $body['depart_list'] = $request->departListShrink;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1502,9 +1487,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdpartId)) {
             $body['thirdpart_id'] = $request->thirdpartId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1564,9 +1546,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->entityDOListShrink)) {
             $body['entity_d_o_list'] = $request->entityDOListShrink;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1621,9 +1600,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdpartId)) {
             $body['thirdpart_id'] = $request->thirdpartId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2153,9 +2129,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->bankNo)) {
             $body['bank_no'] = $request->bankNo;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->taxNo)) {
             $body['tax_no'] = $request->taxNo;
         }
@@ -2170,9 +2143,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2220,14 +2190,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartId)) {
             $query['third_part_id'] = $request->thirdPartId;
         }
-        $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'InvoiceDelete',
@@ -2237,7 +2202,7 @@ class BtripOpen extends OpenApiClient
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
@@ -2277,9 +2242,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->bankNo)) {
             $body['bank_no'] = $request->bankNo;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->taxNo)) {
             $body['tax_no'] = $request->taxNo;
         }
@@ -2294,9 +2256,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2349,17 +2308,11 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->allEmploye)) {
             $body['all_employe'] = $request->allEmploye;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->entitiesShrink)) {
             $body['entities'] = $request->entitiesShrink;
         }
         if (!Utils::isUnset($request->thirdPartId)) {
             $body['third_part_id'] = $request->thirdPartId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2404,23 +2357,12 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->authority)) {
-            $body['authority'] = $request->authority;
-        }
         if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+            $query['title'] = $request->title;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'InvoiceSearch',
@@ -2430,7 +2372,7 @@ class BtripOpen extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
@@ -2466,9 +2408,6 @@ class BtripOpen extends OpenApiClient
             $request->userListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userList, 'user_list', 'json');
         }
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_Id'] = $request->userId;
-        }
         if (!Utils::isUnset($request->userListShrink)) {
             $body['user_list'] = $request->userListShrink;
         }
@@ -2969,15 +2908,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdPartJobNo)) {
             $query['third_part_job_no'] = $request->thirdPartJobNo;
-        }
-        if (!Utils::isUnset($request->topAppKeyOwnerId)) {
-            $query['top_app_key_owner_id'] = $request->topAppKeyOwnerId;
-        }
-        if (!Utils::isUnset($request->topAuthorizedHavanaId)) {
-            $query['top_authorized_havana_id'] = $request->topAuthorizedHavanaId;
-        }
-        if (!Utils::isUnset($request->topAuthorizedUserNick)) {
-            $query['top_authorized_user_nick'] = $request->topAuthorizedUserNick;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

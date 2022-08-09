@@ -11,14 +11,8 @@ class IsvUserSaveShrinkRequest extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $userListShrink;
     protected $_name = [
-        'userId'         => 'user_Id',
         'userListShrink' => 'user_list',
     ];
 
@@ -29,9 +23,6 @@ class IsvUserSaveShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['user_Id'] = $this->userId;
-        }
         if (null !== $this->userListShrink) {
             $res['user_list'] = $this->userListShrink;
         }
@@ -47,9 +38,6 @@ class IsvUserSaveShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['user_Id'])) {
-            $model->userId = $map['user_Id'];
-        }
         if (isset($map['user_list'])) {
             $model->userListShrink = $map['user_list'];
         }

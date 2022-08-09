@@ -12,14 +12,8 @@ class DepartmentSaveShrinkRequest extends Model
      * @var string
      */
     public $departListShrink;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'departListShrink' => 'depart_list',
-        'userId'           => 'user_id',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DepartmentSaveShrinkRequest extends Model
         $res = [];
         if (null !== $this->departListShrink) {
             $res['depart_list'] = $this->departListShrink;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DepartmentSaveShrinkRequest extends Model
         $model = new self();
         if (isset($map['depart_list'])) {
             $model->departListShrink = $map['depart_list'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

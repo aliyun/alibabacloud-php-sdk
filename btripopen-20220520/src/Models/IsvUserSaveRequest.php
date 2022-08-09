@@ -10,16 +10,10 @@ use AlibabaCloud\Tea\Model;
 class IsvUserSaveRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var userList[]
      */
     public $userList;
     protected $_name = [
-        'userId'   => 'user_Id',
         'userList' => 'user_list',
     ];
 
@@ -30,9 +24,6 @@ class IsvUserSaveRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['user_Id'] = $this->userId;
-        }
         if (null !== $this->userList) {
             $res['user_list'] = [];
             if (null !== $this->userList && \is_array($this->userList)) {
@@ -54,9 +45,6 @@ class IsvUserSaveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['user_Id'])) {
-            $model->userId = $map['user_Id'];
-        }
         if (isset($map['user_list'])) {
             if (!empty($map['user_list'])) {
                 $model->userList = [];
