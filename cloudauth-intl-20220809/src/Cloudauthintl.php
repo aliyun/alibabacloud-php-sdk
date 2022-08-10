@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -45,6 +47,61 @@ class Cloudauthintl extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CheckResultRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CheckResultResponse
+     */
+    public function checkResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->extraImageControlList)) {
+            $query['ExtraImageControlList'] = $request->extraImageControlList;
+        }
+        if (!Utils::isUnset($request->isReturnImage)) {
+            $query['IsReturnImage'] = $request->isReturnImage;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->returnFiveCategorySpoofResult)) {
+            $query['ReturnFiveCategorySpoofResult'] = $request->returnFiveCategorySpoofResult;
+        }
+        if (!Utils::isUnset($request->transactionId)) {
+            $query['TransactionId'] = $request->transactionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckResult',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckResultRequest $request
+     *
+     * @return CheckResultResponse
+     */
+    public function checkResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkResultWithOptions($request, $runtime);
     }
 
     /**
