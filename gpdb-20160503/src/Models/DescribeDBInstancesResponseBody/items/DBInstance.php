@@ -102,6 +102,11 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $segNodeNum;
 
     /**
@@ -152,6 +157,7 @@ class DBInstance extends Model
         'masterNodeNum'         => 'MasterNodeNum',
         'payType'               => 'PayType',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'segNodeNum'            => 'SegNodeNum',
         'storageSize'           => 'StorageSize',
         'storageType'           => 'StorageType',
@@ -221,6 +227,9 @@ class DBInstance extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->segNodeNum) {
             $res['SegNodeNum'] = $this->segNodeNum;
@@ -308,6 +317,9 @@ class DBInstance extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SegNodeNum'])) {
             $model->segNodeNum = $map['SegNodeNum'];

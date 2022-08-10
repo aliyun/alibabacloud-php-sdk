@@ -217,6 +217,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $runningTime;
 
     /**
@@ -325,6 +330,7 @@ class DBInstanceAttribute extends Model
         'port'                  => 'Port',
         'readDelayTime'         => 'ReadDelayTime',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'runningTime'           => 'RunningTime',
         'securityIPList'        => 'SecurityIPList',
         'segNodeNum'            => 'SegNodeNum',
@@ -470,6 +476,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->runningTime) {
             $res['RunningTime'] = $this->runningTime;
@@ -647,6 +656,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RunningTime'])) {
             $model->runningTime = $map['RunningTime'];

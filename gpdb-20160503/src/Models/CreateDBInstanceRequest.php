@@ -91,6 +91,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityIPList;
 
     /**
@@ -149,6 +154,7 @@ class CreateDBInstanceRequest extends Model
         'period'                => 'Period',
         'privateIpAddress'      => 'PrivateIpAddress',
         'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'securityIPList'        => 'SecurityIPList',
         'segNodeNum'            => 'SegNodeNum',
         'segStorageType'        => 'SegStorageType',
@@ -214,6 +220,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
@@ -301,6 +310,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
