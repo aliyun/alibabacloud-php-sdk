@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesRequest extends Model
 {
     /**
-     * @description 节点实例ID，按照实例ID进行过滤。  节点池ID不为空时会忽略此字段。多节点用逗号分割
-     *
      * @var string
      */
     public $instanceIds;
 
     /**
-     * @description 节点池ID。
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description 分页数量
-     *
      * @var string
      */
     public $pageNumber;
 
     /**
-     * @description 每页大小。
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description 节点状态。默认值：all。
-     *
      * @var string
      */
     public $state;

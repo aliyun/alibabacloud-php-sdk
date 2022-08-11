@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 日志ID。
-     *
      * @var int
      */
     public $ID;
 
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 日志内容。
-     *
      * @var string
      */
     public $clusterLog;
 
     /**
-     * @description 日志创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 日志更新时间。
-     *
      * @var string
      */
     public $updated;

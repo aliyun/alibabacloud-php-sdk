@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetUpgradeStatusResponseBody extends Model
 {
     /**
-     * @description 错误信息描述。
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 预检查返回ID。
-     *
      * @var string
      */
     public $precheckReportId;
 
     /**
-     * @description 升级状态。
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 升级任务执行到哪一步了。
-     *
      * @var string
      */
     public $upgradeStep;
 
     /**
-     * @description 升级任务详情。
-     *
      * @var upgradeTask
      */
     public $upgradeTask;

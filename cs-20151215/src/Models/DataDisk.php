@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DataDisk extends Model
 {
     /**
-     * @description 开启云盘备份时的自动备份策略。
-     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
-     * @description 数据盘类型
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 是否对数据盘加密。
-     *
      * @var string
      */
     public $encrypted;
 
     /**
-     * @description 数据盘磁盘性能，只针对ESSD磁盘生效
-     *
      * @var string
      */
     public $performanceLevel;
 
     /**
-     * @description 数据盘大小，取值范围：40～32767
-     *
      * @var int
      */
     public $size;

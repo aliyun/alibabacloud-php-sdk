@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesResponseBody extends Model
 {
     /**
-     * @description 节点信息列表。
-     *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description 任务ID。
-     *
      * @var string
      */
     public $taskId;

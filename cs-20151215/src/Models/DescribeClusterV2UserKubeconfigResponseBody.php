@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterV2UserKubeconfigResponseBody extends Model
 {
     /**
-     * @description kubeconfig内容。
-     *
      * @var string
      */
     public $config;

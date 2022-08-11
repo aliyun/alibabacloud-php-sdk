@@ -17,71 +17,51 @@ use AlibabaCloud\Tea\Model;
 class nodepools extends Model
 {
     /**
-     * @description 自动伸缩配置详情
-     *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
-     * @description 边缘节点池网络相关的配置。该值只对edge类型的节点池有意义
-     *
      * @var interconnectConfig
      */
     public $interconnectConfig;
 
     /**
-     * @description 边缘节点池的网络类型。basic：基础型；improved：增强型。该值只对edge类型的节点池有意义
-     *
      * @var string
      */
     public $interconnectMode;
 
     /**
-     * @description 集群配置信息
-     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description 托管节点池配置
-     *
      * @var management
      */
     public $management;
 
     /**
-     * @description 边缘节点池允许容纳的最大节点数量. 节点池内可以容纳的最大节点数量，该参数大于等于0。0表示无额外限制(仅受限于集群整体可以容纳的节点数，节点池本身无额外限制)。边缘节点池该参数值往往大于0；ess类型节点池和默认的edge类型节点池该参数值为0
-     *
      * @var int
      */
     public $maxNodes;
 
     /**
-     * @description 节点池配置详情
-     *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
-     * @description 扩容组配置详情
-     *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
-     * @description 节点池状态详情
-     *
      * @var status
      */
     public $status;
 
     /**
-     * @description 加密计算配置详情
-     *
      * @var teeConfig
      */
     public $teeConfig;

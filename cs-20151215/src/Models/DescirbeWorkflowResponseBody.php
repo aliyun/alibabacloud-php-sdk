@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescirbeWorkflowResponseBody extends Model
 {
     /**
-     * @description 工作流创建时间。
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 工作流经过时长。
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 任务结束时间。
-     *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description 输入数据大小。
-     *
      * @var string
      */
     public $inputDataSize;
 
     /**
-     * @description 工作流名称。
-     *
      * @var string
      */
     public $jobName;
 
     /**
-     * @description 工作流所在命名空间。
-     *
      * @var string
      */
     public $jobNamespace;
 
     /**
-     * @description 输出数据大小。
-     *
      * @var string
      */
     public $outputDataSize;
 
     /**
-     * @description 工作流当前状态。
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 碱基对个数。
-     *
      * @var string
      */
     public $totalBases;
 
     /**
-     * @description Reads个数。
-     *
      * @var string
      */
     public $totalReads;
 
     /**
-     * @description 用户输入参数。
-     *
      * @var string
      */
     public $userInputData;

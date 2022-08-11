@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description 下一次查询Token。
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 地域ID
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 集群ID列表。
-     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description 资源类型，只支持Cluster
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 按标签查找。
-     *
      * @var Tag[]
      */
     public $tags;

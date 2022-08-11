@@ -10,204 +10,146 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 集群类型。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 集群创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 集群当前版本。
-     *
      * @var string
      */
     public $currentVersion;
 
     /**
-     * @description 节点系统盘类型。
-     *
      * @var string
      */
     public $dataDiskCategory;
 
     /**
-     * @description 节点系统盘大小。
-     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
-     * @description 集群是否开启删除保护。
-     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
-     * @description 容器运行时版本。
-     *
      * @var string
      */
     public $dockerVersion;
 
     /**
-     * @description 集群Ingerss SLB实例的ID。
-     *
      * @var string
      */
     public $externalLoadbalancerId;
 
     /**
-     * @description 集群创建时版本。
-     *
      * @var string
      */
     public $initVersion;
 
     /**
-     * @description 集群的endpoint地址。
-     *
      * @var string
      */
     public $masterUrl;
 
     /**
-     * @description 集群元数据。
-     *
      * @var string
      */
     public $metaData;
 
     /**
-     * @description 集群名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 集群使用的网络类型。
-     *
      * @var string
      */
     public $networkMode;
 
     /**
-     * @description 集群是否开启Private Zone，默认false。
-     *
      * @var bool
      */
     public $privateZone;
 
     /**
-     * @description 集群标识，区分是否为边缘托管版。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 集群所在地域ID。
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 集群资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 集群安全组ID。
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description 集群内实例数量。
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description 集群运行状态。
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description POD网络。
-     *
      * @var string
      */
     public $subnetCidr;
 
     /**
-     * @description 集群标签。
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description 集群更新时间。
-     *
      * @var string
      */
     public $updated;
 
     /**
-     * @description 集群使用的VPC ID。
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description 虚拟交换机网络ID。
-     *
      * @var string
      */
     public $vswitchCidr;
 
     /**
-     * @description 节点使用的Vswitch ID。
-     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @description 集群Worker节点RAM角色名称。
-     *
      * @var string
      */
     public $workerRamRoleName;
 
     /**
-     * @description 集群所在Region内的区域ID。
-     *
      * @var string
      */
     public $zoneId;

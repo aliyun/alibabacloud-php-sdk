@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoscalingConfigRequest extends Model
 {
     /**
-     * @description 静默时间，扩容出的节点，在静默时间过后，方可进入缩容判断
-     *
      * @var string
      */
     public $coolDownDuration;
 
     /**
-     * @description 节点池扩容顺序策略
-     *
      * @var string
      */
     public $expander;
 
     /**
-     * @description GPU缩容阈值，节点上 Request 的资源与总资源量的比值
-     *
      * @var string
      */
     public $gpuUtilizationThreshold;
 
     /**
-     * @description 是否允许缩容
-     *
      * @var bool
      */
     public $scaleDownEnabled;
 
     /**
-     * @description 弹性灵敏度，判断伸缩的间隔时间
-     *
      * @var string
      */
     public $scanInterval;
 
     /**
-     * @description 缩容触发时延，节点缩容时需要连续满足触发时延所设定的时间，方可进行缩容
-     *
      * @var string
      */
     public $unneededDuration;
 
     /**
-     * @description 缩容阈值，节点上 Request 的资源与总资源量的比值
-     *
      * @var string
      */
     public $utilizationThreshold;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description 组件名称。
-     *
      * @var string
      */
     public $name;

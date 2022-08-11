@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
-     * @description 节点池名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;

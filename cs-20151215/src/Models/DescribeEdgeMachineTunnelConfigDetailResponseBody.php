@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
 {
     /**
-     * @description device name
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $model;
 
     /**
-     * @description product key
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @description request id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description sn
-     *
      * @var string
      */
     public $sn;
 
     /**
-     * @description token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description tunnel endpoint
-     *
      * @var string
      */
     public $tunnelEndpoint;

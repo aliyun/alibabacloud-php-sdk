@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class taskResult extends Model
 {
     /**
-     * @description 操作的资源，例如：实例ID。
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description 资源的状态。
-     *
      * @var string
      */
     public $status;

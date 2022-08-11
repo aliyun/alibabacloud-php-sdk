@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class models extends Model
 {
     /**
-     * @description cpu
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description cpu arch
-     *
      * @var string
      */
     public $cpuArch;
 
     /**
-     * @description created
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description manage runtime
-     *
      * @var int
      */
     public $manageRuntime;
 
     /**
-     * @description memory
-     *
      * @var int
      */
     public $memory;
 
     /**
-     * @description model
-     *
      * @var string
      */
     public $model;
 
     /**
-     * @description model id
-     *
      * @var string
      */
     public $modelId;

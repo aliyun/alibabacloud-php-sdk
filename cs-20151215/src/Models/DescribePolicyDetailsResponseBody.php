@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyDetailsResponseBody extends Model
 {
     /**
-     * @description 规则治理动作 ● enforce: 拦截违规部署 ● inform：告警
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description 规则模板类型
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 规则模板描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 软删除标志：0表示未删除 1表示删除
-     *
      * @var int
      */
     public $isDeleted;
 
     /**
-     * @description 策略治理规则名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否需要配置策略： 0表示需要参数配置 1表示无需参数配置
-     *
      * @var int
      */
     public $noConfig;
 
     /**
-     * @description 规则治理等级
-     *
      * @var string
      */
     public $severity;
 
     /**
-     * @description 规则模板详情
-     *
      * @var string
      */
     public $template;

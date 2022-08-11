@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1Request extends Model
 {
     /**
-     * @description 集群规格。
-     *
      * @var string
      */
     public $clusterSpec;
 
     /**
-     * @description 集群类型。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 通过集群名称进行模糊查询。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页数。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 单页大小。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 集群标识。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 地域。
-     *
      * @var string
      */
     public $regionId;

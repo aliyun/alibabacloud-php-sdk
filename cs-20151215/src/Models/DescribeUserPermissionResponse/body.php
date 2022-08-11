@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 集群访问配置
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 授权类型
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 自定义角色名称
-     *
      * @var string
      */
     public $roleName;
 
     /**
-     * @description 预置的角色类型
-     *
      * @var string
      */
     public $roleType;
 
     /**
-     * @description 是否为集群 owner 的授权
-     *
      * @var int
      */
     public $isOwner;
 
     /**
-     * @description 是否为ram 角色授权
-     *
      * @var int
      */
     public $isRamRole;

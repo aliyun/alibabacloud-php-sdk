@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
-     * @description 节点池创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 是否为默认节点池。
-     *
      * @var bool
      */
     public $isDefault;
 
     /**
-     * @description 节点池名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 节点池ID。
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description 节点池所属地域ID。
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 节点池所属资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 节点池类型。
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 节点池更新时间。
-     *
      * @var string
      */
     public $updated;

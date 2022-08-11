@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterUserKubeconfigRequest extends Model
 {
     /**
-     * @description ApiServer是否为内网地址。
-     *
      * @var bool
      */
     public $privateIpAddress;
 
     /**
-     * @description 临时kubeconfig有效期，单位：分钟。  最小值：15（15分钟）  最大值：4320（3天）。
-     *
      * @var int
      */
     public $temporaryDurationMinutes;

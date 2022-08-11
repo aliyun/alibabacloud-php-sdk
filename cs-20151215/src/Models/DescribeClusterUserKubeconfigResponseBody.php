@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterUserKubeconfigResponseBody extends Model
 {
     /**
-     * @description kubeconfig内容。
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description kubeconfig过期时间。格式：RFC3339 格式的 UTC 时间。
-     *
      * @var string
      */
     public $expiration;

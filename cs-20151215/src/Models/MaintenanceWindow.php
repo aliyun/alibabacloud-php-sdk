@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class MaintenanceWindow extends Model
 {
     /**
-     * @description 维护时长。取值范围1～24，单位为小时。 默认值：3h。
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 是否开启维护窗口。默认值false。
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 维护起始时间。Golang标准时间格式"15:04:05Z"。
-     *
      * @var string
      */
     public $maintenanceTime;
 
     /**
-     * @description 维护周期。取值范围为:Monday~Sunday，多个值用逗号分隔。 默认值：Thursday。
-     *
      * @var string
      */
     public $weeklyPeriod;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CancelWorkflowRequest extends Model
 {
     /**
-     * @description 执行的操作，目前只支持cancel。
-     *
      * @var string
      */
     public $action;

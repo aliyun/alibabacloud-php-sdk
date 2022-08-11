@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\autoScaling;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\management;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\nodeConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\nodepoolInfo;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\scalingGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\teeConfig;
@@ -15,50 +16,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterNodePoolRequest extends Model
 {
     /**
-     * @description 自动伸缩节点池配置。
-     *
      * @var autoScaling
      */
     public $autoScaling;
 
     /**
-     * @description 集群配置。
-     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
-     * @description 托管版节点池配置。
-     *
      * @var management
      */
     public $management;
 
     /**
-     * @description 节点池配置。
-     *
+     * @var nodeConfig
+     */
+    public $nodeConfig;
+
+    /**
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
-     * @description 扩容组配置。
-     *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
-     * @description 加密计算配置。
-     *
      * @var teeConfig
      */
     public $teeConfig;
 
     /**
-     * @description 是否同步更新节点标签及污点。
-     *
      * @var bool
      */
     public $updateNodes;
@@ -66,6 +58,7 @@ class ModifyClusterNodePoolRequest extends Model
         'autoScaling'      => 'auto_scaling',
         'kubernetesConfig' => 'kubernetes_config',
         'management'       => 'management',
+        'nodeConfig'       => 'node_config',
         'nodepoolInfo'     => 'nodepool_info',
         'scalingGroup'     => 'scaling_group',
         'teeConfig'        => 'tee_config',
@@ -87,6 +80,9 @@ class ModifyClusterNodePoolRequest extends Model
         }
         if (null !== $this->management) {
             $res['management'] = null !== $this->management ? $this->management->toMap() : null;
+        }
+        if (null !== $this->nodeConfig) {
+            $res['node_config'] = null !== $this->nodeConfig ? $this->nodeConfig->toMap() : null;
         }
         if (null !== $this->nodepoolInfo) {
             $res['nodepool_info'] = null !== $this->nodepoolInfo ? $this->nodepoolInfo->toMap() : null;
@@ -120,6 +116,9 @@ class ModifyClusterNodePoolRequest extends Model
         }
         if (isset($map['management'])) {
             $model->management = management::fromMap($map['management']);
+        }
+        if (isset($map['node_config'])) {
+            $model->nodeConfig = nodeConfig::fromMap($map['node_config']);
         }
         if (isset($map['nodepool_info'])) {
             $model->nodepoolInfo = nodepoolInfo::fromMap($map['nodepool_info']);

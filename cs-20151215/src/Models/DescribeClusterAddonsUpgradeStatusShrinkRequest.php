@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAddonsUpgradeStatusShrinkRequest extends Model
 {
     /**
-     * @description 组件名称列表。
-     *
      * @var string
      */
     public $componentIdsShrink;

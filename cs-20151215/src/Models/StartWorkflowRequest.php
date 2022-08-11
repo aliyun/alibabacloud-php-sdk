@@ -9,134 +9,96 @@ use AlibabaCloud\Tea\Model;
 class StartWorkflowRequest extends Model
 {
     /**
-     * @description bam文件输出名称。
-     *
      * @var string
      */
     public $mappingBamOutFilename;
 
     /**
-     * @description bam文件输出路径。
-     *
      * @var string
      */
     public $mappingBamOutPath;
 
     /**
-     * @description 存放mapping的bucket名称。
-     *
      * @var string
      */
     public $mappingBucketName;
 
     /**
-     * @description mapping的第一个fastq文件名。
-     *
      * @var string
      */
     public $mappingFastqFirstFilename;
 
     /**
-     * @description mapping的fastq文件路径。
-     *
      * @var string
      */
     public $mappingFastqPath;
 
     /**
-     * @description mapping的第二个fastq文件名。
-     *
      * @var string
      */
     public $mappingFastqSecondFilename;
 
     /**
-     * @description 是否进行dup。
-     *
      * @var string
      */
     public $mappingIsMarkDup;
 
     /**
-     * @description mapping oss数据的存放region。
-     *
      * @var string
      */
     public $mappingOssRegion;
 
     /**
-     * @description mapping的reference文件位置。
-     *
      * @var string
      */
     public $mappingReferencePath;
 
     /**
-     * @description SLA类型，可选值：s、g、p。 白银级（s）：超过90 Gbp的部分，按1.5 Gbp/min计算增加的时间。 黄金级（g）：超过90 Gbp的部分，按2 Gbp/min计算增加的时间。 铂金级（p）：超过90 Gbp的部分，按3 Gbp/min计算增加的时间。
-     *
      * @var string
      */
     public $service;
 
     /**
-     * @description 存放wgs的bucket名称。
-     *
      * @var string
      */
     public $wgsBucketName;
 
     /**
-     * @description wgs的第一个fastq文件名。
-     *
      * @var string
      */
     public $wgsFastqFirstFilename;
 
     /**
-     * @description wgs的fastq文件路径。
-     *
      * @var string
      */
     public $wgsFastqPath;
 
     /**
-     * @description wgs的第二个fastq文件名。
-     *
      * @var string
      */
     public $wgsFastqSecondFilename;
 
     /**
-     * @description wgs oss数据的存放region。
-     *
      * @var string
      */
     public $wgsOssRegion;
 
     /**
-     * @description wgs的reference文件路径。
-     *
      * @var string
      */
     public $wgsReferencePath;
 
     /**
-     * @description wgs的vcf输出文件名称。
-     *
      * @var string
      */
     public $wgsVcfOutFilename;
 
     /**
-     * @description wgs的vcf输出路径。
-     *
      * @var string
      */
     public $wgsVcfOutPath;
 
     /**
-     * @description 工作流类型，可选值：wgs或mapping。
-     *
      * @var string
      */
     public $workflowType;

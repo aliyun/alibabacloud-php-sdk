@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class StandardComponentsValue extends Model
 {
     /**
-     * @description 组件名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 组件版本。
-     *
      * @var string
      */
     public $version;
 
     /**
-     * @description 组件描述信息。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 是否为必需组件。
-     *
      * @var string
      */
     public $required;
 
     /**
-     * @description 是否禁止默认安装。
-     *
      * @var bool
      */
     public $disabled;

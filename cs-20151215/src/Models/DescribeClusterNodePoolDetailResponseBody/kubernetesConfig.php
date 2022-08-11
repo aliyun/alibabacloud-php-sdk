@@ -11,57 +11,41 @@ use AlibabaCloud\Tea\Model;
 class kubernetesConfig extends Model
 {
     /**
-     * @description 是否开启云监控
-     *
      * @var bool
      */
     public $cmsEnabled;
 
     /**
-     * @description CPU管理策略
-     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
-     * @description 节点标签。
-     *
      * @var Tag[]
      */
     public $labels;
 
     /**
-     * @description 自定义节点名称
-     *
      * @var string
      */
     public $nodeNameMode;
 
     /**
-     * @description 容器运行时
-     *
      * @var string
      */
     public $runtime;
 
     /**
-     * @description 容器运行时版本。
-     *
      * @var string
      */
     public $runtimeVersion;
 
     /**
-     * @description 污点配置。
-     *
      * @var Taint[]
      */
     public $taints;
 
     /**
-     * @description 节点自定义数据
-     *
      * @var string
      */
     public $userData;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description 状态码。
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 实例ID。
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 添加结果描述。
-     *
      * @var string
      */
     public $message;

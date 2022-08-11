@@ -10,386 +10,291 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description 集群组件配置
-     *
      * @var Addon[]
      */
     public $addons;
 
     /**
-     * @description 合法的请求token身份，用于apiserver服务端认证请求token是否合法。
-     *
      * @var string
      */
     public $apiAudiences;
 
     /**
-     * @description CIS安全加固
-     *
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @var bool
      */
     public $cisEnabled;
 
     /**
-     * @description 为ECS安装云监控
-     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
-     * @description 集群本地域名
-     *
      * @var string
      */
     public $clusterDomain;
 
     /**
-     * @description 托管版集群类型
-     *
      * @var string
      */
     public $clusterSpec;
 
     /**
-     * @description 集群类型
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description POD网络网段
-     *
      * @var string
      */
     public $containerCidr;
 
     /**
-     * @description 需要采集日志的组件
-     *
      * @var string[]
      */
     public $controlplaneLogComponents;
 
     /**
-     * @description 使用已有log project时，需要指定log project
-     *
      * @var string
      */
     public $controlplaneLogProject;
 
     /**
-     * @description 控制平面日志
-     *
      * @var string
      */
     public $controlplaneLogTtl;
 
     /**
-     * @description CPU策略
-     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
-     * @description 自定义证书SAN
-     *
      * @var string
      */
     public $customSan;
 
     /**
-     * @description 集群删除保护
-     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
-     * @description 失败回滚
-     *
      * @var bool
      */
     public $disableRollback;
 
     /**
-     * @description 启用 RRSA 功能
-     *
      * @var bool
      */
     public $enableRrsa;
 
     /**
-     * @description Secret落盘加密
-     *
      * @var string
      */
     public $encryptionProviderKey;
 
     /**
-     * @description 使用EIP暴露apiServer
-     *
      * @var bool
      */
     public $endpointPublicAccess;
 
     /**
-     * @description 使用已有节点创建集群时，是否格式化已有实例的磁盘
-     *
      * @var bool
      */
     public $formatDisk;
 
     /**
-     * @description 自定义镜像
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 操作系统镜像类型
-     *
      * @var string
      */
     public $imageType;
 
     /**
-     * @description 使用已有节点创建集群时，已有实例列表
-     *
      * @var string[]
      */
     public $instances;
 
     /**
-     * @description 自动创建企业安全组
-     *
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
 
     /**
-     * @description 使用已有节点创建集群时，是否保留实例名称。
-     *
      * @var bool
      */
     public $keepInstanceName;
 
     /**
-     * @description 密钥对名称，和login_password二选一。
-     *
      * @var string
      */
     public $keyPair;
 
     /**
-     * @description 集群版本
-     *
      * @var string
      */
     public $kubernetesVersion;
 
     /**
-     * @description 负载均衡规格
-     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
-     * @description ASK 集群开启日志服务
-     *
      * @var string
      */
     public $loggingType;
 
     /**
-     * @description SSH登录密码。密码规则为8~30 个字符，且至少同时包含三项（大小写字母、数字和特殊符号），和key_pair二选一。
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description 集群Master节点是否自动续费
-     *
      * @var bool
      */
     public $masterAutoRenew;
 
     /**
-     * @description 集群Master节点自动续费时长
-     *
      * @var int
      */
     public $masterAutoRenewPeriod;
 
     /**
-     * @description 集群Master节点数量
-     *
      * @var int
      */
     public $masterCount;
 
     /**
-     * @description 集群Master节点付费类型
-     *
      * @var string
      */
     public $masterInstanceChargeType;
 
     /**
-     * @description 集群Master节点类型
-     *
      * @var string[]
      */
     public $masterInstanceTypes;
 
     /**
-     * @description 集群Master节点包年包月时长
-     *
      * @var int
      */
     public $masterPeriod;
 
     /**
-     * @description 集群Master节点包年包月周期
-     *
      * @var string
      */
     public $masterPeriodUnit;
 
     /**
-     * @description 集群Master节点系统盘类型
-     *
      * @var string
      */
     public $masterSystemDiskCategory;
 
     /**
-     * @description Master节点系统盘磁盘性能，只针对ESSD磁盘生效
-     *
      * @var string
      */
     public $masterSystemDiskPerformanceLevel;
 
     /**
-     * @description 集群Master节点系统盘大小，至少40
-     *
      * @var int
      */
     public $masterSystemDiskSize;
 
     /**
-     * @description 集群Master节点自动快照备份策略
-     *
      * @var string
      */
     public $masterSystemDiskSnapshotPolicyId;
 
     /**
-     * @description 集群Master节点使用的虚拟交换机
-     *
      * @var string[]
      */
     public $masterVswitchIds;
 
     /**
-     * @description 集群名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 使用自动创建专有网络创建ASK集群时，是否在vpc中创建Nat网关并配置SNAT规则。
-     *
      * @var bool
      */
     public $natGateway;
 
     /**
-     * @description 节点IP数量
-     *
      * @var string
      */
     public $nodeCidrMask;
 
     /**
-     * @description 自定义节点名称
-     *
      * @var string
      */
     public $nodeNameMode;
 
     /**
-     * @description 节点服务端口范围
-     *
      * @var string
      */
     public $nodePortRange;
 
     /**
-     * @description 集群Worker节点数量
-     *
      * @var int
      */
     public $numOfNodes;
 
     /**
-     * @description 操作系统平台类型
-     *
      * @var string
      */
     public $osType;
 
     /**
-     * @description 操作系统发行版
-     *
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
      * @var string
      */
     public $platform;
 
     /**
-     * @description 创建Terway网络类型的集群时，需要为pod指定单独的虚拟交换机
-     *
      * @var string[]
      */
     public $podVswitchIds;
 
     /**
-     * @description 面向场景时的集群类型。  Default：非边缘场景集群。 Edge：边缘场景集群。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description Proxy代理模式，ipvs|iptables
-     *
      * @var string
      */
     public $proxyMode;
 
     /**
-     * @description RDS白名单
-     *
      * @var string[]
      */
     public $rdsInstances;
 
     /**
-     * @description 地域ID
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 集群所属资源组ID
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -400,203 +305,148 @@ class CreateClusterRequest extends Model
     public $runtime;
 
     /**
-     * @description 安全组ID，和is_enterprise_security_group二选一
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description serviceaccount token中的签发身份，即token payload中的iss字段。
-     *
      * @var string
      */
     public $serviceAccountIssuer;
 
     /**
-     * @description 服务网络网段
-     *
      * @var string
      */
     public $serviceCidr;
 
     /**
-     * @description 创建ASK集群时，服务发现类型
-     *
      * @var string[]
      */
     public $serviceDiscoveryTypes;
 
     /**
-     * @description 若您集群内的节点、应用等需要访问公网，勾选该项后我们将为您创建 NAT 网关并自动配置 SNAT 规则
-     *
      * @var bool
      */
     public $snatEntry;
 
     /**
-     * @description 等保安全加固
-     *
      * @var bool
      */
     public $socEnabled;
 
     /**
-     * @description 允许公网ssh登录
-     *
      * @var bool
      */
     public $sshFlags;
 
     /**
-     * @description 集群标签
-     *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 节点污点信息
-     *
      * @var Taint[]
      */
     public $taints;
 
     /**
-     * @description 集群创建超时时间
-     *
      * @var int
      */
     public $timeoutMins;
 
     /**
-     * @description 时区
-     *
      * @var string
      */
     public $timezone;
 
     /**
-     * @description 自定义集群CA
-     *
      * @var string
      */
     public $userCa;
 
     /**
-     * @description 节点自定义数据
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description 集群专有网络ID。
-     *
      * @var string
      */
     public $vpcid;
 
     /**
-     * @description 集群节点所在虚拟交换机。
-     *
      * @var string[]
      */
     public $vswitchIds;
 
     /**
-     * @description 集群Worker节点到期是否自动续费
-     *
      * @var bool
      */
     public $workerAutoRenew;
 
     /**
-     * @description 集群Worker节点自动续费时长
-     *
      * @var int
      */
     public $workerAutoRenewPeriod;
 
     /**
-     * @description 集群Worker节点数据盘配置
-     *
      * @var workerDataDisks[]
      */
     public $workerDataDisks;
 
     /**
-     * @description 集群Worker节点付费类型
-     *
      * @var string
      */
     public $workerInstanceChargeType;
 
     /**
-     * @description 集群Worker节点类型
-     *
      * @var string[]
      */
     public $workerInstanceTypes;
 
     /**
-     * @description 集群Worker节点包年包月时长
-     *
      * @var int
      */
     public $workerPeriod;
 
     /**
-     * @description 集群Worker节点包年包月周期
-     *
      * @var string
      */
     public $workerPeriodUnit;
 
     /**
-     * @description 集群Worker节点系统盘类型
-     *
      * @var string
      */
     public $workerSystemDiskCategory;
 
     /**
-     * @description 集群Worker节点磁盘性能，只对ESSD类型磁盘生效
-     *
      * @var string
      */
     public $workerSystemDiskPerformanceLevel;
 
     /**
-     * @description 集群Worker节点系统盘大小
-     *
      * @var int
      */
     public $workerSystemDiskSize;
 
     /**
-     * @description 集群Worker节点系统盘快照备份策略
-     *
      * @var string
      */
     public $workerSystemDiskSnapshotPolicyId;
 
     /**
-     * @description 集群Worker节点所在虚拟交换机
-     *
      * @var string[]
      */
     public $workerVswitchIds;
 
     /**
-     * @description 使用自动创建专有网络创建ASK集群时，需要指定专有网络的可用区
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'addons'                           => 'addons',
         'apiAudiences'                     => 'api_audiences',
+        'chargeType'                       => 'charge_type',
         'cisEnabled'                       => 'cis_enabled',
         'cloudMonitorFlags'                => 'cloud_monitor_flags',
         'clusterDomain'                    => 'cluster_domain',
@@ -643,6 +493,8 @@ class CreateClusterRequest extends Model
         'nodePortRange'                    => 'node_port_range',
         'numOfNodes'                       => 'num_of_nodes',
         'osType'                           => 'os_type',
+        'period'                           => 'period',
+        'periodUnit'                       => 'period_unit',
         'platform'                         => 'platform',
         'podVswitchIds'                    => 'pod_vswitch_ids',
         'profile'                          => 'profile',
@@ -699,6 +551,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->apiAudiences) {
             $res['api_audiences'] = $this->apiAudiences;
+        }
+        if (null !== $this->chargeType) {
+            $res['charge_type'] = $this->chargeType;
         }
         if (null !== $this->cisEnabled) {
             $res['cis_enabled'] = $this->cisEnabled;
@@ -837,6 +692,12 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->osType) {
             $res['os_type'] = $this->osType;
+        }
+        if (null !== $this->period) {
+            $res['period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['period_unit'] = $this->periodUnit;
         }
         if (null !== $this->platform) {
             $res['platform'] = $this->platform;
@@ -988,6 +849,9 @@ class CreateClusterRequest extends Model
         if (isset($map['api_audiences'])) {
             $model->apiAudiences = $map['api_audiences'];
         }
+        if (isset($map['charge_type'])) {
+            $model->chargeType = $map['charge_type'];
+        }
         if (isset($map['cis_enabled'])) {
             $model->cisEnabled = $map['cis_enabled'];
         }
@@ -1133,6 +997,12 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['os_type'])) {
             $model->osType = $map['os_type'];
+        }
+        if (isset($map['period'])) {
+            $model->period = $map['period'];
+        }
+        if (isset($map['period_unit'])) {
+            $model->periodUnit = $map['period_unit'];
         }
         if (isset($map['platform'])) {
             $model->platform = $map['platform'];

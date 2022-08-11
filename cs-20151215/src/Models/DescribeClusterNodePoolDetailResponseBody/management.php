@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
-     * @description 自动修复。
-     *
      * @var bool
      */
     public $autoRepair;
 
     /**
-     * @description 是否开启托管版节点池。
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 自动升级配置。
-     *
      * @var upgradeConfig
      */
     public $upgradeConfig;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserQuotaResponseBody extends Model
 {
     /**
-     * @description 托管版集群配额。
-     *
      * @var int
      */
     public $amkClusterQuota;
 
     /**
-     * @description Serverless集群配额。
-     *
      * @var int
      */
     public $askClusterQuota;
 
     /**
-     * @description 集群节点池配额。
-     *
      * @var int
      */
     public $clusterNodepoolQuota;
 
     /**
-     * @description 专有版集群托管版集群的总配额。
-     *
      * @var int
      */
     public $clusterQuota;
 
     /**
-     * @description 单集群的节点配额。
-     *
      * @var int
      */
     public $nodeQuota;

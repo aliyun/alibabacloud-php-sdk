@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 策略实例实施者UID
-     *
      * @var string
      */
     public $aliUid;
 
     /**
-     * @description 目标集群ID
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 规则实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 策略治理规则名称
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description 策略类型名称
-     *
      * @var string
      */
     public $policyCategory;
 
     /**
-     * @description 规则模板描述
-     *
      * @var string
      */
     public $policyDescription;
 
     /**
-     * @description 当前规则实例的配置参数
-     *
      * @var string
      */
     public $policyParameters;
 
     /**
-     * @description 规则实例治理等级
-     *
      * @var string
      */
     public $policySeverity;
 
     /**
-     * @description 策略实例实施范围： 默认"*"代表集群所有ns 否则返回作用namespaces名称，多个namespaces以逗号分隔
-     *
      * @var string
      */
     public $policyScope;
 
     /**
-     * @description 规则治理动作  deny: 拦截违规部署  warn：告警
-     *
      * @var string
      */
     public $policyAction;

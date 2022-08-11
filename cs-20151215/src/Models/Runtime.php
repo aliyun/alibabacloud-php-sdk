@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Runtime extends Model
 {
     /**
-     * @description 容器运行时名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 容器运行时版本
-     *
      * @var string
      */
     public $version;

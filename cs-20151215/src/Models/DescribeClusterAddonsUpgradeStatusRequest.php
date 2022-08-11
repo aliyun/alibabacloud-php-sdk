@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAddonsUpgradeStatusRequest extends Model
 {
     /**
-     * @description 组件名称列表。
-     *
      * @var string[]
      */
     public $componentIds;

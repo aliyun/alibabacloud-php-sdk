@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineActiveProcessResponseBody extends Model
 {
     /**
-     * @description logs of activate
-     *
      * @var string
      */
     public $logs;
 
     /**
-     * @description process of activate
-     *
      * @var int
      */
     public $progress;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description state of activate
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description step of activate
-     *
      * @var string
      */
     public $step;

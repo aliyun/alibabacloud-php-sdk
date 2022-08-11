@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class workerDataDisks extends Model
 {
     /**
-     * @description 数据盘类型。
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 是否对数据盘加密。
-     *
      * @var string
      */
     public $encrypted;
 
     /**
-     * @description 数据盘大小。
-     *
      * @var string
      */
     public $size;

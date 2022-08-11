@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerRequest extends Model
 {
     /**
-     * @description 触发器行为
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 项目名称。
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 触发器类型。默认deployment。
-     *
      * @var string
      */
     public $type;

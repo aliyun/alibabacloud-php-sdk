@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class upgradeConfig extends Model
 {
     /**
-     * @description 是否启用自动升级
-     *
      * @var bool
      */
     public $autoUpgrade;
 
     /**
-     * @description 最大不可用节点数量。
-     *
      * @var int
      */
     public $maxUnavailable;
 
     /**
-     * @description 额外节点数量。
-     *
      * @var int
      */
     public $surge;
 
     /**
-     * @description 额外节点比例。和surge二选一。
-     *
      * @var int
      */
     public $surgePercentage;

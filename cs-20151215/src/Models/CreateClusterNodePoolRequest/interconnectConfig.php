@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class interconnectConfig extends Model
 {
     /**
-     * @description 边缘增强型节点池的网络带宽，单位M。
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description 边缘增强型节点池绑定的云连接网实例ID(CCNID)
-     *
      * @var string
      */
     public $ccnId;
 
     /**
-     * @description 边缘增强型节点池绑定的云连接网实例所属的区域
-     *
      * @var string
      */
     public $ccnRegionId;
 
     /**
-     * @description 边缘增强型节点池绑定的云企业网实例ID(CENID)
-     *
      * @var string
      */
     public $cenId;
 
     /**
-     * @description 边缘增强型节点池的购买时长，单位月
-     *
      * @var string
      */
     public $improvedPeriod;

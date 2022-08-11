@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachinesRequest extends Model
 {
     /**
-     * @description host name
-     *
      * @var string
      */
     public $hostname;
 
     /**
-     * @description life state
-     *
      * @var string
      */
     public $lifeState;
 
     /**
-     * @description model
-     *
      * @var string
      */
     public $model;
 
     /**
-     * @description online state
-     *
      * @var string
      */
     public $onlineState;
 
     /**
-     * @description page number
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description page size
-     *
      * @var int
      */
     public $pageSize;

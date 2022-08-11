@@ -11,43 +11,31 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description Kubernetes版本特性。
-     *
      * @var mixed[]
      */
     public $capabilities;
 
     /**
-     * @description ECS系统镜像列表。
-     *
      * @var images[]
      */
     public $images;
 
     /**
-     * @description Kubernetes版本元数据信息。
-     *
      * @var mixed[]
      */
     public $metaData;
 
     /**
-     * @description 容器运行时详情。
-     *
      * @var Runtime[]
      */
     public $runtimes;
 
     /**
-     * @description Kubernetes版本。
-     *
      * @var string
      */
     public $version;
 
     /**
-     * @description 是否为多可用区。
-     *
      * @var string
      */
     public $multiAz;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterAddonRequest extends Model
 {
     /**
-     * @description 自定义参数设置
-     *
      * @var string
      */
     public $config;

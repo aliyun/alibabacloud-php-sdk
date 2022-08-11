@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class InstallClusterAddonsRequest extends Model
 {
     /**
-     * @description Addon列表。
-     *
      * @var body[]
      */
     public $body;

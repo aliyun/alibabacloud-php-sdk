@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplatesResponseBody extends Model
 {
     /**
-     * @description 分页信息。
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description 模板列表。
-     *
      * @var templates[]
      */
     public $templates;

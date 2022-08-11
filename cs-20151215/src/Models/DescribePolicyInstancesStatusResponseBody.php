@@ -15,8 +15,6 @@ class DescribePolicyInstancesStatusResponseBody extends Model
     public $instancesSeverityCount;
 
     /**
-     * @description 不同策略类型下的策略实例计数列表
-     *
      * @var policyInstances[]
      */
     public $policyInstances;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EdgeClusterAddEdgeMachineResponseBody extends Model
 {
     /**
-     * @description edge machine id
-     *
      * @var string
      */
     public $edgeMachineId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

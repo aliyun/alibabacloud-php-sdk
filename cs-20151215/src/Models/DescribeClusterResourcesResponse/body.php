@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 资源创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 资源实例ID。
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 资源元信息。
-     *
      * @var string
      */
     public $resourceInfo;
 
     /**
-     * @description 资源类型。
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 资源状态。
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description 是否为自动创建。
-     *
      * @var int
      */
     public $autoCreate;

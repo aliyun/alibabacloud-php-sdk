@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplatesRequest extends Model
 {
     /**
-     * @description 对查询结果进行分页处理，指定返回第几页的数据。  默认值为 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description 对查询结果进行分页处理，指定每页包含的数据条数。  默认值为 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 模板类型，部署模板类型，目前一共有2种类型，取值为：kubernetes或compose。
-     *
      * @var string
      */
     public $templateType;

@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class edgeMachines extends Model
 {
     /**
-     * @description actvite time
-     *
      * @var string
      */
     public $activeTime;
 
     /**
-     * @description created time
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description edge machine id
-     *
      * @var string
      */
     public $edgeMachineId;
 
     /**
-     * @description hostname
-     *
      * @var string
      */
     public $hostname;
 
     /**
-     * @description life state
-     *
      * @var string
      */
     public $lifeState;
 
     /**
-     * @description model
-     *
      * @var string
      */
     public $model;
 
     /**
-     * @description name of edgemachine
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description online state
-     *
      * @var string
      */
     public $onlineState;
 
     /**
-     * @description sn
-     *
      * @var string
      */
     public $sn;
 
     /**
-     * @description update time
-     *
      * @var string
      */
     public $updated;

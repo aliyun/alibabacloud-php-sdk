@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAttachScriptsRequest extends Model
 {
     /**
-     * @description 节点CPU架构,支持amd64、arm、arm64。边缘托管集群专有字段。
-     *
      * @var string
      */
     public $arch;
 
     /**
-     * @description 数据盘挂载
-     *
      * @var bool
      */
     public $formatDisk;
 
     /**
-     * @description 保留实例名称
-     *
      * @var bool
      */
     public $keepInstanceName;
 
     /**
-     * @description 节点池ID。将节点加入指定节点池。
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description 边缘托管版集群节点的接入配置。
-     *
      * @var string
      */
     public $options;
 
     /**
-     * @description RDS白名单
-     *
      * @var string[]
      */
     public $rdsInstances;

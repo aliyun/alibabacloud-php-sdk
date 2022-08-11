@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class spotPriceLimit extends Model
 {
     /**
-     * @description 抢占实例规格。
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 抢占实例单价。
-     *
      * @var string
      */
     public $priceLimit;

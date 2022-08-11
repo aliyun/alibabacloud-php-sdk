@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerResponseBody extends Model
 {
     /**
-     * @description 触发器行为。
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 触发器ID。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 触发器项目名称。
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 触发器类型。默认值为 deployment 。
-     *
      * @var string
      */
     public $type;

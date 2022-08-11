@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class taints extends Model
 {
     /**
-     * @description 污点生效策略。
-     *
      * @var string
      */
     public $effect;
 
     /**
-     * @description 污点键。
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description 污点值。
-     *
      * @var string
      */
     public $value;

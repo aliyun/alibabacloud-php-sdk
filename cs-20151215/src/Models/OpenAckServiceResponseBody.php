@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OpenAckServiceResponseBody extends Model
 {
     /**
-     * @description 开通服务的订单号。
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

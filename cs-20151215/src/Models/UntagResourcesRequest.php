@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description 是否删除全部自定义标签，仅当tag_keys为空时生效，取值：[true,false]。
-     *
      * @var bool
      */
     public $all;
 
     /**
-     * @description 资源所属的地域ID
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源ID。数组长度取值范围为：1~50
-     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description 资源类型定义。取值范围： 只支持CLUSTER这一种资源类型
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 资源的标签键。N的取值范围：1~20
-     *
      * @var string[]
      */
     public $tagKeys;

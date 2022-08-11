@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsRequest extends Model
 {
     /**
-     * @description 集群ID
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 没页记录数量
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页数
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 事件类型
-     *
      * @var string
      */
     public $type;

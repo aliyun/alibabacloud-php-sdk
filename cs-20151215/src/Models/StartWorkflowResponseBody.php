@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class StartWorkflowResponseBody extends Model
 {
     /**
-     * @description 工作流名称
-     *
      * @var string
      */
     public $jobName;

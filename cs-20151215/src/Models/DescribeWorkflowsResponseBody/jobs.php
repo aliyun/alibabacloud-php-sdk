@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 工作流创建时间。
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 工作流名称。
-     *
      * @var string
      */
     public $jobName;

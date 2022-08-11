@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterShrinkRequest extends Model
 {
     /**
-     * @description 是否保留SLB。  true：保留 false：不保留 默认值：false。
-     *
      * @var bool
      */
     public $keepSlb;
 
     /**
-     * @description 是否保留所有资源,如果设置了该值，将会忽略retain_resources。  true：保留 false：不保留 默认值：fase。
-     *
      * @var bool
      */
     public $retainAllResources;
 
     /**
-     * @description 要保留的资源列表。
-     *
      * @var string
      */
     public $retainResourcesShrink;

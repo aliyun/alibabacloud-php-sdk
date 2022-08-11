@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeMachineRequest extends Model
 {
     /**
-     * @description hostname
-     *
      * @var string
      */
     public $hostname;
 
     /**
-     * @description model
-     *
      * @var string
      */
     public $model;
 
     /**
-     * @description sn
-     *
      * @var string
      */
     public $sn;

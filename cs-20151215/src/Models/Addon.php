@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class Addon extends Model
 {
     /**
-     * @description 插件配置参数。
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description 是否禁止默认安装。true | false。
-     *
      * @var bool
      */
     public $disabled;
 
     /**
-     * @description 插件名称。
-     *
      * @var string
      */
     public $name;

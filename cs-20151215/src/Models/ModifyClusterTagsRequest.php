@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterTagsRequest extends Model
 {
     /**
-     * @description 集群标签列表。
-     *
      * @var Tag[]
      */
     public $body;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterNodesRequest extends Model
 {
     /**
-     * @description 是否自动排空节点上的Pod。
-     *
      * @var bool
      */
     public $drainNode;
 
     /**
-     * @description 移除节点列表。
-     *
      * @var string[]
      */
     public $nodes;
 
     /**
-     * @description 是否同时释放 ECS
-     *
      * @var bool
      */
     public $releaseNode;

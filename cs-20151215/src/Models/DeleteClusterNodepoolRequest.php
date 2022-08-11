@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterNodepoolRequest extends Model
 {
     /**
-     * @description 是否强制删除。
-     *
      * @var bool
      */
     public $force;

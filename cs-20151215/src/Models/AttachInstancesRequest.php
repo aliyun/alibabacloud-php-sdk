@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesRequest extends Model
 {
     /**
-     * @description CPU亲和策略。
-     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
-     * @description 是否格式化数据盘。
-     *
      * @var bool
      */
     public $formatDisk;
 
     /**
-     * @description 自定义镜像ID。
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 实例列表。
-     *
      * @var string[]
      */
     public $instances;
 
     /**
-     * @description 是否为边缘节点。
-     *
      * @var bool
      */
     public $isEdgeWorker;
 
     /**
-     * @description 是否保留实例名称。
-     *
      * @var bool
      */
     public $keepInstanceName;
 
     /**
-     * @description key_pair名称，与login_password二选一
-     *
      * @var string
      */
     public $keyPair;
 
     /**
-     * @description 节点池ID，欲将节点添加到哪个节点池中。。
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description password，与key_pair二选一。
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description RDS实例列表。
-     *
      * @var string[]
      */
     public $rdsInstances;
@@ -84,15 +64,11 @@ class AttachInstancesRequest extends Model
     public $runtime;
 
     /**
-     * @description 节点标签。
-     *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 节点自定义数据。
-     *
      * @var string
      */
     public $userData;

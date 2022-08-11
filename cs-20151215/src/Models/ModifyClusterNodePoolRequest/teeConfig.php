@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class teeConfig extends Model
 {
     /**
-     * @description 是否为加密计算节点池。
-     *
      * @var bool
      */
     public $teeEnable;

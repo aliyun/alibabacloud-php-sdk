@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
-     * @description 带宽峰值。
-     *
      * @var int
      */
     public $eipBandwidth;
 
     /**
-     * @description EIP实例规格。
-     *
      * @var string
      */
     public $eipInternetChargeType;
 
     /**
-     * @description 是否开启自动伸缩。
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 是否绑定EIP。
-     *
      * @var bool
      */
     public $isBondEip;
 
     /**
-     * @description 最大实例数。
-     *
      * @var int
      */
     public $maxInstances;
 
     /**
-     * @description 最小实例数。
-     *
      * @var int
      */
     public $minInstances;
 
     /**
-     * @description 扩容节点类型。
-     *
      * @var string
      */
     public $type;

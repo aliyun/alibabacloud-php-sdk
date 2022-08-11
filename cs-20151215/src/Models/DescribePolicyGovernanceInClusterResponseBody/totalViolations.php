@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class totalViolations extends Model
 {
     /**
-     * @description 被拦截的不同治理等级的违规计数统计
-     *
      * @var deny
      */
     public $deny;
 
     /**
-     * @description 告警模式下不同治理等级的违规计数统计
-     *
      * @var warn
      */
     public $warn;

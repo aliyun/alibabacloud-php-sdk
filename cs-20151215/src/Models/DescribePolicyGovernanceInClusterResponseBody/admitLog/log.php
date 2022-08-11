@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
-     * @description 目标集群ID
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 策略类型名称
-     *
      * @var string
      */
     public $constraintKind;
 
     /**
-     * @description 策略治理审计日志信息
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @description 目标资源类型
-     *
      * @var string
      */
     public $resourceKind;
 
     /**
-     * @description 目标资源名称
-     *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description 目标资源命名空间
-     *
      * @var string
      */
     public $resourceNamespace;

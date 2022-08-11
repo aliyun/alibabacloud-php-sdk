@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class admitLog extends Model
 {
     /**
-     * @description 当前查询到的日志总数
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description 策略治理审计日志内容
-     *
      * @var log
      */
     public $log;
 
     /**
-     * @description 查询结果的状态
-     *
      * @var string
      */
     public $progress;

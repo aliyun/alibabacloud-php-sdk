@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
-     * @description 集群是否绑定EIP，用于公网访问API Server。 true | false
-     *
      * @var bool
      */
     public $apiServerEip;
 
     /**
-     * @description 集群API Server 公网连接端点。
-     *
      * @var string
      */
     public $apiServerEipId;
 
     /**
-     * @description 集群是否开启删除保护。默认值false。
-     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
-     * @description 启用或禁用 RRSA 功能。true: 启用，false: 禁用
-     *
      * @var bool
      */
     public $enableRrsa;
 
     /**
-     * @description 域名是否重新绑定到Ingress的SLB地址。
-     *
      * @var string
      */
     public $ingressDomainRebinding;
 
     /**
-     * @description 集群的Ingress SLB的ID。
-     *
      * @var string
      */
     public $ingressLoadbalancerId;
 
     /**
-     * @description 实例删除保护，防止通过控制台或API误删除释放节点。
-     *
      * @var bool
      */
     public $instanceDeletionProtection;
@@ -63,8 +49,6 @@ class ModifyClusterRequest extends Model
     public $maintenanceWindow;
 
     /**
-     * @description 集群资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;

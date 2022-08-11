@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class rolloutPolicy extends Model
 {
     /**
-     * @description 轮转修复时的最大并行度
-     *
      * @var int
      */
     public $maxParallelism;

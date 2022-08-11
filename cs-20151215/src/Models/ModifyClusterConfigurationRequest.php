@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterConfigurationRequest extends Model
 {
     /**
-     * @description 自定义配置。
-     *
      * @var customizeConfig[]
      */
     public $customizeConfig;

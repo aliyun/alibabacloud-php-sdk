@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class onState extends Model
 {
     /**
-     * @description 当前开启的策略种类计数
-     *
      * @var int
      */
     public $enabledCount;
 
     /**
-     * @description 策略治理等级
-     *
      * @var string
      */
     public $severity;
 
     /**
-     * @description 该等级下策略种类总数
-     *
      * @var int
      */
     public $total;

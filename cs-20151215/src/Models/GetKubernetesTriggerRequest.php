@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetKubernetesTriggerRequest extends Model
 {
     /**
-     * @description 应用名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 应用所属命名空间。
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description 应用类型。
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 触发器行为。
-     *
      * @var string
      */
     public $action;

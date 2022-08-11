@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ScaleOutClusterRequest extends Model
 {
     /**
-     * @description 在节点上安装云监控
-     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
-     * @description 扩容节点数
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description CPU亲和性策略
-     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
-     * @description 自定义镜像
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description keypair名称，和login_password二选一。
-     *
      * @var string
      */
     public $keyPair;
 
     /**
-     * @description SSH登录密码，和key_pair二选一。
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description RDS白名单
-     *
      * @var string[]
      */
     public $rdsInstances;
@@ -64,92 +50,66 @@ class ScaleOutClusterRequest extends Model
     public $runtime;
 
     /**
-     * @description 节点标签
-     *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 节点污点信息
-     *
      * @var Taint[]
      */
     public $taints;
 
     /**
-     * @description 节点自定义数据
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description 虚拟交换机
-     *
      * @var string[]
      */
     public $vswitchIds;
 
     /**
-     * @description Worker节点到期是否自动续费
-     *
      * @var bool
      */
     public $workerAutoRenew;
 
     /**
-     * @description Worker节点自动续费时长
-     *
      * @var int
      */
     public $workerAutoRenewPeriod;
 
     /**
-     * @description Worker节点数据盘配置
-     *
      * @var workerDataDisks[]
      */
     public $workerDataDisks;
 
     /**
-     * @description Worker节点付费类型
-     *
      * @var string
      */
     public $workerInstanceChargeType;
 
     /**
-     * @description Worker节点实例规格
-     *
      * @var string[]
      */
     public $workerInstanceTypes;
 
     /**
-     * @description Worker节点包年包月时长
-     *
      * @var int
      */
     public $workerPeriod;
 
     /**
-     * @description Worker节点包年包月周期
-     *
      * @var string
      */
     public $workerPeriodUnit;
 
     /**
-     * @description Worker节点系统盘类型
-     *
      * @var string
      */
     public $workerSystemDiskCategory;
 
     /**
-     * @description Worker节点系统盘大小
-     *
      * @var int
      */
     public $workerSystemDiskSize;

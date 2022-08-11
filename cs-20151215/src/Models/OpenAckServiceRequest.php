@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class OpenAckServiceRequest extends Model
 {
     /**
-     * @description 要开通的服务类型
-     *
      * @var string
      */
     public $type;

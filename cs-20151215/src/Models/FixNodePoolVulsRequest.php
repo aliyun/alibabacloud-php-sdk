@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class FixNodePoolVulsRequest extends Model
 {
     /**
-     * @description 待修复的节点名称列表
-     *
      * @var string[]
      */
     public $nodes;
 
     /**
-     * @description 轮转修复策略
-     *
      * @var rolloutPolicy
      */
     public $rolloutPolicy;
 
     /**
-     * @description 待修复的漏洞名称列表
-     *
      * @var string[]
      */
     public $vulList;

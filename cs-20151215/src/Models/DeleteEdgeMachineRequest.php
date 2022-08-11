@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeMachineRequest extends Model
 {
     /**
-     * @description whether force delete
-     *
      * @var string
      */
     public $force;

@@ -12,134 +12,96 @@ use AlibabaCloud\Tea\Model;
 class ScaleClusterRequest extends Model
 {
     /**
-     * @description 节点是否安装云监控插件。
-     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
-     * @description 扩容节点数。
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description 节点CPU策略。
-     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
-     * @description 失败是否回滚。
-     *
      * @var bool
      */
     public $disableRollback;
 
     /**
-     * @description keypair名称，和login_password二选一。
-     *
      * @var string
      */
     public $keyPair;
 
     /**
-     * @description SSH登录密码。和keypair二选一。
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description 集群标签。
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description 节点污点标记。
-     *
      * @var taints[]
      */
     public $taints;
 
     /**
-     * @description 节点交换机ID列表。
-     *
      * @var string[]
      */
     public $vswitchIds;
 
     /**
-     * @description 节点是否开启Worker节点自动续费。
-     *
      * @var bool
      */
     public $workerAutoRenew;
 
     /**
-     * @description 自动续费周期。
-     *
      * @var int
      */
     public $workerAutoRenewPeriod;
 
     /**
-     * @description 是否挂载数据盘。
-     *
      * @var bool
      */
     public $workerDataDisk;
 
     /**
-     * @description Worker数据盘类型、大小等配置的组合。
-     *
      * @var workerDataDisks[]
      */
     public $workerDataDisks;
 
     /**
-     * @description 节点付费类型。
-     *
      * @var string
      */
     public $workerInstanceChargeType;
 
     /**
-     * @description Worker节点ECS规格类型。
-     *
      * @var string[]
      */
     public $workerInstanceTypes;
 
     /**
-     * @description 节点包年包月时长。
-     *
      * @var int
      */
     public $workerPeriod;
 
     /**
-     * @description 当指定为PrePaid的时候需要指定周期。
-     *
      * @var string
      */
     public $workerPeriodUnit;
 
     /**
-     * @description 节点系统盘类型。
-     *
      * @var string
      */
     public $workerSystemDiskCategory;
 
     /**
-     * @description 节点系统盘大小
-     *
      * @var int
      */
     public $workerSystemDiskSize;

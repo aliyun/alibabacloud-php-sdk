@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 事件级别
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description 事件详情
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 事件状态
-     *
      * @var string
      */
     public $reason;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class workerDataDisks extends Model
 {
     /**
-     * @description 集群Worker节点数据盘类型
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 集群Worker节点数据盘是否加密
-     *
      * @var string
      */
     public $encrypted;
 
     /**
-     * @description 集群Worker节点数据盘磁盘性能等级，仅对ESSD磁盘生效
-     *
      * @var string
      */
     public $performanceLevel;
 
     /**
-     * @description 集群Worker节点数据盘大小
-     *
      * @var string
      */
     public $size;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonsRequest extends Model
 {
     /**
-     * @description 集群类型。  - Kubernetes: 专有版集群。 - ManagedKubernetes：托管版集群。 - Ask：Serverless 集群。 - ExternalKubernetes：注册到ACK的外部集群。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 地域ID。
-     *
      * @var string
      */
     public $region;

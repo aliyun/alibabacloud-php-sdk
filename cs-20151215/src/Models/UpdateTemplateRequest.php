@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
-     * @description 部署模板描述信息。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 部署模板名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 部署模板标签
-     *
      * @var string
      */
     public $tags;
 
     /**
-     * @description 部署模板yaml。
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @description 部署模板类型。
-     *
      * @var string
      */
     public $templateType;

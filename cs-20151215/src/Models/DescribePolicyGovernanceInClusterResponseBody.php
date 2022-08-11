@@ -13,29 +13,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGovernanceInClusterResponseBody extends Model
 {
     /**
-     * @description 集群当前策略治理审计日志
-     *
      * @var admitLog
      */
     public $admitLog;
 
     /**
-     * @description 当前集群中开启的不同等级策略计数统计
-     *
      * @var onState[]
      */
     public $onState;
 
     /**
-     * @description 集群中当前被拦截和告警两种处理类型下不同治理等级的违规计数。
-     *
      * @var totalViolations
      */
     public $totalViolations;
 
     /**
-     * @description 集群中针对不同策略类型的拦截和告警的审计计数统计列表
-     *
      * @var violations
      */
     public $violations;

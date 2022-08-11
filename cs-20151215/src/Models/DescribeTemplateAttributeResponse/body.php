@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 编排模板ID，模板每次修改，这个ID都会改变。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 编排模板权限。取值：private，public，shared。
-     *
      * @var string
      */
     public $acl;
 
     /**
-     * @description 编排模板名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 编排模板内容。
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @description 编排模板类型
-     *
      * @var string
      */
     public $templateType;
 
     /**
-     * @description 编排模板描述。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 部署模板的标签。
-     *
      * @var string
      */
     public $tags;
 
     /**
-     * @description 编排模板ID，该ID唯一不随更新而改变。
-     *
      * @var string
      */
     public $templateWithHistId;
 
     /**
-     * @description 编排模板创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 编排模板修改时间。
-     *
      * @var string
      */
     public $updated;

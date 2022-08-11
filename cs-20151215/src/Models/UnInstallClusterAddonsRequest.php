@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class UnInstallClusterAddonsRequest extends Model
 {
     /**
-     * @description 卸载组件列表。
-     *
      * @var addons[]
      */
     public $addons;

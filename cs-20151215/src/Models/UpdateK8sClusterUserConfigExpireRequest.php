@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateK8sClusterUserConfigExpireRequest extends Model
 {
     /**
-     * @description kubeconfig过期小时
-     *
      * @var int
      */
     public $expireHour;
 
     /**
-     * @description 指定用户id
-     *
      * @var string
      */
     public $user;

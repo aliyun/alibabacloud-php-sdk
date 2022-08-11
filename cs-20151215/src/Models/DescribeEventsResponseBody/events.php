@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @description 集群ID
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 事件描述
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 事件ID
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description 事件源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 事件
-     *
      * @var string
      */
     public $subject;
 
     /**
-     * @description 事件开始事件
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @description 事件类型
-     *
      * @var string
      */
     public $type;

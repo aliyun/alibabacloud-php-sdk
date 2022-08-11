@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class deny extends Model
 {
     /**
-     * @description 策略描述
-     *
      * @var string
      */
     public $policyDescription;
 
     /**
-     * @description 策略名称
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description 策略治理等级
-     *
      * @var string
      */
     public $severity;
 
     /**
-     * @description 对应规则的事件计数
-     *
      * @var int
      */
     public $violations;

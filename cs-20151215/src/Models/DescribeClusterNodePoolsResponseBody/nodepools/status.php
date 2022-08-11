@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
-     * @description 失败的节点数
-     *
      * @var int
      */
     public $failedNodes;
 
     /**
-     * @description 处于健康状态的节点数
-     *
      * @var int
      */
     public $healthyNodes;
 
     /**
-     * @description 正在创建的节点数
-     *
      * @var int
      */
     public $initialNodes;
 
     /**
-     * @description 离线节点数
-     *
      * @var int
      */
     public $offlineNodes;
 
     /**
-     * @description 正在被移除的节点数
-     *
      * @var int
      */
     public $removingNodes;
 
     /**
-     * @description 正在工作节点数
-     *
      * @var int
      */
     public $servingNodes;
 
     /**
-     * @description 节点池状态
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description 节点总数
-     *
      * @var int
      */
     public $totalNodes;

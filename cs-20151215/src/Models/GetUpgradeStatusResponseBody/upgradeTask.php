@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class upgradeTask extends Model
 {
     /**
-     * @description 任务描述信息。
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 任务状态：  emptry、running、success、failed
-     *
      * @var string
      */
     public $status;

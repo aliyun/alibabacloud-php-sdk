@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonUpgradeStatusRespon
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAttachScriptsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterEventsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterEventsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterLogsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponse;
@@ -67,6 +69,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Request;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClustersV1Response;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterTasksResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigRequest;
@@ -113,6 +116,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonResponse;
@@ -595,6 +599,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->apiAudiences)) {
             $body['api_audiences'] = $request->apiAudiences;
         }
+        if (!Utils::isUnset($request->chargeType)) {
+            $body['charge_type'] = $request->chargeType;
+        }
         if (!Utils::isUnset($request->cisEnabled)) {
             $body['cis_enabled'] = $request->cisEnabled;
         }
@@ -732,6 +739,12 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->osType)) {
             $body['os_type'] = $request->osType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $body['period_unit'] = $request->periodUnit;
         }
         if (!Utils::isUnset($request->platform)) {
             $body['platform'] = $request->platform;
@@ -2067,6 +2080,61 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string                       $ClusterId
+     * @param DescribeClusterEventsRequest $request
+     *
+     * @return DescribeClusterEventsResponse
+     */
+    public function describeClusterEvents($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $ClusterId
+     * @param DescribeClusterEventsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeClusterEventsResponse
+     */
+    public function describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $query     = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['page_number'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['task_id'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterEvents',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $ClusterId
      *
      * @return DescribeClusterLogsResponse
@@ -2292,6 +2360,47 @@ class CS extends OpenApiClient
         ]);
 
         return DescribeClusterResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
+     *
+     * @return DescribeClusterTasksResponse
+     */
+    public function describeClusterTasks($clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterTasksWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeClusterTasksResponse
+     */
+    public function describeClusterTasksWithOptions($clusterId, $headers, $runtime)
+    {
+        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterTasks',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/tasks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3793,30 +3902,41 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
+     * @param string                $clusterId
+     * @param MigrateClusterRequest $request
      *
      * @return MigrateClusterResponse
      */
-    public function migrateCluster($clusterId)
+    public function migrateCluster($clusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->migrateClusterWithOptions($clusterId, $headers, $runtime);
+        return $this->migrateClusterWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $clusterId
+     * @param MigrateClusterRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return MigrateClusterResponse
      */
-    public function migrateClusterWithOptions($clusterId, $headers, $runtime)
+    public function migrateClusterWithOptions($clusterId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $req       = new OpenApiRequest([
+        $body      = [];
+        if (!Utils::isUnset($request->ossBucketEndpoint)) {
+            $body['oss_bucket_endpoint'] = $request->ossBucketEndpoint;
+        }
+        if (!Utils::isUnset($request->ossBucketName)) {
+            $body['oss_bucket_name'] = $request->ossBucketName;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MigrateCluster',
@@ -3827,7 +3947,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return MigrateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4045,6 +4165,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->management)) {
             $body['management'] = $request->management;
+        }
+        if (!Utils::isUnset($request->nodeConfig)) {
+            $body['node_config'] = $request->nodeConfig;
         }
         if (!Utils::isUnset($request->nodepoolInfo)) {
             $body['nodepool_info'] = $request->nodepoolInfo;

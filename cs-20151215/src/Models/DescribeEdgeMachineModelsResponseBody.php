@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineModelsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var models[]
      */
     public $models;

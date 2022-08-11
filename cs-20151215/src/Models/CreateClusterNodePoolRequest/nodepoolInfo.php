@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
-     * @description 节点池名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 节点池类型，对于边缘节点池来说，类型为"edge"
-     *
      * @var string
      */
     public $type;

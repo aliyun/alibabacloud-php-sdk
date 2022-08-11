@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeExternalAgentResponseBody extends Model
 {
     /**
-     * @description 代理配置。
-     *
      * @var string
      */
     public $config;

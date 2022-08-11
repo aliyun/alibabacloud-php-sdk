@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1ResponseBody extends Model
 {
     /**
-     * @description 集群详情列表。
-     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
-     * @description 分页信息。
-     *
      * @var pageInfo
      */
     public $pageInfo;

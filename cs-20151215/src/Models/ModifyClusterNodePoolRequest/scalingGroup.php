@@ -12,204 +12,146 @@ use AlibabaCloud\Tea\Model;
 class scalingGroup extends Model
 {
     /**
-     * @description 节点池节点是启用自动续费
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description 节点池节点自动续费周期
-     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
-     * @description 当MultiAZPolicy取值为COST_OPTIMIZED时，如果因价格、库存等原因无法创建足够的抢占式实例，是否允许自动尝试创建按量实例满足ECS实例数量要求。取值范围：true：允许。false：不允许。默认值：true
-     *
      * @var bool
      */
     public $compensateWithOnDemand;
 
     /**
-     * @description 数据盘配置。
-     *
      * @var DataDisk[]
      */
     public $dataDisks;
 
     /**
-     * @description 节点池期望节点数
-     *
      * @var int
      */
     public $desiredSize;
 
     /**
-     * @description 自定义镜像
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 节点付费类型。
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description 节点实例规格。
-     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
-     * @description 节点公网IP网络计费类型
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description 节点公网IP出带宽最大值，单位为Mbps（Mega bit per second），取值范围：1~100
-     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
-     * @description 密钥对名称，和login_password二选一。
-     *
      * @var string
      */
     public $keyPair;
 
     /**
-     * @description SSH登录密码，和key_pari二选一。
-     *
      * @var string
      */
     public $loginPassword;
 
     /**
-     * @description 多可用区伸缩组ECS实例扩缩容策略
-     *
      * @var string
      */
     public $multiAzPolicy;
 
     /**
-     * @description 伸缩组所需要按量实例个数的最小值，取值范围：0~1000。当按量实例个数少于该值时，将优先创建按量实例。
-     *
      * @var int
      */
     public $onDemandBaseCapacity;
 
     /**
-     * @description 伸缩组满足最小按量实例数（OnDemandBaseCapacity）要求后，超出的实例中按量实例应占的比例，取值范围：0～100。
-     *
      * @var int
      */
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
-     * @description 包年包月时长
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description 付费周期
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description 操作系统发行版。
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description RDS实例列表。
-     *
      * @var string[]
      */
     public $rdsInstances;
 
     /**
-     * @description 扩容策略。
-     *
      * @var string
      */
     public $scalingPolicy;
 
     /**
-     * @description 指定可用实例规格的个数，伸缩组将按成本最低的多个规格均衡创建抢占式实例。取值范围：1~10。
-     *
      * @var int
      */
     public $spotInstancePools;
 
     /**
-     * @description 是否开启补齐抢占式实例。开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。
-     *
      * @var bool
      */
     public $spotInstanceRemedy;
 
     /**
-     * @description 抢占实例价格上限配置
-     *
      * @var spotPriceLimit[]
      */
     public $spotPriceLimit;
 
     /**
-     * @description 抢占式实例类型
-     *
      * @var string
      */
     public $spotStrategy;
 
     /**
-     * @description 节点系统盘类型。
-     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
-     * @description 节点系统盘磁盘性能，只针对ESSD磁盘生效
-     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
-     * @description 节点系统盘大小。
-     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
-     * @description ECS标签。
-     *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 节点使用的虚拟交换机ID。
-     *
      * @var string[]
      */
     public $vswitchIds;

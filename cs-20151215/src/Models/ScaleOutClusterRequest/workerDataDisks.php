@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class workerDataDisks extends Model
 {
     /**
-     * @description 自动快照策略ID，云盘会按照快照策略自动备份。
-     *
      * @var string
      */
     public $autoSnapshotPolicyId;
 
     /**
-     * @description 数据盘类型,默认值：cloud_efficiency
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 是否对数据盘加密
-     *
      * @var string
      */
     public $encrypted;
 
     /**
-     * @description 数据盘大小，单位为GiB。  取值范围：[40,32768]
-     *
      * @var string
      */
     public $size;

@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskInfoResponseBody extends Model
 {
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 任务创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 任务当前状态。
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description 任务ID。
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description 任务执行详情。
-     *
      * @var taskResult[]
      */
     public $taskResult;
 
     /**
-     * @description 当前任务类型。
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description 任务更新时间。
-     *
      * @var string
      */
     public $updated;

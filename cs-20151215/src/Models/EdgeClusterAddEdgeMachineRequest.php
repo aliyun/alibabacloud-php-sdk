@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class EdgeClusterAddEdgeMachineRequest extends Model
 {
     /**
-     * @description expired
-     *
      * @var int
      */
     public $expired;
 
     /**
-     * @description nodepool_id
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description options
-     *
      * @var string
      */
     public $options;

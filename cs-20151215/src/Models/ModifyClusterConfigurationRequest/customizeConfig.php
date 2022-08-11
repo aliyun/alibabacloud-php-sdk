@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class customizeConfig extends Model
 {
     /**
-     * @description 组件配置。
-     *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description 组件名称。
-     *
      * @var string
      */
     public $name;

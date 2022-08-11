@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
-     * @description 模板访问权限，取值为：private、pubilc或shared。。
-     *
      * @var string
      */
     public $acl;
 
     /**
-     * @description 模板创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 模板描述信息。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 模板ID。会模板随着更新而变化。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 模板名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 模板标签，如果不显式指定了，默认为模板名称。
-     *
      * @var string
      */
     public $tags;
 
     /**
-     * @description 模板详情。
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @description 部署模板类型。
-     *
      * @var string
      */
     public $templateType;
 
     /**
-     * @description 模板唯一ID。
-     *
      * @var string
      */
     public $templateWithHistId;
 
     /**
-     * @description 模板修改时间。
-     *
      * @var string
      */
     public $updated;

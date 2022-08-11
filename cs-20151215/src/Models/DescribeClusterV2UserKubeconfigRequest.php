@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterV2UserKubeconfigRequest extends Model
 {
     /**
-     * @description 是否为内网访问。
-     *
      * @var bool
      */
     public $privateIpAddress;

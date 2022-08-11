@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonsResponseBody extends Model
 {
     /**
-     * @description 组件分组信息，例如：存储类组件，网络组件等。
-     *
      * @var componentGroups[]
      */
     public $componentGroups;
 
     /**
-     * @description 标准组件信息，包含各个组件的描述信息。
-     *
      * @var StandardComponentsValue[]
      */
     public $standardComponents;

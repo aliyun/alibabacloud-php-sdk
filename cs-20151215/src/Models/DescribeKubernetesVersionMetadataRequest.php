@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeKubernetesVersionMetadataRequest extends Model
 {
     /**
-     * @description 集群类型。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 要查询的版本，如果为空则查所有版本。
-     *
      * @var string
      */
     public $kubernetesVersion;
 
     /**
-     * @description 边缘集群标识，用于区分边缘集群，取值：Default或Edge。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 地域ID。
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description 运行时。
-     *
      * @var string
      */
     public $runtime;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyInstanceRequest extends Model
 {
     /**
-     * @description 规则治理动作
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description 策略规则实例id
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 限制策略实施的命名空间，为空时表示所有命名空间
-     *
      * @var string[]
      */
     public $namespaces;
 
     /**
-     * @description 当前规则实例的配置参数
-     *
      * @var mixed[]
      */
     public $parameters;

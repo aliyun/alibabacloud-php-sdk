@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAddonMetadataResponseBody extends Model
 {
     /**
-     * @description 组件参数Schema
-     *
      * @var string
      */
     public $configSchema;
 
     /**
-     * @description 组件名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 组件版本
-     *
      * @var string
      */
     public $version;

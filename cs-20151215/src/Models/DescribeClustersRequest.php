@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersRequest extends Model
 {
     /**
-     * @description 集群类型。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 集群名称。
-     *
      * @var string
      */
     public $name;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 组件配置信息。
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description 组件名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 组件版本号。
-     *
      * @var string
      */
     public $version;

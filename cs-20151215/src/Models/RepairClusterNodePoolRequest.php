@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RepairClusterNodePoolRequest extends Model
 {
     /**
-     * @description 节点列表，如果不指定则表示当前节点池内所有节点
-     *
      * @var string[]
      */
     public $nodes;

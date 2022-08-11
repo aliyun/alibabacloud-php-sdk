@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplateAttributeRequest extends Model
 {
     /**
-     * @description 模板类型，值为创建部署模板时指定的模板类型。
-     *
      * @var string
      */
     public $templateType;

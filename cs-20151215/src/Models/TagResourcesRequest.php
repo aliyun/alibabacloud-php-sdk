@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description 资源所属的地域ID
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源ID列表
-     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description 资源类型定义。取值范围：  只支持CLUSTER这一种资源类型
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 资源的标签键值对。数组长度范围：1~20。一旦传值，则不允许为空字符串。最多支持128个字符，不能以aliyun和acs:开头，不能包含http://或者https://。
-     *
      * @var Tag[]
      */
     public $tags;

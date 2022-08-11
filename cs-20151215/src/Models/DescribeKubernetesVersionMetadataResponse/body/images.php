@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
-     * @description 镜像ID。
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 镜像名称。
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @description 操作系统发行版。取值范围： CentOS,AliyunLinux,Windows,WindowsCore。
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description 镜像版本。
-     *
      * @var string
      */
     public $osVersion;
 
     /**
-     * @description 镜像类型。
-     *
      * @var string
      */
     public $imageType;
 
     /**
-     * @description 操作系统发行版本号。
-     *
      * @var string
      */
     public $osType;
 
     /**
-     * @description 镜像分类
-     *
      * @var string
      */
     public $imageCategory;

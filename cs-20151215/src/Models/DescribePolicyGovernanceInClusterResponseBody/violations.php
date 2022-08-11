@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class violations extends Model
 {
     /**
-     * @description 被拦截的不同策略类型的审计计数
-     *
      * @var deny
      */
     public $deny;
 
     /**
-     * @description 告警的不同策略类型审计计数
-     *
      * @var warn
      */
     public $warn;

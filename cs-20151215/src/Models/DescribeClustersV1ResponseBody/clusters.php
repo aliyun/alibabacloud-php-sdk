@@ -11,64 +11,46 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 托管版集群类型，面向托管集群。 • ack.pro.small：专业托管集群。 • ack.standard ：标准托管集群。
-     *
      * @var string
      */
     public $clusterSpec;
 
     /**
-     * @description 集群类型。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 集群初始化时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 集群当前版本。
-     *
      * @var string
      */
     public $currentVersion;
 
     /**
-     * @description 集群是否开启删除保护。
-     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
-     * @description 集群使用的Docker版本。
-     *
      * @var string
      */
     public $dockerVersion;
 
     /**
-     * @description 集群负载均衡服务的ID。
-     *
      * @var string
      */
     public $externalLoadbalancerId;
 
     /**
-     * @description 集群初始化版本。
-     *
      * @var string
      */
     public $initVersion;
@@ -79,134 +61,96 @@ class clusters extends Model
     public $maintenanceWindow;
 
     /**
-     * @description 集群访问地址列表。
-     *
      * @var string
      */
     public $masterUrl;
 
     /**
-     * @description 集群元数据信息。
-     *
      * @var string
      */
     public $metaData;
 
     /**
-     * @description 集群名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 集群使用的网络类型，例如：VPC网络。
-     *
      * @var string
      */
     public $networkMode;
 
     /**
-     * @description 集群可升级版本。
-     *
      * @var string
      */
     public $nextVersion;
 
     /**
-     * @description 集群是否开启Private Zone。
-     *
      * @var bool
      */
     public $privateZone;
 
     /**
-     * @description 边缘集群表示，用于区分边缘托管版集群。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 地域ID。
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 集群资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 集群安全组ID。
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description 集群节点数。
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description 集群运行状态。
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description POD网段地址。
-     *
      * @var string
      */
     public $subnetCidr;
 
     /**
-     * @description 集群标签。
-     *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 集群更新时间。
-     *
      * @var string
      */
     public $updated;
 
     /**
-     * @description 集群所在的VPC ID。
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description 集群使用的虚拟交换ID。
-     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @description 集群Worker RAM角色。
-     *
      * @var string
      */
     public $workerRamRoleName;
 
     /**
-     * @description 可用区ID。
-     *
      * @var string
      */
     public $zoneId;

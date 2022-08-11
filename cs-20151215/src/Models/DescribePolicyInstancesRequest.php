@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyInstancesRequest extends Model
 {
     /**
-     * @description 策略实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 策略类型
-     *
      * @var string
      */
     public $policyName;

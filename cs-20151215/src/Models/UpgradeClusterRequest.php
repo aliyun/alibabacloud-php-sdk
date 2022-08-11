@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpgradeClusterRequest extends Model
 {
     /**
-     * @description 组件名称，集群升级时取值"k8s"。
-     *
      * @var string
      */
     public $componentName;
 
     /**
-     * @description 目标版本。
-     *
      * @var string
      */
     public $nextVersion;
 
     /**
-     * @description 当前版本。
-     *
      * @var string
      */
     public $version;

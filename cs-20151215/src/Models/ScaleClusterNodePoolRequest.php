@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ScaleClusterNodePoolRequest extends Model
 {
     /**
-     * @description 扩容节点数量
-     *
      * @var int
      */
     public $count;

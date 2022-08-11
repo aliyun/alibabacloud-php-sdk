@@ -9,141 +9,101 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 节点创建时间。
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description 错误信息说明。
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 节点过期时间。
-     *
      * @var string
      */
     public $expiredTime;
 
     /**
-     * @description 节点主机名。
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description 节点使用的镜像ID。
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description 节点付费类型。
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description 节点实例ID。
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 节点名称。
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 节点实例角色类型，Master或Worker。
-     *
      * @var string
      */
     public $instanceRole;
 
     /**
-     * @description 节点实例状态，
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @description 节点实例类型。
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description 节点实例所属ECS实例簇名称。
-     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
-     * @description 节点IP地址。
-     *
      * @var string[]
      */
     public $ipAddress;
 
     /**
-     * @description 节点是否为aliyun实例。
-     *
      * @var bool
      */
     public $isAliyunNode;
 
     /**
-     * @description 节点名称，该名称是k8s专用名称。
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description 节点状态，是否Ready。
-     *
      * @var string
      */
     public $nodeStatus;
 
     /**
-     * @description 节点池ID。
-     *
      * @var string
      */
     public $nodepoolId;
 
     /**
-     * @description 节点通过什么方式创建出来的，例如：ROS。
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 抢占时实例类型
-     *
      * @var string
      */
     public $spotStrategy;
 
     /**
-     * @description ECS运行状态，例如：Running。
-     *
      * @var string
      */
     public $state;

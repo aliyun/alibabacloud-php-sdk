@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDetailResponseBody extends Model
 {
     /**
-     * @description 集群ID。
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description 托管版集群类型，面向托管集群。  ack.pro.small：专业托管集群。 ack.standard ：标准托管集群。
-     *
      * @var string
      */
     public $clusterSpec;
 
     /**
-     * @description 集群类型。
-     *
      * @var string
      */
     public $clusterType;
 
     /**
-     * @description 集群创建时间。
-     *
      * @var string
      */
     public $created;
 
     /**
-     * @description 集群当前版本。
-     *
      * @var string
      */
     public $currentVersion;
 
     /**
-     * @description 集群是否开启删除保护。
-     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
-     * @description 集群内Docker版本。
-     *
      * @var string
      */
     public $dockerVersion;
 
     /**
-     * @description 集群Ingress LB实例ID。
-     *
      * @var string
      */
     public $externalLoadbalancerId;
 
     /**
-     * @description 集群初始化版本。
-     *
      * @var string
      */
     public $initVersion;
@@ -77,134 +59,96 @@ class DescribeClusterDetailResponseBody extends Model
     public $maintenanceWindow;
 
     /**
-     * @description 集群访问地址。
-     *
      * @var string
      */
     public $masterUrl;
 
     /**
-     * @description 集群元数据。
-     *
      * @var string
      */
     public $metaData;
 
     /**
-     * @description 集群名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 集群采用的网络类型，例如：VPC网络。
-     *
      * @var string
      */
     public $networkMode;
 
     /**
-     * @description 集群可升级版本。
-     *
      * @var string
      */
     public $nextVersion;
 
     /**
-     * @description 集群是否启用用PrivateZone。  true：启用 false：不启用 默认值：false。
-     *
      * @var bool
      */
     public $privateZone;
 
     /**
-     * @description 面向场景时的集群类型。  Default：非边缘场景集群。 Edge：边缘场景集群。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 集群所在地域ID。
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 集群资源组ID。
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 集群安全组ID。
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description 集群节点数量。
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description 集群运行状态。
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description Pod网络地址段，必须是有效的私有网段，即以下网段及其子网：10.0.0.0/8，172.16-31.0.0/12-16，192.168.0.0/16。不能与 VPC 及VPC 内已有 Kubernetes 集群使用的网段重复，创建成功后不能修改。  有关集群网络规划，请参见：[VPC下 Kubernetes 的网络地址段规划](https://help.aliyun.com/document_detail/～～86500～～)。
-     *
      * @var string
      */
     public $subnetCidr;
 
     /**
-     * @description 集群标签。
-     *
      * @var Tag[]
      */
     public $tags;
 
     /**
-     * @description 集群更新时间。
-     *
      * @var string
      */
     public $updated;
 
     /**
-     * @description 集群使用的VPC ID。
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description 集群节点使用的虚拟交换机列表。
-     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @description Worker节点RAM角色名称。
-     *
      * @var string
      */
     public $workerRamRoleName;
 
     /**
-     * @description 集群所在地域内的可用区ID。
-     *
      * @var string
      */
     public $zoneId;
