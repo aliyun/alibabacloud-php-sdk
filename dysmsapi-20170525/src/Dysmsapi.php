@@ -1492,29 +1492,31 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNumberJson)) {
-            $query['PhoneNumberJson'] = $request->phoneNumberJson;
-        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->signNameJson)) {
-            $query['SignNameJson'] = $request->signNameJson;
-        }
-        if (!Utils::isUnset($request->smsUpExtendCodeJson)) {
-            $query['SmsUpExtendCodeJson'] = $request->smsUpExtendCodeJson;
-        }
         if (!Utils::isUnset($request->templateCode)) {
             $query['TemplateCode'] = $request->templateCode;
         }
+        $body = [];
+        if (!Utils::isUnset($request->phoneNumberJson)) {
+            $body['PhoneNumberJson'] = $request->phoneNumberJson;
+        }
+        if (!Utils::isUnset($request->signNameJson)) {
+            $body['SignNameJson'] = $request->signNameJson;
+        }
+        if (!Utils::isUnset($request->smsUpExtendCodeJson)) {
+            $body['SmsUpExtendCodeJson'] = $request->smsUpExtendCodeJson;
+        }
         if (!Utils::isUnset($request->templateParamJson)) {
-            $query['TemplateParamJson'] = $request->templateParamJson;
+            $body['TemplateParamJson'] = $request->templateParamJson;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendBatchSms',
