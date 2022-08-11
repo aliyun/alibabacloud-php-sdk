@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageStatisticRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageStatisticResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetItemListRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetItemListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderFreeFlowProductStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderFreeFlowProductStatusResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosFlowUsageRequest;
@@ -43,6 +45,8 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderQosProductRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderQosProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkOrderQosProductRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkOrderQosProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkValidateStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkValidateStatusResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidateStatusRequest;
@@ -433,6 +437,46 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFreeFlowUsageStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetItemListRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetItemListResponse
+     */
+    public function getItemListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetItemList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetItemListRequest $request
+     *
+     * @return GetItemListResponse
+     */
+    public function getItemList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getItemListWithOptions($request, $runtime);
     }
 
     /**
@@ -1013,6 +1057,94 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveApplicationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SdkOrderQosProductRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SdkOrderQosProductResponse
+     */
+    public function sdkOrderQosProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->ctToken)) {
+            $query['CtToken'] = $request->ctToken;
+        }
+        if (!Utils::isUnset($request->IPv6)) {
+            $query['IPv6'] = $request->IPv6;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ipType)) {
+            $query['IpType'] = $request->ipType;
+        }
+        if (!Utils::isUnset($request->mobileNumber)) {
+            $query['MobileNumber'] = $request->mobileNumber;
+        }
+        if (!Utils::isUnset($request->operator)) {
+            $query['Operator'] = $request->operator;
+        }
+        if (!Utils::isUnset($request->privateIpv4)) {
+            $query['PrivateIpv4'] = $request->privateIpv4;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->provice)) {
+            $query['Provice'] = $request->provice;
+        }
+        if (!Utils::isUnset($request->publicIpv4)) {
+            $query['PublicIpv4'] = $request->publicIpv4;
+        }
+        if (!Utils::isUnset($request->qosRequestId)) {
+            $query['QosRequestId'] = $request->qosRequestId;
+        }
+        if (!Utils::isUnset($request->targetIpList)) {
+            $query['TargetIpList'] = $request->targetIpList;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->unitNum)) {
+            $query['UnitNum'] = $request->unitNum;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkOrderQosProduct',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SdkOrderQosProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SdkOrderQosProductRequest $request
+     *
+     * @return SdkOrderQosProductResponse
+     */
+    public function sdkOrderQosProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sdkOrderQosProductWithOptions($request, $runtime);
     }
 
     /**
