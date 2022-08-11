@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkbenchEventResultResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 成功标识
-     *
      * @var bool
      */
     public $success;

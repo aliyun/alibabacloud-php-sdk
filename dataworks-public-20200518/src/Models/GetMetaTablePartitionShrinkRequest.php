@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionRequest\sortCriterion;
 use AlibabaCloud\Tea\Model;
 
-class GetMetaTablePartitionRequest extends Model
+class GetMetaTablePartitionShrinkRequest extends Model
 {
     /**
      * @var string
@@ -35,9 +34,9 @@ class GetMetaTablePartitionRequest extends Model
     public $pageSize;
 
     /**
-     * @var sortCriterion
+     * @var string
      */
-    public $sortCriterion;
+    public $sortCriterionShrink;
 
     /**
      * @var string
@@ -49,14 +48,14 @@ class GetMetaTablePartitionRequest extends Model
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'sortCriterion'  => 'SortCriterion',
-        'tableGuid'      => 'TableGuid',
-        'tableName'      => 'TableName',
+        'clusterId'           => 'ClusterId',
+        'dataSourceType'      => 'DataSourceType',
+        'databaseName'        => 'DatabaseName',
+        'pageNumber'          => 'PageNumber',
+        'pageSize'            => 'PageSize',
+        'sortCriterionShrink' => 'SortCriterion',
+        'tableGuid'           => 'TableGuid',
+        'tableName'           => 'TableName',
     ];
 
     public function validate()
@@ -81,8 +80,8 @@ class GetMetaTablePartitionRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->sortCriterion) {
-            $res['SortCriterion'] = null !== $this->sortCriterion ? $this->sortCriterion->toMap() : null;
+        if (null !== $this->sortCriterionShrink) {
+            $res['SortCriterion'] = $this->sortCriterionShrink;
         }
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
@@ -97,7 +96,7 @@ class GetMetaTablePartitionRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetMetaTablePartitionRequest
+     * @return GetMetaTablePartitionShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -118,7 +117,7 @@ class GetMetaTablePartitionRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['SortCriterion'])) {
-            $model->sortCriterion = sortCriterion::fromMap($map['SortCriterion']);
+            $model->sortCriterionShrink = $map['SortCriterion'];
         }
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];

@@ -15,8 +15,6 @@ class ListShiftPersonnelsResponseBody extends Model
     public $paging;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

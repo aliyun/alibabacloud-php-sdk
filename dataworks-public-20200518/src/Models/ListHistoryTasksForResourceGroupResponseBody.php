@@ -30,8 +30,6 @@ class ListHistoryTasksForResourceGroupResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

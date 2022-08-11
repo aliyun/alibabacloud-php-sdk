@@ -15,8 +15,6 @@ class ListExtensionsResponseBody extends Model
     public $pagingInfo;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

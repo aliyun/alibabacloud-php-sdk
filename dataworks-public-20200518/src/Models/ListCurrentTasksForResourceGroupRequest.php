@@ -29,8 +29,6 @@ class ListCurrentTasksForResourceGroupRequest extends Model
     public $resourceGroupIdentifier;
 
     /**
-     * @description 3-等待资源；4-运行中
-     *
      * @var int
      */
     public $status;

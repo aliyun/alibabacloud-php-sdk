@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListHistoryTasksForResourceGroupRequest extends Model
 {
     /**
-     * @description 最晚当前时间
-     *
      * @var int
      */
     public $endTime;
@@ -36,8 +34,6 @@ class ListHistoryTasksForResourceGroupRequest extends Model
     public $resourceGroupIdentifier;
 
     /**
-     * @description 7天内
-     *
      * @var int
      */
     public $startTime;

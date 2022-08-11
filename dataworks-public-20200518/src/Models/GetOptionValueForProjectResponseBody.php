@@ -14,8 +14,6 @@ class GetOptionValueForProjectResponseBody extends Model
     public $optionValue;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

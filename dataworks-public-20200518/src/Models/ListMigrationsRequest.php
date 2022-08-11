@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListMigrationsRequest extends Model
 {
     /**
-     * @description Migration operation type, IMPORT/EXPORT
-     *
      * @var string
      */
     public $migrationType;
@@ -31,8 +29,6 @@ class ListMigrationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description Workspace Id
-     *
      * @var int
      */
     public $projectId;

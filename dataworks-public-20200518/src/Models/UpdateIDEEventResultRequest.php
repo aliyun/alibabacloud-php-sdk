@@ -24,8 +24,6 @@ class UpdateIDEEventResultRequest extends Model
     public $extensionCode;
 
     /**
-     * @description 消息UUID
-     *
      * @var string
      */
     public $messageId;

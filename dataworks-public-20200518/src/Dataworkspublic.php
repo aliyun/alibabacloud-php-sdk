@@ -215,6 +215,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableOutputRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableOutputResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTablePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationProcessRequest;
@@ -485,6 +486,7 @@ use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Rpc\Rpc\Config;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -6101,14 +6103,19 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTablePartitionRequest $request
+     * @param GetMetaTablePartitionRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return GetMetaTablePartitionResponse
      */
-    public function getMetaTablePartitionWithOptions($request, $runtime)
+    public function getMetaTablePartitionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetMetaTablePartitionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sortCriterion)) {
+            $request->sortCriterionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sortCriterion), 'SortCriterion', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
@@ -6124,6 +6131,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortCriterionShrink)) {
+            $query['SortCriterion'] = $request->sortCriterionShrink;
         }
         if (!Utils::isUnset($request->tableGuid)) {
             $query['TableGuid'] = $request->tableGuid;

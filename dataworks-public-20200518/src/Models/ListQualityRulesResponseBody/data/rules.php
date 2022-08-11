@@ -104,8 +104,6 @@ class rules extends Model
     public $ruleCheckerRelationId;
 
     /**
-     * @description 规则名称
-     *
      * @var string
      */
     public $ruleName;

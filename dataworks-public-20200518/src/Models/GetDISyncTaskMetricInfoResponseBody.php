@@ -15,15 +15,11 @@ class GetDISyncTaskMetricInfoResponseBody extends Model
     public $metricInfo;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description isSuccess
-     *
      * @var bool
      */
     public $success;

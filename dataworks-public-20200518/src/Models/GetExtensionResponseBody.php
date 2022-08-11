@@ -15,8 +15,6 @@ class GetExtensionResponseBody extends Model
     public $extension;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
