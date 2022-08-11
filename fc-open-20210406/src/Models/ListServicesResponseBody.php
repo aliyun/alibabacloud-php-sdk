@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListServicesResponseBody extends Model
 {
     /**
-     * @description 下次查询token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 服务列表
-     *
      * @var services[]
      */
     public $services;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RouteConfig extends Model
 {
     /**
-     * @description routes
-     *
      * @var PathConfig[]
      */
     public $routes;

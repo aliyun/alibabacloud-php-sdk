@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAccountSettingsResponseBody extends Model
 {
     /**
-     * @description 可用区列表
-     *
      * @var string[]
      */
     public $availableAZs;
 
     /**
-     * @description 默认服务角色
-     *
      * @var string
      */
     public $defaultRole;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CustomRuntimeConfig extends Model
 {
     /**
-     * @description 启动入口命令接收的参数
-     *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description 启动入口命令
-     *
      * @var string[]
      */
     public $command;

@@ -14,22 +14,16 @@ class UpdateTriggerRequest extends Model
     public $description;
 
     /**
-     * @description event source，如OSS，使用该role去invoke function
-     *
      * @var string
      */
     public $invocationRole;
 
     /**
-     * @description service版本
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description trigger配置，针对不同的trigger类型，trigger配置会有所不同
-     *
      * @var string
      */
     public $triggerConfig;

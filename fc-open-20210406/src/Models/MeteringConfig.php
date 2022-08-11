@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class MeteringConfig extends Model
 {
     /**
-     * @description 日志仓库
-     *
      * @var LogConfig
      */
     public $logConfig;
 
     /**
-     * @description 支付用户
-     *
      * @var string
      */
     public $payerId;
 
     /**
-     * @description 权限
-     *
      * @var string
      */
     public $role;

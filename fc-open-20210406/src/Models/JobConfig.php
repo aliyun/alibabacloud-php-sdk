@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class JobConfig extends Model
 {
     /**
-     * @description maxRetryTime
-     *
      * @var int
      */
     public $maxRetryTime;
 
     /**
-     * @description triggerInterval
-     *
      * @var int
      */
     public $triggerInterval;

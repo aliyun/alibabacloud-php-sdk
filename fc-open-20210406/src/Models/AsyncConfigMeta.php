@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AsyncConfigMeta extends Model
 {
     /**
-     * @description 异步配置所属函数名称。
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description 异步配置所属服务版本/别名。
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description 异步配置所属服务名称。
-     *
      * @var string
      */
     public $serviceName;

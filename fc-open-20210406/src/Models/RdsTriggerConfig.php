@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RdsTriggerConfig extends Model
 {
     /**
-     * @description concurrency
-     *
      * @var int
      */
     public $concurrency;
 
     /**
-     * @description eventFormat
-     *
      * @var string
      */
     public $eventFormat;
 
     /**
-     * @description retry
-     *
      * @var int
      */
     public $retry;
 
     /**
-     * @description subscriptionObjects
-     *
      * @var string[]
      */
     public $subscriptionObjects;

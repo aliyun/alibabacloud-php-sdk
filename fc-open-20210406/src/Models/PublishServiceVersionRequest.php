@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PublishServiceVersionRequest extends Model
 {
     /**
-     * @description 版本描述
-     *
      * @var string
      */
     public $description;

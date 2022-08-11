@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class Destination extends Model
 {
     /**
-     * @description destination
-     *
      * @var string
      */
     public $destination;

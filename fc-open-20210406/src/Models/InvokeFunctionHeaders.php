@@ -21,15 +21,11 @@ class InvokeFunctionHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description 调用方式:Sync或者Async，默认值：Sync
-     *
      * @var string
      */
     public $xFcInvocationType;
 
     /**
-     * @description 请求返回日志类型, Tail 为返回函数日志最后 4KB 数据，None 或空值则返回不带有日志，默认为 None
-     *
      * @var string
      */
     public $xFcLogType;

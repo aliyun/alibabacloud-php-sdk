@@ -9,36 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ListLayersRequest extends Model
 {
     /**
-     * @description 最大返回条目数
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description 下一个层名称
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 层名称前缀
-     *
+     * @var bool
+     */
+    public $official;
+
+    /**
      * @var string
      */
     public $prefix;
 
     /**
-     * @description 起始层名称
-     *
+     * @var bool
+     */
+    public $public;
+
+    /**
      * @var string
      */
     public $startKey;
     protected $_name = [
         'limit'     => 'limit',
         'nextToken' => 'nextToken',
+        'official'  => 'official',
         'prefix'    => 'prefix',
+        'public'    => 'public',
         'startKey'  => 'startKey',
     ];
 
@@ -55,8 +59,14 @@ class ListLayersRequest extends Model
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+        if (null !== $this->official) {
+            $res['official'] = $this->official;
+        }
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+        if (null !== $this->public) {
+            $res['public'] = $this->public;
         }
         if (null !== $this->startKey) {
             $res['startKey'] = $this->startKey;
@@ -79,8 +89,14 @@ class ListLayersRequest extends Model
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+        if (isset($map['official'])) {
+            $model->official = $map['official'];
+        }
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+        if (isset($map['public'])) {
+            $model->public = $map['public'];
         }
         if (isset($map['startKey'])) {
             $model->startKey = $map['startKey'];

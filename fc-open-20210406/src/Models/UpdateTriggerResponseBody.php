@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerResponseBody extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
@@ -21,43 +19,31 @@ class UpdateTriggerResponseBody extends Model
     public $description;
 
     /**
-     * @description 域名名称，使用域名名称拼接上函数计算域名，可以采用HTTP协议调用到触发器对应版本的函数。例如{domainName}.cn-shanghai.fc.aliyuncs.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description 调用函数使用的RAM角色的ARN
-     *
      * @var string
      */
     public $invocationRole;
 
     /**
-     * @description 上次修改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description service版本
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description event source的Aliyun Resource Name（ARN
-     *
      * @var string
      */
     public $sourceArn;
 
     /**
-     * @description trigger配置对象
-     *
      * @var string
      */
     public $triggerConfig;
@@ -68,29 +54,21 @@ class UpdateTriggerResponseBody extends Model
     public $triggerId;
 
     /**
-     * @description trigger名称
-     *
      * @var string
      */
     public $triggerName;
 
     /**
-     * @description trigger类型，如 oss, log, tablestore, timer, http, cdn_events, mns_topic
-     *
      * @var string
      */
     public $triggerType;
 
     /**
-     * @description 公网域名地址。在互联网可以通过HTTP协议或者HTTPS协议访问HTTP Trigger。
-     *
      * @var string
      */
     public $urlInternet;
 
     /**
-     * @description 私网域名地址。在VPC可以通过HTTP协议或者HTTPS协议访问HTTP Trigger。
-     *
      * @var string
      */
     public $urlIntranet;

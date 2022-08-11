@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 版本描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 上次更新时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 版本ID
-     *
      * @var string
      */
     public $versionId;

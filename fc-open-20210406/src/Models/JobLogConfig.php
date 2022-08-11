@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class JobLogConfig extends Model
 {
     /**
-     * @description logstore
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description project
-     *
      * @var string
      */
     public $project;

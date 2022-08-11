@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SourceConfig extends Model
 {
     /**
-     * @description logstore
-     *
      * @var string
      */
     public $logstore;

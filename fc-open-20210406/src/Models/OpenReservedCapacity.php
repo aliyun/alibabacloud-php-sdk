@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class OpenReservedCapacity extends Model
 {
     /**
-     * @description createdTime
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description cu
-     *
      * @var int
      */
     public $cu;
 
     /**
-     * @description deadline
-     *
      * @var string
      */
     public $deadline;
 
     /**
-     * @description instanceId
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description isRefunded
-     *
      * @var string
      */
     public $isRefunded;
 
     /**
-     * @description lastModifiedTime
-     *
      * @var string
      */
     public $lastModifiedTime;

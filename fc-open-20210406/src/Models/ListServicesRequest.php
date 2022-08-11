@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
-     * @description 最多返回个数
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description 下次查询token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 前缀
-     *
      * @var string
      */
     public $prefix;
 
     /**
-     * @description 起始key
-     *
      * @var string
      */
     public $startKey;

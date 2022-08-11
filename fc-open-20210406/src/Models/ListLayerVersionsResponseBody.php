@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLayerVersionsResponseBody extends Model
 {
     /**
-     * @description 层版本列表
-     *
      * @var Layer[]
      */
     public $layers;
 
     /**
-     * @description 剩余列表起始版本号
-     *
      * @var int
      */
     public $nextVersion;

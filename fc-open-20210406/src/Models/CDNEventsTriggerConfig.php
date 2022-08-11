@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CDNEventsTriggerConfig extends Model
 {
     /**
-     * @description eventName
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description eventVersion
-     *
      * @var string
      */
     public $eventVersion;
 
     /**
-     * @description filter
-     *
      * @var string[][]
      */
     public $filter;
 
     /**
-     * @description notes
-     *
      * @var string
      */
     public $notes;

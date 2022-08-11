@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionAsyncInvokeConfigsResponseBody extends Model
 {
     /**
-     * @description 异步配置列表
-     *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description 下次查询token
-     *
      * @var string
      */
     public $nextToken;

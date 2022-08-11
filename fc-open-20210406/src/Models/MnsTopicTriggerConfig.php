@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class MnsTopicTriggerConfig extends Model
 {
     /**
-     * @description filterTag
-     *
      * @var string
      */
     public $filterTag;
 
     /**
-     * @description notifyContentFormat
-     *
      * @var string
      */
     public $notifyContentFormat;
 
     /**
-     * @description notifyStrategy
-     *
      * @var string
      */
     public $notifyStrategy;

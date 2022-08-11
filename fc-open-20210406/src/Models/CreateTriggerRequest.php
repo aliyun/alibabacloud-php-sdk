@@ -14,43 +14,31 @@ class CreateTriggerRequest extends Model
     public $description;
 
     /**
-     * @description event source，如OSS，使用该role去invoke function
-     *
      * @var string
      */
     public $invocationRole;
 
     /**
-     * @description service版本
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description event source的Aliyun Resource Name（ARN
-     *
      * @var string
      */
     public $sourceArn;
 
     /**
-     * @description trigger配置，针对不同的trigger类型，trigger配置会有所不同
-     *
      * @var string
      */
     public $triggerConfig;
 
     /**
-     * @description trigger名称
-     *
      * @var string
      */
     public $triggerName;
 
     /**
-     * @description trigger类型，如 oss, log, tablestore, timer, http, cdn_events, mns_topic
-     *
      * @var string
      */
     public $triggerType;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionResponseBody extends Model
 {
     /**
-     * @description 自定义、自定义容器运行时 HTTP Server 的监听端口
-     *
      * @var int
      */
     public $caPort;
 
     /**
-     * @description function code包的CRC64值
-     *
      * @var string
      */
     public $codeChecksum;
 
     /**
-     * @description 系统返回的function的code包大小，单位为byte Example : 1024
-     *
      * @var int
      */
     public $codeSize;
 
     /**
-     * @description function创建时间
-     *
      * @var string
      */
     public $createdTime;
@@ -42,22 +34,16 @@ class CreateFunctionResponseBody extends Model
     public $customContainerConfig;
 
     /**
-     * @description 函数自定义DNS配置
-     *
      * @var CustomDNS
      */
     public $customDNS;
 
     /**
-     * @description Custom Runtime函数详细配置
-     *
      * @var CustomRuntimeConfig
      */
     public $customRuntimeConfig;
 
     /**
-     * @description 函数描述
-     *
      * @var string
      */
     public $description;
@@ -68,36 +54,26 @@ class CreateFunctionResponseBody extends Model
     public $environmentVariables;
 
     /**
-     * @description 系统为每个function生成的唯一ID
-     *
      * @var string
      */
     public $functionId;
 
     /**
-     * @description 函数名称
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description function的执行入口
-     *
      * @var string
      */
     public $handler;
 
     /**
-     * @description 初始化function运行的超时时间，单位为秒，最小1秒，默认3秒。初始化function超过这个时间后会被终止执行
-     *
      * @var int
      */
     public $initializationTimeout;
 
     /**
-     * @description 初始化 function 执行的入口，具体格式和语言相关
-     *
      * @var string
      */
     public $initializer;
@@ -123,8 +99,6 @@ class CreateFunctionResponseBody extends Model
     public $instanceType;
 
     /**
-     * @description function上次修改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
@@ -135,22 +109,16 @@ class CreateFunctionResponseBody extends Model
     public $layers;
 
     /**
-     * @description function设置的内存大小，单位为MB
-     *
      * @var int
      */
     public $memorySize;
 
     /**
-     * @description function运行的语言环境，目前支持nodejs6, nodejs8, python2.7, python3, java8
-     *
      * @var string
      */
     public $runtime;
 
     /**
-     * @description 运行的超时时间，单位为秒
-     *
      * @var int
      */
     public $timeout;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class HTTPTriggerConfig extends Model
 {
     /**
-     * @description 认证类型
-     *
      * @var string
      */
     public $authType;
 
     /**
-     * @description 允许的HTTP方法列表
-     *
      * @var string[]
      */
     public $methods;

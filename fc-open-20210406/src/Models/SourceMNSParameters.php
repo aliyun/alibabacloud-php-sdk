@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SourceMNSParameters extends Model
 {
     /**
-     * @description IsBase64Decode
-     *
      * @var bool
      */
     public $isBase64Decode;
 
     /**
-     * @description QueueName
-     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;

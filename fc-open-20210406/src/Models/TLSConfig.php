@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class TLSConfig extends Model
 {
     /**
-     * @description TLS加密套件列表
-     *
      * @var string[]
      */
     public $cipherSuites;
 
     /**
-     * @description TLS最大版本号
-     *
      * @var string
      */
     public $maxVersion;
 
     /**
-     * @description TLS最小版本号
-     *
      * @var string
      */
     public $minVersion;

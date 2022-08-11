@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ScheduledActions extends Model
 {
     /**
-     * @description endTime
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description scheduleExpression
-     *
      * @var string
      */
     public $scheduleExpression;
 
     /**
-     * @description startTime
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description target
-     *
      * @var int
      */
     public $target;

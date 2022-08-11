@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class JaegerConfig extends Model
 {
     /**
-     * @description endpoint
-     *
      * @var string
      */
     public $endpoint;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListOnDemandConfigsResponseBody extends Model
 {
     /**
-     * @description 预留实例配置
-     *
      * @var OnDemandConfig[]
      */
     public $configs;
 
     /**
-     * @description 用来返回更多的查询结果。如果这个值没有返回，则说明没有更多结果。
-     *
      * @var string
      */
     public $nextToken;

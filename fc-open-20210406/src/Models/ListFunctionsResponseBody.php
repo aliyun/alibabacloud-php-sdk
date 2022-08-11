@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsResponseBody extends Model
 {
     /**
-     * @description 函数列表
-     *
      * @var functions[]
      */
     public $functions;
 
     /**
-     * @description 用来返回更多的查询结果。如果这个值没有返回，则说明没有更多结果
-     *
      * @var string
      */
     public $nextToken;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetProvisionConfigRequest extends Model
 {
     /**
-     * @description 别名名称
-     *
      * @var string
      */
     public $qualifier;

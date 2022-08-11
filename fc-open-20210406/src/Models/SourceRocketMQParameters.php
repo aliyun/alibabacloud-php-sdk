@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class SourceRocketMQParameters extends Model
 {
     /**
-     * @description GroupID
-     *
      * @var string
      */
     public $groupID;
 
     /**
-     * @description InstanceId
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Offset
-     *
      * @var string
      */
     public $offset;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Tag
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description Timestamp
-     *
      * @var int
      */
     public $timestamp;
 
     /**
-     * @description Topic
-     *
      * @var string
      */
     public $topic;

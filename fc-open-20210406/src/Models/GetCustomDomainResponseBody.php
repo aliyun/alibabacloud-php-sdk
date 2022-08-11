@@ -29,8 +29,6 @@ class GetCustomDomainResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $domainName;

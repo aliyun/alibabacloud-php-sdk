@@ -14,8 +14,6 @@ class GetFunctionOnDemandConfigResponseBody extends Model
     public $maximumInstanceCount;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $resource;

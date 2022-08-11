@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OSSTriggerKey extends Model
 {
     /**
-     * @description prefix
-     *
      * @var string
      */
     public $prefix;
 
     /**
-     * @description suffix
-     *
      * @var string
      */
     public $suffix;

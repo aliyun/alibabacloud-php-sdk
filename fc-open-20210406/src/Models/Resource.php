@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Resource extends Model
 {
     /**
-     * @description resourceArn
-     *
      * @var string
      */
     public $resourceArn;
 
     /**
-     * @description tags
-     *
      * @var string[]
      */
     public $tags;

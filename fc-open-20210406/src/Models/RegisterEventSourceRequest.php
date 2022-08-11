@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RegisterEventSourceRequest extends Model
 {
     /**
-     * @description 事件源资源标识符
-     *
      * @var string
      */
     public $sourceArn;
 
     /**
-     * @description 别名或版本
-     *
      * @var string
      */
     public $qualifier;

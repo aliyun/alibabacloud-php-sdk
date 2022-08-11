@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class LayerCode extends Model
 {
     /**
-     * @description 层代码位置
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description 层代码类型
-     *
      * @var string
      */
     public $repositoryType;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListServiceVersionsResponseBody extends Model
 {
     /**
-     * @description 排序方向
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description 下次查询token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 版本列表
-     *
      * @var versions[]
      */
     public $versions;

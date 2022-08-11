@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PreFreeze extends Model
 {
     /**
-     * @description preFreeze handler name
-     *
      * @var string
      */
     public $handler;
 
     /**
-     * @description handler timeout
-     *
      * @var int
      */
     public $timeout;

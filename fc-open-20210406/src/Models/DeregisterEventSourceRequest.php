@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeregisterEventSourceRequest extends Model
 {
     /**
-     * @description 别名或版本
-     *
      * @var string
      */
     public $qualifier;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class StatefulAsyncInvocationEvent extends Model
 {
     /**
-     * @description 事件详细数据。
-     *
      * @var string
      */
     public $eventDetail;
 
     /**
-     * @description 事件ID。
-     *
      * @var int
      */
     public $eventId;
 
     /**
-     * @description 事件执行状态。
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 事件时间。
-     *
      * @var int
      */
     public $timestamp;

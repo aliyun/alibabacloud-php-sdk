@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceRequest extends Model
 {
     /**
-     * @description 服务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 公网访问设置
-     *
      * @var bool
      */
     public $internetAccess;
@@ -33,15 +29,11 @@ class CreateServiceRequest extends Model
     public $nasConfig;
 
     /**
-     * @description 服务角色
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 服务名称
-     *
      * @var string
      */
     public $serviceName;

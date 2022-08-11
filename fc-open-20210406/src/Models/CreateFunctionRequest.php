@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionRequest extends Model
 {
     /**
-     * @description 自定义、自定义容器运行时 HTTP Server 的监听端口
-     *
      * @var int
      */
     public $caPort;
@@ -26,22 +24,16 @@ class CreateFunctionRequest extends Model
     public $customContainerConfig;
 
     /**
-     * @description 函数自定义DNS配置
-     *
      * @var CustomDNS
      */
     public $customDNS;
 
     /**
-     * @description Custom Runtime函数详细配置
-     *
      * @var CustomRuntimeConfig
      */
     public $customRuntimeConfig;
 
     /**
-     * @description 函数描述
-     *
      * @var string
      */
     public $description;
@@ -52,29 +44,21 @@ class CreateFunctionRequest extends Model
     public $environmentVariables;
 
     /**
-     * @description 函数名称
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description function执行的入口，具体格式和语言相关
-     *
      * @var string
      */
     public $handler;
 
     /**
-     * @description 初始化function运行的超时时间，单位为秒，最小1秒，默认3秒。初始化function超过这个时间后会被终止执行
-     *
      * @var int
      */
     public $initializationTimeout;
 
     /**
-     * @description 初始化 function 执行的入口，具体格式和语言相关
-     *
      * @var string
      */
     public $initializer;
@@ -100,29 +84,21 @@ class CreateFunctionRequest extends Model
     public $instanceType;
 
     /**
-     * @description 层列表
-     *
      * @var string[]
      */
     public $layers;
 
     /**
-     * @description function的内存规格，单位为MB，为64MB的倍数
-     *
      * @var int
      */
     public $memorySize;
 
     /**
-     * @description function运行的语言环境，目前支持nodejs6, nodejs8, python2.7, python3, java8
-     *
      * @var string
      */
     public $runtime;
 
     /**
-     * @description function运行的超时时间，单位为秒，最小1秒，默认3秒。function超过这个时间后会被终止执行
-     *
      * @var int
      */
     public $timeout;

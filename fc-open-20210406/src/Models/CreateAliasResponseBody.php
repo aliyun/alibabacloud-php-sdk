@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateAliasResponseBody extends Model
 {
     /**
-     * @description 额外版本权重
-     *
      * @var float[]
      */
     public $additionalVersionWeight;
 
     /**
-     * @description 别名名称
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 别名描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 上次更新时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 版本ID
-     *
      * @var string
      */
     public $versionId;

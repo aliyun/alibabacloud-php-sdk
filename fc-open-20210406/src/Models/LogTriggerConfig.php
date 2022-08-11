@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class LogTriggerConfig extends Model
 {
     /**
-     * @description enable
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description functionParameter
-     *
      * @var string[]
      */
     public $functionParameter;

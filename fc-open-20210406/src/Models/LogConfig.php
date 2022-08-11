@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class LogConfig extends Model
 {
     /**
-     * @description 开启实例级别指标
-     *
      * @var bool
      */
     public $enableInstanceMetrics;
 
     /**
-     * @description 开启请求级别指标
-     *
      * @var bool
      */
     public $enableRequestMetrics;
 
     /**
-     * @description 日志切分规则
-     *
      * @var string
      */
     public $logBeginRule;
 
     /**
-     * @description 日志库
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @description 日志项目
-     *
      * @var string
      */
     public $project;

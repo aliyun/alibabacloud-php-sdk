@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionAsyncInvokeConfigResponseBody extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
@@ -21,43 +19,31 @@ class GetFunctionAsyncInvokeConfigResponseBody extends Model
     public $destinationConfig;
 
     /**
-     * @description 函数名称
-     *
      * @var string
      */
     public $function;
 
     /**
-     * @description 最后更改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 消息最大存活时长
-     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
-     * @description 异步调用失败后的最大重试次数
-     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
 
     /**
-     * @description 限定符
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description 服务名称
-     *
      * @var string
      */
     public $service;

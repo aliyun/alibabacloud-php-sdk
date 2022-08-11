@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionCodeResponseBody extends Model
 {
     /**
-     * @description function code包的CRC64值
-     *
      * @var string
      */
     public $checksum;
 
     /**
-     * @description 获取function代码的URL
-     *
      * @var string
      */
     public $url;

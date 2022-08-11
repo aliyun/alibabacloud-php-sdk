@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListStatefulAsyncInvocationFunctionsResponseBody extends Model
 {
     /**
-     * @description 返回的实际数据列表。
-     *
      * @var AsyncConfigMeta[]
      */
     public $data;
 
     /**
-     * @description 用来表示当前调用返回读取到的位置，空代表数据已经读取完毕。
-     *
      * @var string
      */
     public $nextToken;

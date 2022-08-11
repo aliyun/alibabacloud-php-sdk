@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EventBridgeTriggerConfig extends Model
 {
     /**
-     * @description asyncInvocationType
-     *
      * @var bool
      */
     public $asyncInvocationType;
 
     /**
-     * @description eventRuleFilterPattern
-     *
      * @var string
      */
     public $eventRuleFilterPattern;
@@ -28,8 +24,6 @@ class EventBridgeTriggerConfig extends Model
     public $eventSourceConfig;
 
     /**
-     * @description triggerEnable
-     *
      * @var bool
      */
     public $triggerEnable;

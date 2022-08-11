@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class OSSTriggerConfig extends Model
 {
     /**
-     * @description events
-     *
      * @var string[]
      */
     public $events;

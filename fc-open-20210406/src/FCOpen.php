@@ -151,6 +151,9 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionAsyncInvokeConfigRespons
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionOnDemandConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionOnDemandConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionOnDemandConfigResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutLayerACLHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutLayerACLRequest;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutLayerACLResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigResponse;
@@ -278,6 +281,12 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->resolvePolicy)) {
+            $body['resolvePolicy'] = $request->resolvePolicy;
+        }
+        if (!Utils::isUnset($request->routePolicy)) {
+            $body['routePolicy'] = $request->routePolicy;
         }
         if (!Utils::isUnset($request->versionId)) {
             $body['versionId'] = $request->versionId;
@@ -2297,6 +2306,10 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
+        $body = '';
+        if (!Utils::isUnset($request->body)) {
+            $body = Utils::toString($request->body);
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -2322,7 +2335,7 @@ class FCOpen extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => Utils::toString($request->body),
+            'body'    => $body,
         ]);
         $params = new Params([
             'action'      => 'InvokeFunction',
@@ -2740,12 +2753,6 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->xFcAccountId)) {
             $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
-        if (!Utils::isUnset($headers->xFcDate)) {
-            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
-        }
-        if (!Utils::isUnset($headers->xFcTraceId)) {
-            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
-        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
@@ -2860,8 +2867,14 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['nextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->official)) {
+            $query['official'] = $request->official;
+        }
         if (!Utils::isUnset($request->prefix)) {
             $query['prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->public_)) {
+            $query['public'] = $request->public_;
         }
         if (!Utils::isUnset($request->startKey)) {
             $query['startKey'] = $request->startKey;
@@ -3803,6 +3816,68 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * @param string             $layerName
+     * @param PutLayerACLRequest $request
+     *
+     * @return PutLayerACLResponse
+     */
+    public function putLayerACL($layerName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PutLayerACLHeaders([]);
+
+        return $this->putLayerACLWithOptions($layerName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $layerName
+     * @param PutLayerACLRequest $request
+     * @param PutLayerACLHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PutLayerACLResponse
+     */
+    public function putLayerACLWithOptions($layerName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
+        $query     = [];
+        if (!Utils::isUnset($request->public_)) {
+            $query['public'] = $request->public_;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PutLayerACL',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/acl',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'string',
+        ]);
+
+        return PutLayerACLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                    $serviceName
      * @param string                    $functionName
      * @param PutProvisionConfigRequest $request
@@ -4181,6 +4256,12 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->resolvePolicy)) {
+            $body['resolvePolicy'] = $request->resolvePolicy;
+        }
+        if (!Utils::isUnset($request->routePolicy)) {
+            $body['routePolicy'] = $request->routePolicy;
         }
         if (!Utils::isUnset($request->versionId)) {
             $body['versionId'] = $request->versionId;

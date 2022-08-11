@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AccelerationInfo extends Model
 {
     /**
-     * @description 镜像加速状态，取值 Preparing 或 Ready
-     *
      * @var string
      */
     public $status;

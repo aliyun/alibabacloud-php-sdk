@@ -11,50 +11,36 @@ use AlibabaCloud\Tea\Model;
 class provisionConfigs extends Model
 {
     /**
-     * @description 是否始终分配CPU给函数实例。
-     *
      * @var bool
      */
     public $alwaysAllocateCPU;
 
     /**
-     * @description 实际资源个数
-     *
      * @var int
      */
     public $current;
 
     /**
-     * @description 预留实例创建失败时的错误信息
-     *
      * @var string
      */
     public $currentError;
 
     /**
-     * @description 资源描述
-     *
      * @var string
      */
     public $resource;
 
     /**
-     * @description 定时策略配置
-     *
      * @var ScheduledActions[]
      */
     public $scheduledActions;
 
     /**
-     * @description 目标资源个数
-     *
      * @var int
      */
     public $target;
 
     /**
-     * @description 指标追踪伸缩策略配置
-     *
      * @var TargetTrackingPolicies[]
      */
     public $targetTrackingPolicies;

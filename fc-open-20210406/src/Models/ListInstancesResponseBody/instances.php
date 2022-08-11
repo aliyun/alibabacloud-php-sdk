@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description 实例ID。
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 实例所属的服务版本。如果是LATEST别名下的函数实例，则返回版本号为0。
-     *
      * @var string
      */
     public $versionId;

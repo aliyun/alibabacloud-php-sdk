@@ -9,28 +9,34 @@ use AlibabaCloud\Tea\Model;
 class UpdateAliasRequest extends Model
 {
     /**
-     * @description 额外版本权重
-     *
      * @var float[]
      */
     public $additionalVersionWeight;
 
     /**
-     * @description 别名描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 版本ID
-     *
+     * @var string
+     */
+    public $resolvePolicy;
+
+    /**
+     * @var RoutePolicy
+     */
+    public $routePolicy;
+
+    /**
      * @var string
      */
     public $versionId;
     protected $_name = [
         'additionalVersionWeight' => 'additionalVersionWeight',
         'description'             => 'description',
+        'resolvePolicy'           => 'resolvePolicy',
+        'routePolicy'             => 'routePolicy',
         'versionId'               => 'versionId',
     ];
 
@@ -46,6 +52,12 @@ class UpdateAliasRequest extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->resolvePolicy) {
+            $res['resolvePolicy'] = $this->resolvePolicy;
+        }
+        if (null !== $this->routePolicy) {
+            $res['routePolicy'] = null !== $this->routePolicy ? $this->routePolicy->toMap() : null;
         }
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
@@ -67,6 +79,12 @@ class UpdateAliasRequest extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['resolvePolicy'])) {
+            $model->resolvePolicy = $map['resolvePolicy'];
+        }
+        if (isset($map['routePolicy'])) {
+            $model->routePolicy = RoutePolicy::fromMap($map['routePolicy']);
         }
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];

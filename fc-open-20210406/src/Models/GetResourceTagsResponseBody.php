@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTagsResponseBody extends Model
 {
     /**
-     * @description Resource ARN 全称
-     *
      * @var string
      */
     public $resourceArn;
 
     /**
-     * @description tag 列表
-     *
      * @var string[]
      */
     public $tags;

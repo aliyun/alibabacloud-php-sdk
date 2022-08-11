@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class TimeTriggerConfig extends Model
 {
     /**
-     * @description cronExpression
-     *
      * @var string
      */
     public $cronExpression;
 
     /**
-     * @description enable
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description payload
-     *
      * @var string
      */
     public $payload;

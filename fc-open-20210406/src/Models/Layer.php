@@ -9,77 +9,68 @@ use AlibabaCloud\Tea\Model;
 class Layer extends Model
 {
     /**
-     * @description 层访问类型
-     *
      * @var int
      */
     public $acl;
 
     /**
-     * @description arn
-     *
      * @var string
      */
     public $arn;
 
     /**
-     * @description 层代码
-     *
+     * @var string
+     */
+    public $arnV2;
+
+    /**
      * @var LayerCode
      */
     public $code;
 
     /**
-     * @description 层Checksum
-     *
      * @var string
      */
     public $codeChecksum;
 
     /**
-     * @description 层代码大小
-     *
      * @var int
      */
     public $codeSize;
 
     /**
-     * @description compatibleRuntime
-     *
      * @var string[]
      */
     public $compatibleRuntime;
 
     /**
-     * @description 层创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 层描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 层名称
-     *
      * @var string
      */
     public $layerName;
 
     /**
-     * @description 层版本
-     *
+     * @var string
+     */
+    public $license;
+
+    /**
      * @var int
      */
     public $version;
     protected $_name = [
         'acl'               => 'acl',
         'arn'               => 'arn',
+        'arnV2'             => 'arnV2',
         'code'              => 'code',
         'codeChecksum'      => 'codeChecksum',
         'codeSize'          => 'codeSize',
@@ -87,6 +78,7 @@ class Layer extends Model
         'createTime'        => 'createTime',
         'description'       => 'description',
         'layerName'         => 'layerName',
+        'license'           => 'license',
         'version'           => 'version',
     ];
 
@@ -102,6 +94,9 @@ class Layer extends Model
         }
         if (null !== $this->arn) {
             $res['arn'] = $this->arn;
+        }
+        if (null !== $this->arnV2) {
+            $res['arnV2'] = $this->arnV2;
         }
         if (null !== $this->code) {
             $res['code'] = null !== $this->code ? $this->code->toMap() : null;
@@ -124,6 +119,9 @@ class Layer extends Model
         if (null !== $this->layerName) {
             $res['layerName'] = $this->layerName;
         }
+        if (null !== $this->license) {
+            $res['license'] = $this->license;
+        }
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -144,6 +142,9 @@ class Layer extends Model
         }
         if (isset($map['arn'])) {
             $model->arn = $map['arn'];
+        }
+        if (isset($map['arnV2'])) {
+            $model->arnV2 = $map['arnV2'];
         }
         if (isset($map['code'])) {
             $model->code = LayerCode::fromMap($map['code']);
@@ -167,6 +168,9 @@ class Layer extends Model
         }
         if (isset($map['layerName'])) {
             $model->layerName = $map['layerName'];
+        }
+        if (isset($map['license'])) {
+            $model->license = $map['license'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLayerVersionsRequest extends Model
 {
     /**
-     * @description 本次读取的最大数据记录数量
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description 起始版本
-     *
      * @var int
      */
     public $startVersion;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SourceRabbitMQParameters extends Model
 {
     /**
-     * @description InstanceId
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description QueueName
-     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description VirtualHostName
-     *
      * @var string
      */
     public $virtualHostName;

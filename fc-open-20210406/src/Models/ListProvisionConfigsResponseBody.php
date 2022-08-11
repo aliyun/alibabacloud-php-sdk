@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsResponseBody extends Model
 {
     /**
-     * @description 下次查询的起始token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 预留实例列表
-     *
      * @var provisionConfigs[]
      */
     public $provisionConfigs;

@@ -11,22 +11,16 @@ class ListStatefulAsyncInvocationFunctionsHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description 您的阿里云账号（主账号）ID。
-     *
      * @var string
      */
     public $xFcAccountId;
 
     /**
-     * @description 发起API调用的日期，用于对请求签名。格式为yyyy-mm-ddhh:mm:ss。
-     *
      * @var string
      */
     public $xFcDate;
 
     /**
-     * @description 用于链路追踪的ID。
-     *
      * @var string
      */
     public $xFcTraceId;

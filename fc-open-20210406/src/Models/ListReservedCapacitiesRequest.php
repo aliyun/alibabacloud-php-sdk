@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListReservedCapacitiesRequest extends Model
 {
     /**
-     * @description 一次返回的数量，取值范围[1, 100]
-     *
      * @var string
      */
     public $limit;

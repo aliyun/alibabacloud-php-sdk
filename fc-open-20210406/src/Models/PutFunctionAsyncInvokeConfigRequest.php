@@ -14,15 +14,11 @@ class PutFunctionAsyncInvokeConfigRequest extends Model
     public $destinationConfig;
 
     /**
-     * @description 消息最大存活时长
-     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
-     * @description 异步调用失败后的最大重试次数
-     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
@@ -33,8 +29,6 @@ class PutFunctionAsyncInvokeConfigRequest extends Model
     public $statefulInvocation;
 
     /**
-     * @description 别名或版本
-     *
      * @var string
      */
     public $qualifier;

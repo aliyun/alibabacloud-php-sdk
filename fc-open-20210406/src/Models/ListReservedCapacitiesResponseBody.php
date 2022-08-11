@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListReservedCapacitiesResponseBody extends Model
 {
     /**
-     * @description nextToken
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description reservedCapacities
-     *
      * @var OpenReservedCapacity[]
      */
     public $reservedCapacities;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionAsyncInvokeConfigsRequest extends Model
 {
     /**
-     * @description 最多返回个数
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description 下次查询token
-     *
      * @var string
      */
     public $nextToken;

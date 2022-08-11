@@ -11,8 +11,6 @@ class UpdateServiceHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description 用于确保实际更改的资源和期望更改的资源是一致的，该值来自Create，Get和Update API的响应
-     *
      * @var string
      */
     public $ifMatch;

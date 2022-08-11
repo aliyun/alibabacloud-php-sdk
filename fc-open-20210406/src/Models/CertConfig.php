@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CertConfig extends Model
 {
     /**
-     * @description 证书名称
-     *
      * @var string
      */
     public $certName;
 
     /**
-     * @description 证书，如果是证书链则依次填写多个证书
-     *
      * @var string
      */
     public $certificate;
 
     /**
-     * @description 私钥
-     *
      * @var string
      */
     public $privateKey;

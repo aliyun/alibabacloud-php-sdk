@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InvokeFunctionRequest extends Model
 {
     /**
-     * @description 事件（event），binary type。函数计算服务将event传递给用户function来处理
-     *
      * @var int[]
      */
     public $body;
 
     /**
-     * @description service版本, 可以是versionId或者aliasName
-     *
      * @var string
      */
     public $qualifier;

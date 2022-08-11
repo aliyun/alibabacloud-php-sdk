@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PutProvisionConfigRequest extends Model
 {
     /**
-     * @description 当实例进入空闲状态时，是否继续分配CPU。
-     *
      * @var bool
      */
     public $alwaysAllocateCPU;
 
     /**
-     * @description 定时策略配置
-     *
      * @var ScheduledActions[]
      */
     public $scheduledActions;
 
     /**
-     * @description 预留的目标资源个数
-     *
      * @var int
      */
     public $target;
 
     /**
-     * @description 指标追踪伸缩策略配置
-     *
      * @var TargetTrackingPolicies[]
      */
     public $targetTrackingPolicies;
 
     /**
-     * @description 别名名称
-     *
      * @var string
      */
     public $qualifier;

@@ -14,8 +14,6 @@ class EventSourceConfig extends Model
     public $eventSourceParameters;
 
     /**
-     * @description eventSourceType
-     *
      * @var string
      */
     public $eventSourceType;

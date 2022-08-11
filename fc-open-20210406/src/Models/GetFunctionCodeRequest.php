@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionCodeRequest extends Model
 {
     /**
-     * @description service版本, 可以是versionId或者aliasName
-     *
      * @var string
      */
     public $qualifier;

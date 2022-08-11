@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Error extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 错误信息描述
-     *
      * @var string
      */
     public $errorMessage;

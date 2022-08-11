@@ -6,14 +6,9 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateTriggerHeaders extends Model
+class PutLayerACLHeaders extends Model
 {
     public $commonHeaders;
-
-    /**
-     * @var string
-     */
-    public $ifMatch;
 
     /**
      * @var string
@@ -30,7 +25,6 @@ class UpdateTriggerHeaders extends Model
      */
     public $xFcTraceId;
     protected $_name = [
-        'ifMatch'      => 'If-Match',
         'xFcAccountId' => 'X-Fc-Account-Id',
         'xFcDate'      => 'X-Fc-Date',
         'xFcTraceId'   => 'X-Fc-Trace-Id',
@@ -45,9 +39,6 @@ class UpdateTriggerHeaders extends Model
         $res = [];
         if (null !== $this->commonHeaders) {
             $res['commonHeaders'] = $this->commonHeaders;
-        }
-        if (null !== $this->ifMatch) {
-            $res['If-Match'] = $this->ifMatch;
         }
         if (null !== $this->xFcAccountId) {
             $res['X-Fc-Account-Id'] = $this->xFcAccountId;
@@ -65,16 +56,13 @@ class UpdateTriggerHeaders extends Model
     /**
      * @param array $map
      *
-     * @return UpdateTriggerHeaders
+     * @return PutLayerACLHeaders
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
             $model->commonHeaders = $map['commonHeaders'];
-        }
-        if (isset($map['If-Match'])) {
-            $model->ifMatch = $map['If-Match'];
         }
         if (isset($map['X-Fc-Account-Id'])) {
             $model->xFcAccountId = $map['X-Fc-Account-Id'];

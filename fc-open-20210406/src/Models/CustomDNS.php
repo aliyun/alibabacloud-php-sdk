@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CustomDNS extends Model
 {
     /**
-     * @description DNS resolver 配置参数列表
-     *
      * @var DNSOption[]
      */
     public $dnsOptions;
 
     /**
-     * @description DNS 服务器的 IP 地址列表
-     *
      * @var string[]
      */
     public $nameServers;
 
     /**
-     * @description DNS 搜索域的列表
-     *
      * @var string[]
      */
     public $searches;

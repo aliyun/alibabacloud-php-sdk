@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class Code extends Model
 {
     /**
-     * @description 函数代码包的OSS bucket name
-     *
      * @var string
      */
     public $ossBucketName;
 
     /**
-     * @description 函数代码包的OSS对象名
-     *
      * @var string
      */
     public $ossObjectName;
 
     /**
-     * @description 直接在request body中上传code zip包的base64编码
-     *
      * @var string
      */
     public $zipFile;

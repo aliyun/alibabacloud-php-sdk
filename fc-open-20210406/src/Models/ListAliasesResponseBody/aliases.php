@@ -4,48 +4,47 @@
 
 namespace AlibabaCloud\SDK\FCOpen\V20210406\Models\ListAliasesResponseBody;
 
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\RoutePolicy;
 use AlibabaCloud\Tea\Model;
 
 class aliases extends Model
 {
     /**
-     * @description 额外版本权重
-     *
      * @var float[]
      */
     public $additionalVersionWeight;
 
     /**
-     * @description 别名名称
-     *
      * @var string
      */
     public $aliasName;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 别名描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 上次更新时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 版本ID
-     *
+     * @var string
+     */
+    public $resolvePolicy;
+
+    /**
+     * @var RoutePolicy
+     */
+    public $routePolicy;
+
+    /**
      * @var string
      */
     public $versionId;
@@ -55,6 +54,8 @@ class aliases extends Model
         'createdTime'             => 'createdTime',
         'description'             => 'description',
         'lastModifiedTime'        => 'lastModifiedTime',
+        'resolvePolicy'           => 'resolvePolicy',
+        'routePolicy'             => 'routePolicy',
         'versionId'               => 'versionId',
     ];
 
@@ -79,6 +80,12 @@ class aliases extends Model
         }
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
+        }
+        if (null !== $this->resolvePolicy) {
+            $res['resolvePolicy'] = $this->resolvePolicy;
+        }
+        if (null !== $this->routePolicy) {
+            $res['routePolicy'] = null !== $this->routePolicy ? $this->routePolicy->toMap() : null;
         }
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
@@ -109,6 +116,12 @@ class aliases extends Model
         }
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
+        }
+        if (isset($map['resolvePolicy'])) {
+            $model->resolvePolicy = $map['resolvePolicy'];
+        }
+        if (isset($map['routePolicy'])) {
+            $model->routePolicy = RoutePolicy::fromMap($map['routePolicy']);
         }
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetServiceResponseBody extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 服务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 公网访问设置
-     *
      * @var bool
      */
     public $internetAccess;
 
     /**
-     * @description 上次更新时间
-     *
      * @var string
      */
     public $lastModifiedTime;
@@ -47,22 +39,16 @@ class GetServiceResponseBody extends Model
     public $nasConfig;
 
     /**
-     * @description 服务角色
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 服务ID
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description 服务名称
-     *
      * @var string
      */
     public $serviceName;

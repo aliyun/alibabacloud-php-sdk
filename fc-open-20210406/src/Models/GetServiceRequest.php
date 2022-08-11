@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetServiceRequest extends Model
 {
     /**
-     * @description 限定符
-     *
      * @var string
      */
     public $qualifier;

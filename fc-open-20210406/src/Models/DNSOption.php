@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DNSOption extends Model
 {
     /**
-     * @description DNS option 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description DNS option 值
-     *
      * @var string
      */
     public $value;

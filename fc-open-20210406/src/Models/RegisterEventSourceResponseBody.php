@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RegisterEventSourceResponseBody extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 事件源资源标识符
-     *
      * @var string
      */
     public $sourceArn;

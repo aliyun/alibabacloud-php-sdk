@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionOnDemandConfigRequest extends Model
 {
     /**
-     * @description 服务别名或LATEST，不支持版本。
-     *
      * @var string
      */
     public $qualifier;

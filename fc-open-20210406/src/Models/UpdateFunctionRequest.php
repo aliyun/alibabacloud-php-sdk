@@ -14,8 +14,6 @@ class UpdateFunctionRequest extends Model
     public $instanceConcurrency;
 
     /**
-     * @description 自定义、自定义容器运行时 HTTP Server 的监听端口
-     *
      * @var int
      */
     public $caPort;
@@ -31,50 +29,36 @@ class UpdateFunctionRequest extends Model
     public $customContainerConfig;
 
     /**
-     * @description 函数自定义DNS配置
-     *
      * @var CustomDNS
      */
     public $customDNS;
 
     /**
-     * @description Custom Runtime函数详细配置
-     *
      * @var CustomRuntimeConfig
      */
     public $customRuntimeConfig;
 
     /**
-     * @description 函数描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 为函数设置的环境变量，可以在函数中获取环境变量的值
-     *
      * @var string[]
      */
     public $environmentVariables;
 
     /**
-     * @description function执行的入口，具体格式和语言相关
-     *
      * @var string
      */
     public $handler;
 
     /**
-     * @description 初始化function运行的超时时间，单位为秒，最小1秒，默认3秒。初始化function超过这个时间后会被终止执行
-     *
      * @var int
      */
     public $initializationTimeout;
 
     /**
-     * @description 初始化 function 执行的入口，具体格式和语言相关
-     *
      * @var string
      */
     public $initializer;
@@ -100,22 +84,16 @@ class UpdateFunctionRequest extends Model
     public $layers;
 
     /**
-     * @description function的内存规格，单位为MB，为64MB的倍数
-     *
      * @var int
      */
     public $memorySize;
 
     /**
-     * @description runtime
-     *
      * @var string
      */
     public $runtime;
 
     /**
-     * @description function运行的超时时间，单位为秒，最小1秒，默认3秒。function超过这个时间后会被终止执行
-     *
      * @var int
      */
     public $timeout;

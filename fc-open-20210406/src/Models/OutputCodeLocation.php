@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OutputCodeLocation extends Model
 {
     /**
-     * @description location
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description repositoryType
-     *
      * @var string
      */
     public $repositoryType;

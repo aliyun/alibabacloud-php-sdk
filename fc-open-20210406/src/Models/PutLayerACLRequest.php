@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteFunctionAsyncInvokeConfigRequest extends Model
+class PutLayerACLRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $qualifier;
+    public $public;
     protected $_name = [
-        'qualifier' => 'qualifier',
+        'public' => 'public',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DeleteFunctionAsyncInvokeConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
+        if (null !== $this->public) {
+            $res['public'] = $this->public;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DeleteFunctionAsyncInvokeConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteFunctionAsyncInvokeConfigRequest
+     * @return PutLayerACLRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
+        if (isset($map['public'])) {
+            $model->public = $map['public'];
         }
 
         return $model;

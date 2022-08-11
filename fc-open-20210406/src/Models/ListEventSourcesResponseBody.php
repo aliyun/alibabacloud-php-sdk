@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListEventSourcesResponseBody extends Model
 {
     /**
-     * @description 事件源列表
-     *
      * @var eventSources[]
      */
     public $eventSources;

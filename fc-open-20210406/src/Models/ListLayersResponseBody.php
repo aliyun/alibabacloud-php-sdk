@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLayersResponseBody extends Model
 {
     /**
-     * @description 层列表
-     *
      * @var Layer[]
      */
     public $layers;
 
     /**
-     * @description 剩余列表起始层名
-     *
      * @var string
      */
     public $nextToken;

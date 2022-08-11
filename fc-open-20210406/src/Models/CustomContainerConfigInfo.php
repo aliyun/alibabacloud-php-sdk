@@ -14,36 +14,26 @@ class CustomContainerConfigInfo extends Model
     public $accelerationInfo;
 
     /**
-     * @description 镜像加速类型，取值Default为开启加速，None为关闭加速，默认开启
-     *
      * @var string
      */
     public $accelerationType;
 
     /**
-     * @description 容器启动参数
-     *
      * @var string
      */
     public $args;
 
     /**
-     * @description 容器启动命令，等同于 Docker ENTRYPOINT
-     *
      * @var string
      */
     public $command;
 
     /**
-     * @description 容器镜像地址，实例值： registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1beta1
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description ACR企业版镜像仓库ID，使用ACR企业版镜像时须传入
-     *
      * @var string
      */
     public $instanceID;

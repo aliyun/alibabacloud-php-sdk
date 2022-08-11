@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AvailableAZ extends Model
 {
     /**
-     * @description az
-     *
      * @var string
      */
     public $availableAZs;

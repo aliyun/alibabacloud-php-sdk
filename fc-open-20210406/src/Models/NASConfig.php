@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class NASConfig extends Model
 {
     /**
-     * @description groupID
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description 挂载点
-     *
      * @var mountPoints[]
      */
     public $mountPoints;
 
     /**
-     * @description userID
-     *
      * @var int
      */
     public $userId;

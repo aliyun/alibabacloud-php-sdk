@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PathConfig extends Model
 {
     /**
-     * @description 该路径/方法对应的函数名称
-     *
      * @var string
      */
     public $functionName;
 
     /**
-     * @description 请求方法，不填表示当前路径的所有方法匹配同一函数
-     *
      * @var string[]
      */
     public $methods;
 
     /**
-     * @description 请求路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 该路径/方法对应服务的版本/别名
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @description 该路径/方法对应的服务名称
-     *
      * @var string
      */
     public $serviceName;
