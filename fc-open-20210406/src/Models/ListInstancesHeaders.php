@@ -1,29 +1,16 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesHeaders extends Model
-{
-    public $commonHeaders;
-
-    /**
-     * @var string
-     */
-    public $xFcAccountId;
+class ListInstancesHeaders extends Model {
     protected $_name = [
         'xFcAccountId' => 'X-Fc-Account-Id',
     ];
-
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
+    public function validate() {}
+    public function toMap() {
         $res = [];
         if (null !== $this->commonHeaders) {
             $res['commonHeaders'] = $this->commonHeaders;
@@ -31,25 +18,27 @@ class ListInstancesHeaders extends Model
         if (null !== $this->xFcAccountId) {
             $res['X-Fc-Account-Id'] = $this->xFcAccountId;
         }
-
         return $res;
     }
-
     /**
      * @param array $map
-     *
      * @return ListInstancesHeaders
      */
-    public static function fromMap($map = [])
-    {
+    public static function fromMap($map = []) {
         $model = new self();
-        if (isset($map['commonHeaders'])) {
+        if(isset($map['commonHeaders'])){
             $model->commonHeaders = $map['commonHeaders'];
         }
-        if (isset($map['X-Fc-Account-Id'])) {
+        if(isset($map['X-Fc-Account-Id'])){
             $model->xFcAccountId = $map['X-Fc-Account-Id'];
         }
-
         return $model;
     }
+    public $commonHeaders;
+
+    /**
+     * @var string
+     */
+    public $xFcAccountId;
+
 }
