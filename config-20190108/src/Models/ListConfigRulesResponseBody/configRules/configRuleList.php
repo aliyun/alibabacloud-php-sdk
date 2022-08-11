@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Config\V20190108\Models\ListConfigRulesResponseBody\c
 
 use AlibabaCloud\SDK\Config\V20190108\Models\ListConfigRulesResponseBody\configRules\configRuleList\compliance;
 use AlibabaCloud\SDK\Config\V20190108\Models\ListConfigRulesResponseBody\configRules\configRuleList\createBy;
+use AlibabaCloud\SDK\Config\V20190108\Models\ListConfigRulesResponseBody\configRules\configRuleList\tags;
 use AlibabaCloud\Tea\Model;
 
 class configRuleList extends Model
@@ -74,6 +75,11 @@ class configRuleList extends Model
      * @var string
      */
     public $sourceOwner;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'accountId'        => 'AccountId',
         'automationType'   => 'AutomationType',
@@ -88,6 +94,7 @@ class configRuleList extends Model
         'riskLevel'        => 'RiskLevel',
         'sourceIdentifier' => 'SourceIdentifier',
         'sourceOwner'      => 'SourceOwner',
+        'tags'             => 'Tags',
     ];
 
     public function validate()
@@ -135,6 +142,15 @@ class configRuleList extends Model
         }
         if (null !== $this->sourceOwner) {
             $res['SourceOwner'] = $this->sourceOwner;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -186,6 +202,15 @@ class configRuleList extends Model
         }
         if (isset($map['SourceOwner'])) {
             $model->sourceOwner = $map['SourceOwner'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

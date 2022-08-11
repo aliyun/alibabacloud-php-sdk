@@ -194,8 +194,26 @@ class Config extends OpenApiClient
     public function describeComplianceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->complianceType)) {
+            $query['ComplianceType'] = $request->complianceType;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -203,7 +221,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -234,8 +252,14 @@ class Config extends OpenApiClient
     public function describeComplianceSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -243,7 +267,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -274,8 +298,17 @@ class Config extends OpenApiClient
     public function describeConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -283,7 +316,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -318,7 +351,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -347,8 +380,11 @@ class Config extends OpenApiClient
     public function describeDeliveryChannelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->deliveryChannelIds)) {
+            $query['DeliveryChannelIds'] = $request->deliveryChannelIds;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -356,7 +392,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -387,8 +423,23 @@ class Config extends OpenApiClient
     public function describeDiscoveredResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -396,7 +447,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -507,8 +558,17 @@ class Config extends OpenApiClient
     public function getDiscoveredResourceCountsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->groupByKey)) {
+            $query['GroupByKey'] = $request->groupByKey;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -516,7 +576,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -547,8 +607,14 @@ class Config extends OpenApiClient
     public function getDiscoveredResourceSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -556,7 +622,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -587,8 +653,35 @@ class Config extends OpenApiClient
     public function getResourceComplianceTimelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -596,7 +689,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -627,8 +720,35 @@ class Config extends OpenApiClient
     public function getResourceConfigurationTimelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -636,7 +756,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -671,7 +791,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -764,8 +884,35 @@ class Config extends OpenApiClient
     public function listConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
+        if (!Utils::isUnset($request->complianceType)) {
+            $query['ComplianceType'] = $request->complianceType;
+        }
+        if (!Utils::isUnset($request->configRuleName)) {
+            $query['ConfigRuleName'] = $request->configRuleName;
+        }
+        if (!Utils::isUnset($request->configRuleState)) {
+            $query['ConfigRuleState'] = $request->configRuleState;
+        }
+        if (!Utils::isUnset($request->memberId)) {
+            $query['MemberId'] = $request->memberId;
+        }
+        if (!Utils::isUnset($request->multiAccount)) {
+            $query['MultiAccount'] = $request->multiAccount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -773,7 +920,7 @@ class Config extends OpenApiClient
             'version'     => '2019-01-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
