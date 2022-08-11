@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ReleaseServiceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $trafficState;
+
+    /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'weight' => 'Weight',
+        'trafficState' => 'TrafficState',
+        'weight'       => 'Weight',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ReleaseServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->trafficState) {
+            $res['TrafficState'] = $this->trafficState;
+        }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -38,6 +47,9 @@ class ReleaseServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TrafficState'])) {
+            $model->trafficState = $map['TrafficState'];
+        }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

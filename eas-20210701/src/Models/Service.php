@@ -34,6 +34,11 @@ class Service extends Model
     public $currentVersion;
 
     /**
+     * @var string
+     */
+    public $extraData;
+
+    /**
      * @var int
      */
     public $gpu;
@@ -104,6 +109,11 @@ class Service extends Model
     public $resource;
 
     /**
+     * @var string
+     */
+    public $resourceAlias;
+
+    /**
      * @var int
      */
     public $runningInstance;
@@ -112,6 +122,11 @@ class Service extends Model
      * @var string
      */
     public $serviceConfig;
+
+    /**
+     * @var string
+     */
+    public $serviceGroup;
 
     /**
      * @var string
@@ -153,6 +168,7 @@ class Service extends Model
         'cpu'              => 'Cpu',
         'createTime'       => 'CreateTime',
         'currentVersion'   => 'CurrentVersion',
+        'extraData'        => 'ExtraData',
         'gpu'              => 'Gpu',
         'image'            => 'Image',
         'internetEndpoint' => 'InternetEndpoint',
@@ -167,8 +183,10 @@ class Service extends Model
         'region'           => 'Region',
         'requestId'        => 'RequestId',
         'resource'         => 'Resource',
+        'resourceAlias'    => 'ResourceAlias',
         'runningInstance'  => 'RunningInstance',
         'serviceConfig'    => 'ServiceConfig',
+        'serviceGroup'     => 'ServiceGroup',
         'serviceId'        => 'ServiceId',
         'serviceName'      => 'ServiceName',
         'source'           => 'Source',
@@ -199,6 +217,9 @@ class Service extends Model
         }
         if (null !== $this->currentVersion) {
             $res['CurrentVersion'] = $this->currentVersion;
+        }
+        if (null !== $this->extraData) {
+            $res['ExtraData'] = $this->extraData;
         }
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
@@ -242,11 +263,17 @@ class Service extends Model
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
+        if (null !== $this->resourceAlias) {
+            $res['ResourceAlias'] = $this->resourceAlias;
+        }
         if (null !== $this->runningInstance) {
             $res['RunningInstance'] = $this->runningInstance;
         }
         if (null !== $this->serviceConfig) {
             $res['ServiceConfig'] = $this->serviceConfig;
+        }
+        if (null !== $this->serviceGroup) {
+            $res['ServiceGroup'] = $this->serviceGroup;
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -296,6 +323,9 @@ class Service extends Model
         if (isset($map['CurrentVersion'])) {
             $model->currentVersion = $map['CurrentVersion'];
         }
+        if (isset($map['ExtraData'])) {
+            $model->extraData = $map['ExtraData'];
+        }
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
@@ -338,11 +368,17 @@ class Service extends Model
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
+        if (isset($map['ResourceAlias'])) {
+            $model->resourceAlias = $map['ResourceAlias'];
+        }
         if (isset($map['RunningInstance'])) {
             $model->runningInstance = $map['RunningInstance'];
         }
         if (isset($map['ServiceConfig'])) {
             $model->serviceConfig = $map['ServiceConfig'];
+        }
+        if (isset($map['ServiceGroup'])) {
+            $model->serviceGroup = $map['ServiceGroup'];
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];

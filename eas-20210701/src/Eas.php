@@ -1884,6 +1884,9 @@ class Eas extends OpenApiClient
         $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
         $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
         $body        = [];
+        if (!Utils::isUnset($request->trafficState)) {
+            $body['TrafficState'] = $request->trafficState;
+        }
         if (!Utils::isUnset($request->weight)) {
             $body['Weight'] = $request->weight;
         }
