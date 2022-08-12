@@ -21,16 +21,10 @@ class CommonApplyQueryRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $userId;
     protected $_name = [
         'applyId'     => 'apply_id',
         'bizCategory' => 'biz_category',
-        'corpId'      => 'corp_id',
         'userId'      => 'user_id',
     ];
 
@@ -46,9 +40,6 @@ class CommonApplyQueryRequest extends Model
         }
         if (null !== $this->bizCategory) {
             $res['biz_category'] = $this->bizCategory;
-        }
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -70,9 +61,6 @@ class CommonApplyQueryRequest extends Model
         }
         if (isset($map['biz_category'])) {
             $model->bizCategory = $map['biz_category'];
-        }
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

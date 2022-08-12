@@ -16,11 +16,6 @@ class CostCenterSaveRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $number;
 
     /**
@@ -39,7 +34,6 @@ class CostCenterSaveRequest extends Model
     public $title;
     protected $_name = [
         'alipayNo'    => 'alipay_no',
-        'corpId'      => 'corp_id',
         'number'      => 'number',
         'scope'       => 'scope',
         'thirdpartId' => 'thirdpart_id',
@@ -55,9 +49,6 @@ class CostCenterSaveRequest extends Model
         $res = [];
         if (null !== $this->alipayNo) {
             $res['alipay_no'] = $this->alipayNo;
-        }
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
         }
         if (null !== $this->number) {
             $res['number'] = $this->number;
@@ -85,9 +76,6 @@ class CostCenterSaveRequest extends Model
         $model = new self();
         if (isset($map['alipay_no'])) {
             $model->alipayNo = $map['alipay_no'];
-        }
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
         }
         if (isset($map['number'])) {
             $model->number = $map['number'];

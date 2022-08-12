@@ -16,11 +16,6 @@ class ProjectModifyRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $projectName;
 
     /**
@@ -39,7 +34,6 @@ class ProjectModifyRequest extends Model
     public $thirdPartInvoiceId;
     protected $_name = [
         'code'                  => 'code',
-        'corpId'                => 'corp_id',
         'projectName'           => 'project_name',
         'thirdPartCostCenterId' => 'third_part_cost_center_id',
         'thirdPartId'           => 'third_part_id',
@@ -55,9 +49,6 @@ class ProjectModifyRequest extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
-        }
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
         }
         if (null !== $this->projectName) {
             $res['project_name'] = $this->projectName;
@@ -85,9 +76,6 @@ class ProjectModifyRequest extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
-        }
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
         }
         if (isset($map['project_name'])) {
             $model->projectName = $map['project_name'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CostCenterQueryRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $corpId;
-
-    /**
      * @var bool
      */
     public $needOrgEntity;
@@ -33,7 +28,6 @@ class CostCenterQueryRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'corpId'        => 'corp_id',
         'needOrgEntity' => 'need_org_entity',
         'thirdpartId'   => 'thirdpart_id',
         'title'         => 'title',
@@ -47,9 +41,6 @@ class CostCenterQueryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
-        }
         if (null !== $this->needOrgEntity) {
             $res['need_org_entity'] = $this->needOrgEntity;
         }
@@ -74,9 +65,6 @@ class CostCenterQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
-        }
         if (isset($map['need_org_entity'])) {
             $model->needOrgEntity = $map['need_org_entity'];
         }

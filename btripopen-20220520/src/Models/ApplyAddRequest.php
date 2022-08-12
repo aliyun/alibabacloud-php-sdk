@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\externalTraveler
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\externalTravelerStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\hotelShare;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\itineraryList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\itinerarySetList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerStandard;
 use AlibabaCloud\Tea\Model;
@@ -68,6 +69,16 @@ class ApplyAddRequest extends Model
      * @var itineraryList[]
      */
     public $itineraryList;
+
+    /**
+     * @var int
+     */
+    public $itineraryRule;
+
+    /**
+     * @var itinerarySetList[]
+     */
+    public $itinerarySetList;
 
     /**
      * @var int
@@ -160,6 +171,8 @@ class ApplyAddRequest extends Model
         'hotelBudget'              => 'hotel_budget',
         'hotelShare'               => 'hotel_share',
         'itineraryList'            => 'itinerary_list',
+        'itineraryRule'            => 'itinerary_rule',
+        'itinerarySetList'         => 'itinerary_set_list',
         'limitTraveler'            => 'limit_traveler',
         'status'                   => 'status',
         'thirdpartApplyId'         => 'thirdpart_apply_id',
@@ -227,6 +240,18 @@ class ApplyAddRequest extends Model
                 $n = 0;
                 foreach ($this->itineraryList as $item) {
                     $res['itinerary_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->itineraryRule) {
+            $res['itinerary_rule'] = $this->itineraryRule;
+        }
+        if (null !== $this->itinerarySetList) {
+            $res['itinerary_set_list'] = [];
+            if (null !== $this->itinerarySetList && \is_array($this->itinerarySetList)) {
+                $n = 0;
+                foreach ($this->itinerarySetList as $item) {
+                    $res['itinerary_set_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -344,6 +369,18 @@ class ApplyAddRequest extends Model
                 $n                    = 0;
                 foreach ($map['itinerary_list'] as $item) {
                     $model->itineraryList[$n++] = null !== $item ? itineraryList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['itinerary_rule'])) {
+            $model->itineraryRule = $map['itinerary_rule'];
+        }
+        if (isset($map['itinerary_set_list'])) {
+            if (!empty($map['itinerary_set_list'])) {
+                $model->itinerarySetList = [];
+                $n                       = 0;
+                foreach ($map['itinerary_set_list'] as $item) {
+                    $model->itinerarySetList[$n++] = null !== $item ? itinerarySetList::fromMap($item) : $item;
                 }
             }
         }

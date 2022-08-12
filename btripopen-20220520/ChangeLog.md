@@ -1,3 +1,6 @@
+2022-08-12 Version: 1.0.4
+- Modifying Parameter Types.
+
 2022-08-09 Version: 1.0.3
 - Update params.
 

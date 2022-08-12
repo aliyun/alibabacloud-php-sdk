@@ -11,11 +11,6 @@ class CarApplyQueryRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $createdEndAt;
 
     /**
@@ -43,7 +38,6 @@ class CarApplyQueryRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'corpId'           => 'corp_id',
         'createdEndAt'     => 'created_end_at',
         'createdStartAt'   => 'created_start_at',
         'pageNumber'       => 'page_number',
@@ -59,9 +53,6 @@ class CarApplyQueryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
-        }
         if (null !== $this->createdEndAt) {
             $res['created_end_at'] = $this->createdEndAt;
         }
@@ -92,9 +83,6 @@ class CarApplyQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
-        }
         if (isset($map['created_end_at'])) {
             $model->createdEndAt = $map['created_end_at'];
         }

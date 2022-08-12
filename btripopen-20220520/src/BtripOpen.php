@@ -289,6 +289,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->itineraryList)) {
             $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
         }
+        if (!Utils::isUnset($tmpReq->itinerarySetList)) {
+            $request->itinerarySetListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
+        }
         if (!Utils::isUnset($tmpReq->travelerList)) {
             $request->travelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
         }
@@ -328,6 +331,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
+        }
+        if (!Utils::isUnset($request->itineraryRule)) {
+            $body['itinerary_rule'] = $request->itineraryRule;
+        }
+        if (!Utils::isUnset($request->itinerarySetListShrink)) {
+            $body['itinerary_set_list'] = $request->itinerarySetListShrink;
         }
         if (!Utils::isUnset($request->limitTraveler)) {
             $body['limit_traveler'] = $request->limitTraveler;
@@ -841,9 +850,6 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->createdEndAt)) {
             $query['created_end_at'] = $request->createdEndAt;
         }
@@ -1041,9 +1047,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->bizCategory)) {
             $query['biz_category'] = $request->bizCategory;
-        }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
@@ -1304,10 +1307,6 @@ class BtripOpen extends OpenApiClient
     public function costCenterQueryWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
-        }
         $body = [];
         if (!Utils::isUnset($request->needOrgEntity)) {
             $body['need_org_entity'] = $request->needOrgEntity;
@@ -1323,7 +1322,6 @@ class BtripOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1367,9 +1365,6 @@ class BtripOpen extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->alipayNo)) {
             $body['alipay_no'] = $request->alipayNo;
-        }
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
         }
         if (!Utils::isUnset($request->number)) {
             $body['number'] = $request->number;
@@ -1650,9 +1645,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->bizCategory)) {
             $query['biz_category'] = $request->bizCategory;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->remark)) {
             $query['remark'] = $request->remark;
         }
@@ -1765,9 +1757,6 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1994,9 +1983,6 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
@@ -2503,9 +2489,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->code)) {
             $body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->projectName)) {
             $body['project_name'] = $request->projectName;
         }
@@ -2609,9 +2592,6 @@ class BtripOpen extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->code)) {
             $body['code'] = $request->code;
-        }
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
         }
         if (!Utils::isUnset($request->projectName)) {
             $body['project_name'] = $request->projectName;
@@ -2725,9 +2705,6 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->corpId)) {
-            $query['corp_id'] = $request->corpId;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
@@ -2902,9 +2879,6 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->modifiedTimeGreaterOrEqualThan)) {
             $query['modified_time_greater_or_equal_than'] = $request->modifiedTimeGreaterOrEqualThan;
-        }
-        if (!Utils::isUnset($request->thirdPartCorpId)) {
-            $query['third_part_corp_id'] = $request->thirdPartCorpId;
         }
         if (!Utils::isUnset($request->thirdPartJobNo)) {
             $query['third_part_job_no'] = $request->thirdPartJobNo;

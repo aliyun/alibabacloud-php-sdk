@@ -12,14 +12,8 @@ class FlightExceedApplyQueryRequest extends Model
      * @var int
      */
     public $applyId;
-
-    /**
-     * @var string
-     */
-    public $corpId;
     protected $_name = [
         'applyId' => 'apply_id',
-        'corpId'  => 'corp_id',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class FlightExceedApplyQueryRequest extends Model
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
-        }
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class FlightExceedApplyQueryRequest extends Model
         $model = new self();
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
-        }
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
         }
 
         return $model;

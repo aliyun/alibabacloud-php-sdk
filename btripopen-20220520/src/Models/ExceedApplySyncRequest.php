@@ -21,11 +21,6 @@ class ExceedApplySyncRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $remark;
 
     /**
@@ -45,7 +40,6 @@ class ExceedApplySyncRequest extends Model
     protected $_name = [
         'applyId'          => 'apply_id',
         'bizCategory'      => 'biz_category',
-        'corpId'           => 'corp_id',
         'remark'           => 'remark',
         'status'           => 'status',
         'thirdpartyFlowId' => 'thirdparty_flow_id',
@@ -64,9 +58,6 @@ class ExceedApplySyncRequest extends Model
         }
         if (null !== $this->bizCategory) {
             $res['biz_category'] = $this->bizCategory;
-        }
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
@@ -97,9 +88,6 @@ class ExceedApplySyncRequest extends Model
         }
         if (isset($map['biz_category'])) {
             $model->bizCategory = $map['biz_category'];
-        }
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
