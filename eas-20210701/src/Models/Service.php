@@ -141,6 +141,11 @@ class Service extends Model
     /**
      * @var string
      */
+    public $serviceUid;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -189,6 +194,7 @@ class Service extends Model
         'serviceGroup'     => 'ServiceGroup',
         'serviceId'        => 'ServiceId',
         'serviceName'      => 'ServiceName',
+        'serviceUid'       => 'ServiceUid',
         'source'           => 'Source',
         'status'           => 'Status',
         'totalInstance'    => 'TotalInstance',
@@ -280,6 +286,9 @@ class Service extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceUid) {
+            $res['ServiceUid'] = $this->serviceUid;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -385,6 +394,9 @@ class Service extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceUid'])) {
+            $model->serviceUid = $map['ServiceUid'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
