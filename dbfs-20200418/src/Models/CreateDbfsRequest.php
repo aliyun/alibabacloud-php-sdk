@@ -11,6 +11,11 @@ class CreateDbfsRequest extends Model
     /**
      * @var string
      */
+    public $advancedFeatures;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -83,6 +88,7 @@ class CreateDbfsRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'advancedFeatures'     => 'AdvancedFeatures',
         'category'             => 'Category',
         'clientToken'          => 'ClientToken',
         'deleteSnapshot'       => 'DeleteSnapshot',
@@ -107,6 +113,9 @@ class CreateDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedFeatures) {
+            $res['AdvancedFeatures'] = $this->advancedFeatures;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -164,6 +173,9 @@ class CreateDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedFeatures'])) {
+            $model->advancedFeatures = $map['AdvancedFeatures'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }

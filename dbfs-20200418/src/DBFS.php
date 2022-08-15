@@ -46,8 +46,6 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\RenameDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\RenameDbfsResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ResetDbfsRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ResetDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsRequest;
@@ -250,6 +248,9 @@ class DBFS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->advancedFeatures)) {
+            $query['AdvancedFeatures'] = $request->advancedFeatures;
+        }
         if (!Utils::isUnset($request->category)) {
             $query['Category'] = $request->category;
         }
@@ -1168,55 +1169,6 @@ class DBFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renameDbfsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResetDbfsRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ResetDbfsResponse
-     */
-    public function resetDbfsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fsId)) {
-            $query['FsId'] = $request->fsId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ResetDbfs',
-            'version'     => '2020-04-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ResetDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ResetDbfsRequest $request
-     *
-     * @return ResetDbfsResponse
-     */
-    public function resetDbfs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetDbfsWithOptions($request, $runtime);
     }
 
     /**
