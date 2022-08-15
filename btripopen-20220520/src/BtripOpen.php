@@ -1307,22 +1307,22 @@ class BtripOpen extends OpenApiClient
     public function costCenterQueryWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->needOrgEntity)) {
-            $body['need_org_entity'] = $request->needOrgEntity;
+            $query['need_org_entity'] = $request->needOrgEntity;
         }
         if (!Utils::isUnset($request->thirdpartId)) {
-            $body['thirdpart_id'] = $request->thirdpartId;
+            $query['thirdpart_id'] = $request->thirdpartId;
         }
         if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+            $query['title'] = $request->title;
         }
         if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+            $query['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'CostCenterQuery',
@@ -1332,7 +1332,7 @@ class BtripOpen extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
