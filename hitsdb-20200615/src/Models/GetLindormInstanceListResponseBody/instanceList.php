@@ -27,6 +27,11 @@ class instanceList extends Model
     /**
      * @var bool
      */
+    public $enableCompute;
+
+    /**
+     * @var bool
+     */
     public $enableStream;
 
     /**
@@ -82,6 +87,11 @@ class instanceList extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $serviceType;
 
     /**
@@ -102,6 +112,7 @@ class instanceList extends Model
         'aliUid'              => 'AliUid',
         'createMilliseconds'  => 'CreateMilliseconds',
         'createTime'          => 'CreateTime',
+        'enableCompute'       => 'EnableCompute',
         'enableStream'        => 'EnableStream',
         'engineType'          => 'EngineType',
         'expireTime'          => 'ExpireTime',
@@ -113,6 +124,7 @@ class instanceList extends Model
         'networkType'         => 'NetworkType',
         'payType'             => 'PayType',
         'regionId'            => 'RegionId',
+        'resourceGroupId'     => 'ResourceGroupId',
         'serviceType'         => 'ServiceType',
         'tags'                => 'Tags',
         'vpcId'               => 'VpcId',
@@ -134,6 +146,9 @@ class instanceList extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->enableCompute) {
+            $res['EnableCompute'] = $this->enableCompute;
         }
         if (null !== $this->enableStream) {
             $res['EnableStream'] = $this->enableStream;
@@ -167,6 +182,9 @@ class instanceList extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -207,6 +225,9 @@ class instanceList extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['EnableCompute'])) {
+            $model->enableCompute = $map['EnableCompute'];
+        }
         if (isset($map['EnableStream'])) {
             $model->enableStream = $map['EnableStream'];
         }
@@ -239,6 +260,9 @@ class instanceList extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];

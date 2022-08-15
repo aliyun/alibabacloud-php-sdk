@@ -20,6 +20,11 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
     public $resourceId;
@@ -51,6 +56,7 @@ class TagResourcesRequest extends Model
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -71,6 +77,9 @@ class TagResourcesRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -113,6 +122,9 @@ class TagResourcesRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {

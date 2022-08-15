@@ -157,6 +157,11 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $serviceType;
 
     /**
@@ -203,6 +208,7 @@ class GetLindormInstanceResponseBody extends Model
         'payType'             => 'PayType',
         'regionId'            => 'RegionId',
         'requestId'           => 'RequestId',
+        'resourceGroupId'     => 'ResourceGroupId',
         'serviceType'         => 'ServiceType',
         'vpcId'               => 'VpcId',
         'vswitchId'           => 'VswitchId',
@@ -308,6 +314,9 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -425,6 +434,9 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
