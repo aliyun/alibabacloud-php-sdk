@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetInstanceLogRequest extends Model
+class ListInstanceHistoryRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $instanceHistoryId;
-
     /**
      * @var int
      */
@@ -23,9 +18,8 @@ class GetInstanceLogRequest extends Model
      */
     public $projectEnv;
     protected $_name = [
-        'instanceHistoryId' => 'InstanceHistoryId',
-        'instanceId'        => 'InstanceId',
-        'projectEnv'        => 'ProjectEnv',
+        'instanceId' => 'InstanceId',
+        'projectEnv' => 'ProjectEnv',
     ];
 
     public function validate()
@@ -35,9 +29,6 @@ class GetInstanceLogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceHistoryId) {
-            $res['InstanceHistoryId'] = $this->instanceHistoryId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,14 +42,11 @@ class GetInstanceLogRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetInstanceLogRequest
+     * @return ListInstanceHistoryRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceHistoryId'])) {
-            $model->instanceHistoryId = $map['InstanceHistoryId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

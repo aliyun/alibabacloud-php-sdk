@@ -316,8 +316,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFoldersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFoldersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListHistoryTasksForResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListHistoryTasksForResourceGroupResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInnerNodesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInnerNodesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceAmountRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceAmountResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceHistoryRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceHistoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesRequest;
@@ -5313,6 +5317,9 @@ class Dataworkspublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->instanceHistoryId)) {
+            $body['InstanceHistoryId'] = $request->instanceHistoryId;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
@@ -8680,6 +8687,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListInnerNodesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListInnerNodesResponse
+     */
+    public function listInnerNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->nodeName)) {
+            $body['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->outerNodeId)) {
+            $body['OuterNodeId'] = $request->outerNodeId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->programType)) {
+            $body['ProgramType'] = $request->programType;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInnerNodes',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInnerNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInnerNodesRequest $request
+     *
+     * @return ListInnerNodesResponse
+     */
+    public function listInnerNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInnerNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListInstanceAmountRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -8726,6 +8794,52 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstanceAmountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstanceHistoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListInstanceHistoryResponse
+     */
+    public function listInstanceHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceHistory',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceHistoryRequest $request
+     *
+     * @return ListInstanceHistoryResponse
+     */
+    public function listInstanceHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceHistoryWithOptions($request, $runtime);
     }
 
     /**
@@ -10630,6 +10744,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->startBizDate)) {
             $body['StartBizDate'] = $request->startBizDate;
+        }
+        if (!Utils::isUnset($request->startFutureInstanceImmediately)) {
+            $body['StartFutureInstanceImmediately'] = $request->startFutureInstanceImmediately;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

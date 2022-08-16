@@ -62,18 +62,24 @@ class RunCycleDagNodesRequest extends Model
      * @var string
      */
     public $startBizDate;
+
+    /**
+     * @var bool
+     */
+    public $startFutureInstanceImmediately;
     protected $_name = [
-        'bizBeginTime'   => 'BizBeginTime',
-        'bizEndTime'     => 'BizEndTime',
-        'endBizDate'     => 'EndBizDate',
-        'excludeNodeIds' => 'ExcludeNodeIds',
-        'includeNodeIds' => 'IncludeNodeIds',
-        'name'           => 'Name',
-        'nodeParams'     => 'NodeParams',
-        'parallelism'    => 'Parallelism',
-        'projectEnv'     => 'ProjectEnv',
-        'rootNodeId'     => 'RootNodeId',
-        'startBizDate'   => 'StartBizDate',
+        'bizBeginTime'                   => 'BizBeginTime',
+        'bizEndTime'                     => 'BizEndTime',
+        'endBizDate'                     => 'EndBizDate',
+        'excludeNodeIds'                 => 'ExcludeNodeIds',
+        'includeNodeIds'                 => 'IncludeNodeIds',
+        'name'                           => 'Name',
+        'nodeParams'                     => 'NodeParams',
+        'parallelism'                    => 'Parallelism',
+        'projectEnv'                     => 'ProjectEnv',
+        'rootNodeId'                     => 'RootNodeId',
+        'startBizDate'                   => 'StartBizDate',
+        'startFutureInstanceImmediately' => 'StartFutureInstanceImmediately',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class RunCycleDagNodesRequest extends Model
         }
         if (null !== $this->startBizDate) {
             $res['StartBizDate'] = $this->startBizDate;
+        }
+        if (null !== $this->startFutureInstanceImmediately) {
+            $res['StartFutureInstanceImmediately'] = $this->startFutureInstanceImmediately;
         }
 
         return $res;
@@ -160,6 +169,9 @@ class RunCycleDagNodesRequest extends Model
         }
         if (isset($map['StartBizDate'])) {
             $model->startBizDate = $map['StartBizDate'];
+        }
+        if (isset($map['StartFutureInstanceImmediately'])) {
+            $model->startFutureInstanceImmediately = $map['StartFutureInstanceImmediately'];
         }
 
         return $model;
