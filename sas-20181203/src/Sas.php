@@ -23,6 +23,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotNodeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotNodeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
@@ -275,6 +281,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockConfigListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockFileEventsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockFileEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulRequest;
@@ -306,6 +314,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotAlarmEventsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotAlarmEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotNodeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotNodeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulAutoRepairConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListVulAutoRepairConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
@@ -921,6 +935,186 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFileDetectUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHoneypotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateHoneypotResponse
+     */
+    public function createHoneypotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->honeypotImageId)) {
+            $query['HoneypotImageId'] = $request->honeypotImageId;
+        }
+        if (!Utils::isUnset($request->honeypotImageName)) {
+            $query['HoneypotImageName'] = $request->honeypotImageName;
+        }
+        if (!Utils::isUnset($request->honeypotName)) {
+            $query['HoneypotName'] = $request->honeypotName;
+        }
+        if (!Utils::isUnset($request->meta)) {
+            $query['Meta'] = $request->meta;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHoneypot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHoneypotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateHoneypotRequest $request
+     *
+     * @return CreateHoneypotResponse
+     */
+    public function createHoneypot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHoneypotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHoneypotNodeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateHoneypotNodeResponse
+     */
+    public function createHoneypotNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowHoneypotAccessInternet)) {
+            $query['AllowHoneypotAccessInternet'] = $request->allowHoneypotAccessInternet;
+        }
+        if (!Utils::isUnset($request->availableProbeNum)) {
+            $query['AvailableProbeNum'] = $request->availableProbeNum;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->securityGroupProbeIpList)) {
+            $query['SecurityGroupProbeIpList'] = $request->securityGroupProbeIpList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHoneypotNode',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHoneypotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateHoneypotNodeRequest $request
+     *
+     * @return CreateHoneypotNodeResponse
+     */
+    public function createHoneypotNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHoneypotNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateHoneypotProbeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateHoneypotProbeResponse
+     */
+    public function createHoneypotProbeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->arp)) {
+            $query['Arp'] = $request->arp;
+        }
+        if (!Utils::isUnset($request->businessGroupId)) {
+            $query['BusinessGroupId'] = $request->businessGroupId;
+        }
+        if (!Utils::isUnset($request->controlNodeId)) {
+            $query['ControlNodeId'] = $request->controlNodeId;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->honeypotBindList)) {
+            $query['HoneypotBindList'] = $request->honeypotBindList;
+        }
+        if (!Utils::isUnset($request->ping)) {
+            $query['Ping'] = $request->ping;
+        }
+        if (!Utils::isUnset($request->probeType)) {
+            $query['ProbeType'] = $request->probeType;
+        }
+        if (!Utils::isUnset($request->probeVersion)) {
+            $query['ProbeVersion'] = $request->probeVersion;
+        }
+        if (!Utils::isUnset($request->proxyIp)) {
+            $query['ProxyIp'] = $request->proxyIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHoneypotProbe',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHoneypotProbeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateHoneypotProbeRequest $request
+     *
+     * @return CreateHoneypotProbeResponse
+     */
+    public function createHoneypotProbe($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHoneypotProbeWithOptions($request, $runtime);
     }
 
     /**
@@ -2644,6 +2838,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskId)) {
             $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->riskStatus)) {
+            $query['RiskStatus'] = $request->riskStatus;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
@@ -7835,6 +8032,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->haveRisk)) {
+            $query['HaveRisk'] = $request->haveRisk;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
@@ -7994,6 +8194,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWebLockConfigListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWebLockFileEventsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeWebLockFileEventsResponse
+     */
+    public function describeWebLockFileEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $query['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $query['ProcessName'] = $request->processName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->tsBegin)) {
+            $query['TsBegin'] = $request->tsBegin;
+        }
+        if (!Utils::isUnset($request->tsEnd)) {
+            $query['TsEnd'] = $request->tsEnd;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWebLockFileEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWebLockFileEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWebLockFileEventsRequest $request
+     *
+     * @return DescribeWebLockFileEventsResponse
+     */
+    public function describeWebLockFileEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWebLockFileEventsWithOptions($request, $runtime);
     }
 
     /**
@@ -8900,6 +9161,156 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCheckResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListHoneypotRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListHoneypotResponse
+     */
+    public function listHoneypotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->honeypotIds)) {
+            $query['HoneypotIds'] = $request->honeypotIds;
+        }
+        if (!Utils::isUnset($request->honeypotName)) {
+            $query['HoneypotName'] = $request->honeypotName;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHoneypot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHoneypotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHoneypotRequest $request
+     *
+     * @return ListHoneypotResponse
+     */
+    public function listHoneypot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHoneypotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListHoneypotAlarmEventsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListHoneypotAlarmEventsResponse
+     */
+    public function listHoneypotAlarmEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHoneypotAlarmEvents',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHoneypotAlarmEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHoneypotAlarmEventsRequest $request
+     *
+     * @return ListHoneypotAlarmEventsResponse
+     */
+    public function listHoneypotAlarmEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHoneypotAlarmEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListHoneypotNodeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListHoneypotNodeResponse
+     */
+    public function listHoneypotNodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHoneypotNode',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHoneypotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHoneypotNodeRequest $request
+     *
+     * @return ListHoneypotNodeResponse
+     */
+    public function listHoneypotNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHoneypotNodeWithOptions($request, $runtime);
     }
 
     /**

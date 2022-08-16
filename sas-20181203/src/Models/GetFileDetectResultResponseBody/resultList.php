@@ -11,6 +11,16 @@ class resultList extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $ext;
 
     /**
@@ -33,11 +43,13 @@ class resultList extends Model
      */
     public $virusType;
     protected $_name = [
-        'ext'       => 'Ext',
-        'hashKey'   => 'HashKey',
-        'result'    => 'Result',
-        'score'     => 'Score',
-        'virusType' => 'VirusType',
+        'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'ext'          => 'Ext',
+        'hashKey'      => 'HashKey',
+        'result'       => 'Result',
+        'score'        => 'Score',
+        'virusType'    => 'VirusType',
     ];
 
     public function validate()
@@ -47,6 +59,12 @@ class resultList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
         }
@@ -74,6 +92,12 @@ class resultList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];
         }

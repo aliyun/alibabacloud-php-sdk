@@ -39,6 +39,11 @@ class DescribeCheckWarningsRequest extends Model
     public $riskId;
 
     /**
+     * @var int
+     */
+    public $riskStatus;
+
+    /**
      * @var string
      */
     public $sourceIp;
@@ -54,6 +59,7 @@ class DescribeCheckWarningsRequest extends Model
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
         'riskId'      => 'RiskId',
+        'riskStatus'  => 'RiskStatus',
         'sourceIp'    => 'SourceIp',
         'uuid'        => 'Uuid',
     ];
@@ -82,6 +88,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
+        }
+        if (null !== $this->riskStatus) {
+            $res['RiskStatus'] = $this->riskStatus;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -118,6 +127,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
+        }
+        if (isset($map['RiskStatus'])) {
+            $model->riskStatus = $map['RiskStatus'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

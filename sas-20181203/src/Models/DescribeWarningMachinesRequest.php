@@ -29,6 +29,11 @@ class DescribeWarningMachinesRequest extends Model
     public $currentPage;
 
     /**
+     * @var int
+     */
+    public $haveRisk;
+
+    /**
      * @var string
      */
     public $lang;
@@ -72,6 +77,7 @@ class DescribeWarningMachinesRequest extends Model
         'containerFieldName'  => 'ContainerFieldName',
         'containerFieldValue' => 'ContainerFieldValue',
         'currentPage'         => 'CurrentPage',
+        'haveRisk'            => 'HaveRisk',
         'lang'                => 'Lang',
         'machineName'         => 'MachineName',
         'pageSize'            => 'PageSize',
@@ -100,6 +106,9 @@ class DescribeWarningMachinesRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->haveRisk) {
+            $res['HaveRisk'] = $this->haveRisk;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -148,6 +157,9 @@ class DescribeWarningMachinesRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['HaveRisk'])) {
+            $model->haveRisk = $map['HaveRisk'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
