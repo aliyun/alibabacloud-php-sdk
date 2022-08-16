@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class UpdateDatasetRequest extends Model
 {
     /**
-     * @description 媒体集最多绑定数
-     *
      * @var int
      */
     public $datasetMaxBindCount;
 
     /**
-     * @description 媒体集最多实体数
-     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
-     * @description 媒体集最多文件数
-     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
-     * @description 媒体集最多关系数
-     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
-     * @description 媒体集最大文件总大小
-     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
 
     /**
-     * @description 媒体集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;

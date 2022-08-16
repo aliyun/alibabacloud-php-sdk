@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class Image extends Model
 {
     /**
-     * @description CroppingSuggestions
-     *
      * @var CroppingSuggestion[]
      */
     public $croppingSuggestions;
 
     /**
-     * @description EXIF
-     *
      * @var string
      */
     public $EXIF;
 
     /**
-     * @description ImageHeight
-     *
      * @var int
      */
     public $imageHeight;
@@ -35,15 +29,11 @@ class Image extends Model
     public $imageScore;
 
     /**
-     * @description ImageWidth
-     *
      * @var int
      */
     public $imageWidth;
 
     /**
-     * @description OCRContents
-     *
      * @var OCRContents[]
      */
     public $OCRContents;

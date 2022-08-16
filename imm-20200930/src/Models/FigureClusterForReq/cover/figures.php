@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class figures extends Model
 {
     /**
-     * @description FigureId
-     *
      * @var string
      */
     public $figureId;

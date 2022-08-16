@@ -14,8 +14,6 @@ class CreateMediaConvertTaskResponseBody extends Model
     public $eventId;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;

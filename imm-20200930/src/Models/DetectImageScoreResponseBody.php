@@ -15,8 +15,6 @@ class DetectImageScoreResponseBody extends Model
     public $imageScore;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

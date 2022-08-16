@@ -9,113 +9,81 @@ use AlibabaCloud\Tea\Model;
 class Project extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 项目当前媒体集数
-     *
      * @var int
      */
     public $datasetCount;
 
     /**
-     * @description 项目最多绑定数
-     *
      * @var int
      */
     public $datasetMaxBindCount;
 
     /**
-     * @description 项目最多实体数
-     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
-     * @description 项目最多文件数
-     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
-     * @description 项目最多关系数
-     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
-     * @description 项目最大文件总大小
-     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 项目最大并发数
-     *
      * @var int
      */
     public $engineConcurrency;
 
     /**
-     * @description 项目当前文件数
-     *
      * @var int
      */
     public $fileCount;
 
     /**
-     * @description 项目最多媒体集数量
-     *
      * @var int
      */
     public $projectMaxDatasetCount;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 项目QPS
-     *
      * @var int
      */
     public $projectQueriesPerSecond;
 
     /**
-     * @description 服务角色
-     *
      * @var string
      */
     public $serviceRole;
 
     /**
-     * @description 项目当前文件总大小
-     *
      * @var int
      */
     public $totalFileSize;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $updateTime;

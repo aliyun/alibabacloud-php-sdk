@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
-     * @description 媒体集最多绑定数
-     *
      * @var int
      */
     public $datasetMaxBindCount;
 
     /**
-     * @description 媒体集最多实体数
-     *
      * @var int
      */
     public $datasetMaxEntityCount;
 
     /**
-     * @description 媒体集最多文件数
-     *
      * @var int
      */
     public $datasetMaxFileCount;
 
     /**
-     * @description 媒体集最多关系数
-     *
      * @var int
      */
     public $datasetMaxRelationCount;
 
     /**
-     * @description 媒体集最大文件总大小
-     *
      * @var int
      */
     public $datasetMaxTotalFileSize;
 
     /**
-     * @description 项目描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 项目并发数
-     *
      * @var int
      */
     public $engineConcurrency;
 
     /**
-     * @description 项目最多媒体集数
-     *
      * @var int
      */
     public $projectMaxDatasetCount;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 项目QPS
-     *
      * @var int
      */
     public $projectQueriesPerSecond;
 
     /**
-     * @description 服务角色
-     *
      * @var string
      */
     public $serviceRole;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;

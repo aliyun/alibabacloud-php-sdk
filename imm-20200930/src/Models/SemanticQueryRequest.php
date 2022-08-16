@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SemanticQueryRequest extends Model
 {
     /**
-     * @description Dataset 名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 本次读取的最大数据记录数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 需要搜索的内容，使用自然语言描述
-     *
      * @var string
      */
     public $query;

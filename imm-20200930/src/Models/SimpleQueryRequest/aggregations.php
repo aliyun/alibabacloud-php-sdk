@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class aggregations extends Model
 {
     /**
-     * @description 聚合字段的字段名
-     *
      * @var string
      */
     public $field;
 
     /**
-     * @description 聚合字段的聚合操作符
-     *
      * @var string
      */
     public $operation;

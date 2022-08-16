@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class TaskInfo extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 任务结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 任务开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 标签
-     *
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @description 任务唯一ID
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description 任务类型
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description 用户自定义信息
-     *
      * @var string
      */
     public $userData;

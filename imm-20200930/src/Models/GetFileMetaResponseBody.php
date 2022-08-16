@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetFileMetaResponseBody extends Model
 {
     /**
-     * @description File list.
-     *
      * @var File[]
      */
     public $files;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

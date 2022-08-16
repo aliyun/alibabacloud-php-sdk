@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class WebofficeWatermark extends Model
 {
     /**
-     * @description 字体颜色
-     *
      * @var string
      */
     public $fillStyle;
 
     /**
-     * @description 字体样式
-     *
      * @var string
      */
     public $font;
 
     /**
-     * @description 水平间距
-     *
      * @var int
      */
     public $horizontal;
 
     /**
-     * @description 旋转角度
-     *
      * @var float
      */
     public $rotate;
 
     /**
-     * @description 水印类型，目前仅支持文字水印，0: 无水印；1: 文字水印
-     *
      * @var int
      */
     public $type;
 
     /**
-     * @description 水印文字
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description 垂直间距
-     *
      * @var int
      */
     public $vertical;

@@ -14,15 +14,11 @@ class ListTasksShrinkRequest extends Model
     public $endTimeRangeShrink;
 
     /**
-     * @description MaxResults
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description NextToken
-     *
      * @var string
      */
     public $nextToken;
@@ -33,8 +29,6 @@ class ListTasksShrinkRequest extends Model
     public $order;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

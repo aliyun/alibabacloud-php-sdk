@@ -42,11 +42,6 @@ class CreateImageSplicingTaskRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
@@ -55,8 +50,6 @@ class CreateImageSplicingTaskRequest extends Model
     public $padding;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $projectName;
@@ -97,7 +90,6 @@ class CreateImageSplicingTaskRequest extends Model
         'direction'        => 'Direction',
         'imageFormat'      => 'ImageFormat',
         'margin'           => 'Margin',
-        'notifyEndpoint'   => 'NotifyEndpoint',
         'notifyTopicName'  => 'NotifyTopicName',
         'padding'          => 'Padding',
         'projectName'      => 'ProjectName',
@@ -133,9 +125,6 @@ class CreateImageSplicingTaskRequest extends Model
         }
         if (null !== $this->margin) {
             $res['Margin'] = $this->margin;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -199,9 +188,6 @@ class CreateImageSplicingTaskRequest extends Model
         }
         if (isset($map['Margin'])) {
             $model->margin = $map['Margin'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

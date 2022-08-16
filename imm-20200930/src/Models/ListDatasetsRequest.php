@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsRequest extends Model
 {
     /**
-     * @description 返回最大个数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 当总结果个数大于MaxResults时，用于翻页的token
-     *
      * @var string
      */
     public $nextToken;
@@ -28,8 +24,6 @@ class ListDatasetsRequest extends Model
     public $prefix;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

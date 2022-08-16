@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsResponseBody extends Model
 {
     /**
-     * @description Datasets
-     *
      * @var Dataset[]
      */
     public $datasets;
@@ -21,8 +19,6 @@ class ListDatasetsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

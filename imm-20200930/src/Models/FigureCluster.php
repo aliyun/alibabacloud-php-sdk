@@ -9,127 +9,91 @@ use AlibabaCloud\Tea\Model;
 class FigureCluster extends Model
 {
     /**
-     * @description AverageAge
-     *
      * @var float
      */
     public $averageAge;
 
     /**
-     * @description Cover
-     *
      * @var File
      */
     public $cover;
 
     /**
-     * @description CreateTime
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description CustomId
-     *
      * @var string
      */
     public $customId;
 
     /**
-     * @description CustomLabels
-     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
-     * @description DatasetName
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description FaceCount
-     *
      * @var int
      */
     public $faceCount;
 
     /**
-     * @description Gender
-     *
      * @var string
      */
     public $gender;
 
     /**
-     * @description ImageCount
-     *
      * @var int
      */
     public $imageCount;
 
     /**
-     * @description MaxAge
-     *
      * @var float
      */
     public $maxAge;
 
     /**
-     * @description MinAge
-     *
      * @var float
      */
     public $minAge;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description ObjectId
-     *
      * @var string
      */
     public $objectId;
 
     /**
-     * @description ObjectType
-     *
      * @var string
      */
     public $objectType;
 
     /**
-     * @description OwnerId
-     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @description ProjectName
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description UpdateTime
-     *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description VideoCount
-     *
      * @var int
      */
     public $videoCount;

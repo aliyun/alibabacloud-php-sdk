@@ -14,15 +14,11 @@ class ListTasksRequest extends Model
     public $endTimeRange;
 
     /**
-     * @description MaxResults
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description NextToken
-     *
      * @var string
      */
     public $nextToken;
@@ -33,8 +29,6 @@ class ListTasksRequest extends Model
     public $order;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

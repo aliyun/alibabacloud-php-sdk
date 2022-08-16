@@ -14,8 +14,6 @@ class CreateVideoModerationTaskResponseBody extends Model
     public $eventId;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CredentialConfig extends Model
 {
     /**
-     * @description 授权链
-     *
      * @var chain[]
      */
     public $chain;
 
     /**
-     * @description 权限策略
-     *
      * @var string
      */
     public $policy;
 
     /**
-     * @description 服务角色
-     *
      * @var string
      */
     public $serviceRole;

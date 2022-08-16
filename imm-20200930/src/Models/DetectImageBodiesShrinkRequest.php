@@ -14,8 +14,6 @@ class DetectImageBodiesShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
@@ -26,8 +24,6 @@ class DetectImageBodiesShrinkRequest extends Model
     public $sensitivity;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;

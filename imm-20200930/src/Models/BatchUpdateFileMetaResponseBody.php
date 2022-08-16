@@ -15,8 +15,6 @@ class BatchUpdateFileMetaResponseBody extends Model
     public $files;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

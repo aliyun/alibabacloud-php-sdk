@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class RefreshWebofficeTokenResponseBody extends Model
 {
     /**
-     * @description access token
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description access token 过期时间
-     *
      * @var string
      */
     public $accessTokenExpiredTime;
 
     /**
-     * @description refresh token
-     *
      * @var string
      */
     public $refreshToken;
 
     /**
-     * @description refresh token 过期时间
-     *
      * @var string
      */
     public $refreshTokenExpiredTime;
 
     /**
-     * @description 请求 Id
-     *
      * @var string
      */
     public $requestId;

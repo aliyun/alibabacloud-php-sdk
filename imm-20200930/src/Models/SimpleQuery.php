@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SimpleQuery extends Model
 {
     /**
-     * @description 需要查询的字段名
-     *
      * @var string
      */
     public $field;
 
     /**
-     * @description 运算符
-     *
      * @var string
      */
     public $operation;
 
     /**
-     * @description 由 SimpleQuery 结构体组成的子查询数组
-     *
      * @var \AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQuery[]
      */
     public $subQueries;
 
     /**
-     * @description 需要查询的字段值
-     *
      * @var string
      */
     public $value;

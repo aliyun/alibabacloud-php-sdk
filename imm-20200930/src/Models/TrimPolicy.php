@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class TrimPolicy extends Model
 {
     /**
-     * @description 禁止删除所有空单元格
-     *
      * @var bool
      */
     public $disableDeleteEmptyCell;
 
     /**
-     * @description 禁止删除所有重复样式
-     *
      * @var bool
      */
     public $disableDeleteRepeatedStyle;
 
     /**
-     * @description 禁止删除未使用的单元格图片
-     *
      * @var bool
      */
     public $disableDeleteUnusedPicture;
 
     /**
-     * @description 禁止删除没有使用的Shape
-     *
      * @var bool
      */
     public $disableDeleteUnusedShape;

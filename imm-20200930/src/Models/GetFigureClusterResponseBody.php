@@ -14,8 +14,6 @@ class GetFigureClusterResponseBody extends Model
     public $figureCluster;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

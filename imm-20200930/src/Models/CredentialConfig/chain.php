@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class chain extends Model
 {
     /**
-     * @description 授权对象
-     *
      * @var string
      */
     public $assumeRoleFor;
 
     /**
-     * @description 授权角色
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 授权方类型
-     *
      * @var string
      */
     public $roleType;

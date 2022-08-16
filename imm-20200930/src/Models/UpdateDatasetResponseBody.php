@@ -14,8 +14,6 @@ class UpdateDatasetResponseBody extends Model
     public $dataset;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

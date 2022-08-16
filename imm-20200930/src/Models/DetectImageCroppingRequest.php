@@ -19,15 +19,11 @@ class DetectImageCroppingRequest extends Model
     public $credentialConfig;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;

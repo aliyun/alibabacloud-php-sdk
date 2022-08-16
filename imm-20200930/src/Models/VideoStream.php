@@ -9,197 +9,141 @@ use AlibabaCloud\Tea\Model;
 class VideoStream extends Model
 {
     /**
-     * @description AverageFrameRate
-     *
      * @var string
      */
     public $averageFrameRate;
 
     /**
-     * @description BitDepth
-     *
      * @var int
      */
     public $bitDepth;
 
     /**
-     * @description Bitrate
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @description CodecLongName
-     *
      * @var string
      */
     public $codecLongName;
 
     /**
-     * @description CodecName
-     *
      * @var string
      */
     public $codecName;
 
     /**
-     * @description CodecTag
-     *
      * @var string
      */
     public $codecTag;
 
     /**
-     * @description CodecTagString
-     *
      * @var string
      */
     public $codecTagString;
 
     /**
-     * @description CodecTimeBase
-     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
-     * @description ColorPrimaries
-     *
      * @var string
      */
     public $colorPrimaries;
 
     /**
-     * @description ColorRange
-     *
      * @var string
      */
     public $colorRange;
 
     /**
-     * @description ColorSpace
-     *
      * @var string
      */
     public $colorSpace;
 
     /**
-     * @description ColorTransfer
-     *
      * @var string
      */
     public $colorTransfer;
 
     /**
-     * @description DisplayAspectRatio
-     *
      * @var string
      */
     public $displayAspectRatio;
 
     /**
-     * @description Duration
-     *
      * @var float
      */
     public $duration;
 
     /**
-     * @description FrameCount
-     *
      * @var int
      */
     public $frameCount;
 
     /**
-     * @description FrameRate
-     *
      * @var string
      */
     public $frameRate;
 
     /**
-     * @description HasBFrames
-     *
      * @var int
      */
     public $hasBFrames;
 
     /**
-     * @description Height
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description Index
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description Level
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description PixelFormat
-     *
      * @var string
      */
     public $pixelFormat;
 
     /**
-     * @description Profile
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description Rotate
-     *
      * @var string
      */
     public $rotate;
 
     /**
-     * @description SampleAspectRatio
-     *
      * @var string
      */
     public $sampleAspectRatio;
 
     /**
-     * @description StartTime
-     *
      * @var float
      */
     public $startTime;
 
     /**
-     * @description TimeBase
-     *
      * @var string
      */
     public $timeBase;
 
     /**
-     * @description Width
-     *
      * @var int
      */
     public $width;

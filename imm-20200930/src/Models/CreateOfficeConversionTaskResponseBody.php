@@ -14,15 +14,11 @@ class CreateOfficeConversionTaskResponseBody extends Model
     public $eventId;
 
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务 id
-     *
      * @var string
      */
     public $taskId;

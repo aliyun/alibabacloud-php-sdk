@@ -9,253 +9,181 @@ use AlibabaCloud\Tea\Model;
 class File extends Model
 {
     /**
-     * @description AccessControlAllowOrigin
-     *
      * @var string
      */
     public $accessControlAllowOrigin;
 
     /**
-     * @description AccessControlRequestMethod
-     *
      * @var string
      */
     public $accessControlRequestMethod;
 
     /**
-     * @description Addresses
-     *
      * @var Address[]
      */
     public $addresses;
 
     /**
-     * @description Album
-     *
      * @var string
      */
     public $album;
 
     /**
-     * @description AlbumArtist
-     *
      * @var string
      */
     public $albumArtist;
 
     /**
-     * @description Artist
-     *
      * @var string
      */
     public $artist;
 
     /**
-     * @description AudioCovers
-     *
      * @var Image[]
      */
     public $audioCovers;
 
     /**
-     * @description AudioStreams
-     *
      * @var AudioStream[]
      */
     public $audioStreams;
 
     /**
-     * @description Bitrate
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @description CacheControl
-     *
      * @var string
      */
     public $cacheControl;
 
     /**
-     * @description Composer
-     *
      * @var string
      */
     public $composer;
 
     /**
-     * @description ContentDisposition
-     *
      * @var string
      */
     public $contentDisposition;
 
     /**
-     * @description ContentEncoding
-     *
      * @var string
      */
     public $contentEncoding;
 
     /**
-     * @description ContentLanguage
-     *
      * @var string
      */
     public $contentLanguage;
 
     /**
-     * @description ContentMd5
-     *
      * @var string
      */
     public $contentMd5;
 
     /**
-     * @description ContentType
-     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description CreateTime
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description CroppingSuggestions
-     *
      * @var CroppingSuggestion[]
      */
     public $croppingSuggestions;
 
     /**
-     * @description CustomId
-     *
      * @var string
      */
     public $customId;
 
     /**
-     * @description CustomLabels
-     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
-     * @description DatasetName
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description DocumentContent
-     *
      * @var string
      */
     public $documentContent;
 
     /**
-     * @description DocumentLanguage
-     *
      * @var string
      */
     public $documentLanguage;
 
     /**
-     * @description Duration
-     *
      * @var float
      */
     public $duration;
 
     /**
-     * @description ETag
-     *
      * @var string
      */
     public $ETag;
 
     /**
-     * @description EXIF
-     *
      * @var string
      */
     public $EXIF;
 
     /**
-     * @description FigureCount
-     *
      * @var int
      */
     public $figureCount;
 
     /**
-     * @description Figures
-     *
      * @var Figure[]
      */
     public $figures;
 
     /**
-     * @description FileAccessTime
-     *
      * @var string
      */
     public $fileAccessTime;
 
     /**
-     * @description FileCreateTime
-     *
      * @var string
      */
     public $fileCreateTime;
 
     /**
-     * @description FileHash
-     *
      * @var string
      */
     public $fileHash;
 
     /**
-     * @description FileModifiedTime
-     *
      * @var string
      */
     public $fileModifiedTime;
 
     /**
-     * @description Filename
-     *
      * @var string
      */
     public $filename;
 
     /**
-     * @description FormatLongName
-     *
      * @var string
      */
     public $formatLongName;
 
     /**
-     * @description FormatName
-     *
      * @var string
      */
     public $formatName;
 
     /**
-     * @description ImageHeight
-     *
      * @var int
      */
     public $imageHeight;
@@ -266,295 +194,211 @@ class File extends Model
     public $imageScore;
 
     /**
-     * @description ImageWidth
-     *
      * @var int
      */
     public $imageWidth;
 
     /**
-     * @description Labels
-     *
      * @var Label[]
      */
     public $labels;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description LatLong
-     *
      * @var string
      */
     public $latLong;
 
     /**
-     * @description MediaType
-     *
      * @var string
      */
     public $mediaType;
 
     /**
-     * @description OCRContents
-     *
      * @var OCRContents[]
      */
     public $OCRContents;
 
     /**
-     * @description OSSCRC64
-     *
      * @var string
      */
     public $OSSCRC64;
 
     /**
-     * @description OSSDeleteMarker
-     *
      * @var string
      */
     public $OSSDeleteMarker;
 
     /**
-     * @description OSSExpiration
-     *
      * @var string
      */
     public $OSSExpiration;
 
     /**
-     * @description OSSObjectType
-     *
      * @var string
      */
     public $OSSObjectType;
 
     /**
-     * @description OSSStorageClass
-     *
      * @var string
      */
     public $OSSStorageClass;
 
     /**
-     * @description OSSTagging
-     *
      * @var mixed[]
      */
     public $OSSTagging;
 
     /**
-     * @description OSSTaggingCount
-     *
      * @var int
      */
     public $OSSTaggingCount;
 
     /**
-     * @description OSSURI
-     *
      * @var string
      */
     public $OSSURI;
 
     /**
-     * @description OSSUserMeta
-     *
      * @var mixed[]
      */
     public $OSSUserMeta;
 
     /**
-     * @description OSSVersionId
-     *
      * @var string
      */
     public $OSSVersionId;
 
     /**
-     * @description ObjectACL
-     *
      * @var string
      */
     public $objectACL;
 
     /**
-     * @description ObjectId
-     *
      * @var string
      */
     public $objectId;
 
     /**
-     * @description ObjectType
-     *
      * @var string
      */
     public $objectType;
 
     /**
-     * @description Orientation
-     *
      * @var int
      */
     public $orientation;
 
     /**
-     * @description OwnerId
-     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @description PageCount
-     *
      * @var int
      */
     public $pageCount;
 
     /**
-     * @description Performer
-     *
      * @var string
      */
     public $performer;
 
     /**
-     * @description ProduceTime
-     *
      * @var string
      */
     public $produceTime;
 
     /**
-     * @description ProgramCount
-     *
      * @var int
      */
     public $programCount;
 
     /**
-     * @description ProjectName
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description ServerSideDataEncryption
-     *
      * @var string
      */
     public $serverSideDataEncryption;
 
     /**
-     * @description ServerSideEncryption
-     *
      * @var string
      */
     public $serverSideEncryption;
 
     /**
-     * @description ServerSideEncryptionCustomerAlgorithm
-     *
      * @var string
      */
     public $serverSideEncryptionCustomerAlgorithm;
 
     /**
-     * @description ServerSideEncryptionKeyId
-     *
      * @var string
      */
     public $serverSideEncryptionKeyId;
 
     /**
-     * @description Size
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description StartTime
-     *
      * @var float
      */
     public $startTime;
 
     /**
-     * @description StreamCount
-     *
      * @var int
      */
     public $streamCount;
 
     /**
-     * @description Subtitles
-     *
      * @var SubtitleStream[]
      */
     public $subtitles;
 
     /**
-     * @description Timezone
-     *
      * @var string
      */
     public $timezone;
 
     /**
-     * @description Title
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description TravelClusterId
-     *
      * @var string
      */
     public $travelClusterId;
 
     /**
-     * @description URI
-     *
      * @var string
      */
     public $URI;
 
     /**
-     * @description UpdateTime
-     *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description VideoHeight
-     *
      * @var int
      */
     public $videoHeight;
 
     /**
-     * @description VideoStreams
-     *
      * @var VideoStream[]
      */
     public $videoStreams;
 
     /**
-     * @description VideoWidth
-     *
      * @var int
      */
     public $videoWidth;

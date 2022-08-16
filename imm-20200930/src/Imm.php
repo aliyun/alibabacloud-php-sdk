@@ -25,6 +25,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCompressPointCloudTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCompressPointCloudTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCompressPointCloudTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
@@ -438,9 +441,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->filesShrink)) {
             $query['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -578,6 +578,99 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCompressPointCloudTaskRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateCompressPointCloudTaskResponse
+     */
+    public function createCompressPointCloudTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCompressPointCloudTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->kdtreeOption)) {
+            $request->kdtreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->kdtreeOption), 'KdtreeOption', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->octreeOption)) {
+            $request->octreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->octreeOption), 'OctreeOption', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->pointCloudFields)) {
+            $request->pointCloudFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pointCloudFields, 'PointCloudFields', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->compressMethod)) {
+            $query['CompressMethod'] = $request->compressMethod;
+        }
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->kdtreeOptionShrink)) {
+            $query['KdtreeOption'] = $request->kdtreeOptionShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->octreeOptionShrink)) {
+            $query['OctreeOption'] = $request->octreeOptionShrink;
+        }
+        if (!Utils::isUnset($request->pointCloudFieldsShrink)) {
+            $query['PointCloudFields'] = $request->pointCloudFieldsShrink;
+        }
+        if (!Utils::isUnset($request->pointCloudFileFormat)) {
+            $query['PointCloudFileFormat'] = $request->pointCloudFileFormat;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targetURI)) {
+            $query['TargetURI'] = $request->targetURI;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCompressPointCloudTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCompressPointCloudTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCompressPointCloudTaskRequest $request
+     *
+     * @return CreateCompressPointCloudTaskResponse
+     */
+    public function createCompressPointCloudTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCompressPointCloudTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -800,9 +893,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->from)) {
             $query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -877,9 +967,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxFrames)) {
             $query['MaxFrames'] = $request->maxFrames;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -971,9 +1058,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->margin)) {
             $query['Margin'] = $request->margin;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -1057,9 +1141,6 @@ class Imm extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1162,9 +1243,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxSheetRow)) {
             $query['MaxSheetRow'] = $request->maxSheetRow;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -1372,9 +1450,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->minFileCount)) {
             $body['MinFileCount'] = $request->minFileCount;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $body['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $body['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -1459,9 +1534,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxFrames)) {
             $query['MaxFrames'] = $request->maxFrames;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
@@ -2755,9 +2827,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->hidecmb)) {
             $query['Hidecmb'] = $request->hidecmb;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -2838,9 +2907,6 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileShrink)) {
             $query['File'] = $request->fileShrink;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;

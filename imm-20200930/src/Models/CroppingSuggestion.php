@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CroppingSuggestion extends Model
 {
     /**
-     * @description AspectRatio
-     *
      * @var string
      */
     public $aspectRatio;
 
     /**
-     * @description Boundary
-     *
      * @var Boundary
      */
     public $boundary;
 
     /**
-     * @description Confidence
-     *
      * @var float
      */
     public $confidence;

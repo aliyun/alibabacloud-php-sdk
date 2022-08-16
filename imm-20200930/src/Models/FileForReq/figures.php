@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class figures extends Model
 {
     /**
-     * @description FigureClusterId
-     *
      * @var string
      */
     public $figureClusterId;
 
     /**
-     * @description FigureId
-     *
      * @var string
      */
     public $figureId;
 
     /**
-     * @description FigureType
-     *
      * @var string
      */
     public $figureType;

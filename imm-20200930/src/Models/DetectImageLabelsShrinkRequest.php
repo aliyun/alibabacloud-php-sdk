@@ -14,22 +14,16 @@ class DetectImageLabelsShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @description Threshold
-     *
      * @var float
      */
     public $threshold;

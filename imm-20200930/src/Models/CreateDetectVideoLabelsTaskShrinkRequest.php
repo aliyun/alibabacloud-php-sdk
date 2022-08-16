@@ -14,29 +14,21 @@ class CreateDetectVideoLabelsTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
-     * @description NotifyEndpoint
-     *
      * @var string
      */
     public $notifyEndpoint;
 
     /**
-     * @description NotifyTopicName
-     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;
@@ -47,8 +39,6 @@ class CreateDetectVideoLabelsTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description UserData
-     *
      * @var string
      */
     public $userData;

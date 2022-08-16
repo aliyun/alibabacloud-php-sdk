@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class WebofficePermission extends Model
 {
     /**
-     * @description 拷贝
-     *
      * @var bool
      */
     public $copy;
 
     /**
-     * @description 导出
-     *
      * @var bool
      */
     public $export;
 
     /**
-     * @description 查看历史版本
-     *
      * @var bool
      */
     public $history;
 
     /**
-     * @description 打印
-     *
      * @var bool
      */
     public $print;
 
     /**
-     * @description 只读模式
-     *
      * @var bool
      */
     public $readonly;
 
     /**
-     * @description 重命名
-     *
      * @var bool
      */
     public $rename;

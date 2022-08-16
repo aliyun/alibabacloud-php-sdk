@@ -24,8 +24,6 @@ class ListBindingsRequest extends Model
     public $nextToken;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $projectName;

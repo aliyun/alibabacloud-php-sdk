@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCodesResponseBody extends Model
 {
     /**
-     * @description 二维码检测结果
-     *
      * @var Codes[]
      */
     public $codes;
 
     /**
-     * @description 请求唯一ID
-     *
      * @var string
      */
     public $requestId;

@@ -14,8 +14,6 @@ class DetectImageFacesResponseBody extends Model
     public $faces;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

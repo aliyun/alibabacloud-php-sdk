@@ -14,8 +14,6 @@ class GetOSSBucketAttachmentResponseBody extends Model
     public $projectName;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

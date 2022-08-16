@@ -14,22 +14,16 @@ class DetectImageLabelsRequest extends Model
     public $credentialConfig;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @description Threshold
-     *
      * @var float
      */
     public $threshold;

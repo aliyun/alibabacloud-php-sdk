@@ -14,16 +14,9 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $datasetName;
 
     /**
-     * @description 源cluster
-     *
      * @var string
      */
     public $from;
-
-    /**
-     * @var string
-     */
-    public $notifyEndpoint;
 
     /**
      * @var string
@@ -41,8 +34,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description 目的cluster
-     *
      * @var string
      */
     public $to;
@@ -54,7 +45,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     protected $_name = [
         'datasetName'     => 'DatasetName',
         'from'            => 'From',
-        'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
         'tagsShrink'      => 'Tags',
@@ -74,9 +64,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -110,9 +97,6 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

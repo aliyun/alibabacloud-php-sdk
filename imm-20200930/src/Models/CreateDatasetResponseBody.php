@@ -14,8 +14,6 @@ class CreateDatasetResponseBody extends Model
     public $dataset;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;

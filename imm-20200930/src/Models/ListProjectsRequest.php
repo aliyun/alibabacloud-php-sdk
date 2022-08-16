@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
-     * @description 返回结果的最大个数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 当总结果个数大于MaxResults时，用于翻页的token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 列出包含某前缀的project
-     *
      * @var string
      */
     public $prefix;

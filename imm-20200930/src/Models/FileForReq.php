@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class FileForReq extends Model
 {
     /**
-     * @description ContentType
-     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description CustomId
-     *
      * @var string
      */
     public $customId;
 
     /**
-     * @description CustomLabels
-     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
-     * @description Figures
-     *
      * @var figures[]
      */
     public $figures;
 
     /**
-     * @description FileHash
-     *
      * @var string
      */
     public $fileHash;
 
     /**
-     * @description MediaType
-     *
      * @var string
      */
     public $mediaType;
 
     /**
-     * @description OSSURI
-     *
      * @var string
      */
     public $OSSURI;
 
     /**
-     * @description URI
-     *
      * @var string
      */
     public $URI;

@@ -9,120 +9,86 @@ use AlibabaCloud\Tea\Model;
 class AudioStream extends Model
 {
     /**
-     * @description Bitrate
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @description ChannelLayout
-     *
      * @var string
      */
     public $channelLayout;
 
     /**
-     * @description Channels
-     *
      * @var int
      */
     public $channels;
 
     /**
-     * @description CodecLongName
-     *
      * @var string
      */
     public $codecLongName;
 
     /**
-     * @description CodecName
-     *
      * @var string
      */
     public $codecName;
 
     /**
-     * @description CodecTag
-     *
      * @var string
      */
     public $codecTag;
 
     /**
-     * @description CodecTagString
-     *
      * @var string
      */
     public $codecTagString;
 
     /**
-     * @description CodecTimeBase
-     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
-     * @description Duration
-     *
      * @var float
      */
     public $duration;
 
     /**
-     * @description FrameCount
-     *
      * @var int
      */
     public $frameCount;
 
     /**
-     * @description Index
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description Lyric
-     *
      * @var string
      */
     public $lyric;
 
     /**
-     * @description SampleFormat
-     *
      * @var string
      */
     public $sampleFormat;
 
     /**
-     * @description SampleRate
-     *
      * @var int
      */
     public $sampleRate;
 
     /**
-     * @description StartTime
-     *
      * @var float
      */
     public $startTime;
 
     /**
-     * @description TimeBase
-     *
      * @var string
      */
     public $timeBase;

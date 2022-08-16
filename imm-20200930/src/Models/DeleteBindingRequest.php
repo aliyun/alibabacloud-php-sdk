@@ -19,8 +19,6 @@ class DeleteBindingRequest extends Model
     public $datasetName;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $projectName;

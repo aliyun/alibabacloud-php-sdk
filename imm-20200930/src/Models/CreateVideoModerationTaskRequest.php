@@ -26,16 +26,9 @@ class CreateVideoModerationTaskRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
@@ -68,7 +61,6 @@ class CreateVideoModerationTaskRequest extends Model
         'credentialConfig' => 'CredentialConfig',
         'interval'         => 'Interval',
         'maxFrames'        => 'MaxFrames',
-        'notifyEndpoint'   => 'NotifyEndpoint',
         'notifyTopicName'  => 'NotifyTopicName',
         'projectName'      => 'ProjectName',
         'reviewer'         => 'Reviewer',
@@ -93,9 +85,6 @@ class CreateVideoModerationTaskRequest extends Model
         }
         if (null !== $this->maxFrames) {
             $res['MaxFrames'] = $this->maxFrames;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -138,9 +127,6 @@ class CreateVideoModerationTaskRequest extends Model
         }
         if (isset($map['MaxFrames'])) {
             $model->maxFrames = $map['MaxFrames'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

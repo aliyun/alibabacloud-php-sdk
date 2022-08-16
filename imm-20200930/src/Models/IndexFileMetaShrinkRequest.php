@@ -21,11 +21,6 @@ class IndexFileMetaShrinkRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
@@ -35,7 +30,6 @@ class IndexFileMetaShrinkRequest extends Model
     protected $_name = [
         'datasetName'     => 'DatasetName',
         'fileShrink'      => 'File',
-        'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
     ];
@@ -52,9 +46,6 @@ class IndexFileMetaShrinkRequest extends Model
         }
         if (null !== $this->fileShrink) {
             $res['File'] = $this->fileShrink;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -79,9 +70,6 @@ class IndexFileMetaShrinkRequest extends Model
         }
         if (isset($map['File'])) {
             $model->fileShrink = $map['File'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

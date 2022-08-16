@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class FuzzyQueryRequest extends Model
 {
     /**
-     * @description Dataset 名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 本次读取的最大数据记录数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 用于搜索的字符串
-     *
      * @var string
      */
     public $query;

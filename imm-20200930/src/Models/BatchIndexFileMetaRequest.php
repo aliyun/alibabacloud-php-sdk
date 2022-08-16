@@ -21,11 +21,6 @@ class BatchIndexFileMetaRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
@@ -35,7 +30,6 @@ class BatchIndexFileMetaRequest extends Model
     protected $_name = [
         'datasetName'     => 'DatasetName',
         'files'           => 'Files',
-        'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
         'projectName'     => 'ProjectName',
     ];
@@ -58,9 +52,6 @@ class BatchIndexFileMetaRequest extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -91,9 +82,6 @@ class BatchIndexFileMetaRequest extends Model
                     $model->files[$n++] = null !== $item ? FileForReq::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class Binding extends Model
 {
     /**
-     * @description CreateTime
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description DatasetName
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description Detail
-     *
      * @var string
      */
     public $detail;
 
     /**
-     * @description Phase
-     *
      * @var string
      */
     public $phase;
 
     /**
-     * @description ProjectName
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description State
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description URI
-     *
      * @var string
      */
     public $URI;
 
     /**
-     * @description UpdateTime
-     *
      * @var string
      */
     public $updateTime;

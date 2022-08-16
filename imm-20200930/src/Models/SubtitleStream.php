@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class SubtitleStream extends Model
 {
     /**
-     * @description Bitrate
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @description CodecLongName
-     *
      * @var string
      */
     public $codecLongName;
 
     /**
-     * @description CodecName
-     *
      * @var string
      */
     public $codecName;
 
     /**
-     * @description CodecTag
-     *
      * @var string
      */
     public $codecTag;
 
     /**
-     * @description CodecTagString
-     *
      * @var string
      */
     public $codecTagString;
 
     /**
-     * @description Content
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description Duration
-     *
      * @var float
      */
     public $duration;
 
     /**
-     * @description Height
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description Index
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description StartTime
-     *
      * @var float
      */
     public $startTime;
 
     /**
-     * @description Width
-     *
      * @var int
      */
     public $width;

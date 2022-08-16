@@ -14,8 +14,6 @@ class ListRegionsResponseBody extends Model
     public $regions;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleChain extends Model
 {
     /**
-     * @description 链式授权节点
-     *
      * @var AssumeRoleChainNode[]
      */
     public $chain;
 
     /**
-     * @description 当前用户 policy
-     *
      * @var string
      */
     public $policy;

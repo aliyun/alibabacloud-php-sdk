@@ -9,141 +9,101 @@ use AlibabaCloud\Tea\Model;
 class Figure extends Model
 {
     /**
-     * @description Age
-     *
      * @var int
      */
     public $age;
 
     /**
-     * @description AgeSD
-     *
      * @var float
      */
     public $ageSD;
 
     /**
-     * @description Attractive
-     *
      * @var float
      */
     public $attractive;
 
     /**
-     * @description Beard
-     *
      * @var string
      */
     public $beard;
 
     /**
-     * @description BeardConfidence
-     *
      * @var float
      */
     public $beardConfidence;
 
     /**
-     * @description Boundary
-     *
      * @var Boundary
      */
     public $boundary;
 
     /**
-     * @description Emotion
-     *
      * @var string
      */
     public $emotion;
 
     /**
-     * @description EmotionConfidence
-     *
      * @var float
      */
     public $emotionConfidence;
 
     /**
-     * @description FaceQuality
-     *
      * @var float
      */
     public $faceQuality;
 
     /**
-     * @description FigureClusterConfidence
-     *
      * @var float
      */
     public $figureClusterConfidence;
 
     /**
-     * @description FigureClusterId
-     *
      * @var string
      */
     public $figureClusterId;
 
     /**
-     * @description FigureConfidence
-     *
      * @var float
      */
     public $figureConfidence;
 
     /**
-     * @description FigureId
-     *
      * @var string
      */
     public $figureId;
 
     /**
-     * @description FigureType
-     *
      * @var string
      */
     public $figureType;
 
     /**
-     * @description Gender
-     *
      * @var string
      */
     public $gender;
 
     /**
-     * @description GenderConfidence
-     *
      * @var float
      */
     public $genderConfidence;
 
     /**
-     * @description Glasses
-     *
      * @var string
      */
     public $glasses;
 
     /**
-     * @description GlassesConfidence
-     *
      * @var float
      */
     public $glassesConfidence;
 
     /**
-     * @description Hat
-     *
      * @var string
      */
     public $hat;
 
     /**
-     * @description HatConfidence
-     *
      * @var float
      */
     public $hatConfidence;
@@ -154,36 +114,26 @@ class Figure extends Model
     public $headPose;
 
     /**
-     * @description Mask
-     *
      * @var string
      */
     public $mask;
 
     /**
-     * @description MaskConfidence
-     *
      * @var float
      */
     public $maskConfidence;
 
     /**
-     * @description Mouth
-     *
      * @var string
      */
     public $mouth;
 
     /**
-     * @description MouthConfidence
-     *
      * @var float
      */
     public $mouthConfidence;
 
     /**
-     * @description Sharpness
-     *
      * @var float
      */
     public $sharpness;

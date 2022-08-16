@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 是否获取详细信息
-     *
      * @var bool
      */
     public $withStatistics;

@@ -14,8 +14,6 @@ class AttachOSSBucketRequest extends Model
     public $OSSBucket;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

@@ -14,15 +14,11 @@ class FuzzyQueryResponseBody extends Model
     public $files;
 
     /**
-     * @description 表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 本次请求的唯一 Id
-     *
      * @var string
      */
     public $requestId;

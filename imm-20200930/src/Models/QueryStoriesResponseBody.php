@@ -14,8 +14,6 @@ class QueryStoriesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class FigureClusterForReq extends Model
 {
     /**
-     * @description Cover
-     *
      * @var cover
      */
     public $cover;
 
     /**
-     * @description CustomId
-     *
      * @var string
      */
     public $customId;
 
     /**
-     * @description CustomLabels
-     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
-     * @description Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description ObjectId
-     *
      * @var string
      */
     public $objectId;

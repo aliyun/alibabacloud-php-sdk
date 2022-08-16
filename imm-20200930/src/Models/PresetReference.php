@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PresetReference extends Model
 {
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;

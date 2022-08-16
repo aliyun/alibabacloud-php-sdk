@@ -14,8 +14,6 @@ class DetectTextAnomalyRequest extends Model
     public $content;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

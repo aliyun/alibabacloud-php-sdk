@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetWebofficeURLRequest extends Model
 {
     /**
-     * @description 缓存预览标识
-     *
      * @var bool
      */
     public $cachePreview;
@@ -21,99 +19,66 @@ class GetWebofficeURLRequest extends Model
     public $credentialConfig;
 
     /**
-     * @description 是否支持外部上传
-     *
      * @var bool
      */
     public $externalUploaded;
 
     /**
-     * @description 文件名，必须带文件名后缀，默认是 SourceUri 的最后一级
-     *
      * @var string
      */
     public $filename;
 
     /**
-     * @description 隐藏工具栏，预览模式下使用
-     *
      * @var bool
      */
     public $hidecmb;
 
     /**
-     * @description mns 消息通知地址
-     *
-     * @var string
-     */
-    public $notifyEndpoint;
-
-    /**
-     * @description mns 消息通知 topic
-     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
-     * @description 文件密码
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description 权限
-     *
      * @var WebofficePermission
      */
     public $permission;
 
     /**
-     * @description 预览前几页
-     *
      * @var int
      */
     public $previewPages;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description oss 防盗链 referer
-     *
      * @var string
      */
     public $referer;
 
     /**
-     * @description 预览编辑地址
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @description 用户
-     *
      * @var WebofficeUser
      */
     public $user;
 
     /**
-     * @description 用户自定义数据，在消息通知中返回
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description 水印
-     *
      * @var WebofficeWatermark
      */
     public $watermark;
@@ -123,7 +88,6 @@ class GetWebofficeURLRequest extends Model
         'externalUploaded' => 'ExternalUploaded',
         'filename'         => 'Filename',
         'hidecmb'          => 'Hidecmb',
-        'notifyEndpoint'   => 'NotifyEndpoint',
         'notifyTopicName'  => 'NotifyTopicName',
         'password'         => 'Password',
         'permission'       => 'Permission',
@@ -157,9 +121,6 @@ class GetWebofficeURLRequest extends Model
         }
         if (null !== $this->hidecmb) {
             $res['Hidecmb'] = $this->hidecmb;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -217,9 +178,6 @@ class GetWebofficeURLRequest extends Model
         }
         if (isset($map['Hidecmb'])) {
             $model->hidecmb = $map['Hidecmb'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];

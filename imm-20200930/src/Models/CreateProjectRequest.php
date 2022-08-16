@@ -49,8 +49,6 @@ class CreateProjectRequest extends Model
     public $projectMaxDatasetCount;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TimeRange extends Model
 {
     /**
-     * @description end time
-     *
      * @var string
      */
     public $end;
 
     /**
-     * @description start time
-     *
      * @var string
      */
     public $start;

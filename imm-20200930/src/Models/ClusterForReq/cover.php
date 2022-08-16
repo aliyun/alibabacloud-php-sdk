@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class cover extends Model
 {
     /**
-     * @description Figures
-     *
      * @var figures[]
      */
     public $figures;

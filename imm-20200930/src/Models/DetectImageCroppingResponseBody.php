@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCroppingResponseBody extends Model
 {
     /**
-     * @description 图片裁剪结果
-     *
      * @var CroppingSuggestion[]
      */
     public $croppings;
 
     /**
-     * @description 请求唯一ID
-     *
      * @var string
      */
     public $requestId;

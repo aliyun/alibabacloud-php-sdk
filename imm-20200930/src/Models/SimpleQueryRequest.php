@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class SimpleQueryRequest extends Model
 {
     /**
-     * @description 聚合字段
-     *
      * @var aggregations[]
      */
     public $aggregations;
 
     /**
-     * @description Dataset 名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 本次读取的最大数据记录数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序字段
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
@@ -57,15 +45,11 @@ class SimpleQueryRequest extends Model
     public $query;
 
     /**
-     * @description 排序方式，默认 DESC
-     *
      * @var string
      */
     public $sort;
 
     /**
-     * @description 仅返回哪些字段
-     *
      * @var string[]
      */
     public $withFields;

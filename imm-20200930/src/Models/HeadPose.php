@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class HeadPose extends Model
 {
     /**
-     * @description Pitch
-     *
      * @var float
      */
     public $pitch;
 
     /**
-     * @description Roll
-     *
      * @var float
      */
     public $roll;
 
     /**
-     * @description Yaw
-     *
      * @var float
      */
     public $yaw;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class Address extends Model
 {
     /**
-     * @description AddressLine
-     *
      * @var string
      */
     public $addressLine;
 
     /**
-     * @description City
-     *
      * @var string
      */
     public $city;
 
     /**
-     * @description Country
-     *
      * @var string
      */
     public $country;
 
     /**
-     * @description District
-     *
      * @var string
      */
     public $district;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description Province
-     *
      * @var string
      */
     public $province;
 
     /**
-     * @description Township
-     *
      * @var string
      */
     public $township;

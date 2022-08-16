@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsResponseBody extends Model
 {
     /**
-     * @description 当总结果个数大于MaxResults时，用于翻页的token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 由ProjectItem组成的数组
-     *
      * @var Project[]
      */
     public $projects;
 
     /**
-     * @description 本次请求的唯一 ID
-     *
      * @var string
      */
     public $requestId;

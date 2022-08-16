@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
-     * @description 分组聚合的计数
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description 分组聚合的值
-     *
      * @var string
      */
     public $value;

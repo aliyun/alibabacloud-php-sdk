@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class WebofficeUser extends Model
 {
     /**
-     * @description 头像
-     *
      * @var string
      */
     public $avatar;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 名字
-     *
      * @var string
      */
     public $name;

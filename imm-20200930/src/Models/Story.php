@@ -14,113 +14,81 @@ class Story extends Model
     public $cover;
 
     /**
-     * @description CreateTime
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description CustomId
-     *
      * @var string
      */
     public $customId;
 
     /**
-     * @description CustomLabels
-     *
      * @var mixed[]
      */
     public $customLabels;
 
     /**
-     * @description DatasetName
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description FigureClusterIds
-     *
      * @var string[]
      */
     public $figureClusterIds;
 
     /**
-     * @description Files
-     *
      * @var File[]
      */
     public $files;
 
     /**
-     * @description ObjectId
-     *
      * @var string
      */
     public $objectId;
 
     /**
-     * @description ObjectType
-     *
      * @var string
      */
     public $objectType;
 
     /**
-     * @description OwnerId
-     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @description ProjectName
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description StoryEndTime
-     *
      * @var string
      */
     public $storyEndTime;
 
     /**
-     * @description StoryName
-     *
      * @var string
      */
     public $storyName;
 
     /**
-     * @description StoryStartTime
-     *
      * @var string
      */
     public $storyStartTime;
 
     /**
-     * @description StorySubType
-     *
      * @var string
      */
     public $storySubType;
 
     /**
-     * @description StoryType
-     *
      * @var string
      */
     public $storyType;
 
     /**
-     * @description UpdateTime
-     *
      * @var string
      */
     public $updateTime;

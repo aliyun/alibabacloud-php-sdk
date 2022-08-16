@@ -14,8 +14,6 @@ class CreateFigureClusteringTaskResponseBody extends Model
     public $eventId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

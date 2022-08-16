@@ -14,8 +14,6 @@ class CreateProjectResponseBody extends Model
     public $project;
 
     /**
-     * @description 本次请求的唯一 ID
-     *
      * @var string
      */
     public $requestId;

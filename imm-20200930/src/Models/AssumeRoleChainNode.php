@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleChainNode extends Model
 {
     /**
-     * @description 账号id
-     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @description 授权角色名
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 账号类型，普通账号填 user，服务账号填 service
-     *
      * @var string
      */
     public $type;

@@ -29,8 +29,6 @@ class QueryFigureClustersRequest extends Model
     public $nextToken;
 
     /**
-     * @description 升降序
-     *
      * @var string
      */
     public $order;
@@ -41,8 +39,6 @@ class QueryFigureClustersRequest extends Model
     public $projectName;
 
     /**
-     * @description 排序字段
-     *
      * @var string
      */
     public $sort;

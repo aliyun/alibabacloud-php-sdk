@@ -14,8 +14,6 @@ class CreateBindingResponseBody extends Model
     public $binding;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

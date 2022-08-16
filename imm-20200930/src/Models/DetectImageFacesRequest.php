@@ -14,8 +14,6 @@ class DetectImageFacesRequest extends Model
     public $credentialConfig;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

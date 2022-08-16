@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetectImageLabelsResponseBody extends Model
 {
     /**
-     * @description 内容标签列表
-     *
      * @var Label[]
      */
     public $labels;
 
     /**
-     * @description 请求唯一ID
-     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListTasksResponseBody extends Model
 {
     /**
-     * @description 最大结果数量
-     *
      * @var string
      */
     public $maxResults;
 
     /**
-     * @description 翻页标记
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 请求唯一Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务信息
-     *
      * @var TaskInfo[]
      */
     public $tasks;

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class Label extends Model
 {
     /**
-     * @description CentricScore
-     *
      * @var float
      */
     public $centricScore;
 
     /**
-     * @description LabelConfidence
-     *
      * @var float
      */
     public $labelConfidence;
 
     /**
-     * @description LabelLevel
-     *
      * @var int
      */
     public $labelLevel;
 
     /**
-     * @description LabelName
-     *
      * @var string
      */
     public $labelName;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description ParentLabelName
-     *
      * @var string
      */
     public $parentLabelName;

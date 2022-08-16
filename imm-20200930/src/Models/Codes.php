@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class Codes extends Model
 {
     /**
-     * @description Boundary
-     *
      * @var Boundary
      */
     public $boundary;
 
     /**
-     * @description Confidence
-     *
      * @var float
      */
     public $confidence;
 
     /**
-     * @description Content
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description Type
-     *
      * @var string
      */
     public $type;

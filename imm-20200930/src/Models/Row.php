@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Row extends Model
 {
     /**
-     * @description CustomLabels
-     *
      * @var KeyValuePair[]
      */
     public $customLabels;
 
     /**
-     * @description URI
-     *
      * @var string
      */
     public $URI;

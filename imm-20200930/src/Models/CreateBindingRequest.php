@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateBindingRequest extends Model
 {
     /**
-     * @description DatasetName
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description ProjectName
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description URI
-     *
      * @var string
      */
     public $URI;

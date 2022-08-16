@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Body extends Model
 {
     /**
-     * @description Boundary
-     *
      * @var Boundary
      */
     public $boundary;
 
     /**
-     * @description Confidence
-     *
      * @var float
      */
     public $confidence;

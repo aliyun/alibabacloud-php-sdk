@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateDetectVideoLabelsTaskResponseBody extends Model
 {
     /**
-     * @description 事件Id
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description 请求唯一Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务唯一ID
-     *
      * @var string
      */
     public $taskId;

@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class GetDetectVideoLabelsResultResponseBody extends Model
 {
     /**
-     * @description 任务错误码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 任务结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 事件Id
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description 标签列表
-     *
      * @var Label[]
      */
     public $labels;
 
     /**
-     * @description 任务错误消息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description 请求唯一Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 任务运行状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 任务唯一ID
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description 任务类型
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description 用户自定义信息
-     *
      * @var string
      */
     public $userData;

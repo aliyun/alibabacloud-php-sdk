@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class OCRContents extends Model
 {
     /**
-     * @description Boundary
-     *
      * @var Boundary
      */
     public $boundary;
 
     /**
-     * @description Confidence
-     *
      * @var float
      */
     public $confidence;
 
     /**
-     * @description Contents
-     *
      * @var string
      */
     public $contents;
 
     /**
-     * @description Language
-     *
      * @var string
      */
     public $language;

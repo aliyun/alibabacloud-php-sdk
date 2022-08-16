@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetectImageBodiesResponseBody extends Model
 {
     /**
-     * @description 图片裁剪结果
-     *
      * @var Body[]
      */
     public $bodies;
 
     /**
-     * @description 请求唯一ID
-     *
      * @var string
      */
     public $requestId;

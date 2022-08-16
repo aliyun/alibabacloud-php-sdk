@@ -14,8 +14,6 @@ class DetectImageFacesShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;

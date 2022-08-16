@@ -14,29 +14,21 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public $credentialConfig;
 
     /**
-     * @description NotifyEndpoint
-     *
      * @var string
      */
     public $notifyEndpoint;
 
     /**
-     * @description NotifyTopicName
-     *
      * @var string
      */
     public $notifyTopicName;
 
     /**
-     * @description 项目名称
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description SourceURI
-     *
      * @var string
      */
     public $sourceURI;
@@ -47,8 +39,6 @@ class CreateDetectVideoLabelsTaskRequest extends Model
     public $tags;
 
     /**
-     * @description UserData
-     *
      * @var string
      */
     public $userData;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class Boundary extends Model
 {
     /**
-     * @description Height
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description Left
-     *
      * @var int
      */
     public $left;
 
     /**
-     * @description Top
-     *
      * @var int
      */
     public $top;
 
     /**
-     * @description Width
-     *
      * @var int
      */
     public $width;

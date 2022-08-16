@@ -25,8 +25,6 @@ class AddStoryFilesRequest extends Model
     public $objectId;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $projectName;
