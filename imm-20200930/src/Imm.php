@@ -761,9 +761,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -826,9 +823,6 @@ class Imm extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
             $query['DatasetName'] = $request->datasetName;
-        }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;

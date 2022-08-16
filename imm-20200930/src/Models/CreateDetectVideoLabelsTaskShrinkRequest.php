@@ -16,11 +16,6 @@ class CreateDetectVideoLabelsTaskShrinkRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
@@ -44,7 +39,6 @@ class CreateDetectVideoLabelsTaskShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'credentialConfigShrink' => 'CredentialConfig',
-        'notifyEndpoint'         => 'NotifyEndpoint',
         'notifyTopicName'        => 'NotifyTopicName',
         'projectName'            => 'ProjectName',
         'sourceURI'              => 'SourceURI',
@@ -61,9 +55,6 @@ class CreateDetectVideoLabelsTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
@@ -94,9 +85,6 @@ class CreateDetectVideoLabelsTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
