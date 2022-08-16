@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListDataPackagesResponseBody extends Model
 {
     /**
-     * @description 数组，返回示例目录。
-     *
      * @var dataPackages[]
      */
     public $dataPackages;
@@ -27,8 +25,6 @@ class ListDataPackagesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

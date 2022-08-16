@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListWirelessCloudConnectorsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessType;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -38,6 +43,7 @@ class ListWirelessCloudConnectorsRequest extends Model
      */
     public $wirelessCloudConnectorIds;
     protected $_name = [
+        'businessType'              => 'BusinessType',
         'maxResults'                => 'MaxResults',
         'names'                     => 'Names',
         'nextToken'                 => 'NextToken',
@@ -53,6 +59,9 @@ class ListWirelessCloudConnectorsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -83,6 +92,9 @@ class ListWirelessCloudConnectorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

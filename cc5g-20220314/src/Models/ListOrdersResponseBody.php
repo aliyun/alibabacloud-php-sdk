@@ -20,15 +20,11 @@ class ListOrdersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 数组，返回示例目录。
-     *
      * @var orders[]
      */
     public $orders;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

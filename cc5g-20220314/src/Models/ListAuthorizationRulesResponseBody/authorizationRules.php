@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class authorizationRules extends Model
 {
     /**
-     * @description 资源一级ID
-     *
      * @var string
      */
     public $authorizationRuleId;
@@ -36,13 +34,11 @@ class authorizationRules extends Model
     public $destinationType;
 
     /**
-     * @var string
+     * @var bool
      */
     public $dns;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $name;
@@ -58,8 +54,6 @@ class authorizationRules extends Model
     public $sourceCidr;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $status;

@@ -12,6 +12,11 @@ class CreateWirelessCloudConnectorRequest extends Model
     /**
      * @var string
      */
+    public $businessType;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -49,14 +54,15 @@ class CreateWirelessCloudConnectorRequest extends Model
      */
     public $useCase;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'description' => 'Description',
-        'dryRun'      => 'DryRun',
-        'ISP'         => 'ISP',
-        'name'        => 'Name',
-        'netLinks'    => 'NetLinks',
-        'regionId'    => 'RegionId',
-        'useCase'     => 'UseCase',
+        'businessType' => 'BusinessType',
+        'clientToken'  => 'ClientToken',
+        'description'  => 'Description',
+        'dryRun'       => 'DryRun',
+        'ISP'          => 'ISP',
+        'name'         => 'Name',
+        'netLinks'     => 'NetLinks',
+        'regionId'     => 'RegionId',
+        'useCase'      => 'UseCase',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class CreateWirelessCloudConnectorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -108,6 +117,9 @@ class CreateWirelessCloudConnectorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

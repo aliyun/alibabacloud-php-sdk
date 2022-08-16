@@ -14,8 +14,6 @@ class AddDNSAuthorizationRuleResponseBody extends Model
     public $authorizationRuleId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

@@ -34,8 +34,6 @@ class dataPackages extends Model
     public $ISP;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $name;
@@ -46,8 +44,6 @@ class dataPackages extends Model
     public $size;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $status;

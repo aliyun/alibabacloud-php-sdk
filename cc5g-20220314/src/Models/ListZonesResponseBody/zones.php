@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $zoneId;

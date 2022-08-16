@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class cards extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $APN;
@@ -23,6 +21,11 @@ class cards extends Model
     /**
      * @var string
      */
+    public $businessStatus;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -31,8 +34,6 @@ class cards extends Model
     public $ISP;
 
     /**
-     * @description 资源一级ID
-     *
      * @var string
      */
     public $iccid;
@@ -60,11 +61,14 @@ class cards extends Model
     /**
      * @var string
      */
+    public $msisdn;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $netType;
@@ -88,9 +92,15 @@ class cards extends Model
      * @var int
      */
     public $usageDataMonth;
+
+    /**
+     * @var string
+     */
+    public $usageDataTotal;
     protected $_name = [
         'APN'            => 'APN',
         'activatedTime'  => 'ActivatedTime',
+        'businessStatus' => 'BusinessStatus',
         'description'    => 'Description',
         'ISP'            => 'ISP',
         'iccid'          => 'Iccid',
@@ -98,12 +108,14 @@ class cards extends Model
         'imsi'           => 'Imsi',
         'ipAddress'      => 'IpAddress',
         'lock'           => 'Lock',
+        'msisdn'         => 'Msisdn',
         'name'           => 'Name',
         'netType'        => 'NetType',
         'orderId'        => 'OrderId',
         'spec'           => 'Spec',
         'status'         => 'Status',
         'usageDataMonth' => 'UsageDataMonth',
+        'usageDataTotal' => 'UsageDataTotal',
     ];
 
     public function validate()
@@ -118,6 +130,9 @@ class cards extends Model
         }
         if (null !== $this->activatedTime) {
             $res['ActivatedTime'] = $this->activatedTime;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -140,6 +155,9 @@ class cards extends Model
         if (null !== $this->lock) {
             $res['Lock'] = $this->lock;
         }
+        if (null !== $this->msisdn) {
+            $res['Msisdn'] = $this->msisdn;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -158,6 +176,9 @@ class cards extends Model
         if (null !== $this->usageDataMonth) {
             $res['UsageDataMonth'] = $this->usageDataMonth;
         }
+        if (null !== $this->usageDataTotal) {
+            $res['UsageDataTotal'] = $this->usageDataTotal;
+        }
 
         return $res;
     }
@@ -175,6 +196,9 @@ class cards extends Model
         }
         if (isset($map['ActivatedTime'])) {
             $model->activatedTime = $map['ActivatedTime'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -197,6 +221,9 @@ class cards extends Model
         if (isset($map['Lock'])) {
             $model->lock = $map['Lock'];
         }
+        if (isset($map['Msisdn'])) {
+            $model->msisdn = $map['Msisdn'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -214,6 +241,9 @@ class cards extends Model
         }
         if (isset($map['UsageDataMonth'])) {
             $model->usageDataMonth = $map['UsageDataMonth'];
+        }
+        if (isset($map['UsageDataTotal'])) {
+            $model->usageDataTotal = $map['UsageDataTotal'];
         }
 
         return $model;

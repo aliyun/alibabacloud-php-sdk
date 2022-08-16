@@ -16,7 +16,7 @@ class ListCardsRequest extends Model
     /**
      * @var string
      */
-    public $destinationType;
+    public $iccid;
 
     /**
      * @var string[]
@@ -61,15 +61,10 @@ class ListCardsRequest extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
     public $wirelessCloudConnectorId;
     protected $_name = [
         'apn'                      => 'Apn',
-        'destinationType'          => 'DestinationType',
+        'iccid'                    => 'Iccid',
         'iccids'                   => 'Iccids',
         'ipAddress'                => 'IpAddress',
         'lock'                     => 'Lock',
@@ -78,7 +73,6 @@ class ListCardsRequest extends Model
         'nextToken'                => 'NextToken',
         'online'                   => 'Online',
         'statuses'                 => 'Statuses',
-        'vpcId'                    => 'VpcId',
         'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
     ];
 
@@ -92,8 +86,8 @@ class ListCardsRequest extends Model
         if (null !== $this->apn) {
             $res['Apn'] = $this->apn;
         }
-        if (null !== $this->destinationType) {
-            $res['DestinationType'] = $this->destinationType;
+        if (null !== $this->iccid) {
+            $res['Iccid'] = $this->iccid;
         }
         if (null !== $this->iccids) {
             $res['Iccids'] = $this->iccids;
@@ -119,9 +113,6 @@ class ListCardsRequest extends Model
         if (null !== $this->statuses) {
             $res['Statuses'] = $this->statuses;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->wirelessCloudConnectorId) {
             $res['WirelessCloudConnectorId'] = $this->wirelessCloudConnectorId;
         }
@@ -140,8 +131,8 @@ class ListCardsRequest extends Model
         if (isset($map['Apn'])) {
             $model->apn = $map['Apn'];
         }
-        if (isset($map['DestinationType'])) {
-            $model->destinationType = $map['DestinationType'];
+        if (isset($map['Iccid'])) {
+            $model->iccid = $map['Iccid'];
         }
         if (isset($map['Iccids'])) {
             if (!empty($map['Iccids'])) {
@@ -170,9 +161,6 @@ class ListCardsRequest extends Model
             if (!empty($map['Statuses'])) {
                 $model->statuses = $map['Statuses'];
             }
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
         }
         if (isset($map['WirelessCloudConnectorId'])) {
             $model->wirelessCloudConnectorId = $map['WirelessCloudConnectorId'];

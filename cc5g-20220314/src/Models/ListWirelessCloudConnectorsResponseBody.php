@@ -20,8 +20,6 @@ class ListWirelessCloudConnectorsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -32,8 +30,6 @@ class ListWirelessCloudConnectorsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description 数组，返回示例目录。
-     *
      * @var wirelessCloudConnectors[]
      */
     public $wirelessCloudConnectors;

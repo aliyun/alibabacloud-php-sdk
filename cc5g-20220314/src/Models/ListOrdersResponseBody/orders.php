@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class orders extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $action;
@@ -91,8 +89,6 @@ class orders extends Model
     public $regionId;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $status;

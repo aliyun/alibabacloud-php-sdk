@@ -11,6 +11,11 @@ class wirelessCloudConnectors extends Model
     /**
      * @var string
      */
+    public $businessType;
+
+    /**
+     * @var string
+     */
     public $cardCount;
 
     /**
@@ -34,8 +39,6 @@ class wirelessCloudConnectors extends Model
     public $description;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $name;
@@ -46,8 +49,6 @@ class wirelessCloudConnectors extends Model
     public $regionId;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $status;
@@ -58,12 +59,11 @@ class wirelessCloudConnectors extends Model
     public $useCase;
 
     /**
-     * @description 资源一级ID
-     *
      * @var string
      */
     public $wirelessCloudConnectorId;
     protected $_name = [
+        'businessType'             => 'BusinessType',
         'cardCount'                => 'CardCount',
         'createTime'               => 'CreateTime',
         'dataPackageId'            => 'DataPackageId',
@@ -83,6 +83,9 @@ class wirelessCloudConnectors extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
         if (null !== $this->cardCount) {
             $res['CardCount'] = $this->cardCount;
         }
@@ -125,6 +128,9 @@ class wirelessCloudConnectors extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
         if (isset($map['CardCount'])) {
             $model->cardCount = $map['CardCount'];
         }

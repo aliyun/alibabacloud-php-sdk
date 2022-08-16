@@ -12,6 +12,11 @@ class GetWirelessCloudConnectorResponseBody extends Model
     /**
      * @var string
      */
+    public $businessType;
+
+    /**
+     * @var string
+     */
     public $cardCount;
 
     /**
@@ -35,13 +40,16 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public $description;
 
     /**
+     * @var string[]
+     */
+    public $features;
+
+    /**
      * @var string
      */
     public $name;
 
     /**
-     * @description 数组，返回示例目录。
-     *
      * @var netLinks[]
      */
     public $netLinks;
@@ -52,8 +60,6 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public $regionId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -73,11 +79,13 @@ class GetWirelessCloudConnectorResponseBody extends Model
      */
     public $wirelessCloudConnectorId;
     protected $_name = [
+        'businessType'             => 'BusinessType',
         'cardCount'                => 'CardCount',
         'createTime'               => 'CreateTime',
         'dataPackageId'            => 'DataPackageId',
         'dataPackageType'          => 'DataPackageType',
         'description'              => 'Description',
+        'features'                 => 'Features',
         'name'                     => 'Name',
         'netLinks'                 => 'NetLinks',
         'regionId'                 => 'RegionId',
@@ -94,6 +102,9 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
         if (null !== $this->cardCount) {
             $res['CardCount'] = $this->cardCount;
         }
@@ -108,6 +119,9 @@ class GetWirelessCloudConnectorResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->features) {
+            $res['Features'] = $this->features;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -148,6 +162,9 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
         if (isset($map['CardCount'])) {
             $model->cardCount = $map['CardCount'];
         }
@@ -162,6 +179,11 @@ class GetWirelessCloudConnectorResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Features'])) {
+            if (!empty($map['Features'])) {
+                $model->features = $map['Features'];
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

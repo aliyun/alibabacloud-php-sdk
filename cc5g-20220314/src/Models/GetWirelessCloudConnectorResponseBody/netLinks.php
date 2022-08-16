@@ -29,15 +29,11 @@ class netLinks extends Model
     public $ISP;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 资源名称
-     *
      * @var string
      */
     public $netLinkId;
