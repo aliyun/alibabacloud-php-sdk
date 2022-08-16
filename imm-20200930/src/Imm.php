@@ -45,6 +45,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskShrinkRequest
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageSplicingTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageSplicingTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageSplicingTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageToPDFTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageToPDFTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageToPDFTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskShrinkRequest;
@@ -1107,6 +1110,78 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageSplicingTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateImageToPDFTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateImageToPDFTaskResponse
+     */
+    public function createImageToPDFTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateImageToPDFTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sources)) {
+            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourcesShrink)) {
+            $query['Sources'] = $request->sourcesShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->targetURI)) {
+            $query['TargetURI'] = $request->targetURI;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateImageToPDFTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateImageToPDFTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateImageToPDFTaskRequest $request
+     *
+     * @return CreateImageToPDFTaskResponse
+     */
+    public function createImageToPDFTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageToPDFTaskWithOptions($request, $runtime);
     }
 
     /**
