@@ -26,8 +26,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\CopySceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CopySceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateUploadPolicyRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\CreateUploadPolicyResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DecryptContentRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\DecryptContentResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailProjectResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneRequest;
@@ -40,8 +38,6 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSceneResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSubSceneRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DropSubSceneResponse;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\EncryptContentRequest;
-use AlibabaCloud\SDK\Tdsr\V20200101\Models\EncryptContentResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetConnDataResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\GetCopySceneTaskStatusRequest;
@@ -124,6 +120,8 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagListRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagListResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveHotspotTagResponse;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveMinimapRequest;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveMinimapResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveModelConfigRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\SaveModelConfigResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\ScenePublishRequest;
@@ -658,49 +656,6 @@ class Tdsr extends OpenApiClient
     }
 
     /**
-     * @param DecryptContentRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DecryptContentResponse
-     */
-    public function decryptContentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DecryptContent',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DecryptContentResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DecryptContentRequest $request
-     *
-     * @return DecryptContentResponse
-     */
-    public function decryptContent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->decryptContentWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetailProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -956,49 +911,6 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dropSubSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EncryptContentRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return EncryptContentResponse
-     */
-    public function encryptContentWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EncryptContent',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return EncryptContentResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param EncryptContentRequest $request
-     *
-     * @return EncryptContentResponse
-     */
-    public function encryptContent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->encryptContentWithOptions($request, $runtime);
     }
 
     /**
@@ -2903,6 +2815,52 @@ class Tdsr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveHotspotTagListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveMinimapRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SaveMinimapResponse
+     */
+    public function saveMinimapWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->data)) {
+            $query['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $query['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveMinimap',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveMinimapResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveMinimapRequest $request
+     *
+     * @return SaveMinimapResponse
+     */
+    public function saveMinimap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveMinimapWithOptions($request, $runtime);
     }
 
     /**
