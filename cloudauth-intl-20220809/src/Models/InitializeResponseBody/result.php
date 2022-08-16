@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $transactionId;
+    public $clientCfg;
 
     /**
      * @var string
      */
-    public $clientCfg;
+    public $transactionId;
     protected $_name = [
+        'clientCfg'     => 'ClientCfg',
         'transactionId' => 'TransactionId',
-        'clientCfg'     => 'clientCfg',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientCfg) {
+            $res['ClientCfg'] = $this->clientCfg;
+        }
         if (null !== $this->transactionId) {
             $res['TransactionId'] = $this->transactionId;
-        }
-        if (null !== $this->clientCfg) {
-            $res['clientCfg'] = $this->clientCfg;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientCfg'])) {
+            $model->clientCfg = $map['ClientCfg'];
+        }
         if (isset($map['TransactionId'])) {
             $model->transactionId = $map['TransactionId'];
-        }
-        if (isset($map['clientCfg'])) {
-            $model->clientCfg = $map['clientCfg'];
         }
 
         return $model;
