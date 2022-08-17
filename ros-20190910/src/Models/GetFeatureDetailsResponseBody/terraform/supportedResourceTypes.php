@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedResourceTypes\stackOperationRisk;
 use AlibabaCloud\Tea\Model;
 
 class supportedResourceTypes extends Model
@@ -24,14 +25,20 @@ class supportedResourceTypes extends Model
     public $resourceGroup;
 
     /**
+     * @var stackOperationRisk
+     */
+    public $stackOperationRisk;
+
+    /**
      * @var string[]
      */
     public $systemTag;
     protected $_name = [
-        'customTag'     => 'CustomTag',
-        'estimateCost'  => 'EstimateCost',
-        'resourceGroup' => 'ResourceGroup',
-        'systemTag'     => 'SystemTag',
+        'customTag'          => 'CustomTag',
+        'estimateCost'       => 'EstimateCost',
+        'resourceGroup'      => 'ResourceGroup',
+        'stackOperationRisk' => 'StackOperationRisk',
+        'systemTag'          => 'SystemTag',
     ];
 
     public function validate()
@@ -49,6 +56,9 @@ class supportedResourceTypes extends Model
         }
         if (null !== $this->resourceGroup) {
             $res['ResourceGroup'] = $this->resourceGroup;
+        }
+        if (null !== $this->stackOperationRisk) {
+            $res['StackOperationRisk'] = null !== $this->stackOperationRisk ? $this->stackOperationRisk->toMap() : null;
         }
         if (null !== $this->systemTag) {
             $res['SystemTag'] = $this->systemTag;
@@ -79,6 +89,9 @@ class supportedResourceTypes extends Model
             if (!empty($map['ResourceGroup'])) {
                 $model->resourceGroup = $map['ResourceGroup'];
             }
+        }
+        if (isset($map['StackOperationRisk'])) {
+            $model->stackOperationRisk = stackOperationRisk::fromMap($map['StackOperationRisk']);
         }
         if (isset($map['SystemTag'])) {
             if (!empty($map['SystemTag'])) {
