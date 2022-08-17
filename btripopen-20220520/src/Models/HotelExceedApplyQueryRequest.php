@@ -12,14 +12,8 @@ class HotelExceedApplyQueryRequest extends Model
      * @var int
      */
     public $applyId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'applyId' => 'apply_id',
-        'userId'  => 'user_id',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class HotelExceedApplyQueryRequest extends Model
         $res = [];
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
-        }
-        if (null !== $this->userId) {
-            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class HotelExceedApplyQueryRequest extends Model
         $model = new self();
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
-        }
-        if (isset($map['user_id'])) {
-            $model->userId = $map['user_id'];
         }
 
         return $model;

@@ -289,14 +289,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->itineraryList)) {
             $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
         }
-        if (!Utils::isUnset($tmpReq->itinerarySetList)) {
-            $request->itinerarySetListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
-        }
         if (!Utils::isUnset($tmpReq->travelerList)) {
             $request->travelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
         }
         if (!Utils::isUnset($tmpReq->travelerStandard)) {
             $request->travelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->internationalFlightCabins)) {
+            $query['international_flight_cabins'] = $request->internationalFlightCabins;
         }
         $body = [];
         if (!Utils::isUnset($request->budget)) {
@@ -331,12 +332,6 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
-        }
-        if (!Utils::isUnset($request->itineraryRule)) {
-            $body['itinerary_rule'] = $request->itineraryRule;
-        }
-        if (!Utils::isUnset($request->itinerarySetListShrink)) {
-            $body['itinerary_set_list'] = $request->itinerarySetListShrink;
         }
         if (!Utils::isUnset($request->limitTraveler)) {
             $body['limit_traveler'] = $request->limitTraveler;
@@ -388,6 +383,7 @@ class BtripOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -789,9 +785,6 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->corpId)) {
-            $body['corp_id'] = $request->corpId;
-        }
         if (!Utils::isUnset($request->operateTime)) {
             $body['operate_time'] = $request->operateTime;
         }
@@ -1984,9 +1977,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -2345,6 +2335,9 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->title)) {
             $query['title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2705,9 +2698,6 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['user_id'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

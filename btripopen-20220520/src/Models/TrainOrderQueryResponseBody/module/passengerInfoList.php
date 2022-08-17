@@ -41,11 +41,6 @@ class passengerInfoList extends Model
     /**
      * @var string
      */
-    public $thirdpartCostCenterId;
-
-    /**
-     * @var string
-     */
     public $thirdpartProjectId;
 
     /**
@@ -63,17 +58,16 @@ class passengerInfoList extends Model
      */
     public $userType;
     protected $_name = [
-        'costCenterId'          => 'cost_center_id',
-        'costCenterName'        => 'cost_center_name',
-        'costCenterNumber'      => 'cost_center_number',
-        'projectCode'           => 'project_code',
-        'projectId'             => 'project_id',
-        'projectTitle'          => 'project_title',
-        'thirdpartCostCenterId' => 'thirdpart_cost_center_id',
-        'thirdpartProjectId'    => 'thirdpart_project_id',
-        'userId'                => 'user_id',
-        'userName'              => 'user_name',
-        'userType'              => 'user_type',
+        'costCenterId'       => 'cost_center_id',
+        'costCenterName'     => 'cost_center_name',
+        'costCenterNumber'   => 'cost_center_number',
+        'projectCode'        => 'project_code',
+        'projectId'          => 'project_id',
+        'projectTitle'       => 'project_title',
+        'thirdpartProjectId' => 'thirdpart_project_id',
+        'userId'             => 'user_id',
+        'userName'           => 'user_name',
+        'userType'           => 'user_type',
     ];
 
     public function validate()
@@ -100,9 +94,6 @@ class passengerInfoList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
-        }
-        if (null !== $this->thirdpartCostCenterId) {
-            $res['thirdpart_cost_center_id'] = $this->thirdpartCostCenterId;
         }
         if (null !== $this->thirdpartProjectId) {
             $res['thirdpart_project_id'] = $this->thirdpartProjectId;
@@ -145,9 +136,6 @@ class passengerInfoList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
-        }
-        if (isset($map['thirdpart_cost_center_id'])) {
-            $model->thirdpartCostCenterId = $map['thirdpart_cost_center_id'];
         }
         if (isset($map['thirdpart_project_id'])) {
             $model->thirdpartProjectId = $map['thirdpart_project_id'];

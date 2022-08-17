@@ -20,11 +20,6 @@ class InvoiceSearchResponseBody extends Model
     public $module;
 
     /**
-     * @var bool
-     */
-    public $morePage;
-
-    /**
      * @var int
      */
     public $resultCode;
@@ -46,7 +41,6 @@ class InvoiceSearchResponseBody extends Model
     protected $_name = [
         'requestId'  => 'RequestId',
         'module'     => 'module',
-        'morePage'   => 'more_page',
         'resultCode' => 'result_code',
         'resultMsg'  => 'result_msg',
         'success'    => 'success',
@@ -71,9 +65,6 @@ class InvoiceSearchResponseBody extends Model
                     $res['module'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->morePage) {
-            $res['more_page'] = $this->morePage;
         }
         if (null !== $this->resultCode) {
             $res['result_code'] = $this->resultCode;
@@ -110,9 +101,6 @@ class InvoiceSearchResponseBody extends Model
                     $model->module[$n++] = null !== $item ? module::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['more_page'])) {
-            $model->morePage = $map['more_page'];
         }
         if (isset($map['result_code'])) {
             $model->resultCode = $map['result_code'];

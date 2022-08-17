@@ -8,7 +8,6 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\externalTraveler
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\externalTravelerStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\hotelShare;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\itineraryList;
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\itinerarySetList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerStandard;
 use AlibabaCloud\Tea\Model;
@@ -66,19 +65,14 @@ class ApplyAddRequest extends Model
     public $hotelShare;
 
     /**
+     * @var string
+     */
+    public $internationalFlightCabins;
+
+    /**
      * @var itineraryList[]
      */
     public $itineraryList;
-
-    /**
-     * @var int
-     */
-    public $itineraryRule;
-
-    /**
-     * @var itinerarySetList[]
-     */
-    public $itinerarySetList;
 
     /**
      * @var int
@@ -160,35 +154,34 @@ class ApplyAddRequest extends Model
      */
     public $vehicleBudget;
     protected $_name = [
-        'budget'                   => 'budget',
-        'budgetMerge'              => 'budget_merge',
-        'corpName'                 => 'corp_name',
-        'departId'                 => 'depart_id',
-        'departName'               => 'depart_name',
-        'externalTravelerList'     => 'external_traveler_list',
-        'externalTravelerStandard' => 'external_traveler_standard',
-        'flightBudget'             => 'flight_budget',
-        'hotelBudget'              => 'hotel_budget',
-        'hotelShare'               => 'hotel_share',
-        'itineraryList'            => 'itinerary_list',
-        'itineraryRule'            => 'itinerary_rule',
-        'itinerarySetList'         => 'itinerary_set_list',
-        'limitTraveler'            => 'limit_traveler',
-        'status'                   => 'status',
-        'thirdpartApplyId'         => 'thirdpart_apply_id',
-        'thirdpartBusinessId'      => 'thirdpart_business_id',
-        'togetherBookRule'         => 'together_book_rule',
-        'trainBudget'              => 'train_budget',
-        'travelerList'             => 'traveler_list',
-        'travelerStandard'         => 'traveler_standard',
-        'tripCause'                => 'trip_cause',
-        'tripDay'                  => 'trip_day',
-        'tripTitle'                => 'trip_title',
-        'type'                     => 'type',
-        'unionNo'                  => 'union_no',
-        'userId'                   => 'user_id',
-        'userName'                 => 'user_name',
-        'vehicleBudget'            => 'vehicle_budget',
+        'budget'                    => 'budget',
+        'budgetMerge'               => 'budget_merge',
+        'corpName'                  => 'corp_name',
+        'departId'                  => 'depart_id',
+        'departName'                => 'depart_name',
+        'externalTravelerList'      => 'external_traveler_list',
+        'externalTravelerStandard'  => 'external_traveler_standard',
+        'flightBudget'              => 'flight_budget',
+        'hotelBudget'               => 'hotel_budget',
+        'hotelShare'                => 'hotel_share',
+        'internationalFlightCabins' => 'international_flight_cabins',
+        'itineraryList'             => 'itinerary_list',
+        'limitTraveler'             => 'limit_traveler',
+        'status'                    => 'status',
+        'thirdpartApplyId'          => 'thirdpart_apply_id',
+        'thirdpartBusinessId'       => 'thirdpart_business_id',
+        'togetherBookRule'          => 'together_book_rule',
+        'trainBudget'               => 'train_budget',
+        'travelerList'              => 'traveler_list',
+        'travelerStandard'          => 'traveler_standard',
+        'tripCause'                 => 'trip_cause',
+        'tripDay'                   => 'trip_day',
+        'tripTitle'                 => 'trip_title',
+        'type'                      => 'type',
+        'unionNo'                   => 'union_no',
+        'userId'                    => 'user_id',
+        'userName'                  => 'user_name',
+        'vehicleBudget'             => 'vehicle_budget',
     ];
 
     public function validate()
@@ -234,24 +227,15 @@ class ApplyAddRequest extends Model
         if (null !== $this->hotelShare) {
             $res['hotel_share'] = null !== $this->hotelShare ? $this->hotelShare->toMap() : null;
         }
+        if (null !== $this->internationalFlightCabins) {
+            $res['international_flight_cabins'] = $this->internationalFlightCabins;
+        }
         if (null !== $this->itineraryList) {
             $res['itinerary_list'] = [];
             if (null !== $this->itineraryList && \is_array($this->itineraryList)) {
                 $n = 0;
                 foreach ($this->itineraryList as $item) {
                     $res['itinerary_list'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->itineraryRule) {
-            $res['itinerary_rule'] = $this->itineraryRule;
-        }
-        if (null !== $this->itinerarySetList) {
-            $res['itinerary_set_list'] = [];
-            if (null !== $this->itinerarySetList && \is_array($this->itinerarySetList)) {
-                $n = 0;
-                foreach ($this->itinerarySetList as $item) {
-                    $res['itinerary_set_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -363,24 +347,15 @@ class ApplyAddRequest extends Model
         if (isset($map['hotel_share'])) {
             $model->hotelShare = hotelShare::fromMap($map['hotel_share']);
         }
+        if (isset($map['international_flight_cabins'])) {
+            $model->internationalFlightCabins = $map['international_flight_cabins'];
+        }
         if (isset($map['itinerary_list'])) {
             if (!empty($map['itinerary_list'])) {
                 $model->itineraryList = [];
                 $n                    = 0;
                 foreach ($map['itinerary_list'] as $item) {
                     $model->itineraryList[$n++] = null !== $item ? itineraryList::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['itinerary_rule'])) {
-            $model->itineraryRule = $map['itinerary_rule'];
-        }
-        if (isset($map['itinerary_set_list'])) {
-            if (!empty($map['itinerary_set_list'])) {
-                $model->itinerarySetList = [];
-                $n                       = 0;
-                foreach ($map['itinerary_set_list'] as $item) {
-                    $model->itinerarySetList[$n++] = null !== $item ? itinerarySetList::fromMap($item) : $item;
                 }
             }
         }

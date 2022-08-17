@@ -75,6 +75,11 @@ class moduleList extends Model
     /**
      * @var int
      */
+    public $itineraryRule;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -144,6 +149,7 @@ class moduleList extends Model
         'gmtModified'          => 'gmt_modified',
         'id'                   => 'id',
         'itineraryList'        => 'itinerary_list',
+        'itineraryRule'        => 'itinerary_rule',
         'status'               => 'status',
         'statusDesc'           => 'status_desc',
         'thirdpartBusinessId'  => 'thirdpart_business_id',
@@ -218,6 +224,9 @@ class moduleList extends Model
                     $res['itinerary_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->itineraryRule) {
+            $res['itinerary_rule'] = $this->itineraryRule;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -326,6 +335,9 @@ class moduleList extends Model
                     $model->itineraryList[$n++] = null !== $item ? itineraryList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['itinerary_rule'])) {
+            $model->itineraryRule = $map['itinerary_rule'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

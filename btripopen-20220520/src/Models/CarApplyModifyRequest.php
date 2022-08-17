@@ -11,11 +11,6 @@ class CarApplyModifyRequest extends Model
     /**
      * @var string
      */
-    public $corpId;
-
-    /**
-     * @var string
-     */
     public $operateTime;
 
     /**
@@ -38,7 +33,6 @@ class CarApplyModifyRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'corpId'           => 'corp_id',
         'operateTime'      => 'operate_time',
         'remark'           => 'remark',
         'status'           => 'status',
@@ -53,9 +47,6 @@ class CarApplyModifyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->corpId) {
-            $res['corp_id'] = $this->corpId;
-        }
         if (null !== $this->operateTime) {
             $res['operate_time'] = $this->operateTime;
         }
@@ -83,9 +74,6 @@ class CarApplyModifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['corp_id'])) {
-            $model->corpId = $map['corp_id'];
-        }
         if (isset($map['operate_time'])) {
             $model->operateTime = $map['operate_time'];
         }

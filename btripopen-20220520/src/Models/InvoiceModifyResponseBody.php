@@ -14,16 +14,6 @@ class InvoiceModifyResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
-     */
-    public $module;
-
-    /**
-     * @var bool
-     */
-    public $morePage;
-
-    /**
      * @var int
      */
     public $resultCode;
@@ -44,8 +34,6 @@ class InvoiceModifyResponseBody extends Model
     public $traceId;
     protected $_name = [
         'requestId'  => 'RequestId',
-        'module'     => 'module',
-        'morePage'   => 'more_page',
         'resultCode' => 'result_code',
         'resultMsg'  => 'result_msg',
         'success'    => 'success',
@@ -61,12 +49,6 @@ class InvoiceModifyResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->module) {
-            $res['module'] = $this->module;
-        }
-        if (null !== $this->morePage) {
-            $res['more_page'] = $this->morePage;
         }
         if (null !== $this->resultCode) {
             $res['result_code'] = $this->resultCode;
@@ -94,12 +76,6 @@ class InvoiceModifyResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['module'])) {
-            $model->module = $map['module'];
-        }
-        if (isset($map['more_page'])) {
-            $model->morePage = $map['more_page'];
         }
         if (isset($map['result_code'])) {
             $model->resultCode = $map['result_code'];

@@ -96,6 +96,11 @@ class module extends Model
     /**
      * @var int
      */
+    public $itineraryRule;
+
+    /**
+     * @var int
+     */
     public $limitTraveler;
 
     /**
@@ -189,6 +194,7 @@ class module extends Model
         'hotelShare'           => 'hotel_share',
         'id'                   => 'id',
         'itineraryList'        => 'itinerary_list',
+        'itineraryRule'        => 'itinerary_rule',
         'limitTraveler'        => 'limit_traveler',
         'status'               => 'status',
         'statusDesc'           => 'status_desc',
@@ -279,6 +285,9 @@ class module extends Model
                     $res['itinerary_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->itineraryRule) {
+            $res['itinerary_rule'] = $this->itineraryRule;
         }
         if (null !== $this->limitTraveler) {
             $res['limit_traveler'] = $this->limitTraveler;
@@ -411,6 +420,9 @@ class module extends Model
                     $model->itineraryList[$n++] = null !== $item ? itineraryList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['itinerary_rule'])) {
+            $model->itineraryRule = $map['itinerary_rule'];
         }
         if (isset($map['limit_traveler'])) {
             $model->limitTraveler = $map['limit_traveler'];

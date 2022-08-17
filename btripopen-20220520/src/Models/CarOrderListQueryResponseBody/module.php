@@ -136,11 +136,6 @@ class module extends Model
     public $memo;
 
     /**
-     * @var string
-     */
-    public $orderId;
-
-    /**
      * @var int
      */
     public $orderStatus;
@@ -290,7 +285,6 @@ class module extends Model
         'invoiceTitle'         => 'invoice_title',
         'isSpecial'            => 'is_special',
         'memo'                 => 'memo',
-        'orderId'              => 'order_id',
         'orderStatus'          => 'order_status',
         'passengerName'        => 'passenger_name',
         'payTime'              => 'pay_time',
@@ -399,9 +393,6 @@ class module extends Model
         }
         if (null !== $this->memo) {
             $res['memo'] = $this->memo;
-        }
-        if (null !== $this->orderId) {
-            $res['order_id'] = $this->orderId;
         }
         if (null !== $this->orderStatus) {
             $res['order_status'] = $this->orderStatus;
@@ -576,9 +567,6 @@ class module extends Model
         }
         if (isset($map['memo'])) {
             $model->memo = $map['memo'];
-        }
-        if (isset($map['order_id'])) {
-            $model->orderId = $map['order_id'];
         }
         if (isset($map['order_status'])) {
             $model->orderStatus = $map['order_status'];

@@ -12,8 +12,14 @@ class InvoiceSearchRequest extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'title' => 'title',
+        'title'  => 'title',
+        'userId' => 'user_id',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class InvoiceSearchRequest extends Model
         $res = [];
         if (null !== $this->title) {
             $res['title'] = $this->title;
+        }
+        if (null !== $this->userId) {
+            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class InvoiceSearchRequest extends Model
         $model = new self();
         if (isset($map['title'])) {
             $model->title = $map['title'];
+        }
+        if (isset($map['user_id'])) {
+            $model->userId = $map['user_id'];
         }
 
         return $model;

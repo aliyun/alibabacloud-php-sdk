@@ -21,6 +21,11 @@ class priceInfoList extends Model
     /**
      * @var string
      */
+    public $gmtCreate;
+
+    /**
+     * @var string
+     */
     public $passengerName;
 
     /**
@@ -50,6 +55,7 @@ class priceInfoList extends Model
     protected $_name = [
         'categoryCode'  => 'category_code',
         'categoryType'  => 'category_type',
+        'gmtCreate'     => 'gmt_create',
         'passengerName' => 'passenger_name',
         'payType'       => 'pay_type',
         'personPrice'   => 'person_price',
@@ -70,6 +76,9 @@ class priceInfoList extends Model
         }
         if (null !== $this->categoryType) {
             $res['category_type'] = $this->categoryType;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['gmt_create'] = $this->gmtCreate;
         }
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
@@ -106,6 +115,9 @@ class priceInfoList extends Model
         }
         if (isset($map['category_type'])) {
             $model->categoryType = $map['category_type'];
+        }
+        if (isset($map['gmt_create'])) {
+            $model->gmtCreate = $map['gmt_create'];
         }
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];

@@ -61,17 +61,12 @@ class ApplyAddShrinkRequest extends Model
     /**
      * @var string
      */
-    public $itineraryListShrink;
-
-    /**
-     * @var int
-     */
-    public $itineraryRule;
+    public $internationalFlightCabins;
 
     /**
      * @var string
      */
-    public $itinerarySetListShrink;
+    public $itineraryListShrink;
 
     /**
      * @var int
@@ -163,9 +158,8 @@ class ApplyAddShrinkRequest extends Model
         'flightBudget'                   => 'flight_budget',
         'hotelBudget'                    => 'hotel_budget',
         'hotelShareShrink'               => 'hotel_share',
+        'internationalFlightCabins'      => 'international_flight_cabins',
         'itineraryListShrink'            => 'itinerary_list',
-        'itineraryRule'                  => 'itinerary_rule',
-        'itinerarySetListShrink'         => 'itinerary_set_list',
         'limitTraveler'                  => 'limit_traveler',
         'status'                         => 'status',
         'thirdpartApplyId'               => 'thirdpart_apply_id',
@@ -221,14 +215,11 @@ class ApplyAddShrinkRequest extends Model
         if (null !== $this->hotelShareShrink) {
             $res['hotel_share'] = $this->hotelShareShrink;
         }
+        if (null !== $this->internationalFlightCabins) {
+            $res['international_flight_cabins'] = $this->internationalFlightCabins;
+        }
         if (null !== $this->itineraryListShrink) {
             $res['itinerary_list'] = $this->itineraryListShrink;
-        }
-        if (null !== $this->itineraryRule) {
-            $res['itinerary_rule'] = $this->itineraryRule;
-        }
-        if (null !== $this->itinerarySetListShrink) {
-            $res['itinerary_set_list'] = $this->itinerarySetListShrink;
         }
         if (null !== $this->limitTraveler) {
             $res['limit_traveler'] = $this->limitTraveler;
@@ -320,14 +311,11 @@ class ApplyAddShrinkRequest extends Model
         if (isset($map['hotel_share'])) {
             $model->hotelShareShrink = $map['hotel_share'];
         }
+        if (isset($map['international_flight_cabins'])) {
+            $model->internationalFlightCabins = $map['international_flight_cabins'];
+        }
         if (isset($map['itinerary_list'])) {
             $model->itineraryListShrink = $map['itinerary_list'];
-        }
-        if (isset($map['itinerary_rule'])) {
-            $model->itineraryRule = $map['itinerary_rule'];
-        }
-        if (isset($map['itinerary_set_list'])) {
-            $model->itinerarySetListShrink = $map['itinerary_set_list'];
         }
         if (isset($map['limit_traveler'])) {
             $model->limitTraveler = $map['limit_traveler'];
