@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\accessLogExtraConf;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\CRAggregationConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\istioCRHistory;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
@@ -17,6 +18,11 @@ use AlibabaCloud\Tea\Model;
 
 class extraConfiguration extends Model
 {
+    /**
+     * @var accessLogExtraConf
+     */
+    public $accessLogExtraConf;
+
     /**
      * @var CRAggregationConfiguration
      */
@@ -77,6 +83,7 @@ class extraConfiguration extends Model
      */
     public $terminationDrainDuration;
     protected $_name = [
+        'accessLogExtraConf'              => 'AccessLogExtraConf',
         'CRAggregationConfiguration'      => 'CRAggregationConfiguration',
         'CRAggregationEnabled'            => 'CRAggregationEnabled',
         'discoverySelectors'              => 'DiscoverySelectors',
@@ -98,6 +105,9 @@ class extraConfiguration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessLogExtraConf) {
+            $res['AccessLogExtraConf'] = null !== $this->accessLogExtraConf ? $this->accessLogExtraConf->toMap() : null;
+        }
         if (null !== $this->CRAggregationConfiguration) {
             $res['CRAggregationConfiguration'] = null !== $this->CRAggregationConfiguration ? $this->CRAggregationConfiguration->toMap() : null;
         }
@@ -146,6 +156,9 @@ class extraConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessLogExtraConf'])) {
+            $model->accessLogExtraConf = accessLogExtraConf::fromMap($map['AccessLogExtraConf']);
+        }
         if (isset($map['CRAggregationConfiguration'])) {
             $model->CRAggregationConfiguration = CRAggregationConfiguration::fromMap($map['CRAggregationConfiguration']);
         }

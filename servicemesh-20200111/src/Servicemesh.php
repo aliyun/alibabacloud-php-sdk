@@ -3511,6 +3511,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->accessLogFormat)) {
             $body['AccessLogFormat'] = $request->accessLogFormat;
         }
+        if (!Utils::isUnset($request->accessLogGatewayLifecycle)) {
+            $body['AccessLogGatewayLifecycle'] = $request->accessLogGatewayLifecycle;
+        }
         if (!Utils::isUnset($request->accessLogProject)) {
             $body['AccessLogProject'] = $request->accessLogProject;
         }
@@ -3522,6 +3525,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->accessLogServicePort)) {
             $body['AccessLogServicePort'] = $request->accessLogServicePort;
+        }
+        if (!Utils::isUnset($request->accessLogSidecarLifecycle)) {
+            $body['AccessLogSidecarLifecycle'] = $request->accessLogSidecarLifecycle;
         }
         if (!Utils::isUnset($request->auditProject)) {
             $body['AuditProject'] = $request->auditProject;
@@ -3564,6 +3570,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableAudit)) {
             $body['EnableAudit'] = $request->enableAudit;
+        }
+        if (!Utils::isUnset($request->enableAutoDiagnosis)) {
+            $body['EnableAutoDiagnosis'] = $request->enableAutoDiagnosis;
         }
         if (!Utils::isUnset($request->enableCRHistory)) {
             $body['EnableCRHistory'] = $request->enableCRHistory;

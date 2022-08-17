@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instanceTypes extends Model
 {
     /**
+     * @var string
+     */
+    public $key;
+
+    /**
      * @var bool
      */
     public $multiBufferEnabled;
@@ -17,9 +22,16 @@ class instanceTypes extends Model
      * @var string
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
+        'key'                => 'Key',
         'multiBufferEnabled' => 'MultiBufferEnabled',
         'nodeType'           => 'NodeType',
+        'value'              => 'Value',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class instanceTypes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
         if (null !== $this->multiBufferEnabled) {
             $res['MultiBufferEnabled'] = $this->multiBufferEnabled;
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class instanceTypes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
         if (isset($map['MultiBufferEnabled'])) {
             $model->multiBufferEnabled = $map['MultiBufferEnabled'];
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

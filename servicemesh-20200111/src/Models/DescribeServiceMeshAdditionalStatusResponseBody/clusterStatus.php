@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\apiServerLoadBalancerStatus;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\canaryPilotLoadBalancerStatus;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshAdditionalStatusResponseBody\clusterStatus\pilotLoadBalancerStatus;
 use AlibabaCloud\Tea\Model;
 
@@ -31,6 +32,11 @@ class clusterStatus extends Model
     public $auditProjectStatus;
 
     /**
+     * @var canaryPilotLoadBalancerStatus
+     */
+    public $canaryPilotLoadBalancerStatus;
+
+    /**
      * @var string
      */
     public $controlPlaneProjectStatus;
@@ -50,14 +56,15 @@ class clusterStatus extends Model
      */
     public $sgStatus;
     protected $_name = [
-        'accessLogProjectStatus'      => 'AccessLogProjectStatus',
-        'apiServerEIPStatus'          => 'ApiServerEIPStatus',
-        'apiServerLoadBalancerStatus' => 'ApiServerLoadBalancerStatus',
-        'auditProjectStatus'          => 'AuditProjectStatus',
-        'controlPlaneProjectStatus'   => 'ControlPlaneProjectStatus',
-        'logtailStatusRecord'         => 'LogtailStatusRecord',
-        'pilotLoadBalancerStatus'     => 'PilotLoadBalancerStatus',
-        'sgStatus'                    => 'SgStatus',
+        'accessLogProjectStatus'        => 'AccessLogProjectStatus',
+        'apiServerEIPStatus'            => 'ApiServerEIPStatus',
+        'apiServerLoadBalancerStatus'   => 'ApiServerLoadBalancerStatus',
+        'auditProjectStatus'            => 'AuditProjectStatus',
+        'canaryPilotLoadBalancerStatus' => 'CanaryPilotLoadBalancerStatus',
+        'controlPlaneProjectStatus'     => 'ControlPlaneProjectStatus',
+        'logtailStatusRecord'           => 'LogtailStatusRecord',
+        'pilotLoadBalancerStatus'       => 'PilotLoadBalancerStatus',
+        'sgStatus'                      => 'SgStatus',
     ];
 
     public function validate()
@@ -78,6 +85,9 @@ class clusterStatus extends Model
         }
         if (null !== $this->auditProjectStatus) {
             $res['AuditProjectStatus'] = $this->auditProjectStatus;
+        }
+        if (null !== $this->canaryPilotLoadBalancerStatus) {
+            $res['CanaryPilotLoadBalancerStatus'] = null !== $this->canaryPilotLoadBalancerStatus ? $this->canaryPilotLoadBalancerStatus->toMap() : null;
         }
         if (null !== $this->controlPlaneProjectStatus) {
             $res['ControlPlaneProjectStatus'] = $this->controlPlaneProjectStatus;
@@ -114,6 +124,9 @@ class clusterStatus extends Model
         }
         if (isset($map['AuditProjectStatus'])) {
             $model->auditProjectStatus = $map['AuditProjectStatus'];
+        }
+        if (isset($map['CanaryPilotLoadBalancerStatus'])) {
+            $model->canaryPilotLoadBalancerStatus = canaryPilotLoadBalancerStatus::fromMap($map['CanaryPilotLoadBalancerStatus']);
         }
         if (isset($map['ControlPlaneProjectStatus'])) {
             $model->controlPlaneProjectStatus = $map['ControlPlaneProjectStatus'];

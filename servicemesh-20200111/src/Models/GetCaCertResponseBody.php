@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetCaCertResponseBody extends Model
 {
     /**
-     * @description base64 encode format
-     *
      * @var string
      */
     public $caCert;

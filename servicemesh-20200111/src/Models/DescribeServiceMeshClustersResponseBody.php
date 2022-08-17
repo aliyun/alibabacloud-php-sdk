@@ -15,12 +15,18 @@ class DescribeServiceMeshClustersResponseBody extends Model
     public $clusters;
 
     /**
+     * @var int
+     */
+    public $numberOfClusters;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clusters'  => 'Clusters',
-        'requestId' => 'RequestId',
+        'clusters'         => 'Clusters',
+        'numberOfClusters' => 'NumberOfClusters',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class DescribeServiceMeshClustersResponseBody extends Model
                     $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->numberOfClusters) {
+            $res['NumberOfClusters'] = $this->numberOfClusters;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -62,6 +71,9 @@ class DescribeServiceMeshClustersResponseBody extends Model
                     $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NumberOfClusters'])) {
+            $model->numberOfClusters = $map['NumberOfClusters'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

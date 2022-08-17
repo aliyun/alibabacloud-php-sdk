@@ -24,6 +24,11 @@ class UpdateMeshFeatureRequest extends Model
     public $accessLogFormat;
 
     /**
+     * @var int
+     */
+    public $accessLogGatewayLifecycle;
+
+    /**
      * @var string
      */
     public $accessLogProject;
@@ -42,6 +47,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var int
      */
     public $accessLogServicePort;
+
+    /**
+     * @var int
+     */
+    public $accessLogSidecarLifecycle;
 
     /**
      * @var string
@@ -112,6 +122,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var bool
      */
     public $enableAudit;
+
+    /**
+     * @var bool
+     */
+    public $enableAutoDiagnosis;
 
     /**
      * @var bool
@@ -426,10 +441,12 @@ class UpdateMeshFeatureRequest extends Model
         'accessLogEnabled'                => 'AccessLogEnabled',
         'accessLogFile'                   => 'AccessLogFile',
         'accessLogFormat'                 => 'AccessLogFormat',
+        'accessLogGatewayLifecycle'       => 'AccessLogGatewayLifecycle',
         'accessLogProject'                => 'AccessLogProject',
         'accessLogServiceEnabled'         => 'AccessLogServiceEnabled',
         'accessLogServiceHost'            => 'AccessLogServiceHost',
         'accessLogServicePort'            => 'AccessLogServicePort',
+        'accessLogSidecarLifecycle'       => 'AccessLogSidecarLifecycle',
         'auditProject'                    => 'AuditProject',
         'autoInjectionPolicyEnabled'      => 'AutoInjectionPolicyEnabled',
         'CRAggregationEnabled'            => 'CRAggregationEnabled',
@@ -444,6 +461,7 @@ class UpdateMeshFeatureRequest extends Model
         'discoverySelectors'              => 'DiscoverySelectors',
         'dubboFilterEnabled'              => 'DubboFilterEnabled',
         'enableAudit'                     => 'EnableAudit',
+        'enableAutoDiagnosis'             => 'EnableAutoDiagnosis',
         'enableCRHistory'                 => 'EnableCRHistory',
         'enableNamespacesByDefault'       => 'EnableNamespacesByDefault',
         'enableSDSServer'                 => 'EnableSDSServer',
@@ -524,6 +542,9 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->accessLogFormat) {
             $res['AccessLogFormat'] = $this->accessLogFormat;
         }
+        if (null !== $this->accessLogGatewayLifecycle) {
+            $res['AccessLogGatewayLifecycle'] = $this->accessLogGatewayLifecycle;
+        }
         if (null !== $this->accessLogProject) {
             $res['AccessLogProject'] = $this->accessLogProject;
         }
@@ -535,6 +556,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->accessLogServicePort) {
             $res['AccessLogServicePort'] = $this->accessLogServicePort;
+        }
+        if (null !== $this->accessLogSidecarLifecycle) {
+            $res['AccessLogSidecarLifecycle'] = $this->accessLogSidecarLifecycle;
         }
         if (null !== $this->auditProject) {
             $res['AuditProject'] = $this->auditProject;
@@ -577,6 +601,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->enableAudit) {
             $res['EnableAudit'] = $this->enableAudit;
+        }
+        if (null !== $this->enableAutoDiagnosis) {
+            $res['EnableAutoDiagnosis'] = $this->enableAutoDiagnosis;
         }
         if (null !== $this->enableCRHistory) {
             $res['EnableCRHistory'] = $this->enableCRHistory;
@@ -785,6 +812,9 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['AccessLogFormat'])) {
             $model->accessLogFormat = $map['AccessLogFormat'];
         }
+        if (isset($map['AccessLogGatewayLifecycle'])) {
+            $model->accessLogGatewayLifecycle = $map['AccessLogGatewayLifecycle'];
+        }
         if (isset($map['AccessLogProject'])) {
             $model->accessLogProject = $map['AccessLogProject'];
         }
@@ -796,6 +826,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['AccessLogServicePort'])) {
             $model->accessLogServicePort = $map['AccessLogServicePort'];
+        }
+        if (isset($map['AccessLogSidecarLifecycle'])) {
+            $model->accessLogSidecarLifecycle = $map['AccessLogSidecarLifecycle'];
         }
         if (isset($map['AuditProject'])) {
             $model->auditProject = $map['AuditProject'];
@@ -838,6 +871,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['EnableAudit'])) {
             $model->enableAudit = $map['EnableAudit'];
+        }
+        if (isset($map['EnableAutoDiagnosis'])) {
+            $model->enableAutoDiagnosis = $map['EnableAutoDiagnosis'];
         }
         if (isset($map['EnableCRHistory'])) {
             $model->enableCRHistory = $map['EnableCRHistory'];
