@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateDbfsRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateDbfsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1267,5 +1269,60 @@ class DBFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagDbfsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDbfsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateDbfsResponse
+     */
+    public function updateDbfsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->advancedFeatures)) {
+            $query['AdvancedFeatures'] = $request->advancedFeatures;
+        }
+        if (!Utils::isUnset($request->fsId)) {
+            $query['FsId'] = $request->fsId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->usedScene)) {
+            $query['UsedScene'] = $request->usedScene;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDbfsRequest $request
+     *
+     * @return UpdateDbfsResponse
+     */
+    public function updateDbfs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDbfsWithOptions($request, $runtime);
     }
 }
