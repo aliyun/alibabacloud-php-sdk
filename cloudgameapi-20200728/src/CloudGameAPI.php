@@ -94,6 +94,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryOutAccountBindStatusRequ
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryOutAccountBindStatusResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryProjectRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryProjectResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QuerySessionStatusRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QuerySessionStatusResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryTenantRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\QueryTenantResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\RemoveGameFromProjectRequest;
@@ -2327,6 +2329,52 @@ class CloudGameAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySessionStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QuerySessionStatusResponse
+     */
+    public function querySessionStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySessionStatus',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySessionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySessionStatusRequest $request
+     *
+     * @return QuerySessionStatusResponse
+     */
+    public function querySessionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySessionStatusWithOptions($request, $runtime);
     }
 
     /**
