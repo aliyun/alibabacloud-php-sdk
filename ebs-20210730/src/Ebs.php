@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairRequest;
@@ -16,6 +18,10 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsRequest;
@@ -26,6 +32,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDedicatedBlockStorageClusterAttributeRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDedicatedBlockStorageClusterAttributeResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaPairRequest;
@@ -136,6 +144,64 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param CreateDedicatedBlockStorageClusterRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateDedicatedBlockStorageClusterResponse
+     */
+    public function createDedicatedBlockStorageClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->azone)) {
+            $query['Azone'] = $request->azone;
+        }
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
+        }
+        if (!Utils::isUnset($request->dbscId)) {
+            $query['DbscId'] = $request->dbscId;
+        }
+        if (!Utils::isUnset($request->dbscName)) {
+            $query['DbscName'] = $request->dbscName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDedicatedBlockStorageCluster',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDedicatedBlockStorageClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDedicatedBlockStorageClusterRequest $request
+     *
+     * @return CreateDedicatedBlockStorageClusterResponse
+     */
+    public function createDedicatedBlockStorageCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDedicatedBlockStorageClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDiskReplicaGroupRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -145,6 +211,9 @@ class Ebs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -377,6 +446,122 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDiskReplicaPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDedicatedBlockStorageClusterDisksRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeDedicatedBlockStorageClusterDisksResponse
+     */
+    public function describeDedicatedBlockStorageClusterDisksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbscId)) {
+            $query['DbscId'] = $request->dbscId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedBlockStorageClusterDisks',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDedicatedBlockStorageClusterDisksRequest $request
+     *
+     * @return DescribeDedicatedBlockStorageClusterDisksResponse
+     */
+    public function describeDedicatedBlockStorageClusterDisks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDedicatedBlockStorageClusterDisksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDedicatedBlockStorageClustersRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDedicatedBlockStorageClustersResponse
+     */
+    public function describeDedicatedBlockStorageClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->azoneId)) {
+            $body['AzoneId'] = $request->azoneId;
+        }
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedicatedBlockStorageClusterId)) {
+            $body['DedicatedBlockStorageClusterId'] = $request->dedicatedBlockStorageClusterId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedBlockStorageClusters',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDedicatedBlockStorageClustersRequest $request
+     *
+     * @return DescribeDedicatedBlockStorageClustersResponse
+     */
+    public function describeDedicatedBlockStorageClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDedicatedBlockStorageClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -646,6 +831,61 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ModifyDedicatedBlockStorageClusterAttributeResponse
+     */
+    public function modifyDedicatedBlockStorageClusterAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbscId)) {
+            $query['DbscId'] = $request->dbscId;
+        }
+        if (!Utils::isUnset($request->dbscName)) {
+            $query['DbscName'] = $request->dbscName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedBlockStorageClusterAttribute',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request
+     *
+     * @return ModifyDedicatedBlockStorageClusterAttributeResponse
+     */
+    public function modifyDedicatedBlockStorageClusterAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedBlockStorageClusterAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDiskReplicaGroupRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -655,6 +895,9 @@ class Ebs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }

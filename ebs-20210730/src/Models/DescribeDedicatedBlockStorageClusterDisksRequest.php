@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDiskReplicaGroupsRequest extends Model
+class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
 {
     /**
      * @var string
      */
-    public $groupIds;
+    public $dbscId;
 
     /**
      * @var int
@@ -27,17 +27,11 @@ class DescribeDiskReplicaGroupsRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $site;
     protected $_name = [
-        'groupIds'   => 'GroupIds',
+        'dbscId'     => 'DbscId',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'regionId'   => 'RegionId',
-        'site'       => 'Site',
     ];
 
     public function validate()
@@ -47,8 +41,8 @@ class DescribeDiskReplicaGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+        if (null !== $this->dbscId) {
+            $res['DbscId'] = $this->dbscId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -59,9 +53,6 @@ class DescribeDiskReplicaGroupsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->site) {
-            $res['Site'] = $this->site;
-        }
 
         return $res;
     }
@@ -69,13 +60,13 @@ class DescribeDiskReplicaGroupsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDiskReplicaGroupsRequest
+     * @return DescribeDedicatedBlockStorageClusterDisksRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupIds'])) {
-            $model->groupIds = $map['GroupIds'];
+        if (isset($map['DbscId'])) {
+            $model->dbscId = $map['DbscId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -85,9 +76,6 @@ class DescribeDiskReplicaGroupsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Site'])) {
-            $model->site = $map['Site'];
         }
 
         return $model;

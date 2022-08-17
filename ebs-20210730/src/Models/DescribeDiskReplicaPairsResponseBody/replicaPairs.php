@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class replicaPairs extends Model
 {
     /**
-     * @description 异步复制时使用的带宽。单位为Kbps。
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description 付费类型。PREPAY：预付费；POSTPAY：后付费。
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description 创建时间。1970年1月1日0点0分以来的秒数。
-     *
      * @var int
      */
     public $createTime;
@@ -45,8 +39,6 @@ class replicaPairs extends Model
     public $destinationRegion;
 
     /**
-     * @description 从盘所属的可用区。
-     *
      * @var string
      */
     public $destinationZoneId;
@@ -57,8 +49,6 @@ class replicaPairs extends Model
     public $expiredTime;
 
     /**
-     * @description 最近一次异步复制操作完成的时间。该参数以时间戳的形式提供返回值。单位为秒。
-     *
      * @var int
      */
     public $lastRecoverPoint;
@@ -69,36 +59,26 @@ class replicaPairs extends Model
     public $pairName;
 
     /**
-     * @description 复制对的初始源地域。
-     *
      * @var string
      */
     public $primaryRegion;
 
     /**
-     * @description 复制对的初始源可用区。
-     *
      * @var string
      */
     public $primaryZone;
 
     /**
-     * @description 复制对的RPO值。单位为秒。
-     *
      * @var int
      */
     public $RPO;
 
     /**
-     * @description 所属复制组id。
-     *
      * @var string
      */
     public $replicaGroupId;
 
     /**
-     * @description 所属复制组名称。
-     *
      * @var string
      */
     public $replicaGroupName;
@@ -109,8 +89,6 @@ class replicaPairs extends Model
     public $replicaPairId;
 
     /**
-     * @description 复制对信息的后端站点来源，production或backup。
-     *
      * @var string
      */
     public $site;
@@ -126,37 +104,26 @@ class replicaPairs extends Model
     public $sourceRegion;
 
     /**
-     * @description 主盘所属的可用区。
-     *
      * @var string
      */
     public $sourceZoneId;
 
     /**
-     * @description 复制对的初始目的地域。
-     *
      * @var string
      */
     public $standbyRegion;
 
     /**
-     * @description 复制对的初始目的可用区。
-     *
      * @var string
      */
     public $standbyZone;
 
     /**
-     * @description 异步复制关系的状态。可能值：
-     *
-     * - deleted：已删除。
      * @var string
      */
     public $status;
 
     /**
-     * @description 复制对的状态提示信息。比如invalid时，可能值：DeviceRemoved：主盘或者从盘被删除。DeviceKeyChanged：主盘或从盘的DeviceKey映射发生变化。
-     *
      * @var string
      */
     public $statusMessage;

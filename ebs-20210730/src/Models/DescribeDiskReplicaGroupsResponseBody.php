@@ -20,8 +20,6 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
     public $replicaGroups;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

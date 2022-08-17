@@ -9,38 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsRequest extends Model
 {
     /**
-     * @description 分页查询时每页的最大条目数。取值范围：1~500
-     *
-     * 默认值：10
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 查询凭证（Token）。取值为上一次调用该接口返回的NextToken参数值，初次调用接口时无需设置该参数。如果设置了NextToken，则请求参数PageSize和PageNumber将失效，且返回数据中的TotalCount无效。
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 分页查询时的页码。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页查询时设置的每页行数。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 异步复制关系ID列表。您可以指定一个或多个异步复制关系ID进行查询。格式为：pair-cn-dsa****,pair-cn-asd****。
-     *
-     * 默认值为空，表示查询当前地域下所有的异步复制关系。
      * @var string
      */
     public $pairIds;
@@ -51,15 +39,11 @@ class DescribeDiskReplicaPairsRequest extends Model
     public $regionId;
 
     /**
-     * @description 所属复制组id。
-     *
      * @var string
      */
     public $replicaGroupId;
 
     /**
-     * @description production或backup，表示获取本地为生产站点或灾备站点的复制对数据，默认为production。
-     *
      * @var string
      */
     public $site;

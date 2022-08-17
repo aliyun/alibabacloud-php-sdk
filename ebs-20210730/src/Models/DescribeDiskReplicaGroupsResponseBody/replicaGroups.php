@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class replicaGroups extends Model
 {
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @var string
      */
     public $description;
@@ -39,22 +44,16 @@ class replicaGroups extends Model
     public $pairIds;
 
     /**
-     * @description 复制组中的复制对个数
-     *
      * @var int
      */
     public $pairNumber;
 
     /**
-     * @description 复制组的初始源地域。
-     *
      * @var string
      */
     public $primaryRegion;
 
     /**
-     * @description 复制组的初始源可用区。
-     *
      * @var string
      */
     public $primaryZone;
@@ -70,8 +69,6 @@ class replicaGroups extends Model
     public $replicaGroupId;
 
     /**
-     * @description pair信息的后端站点来源，production或backup
-     *
      * @var string
      */
     public $site;
@@ -87,15 +84,11 @@ class replicaGroups extends Model
     public $sourceZoneId;
 
     /**
-     * @description 复制组的初始目的地域。
-     *
      * @var string
      */
     public $standbyRegion;
 
     /**
-     * @description 复制组的初始目的可用区。
-     *
      * @var string
      */
     public $standbyZone;
@@ -105,6 +98,7 @@ class replicaGroups extends Model
      */
     public $status;
     protected $_name = [
+        'bandwidth'           => 'Bandwidth',
         'description'         => 'Description',
         'destinationRegionId' => 'DestinationRegionId',
         'destinationZoneId'   => 'DestinationZoneId',
@@ -131,6 +125,9 @@ class replicaGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -194,6 +191,9 @@ class replicaGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

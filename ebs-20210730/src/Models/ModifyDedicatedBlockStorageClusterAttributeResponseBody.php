@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReprotectDiskReplicaPairResponseBody extends Model
+class ModifyDedicatedBlockStorageClusterAttributeResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class ReprotectDiskReplicaPairResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ReprotectDiskReplicaPairResponseBody
+     * @return ModifyDedicatedBlockStorageClusterAttributeResponseBody
      */
     public static function fromMap($map = [])
     {

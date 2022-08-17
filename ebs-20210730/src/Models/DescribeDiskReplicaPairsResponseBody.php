@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsResponseBody extends Model
 {
     /**
-     * @description 查询凭证（Token）。取值为上一次调用该接口返回的NextToken参数值，初次调用接口时无需设置该参数。如果设置了NextToken，则请求参数PageSize和PageNumber将失效，且返回数据中的TotalCount无效。
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 参数页码。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 参数页行数。
-     *
      * @var int
      */
     public $pageSize;
@@ -36,15 +30,11 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $replicaPairs;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 分页查询时的结果总条数。
-     *
      * @var int
      */
     public $totalCount;

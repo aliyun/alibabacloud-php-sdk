@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class FailoverDiskReplicaPairResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

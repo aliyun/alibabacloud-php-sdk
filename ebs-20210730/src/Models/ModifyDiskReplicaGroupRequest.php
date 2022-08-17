@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskReplicaGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -38,6 +43,7 @@ class ModifyDiskReplicaGroupRequest extends Model
      */
     public $replicaGroupId;
     protected $_name = [
+        'bandwidth'      => 'Bandwidth',
         'clientToken'    => 'ClientToken',
         'description'    => 'Description',
         'groupName'      => 'GroupName',
@@ -53,6 +59,9 @@ class ModifyDiskReplicaGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -83,6 +92,9 @@ class ModifyDiskReplicaGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
