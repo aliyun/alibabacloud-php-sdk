@@ -26,6 +26,11 @@ class CreateAuthorizationRuleRequest extends Model
     /**
      * @var string
      */
+    public $destinationPort;
+
+    /**
+     * @var string
+     */
     public $destinationType;
 
     /**
@@ -46,6 +51,11 @@ class CreateAuthorizationRuleRequest extends Model
     /**
      * @var string
      */
+    public $protocol;
+
+    /**
+     * @var string
+     */
     public $sourceCidr;
 
     /**
@@ -56,10 +66,12 @@ class CreateAuthorizationRuleRequest extends Model
         'clientToken'              => 'ClientToken',
         'description'              => 'Description',
         'destination'              => 'Destination',
+        'destinationPort'          => 'DestinationPort',
         'destinationType'          => 'DestinationType',
         'dryRun'                   => 'DryRun',
         'name'                     => 'Name',
         'policy'                   => 'Policy',
+        'protocol'                 => 'Protocol',
         'sourceCidr'               => 'SourceCidr',
         'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
     ];
@@ -80,6 +92,9 @@ class CreateAuthorizationRuleRequest extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+        if (null !== $this->destinationPort) {
+            $res['DestinationPort'] = $this->destinationPort;
+        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
@@ -91,6 +106,9 @@ class CreateAuthorizationRuleRequest extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->sourceCidr) {
             $res['SourceCidr'] = $this->sourceCidr;
@@ -119,6 +137,9 @@ class CreateAuthorizationRuleRequest extends Model
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+        if (isset($map['DestinationPort'])) {
+            $model->destinationPort = $map['DestinationPort'];
+        }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
@@ -130,6 +151,9 @@ class CreateAuthorizationRuleRequest extends Model
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['SourceCidr'])) {
             $model->sourceCidr = $map['SourceCidr'];

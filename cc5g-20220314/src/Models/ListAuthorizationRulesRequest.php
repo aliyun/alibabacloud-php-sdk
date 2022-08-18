@@ -21,6 +21,11 @@ class ListAuthorizationRulesRequest extends Model
     /**
      * @var string
      */
+    public $destinationPort;
+
+    /**
+     * @var string
+     */
     public $destinationType;
 
     /**
@@ -49,6 +54,11 @@ class ListAuthorizationRulesRequest extends Model
     public $policy;
 
     /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
      * @var string[]
      */
     public $statuses;
@@ -65,12 +75,14 @@ class ListAuthorizationRulesRequest extends Model
     protected $_name = [
         'authorizationRuleIds'     => 'AuthorizationRuleIds',
         'destination'              => 'Destination',
+        'destinationPort'          => 'DestinationPort',
         'destinationType'          => 'DestinationType',
         'dns'                      => 'Dns',
         'maxResults'               => 'MaxResults',
         'names'                    => 'Names',
         'nextToken'                => 'NextToken',
         'policy'                   => 'Policy',
+        'protocol'                 => 'Protocol',
         'statuses'                 => 'Statuses',
         'type'                     => 'Type',
         'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
@@ -89,6 +101,9 @@ class ListAuthorizationRulesRequest extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+        if (null !== $this->destinationPort) {
+            $res['DestinationPort'] = $this->destinationPort;
+        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
@@ -106,6 +121,9 @@ class ListAuthorizationRulesRequest extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->statuses) {
             $res['Statuses'] = $this->statuses;
@@ -136,6 +154,9 @@ class ListAuthorizationRulesRequest extends Model
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+        if (isset($map['DestinationPort'])) {
+            $model->destinationPort = $map['DestinationPort'];
+        }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
@@ -155,6 +176,9 @@ class ListAuthorizationRulesRequest extends Model
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {

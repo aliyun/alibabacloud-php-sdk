@@ -258,6 +258,9 @@ class CC5G extends OpenApiClient
         if (!Utils::isUnset($request->destination)) {
             $query['Destination'] = $request->destination;
         }
+        if (!Utils::isUnset($request->destinationPort)) {
+            $query['DestinationPort'] = $request->destinationPort;
+        }
         if (!Utils::isUnset($request->destinationType)) {
             $query['DestinationType'] = $request->destinationType;
         }
@@ -269,6 +272,9 @@ class CC5G extends OpenApiClient
         }
         if (!Utils::isUnset($request->policy)) {
             $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
         }
         if (!Utils::isUnset($request->sourceCidr)) {
             $query['SourceCidr'] = $request->sourceCidr;
@@ -1652,6 +1658,9 @@ class CC5G extends OpenApiClient
         if (!Utils::isUnset($request->destination)) {
             $query['Destination'] = $request->destination;
         }
+        if (!Utils::isUnset($request->destinationPort)) {
+            $query['DestinationPort'] = $request->destinationPort;
+        }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
@@ -1660,6 +1669,9 @@ class CC5G extends OpenApiClient
         }
         if (!Utils::isUnset($request->policy)) {
             $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
         }
         if (!Utils::isUnset($request->sourceCidr)) {
             $query['SourceCidr'] = $request->sourceCidr;
