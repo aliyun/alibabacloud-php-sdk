@@ -11,12 +11,17 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $alertGroup;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $cnameCustomDomainName;
+
+    /**
+     * @var string
+     */
+    public $cnameMode;
 
     /**
      * @var string
@@ -29,6 +34,16 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public $instanceName;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $lbaStrategy;
+
+    /**
      * @var int
      */
     public $ttl;
@@ -37,37 +52,16 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
      * @var string
      */
     public $userDomainName;
-
-    /**
-     * @var string
-     */
-    public $lbaStrategy;
-
-    /**
-     * @var string
-     */
-    public $alertGroup;
-
-    /**
-     * @var string
-     */
-    public $cnameMode;
-
-    /**
-     * @var string
-     */
-    public $cnameCustomDomainName;
     protected $_name = [
-        'lang'                  => 'Lang',
-        'userClientIp'          => 'UserClientIp',
+        'alertGroup'            => 'AlertGroup',
+        'cnameCustomDomainName' => 'CnameCustomDomainName',
+        'cnameMode'             => 'CnameMode',
         'instanceId'            => 'InstanceId',
         'instanceName'          => 'InstanceName',
+        'lang'                  => 'Lang',
+        'lbaStrategy'           => 'LbaStrategy',
         'ttl'                   => 'Ttl',
         'userDomainName'        => 'UserDomainName',
-        'lbaStrategy'           => 'LbaStrategy',
-        'alertGroup'            => 'AlertGroup',
-        'cnameMode'             => 'CnameMode',
-        'cnameCustomDomainName' => 'CnameCustomDomainName',
     ];
 
     public function validate()
@@ -77,11 +71,14 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->alertGroup) {
+            $res['AlertGroup'] = $this->alertGroup;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->cnameCustomDomainName) {
+            $res['CnameCustomDomainName'] = $this->cnameCustomDomainName;
+        }
+        if (null !== $this->cnameMode) {
+            $res['CnameMode'] = $this->cnameMode;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -89,23 +86,17 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->lbaStrategy) {
+            $res['LbaStrategy'] = $this->lbaStrategy;
+        }
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
         if (null !== $this->userDomainName) {
             $res['UserDomainName'] = $this->userDomainName;
-        }
-        if (null !== $this->lbaStrategy) {
-            $res['LbaStrategy'] = $this->lbaStrategy;
-        }
-        if (null !== $this->alertGroup) {
-            $res['AlertGroup'] = $this->alertGroup;
-        }
-        if (null !== $this->cnameMode) {
-            $res['CnameMode'] = $this->cnameMode;
-        }
-        if (null !== $this->cnameCustomDomainName) {
-            $res['CnameCustomDomainName'] = $this->cnameCustomDomainName;
         }
 
         return $res;
@@ -119,11 +110,14 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['AlertGroup'])) {
+            $model->alertGroup = $map['AlertGroup'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['CnameCustomDomainName'])) {
+            $model->cnameCustomDomainName = $map['CnameCustomDomainName'];
+        }
+        if (isset($map['CnameMode'])) {
+            $model->cnameMode = $map['CnameMode'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -131,23 +125,17 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['LbaStrategy'])) {
+            $model->lbaStrategy = $map['LbaStrategy'];
+        }
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }
         if (isset($map['UserDomainName'])) {
             $model->userDomainName = $map['UserDomainName'];
-        }
-        if (isset($map['LbaStrategy'])) {
-            $model->lbaStrategy = $map['LbaStrategy'];
-        }
-        if (isset($map['AlertGroup'])) {
-            $model->alertGroup = $map['AlertGroup'];
-        }
-        if (isset($map['CnameMode'])) {
-            $model->cnameMode = $map['CnameMode'];
-        }
-        if (isset($map['CnameCustomDomainName'])) {
-            $model->cnameCustomDomainName = $map['CnameCustomDomainName'];
         }
 
         return $model;

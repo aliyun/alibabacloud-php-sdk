@@ -11,15 +11,15 @@ class DescribeDnsGtmInstanceSystemCnameResponseBody extends Model
     /**
      * @var string
      */
-    public $systemCname;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $systemCname;
     protected $_name = [
-        'systemCname' => 'SystemCname',
         'requestId'   => 'RequestId',
+        'systemCname' => 'SystemCname',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDnsGtmInstanceSystemCnameResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->systemCname) {
-            $res['SystemCname'] = $this->systemCname;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->systemCname) {
+            $res['SystemCname'] = $this->systemCname;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDnsGtmInstanceSystemCnameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SystemCname'])) {
-            $model->systemCname = $map['SystemCname'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SystemCname'])) {
+            $model->systemCname = $map['SystemCname'];
         }
 
         return $model;

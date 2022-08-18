@@ -11,21 +11,15 @@ class DescribeDnsGtmInstanceAddressPoolRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $addrPoolId;
 
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $addrPoolId;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'addrPoolId'   => 'AddrPoolId',
+        'addrPoolId' => 'AddrPoolId',
+        'lang'       => 'Lang',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DescribeDnsGtmInstanceAddressPoolRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->addrPoolId) {
+            $res['AddrPoolId'] = $this->addrPoolId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->addrPoolId) {
-            $res['AddrPoolId'] = $this->addrPoolId;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DescribeDnsGtmInstanceAddressPoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['AddrPoolId'])) {
+            $model->addrPoolId = $map['AddrPoolId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['AddrPoolId'])) {
-            $model->addrPoolId = $map['AddrPoolId'];
         }
 
         return $model;

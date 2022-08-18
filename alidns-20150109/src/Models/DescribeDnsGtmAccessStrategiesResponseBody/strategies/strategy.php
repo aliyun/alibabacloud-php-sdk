@@ -13,7 +13,37 @@ class strategy extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $createTimestamp;
+
+    /**
+     * @var string
+     */
+    public $effectiveAddrPoolGroupType;
+
+    /**
+     * @var string
+     */
+    public $effectiveAddrPoolType;
+
+    /**
+     * @var effectiveAddrPools
+     */
+    public $effectiveAddrPools;
+
+    /**
+     * @var string
+     */
     public $effectiveLbaStrategy;
+
+    /**
+     * @var lines
+     */
+    public $lines;
 
     /**
      * @var string
@@ -24,46 +54,16 @@ class strategy extends Model
      * @var string
      */
     public $strategyName;
-
-    /**
-     * @var string
-     */
-    public $effectiveAddrPoolGroupType;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var effectiveAddrPools
-     */
-    public $effectiveAddrPools;
-
-    /**
-     * @var int
-     */
-    public $createTimestamp;
-
-    /**
-     * @var string
-     */
-    public $effectiveAddrPoolType;
-
-    /**
-     * @var lines
-     */
-    public $lines;
     protected $_name = [
+        'createTime'                 => 'CreateTime',
+        'createTimestamp'            => 'CreateTimestamp',
+        'effectiveAddrPoolGroupType' => 'EffectiveAddrPoolGroupType',
+        'effectiveAddrPoolType'      => 'EffectiveAddrPoolType',
+        'effectiveAddrPools'         => 'EffectiveAddrPools',
         'effectiveLbaStrategy'       => 'EffectiveLbaStrategy',
+        'lines'                      => 'Lines',
         'strategyId'                 => 'StrategyId',
         'strategyName'               => 'StrategyName',
-        'effectiveAddrPoolGroupType' => 'EffectiveAddrPoolGroupType',
-        'createTime'                 => 'CreateTime',
-        'effectiveAddrPools'         => 'EffectiveAddrPools',
-        'createTimestamp'            => 'CreateTimestamp',
-        'effectiveAddrPoolType'      => 'EffectiveAddrPoolType',
-        'lines'                      => 'Lines',
     ];
 
     public function validate()
@@ -73,32 +73,32 @@ class strategy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->effectiveAddrPoolGroupType) {
+            $res['EffectiveAddrPoolGroupType'] = $this->effectiveAddrPoolGroupType;
+        }
+        if (null !== $this->effectiveAddrPoolType) {
+            $res['EffectiveAddrPoolType'] = $this->effectiveAddrPoolType;
+        }
+        if (null !== $this->effectiveAddrPools) {
+            $res['EffectiveAddrPools'] = null !== $this->effectiveAddrPools ? $this->effectiveAddrPools->toMap() : null;
+        }
         if (null !== $this->effectiveLbaStrategy) {
             $res['EffectiveLbaStrategy'] = $this->effectiveLbaStrategy;
+        }
+        if (null !== $this->lines) {
+            $res['Lines'] = null !== $this->lines ? $this->lines->toMap() : null;
         }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
         if (null !== $this->strategyName) {
             $res['StrategyName'] = $this->strategyName;
-        }
-        if (null !== $this->effectiveAddrPoolGroupType) {
-            $res['EffectiveAddrPoolGroupType'] = $this->effectiveAddrPoolGroupType;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->effectiveAddrPools) {
-            $res['EffectiveAddrPools'] = null !== $this->effectiveAddrPools ? $this->effectiveAddrPools->toMap() : null;
-        }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
-        }
-        if (null !== $this->effectiveAddrPoolType) {
-            $res['EffectiveAddrPoolType'] = $this->effectiveAddrPoolType;
-        }
-        if (null !== $this->lines) {
-            $res['Lines'] = null !== $this->lines ? $this->lines->toMap() : null;
         }
 
         return $res;
@@ -112,32 +112,32 @@ class strategy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['EffectiveAddrPoolGroupType'])) {
+            $model->effectiveAddrPoolGroupType = $map['EffectiveAddrPoolGroupType'];
+        }
+        if (isset($map['EffectiveAddrPoolType'])) {
+            $model->effectiveAddrPoolType = $map['EffectiveAddrPoolType'];
+        }
+        if (isset($map['EffectiveAddrPools'])) {
+            $model->effectiveAddrPools = effectiveAddrPools::fromMap($map['EffectiveAddrPools']);
+        }
         if (isset($map['EffectiveLbaStrategy'])) {
             $model->effectiveLbaStrategy = $map['EffectiveLbaStrategy'];
+        }
+        if (isset($map['Lines'])) {
+            $model->lines = lines::fromMap($map['Lines']);
         }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }
         if (isset($map['StrategyName'])) {
             $model->strategyName = $map['StrategyName'];
-        }
-        if (isset($map['EffectiveAddrPoolGroupType'])) {
-            $model->effectiveAddrPoolGroupType = $map['EffectiveAddrPoolGroupType'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['EffectiveAddrPools'])) {
-            $model->effectiveAddrPools = effectiveAddrPools::fromMap($map['EffectiveAddrPools']);
-        }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
-        }
-        if (isset($map['EffectiveAddrPoolType'])) {
-            $model->effectiveAddrPoolType = $map['EffectiveAddrPoolType'];
-        }
-        if (isset($map['Lines'])) {
-            $model->lines = lines::fromMap($map['Lines']);
         }
 
         return $model;

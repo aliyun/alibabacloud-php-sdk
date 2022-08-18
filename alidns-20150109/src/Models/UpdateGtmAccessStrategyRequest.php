@@ -11,22 +11,7 @@ class UpdateGtmAccessStrategyRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $strategyId;
-
-    /**
-     * @var string
-     */
-    public $strategyName;
+    public $accessLines;
 
     /**
      * @var string
@@ -41,15 +26,24 @@ class UpdateGtmAccessStrategyRequest extends Model
     /**
      * @var string
      */
-    public $accessLines;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $strategyId;
+
+    /**
+     * @var string
+     */
+    public $strategyName;
     protected $_name = [
-        'lang'               => 'Lang',
-        'userClientIp'       => 'UserClientIp',
-        'strategyId'         => 'StrategyId',
-        'strategyName'       => 'StrategyName',
+        'accessLines'        => 'AccessLines',
         'defaultAddrPoolId'  => 'DefaultAddrPoolId',
         'failoverAddrPoolId' => 'FailoverAddrPoolId',
-        'accessLines'        => 'AccessLines',
+        'lang'               => 'Lang',
+        'strategyId'         => 'StrategyId',
+        'strategyName'       => 'StrategyName',
     ];
 
     public function validate()
@@ -59,17 +53,8 @@ class UpdateGtmAccessStrategyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->strategyId) {
-            $res['StrategyId'] = $this->strategyId;
-        }
-        if (null !== $this->strategyName) {
-            $res['StrategyName'] = $this->strategyName;
+        if (null !== $this->accessLines) {
+            $res['AccessLines'] = $this->accessLines;
         }
         if (null !== $this->defaultAddrPoolId) {
             $res['DefaultAddrPoolId'] = $this->defaultAddrPoolId;
@@ -77,8 +62,14 @@ class UpdateGtmAccessStrategyRequest extends Model
         if (null !== $this->failoverAddrPoolId) {
             $res['FailoverAddrPoolId'] = $this->failoverAddrPoolId;
         }
-        if (null !== $this->accessLines) {
-            $res['AccessLines'] = $this->accessLines;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->strategyId) {
+            $res['StrategyId'] = $this->strategyId;
+        }
+        if (null !== $this->strategyName) {
+            $res['StrategyName'] = $this->strategyName;
         }
 
         return $res;
@@ -92,17 +83,8 @@ class UpdateGtmAccessStrategyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['StrategyId'])) {
-            $model->strategyId = $map['StrategyId'];
-        }
-        if (isset($map['StrategyName'])) {
-            $model->strategyName = $map['StrategyName'];
+        if (isset($map['AccessLines'])) {
+            $model->accessLines = $map['AccessLines'];
         }
         if (isset($map['DefaultAddrPoolId'])) {
             $model->defaultAddrPoolId = $map['DefaultAddrPoolId'];
@@ -110,8 +92,14 @@ class UpdateGtmAccessStrategyRequest extends Model
         if (isset($map['FailoverAddrPoolId'])) {
             $model->failoverAddrPoolId = $map['FailoverAddrPoolId'];
         }
-        if (isset($map['AccessLines'])) {
-            $model->accessLines = $map['AccessLines'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['StrategyId'])) {
+            $model->strategyId = $map['StrategyId'];
+        }
+        if (isset($map['StrategyName'])) {
+            $model->strategyName = $map['StrategyName'];
         }
 
         return $model;

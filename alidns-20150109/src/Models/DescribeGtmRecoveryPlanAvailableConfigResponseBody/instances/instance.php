@@ -17,16 +17,16 @@ class instance extends Model
     /**
      * @var string
      */
-    public $instanceName;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $instanceName;
     protected $_name = [
         'addrPools'    => 'AddrPools',
-        'instanceName' => 'InstanceName',
         'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class instance extends Model
         if (null !== $this->addrPools) {
             $res['AddrPools'] = null !== $this->addrPools ? $this->addrPools->toMap() : null;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class instance extends Model
         if (isset($map['AddrPools'])) {
             $model->addrPools = addrPools::fromMap($map['AddrPools']);
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         return $model;

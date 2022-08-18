@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLinesResponseBody extends Model
 {
     /**
+     * @var customLines[]
+     */
+    public $customLines;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -22,29 +32,19 @@ class DescribeCustomLinesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalItems;
 
     /**
      * @var int
      */
     public $totalPages;
-
-    /**
-     * @var customLines[]
-     */
-    public $customLines;
-
-    /**
-     * @var int
-     */
-    public $totalItems;
     protected $_name = [
+        'customLines' => 'CustomLines',
+        'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
-        'pageNumber'  => 'PageNumber',
-        'totalPages'  => 'TotalPages',
-        'customLines' => 'CustomLines',
         'totalItems'  => 'TotalItems',
+        'totalPages'  => 'TotalPages',
     ];
 
     public function validate()
@@ -54,18 +54,6 @@ class DescribeCustomLinesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalPages) {
-            $res['TotalPages'] = $this->totalPages;
-        }
         if (null !== $this->customLines) {
             $res['CustomLines'] = [];
             if (null !== $this->customLines && \is_array($this->customLines)) {
@@ -75,8 +63,20 @@ class DescribeCustomLinesResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalItems) {
             $res['TotalItems'] = $this->totalItems;
+        }
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         return $res;
@@ -90,18 +90,6 @@ class DescribeCustomLinesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalPages'])) {
-            $model->totalPages = $map['TotalPages'];
-        }
         if (isset($map['CustomLines'])) {
             if (!empty($map['CustomLines'])) {
                 $model->customLines = [];
@@ -111,8 +99,20 @@ class DescribeCustomLinesResponseBody extends Model
                 }
             }
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalItems'])) {
             $model->totalItems = $map['TotalItems'];
+        }
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         return $model;

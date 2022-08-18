@@ -12,33 +12,27 @@ class AddCustomLineRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $lineName;
 
     /**
      * @var ipSegment[]
      */
     public $ipSegment;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $lineName;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'domainName'   => 'DomainName',
-        'lineName'     => 'LineName',
-        'ipSegment'    => 'IpSegment',
+        'domainName' => 'DomainName',
+        'ipSegment'  => 'IpSegment',
+        'lang'       => 'Lang',
+        'lineName'   => 'LineName',
     ];
 
     public function validate()
@@ -48,17 +42,8 @@ class AddCustomLineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->lineName) {
-            $res['LineName'] = $this->lineName;
         }
         if (null !== $this->ipSegment) {
             $res['IpSegment'] = [];
@@ -68,6 +53,12 @@ class AddCustomLineRequest extends Model
                     $res['IpSegment'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->lineName) {
+            $res['LineName'] = $this->lineName;
         }
 
         return $res;
@@ -81,17 +72,8 @@ class AddCustomLineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['LineName'])) {
-            $model->lineName = $map['LineName'];
         }
         if (isset($map['IpSegment'])) {
             if (!empty($map['IpSegment'])) {
@@ -101,6 +83,12 @@ class AddCustomLineRequest extends Model
                     $model->ipSegment[$n++] = null !== $item ? ipSegment::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['LineName'])) {
+            $model->lineName = $map['LineName'];
         }
 
         return $model;

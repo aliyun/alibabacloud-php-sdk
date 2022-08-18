@@ -11,17 +11,12 @@ class DescribeDNSSLBSubDomainsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class DescribeDNSSLBSubDomainsRequest extends Model
      * @var string
      */
     public $rr;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
         'domainName'   => 'DomainName',
+        'lang'         => 'Lang',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'rr'           => 'Rr',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class DescribeDNSSLBSubDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -70,6 +67,9 @@ class DescribeDNSSLBSubDomainsRequest extends Model
         }
         if (null !== $this->rr) {
             $res['Rr'] = $this->rr;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class DescribeDNSSLBSubDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -100,6 +97,9 @@ class DescribeDNSSLBSubDomainsRequest extends Model
         }
         if (isset($map['Rr'])) {
             $model->rr = $map['Rr'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

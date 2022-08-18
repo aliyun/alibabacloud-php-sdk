@@ -11,7 +11,12 @@ class alertConfig extends Model
     /**
      * @var string
      */
-    public $smsNotice;
+    public $dingtalkNotice;
+
+    /**
+     * @var string
+     */
+    public $emailNotice;
 
     /**
      * @var string
@@ -21,11 +26,12 @@ class alertConfig extends Model
     /**
      * @var string
      */
-    public $emailNotice;
+    public $smsNotice;
     protected $_name = [
-        'smsNotice'   => 'SmsNotice',
-        'noticeType'  => 'NoticeType',
-        'emailNotice' => 'EmailNotice',
+        'dingtalkNotice' => 'DingtalkNotice',
+        'emailNotice'    => 'EmailNotice',
+        'noticeType'     => 'NoticeType',
+        'smsNotice'      => 'SmsNotice',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class alertConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->smsNotice) {
-            $res['SmsNotice'] = $this->smsNotice;
+        if (null !== $this->dingtalkNotice) {
+            $res['DingtalkNotice'] = $this->dingtalkNotice;
+        }
+        if (null !== $this->emailNotice) {
+            $res['EmailNotice'] = $this->emailNotice;
         }
         if (null !== $this->noticeType) {
             $res['NoticeType'] = $this->noticeType;
         }
-        if (null !== $this->emailNotice) {
-            $res['EmailNotice'] = $this->emailNotice;
+        if (null !== $this->smsNotice) {
+            $res['SmsNotice'] = $this->smsNotice;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class alertConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SmsNotice'])) {
-            $model->smsNotice = $map['SmsNotice'];
+        if (isset($map['DingtalkNotice'])) {
+            $model->dingtalkNotice = $map['DingtalkNotice'];
+        }
+        if (isset($map['EmailNotice'])) {
+            $model->emailNotice = $map['EmailNotice'];
         }
         if (isset($map['NoticeType'])) {
             $model->noticeType = $map['NoticeType'];
         }
-        if (isset($map['EmailNotice'])) {
-            $model->emailNotice = $map['EmailNotice'];
+        if (isset($map['SmsNotice'])) {
+            $model->smsNotice = $map['SmsNotice'];
         }
 
         return $model;

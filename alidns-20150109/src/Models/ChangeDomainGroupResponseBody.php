@@ -11,21 +11,21 @@ class ChangeDomainGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
     protected $_name = [
+        'groupId'   => 'GroupId',
         'groupName' => 'GroupName',
         'requestId' => 'RequestId',
-        'groupId'   => 'GroupId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ChangeDomainGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ChangeDomainGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
 
         return $model;

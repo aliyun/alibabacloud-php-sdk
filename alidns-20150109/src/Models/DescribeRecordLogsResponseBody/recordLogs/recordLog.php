@@ -14,6 +14,11 @@ class recordLog extends Model
     public $action;
 
     /**
+     * @var string
+     */
+    public $actionTime;
+
+    /**
      * @var int
      */
     public $actionTimestamp;
@@ -27,17 +32,12 @@ class recordLog extends Model
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $actionTime;
     protected $_name = [
         'action'          => 'Action',
+        'actionTime'      => 'ActionTime',
         'actionTimestamp' => 'ActionTimestamp',
         'clientIp'        => 'ClientIp',
         'message'         => 'Message',
-        'actionTime'      => 'ActionTime',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class recordLog extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+        if (null !== $this->actionTime) {
+            $res['ActionTime'] = $this->actionTime;
+        }
         if (null !== $this->actionTimestamp) {
             $res['ActionTimestamp'] = $this->actionTimestamp;
         }
@@ -58,9 +61,6 @@ class recordLog extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->actionTime) {
-            $res['ActionTime'] = $this->actionTime;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class recordLog extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+        if (isset($map['ActionTime'])) {
+            $model->actionTime = $map['ActionTime'];
+        }
         if (isset($map['ActionTimestamp'])) {
             $model->actionTimestamp = $map['ActionTimestamp'];
         }
@@ -85,9 +88,6 @@ class recordLog extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['ActionTime'])) {
-            $model->actionTime = $map['ActionTime'];
         }
 
         return $model;

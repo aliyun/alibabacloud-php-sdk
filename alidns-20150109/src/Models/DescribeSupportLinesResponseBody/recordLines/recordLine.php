@@ -16,12 +16,12 @@ class recordLine extends Model
     /**
      * @var string
      */
-    public $lineDisplayName;
+    public $lineCode;
 
     /**
      * @var string
      */
-    public $lineCode;
+    public $lineDisplayName;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class recordLine extends Model
     public $lineName;
     protected $_name = [
         'fatherCode'      => 'FatherCode',
-        'lineDisplayName' => 'LineDisplayName',
         'lineCode'        => 'LineCode',
+        'lineDisplayName' => 'LineDisplayName',
         'lineName'        => 'LineName',
     ];
 
@@ -44,11 +44,11 @@ class recordLine extends Model
         if (null !== $this->fatherCode) {
             $res['FatherCode'] = $this->fatherCode;
         }
-        if (null !== $this->lineDisplayName) {
-            $res['LineDisplayName'] = $this->lineDisplayName;
-        }
         if (null !== $this->lineCode) {
             $res['LineCode'] = $this->lineCode;
+        }
+        if (null !== $this->lineDisplayName) {
+            $res['LineDisplayName'] = $this->lineDisplayName;
         }
         if (null !== $this->lineName) {
             $res['LineName'] = $this->lineName;
@@ -68,11 +68,11 @@ class recordLine extends Model
         if (isset($map['FatherCode'])) {
             $model->fatherCode = $map['FatherCode'];
         }
-        if (isset($map['LineDisplayName'])) {
-            $model->lineDisplayName = $map['LineDisplayName'];
-        }
         if (isset($map['LineCode'])) {
             $model->lineCode = $map['LineCode'];
+        }
+        if (isset($map['LineDisplayName'])) {
+            $model->lineDisplayName = $map['LineDisplayName'];
         }
         if (isset($map['LineName'])) {
             $model->lineName = $map['LineName'];

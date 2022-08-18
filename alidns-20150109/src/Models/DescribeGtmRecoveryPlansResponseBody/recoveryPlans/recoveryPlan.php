@@ -11,37 +11,22 @@ class recoveryPlan extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $lastRollbackTimestamp;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
      * @var int
      */
-    public $recoveryPlanId;
+    public $createTimestamp;
 
     /**
      * @var int
      */
-    public $updateTimestamp;
+    public $faultAddrPoolNum;
+
+    /**
+     * @var string
+     */
+    public $lastExecuteTime;
 
     /**
      * @var int
@@ -51,12 +36,12 @@ class recoveryPlan extends Model
     /**
      * @var string
      */
-    public $lastExecuteTime;
+    public $lastRollbackTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $lastRollbackTime;
+    public $lastRollbackTimestamp;
 
     /**
      * @var string
@@ -66,26 +51,41 @@ class recoveryPlan extends Model
     /**
      * @var int
      */
-    public $faultAddrPoolNum;
+    public $recoveryPlanId;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
 
     /**
      * @var int
      */
-    public $createTimestamp;
+    public $updateTimestamp;
     protected $_name = [
-        'status'                => 'Status',
-        'lastRollbackTimestamp' => 'LastRollbackTimestamp',
-        'updateTime'            => 'UpdateTime',
-        'remark'                => 'Remark',
         'createTime'            => 'CreateTime',
-        'recoveryPlanId'        => 'RecoveryPlanId',
-        'updateTimestamp'       => 'UpdateTimestamp',
-        'lastExecuteTimestamp'  => 'LastExecuteTimestamp',
-        'lastExecuteTime'       => 'LastExecuteTime',
-        'lastRollbackTime'      => 'LastRollbackTime',
-        'name'                  => 'Name',
-        'faultAddrPoolNum'      => 'FaultAddrPoolNum',
         'createTimestamp'       => 'CreateTimestamp',
+        'faultAddrPoolNum'      => 'FaultAddrPoolNum',
+        'lastExecuteTime'       => 'LastExecuteTime',
+        'lastExecuteTimestamp'  => 'LastExecuteTimestamp',
+        'lastRollbackTime'      => 'LastRollbackTime',
+        'lastRollbackTimestamp' => 'LastRollbackTimestamp',
+        'name'                  => 'Name',
+        'recoveryPlanId'        => 'RecoveryPlanId',
+        'remark'                => 'Remark',
+        'status'                => 'Status',
+        'updateTime'            => 'UpdateTime',
+        'updateTimestamp'       => 'UpdateTimestamp',
     ];
 
     public function validate()
@@ -95,44 +95,44 @@ class recoveryPlan extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->lastRollbackTimestamp) {
-            $res['LastRollbackTimestamp'] = $this->lastRollbackTimestamp;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->recoveryPlanId) {
-            $res['RecoveryPlanId'] = $this->recoveryPlanId;
-        }
-        if (null !== $this->updateTimestamp) {
-            $res['UpdateTimestamp'] = $this->updateTimestamp;
-        }
-        if (null !== $this->lastExecuteTimestamp) {
-            $res['LastExecuteTimestamp'] = $this->lastExecuteTimestamp;
-        }
-        if (null !== $this->lastExecuteTime) {
-            $res['LastExecuteTime'] = $this->lastExecuteTime;
-        }
-        if (null !== $this->lastRollbackTime) {
-            $res['LastRollbackTime'] = $this->lastRollbackTime;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
         if (null !== $this->faultAddrPoolNum) {
             $res['FaultAddrPoolNum'] = $this->faultAddrPoolNum;
         }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
+        if (null !== $this->lastExecuteTime) {
+            $res['LastExecuteTime'] = $this->lastExecuteTime;
+        }
+        if (null !== $this->lastExecuteTimestamp) {
+            $res['LastExecuteTimestamp'] = $this->lastExecuteTimestamp;
+        }
+        if (null !== $this->lastRollbackTime) {
+            $res['LastRollbackTime'] = $this->lastRollbackTime;
+        }
+        if (null !== $this->lastRollbackTimestamp) {
+            $res['LastRollbackTimestamp'] = $this->lastRollbackTimestamp;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->recoveryPlanId) {
+            $res['RecoveryPlanId'] = $this->recoveryPlanId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->updateTimestamp) {
+            $res['UpdateTimestamp'] = $this->updateTimestamp;
         }
 
         return $res;
@@ -146,44 +146,44 @@ class recoveryPlan extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['LastRollbackTimestamp'])) {
-            $model->lastRollbackTimestamp = $map['LastRollbackTimestamp'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['RecoveryPlanId'])) {
-            $model->recoveryPlanId = $map['RecoveryPlanId'];
-        }
-        if (isset($map['UpdateTimestamp'])) {
-            $model->updateTimestamp = $map['UpdateTimestamp'];
-        }
-        if (isset($map['LastExecuteTimestamp'])) {
-            $model->lastExecuteTimestamp = $map['LastExecuteTimestamp'];
-        }
-        if (isset($map['LastExecuteTime'])) {
-            $model->lastExecuteTime = $map['LastExecuteTime'];
-        }
-        if (isset($map['LastRollbackTime'])) {
-            $model->lastRollbackTime = $map['LastRollbackTime'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
         if (isset($map['FaultAddrPoolNum'])) {
             $model->faultAddrPoolNum = $map['FaultAddrPoolNum'];
         }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
+        if (isset($map['LastExecuteTime'])) {
+            $model->lastExecuteTime = $map['LastExecuteTime'];
+        }
+        if (isset($map['LastExecuteTimestamp'])) {
+            $model->lastExecuteTimestamp = $map['LastExecuteTimestamp'];
+        }
+        if (isset($map['LastRollbackTime'])) {
+            $model->lastRollbackTime = $map['LastRollbackTime'];
+        }
+        if (isset($map['LastRollbackTimestamp'])) {
+            $model->lastRollbackTimestamp = $map['LastRollbackTimestamp'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RecoveryPlanId'])) {
+            $model->recoveryPlanId = $map['RecoveryPlanId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UpdateTimestamp'])) {
+            $model->updateTimestamp = $map['UpdateTimestamp'];
         }
 
         return $model;

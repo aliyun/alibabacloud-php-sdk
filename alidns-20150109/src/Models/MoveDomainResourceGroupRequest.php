@@ -16,22 +16,16 @@ class MoveDomainResourceGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceId;
-
-    /**
-     * @var string
-     */
     public $newResourceGroupId;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $resourceId;
     protected $_name = [
         'lang'               => 'Lang',
-        'resourceId'         => 'ResourceId',
         'newResourceGroupId' => 'NewResourceGroupId',
-        'userClientIp'       => 'UserClientIp',
+        'resourceId'         => 'ResourceId',
     ];
 
     public function validate()
@@ -44,14 +38,11 @@ class MoveDomainResourceGroupRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -68,14 +59,11 @@ class MoveDomainResourceGroupRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         return $model;

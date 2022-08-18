@@ -12,7 +12,17 @@ class PreviewGtmRecoveryPlanResponseBody extends Model
     /**
      * @var int
      */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
     public $pageSize;
+
+    /**
+     * @var previews
+     */
+    public $previews;
 
     /**
      * @var string
@@ -22,29 +32,19 @@ class PreviewGtmRecoveryPlanResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var previews
-     */
-    public $previews;
+    public $totalItems;
 
     /**
      * @var int
      */
     public $totalPages;
-
-    /**
-     * @var int
-     */
-    public $totalItems;
     protected $_name = [
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
         'previews'   => 'Previews',
-        'totalPages' => 'TotalPages',
+        'requestId'  => 'RequestId',
         'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class PreviewGtmRecoveryPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->previews) {
             $res['Previews'] = null !== $this->previews ? $this->previews->toMap() : null;
         }
-        if (null !== $this->totalPages) {
-            $res['TotalPages'] = $this->totalPages;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->totalItems) {
             $res['TotalItems'] = $this->totalItems;
+        }
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class PreviewGtmRecoveryPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Previews'])) {
             $model->previews = previews::fromMap($map['Previews']);
         }
-        if (isset($map['TotalPages'])) {
-            $model->totalPages = $map['TotalPages'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TotalItems'])) {
             $model->totalItems = $map['TotalItems'];
+        }
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         return $model;

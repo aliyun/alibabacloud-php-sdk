@@ -16,12 +16,12 @@ class UpdateDNSSLBWeightRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $recordId;
 
     /**
      * @var string
      */
-    public $recordId;
+    public $userClientIp;
 
     /**
      * @var int
@@ -29,8 +29,8 @@ class UpdateDNSSLBWeightRequest extends Model
     public $weight;
     protected $_name = [
         'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
         'recordId'     => 'RecordId',
+        'userClientIp' => 'UserClientIp',
         'weight'       => 'Weight',
     ];
 
@@ -44,11 +44,11 @@ class UpdateDNSSLBWeightRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
@@ -68,11 +68,11 @@ class UpdateDNSSLBWeightRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmLogsRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
+    public $endTimestamp;
 
     /**
      * @var string
@@ -27,6 +22,11 @@ class DescribeDnsGtmLogsRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -42,20 +42,14 @@ class DescribeDnsGtmLogsRequest extends Model
      * @var int
      */
     public $startTimestamp;
-
-    /**
-     * @var int
-     */
-    public $endTimestamp;
     protected $_name = [
-        'userClientIp'   => 'UserClientIp',
-        'lang'           => 'Lang',
+        'endTimestamp'   => 'EndTimestamp',
         'instanceId'     => 'InstanceId',
         'keyword'        => 'Keyword',
+        'lang'           => 'Lang',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'startTimestamp' => 'StartTimestamp',
-        'endTimestamp'   => 'EndTimestamp',
     ];
 
     public function validate()
@@ -65,17 +59,17 @@ class DescribeDnsGtmLogsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -85,9 +79,6 @@ class DescribeDnsGtmLogsRequest extends Model
         }
         if (null !== $this->startTimestamp) {
             $res['StartTimestamp'] = $this->startTimestamp;
-        }
-        if (null !== $this->endTimestamp) {
-            $res['EndTimestamp'] = $this->endTimestamp;
         }
 
         return $res;
@@ -101,17 +92,17 @@ class DescribeDnsGtmLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -121,9 +112,6 @@ class DescribeDnsGtmLogsRequest extends Model
         }
         if (isset($map['StartTimestamp'])) {
             $model->startTimestamp = $map['StartTimestamp'];
-        }
-        if (isset($map['EndTimestamp'])) {
-            $model->endTimestamp = $map['EndTimestamp'];
         }
 
         return $model;

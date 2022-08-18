@@ -14,9 +14,14 @@ class ispCityNode extends Model
     public $cityCode;
 
     /**
+     * @var string
+     */
+    public $cityName;
+
+    /**
      * @var bool
      */
-    public $mainland;
+    public $defaultSelected;
 
     /**
      * @var string
@@ -26,12 +31,12 @@ class ispCityNode extends Model
     /**
      * @var string
      */
-    public $ispCode;
+    public $groupType;
 
     /**
      * @var string
      */
-    public $cityName;
+    public $ispCode;
 
     /**
      * @var string
@@ -39,23 +44,18 @@ class ispCityNode extends Model
     public $ispName;
 
     /**
-     * @var string
-     */
-    public $groupType;
-
-    /**
      * @var bool
      */
-    public $defaultSelected;
+    public $mainland;
     protected $_name = [
         'cityCode'        => 'CityCode',
-        'mainland'        => 'Mainland',
-        'groupName'       => 'GroupName',
-        'ispCode'         => 'IspCode',
         'cityName'        => 'CityName',
-        'ispName'         => 'IspName',
-        'groupType'       => 'GroupType',
         'defaultSelected' => 'DefaultSelected',
+        'groupName'       => 'GroupName',
+        'groupType'       => 'GroupType',
+        'ispCode'         => 'IspCode',
+        'ispName'         => 'IspName',
+        'mainland'        => 'Mainland',
     ];
 
     public function validate()
@@ -68,26 +68,26 @@ class ispCityNode extends Model
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
-        if (null !== $this->mainland) {
-            $res['Mainland'] = $this->mainland;
+        if (null !== $this->cityName) {
+            $res['CityName'] = $this->cityName;
+        }
+        if (null !== $this->defaultSelected) {
+            $res['DefaultSelected'] = $this->defaultSelected;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
+        }
         if (null !== $this->ispCode) {
             $res['IspCode'] = $this->ispCode;
-        }
-        if (null !== $this->cityName) {
-            $res['CityName'] = $this->cityName;
         }
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
         }
-        if (null !== $this->groupType) {
-            $res['GroupType'] = $this->groupType;
-        }
-        if (null !== $this->defaultSelected) {
-            $res['DefaultSelected'] = $this->defaultSelected;
+        if (null !== $this->mainland) {
+            $res['Mainland'] = $this->mainland;
         }
 
         return $res;
@@ -104,26 +104,26 @@ class ispCityNode extends Model
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
-        if (isset($map['Mainland'])) {
-            $model->mainland = $map['Mainland'];
+        if (isset($map['CityName'])) {
+            $model->cityName = $map['CityName'];
+        }
+        if (isset($map['DefaultSelected'])) {
+            $model->defaultSelected = $map['DefaultSelected'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
+        }
         if (isset($map['IspCode'])) {
             $model->ispCode = $map['IspCode'];
-        }
-        if (isset($map['CityName'])) {
-            $model->cityName = $map['CityName'];
         }
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];
         }
-        if (isset($map['GroupType'])) {
-            $model->groupType = $map['GroupType'];
-        }
-        if (isset($map['DefaultSelected'])) {
-            $model->defaultSelected = $map['DefaultSelected'];
+        if (isset($map['Mainland'])) {
+            $model->mainland = $map['Mainland'];
         }
 
         return $model;

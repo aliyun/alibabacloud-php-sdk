@@ -11,6 +11,16 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -27,35 +37,13 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
      * @var string
      */
     public $startDate;
-
-    /**
-     * @var string
-     */
-    public $endDate;
-
-    /**
-     * @var string
-     */
-    public $orderBy;
-
-    /**
-     * @var string
-     */
-    public $direction;
-
-    /**
-     * @var string
-     */
-    public $domainName;
     protected $_name = [
+        'domainName' => 'DomainName',
+        'endDate'    => 'EndDate',
         'lang'       => 'Lang',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'startDate'  => 'StartDate',
-        'endDate'    => 'EndDate',
-        'orderBy'    => 'OrderBy',
-        'direction'  => 'Direction',
-        'domainName' => 'DomainName',
     ];
 
     public function validate()
@@ -65,6 +53,12 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -76,18 +70,6 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
-        }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -101,6 +83,12 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -112,18 +100,6 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
-        }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
 
         return $model;

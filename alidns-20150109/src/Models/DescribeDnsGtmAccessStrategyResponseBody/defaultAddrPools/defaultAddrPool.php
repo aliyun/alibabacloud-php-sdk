@@ -11,27 +11,27 @@ class defaultAddrPool extends Model
     /**
      * @var int
      */
-    public $lbaWeight;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var int
-     */
     public $addrCount;
 
     /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $lbaWeight;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'lbaWeight' => 'LbaWeight',
-        'name'      => 'Name',
         'addrCount' => 'AddrCount',
         'id'        => 'Id',
+        'lbaWeight' => 'LbaWeight',
+        'name'      => 'Name',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class defaultAddrPool extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lbaWeight) {
-            $res['LbaWeight'] = $this->lbaWeight;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->addrCount) {
             $res['AddrCount'] = $this->addrCount;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lbaWeight) {
+            $res['LbaWeight'] = $this->lbaWeight;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class defaultAddrPool extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LbaWeight'])) {
-            $model->lbaWeight = $map['LbaWeight'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AddrCount'])) {
             $model->addrCount = $map['AddrCount'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LbaWeight'])) {
+            $model->lbaWeight = $map['LbaWeight'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

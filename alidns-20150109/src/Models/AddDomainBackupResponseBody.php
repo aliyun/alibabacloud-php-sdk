@@ -11,21 +11,21 @@ class AddDomainBackupResponseBody extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
     public $periodType;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
     protected $_name = [
+        'domainName' => 'DomainName',
         'periodType' => 'PeriodType',
         'requestId'  => 'RequestId',
-        'domainName' => 'DomainName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddDomainBackupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AddDomainBackupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
 
         return $model;

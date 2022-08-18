@@ -11,12 +11,12 @@ class DescribeDohSubDomainStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $endDate;
 
     /**
      * @var string
      */
-    public $subDomain;
+    public $lang;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DescribeDohSubDomainStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $endDate;
+    public $subDomain;
     protected $_name = [
-        'lang'      => 'Lang',
-        'subDomain' => 'SubDomain',
-        'startDate' => 'StartDate',
         'endDate'   => 'EndDate',
+        'lang'      => 'Lang',
+        'startDate' => 'StartDate',
+        'subDomain' => 'SubDomain',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeDohSubDomainStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->subDomain) {
-            $res['SubDomain'] = $this->subDomain;
         }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeDohSubDomainStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['SubDomain'])) {
-            $model->subDomain = $map['SubDomain'];
         }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
         }
 
         return $model;

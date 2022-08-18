@@ -11,27 +11,21 @@ class UpdateDomainGroupRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $lang;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
+        'groupId'   => 'GroupId',
+        'groupName' => 'GroupName',
+        'lang'      => 'Lang',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class UpdateDomainGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class UpdateDomainGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

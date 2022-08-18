@@ -11,15 +11,15 @@ class DescribeDnsGtmAvailableAlertGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $availableAlertGroup;
 
     /**
      * @var string
      */
-    public $availableAlertGroup;
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'availableAlertGroup' => 'AvailableAlertGroup',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDnsGtmAvailableAlertGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->availableAlertGroup) {
             $res['AvailableAlertGroup'] = $this->availableAlertGroup;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDnsGtmAvailableAlertGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AvailableAlertGroup'])) {
             $model->availableAlertGroup = $map['AvailableAlertGroup'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

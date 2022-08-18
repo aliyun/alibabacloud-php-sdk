@@ -11,12 +11,17 @@ class DescribeTransferDomainsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $domainName;
+
+    /**
+     * @var int
+     */
+    public $fromUserId;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $lang;
 
     /**
      * @var int
@@ -29,33 +34,22 @@ class DescribeTransferDomainsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $transferType;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var int
-     */
-    public $fromUserId;
-
-    /**
      * @var int
      */
     public $targetUserId;
+
+    /**
+     * @var string
+     */
+    public $transferType;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'transferType' => 'TransferType',
         'domainName'   => 'DomainName',
         'fromUserId'   => 'FromUserId',
+        'lang'         => 'Lang',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
         'targetUserId' => 'TargetUserId',
+        'transferType' => 'TransferType',
     ];
 
     public function validate()
@@ -65,11 +59,14 @@ class DescribeTransferDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->fromUserId) {
+            $res['FromUserId'] = $this->fromUserId;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,17 +74,11 @@ class DescribeTransferDomainsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->transferType) {
-            $res['TransferType'] = $this->transferType;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->fromUserId) {
-            $res['FromUserId'] = $this->fromUserId;
-        }
         if (null !== $this->targetUserId) {
             $res['TargetUserId'] = $this->targetUserId;
+        }
+        if (null !== $this->transferType) {
+            $res['TransferType'] = $this->transferType;
         }
 
         return $res;
@@ -101,11 +92,14 @@ class DescribeTransferDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['FromUserId'])) {
+            $model->fromUserId = $map['FromUserId'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -113,17 +107,11 @@ class DescribeTransferDomainsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TransferType'])) {
-            $model->transferType = $map['TransferType'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['FromUserId'])) {
-            $model->fromUserId = $map['FromUserId'];
-        }
         if (isset($map['TargetUserId'])) {
             $model->targetUserId = $map['TargetUserId'];
+        }
+        if (isset($map['TransferType'])) {
+            $model->transferType = $map['TransferType'];
         }
 
         return $model;

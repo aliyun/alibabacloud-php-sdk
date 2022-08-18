@@ -11,21 +11,27 @@ class usedQuota extends Model
     /**
      * @var int
      */
+    public $dingtalkUsedCount;
+
+    /**
+     * @var int
+     */
     public $emailUsedCount;
 
     /**
      * @var int
      */
-    public $taskUsedCount;
+    public $smsUsedCount;
 
     /**
      * @var int
      */
-    public $smsUsedCount;
+    public $taskUsedCount;
     protected $_name = [
-        'emailUsedCount' => 'EmailUsedCount',
-        'taskUsedCount'  => 'TaskUsedCount',
-        'smsUsedCount'   => 'SmsUsedCount',
+        'dingtalkUsedCount' => 'DingtalkUsedCount',
+        'emailUsedCount'    => 'EmailUsedCount',
+        'smsUsedCount'      => 'SmsUsedCount',
+        'taskUsedCount'     => 'TaskUsedCount',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class usedQuota extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dingtalkUsedCount) {
+            $res['DingtalkUsedCount'] = $this->dingtalkUsedCount;
+        }
         if (null !== $this->emailUsedCount) {
             $res['EmailUsedCount'] = $this->emailUsedCount;
         }
-        if (null !== $this->taskUsedCount) {
-            $res['TaskUsedCount'] = $this->taskUsedCount;
-        }
         if (null !== $this->smsUsedCount) {
             $res['SmsUsedCount'] = $this->smsUsedCount;
+        }
+        if (null !== $this->taskUsedCount) {
+            $res['TaskUsedCount'] = $this->taskUsedCount;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class usedQuota extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DingtalkUsedCount'])) {
+            $model->dingtalkUsedCount = $map['DingtalkUsedCount'];
+        }
         if (isset($map['EmailUsedCount'])) {
             $model->emailUsedCount = $map['EmailUsedCount'];
         }
-        if (isset($map['TaskUsedCount'])) {
-            $model->taskUsedCount = $map['TaskUsedCount'];
-        }
         if (isset($map['SmsUsedCount'])) {
             $model->smsUsedCount = $map['SmsUsedCount'];
+        }
+        if (isset($map['TaskUsedCount'])) {
+            $model->taskUsedCount = $map['TaskUsedCount'];
         }
 
         return $model;

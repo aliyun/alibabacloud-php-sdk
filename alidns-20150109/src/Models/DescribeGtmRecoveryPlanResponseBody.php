@@ -12,12 +12,12 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $createTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $lastRollbackTime;
+    public $createTimestamp;
 
     /**
      * @var int
@@ -35,16 +35,6 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public $lastExecuteTime;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
      * @var int
      */
     public $lastExecuteTimestamp;
@@ -52,7 +42,12 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     /**
      * @var string
      */
-    public $remark;
+    public $lastRollbackTime;
+
+    /**
+     * @var int
+     */
+    public $lastRollbackTimestamp;
 
     /**
      * @var string
@@ -67,38 +62,43 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $updateTime;
 
     /**
      * @var int
      */
     public $updateTimestamp;
-
-    /**
-     * @var int
-     */
-    public $lastRollbackTimestamp;
-
-    /**
-     * @var int
-     */
-    public $createTimestamp;
     protected $_name = [
-        'status'                => 'Status',
-        'lastRollbackTime'      => 'LastRollbackTime',
+        'createTime'            => 'CreateTime',
+        'createTimestamp'       => 'CreateTimestamp',
         'faultAddrPoolNum'      => 'FaultAddrPoolNum',
         'faultAddrPools'        => 'FaultAddrPools',
         'lastExecuteTime'       => 'LastExecuteTime',
-        'requestId'             => 'RequestId',
-        'createTime'            => 'CreateTime',
         'lastExecuteTimestamp'  => 'LastExecuteTimestamp',
-        'remark'                => 'Remark',
+        'lastRollbackTime'      => 'LastRollbackTime',
+        'lastRollbackTimestamp' => 'LastRollbackTimestamp',
         'name'                  => 'Name',
         'recoveryPlanId'        => 'RecoveryPlanId',
+        'remark'                => 'Remark',
+        'requestId'             => 'RequestId',
+        'status'                => 'Status',
         'updateTime'            => 'UpdateTime',
         'updateTimestamp'       => 'UpdateTimestamp',
-        'lastRollbackTimestamp' => 'LastRollbackTimestamp',
-        'createTimestamp'       => 'CreateTimestamp',
     ];
 
     public function validate()
@@ -108,11 +108,11 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->lastRollbackTime) {
-            $res['LastRollbackTime'] = $this->lastRollbackTime;
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
         if (null !== $this->faultAddrPoolNum) {
             $res['FaultAddrPoolNum'] = $this->faultAddrPoolNum;
@@ -123,17 +123,14 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
         if (null !== $this->lastExecuteTime) {
             $res['LastExecuteTime'] = $this->lastExecuteTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->lastExecuteTimestamp) {
             $res['LastExecuteTimestamp'] = $this->lastExecuteTimestamp;
         }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->lastRollbackTime) {
+            $res['LastRollbackTime'] = $this->lastRollbackTime;
+        }
+        if (null !== $this->lastRollbackTimestamp) {
+            $res['LastRollbackTimestamp'] = $this->lastRollbackTimestamp;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -141,17 +138,20 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
         if (null !== $this->recoveryPlanId) {
             $res['RecoveryPlanId'] = $this->recoveryPlanId;
         }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->updateTimestamp) {
             $res['UpdateTimestamp'] = $this->updateTimestamp;
-        }
-        if (null !== $this->lastRollbackTimestamp) {
-            $res['LastRollbackTimestamp'] = $this->lastRollbackTimestamp;
-        }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
         }
 
         return $res;
@@ -165,11 +165,11 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['LastRollbackTime'])) {
-            $model->lastRollbackTime = $map['LastRollbackTime'];
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
         if (isset($map['FaultAddrPoolNum'])) {
             $model->faultAddrPoolNum = $map['FaultAddrPoolNum'];
@@ -180,17 +180,14 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
         if (isset($map['LastExecuteTime'])) {
             $model->lastExecuteTime = $map['LastExecuteTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['LastExecuteTimestamp'])) {
             $model->lastExecuteTimestamp = $map['LastExecuteTimestamp'];
         }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['LastRollbackTime'])) {
+            $model->lastRollbackTime = $map['LastRollbackTime'];
+        }
+        if (isset($map['LastRollbackTimestamp'])) {
+            $model->lastRollbackTimestamp = $map['LastRollbackTimestamp'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -198,17 +195,20 @@ class DescribeGtmRecoveryPlanResponseBody extends Model
         if (isset($map['RecoveryPlanId'])) {
             $model->recoveryPlanId = $map['RecoveryPlanId'];
         }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['UpdateTimestamp'])) {
             $model->updateTimestamp = $map['UpdateTimestamp'];
-        }
-        if (isset($map['LastRollbackTimestamp'])) {
-            $model->lastRollbackTimestamp = $map['LastRollbackTimestamp'];
-        }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
         }
 
         return $model;

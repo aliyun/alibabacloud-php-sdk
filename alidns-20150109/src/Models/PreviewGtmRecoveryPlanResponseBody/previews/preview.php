@@ -15,6 +15,11 @@ class preview extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var switchInfos
      */
     public $switchInfos;
@@ -22,16 +27,11 @@ class preview extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $userDomainName;
     protected $_name = [
         'instanceId'     => 'InstanceId',
-        'switchInfos'    => 'SwitchInfos',
         'name'           => 'Name',
+        'switchInfos'    => 'SwitchInfos',
         'userDomainName' => 'UserDomainName',
     ];
 
@@ -45,11 +45,11 @@ class preview extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->switchInfos) {
-            $res['SwitchInfos'] = null !== $this->switchInfos ? $this->switchInfos->toMap() : null;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->switchInfos) {
+            $res['SwitchInfos'] = null !== $this->switchInfos ? $this->switchInfos->toMap() : null;
         }
         if (null !== $this->userDomainName) {
             $res['UserDomainName'] = $this->userDomainName;
@@ -69,11 +69,11 @@ class preview extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SwitchInfos'])) {
-            $model->switchInfos = switchInfos::fromMap($map['SwitchInfos']);
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['SwitchInfos'])) {
+            $model->switchInfos = switchInfos::fromMap($map['SwitchInfos']);
         }
         if (isset($map['UserDomainName'])) {
             $model->userDomainName = $map['UserDomainName'];

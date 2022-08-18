@@ -11,17 +11,12 @@ class DescribeDomainGroupsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $keyWord;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -33,11 +28,10 @@ class DescribeDomainGroupsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'keyWord'      => 'KeyWord',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'keyWord'    => 'KeyWord',
+        'lang'       => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -47,14 +41,11 @@ class DescribeDomainGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->keyWord) {
             $res['KeyWord'] = $this->keyWord;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,14 +65,11 @@ class DescribeDomainGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['KeyWord'])) {
             $model->keyWord = $map['KeyWord'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

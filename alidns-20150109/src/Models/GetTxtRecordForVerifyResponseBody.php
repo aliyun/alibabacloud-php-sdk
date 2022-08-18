@@ -11,6 +11,11 @@ class GetTxtRecordForVerifyResponseBody extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
     public $RR;
 
     /**
@@ -21,16 +26,11 @@ class GetTxtRecordForVerifyResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $value;
     protected $_name = [
+        'domainName' => 'DomainName',
         'RR'         => 'RR',
         'requestId'  => 'RequestId',
-        'domainName' => 'DomainName',
         'value'      => 'Value',
     ];
 
@@ -41,14 +41,14 @@ class GetTxtRecordForVerifyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->RR) {
             $res['RR'] = $this->RR;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
@@ -65,14 +65,14 @@ class GetTxtRecordForVerifyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['RR'])) {
             $model->RR = $map['RR'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

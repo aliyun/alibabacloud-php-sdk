@@ -11,17 +11,17 @@ class DescribeSubDomainRecordsRequest extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $subDomain;
+    public $line;
 
     /**
      * @var int
@@ -36,26 +36,26 @@ class DescribeSubDomainRecordsRequest extends Model
     /**
      * @var string
      */
+    public $subDomain;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
      * @var string
      */
-    public $line;
-
-    /**
-     * @var string
-     */
-    public $domainName;
+    public $userClientIp;
     protected $_name = [
+        'domainName'   => 'DomainName',
         'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'subDomain'    => 'SubDomain',
+        'line'         => 'Line',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'subDomain'    => 'SubDomain',
         'type'         => 'Type',
-        'line'         => 'Line',
-        'domainName'   => 'DomainName',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -65,14 +65,14 @@ class DescribeSubDomainRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->subDomain) {
-            $res['SubDomain'] = $this->subDomain;
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -80,14 +80,14 @@ class DescribeSubDomainRecordsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->line) {
-            $res['Line'] = $this->line;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -101,14 +101,14 @@ class DescribeSubDomainRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['SubDomain'])) {
-            $model->subDomain = $map['SubDomain'];
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -116,14 +116,14 @@ class DescribeSubDomainRecordsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['Line'])) {
-            $model->line = $map['Line'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

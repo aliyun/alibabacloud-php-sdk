@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetDNSSLBStatusResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $requestId;
+    public $open;
 
     /**
      * @var int
@@ -19,13 +19,13 @@ class SetDNSSLBStatusResponseBody extends Model
     public $recordCount;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $open;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'recordCount' => 'RecordCount',
         'open'        => 'Open',
+        'recordCount' => 'RecordCount',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetDNSSLBStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->open) {
+            $res['Open'] = $this->open;
         }
         if (null !== $this->recordCount) {
             $res['RecordCount'] = $this->recordCount;
         }
-        if (null !== $this->open) {
-            $res['Open'] = $this->open;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetDNSSLBStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Open'])) {
+            $model->open = $map['Open'];
         }
         if (isset($map['RecordCount'])) {
             $model->recordCount = $map['RecordCount'];
         }
-        if (isset($map['Open'])) {
-            $model->open = $map['Open'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

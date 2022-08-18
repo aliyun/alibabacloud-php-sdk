@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class addr extends Model
 {
     /**
-     * @var attributeInfo
-     */
-    public $attributeInfo;
-
-    /**
      * @var string
      */
     public $addr;
+
+    /**
+     * @var attributeInfo
+     */
+    public $attributeInfo;
     protected $_name = [
-        'attributeInfo' => 'AttributeInfo',
         'addr'          => 'Addr',
+        'attributeInfo' => 'AttributeInfo',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class addr extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->attributeInfo) {
-            $res['AttributeInfo'] = null !== $this->attributeInfo ? $this->attributeInfo->toMap() : null;
-        }
         if (null !== $this->addr) {
             $res['Addr'] = $this->addr;
+        }
+        if (null !== $this->attributeInfo) {
+            $res['AttributeInfo'] = null !== $this->attributeInfo ? $this->attributeInfo->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class addr extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AttributeInfo'])) {
-            $model->attributeInfo = attributeInfo::fromMap($map['AttributeInfo']);
-        }
         if (isset($map['Addr'])) {
             $model->addr = $map['Addr'];
+        }
+        if (isset($map['AttributeInfo'])) {
+            $model->attributeInfo = attributeInfo::fromMap($map['AttributeInfo']);
         }
 
         return $model;

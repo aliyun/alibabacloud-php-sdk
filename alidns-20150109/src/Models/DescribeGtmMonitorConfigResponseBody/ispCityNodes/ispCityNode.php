@@ -16,16 +16,6 @@ class ispCityNode extends Model
     /**
      * @var string
      */
-    public $countryName;
-
-    /**
-     * @var string
-     */
-    public $ispCode;
-
-    /**
-     * @var string
-     */
     public $cityName;
 
     /**
@@ -36,13 +26,23 @@ class ispCityNode extends Model
     /**
      * @var string
      */
+    public $countryName;
+
+    /**
+     * @var string
+     */
+    public $ispCode;
+
+    /**
+     * @var string
+     */
     public $ispName;
     protected $_name = [
         'cityCode'    => 'CityCode',
-        'countryName' => 'CountryName',
-        'ispCode'     => 'IspCode',
         'cityName'    => 'CityName',
         'countryCode' => 'CountryCode',
+        'countryName' => 'CountryName',
+        'ispCode'     => 'IspCode',
         'ispName'     => 'IspName',
     ];
 
@@ -56,17 +56,17 @@ class ispCityNode extends Model
         if (null !== $this->cityCode) {
             $res['CityCode'] = $this->cityCode;
         }
-        if (null !== $this->countryName) {
-            $res['CountryName'] = $this->countryName;
-        }
-        if (null !== $this->ispCode) {
-            $res['IspCode'] = $this->ispCode;
-        }
         if (null !== $this->cityName) {
             $res['CityName'] = $this->cityName;
         }
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
+        }
+        if (null !== $this->countryName) {
+            $res['CountryName'] = $this->countryName;
+        }
+        if (null !== $this->ispCode) {
+            $res['IspCode'] = $this->ispCode;
         }
         if (null !== $this->ispName) {
             $res['IspName'] = $this->ispName;
@@ -86,17 +86,17 @@ class ispCityNode extends Model
         if (isset($map['CityCode'])) {
             $model->cityCode = $map['CityCode'];
         }
-        if (isset($map['CountryName'])) {
-            $model->countryName = $map['CountryName'];
-        }
-        if (isset($map['IspCode'])) {
-            $model->ispCode = $map['IspCode'];
-        }
         if (isset($map['CityName'])) {
             $model->cityName = $map['CityName'];
         }
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
+        }
+        if (isset($map['CountryName'])) {
+            $model->countryName = $map['CountryName'];
+        }
+        if (isset($map['IspCode'])) {
+            $model->ispCode = $map['IspCode'];
         }
         if (isset($map['IspName'])) {
             $model->ispName = $map['IspName'];

@@ -17,7 +17,12 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $nextToken;
+
+    /**
+     * @var string[]
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -25,32 +30,15 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $size;
-
-    /**
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string[]
-     */
-    public $resourceId;
     protected $_name = [
         'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'resourceType' => 'ResourceType',
         'nextToken'    => 'NextToken',
-        'size'         => 'Size',
-        'tag'          => 'Tag',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tag'          => 'Tag',
     ];
 
     public function validate()
@@ -63,17 +51,14 @@ class ListTagResourcesRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->size) {
-            $res['Size'] = $this->size;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -83,9 +68,6 @@ class ListTagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -102,17 +84,16 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['Size'])) {
-            $model->size = $map['Size'];
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -121,11 +102,6 @@ class ListTagResourcesRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
             }
         }
 

@@ -11,7 +11,7 @@ class SetDomainDnssecStatusRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $domainName;
 
     /**
      * @var string
@@ -21,17 +21,11 @@ class SetDomainDnssecStatusRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $status;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'domainName'   => 'DomainName',
-        'status'       => 'Status',
+        'domainName' => 'DomainName',
+        'lang'       => 'Lang',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -41,14 +35,11 @@ class SetDomainDnssecStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -65,14 +56,11 @@ class SetDomainDnssecStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

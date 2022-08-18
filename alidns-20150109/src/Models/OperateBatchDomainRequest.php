@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class OperateBatchDomainRequest extends Model
 {
     /**
+     * @var domainRecordInfo[]
+     */
+    public $domainRecordInfo;
+
+    /**
      * @var string
      */
     public $lang;
@@ -17,22 +22,11 @@ class OperateBatchDomainRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $type;
-
-    /**
-     * @var domainRecordInfo[]
-     */
-    public $domainRecordInfo;
     protected $_name = [
-        'lang'             => 'Lang',
-        'userClientIp'     => 'UserClientIp',
-        'type'             => 'Type',
         'domainRecordInfo' => 'DomainRecordInfo',
+        'lang'             => 'Lang',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -42,15 +36,6 @@ class OperateBatchDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->domainRecordInfo) {
             $res['DomainRecordInfo'] = [];
             if (null !== $this->domainRecordInfo && \is_array($this->domainRecordInfo)) {
@@ -59,6 +44,12 @@ class OperateBatchDomainRequest extends Model
                     $res['DomainRecordInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -72,15 +63,6 @@ class OperateBatchDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['DomainRecordInfo'])) {
             if (!empty($map['DomainRecordInfo'])) {
                 $model->domainRecordInfo = [];
@@ -89,6 +71,12 @@ class OperateBatchDomainRequest extends Model
                     $model->domainRecordInfo[$n++] = null !== $item ? domainRecordInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

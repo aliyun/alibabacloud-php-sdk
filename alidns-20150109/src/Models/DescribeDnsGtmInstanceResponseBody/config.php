@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @var int
+     * @var alertConfig
      */
-    public $ttl;
+    public $alertConfig;
 
     /**
      * @var string
@@ -27,12 +27,12 @@ class config extends Model
     /**
      * @var string
      */
-    public $strategyMode;
+    public $instanceName;
 
     /**
      * @var string
      */
-    public $instanceName;
+    public $pubicZoneName;
 
     /**
      * @var string
@@ -40,9 +40,9 @@ class config extends Model
     public $publicCnameMode;
 
     /**
-     * @var alertConfig
+     * @var string
      */
-    public $alertConfig;
+    public $publicRr;
 
     /**
      * @var string
@@ -52,17 +52,23 @@ class config extends Model
     /**
      * @var string
      */
-    public $pubicZoneName;
+    public $strategyMode;
+
+    /**
+     * @var int
+     */
+    public $ttl;
     protected $_name = [
-        'ttl'                  => 'Ttl',
+        'alertConfig'          => 'AlertConfig',
         'alertGroup'           => 'AlertGroup',
         'cnameType'            => 'CnameType',
-        'strategyMode'         => 'StrategyMode',
         'instanceName'         => 'InstanceName',
-        'publicCnameMode'      => 'PublicCnameMode',
-        'alertConfig'          => 'AlertConfig',
-        'publicUserDomainName' => 'PublicUserDomainName',
         'pubicZoneName'        => 'PubicZoneName',
+        'publicCnameMode'      => 'PublicCnameMode',
+        'publicRr'             => 'PublicRr',
+        'publicUserDomainName' => 'PublicUserDomainName',
+        'strategyMode'         => 'StrategyMode',
+        'ttl'                  => 'Ttl',
     ];
 
     public function validate()
@@ -72,8 +78,8 @@ class config extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ttl) {
-            $res['Ttl'] = $this->ttl;
+        if (null !== $this->alertConfig) {
+            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
         }
         if (null !== $this->alertGroup) {
             $res['AlertGroup'] = $this->alertGroup;
@@ -81,23 +87,26 @@ class config extends Model
         if (null !== $this->cnameType) {
             $res['CnameType'] = $this->cnameType;
         }
-        if (null !== $this->strategyMode) {
-            $res['StrategyMode'] = $this->strategyMode;
-        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->pubicZoneName) {
+            $res['PubicZoneName'] = $this->pubicZoneName;
         }
         if (null !== $this->publicCnameMode) {
             $res['PublicCnameMode'] = $this->publicCnameMode;
         }
-        if (null !== $this->alertConfig) {
-            $res['AlertConfig'] = null !== $this->alertConfig ? $this->alertConfig->toMap() : null;
+        if (null !== $this->publicRr) {
+            $res['PublicRr'] = $this->publicRr;
         }
         if (null !== $this->publicUserDomainName) {
             $res['PublicUserDomainName'] = $this->publicUserDomainName;
         }
-        if (null !== $this->pubicZoneName) {
-            $res['PubicZoneName'] = $this->pubicZoneName;
+        if (null !== $this->strategyMode) {
+            $res['StrategyMode'] = $this->strategyMode;
+        }
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
         }
 
         return $res;
@@ -111,8 +120,8 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ttl'])) {
-            $model->ttl = $map['Ttl'];
+        if (isset($map['AlertConfig'])) {
+            $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
         }
         if (isset($map['AlertGroup'])) {
             $model->alertGroup = $map['AlertGroup'];
@@ -120,23 +129,26 @@ class config extends Model
         if (isset($map['CnameType'])) {
             $model->cnameType = $map['CnameType'];
         }
-        if (isset($map['StrategyMode'])) {
-            $model->strategyMode = $map['StrategyMode'];
-        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['PubicZoneName'])) {
+            $model->pubicZoneName = $map['PubicZoneName'];
         }
         if (isset($map['PublicCnameMode'])) {
             $model->publicCnameMode = $map['PublicCnameMode'];
         }
-        if (isset($map['AlertConfig'])) {
-            $model->alertConfig = alertConfig::fromMap($map['AlertConfig']);
+        if (isset($map['PublicRr'])) {
+            $model->publicRr = $map['PublicRr'];
         }
         if (isset($map['PublicUserDomainName'])) {
             $model->publicUserDomainName = $map['PublicUserDomainName'];
         }
-        if (isset($map['PubicZoneName'])) {
-            $model->pubicZoneName = $map['PubicZoneName'];
+        if (isset($map['StrategyMode'])) {
+            $model->strategyMode = $map['StrategyMode'];
+        }
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class AddGtmRecoveryPlanRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $faultAddrPool;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $lang;
 
     /**
      * @var string
@@ -27,17 +27,11 @@ class AddGtmRecoveryPlanRequest extends Model
      * @var string
      */
     public $remark;
-
-    /**
-     * @var string
-     */
-    public $faultAddrPool;
     protected $_name = [
+        'faultAddrPool' => 'FaultAddrPool',
         'lang'          => 'Lang',
-        'userClientIp'  => 'UserClientIp',
         'name'          => 'Name',
         'remark'        => 'Remark',
-        'faultAddrPool' => 'FaultAddrPool',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class AddGtmRecoveryPlanRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faultAddrPool) {
+            $res['FaultAddrPool'] = $this->faultAddrPool;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->faultAddrPool) {
-            $res['FaultAddrPool'] = $this->faultAddrPool;
         }
 
         return $res;
@@ -74,20 +65,17 @@ class AddGtmRecoveryPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaultAddrPool'])) {
+            $model->faultAddrPool = $map['FaultAddrPool'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
-        }
-        if (isset($map['FaultAddrPool'])) {
-            $model->faultAddrPool = $map['FaultAddrPool'];
         }
 
         return $model;

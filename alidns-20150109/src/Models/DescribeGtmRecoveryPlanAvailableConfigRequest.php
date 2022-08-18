@@ -12,14 +12,8 @@ class DescribeGtmRecoveryPlanAvailableConfigRequest extends Model
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeGtmRecoveryPlanAvailableConfigRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeGtmRecoveryPlanAvailableConfigRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

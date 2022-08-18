@@ -11,12 +11,27 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $domainType;
+
+    /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -31,61 +46,28 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     /**
      * @var string
      */
-    public $startDate;
-
-    /**
-     * @var string
-     */
-    public $endDate;
-
-    /**
-     * @var string
-     */
-    public $orderBy;
-
-    /**
-     * @var string
-     */
-    public $direction;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $searchMode;
 
     /**
      * @var string
      */
-    public $keyword;
+    public $startDate;
 
     /**
      * @var int
      */
     public $threshold;
-
-    /**
-     * @var string
-     */
-    public $domainType;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'startDate'    => 'StartDate',
-        'endDate'      => 'EndDate',
-        'orderBy'      => 'OrderBy',
-        'direction'    => 'Direction',
-        'domainName'   => 'DomainName',
-        'searchMode'   => 'SearchMode',
-        'keyword'      => 'Keyword',
-        'threshold'    => 'Threshold',
-        'domainType'   => 'DomainType',
+        'domainName' => 'DomainName',
+        'domainType' => 'DomainType',
+        'endDate'    => 'EndDate',
+        'keyword'    => 'Keyword',
+        'lang'       => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'searchMode' => 'SearchMode',
+        'startDate'  => 'StartDate',
+        'threshold'  => 'Threshold',
     ];
 
     public function validate()
@@ -95,11 +77,20 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->domainType) {
+            $res['DomainType'] = $this->domainType;
+        }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -107,32 +98,14 @@ class DescribeRecordStatisticsSummaryRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
-        }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->searchMode) {
             $res['SearchMode'] = $this->searchMode;
         }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
-        }
-        if (null !== $this->domainType) {
-            $res['DomainType'] = $this->domainType;
         }
 
         return $res;
@@ -146,11 +119,20 @@ class DescribeRecordStatisticsSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['DomainType'])) {
+            $model->domainType = $map['DomainType'];
+        }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -158,32 +140,14 @@ class DescribeRecordStatisticsSummaryRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
-        }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['SearchMode'])) {
             $model->searchMode = $map['SearchMode'];
         }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
-        }
-        if (isset($map['DomainType'])) {
-            $model->domainType = $map['DomainType'];
         }
 
         return $model;

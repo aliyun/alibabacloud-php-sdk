@@ -11,15 +11,15 @@ class statistic extends Model
     /**
      * @var int
      */
-    public $timestamp;
+    public $count;
 
     /**
      * @var int
      */
-    public $count;
+    public $timestamp;
     protected $_name = [
-        'timestamp' => 'Timestamp',
         'count'     => 'Count',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class statistic extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class statistic extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

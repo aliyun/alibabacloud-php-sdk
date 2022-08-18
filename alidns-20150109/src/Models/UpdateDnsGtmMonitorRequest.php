@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmMonitorRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
+    public $evaluationCount;
+
+    /**
+     * @var int
+     */
+    public $interval;
+
+    /**
+     * @var ispCityNode[]
+     */
+    public $ispCityNode;
 
     /**
      * @var string
@@ -27,42 +37,26 @@ class UpdateDnsGtmMonitorRequest extends Model
     /**
      * @var string
      */
+    public $monitorExtendInfo;
+
+    /**
+     * @var string
+     */
     public $protocolType;
 
     /**
      * @var int
      */
-    public $interval;
-
-    /**
-     * @var int
-     */
-    public $evaluationCount;
-
-    /**
-     * @var int
-     */
     public $timeout;
-
-    /**
-     * @var string
-     */
-    public $monitorExtendInfo;
-
-    /**
-     * @var ispCityNode[]
-     */
-    public $ispCityNode;
     protected $_name = [
-        'userClientIp'      => 'UserClientIp',
+        'evaluationCount'   => 'EvaluationCount',
+        'interval'          => 'Interval',
+        'ispCityNode'       => 'IspCityNode',
         'lang'              => 'Lang',
         'monitorConfigId'   => 'MonitorConfigId',
-        'protocolType'      => 'ProtocolType',
-        'interval'          => 'Interval',
-        'evaluationCount'   => 'EvaluationCount',
-        'timeout'           => 'Timeout',
         'monitorExtendInfo' => 'MonitorExtendInfo',
-        'ispCityNode'       => 'IspCityNode',
+        'protocolType'      => 'ProtocolType',
+        'timeout'           => 'Timeout',
     ];
 
     public function validate()
@@ -72,29 +66,11 @@ class UpdateDnsGtmMonitorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->monitorConfigId) {
-            $res['MonitorConfigId'] = $this->monitorConfigId;
-        }
-        if (null !== $this->protocolType) {
-            $res['ProtocolType'] = $this->protocolType;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
         }
-        if (null !== $this->timeout) {
-            $res['Timeout'] = $this->timeout;
-        }
-        if (null !== $this->monitorExtendInfo) {
-            $res['MonitorExtendInfo'] = $this->monitorExtendInfo;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->ispCityNode) {
             $res['IspCityNode'] = [];
@@ -104,6 +80,21 @@ class UpdateDnsGtmMonitorRequest extends Model
                     $res['IspCityNode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->monitorConfigId) {
+            $res['MonitorConfigId'] = $this->monitorConfigId;
+        }
+        if (null !== $this->monitorExtendInfo) {
+            $res['MonitorExtendInfo'] = $this->monitorExtendInfo;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -117,29 +108,11 @@ class UpdateDnsGtmMonitorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['MonitorConfigId'])) {
-            $model->monitorConfigId = $map['MonitorConfigId'];
-        }
-        if (isset($map['ProtocolType'])) {
-            $model->protocolType = $map['ProtocolType'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
         }
-        if (isset($map['Timeout'])) {
-            $model->timeout = $map['Timeout'];
-        }
-        if (isset($map['MonitorExtendInfo'])) {
-            $model->monitorExtendInfo = $map['MonitorExtendInfo'];
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {
@@ -149,6 +122,21 @@ class UpdateDnsGtmMonitorRequest extends Model
                     $model->ispCityNode[$n++] = null !== $item ? ispCityNode::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['MonitorConfigId'])) {
+            $model->monitorConfigId = $map['MonitorConfigId'];
+        }
+        if (isset($map['MonitorExtendInfo'])) {
+            $model->monitorExtendInfo = $map['MonitorExtendInfo'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

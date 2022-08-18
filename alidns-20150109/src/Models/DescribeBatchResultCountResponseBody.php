@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBatchResultCountResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $batchType;
 
     /**
      * @var int
      */
-    public $totalCount;
+    public $failedCount;
 
     /**
-     * @var int
+     * @var string
      */
-    public $taskId;
+    public $reason;
 
     /**
      * @var string
@@ -31,7 +31,7 @@ class DescribeBatchResultCountResponseBody extends Model
     /**
      * @var int
      */
-    public $failedCount;
+    public $status;
 
     /**
      * @var int
@@ -39,23 +39,23 @@ class DescribeBatchResultCountResponseBody extends Model
     public $successCount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $batchType;
+    public $taskId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $reason;
+    public $totalCount;
     protected $_name = [
-        'status'       => 'Status',
-        'totalCount'   => 'TotalCount',
-        'taskId'       => 'TaskId',
-        'requestId'    => 'RequestId',
-        'failedCount'  => 'FailedCount',
-        'successCount' => 'SuccessCount',
         'batchType'    => 'BatchType',
+        'failedCount'  => 'FailedCount',
         'reason'       => 'Reason',
+        'requestId'    => 'RequestId',
+        'status'       => 'Status',
+        'successCount' => 'SuccessCount',
+        'taskId'       => 'TaskId',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class DescribeBatchResultCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->batchType) {
+            $res['BatchType'] = $this->batchType;
         }
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
         }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
-        if (null !== $this->batchType) {
-            $res['BatchType'] = $this->batchType;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class DescribeBatchResultCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['BatchType'])) {
+            $model->batchType = $map['BatchType'];
         }
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
         }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }
-        if (isset($map['BatchType'])) {
-            $model->batchType = $map['BatchType'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmLogsResponseBody extends Model
 {
     /**
+     * @var logs
+     */
+    public $logs;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -22,29 +32,19 @@ class DescribeDnsGtmLogsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalItems;
 
     /**
      * @var int
      */
     public $totalPages;
-
-    /**
-     * @var logs
-     */
-    public $logs;
-
-    /**
-     * @var int
-     */
-    public $totalItems;
     protected $_name = [
+        'logs'       => 'Logs',
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
-        'totalPages' => 'TotalPages',
-        'logs'       => 'Logs',
         'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeDnsGtmLogsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logs) {
+            $res['Logs'] = null !== $this->logs ? $this->logs->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalItems) {
+            $res['TotalItems'] = $this->totalItems;
         }
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
-        }
-        if (null !== $this->logs) {
-            $res['Logs'] = null !== $this->logs ? $this->logs->toMap() : null;
-        }
-        if (null !== $this->totalItems) {
-            $res['TotalItems'] = $this->totalItems;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeDnsGtmLogsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Logs'])) {
+            $model->logs = logs::fromMap($map['Logs']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalItems'])) {
+            $model->totalItems = $map['TotalItems'];
         }
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
-        }
-        if (isset($map['Logs'])) {
-            $model->logs = logs::fromMap($map['Logs']);
-        }
-        if (isset($map['TotalItems'])) {
-            $model->totalItems = $map['TotalItems'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class domainTransfer extends Model
 {
     /**
-     * @var int
-     */
-    public $fromUserId;
-
-    /**
      * @var string
      */
     public $createTime;
@@ -21,7 +16,7 @@ class domainTransfer extends Model
     /**
      * @var int
      */
-    public $targetUserId;
+    public $createTimestamp;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class domainTransfer extends Model
     /**
      * @var int
      */
+    public $fromUserId;
+
+    /**
+     * @var int
+     */
     public $id;
 
     /**
      * @var int
      */
-    public $createTimestamp;
+    public $targetUserId;
     protected $_name = [
-        'fromUserId'      => 'FromUserId',
         'createTime'      => 'CreateTime',
-        'targetUserId'    => 'TargetUserId',
-        'domainName'      => 'DomainName',
-        'id'              => 'Id',
         'createTimestamp' => 'CreateTimestamp',
+        'domainName'      => 'DomainName',
+        'fromUserId'      => 'FromUserId',
+        'id'              => 'Id',
+        'targetUserId'    => 'TargetUserId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class domainTransfer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fromUserId) {
-            $res['FromUserId'] = $this->fromUserId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->targetUserId) {
-            $res['TargetUserId'] = $this->targetUserId;
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->fromUserId) {
+            $res['FromUserId'] = $this->fromUserId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
+        if (null !== $this->targetUserId) {
+            $res['TargetUserId'] = $this->targetUserId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class domainTransfer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FromUserId'])) {
-            $model->fromUserId = $map['FromUserId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['TargetUserId'])) {
-            $model->targetUserId = $map['TargetUserId'];
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['FromUserId'])) {
+            $model->fromUserId = $map['FromUserId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
+        if (isset($map['TargetUserId'])) {
+            $model->targetUserId = $map['TargetUserId'];
         }
 
         return $model;

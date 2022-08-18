@@ -10,19 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomLineRequest extends Model
 {
     /**
+     * @var ipSegment[]
+     */
+    public $ipSegment;
+
+    /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lineName;
 
     /**
      * @var int
@@ -30,15 +25,14 @@ class UpdateCustomLineRequest extends Model
     public $lineId;
 
     /**
-     * @var ipSegment[]
+     * @var string
      */
-    public $ipSegment;
+    public $lineName;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'lineName'     => 'LineName',
-        'lineId'       => 'LineId',
-        'ipSegment'    => 'IpSegment',
+        'ipSegment' => 'IpSegment',
+        'lang'      => 'Lang',
+        'lineId'    => 'LineId',
+        'lineName'  => 'LineName',
     ];
 
     public function validate()
@@ -48,18 +42,6 @@ class UpdateCustomLineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lineName) {
-            $res['LineName'] = $this->lineName;
-        }
-        if (null !== $this->lineId) {
-            $res['LineId'] = $this->lineId;
-        }
         if (null !== $this->ipSegment) {
             $res['IpSegment'] = [];
             if (null !== $this->ipSegment && \is_array($this->ipSegment)) {
@@ -68,6 +50,15 @@ class UpdateCustomLineRequest extends Model
                     $res['IpSegment'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->lineId) {
+            $res['LineId'] = $this->lineId;
+        }
+        if (null !== $this->lineName) {
+            $res['LineName'] = $this->lineName;
         }
 
         return $res;
@@ -81,18 +72,6 @@ class UpdateCustomLineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['LineName'])) {
-            $model->lineName = $map['LineName'];
-        }
-        if (isset($map['LineId'])) {
-            $model->lineId = $map['LineId'];
-        }
         if (isset($map['IpSegment'])) {
             if (!empty($map['IpSegment'])) {
                 $model->ipSegment = [];
@@ -101,6 +80,15 @@ class UpdateCustomLineRequest extends Model
                     $model->ipSegment[$n++] = null !== $item ? ipSegment::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['LineId'])) {
+            $model->lineId = $map['LineId'];
+        }
+        if (isset($map['LineName'])) {
+            $model->lineName = $map['LineName'];
         }
 
         return $model;

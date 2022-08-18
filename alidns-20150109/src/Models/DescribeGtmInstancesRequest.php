@@ -11,12 +11,17 @@ class DescribeGtmInstancesRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $keyword;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $lang;
+
+    /**
+     * @var bool
+     */
+    public $needDetailAttributes;
 
     /**
      * @var int
@@ -31,25 +36,14 @@ class DescribeGtmInstancesRequest extends Model
     /**
      * @var string
      */
-    public $keyword;
-
-    /**
-     * @var string
-     */
     public $resourceGroupId;
-
-    /**
-     * @var bool
-     */
-    public $needDetailAttributes;
     protected $_name = [
+        'keyword'              => 'Keyword',
         'lang'                 => 'Lang',
-        'userClientIp'         => 'UserClientIp',
+        'needDetailAttributes' => 'NeedDetailAttributes',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'keyword'              => 'Keyword',
         'resourceGroupId'      => 'ResourceGroupId',
-        'needDetailAttributes' => 'NeedDetailAttributes',
     ];
 
     public function validate()
@@ -59,11 +53,14 @@ class DescribeGtmInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->needDetailAttributes) {
+            $res['NeedDetailAttributes'] = $this->needDetailAttributes;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -71,14 +68,8 @@ class DescribeGtmInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->needDetailAttributes) {
-            $res['NeedDetailAttributes'] = $this->needDetailAttributes;
         }
 
         return $res;
@@ -92,11 +83,14 @@ class DescribeGtmInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['NeedDetailAttributes'])) {
+            $model->needDetailAttributes = $map['NeedDetailAttributes'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -104,14 +98,8 @@ class DescribeGtmInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['NeedDetailAttributes'])) {
-            $model->needDetailAttributes = $map['NeedDetailAttributes'];
         }
 
         return $model;

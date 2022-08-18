@@ -15,9 +15,9 @@ class TagResourcesRequest extends Model
     public $lang;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $userClientIp;
+    public $resourceId;
 
     /**
      * @var string
@@ -25,26 +25,14 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @var bool
-     */
-    public $overWrite;
-
-    /**
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string[]
-     */
-    public $resourceId;
     protected $_name = [
         'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'resourceType' => 'ResourceType',
-        'overWrite'    => 'OverWrite',
-        'tag'          => 'Tag',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tag'          => 'Tag',
     ];
 
     public function validate()
@@ -57,14 +45,11 @@ class TagResourcesRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->overWrite) {
-            $res['OverWrite'] = $this->overWrite;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -74,9 +59,6 @@ class TagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -93,14 +75,13 @@ class TagResourcesRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['OverWrite'])) {
-            $model->overWrite = $map['OverWrite'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -109,11 +90,6 @@ class TagResourcesRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
             }
         }
 

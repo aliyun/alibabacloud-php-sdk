@@ -16,9 +16,9 @@ class DescribeDomainNsResponseBody extends Model
     public $allAliDns;
 
     /**
-     * @var string
+     * @var dnsServers
      */
-    public $requestId;
+    public $dnsServers;
 
     /**
      * @var expectDnsServers
@@ -26,20 +26,20 @@ class DescribeDomainNsResponseBody extends Model
     public $expectDnsServers;
 
     /**
-     * @var dnsServers
-     */
-    public $dnsServers;
-
-    /**
      * @var bool
      */
     public $includeAliDns;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'allAliDns'        => 'AllAliDns',
-        'requestId'        => 'RequestId',
-        'expectDnsServers' => 'ExpectDnsServers',
         'dnsServers'       => 'DnsServers',
+        'expectDnsServers' => 'ExpectDnsServers',
         'includeAliDns'    => 'IncludeAliDns',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -52,17 +52,17 @@ class DescribeDomainNsResponseBody extends Model
         if (null !== $this->allAliDns) {
             $res['AllAliDns'] = $this->allAliDns;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dnsServers) {
+            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
         }
         if (null !== $this->expectDnsServers) {
             $res['ExpectDnsServers'] = null !== $this->expectDnsServers ? $this->expectDnsServers->toMap() : null;
         }
-        if (null !== $this->dnsServers) {
-            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
-        }
         if (null !== $this->includeAliDns) {
             $res['IncludeAliDns'] = $this->includeAliDns;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -79,17 +79,17 @@ class DescribeDomainNsResponseBody extends Model
         if (isset($map['AllAliDns'])) {
             $model->allAliDns = $map['AllAliDns'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DnsServers'])) {
+            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
         }
         if (isset($map['ExpectDnsServers'])) {
             $model->expectDnsServers = expectDnsServers::fromMap($map['ExpectDnsServers']);
         }
-        if (isset($map['DnsServers'])) {
-            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
-        }
         if (isset($map['IncludeAliDns'])) {
             $model->includeAliDns = $map['IncludeAliDns'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

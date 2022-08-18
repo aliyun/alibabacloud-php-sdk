@@ -11,12 +11,7 @@ class DescribeDomainLogsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
+    public $groupId;
 
     /**
      * @var string
@@ -26,7 +21,7 @@ class DescribeDomainLogsRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $lang;
 
     /**
      * @var int
@@ -46,22 +41,21 @@ class DescribeDomainLogsRequest extends Model
     /**
      * @var string
      */
-    public $endDate;
+    public $type;
 
     /**
      * @var string
      */
-    public $type;
+    public $endDate;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'keyWord'      => 'KeyWord',
-        'groupId'      => 'GroupId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'startDate'    => 'StartDate',
-        'endDate'      => 'endDate',
-        'type'         => 'Type',
+        'groupId'    => 'GroupId',
+        'keyWord'    => 'KeyWord',
+        'lang'       => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'startDate'  => 'StartDate',
+        'type'       => 'Type',
+        'endDate'    => 'endDate',
     ];
 
     public function validate()
@@ -71,17 +65,14 @@ class DescribeDomainLogsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->keyWord) {
             $res['KeyWord'] = $this->keyWord;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -92,11 +83,11 @@ class DescribeDomainLogsRequest extends Model
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->endDate) {
-            $res['endDate'] = $this->endDate;
-        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->endDate) {
+            $res['endDate'] = $this->endDate;
         }
 
         return $res;
@@ -110,17 +101,14 @@ class DescribeDomainLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['KeyWord'])) {
             $model->keyWord = $map['KeyWord'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -131,11 +119,11 @@ class DescribeDomainLogsRequest extends Model
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
-        if (isset($map['endDate'])) {
-            $model->endDate = $map['endDate'];
-        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['endDate'])) {
+            $model->endDate = $map['endDate'];
         }
 
         return $model;

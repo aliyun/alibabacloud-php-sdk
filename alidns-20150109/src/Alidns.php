@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alidns\V20150109;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddDnsCacheDomainRequest;
@@ -39,6 +40,10 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainOfDnsProductRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainOfDnsProductResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsAppKeyRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsAppKeyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsUdpIpSegmentRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsUdpIpSegmentResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCustomLinesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCustomLinesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsCacheDomainRequest;
@@ -173,6 +178,36 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlansRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlansResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInstanceDomainsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInstanceDomainsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheRemainQuotaRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheRemainQuotaResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTaskRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTaskResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTasksRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheTasksResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAccountSummaryRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAccountSummaryResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeyRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeysRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsAppKeysResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsOperateLogsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsOperateLogsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsRequestStatisticRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsRequestStatisticResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsRequestStatisticsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsRequestStatisticsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatLogsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatLogsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatStatisticRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatStatisticResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatStatisticsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsThreatStatisticsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUdpIpSegmentsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUdpIpSegmentsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUserInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribePdnsUserInfoResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordLogsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeRecordStatisticsRequest;
@@ -203,8 +238,16 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\MoveGtmResourceGroupRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\MoveGtmResourceGroupResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\OperateBatchDomainRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\OperateBatchDomainResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\PausePdnsServiceRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\PausePdnsServiceResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\PreviewGtmRecoveryPlanResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsAppKeyRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsAppKeyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsUdpIpSegmentRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsUdpIpSegmentResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ResumePdnsServiceRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ResumePdnsServiceResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RetrieveDomainRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RetrieveDomainResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RollbackGtmRecoveryPlanRequest;
@@ -223,6 +266,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmAccessModeRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmAccessModeResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmMonitorStatusRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmMonitorStatusResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SubmitIspFlushCacheTaskRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SubmitIspFlushCacheTaskResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SwitchDnsGtmInstanceStrategyModeRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SwitchDnsGtmInstanceStrategyModeResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\TagResourcesRequest;
@@ -233,6 +278,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UnbindInstanceDomainsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UnbindInstanceDomainsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAppKeyStateRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAppKeyStateResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsCacheDomainRemarkRequest;
@@ -267,11 +314,16 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateGtmMonitorRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateGtmMonitorResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateGtmRecoveryPlanRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateGtmRecoveryPlanResponse;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmAttributeInfoRequest;
-use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmAttributeInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateIspFlushCacheInstanceConfigRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateIspFlushCacheInstanceConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Alidns extends OpenApiClient
@@ -280,65 +332,6 @@ class Alidns extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'alidns.ap-northeast-1.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'dns.aliyuncs.com',
-            'ap-south-1'                  => 'alidns.ap-south-1.aliyuncs.com',
-            'ap-southeast-1'              => 'alidns.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'alidns.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-3'              => 'alidns.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5'              => 'alidns.ap-southeast-5.aliyuncs.com',
-            'cn-beijing'                  => 'alidns.cn-beijing.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'dns.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'dns.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'dns.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'dns.aliyuncs.com',
-            'cn-chengdu'                  => 'alidns.cn-chengdu.aliyuncs.com',
-            'cn-edge-1'                   => 'dns.aliyuncs.com',
-            'cn-fujian'                   => 'dns.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'dns.aliyuncs.com',
-            'cn-hangzhou'                 => 'alidns.cn-hangzhou.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'dns.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'alidns.cn-hangzhou-finance.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'dns.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'dns.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'dns.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'dns.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'dns.aliyuncs.com',
-            'cn-hongkong'                 => 'alidns.cn-hongkong.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'dns.aliyuncs.com',
-            'cn-huhehaote'                => 'alidns.cn-huhehaote.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'dns.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'alidns.cn-north-2-gov-1.aliyuncs.com',
-            'cn-qingdao'                  => 'dns.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'dns.aliyuncs.com',
-            'cn-shanghai'                 => 'alidns.cn-shanghai.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'dns.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'dns.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'alidns.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai-inner'           => 'dns.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'dns.aliyuncs.com',
-            'cn-shenzhen'                 => 'alidns.cn-shenzhen.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'alidns.cn-shenzhen-finance-1.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'dns.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'dns.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'dns.aliyuncs.com',
-            'cn-wuhan'                    => 'dns.aliyuncs.com',
-            'cn-wulanchabu'               => 'dns.aliyuncs.com',
-            'cn-yushanfang'               => 'dns.aliyuncs.com',
-            'cn-zhangbei'                 => 'dns.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'dns.aliyuncs.com',
-            'cn-zhangjiakou'              => 'alidns.cn-zhangjiakou.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'dns.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'dns.aliyuncs.com',
-            'eu-central-1'                => 'alidns.eu-central-1.aliyuncs.com',
-            'eu-west-1'                   => 'alidns.eu-west-1.aliyuncs.com',
-            'eu-west-1-oxs'               => 'dns.aliyuncs.com',
-            'me-east-1'                   => 'alidns.me-east-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'dns.aliyuncs.com',
-            'us-east-1'                   => 'alidns.us-east-1.aliyuncs.com',
-            'us-west-1'                   => 'alidns.us-west-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('alidns', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -375,11 +368,35 @@ class Alidns extends OpenApiClient
     public function addCustomLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ipSegment)) {
+            $query['IpSegment'] = $request->ipSegment;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineName)) {
+            $query['LineName'] = $request->lineName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCustomLine',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddCustomLineResponse::fromMap($this->doRPCRequest('AddCustomLine', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -403,11 +420,50 @@ class Alidns extends OpenApiClient
     public function addDnsCacheDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cacheTtlMax)) {
+            $query['CacheTtlMax'] = $request->cacheTtlMax;
+        }
+        if (!Utils::isUnset($request->cacheTtlMin)) {
+            $query['CacheTtlMin'] = $request->cacheTtlMin;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceDnsServer)) {
+            $query['SourceDnsServer'] = $request->sourceDnsServer;
+        }
+        if (!Utils::isUnset($request->sourceEdns)) {
+            $query['SourceEdns'] = $request->sourceEdns;
+        }
+        if (!Utils::isUnset($request->sourceProtocol)) {
+            $query['SourceProtocol'] = $request->sourceProtocol;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDnsCacheDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDnsCacheDomainResponse::fromMap($this->doRPCRequest('AddDnsCacheDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -431,11 +487,74 @@ class Alidns extends OpenApiClient
     public function addDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultAddrPool)) {
+            $query['DefaultAddrPool'] = $request->defaultAddrPool;
+        }
+        if (!Utils::isUnset($request->defaultAddrPoolType)) {
+            $query['DefaultAddrPoolType'] = $request->defaultAddrPoolType;
+        }
+        if (!Utils::isUnset($request->defaultLatencyOptimization)) {
+            $query['DefaultLatencyOptimization'] = $request->defaultLatencyOptimization;
+        }
+        if (!Utils::isUnset($request->defaultLbaStrategy)) {
+            $query['DefaultLbaStrategy'] = $request->defaultLbaStrategy;
+        }
+        if (!Utils::isUnset($request->defaultMaxReturnAddrNum)) {
+            $query['DefaultMaxReturnAddrNum'] = $request->defaultMaxReturnAddrNum;
+        }
+        if (!Utils::isUnset($request->defaultMinAvailableAddrNum)) {
+            $query['DefaultMinAvailableAddrNum'] = $request->defaultMinAvailableAddrNum;
+        }
+        if (!Utils::isUnset($request->failoverAddrPool)) {
+            $query['FailoverAddrPool'] = $request->failoverAddrPool;
+        }
+        if (!Utils::isUnset($request->failoverAddrPoolType)) {
+            $query['FailoverAddrPoolType'] = $request->failoverAddrPoolType;
+        }
+        if (!Utils::isUnset($request->failoverLatencyOptimization)) {
+            $query['FailoverLatencyOptimization'] = $request->failoverLatencyOptimization;
+        }
+        if (!Utils::isUnset($request->failoverLbaStrategy)) {
+            $query['FailoverLbaStrategy'] = $request->failoverLbaStrategy;
+        }
+        if (!Utils::isUnset($request->failoverMaxReturnAddrNum)) {
+            $query['FailoverMaxReturnAddrNum'] = $request->failoverMaxReturnAddrNum;
+        }
+        if (!Utils::isUnset($request->failoverMinAvailableAddrNum)) {
+            $query['FailoverMinAvailableAddrNum'] = $request->failoverMinAvailableAddrNum;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lines)) {
+            $query['Lines'] = $request->lines;
+        }
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDnsGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDnsGtmAccessStrategyResponse::fromMap($this->doRPCRequest('AddDnsGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -459,11 +578,62 @@ class Alidns extends OpenApiClient
     public function addDnsGtmAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lbaStrategy)) {
+            $query['LbaStrategy'] = $request->lbaStrategy;
+        }
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        }
+        if (!Utils::isUnset($request->monitorStatus)) {
+            $query['MonitorStatus'] = $request->monitorStatus;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDnsGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDnsGtmAddressPoolResponse::fromMap($this->doRPCRequest('AddDnsGtmAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -487,11 +657,47 @@ class Alidns extends OpenApiClient
     public function addDnsGtmMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDnsGtmMonitor',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDnsGtmMonitorResponse::fromMap($this->doRPCRequest('AddDnsGtmMonitor', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,11 +721,35 @@ class Alidns extends OpenApiClient
     public function addDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDomainResponse::fromMap($this->doRPCRequest('AddDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -543,11 +773,32 @@ class Alidns extends OpenApiClient
     public function addDomainBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDomainBackup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDomainBackupResponse::fromMap($this->doRPCRequest('AddDomainBackup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDomainBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -571,11 +822,29 @@ class Alidns extends OpenApiClient
     public function addDomainGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDomainGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDomainGroupResponse::fromMap($this->doRPCRequest('AddDomainGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -599,11 +868,50 @@ class Alidns extends OpenApiClient
     public function addDomainRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->RR)) {
+            $query['RR'] = $request->RR;
+        }
+        if (!Utils::isUnset($request->TTL)) {
+            $query['TTL'] = $request->TTL;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDomainRecord',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDomainRecordResponse::fromMap($this->doRPCRequest('AddDomainRecord', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -627,11 +935,41 @@ class Alidns extends OpenApiClient
     public function addGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessLines)) {
+            $query['AccessLines'] = $request->accessLines;
+        }
+        if (!Utils::isUnset($request->defaultAddrPoolId)) {
+            $query['DefaultAddrPoolId'] = $request->defaultAddrPoolId;
+        }
+        if (!Utils::isUnset($request->failoverAddrPoolId)) {
+            $query['FailoverAddrPoolId'] = $request->failoverAddrPoolId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddGtmAccessStrategyResponse::fromMap($this->doRPCRequest('AddGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -655,11 +993,62 @@ class Alidns extends OpenApiClient
     public function addGtmAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->minAvailableAddrNum)) {
+            $query['MinAvailableAddrNum'] = $request->minAvailableAddrNum;
+        }
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        }
+        if (!Utils::isUnset($request->monitorStatus)) {
+            $query['MonitorStatus'] = $request->monitorStatus;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddGtmAddressPoolResponse::fromMap($this->doRPCRequest('AddGtmAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -683,11 +1072,47 @@ class Alidns extends OpenApiClient
     public function addGtmMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGtmMonitor',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddGtmMonitorResponse::fromMap($this->doRPCRequest('AddGtmMonitor', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -711,11 +1136,35 @@ class Alidns extends OpenApiClient
     public function addGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->faultAddrPool)) {
+            $query['FaultAddrPool'] = $request->faultAddrPool;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('AddGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -739,11 +1188,32 @@ class Alidns extends OpenApiClient
     public function bindInstanceDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindInstanceDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BindInstanceDomainsResponse::fromMap($this->doRPCRequest('BindInstanceDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -767,11 +1237,32 @@ class Alidns extends OpenApiClient
     public function changeDomainGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeDomainGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeDomainGroupResponse::fromMap($this->doRPCRequest('ChangeDomainGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -795,11 +1286,38 @@ class Alidns extends OpenApiClient
     public function changeDomainOfDnsProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newDomain)) {
+            $query['NewDomain'] = $request->newDomain;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeDomainOfDnsProduct',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeDomainOfDnsProductResponse::fromMap($this->doRPCRequest('ChangeDomainOfDnsProduct', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeDomainOfDnsProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -823,11 +1341,35 @@ class Alidns extends OpenApiClient
     public function copyGtmConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->copyType)) {
+            $query['CopyType'] = $request->copyType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CopyGtmConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CopyGtmConfigResponse::fromMap($this->doRPCRequest('CopyGtmConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CopyGtmConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -843,6 +1385,98 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param CreatePdnsAppKeyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreatePdnsAppKeyResponse
+     */
+    public function createPdnsAppKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePdnsAppKey',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePdnsAppKeyRequest $request
+     *
+     * @return CreatePdnsAppKeyResponse
+     */
+    public function createPdnsAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPdnsAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePdnsUdpIpSegmentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePdnsUdpIpSegmentResponse
+     */
+    public function createPdnsUdpIpSegmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePdnsUdpIpSegment',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePdnsUdpIpSegmentRequest $request
+     *
+     * @return CreatePdnsUdpIpSegmentResponse
+     */
+    public function createPdnsUdpIpSegment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPdnsUdpIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCustomLinesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -851,11 +1485,29 @@ class Alidns extends OpenApiClient
     public function deleteCustomLinesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineIds)) {
+            $query['LineIds'] = $request->lineIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomLines',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCustomLinesResponse::fromMap($this->doRPCRequest('DeleteCustomLines', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -879,11 +1531,29 @@ class Alidns extends OpenApiClient
     public function deleteDnsCacheDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDnsCacheDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDnsCacheDomainResponse::fromMap($this->doRPCRequest('DeleteDnsCacheDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -907,11 +1577,29 @@ class Alidns extends OpenApiClient
     public function deleteDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDnsGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDnsGtmAccessStrategyResponse::fromMap($this->doRPCRequest('DeleteDnsGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -935,11 +1623,29 @@ class Alidns extends OpenApiClient
     public function deleteDnsGtmAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDnsGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDnsGtmAddressPoolResponse::fromMap($this->doRPCRequest('DeleteDnsGtmAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -963,11 +1669,29 @@ class Alidns extends OpenApiClient
     public function deleteDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainResponse::fromMap($this->doRPCRequest('DeleteDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -991,11 +1715,29 @@ class Alidns extends OpenApiClient
     public function deleteDomainGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainGroupResponse::fromMap($this->doRPCRequest('DeleteDomainGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1019,11 +1761,32 @@ class Alidns extends OpenApiClient
     public function deleteDomainRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainRecord',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainRecordResponse::fromMap($this->doRPCRequest('DeleteDomainRecord', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1047,11 +1810,29 @@ class Alidns extends OpenApiClient
     public function deleteGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGtmAccessStrategyResponse::fromMap($this->doRPCRequest('DeleteGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1075,11 +1856,29 @@ class Alidns extends OpenApiClient
     public function deleteGtmAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGtmAddressPoolResponse::fromMap($this->doRPCRequest('DeleteGtmAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1103,11 +1902,29 @@ class Alidns extends OpenApiClient
     public function deleteGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('DeleteGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1131,11 +1948,38 @@ class Alidns extends OpenApiClient
     public function deleteSubDomainRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->RR)) {
+            $query['RR'] = $request->RR;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSubDomainRecords',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSubDomainRecordsResponse::fromMap($this->doRPCRequest('DeleteSubDomainRecords', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1159,11 +2003,32 @@ class Alidns extends OpenApiClient
     public function describeBatchResultCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchType)) {
+            $query['BatchType'] = $request->batchType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBatchResultCount',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBatchResultCountResponse::fromMap($this->doRPCRequest('DescribeBatchResultCount', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBatchResultCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1187,11 +2052,41 @@ class Alidns extends OpenApiClient
     public function describeBatchResultDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchType)) {
+            $query['BatchType'] = $request->batchType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBatchResultDetail',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBatchResultDetailResponse::fromMap($this->doRPCRequest('DescribeBatchResultDetail', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBatchResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1215,11 +2110,29 @@ class Alidns extends OpenApiClient
     public function describeCustomLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomLine',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomLineResponse::fromMap($this->doRPCRequest('DescribeCustomLine', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1243,11 +2156,35 @@ class Alidns extends OpenApiClient
     public function describeCustomLinesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomLines',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomLinesResponse::fromMap($this->doRPCRequest('DescribeCustomLines', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1263,6 +2200,64 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeDNSSLBSubDomainsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDNSSLBSubDomainsResponse
+     */
+    public function describeDNSSLBSubDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->rr)) {
+            $query['Rr'] = $request->rr;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDNSSLBSubDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDNSSLBSubDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDNSSLBSubDomainsRequest $request
+     *
+     * @return DescribeDNSSLBSubDomainsResponse
+     */
+    public function describeDNSSLBSubDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDNSSLBSubDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDnsCacheDomainsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1271,11 +2266,35 @@ class Alidns extends OpenApiClient
     public function describeDnsCacheDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsCacheDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsCacheDomainsResponse::fromMap($this->doRPCRequest('DescribeDnsCacheDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsCacheDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1299,11 +2318,38 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmAccessStrategiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmAccessStrategies',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->doRPCRequest('DescribeDnsGtmAccessStrategies', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1327,11 +2373,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmAccessStrategyResponse::fromMap($this->doRPCRequest('DescribeDnsGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1355,11 +2419,32 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmAccessStrategyAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmAccessStrategyAvailableConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->doRPCRequest('DescribeDnsGtmAccessStrategyAvailableConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1383,11 +2468,32 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmAddrAttributeInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrs)) {
+            $query['Addrs'] = $request->addrs;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmAddrAttributeInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->doRPCRequest('DescribeDnsGtmAddrAttributeInfo', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1411,11 +2517,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmAddressPoolAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmAddressPoolAvailableConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->doRPCRequest('DescribeDnsGtmAddressPoolAvailableConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1439,11 +2563,26 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmAvailableAlertGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmAvailableAlertGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->doRPCRequest('DescribeDnsGtmAvailableAlertGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1467,11 +2606,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmInstance',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmInstanceResponse::fromMap($this->doRPCRequest('DescribeDnsGtmInstance', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1495,11 +2652,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmInstanceAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmInstanceAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->doRPCRequest('DescribeDnsGtmInstanceAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1523,11 +2698,35 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmInstanceAddressPoolsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmInstanceAddressPools',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->doRPCRequest('DescribeDnsGtmInstanceAddressPools', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1543,34 +2742,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDnsGtmInstancesResponse
-     */
-    public function describeDnsGtmInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDnsGtmInstancesResponse::fromMap($this->doRPCRequest('DescribeDnsGtmInstances', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDnsGtmInstancesRequest $request
-     *
-     * @return DescribeDnsGtmInstancesResponse
-     */
-    public function describeDnsGtmInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDnsGtmInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDnsGtmInstanceStatusRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1579,11 +2750,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmInstanceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmInstanceStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmInstanceStatusResponse::fromMap($this->doRPCRequest('DescribeDnsGtmInstanceStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1607,11 +2796,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmInstanceSystemCnameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmInstanceSystemCname',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->doRPCRequest('DescribeDnsGtmInstanceSystemCname', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1627,6 +2834,61 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeDnsGtmInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDnsGtmInstancesResponse
+     */
+    public function describeDnsGtmInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmInstances',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDnsGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDnsGtmInstancesRequest $request
+     *
+     * @return DescribeDnsGtmInstancesResponse
+     */
+    public function describeDnsGtmInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDnsGtmInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDnsGtmLogsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1635,11 +2897,44 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmLogsResponse::fromMap($this->doRPCRequest('DescribeDnsGtmLogs', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1663,11 +2958,26 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmMonitorAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmMonitorAvailableConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->doRPCRequest('DescribeDnsGtmMonitorAvailableConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1691,11 +3001,29 @@ class Alidns extends OpenApiClient
     public function describeDnsGtmMonitorConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsGtmMonitorConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsGtmMonitorConfigResponse::fromMap($this->doRPCRequest('DescribeDnsGtmMonitorConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1719,11 +3047,32 @@ class Alidns extends OpenApiClient
     public function describeDnsProductInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsProductInstance',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsProductInstanceResponse::fromMap($this->doRPCRequest('DescribeDnsProductInstance', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1747,11 +3096,41 @@ class Alidns extends OpenApiClient
     public function describeDnsProductInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        if (!Utils::isUnset($request->versionCode)) {
+            $query['VersionCode'] = $request->versionCode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDnsProductInstances',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDnsProductInstancesResponse::fromMap($this->doRPCRequest('DescribeDnsProductInstances', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDnsProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1767,34 +3146,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDNSSLBSubDomainsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDNSSLBSubDomainsResponse
-     */
-    public function describeDNSSLBSubDomainsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDNSSLBSubDomainsResponse::fromMap($this->doRPCRequest('DescribeDNSSLBSubDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDNSSLBSubDomainsRequest $request
-     *
-     * @return DescribeDNSSLBSubDomainsResponse
-     */
-    public function describeDNSSLBSubDomains($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDNSSLBSubDomainsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDohAccountStatisticsRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1803,11 +3154,32 @@ class Alidns extends OpenApiClient
     public function describeDohAccountStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDohAccountStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDohAccountStatisticsResponse::fromMap($this->doRPCRequest('DescribeDohAccountStatistics', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDohAccountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1831,11 +3203,35 @@ class Alidns extends OpenApiClient
     public function describeDohDomainStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDohDomainStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDohDomainStatisticsResponse::fromMap($this->doRPCRequest('DescribeDohDomainStatistics', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDohDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1859,11 +3255,41 @@ class Alidns extends OpenApiClient
     public function describeDohDomainStatisticsSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDohDomainStatisticsSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->doRPCRequest('DescribeDohDomainStatisticsSummary', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1887,11 +3313,35 @@ class Alidns extends OpenApiClient
     public function describeDohSubDomainStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDohSubDomainStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDohSubDomainStatisticsResponse::fromMap($this->doRPCRequest('DescribeDohSubDomainStatistics', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDohSubDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1915,11 +3365,44 @@ class Alidns extends OpenApiClient
     public function describeDohSubDomainStatisticsSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDohSubDomainStatisticsSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->doRPCRequest('DescribeDohSubDomainStatisticsSummary', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1943,11 +3426,32 @@ class Alidns extends OpenApiClient
     public function describeDohUserInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDohUserInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDohUserInfoResponse::fromMap($this->doRPCRequest('DescribeDohUserInfo', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDohUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1971,11 +3475,29 @@ class Alidns extends OpenApiClient
     public function describeDomainDnssecInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainDnssecInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainDnssecInfoResponse::fromMap($this->doRPCRequest('DescribeDomainDnssecInfo', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainDnssecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1999,11 +3521,35 @@ class Alidns extends OpenApiClient
     public function describeDomainGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainGroups',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainGroupsResponse::fromMap($this->doRPCRequest('DescribeDomainGroups', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2027,11 +3573,32 @@ class Alidns extends OpenApiClient
     public function describeDomainInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->needDetailAttributes)) {
+            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainInfoResponse::fromMap($this->doRPCRequest('DescribeDomainInfo', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2055,11 +3622,47 @@ class Alidns extends OpenApiClient
     public function describeDomainLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainLogsResponse::fromMap($this->doRPCRequest('DescribeDomainLogs', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2083,11 +3686,29 @@ class Alidns extends OpenApiClient
     public function describeDomainNsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainNs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainNsResponse::fromMap($this->doRPCRequest('DescribeDomainNs', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainNsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2111,11 +3732,32 @@ class Alidns extends OpenApiClient
     public function describeDomainRecordInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRecordInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRecordInfoResponse::fromMap($this->doRPCRequest('DescribeDomainRecordInfo', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRecordInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2139,11 +3781,68 @@ class Alidns extends OpenApiClient
     public function describeDomainRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->RRKeyWord)) {
+            $query['RRKeyWord'] = $request->RRKeyWord;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->typeKeyWord)) {
+            $query['TypeKeyWord'] = $request->typeKeyWord;
+        }
+        if (!Utils::isUnset($request->valueKeyWord)) {
+            $query['ValueKeyWord'] = $request->valueKeyWord;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRecords',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRecordsResponse::fromMap($this->doRPCRequest('DescribeDomainRecords', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2159,34 +3858,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeDomainsResponse
-     */
-    public function describeDomainsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDomainsResponse::fromMap($this->doRPCRequest('DescribeDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDomainsRequest $request
-     *
-     * @return DescribeDomainsResponse
-     */
-    public function describeDomains($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDomainStatisticsRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2195,11 +3866,38 @@ class Alidns extends OpenApiClient
     public function describeDomainStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainStatisticsResponse::fromMap($this->doRPCRequest('DescribeDomainStatistics', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2223,11 +3921,47 @@ class Alidns extends OpenApiClient
     public function describeDomainStatisticsSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainStatisticsSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainStatisticsSummaryResponse::fromMap($this->doRPCRequest('DescribeDomainStatisticsSummary', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2243,6 +3977,70 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
+     */
+    public function describeDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->starmark)) {
+            $query['Starmark'] = $request->starmark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
+     */
+    public function describeDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeGtmAccessStrategiesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2251,11 +4049,35 @@ class Alidns extends OpenApiClient
     public function describeGtmAccessStrategiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmAccessStrategies',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmAccessStrategiesResponse::fromMap($this->doRPCRequest('DescribeGtmAccessStrategies', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2279,11 +4101,29 @@ class Alidns extends OpenApiClient
     public function describeGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmAccessStrategyResponse::fromMap($this->doRPCRequest('DescribeGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2307,11 +4147,29 @@ class Alidns extends OpenApiClient
     public function describeGtmAccessStrategyAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmAccessStrategyAvailableConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->doRPCRequest('DescribeGtmAccessStrategyAvailableConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2335,11 +4193,26 @@ class Alidns extends OpenApiClient
     public function describeGtmAvailableAlertGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmAvailableAlertGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmAvailableAlertGroupResponse::fromMap($this->doRPCRequest('DescribeGtmAvailableAlertGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2363,11 +4236,32 @@ class Alidns extends OpenApiClient
     public function describeGtmInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->needDetailAttributes)) {
+            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmInstance',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmInstanceResponse::fromMap($this->doRPCRequest('DescribeGtmInstance', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2391,11 +4285,29 @@ class Alidns extends OpenApiClient
     public function describeGtmInstanceAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmInstanceAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmInstanceAddressPoolResponse::fromMap($this->doRPCRequest('DescribeGtmInstanceAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2419,11 +4331,35 @@ class Alidns extends OpenApiClient
     public function describeGtmInstanceAddressPoolsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmInstanceAddressPools',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->doRPCRequest('DescribeGtmInstanceAddressPools', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2439,34 +4375,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstancesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeGtmInstancesResponse
-     */
-    public function describeGtmInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeGtmInstancesResponse::fromMap($this->doRPCRequest('DescribeGtmInstances', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeGtmInstancesRequest $request
-     *
-     * @return DescribeGtmInstancesResponse
-     */
-    public function describeGtmInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGtmInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeGtmInstanceStatusRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2475,11 +4383,29 @@ class Alidns extends OpenApiClient
     public function describeGtmInstanceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmInstanceStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmInstanceStatusResponse::fromMap($this->doRPCRequest('DescribeGtmInstanceStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2503,11 +4429,29 @@ class Alidns extends OpenApiClient
     public function describeGtmInstanceSystemCnameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmInstanceSystemCname',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmInstanceSystemCnameResponse::fromMap($this->doRPCRequest('DescribeGtmInstanceSystemCname', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2523,6 +4467,64 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeGtmInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeGtmInstancesResponse
+     */
+    public function describeGtmInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->needDetailAttributes)) {
+            $query['NeedDetailAttributes'] = $request->needDetailAttributes;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmInstances',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGtmInstancesRequest $request
+     *
+     * @return DescribeGtmInstancesResponse
+     */
+    public function describeGtmInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGtmInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeGtmLogsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2531,11 +4533,44 @@ class Alidns extends OpenApiClient
     public function describeGtmLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmLogsResponse::fromMap($this->doRPCRequest('DescribeGtmLogs', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2559,11 +4594,26 @@ class Alidns extends OpenApiClient
     public function describeGtmMonitorAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmMonitorAvailableConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->doRPCRequest('DescribeGtmMonitorAvailableConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2587,11 +4637,29 @@ class Alidns extends OpenApiClient
     public function describeGtmMonitorConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmMonitorConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmMonitorConfigResponse::fromMap($this->doRPCRequest('DescribeGtmMonitorConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2615,11 +4683,29 @@ class Alidns extends OpenApiClient
     public function describeGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('DescribeGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2643,11 +4729,26 @@ class Alidns extends OpenApiClient
     public function describeGtmRecoveryPlanAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmRecoveryPlanAvailableConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->doRPCRequest('DescribeGtmRecoveryPlanAvailableConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2671,11 +4772,35 @@ class Alidns extends OpenApiClient
     public function describeGtmRecoveryPlansWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGtmRecoveryPlans',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGtmRecoveryPlansResponse::fromMap($this->doRPCRequest('DescribeGtmRecoveryPlans', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGtmRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2699,11 +4824,35 @@ class Alidns extends OpenApiClient
     public function describeInstanceDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceDomainsResponse::fromMap($this->doRPCRequest('DescribeInstanceDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2719,6 +4868,831 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeIspFlushCacheInstancesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeIspFlushCacheInstancesResponse
+     */
+    public function describeIspFlushCacheInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIspFlushCacheInstances',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIspFlushCacheInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIspFlushCacheInstancesRequest $request
+     *
+     * @return DescribeIspFlushCacheInstancesResponse
+     */
+    public function describeIspFlushCacheInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIspFlushCacheInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIspFlushCacheRemainQuotaRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeIspFlushCacheRemainQuotaResponse
+     */
+    public function describeIspFlushCacheRemainQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIspFlushCacheRemainQuota',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIspFlushCacheRemainQuotaRequest $request
+     *
+     * @return DescribeIspFlushCacheRemainQuotaResponse
+     */
+    public function describeIspFlushCacheRemainQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIspFlushCacheRemainQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIspFlushCacheTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeIspFlushCacheTaskResponse
+     */
+    public function describeIspFlushCacheTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIspFlushCacheTask',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIspFlushCacheTaskRequest $request
+     *
+     * @return DescribeIspFlushCacheTaskResponse
+     */
+    public function describeIspFlushCacheTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIspFlushCacheTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeIspFlushCacheTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeIspFlushCacheTasksResponse
+     */
+    public function describeIspFlushCacheTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIspFlushCacheTasks',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeIspFlushCacheTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeIspFlushCacheTasksRequest $request
+     *
+     * @return DescribeIspFlushCacheTasksResponse
+     */
+    public function describeIspFlushCacheTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIspFlushCacheTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsAccountSummaryRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePdnsAccountSummaryResponse
+     */
+    public function describePdnsAccountSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsAccountSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsAccountSummaryRequest $request
+     *
+     * @return DescribePdnsAccountSummaryResponse
+     */
+    public function describePdnsAccountSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsAccountSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsAppKeyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePdnsAppKeyResponse
+     */
+    public function describePdnsAppKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKeyId)) {
+            $query['AppKeyId'] = $request->appKeyId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsAppKey',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsAppKeyRequest $request
+     *
+     * @return DescribePdnsAppKeyResponse
+     */
+    public function describePdnsAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsAppKeysRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePdnsAppKeysResponse
+     */
+    public function describePdnsAppKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsAppKeys',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsAppKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsAppKeysRequest $request
+     *
+     * @return DescribePdnsAppKeysResponse
+     */
+    public function describePdnsAppKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsAppKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsOperateLogsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePdnsOperateLogsResponse
+     */
+    public function describePdnsOperateLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsOperateLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsOperateLogsRequest $request
+     *
+     * @return DescribePdnsOperateLogsResponse
+     */
+    public function describePdnsOperateLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsOperateLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsRequestStatisticRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePdnsRequestStatisticResponse
+     */
+    public function describePdnsRequestStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsRequestStatistic',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsRequestStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsRequestStatisticRequest $request
+     *
+     * @return DescribePdnsRequestStatisticResponse
+     */
+    public function describePdnsRequestStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsRequestStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsRequestStatisticsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePdnsRequestStatisticsResponse
+     */
+    public function describePdnsRequestStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsRequestStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsRequestStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsRequestStatisticsRequest $request
+     *
+     * @return DescribePdnsRequestStatisticsResponse
+     */
+    public function describePdnsRequestStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsRequestStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsThreatLogsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribePdnsThreatLogsResponse
+     */
+    public function describePdnsThreatLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->threatLevel)) {
+            $query['ThreatLevel'] = $request->threatLevel;
+        }
+        if (!Utils::isUnset($request->threatSourceIp)) {
+            $query['ThreatSourceIp'] = $request->threatSourceIp;
+        }
+        if (!Utils::isUnset($request->threatType)) {
+            $query['ThreatType'] = $request->threatType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsThreatLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsThreatLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsThreatLogsRequest $request
+     *
+     * @return DescribePdnsThreatLogsResponse
+     */
+    public function describePdnsThreatLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsThreatLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsThreatStatisticRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePdnsThreatStatisticResponse
+     */
+    public function describePdnsThreatStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->threatSourceIp)) {
+            $query['ThreatSourceIp'] = $request->threatSourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsThreatStatistic',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsThreatStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsThreatStatisticRequest $request
+     *
+     * @return DescribePdnsThreatStatisticResponse
+     */
+    public function describePdnsThreatStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsThreatStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsThreatStatisticsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePdnsThreatStatisticsResponse
+     */
+    public function describePdnsThreatStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
+        if (!Utils::isUnset($request->threatLevel)) {
+            $query['ThreatLevel'] = $request->threatLevel;
+        }
+        if (!Utils::isUnset($request->threatSourceIp)) {
+            $query['ThreatSourceIp'] = $request->threatSourceIp;
+        }
+        if (!Utils::isUnset($request->threatType)) {
+            $query['ThreatType'] = $request->threatType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsThreatStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsThreatStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsThreatStatisticsRequest $request
+     *
+     * @return DescribePdnsThreatStatisticsResponse
+     */
+    public function describePdnsThreatStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsThreatStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsUdpIpSegmentsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePdnsUdpIpSegmentsResponse
+     */
+    public function describePdnsUdpIpSegmentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsUdpIpSegments',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsUdpIpSegmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsUdpIpSegmentsRequest $request
+     *
+     * @return DescribePdnsUdpIpSegmentsResponse
+     */
+    public function describePdnsUdpIpSegments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsUdpIpSegmentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePdnsUserInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePdnsUserInfoResponse
+     */
+    public function describePdnsUserInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePdnsUserInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePdnsUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePdnsUserInfoRequest $request
+     *
+     * @return DescribePdnsUserInfoResponse
+     */
+    public function describePdnsUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePdnsUserInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRecordLogsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2727,11 +5701,47 @@ class Alidns extends OpenApiClient
     public function describeRecordLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecordLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecordLogsResponse::fromMap($this->doRPCRequest('DescribeRecordLogs', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecordLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2755,11 +5765,41 @@ class Alidns extends OpenApiClient
     public function describeRecordStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->rr)) {
+            $query['Rr'] = $request->rr;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecordStatistics',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecordStatisticsResponse::fromMap($this->doRPCRequest('DescribeRecordStatistics', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecordStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2783,11 +5823,53 @@ class Alidns extends OpenApiClient
     public function describeRecordStatisticsSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->domainType)) {
+            $query['DomainType'] = $request->domainType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['SearchMode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecordStatisticsSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecordStatisticsSummaryResponse::fromMap($this->doRPCRequest('DescribeRecordStatisticsSummary', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecordStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2811,11 +5893,47 @@ class Alidns extends OpenApiClient
     public function describeSubDomainRecordsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSubDomainRecords',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSubDomainRecordsResponse::fromMap($this->doRPCRequest('DescribeSubDomainRecords', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2839,11 +5957,32 @@ class Alidns extends OpenApiClient
     public function describeSupportLinesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSupportLines',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSupportLinesResponse::fromMap($this->doRPCRequest('DescribeSupportLines', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSupportLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2867,11 +6006,35 @@ class Alidns extends OpenApiClient
     public function describeTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTags',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagsResponse::fromMap($this->doRPCRequest('DescribeTags', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2895,11 +6058,44 @@ class Alidns extends OpenApiClient
     public function describeTransferDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->fromUserId)) {
+            $query['FromUserId'] = $request->fromUserId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
+        if (!Utils::isUnset($request->transferType)) {
+            $query['TransferType'] = $request->transferType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTransferDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTransferDomainsResponse::fromMap($this->doRPCRequest('DescribeTransferDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTransferDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2923,11 +6119,29 @@ class Alidns extends OpenApiClient
     public function executeGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('ExecuteGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2951,11 +6165,29 @@ class Alidns extends OpenApiClient
     public function getMainDomainNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->inputString)) {
+            $query['InputString'] = $request->inputString;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMainDomainName',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMainDomainNameResponse::fromMap($this->doRPCRequest('GetMainDomainName', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMainDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2979,11 +6211,32 @@ class Alidns extends OpenApiClient
     public function getTxtRecordForVerifyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTxtRecordForVerify',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTxtRecordForVerifyResponse::fromMap($this->doRPCRequest('GetTxtRecordForVerify', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTxtRecordForVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3007,11 +6260,38 @@ class Alidns extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3035,11 +6315,32 @@ class Alidns extends OpenApiClient
     public function modifyHichinaDomainDNSWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHichinaDomainDNS',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyHichinaDomainDNSResponse::fromMap($this->doRPCRequest('ModifyHichinaDomainDNS', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyHichinaDomainDNSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3063,11 +6364,32 @@ class Alidns extends OpenApiClient
     public function moveDomainResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveDomainResourceGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveDomainResourceGroupResponse::fromMap($this->doRPCRequest('MoveDomainResourceGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveDomainResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3091,11 +6413,32 @@ class Alidns extends OpenApiClient
     public function moveGtmResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveGtmResourceGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveGtmResourceGroupResponse::fromMap($this->doRPCRequest('MoveGtmResourceGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveGtmResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3119,11 +6462,32 @@ class Alidns extends OpenApiClient
     public function operateBatchDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainRecordInfo)) {
+            $query['DomainRecordInfo'] = $request->domainRecordInfo;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateBatchDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OperateBatchDomainResponse::fromMap($this->doRPCRequest('OperateBatchDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OperateBatchDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3139,6 +6503,52 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param PausePdnsServiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PausePdnsServiceResponse
+     */
+    public function pausePdnsServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PausePdnsService',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PausePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PausePdnsServiceRequest $request
+     *
+     * @return PausePdnsServiceResponse
+     */
+    public function pausePdnsService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pausePdnsServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PreviewGtmRecoveryPlanRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3147,11 +6557,35 @@ class Alidns extends OpenApiClient
     public function previewGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreviewGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PreviewGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('PreviewGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PreviewGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3167,6 +6601,144 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param RemovePdnsAppKeyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemovePdnsAppKeyResponse
+     */
+    public function removePdnsAppKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKeyId)) {
+            $query['AppKeyId'] = $request->appKeyId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemovePdnsAppKey',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemovePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemovePdnsAppKeyRequest $request
+     *
+     * @return RemovePdnsAppKeyResponse
+     */
+    public function removePdnsAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removePdnsAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemovePdnsUdpIpSegmentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RemovePdnsUdpIpSegmentResponse
+     */
+    public function removePdnsUdpIpSegmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemovePdnsUdpIpSegment',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemovePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemovePdnsUdpIpSegmentRequest $request
+     *
+     * @return RemovePdnsUdpIpSegmentResponse
+     */
+    public function removePdnsUdpIpSegment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removePdnsUdpIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumePdnsServiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResumePdnsServiceResponse
+     */
+    public function resumePdnsServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumePdnsService',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumePdnsServiceRequest $request
+     *
+     * @return ResumePdnsServiceResponse
+     */
+    public function resumePdnsService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumePdnsServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RetrieveDomainRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3175,11 +6747,29 @@ class Alidns extends OpenApiClient
     public function retrieveDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetrieveDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RetrieveDomainResponse::fromMap($this->doRPCRequest('RetrieveDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RetrieveDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3203,11 +6793,29 @@ class Alidns extends OpenApiClient
     public function rollbackGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RollbackGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('RollbackGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3223,6 +6831,67 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param SetDNSSLBStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetDNSSLBStatusResponse
+     */
+    public function setDNSSLBStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->open)) {
+            $query['Open'] = $request->open;
+        }
+        if (!Utils::isUnset($request->subDomain)) {
+            $query['SubDomain'] = $request->subDomain;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDNSSLBStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDNSSLBStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDNSSLBStatusRequest $request
+     *
+     * @return SetDNSSLBStatusResponse
+     */
+    public function setDNSSLBStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDNSSLBStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDnsGtmAccessModeRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3231,11 +6900,32 @@ class Alidns extends OpenApiClient
     public function setDnsGtmAccessModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDnsGtmAccessMode',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDnsGtmAccessModeResponse::fromMap($this->doRPCRequest('SetDnsGtmAccessMode', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDnsGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3259,11 +6949,32 @@ class Alidns extends OpenApiClient
     public function setDnsGtmMonitorStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDnsGtmMonitorStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDnsGtmMonitorStatusResponse::fromMap($this->doRPCRequest('SetDnsGtmMonitorStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDnsGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3279,34 +6990,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDNSSLBStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SetDNSSLBStatusResponse
-     */
-    public function setDNSSLBStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetDNSSLBStatusResponse::fromMap($this->doRPCRequest('SetDNSSLBStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetDNSSLBStatusRequest $request
-     *
-     * @return SetDNSSLBStatusResponse
-     */
-    public function setDNSSLBStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDNSSLBStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetDomainDnssecStatusRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3315,11 +6998,32 @@ class Alidns extends OpenApiClient
     public function setDomainDnssecStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainDnssecStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainDnssecStatusResponse::fromMap($this->doRPCRequest('SetDomainDnssecStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainDnssecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3343,11 +7047,35 @@ class Alidns extends OpenApiClient
     public function setDomainRecordStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainRecordStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainRecordStatusResponse::fromMap($this->doRPCRequest('SetDomainRecordStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3371,11 +7099,32 @@ class Alidns extends OpenApiClient
     public function setGtmAccessModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGtmAccessMode',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetGtmAccessModeResponse::fromMap($this->doRPCRequest('SetGtmAccessMode', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3399,11 +7148,32 @@ class Alidns extends OpenApiClient
     public function setGtmMonitorStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGtmMonitorStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetGtmMonitorStatusResponse::fromMap($this->doRPCRequest('SetGtmMonitorStatus', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3419,6 +7189,58 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param SubmitIspFlushCacheTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitIspFlushCacheTaskResponse
+     */
+    public function submitIspFlushCacheTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->isp)) {
+            $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitIspFlushCacheTask',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitIspFlushCacheTaskRequest $request
+     *
+     * @return SubmitIspFlushCacheTaskResponse
+     */
+    public function submitIspFlushCacheTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitIspFlushCacheTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SwitchDnsGtmInstanceStrategyModeRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -3427,11 +7249,32 @@ class Alidns extends OpenApiClient
     public function switchDnsGtmInstanceStrategyModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyMode)) {
+            $query['StrategyMode'] = $request->strategyMode;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchDnsGtmInstanceStrategyMode',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->doRPCRequest('SwitchDnsGtmInstanceStrategyMode', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3455,11 +7298,35 @@ class Alidns extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3483,11 +7350,35 @@ class Alidns extends OpenApiClient
     public function transferDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TransferDomainResponse::fromMap($this->doRPCRequest('TransferDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TransferDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3511,11 +7402,32 @@ class Alidns extends OpenApiClient
     public function unbindInstanceDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindInstanceDomains',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindInstanceDomainsResponse::fromMap($this->doRPCRequest('UnbindInstanceDomains', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3539,11 +7451,38 @@ class Alidns extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3559,6 +7498,55 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param UpdateAppKeyStateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAppKeyStateResponse
+     */
+    public function updateAppKeyStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appKeyId)) {
+            $query['AppKeyId'] = $request->appKeyId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppKeyState',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAppKeyStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAppKeyStateRequest $request
+     *
+     * @return UpdateAppKeyStateResponse
+     */
+    public function updateAppKeyState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppKeyStateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateCustomLineRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3567,11 +7555,35 @@ class Alidns extends OpenApiClient
     public function updateCustomLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipSegment)) {
+            $query['IpSegment'] = $request->ipSegment;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lineId)) {
+            $query['LineId'] = $request->lineId;
+        }
+        if (!Utils::isUnset($request->lineName)) {
+            $query['LineName'] = $request->lineName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomLine',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCustomLineResponse::fromMap($this->doRPCRequest('UpdateCustomLine', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3587,6 +7599,58 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param UpdateDNSSLBWeightRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateDNSSLBWeightResponse
+     */
+    public function updateDNSSLBWeightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDNSSLBWeight',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDNSSLBWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDNSSLBWeightRequest $request
+     *
+     * @return UpdateDNSSLBWeightResponse
+     */
+    public function updateDNSSLBWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDNSSLBWeightWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDnsCacheDomainRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3595,11 +7659,47 @@ class Alidns extends OpenApiClient
     public function updateDnsCacheDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cacheTtlMax)) {
+            $query['CacheTtlMax'] = $request->cacheTtlMax;
+        }
+        if (!Utils::isUnset($request->cacheTtlMin)) {
+            $query['CacheTtlMin'] = $request->cacheTtlMin;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceDnsServer)) {
+            $query['SourceDnsServer'] = $request->sourceDnsServer;
+        }
+        if (!Utils::isUnset($request->sourceEdns)) {
+            $query['SourceEdns'] = $request->sourceEdns;
+        }
+        if (!Utils::isUnset($request->sourceProtocol)) {
+            $query['SourceProtocol'] = $request->sourceProtocol;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDnsCacheDomain',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDnsCacheDomainResponse::fromMap($this->doRPCRequest('UpdateDnsCacheDomain', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3623,11 +7723,32 @@ class Alidns extends OpenApiClient
     public function updateDnsCacheDomainRemarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDnsCacheDomainRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->doRPCRequest('UpdateDnsCacheDomainRemark', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3651,11 +7772,74 @@ class Alidns extends OpenApiClient
     public function updateDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessMode)) {
+            $query['AccessMode'] = $request->accessMode;
+        }
+        if (!Utils::isUnset($request->defaultAddrPool)) {
+            $query['DefaultAddrPool'] = $request->defaultAddrPool;
+        }
+        if (!Utils::isUnset($request->defaultAddrPoolType)) {
+            $query['DefaultAddrPoolType'] = $request->defaultAddrPoolType;
+        }
+        if (!Utils::isUnset($request->defaultLatencyOptimization)) {
+            $query['DefaultLatencyOptimization'] = $request->defaultLatencyOptimization;
+        }
+        if (!Utils::isUnset($request->defaultLbaStrategy)) {
+            $query['DefaultLbaStrategy'] = $request->defaultLbaStrategy;
+        }
+        if (!Utils::isUnset($request->defaultMaxReturnAddrNum)) {
+            $query['DefaultMaxReturnAddrNum'] = $request->defaultMaxReturnAddrNum;
+        }
+        if (!Utils::isUnset($request->defaultMinAvailableAddrNum)) {
+            $query['DefaultMinAvailableAddrNum'] = $request->defaultMinAvailableAddrNum;
+        }
+        if (!Utils::isUnset($request->failoverAddrPool)) {
+            $query['FailoverAddrPool'] = $request->failoverAddrPool;
+        }
+        if (!Utils::isUnset($request->failoverAddrPoolType)) {
+            $query['FailoverAddrPoolType'] = $request->failoverAddrPoolType;
+        }
+        if (!Utils::isUnset($request->failoverLatencyOptimization)) {
+            $query['FailoverLatencyOptimization'] = $request->failoverLatencyOptimization;
+        }
+        if (!Utils::isUnset($request->failoverLbaStrategy)) {
+            $query['FailoverLbaStrategy'] = $request->failoverLbaStrategy;
+        }
+        if (!Utils::isUnset($request->failoverMaxReturnAddrNum)) {
+            $query['FailoverMaxReturnAddrNum'] = $request->failoverMaxReturnAddrNum;
+        }
+        if (!Utils::isUnset($request->failoverMinAvailableAddrNum)) {
+            $query['FailoverMinAvailableAddrNum'] = $request->failoverMinAvailableAddrNum;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lines)) {
+            $query['Lines'] = $request->lines;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDnsGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDnsGtmAccessStrategyResponse::fromMap($this->doRPCRequest('UpdateDnsGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3679,11 +7863,38 @@ class Alidns extends OpenApiClient
     public function updateDnsGtmAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
+        }
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lbaStrategy)) {
+            $query['LbaStrategy'] = $request->lbaStrategy;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDnsGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDnsGtmAddressPoolResponse::fromMap($this->doRPCRequest('UpdateDnsGtmAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3707,11 +7918,59 @@ class Alidns extends OpenApiClient
     public function updateDnsGtmInstanceGlobalConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertConfig)) {
+            $query['AlertConfig'] = $request->alertConfig;
+        }
+        if (!Utils::isUnset($request->alertGroup)) {
+            $query['AlertGroup'] = $request->alertGroup;
+        }
+        if (!Utils::isUnset($request->cnameType)) {
+            $query['CnameType'] = $request->cnameType;
+        }
+        if (!Utils::isUnset($request->forceUpdate)) {
+            $query['ForceUpdate'] = $request->forceUpdate;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->publicCnameMode)) {
+            $query['PublicCnameMode'] = $request->publicCnameMode;
+        }
+        if (!Utils::isUnset($request->publicRr)) {
+            $query['PublicRr'] = $request->publicRr;
+        }
+        if (!Utils::isUnset($request->publicUserDomainName)) {
+            $query['PublicUserDomainName'] = $request->publicUserDomainName;
+        }
+        if (!Utils::isUnset($request->publicZoneName)) {
+            $query['PublicZoneName'] = $request->publicZoneName;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDnsGtmInstanceGlobalConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->doRPCRequest('UpdateDnsGtmInstanceGlobalConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3735,11 +7994,47 @@ class Alidns extends OpenApiClient
     public function updateDnsGtmMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
+        }
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDnsGtmMonitor',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDnsGtmMonitorResponse::fromMap($this->doRPCRequest('UpdateDnsGtmMonitor', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3755,34 +8050,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDNSSLBWeightRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateDNSSLBWeightResponse
-     */
-    public function updateDNSSLBWeightWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDNSSLBWeightResponse::fromMap($this->doRPCRequest('UpdateDNSSLBWeight', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDNSSLBWeightRequest $request
-     *
-     * @return UpdateDNSSLBWeightResponse
-     */
-    public function updateDNSSLBWeight($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDNSSLBWeightWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateDomainGroupRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3791,11 +8058,32 @@ class Alidns extends OpenApiClient
     public function updateDomainGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomainGroup',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDomainGroupResponse::fromMap($this->doRPCRequest('UpdateDomainGroup', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3819,11 +8107,50 @@ class Alidns extends OpenApiClient
     public function updateDomainRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $query['Line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->RR)) {
+            $query['RR'] = $request->RR;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->TTL)) {
+            $query['TTL'] = $request->TTL;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomainRecord',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDomainRecordResponse::fromMap($this->doRPCRequest('UpdateDomainRecord', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3847,11 +8174,35 @@ class Alidns extends OpenApiClient
     public function updateDomainRecordRemarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->userClientIp)) {
+            $query['UserClientIp'] = $request->userClientIp;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomainRecordRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDomainRecordRemarkResponse::fromMap($this->doRPCRequest('UpdateDomainRecordRemark', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDomainRecordRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3875,11 +8226,32 @@ class Alidns extends OpenApiClient
     public function updateDomainRemarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDomainRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDomainRemarkResponse::fromMap($this->doRPCRequest('UpdateDomainRemark', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3903,11 +8275,41 @@ class Alidns extends OpenApiClient
     public function updateGtmAccessStrategyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessLines)) {
+            $query['AccessLines'] = $request->accessLines;
+        }
+        if (!Utils::isUnset($request->defaultAddrPoolId)) {
+            $query['DefaultAddrPoolId'] = $request->defaultAddrPoolId;
+        }
+        if (!Utils::isUnset($request->failoverAddrPoolId)) {
+            $query['FailoverAddrPoolId'] = $request->failoverAddrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->strategyId)) {
+            $query['StrategyId'] = $request->strategyId;
+        }
+        if (!Utils::isUnset($request->strategyName)) {
+            $query['StrategyName'] = $request->strategyName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGtmAccessStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGtmAccessStrategyResponse::fromMap($this->doRPCRequest('UpdateGtmAccessStrategy', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3931,11 +8333,41 @@ class Alidns extends OpenApiClient
     public function updateGtmAddressPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addr)) {
+            $query['Addr'] = $request->addr;
+        }
+        if (!Utils::isUnset($request->addrPoolId)) {
+            $query['AddrPoolId'] = $request->addrPoolId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->minAvailableAddrNum)) {
+            $query['MinAvailableAddrNum'] = $request->minAvailableAddrNum;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGtmAddressPoolResponse::fromMap($this->doRPCRequest('UpdateGtmAddressPool', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3959,11 +8391,50 @@ class Alidns extends OpenApiClient
     public function updateGtmInstanceGlobalConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alertGroup)) {
+            $query['AlertGroup'] = $request->alertGroup;
+        }
+        if (!Utils::isUnset($request->cnameCustomDomainName)) {
+            $query['CnameCustomDomainName'] = $request->cnameCustomDomainName;
+        }
+        if (!Utils::isUnset($request->cnameMode)) {
+            $query['CnameMode'] = $request->cnameMode;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lbaStrategy)) {
+            $query['LbaStrategy'] = $request->lbaStrategy;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
+        if (!Utils::isUnset($request->userDomainName)) {
+            $query['UserDomainName'] = $request->userDomainName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGtmInstanceGlobalConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->doRPCRequest('UpdateGtmInstanceGlobalConfig', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3987,11 +8458,47 @@ class Alidns extends OpenApiClient
     public function updateGtmMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNode)) {
+            $query['IspCityNode'] = $request->ispCityNode;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->monitorConfigId)) {
+            $query['MonitorConfigId'] = $request->monitorConfigId;
+        }
+        if (!Utils::isUnset($request->monitorExtendInfo)) {
+            $query['MonitorExtendInfo'] = $request->monitorExtendInfo;
+        }
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGtmMonitor',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGtmMonitorResponse::fromMap($this->doRPCRequest('UpdateGtmMonitor', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4015,11 +8522,38 @@ class Alidns extends OpenApiClient
     public function updateGtmRecoveryPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->faultAddrPool)) {
+            $query['FaultAddrPool'] = $request->faultAddrPool;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->recoveryPlanId)) {
+            $query['RecoveryPlanId'] = $request->recoveryPlanId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGtmRecoveryPlan',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGtmRecoveryPlanResponse::fromMap($this->doRPCRequest('UpdateGtmRecoveryPlan', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4035,30 +8569,155 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ValidateDnsGtmAttributeInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param UpdateIspFlushCacheInstanceConfigRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return ValidateDnsGtmAttributeInfoResponse
+     * @return UpdateIspFlushCacheInstanceConfigResponse
      */
-    public function validateDnsGtmAttributeInfoWithOptions($request, $runtime)
+    public function updateIspFlushCacheInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIspFlushCacheInstanceConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ValidateDnsGtmAttributeInfoResponse::fromMap($this->doRPCRequest('ValidateDnsGtmAttributeInfo', '2015-01-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ValidateDnsGtmAttributeInfoRequest $request
+     * @param UpdateIspFlushCacheInstanceConfigRequest $request
      *
-     * @return ValidateDnsGtmAttributeInfoResponse
+     * @return UpdateIspFlushCacheInstanceConfigResponse
      */
-    public function validateDnsGtmAttributeInfo($request)
+    public function updateIspFlushCacheInstanceConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->validateDnsGtmAttributeInfoWithOptions($request, $runtime);
+        return $this->updateIspFlushCacheInstanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ValidateDnsGtmCnameRrCanUseRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ValidateDnsGtmCnameRrCanUseResponse
+     */
+    public function validateDnsGtmCnameRrCanUseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cnameMode)) {
+            $query['CnameMode'] = $request->cnameMode;
+        }
+        if (!Utils::isUnset($request->cnameRr)) {
+            $query['CnameRr'] = $request->cnameRr;
+        }
+        if (!Utils::isUnset($request->cnameType)) {
+            $query['CnameType'] = $request->cnameType;
+        }
+        if (!Utils::isUnset($request->cnameZone)) {
+            $query['CnameZone'] = $request->cnameZone;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateDnsGtmCnameRrCanUse',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ValidateDnsGtmCnameRrCanUseRequest $request
+     *
+     * @return ValidateDnsGtmCnameRrCanUseResponse
+     */
+    public function validateDnsGtmCnameRrCanUse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateDnsGtmCnameRrCanUseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ValidatePdnsUdpIpSegmentRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ValidatePdnsUdpIpSegmentResponse
+     */
+    public function validatePdnsUdpIpSegmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidatePdnsUdpIpSegment',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ValidatePdnsUdpIpSegmentRequest $request
+     *
+     * @return ValidatePdnsUdpIpSegmentResponse
+     */
+    public function validatePdnsUdpIpSegment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validatePdnsUdpIpSegmentWithOptions($request, $runtime);
     }
 }

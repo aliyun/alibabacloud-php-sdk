@@ -11,27 +11,21 @@ class SetDnsGtmAccessModeRequest extends Model
     /**
      * @var string
      */
+    public $accessMode;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $strategyId;
-
-    /**
-     * @var string
-     */
-    public $accessMode;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'strategyId'   => 'StrategyId',
-        'accessMode'   => 'AccessMode',
+        'accessMode' => 'AccessMode',
+        'lang'       => 'Lang',
+        'strategyId' => 'StrategyId',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class SetDnsGtmAccessModeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = $this->accessMode;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
-        }
-        if (null !== $this->accessMode) {
-            $res['AccessMode'] = $this->accessMode;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class SetDnsGtmAccessModeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = $map['AccessMode'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
-        }
-        if (isset($map['AccessMode'])) {
-            $model->accessMode = $map['AccessMode'];
         }
 
         return $model;

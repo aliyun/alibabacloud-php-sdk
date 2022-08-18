@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ipv6AddrPool extends Model
 {
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
      * @var int
      */
     public $addrCount;
@@ -22,10 +17,15 @@ class ipv6AddrPool extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'name'      => 'Name',
         'addrCount' => 'AddrCount',
         'id'        => 'Id',
+        'name'      => 'Name',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ipv6AddrPool extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->addrCount) {
             $res['AddrCount'] = $this->addrCount;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ipv6AddrPool extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AddrCount'])) {
             $model->addrCount = $map['AddrCount'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

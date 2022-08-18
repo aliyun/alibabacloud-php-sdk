@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class statistic extends Model
 {
     /**
-     * @var string
-     */
-    public $subDomain;
-
-    /**
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $subDomain;
     protected $_name = [
-        'subDomain' => 'SubDomain',
         'count'     => 'Count',
+        'subDomain' => 'SubDomain',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class statistic extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subDomain) {
-            $res['SubDomain'] = $this->subDomain;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class statistic extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubDomain'])) {
-            $model->subDomain = $map['SubDomain'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
         }
 
         return $model;

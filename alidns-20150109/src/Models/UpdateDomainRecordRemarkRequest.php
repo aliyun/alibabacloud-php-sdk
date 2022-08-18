@@ -16,22 +16,22 @@ class UpdateDomainRecordRemarkRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $recordId;
 
     /**
      * @var string
      */
     public $remark;
+
+    /**
+     * @var string
+     */
+    public $userClientIp;
     protected $_name = [
         'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
         'recordId'     => 'RecordId',
         'remark'       => 'Remark',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class UpdateDomainRecordRemarkRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class UpdateDomainRecordRemarkRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

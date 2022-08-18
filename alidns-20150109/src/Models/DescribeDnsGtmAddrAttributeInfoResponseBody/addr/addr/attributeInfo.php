@@ -16,6 +16,11 @@ class attributeInfo extends Model
     /**
      * @var string
      */
+    public $groupCode;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
@@ -27,17 +32,12 @@ class attributeInfo extends Model
      * @var string
      */
     public $lineName;
-
-    /**
-     * @var string
-     */
-    public $groupCode;
     protected $_name = [
         'fatherCode' => 'FatherCode',
+        'groupCode'  => 'GroupCode',
         'groupName'  => 'GroupName',
         'lineCode'   => 'LineCode',
         'lineName'   => 'LineName',
-        'groupCode'  => 'GroupCode',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class attributeInfo extends Model
         if (null !== $this->fatherCode) {
             $res['FatherCode'] = $this->fatherCode;
         }
+        if (null !== $this->groupCode) {
+            $res['GroupCode'] = $this->groupCode;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -58,9 +61,6 @@ class attributeInfo extends Model
         }
         if (null !== $this->lineName) {
             $res['LineName'] = $this->lineName;
-        }
-        if (null !== $this->groupCode) {
-            $res['GroupCode'] = $this->groupCode;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class attributeInfo extends Model
         if (isset($map['FatherCode'])) {
             $model->fatherCode = $map['FatherCode'];
         }
+        if (isset($map['GroupCode'])) {
+            $model->groupCode = $map['GroupCode'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
@@ -85,9 +88,6 @@ class attributeInfo extends Model
         }
         if (isset($map['LineName'])) {
             $model->lineName = $map['LineName'];
-        }
-        if (isset($map['GroupCode'])) {
-            $model->groupCode = $map['GroupCode'];
         }
 
         return $model;

@@ -9,23 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLineRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $lineId;
-
-    /**
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
+    public $lineId;
     protected $_name = [
-        'lineId'       => 'LineId',
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
+        'lang'   => 'Lang',
+        'lineId' => 'LineId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DescribeCustomLineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lineId) {
-            $res['LineId'] = $this->lineId;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->lineId) {
+            $res['LineId'] = $this->lineId;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DescribeCustomLineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LineId'])) {
-            $model->lineId = $map['LineId'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['LineId'])) {
+            $model->lineId = $map['LineId'];
         }
 
         return $model;

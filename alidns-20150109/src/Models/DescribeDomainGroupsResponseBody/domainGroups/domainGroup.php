@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class domainGroup extends Model
 {
     /**
+     * @var int
+     */
+    public $domainCount;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -17,15 +22,10 @@ class domainGroup extends Model
      * @var string
      */
     public $groupName;
-
-    /**
-     * @var int
-     */
-    public $domainCount;
     protected $_name = [
+        'domainCount' => 'DomainCount',
         'groupId'     => 'GroupId',
         'groupName'   => 'GroupName',
-        'domainCount' => 'DomainCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class domainGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainCount) {
+            $res['DomainCount'] = $this->domainCount;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->domainCount) {
-            $res['DomainCount'] = $this->domainCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class domainGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainCount'])) {
+            $model->domainCount = $map['DomainCount'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['DomainCount'])) {
-            $model->domainCount = $map['DomainCount'];
         }
 
         return $model;

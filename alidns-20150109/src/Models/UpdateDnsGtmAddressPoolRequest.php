@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsGtmAddressPoolRequest extends Model
 {
     /**
-     * @var string
+     * @var addr[]
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
+    public $addr;
 
     /**
      * @var string
@@ -27,7 +22,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $lang;
 
     /**
      * @var string
@@ -35,16 +30,15 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     public $lbaStrategy;
 
     /**
-     * @var addr[]
+     * @var string
      */
-    public $addr;
+    public $name;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'addrPoolId'   => 'AddrPoolId',
-        'name'         => 'Name',
-        'lbaStrategy'  => 'LbaStrategy',
-        'addr'         => 'Addr',
+        'addr'        => 'Addr',
+        'addrPoolId'  => 'AddrPoolId',
+        'lang'        => 'Lang',
+        'lbaStrategy' => 'LbaStrategy',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -54,21 +48,6 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->addrPoolId) {
-            $res['AddrPoolId'] = $this->addrPoolId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->lbaStrategy) {
-            $res['LbaStrategy'] = $this->lbaStrategy;
-        }
         if (null !== $this->addr) {
             $res['Addr'] = [];
             if (null !== $this->addr && \is_array($this->addr)) {
@@ -77,6 +56,18 @@ class UpdateDnsGtmAddressPoolRequest extends Model
                     $res['Addr'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->addrPoolId) {
+            $res['AddrPoolId'] = $this->addrPoolId;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->lbaStrategy) {
+            $res['LbaStrategy'] = $this->lbaStrategy;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -90,21 +81,6 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['AddrPoolId'])) {
-            $model->addrPoolId = $map['AddrPoolId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['LbaStrategy'])) {
-            $model->lbaStrategy = $map['LbaStrategy'];
-        }
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
@@ -113,6 +89,18 @@ class UpdateDnsGtmAddressPoolRequest extends Model
                     $model->addr[$n++] = null !== $item ? addr::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AddrPoolId'])) {
+            $model->addrPoolId = $map['AddrPoolId'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['LbaStrategy'])) {
+            $model->lbaStrategy = $map['LbaStrategy'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddDomainResponseBody extends Model
 {
     /**
-     * @var string
+     * @var dnsServers
      */
-    public $groupName;
+    public $dnsServers;
 
     /**
      * @var string
@@ -22,12 +22,17 @@ class AddDomainResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
 
     /**
      * @var string
@@ -35,22 +40,17 @@ class AddDomainResponseBody extends Model
     public $punyCode;
 
     /**
-     * @var dnsServers
-     */
-    public $dnsServers;
-
-    /**
      * @var string
      */
-    public $groupId;
+    public $requestId;
     protected $_name = [
-        'groupName'  => 'GroupName',
-        'domainId'   => 'DomainId',
-        'requestId'  => 'RequestId',
-        'domainName' => 'DomainName',
-        'punyCode'   => 'PunyCode',
         'dnsServers' => 'DnsServers',
+        'domainId'   => 'DomainId',
+        'domainName' => 'DomainName',
         'groupId'    => 'GroupId',
+        'groupName'  => 'GroupName',
+        'punyCode'   => 'PunyCode',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class AddDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->dnsServers) {
+            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->punyCode) {
             $res['PunyCode'] = $this->punyCode;
         }
-        if (null !== $this->dnsServers) {
-            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class AddDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['DnsServers'])) {
+            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['PunyCode'])) {
             $model->punyCode = $map['PunyCode'];
         }
-        if (isset($map['DnsServers'])) {
-            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

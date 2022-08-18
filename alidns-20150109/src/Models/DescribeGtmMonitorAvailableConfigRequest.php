@@ -11,15 +11,9 @@ class DescribeGtmMonitorAvailableConfigRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
     public $lang;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class DescribeGtmMonitorAvailableConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -47,9 +38,6 @@ class DescribeGtmMonitorAvailableConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

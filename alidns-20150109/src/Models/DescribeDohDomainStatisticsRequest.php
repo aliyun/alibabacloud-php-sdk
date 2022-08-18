@@ -11,27 +11,27 @@ class DescribeDohDomainStatisticsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
      * @var string
      */
-    public $startDate;
+    public $endDate;
 
     /**
      * @var string
      */
-    public $endDate;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
-        'lang'       => 'Lang',
         'domainName' => 'DomainName',
-        'startDate'  => 'StartDate',
         'endDate'    => 'EndDate',
+        'lang'       => 'Lang',
+        'startDate'  => 'StartDate',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeDohDomainStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->startDate) {
-            $res['StartDate'] = $this->startDate;
-        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->startDate) {
+            $res['StartDate'] = $this->startDate;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeDohDomainStatisticsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StartDate'])) {
-            $model->startDate = $map['StartDate'];
-        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['StartDate'])) {
+            $model->startDate = $map['StartDate'];
         }
 
         return $model;

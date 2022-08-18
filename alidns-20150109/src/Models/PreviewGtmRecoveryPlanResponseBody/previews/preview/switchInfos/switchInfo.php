@@ -11,15 +11,15 @@ class switchInfo extends Model
     /**
      * @var string
      */
-    public $strategyName;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $strategyName;
     protected $_name = [
-        'strategyName' => 'StrategyName',
         'content'      => 'Content',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class switchInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->strategyName) {
-            $res['StrategyName'] = $this->strategyName;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->strategyName) {
+            $res['StrategyName'] = $this->strategyName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class switchInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StrategyName'])) {
-            $model->strategyName = $map['StrategyName'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['StrategyName'])) {
+            $model->strategyName = $map['StrategyName'];
         }
 
         return $model;

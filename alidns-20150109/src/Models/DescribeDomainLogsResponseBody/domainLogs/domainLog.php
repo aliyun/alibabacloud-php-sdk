@@ -14,14 +14,14 @@ class domainLog extends Model
     public $action;
 
     /**
+     * @var string
+     */
+    public $actionTime;
+
+    /**
      * @var int
      */
     public $actionTimestamp;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
 
     /**
      * @var string
@@ -31,25 +31,25 @@ class domainLog extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
      * @var string
      */
-    public $actionTime;
-
-    /**
-     * @var string
-     */
-    public $domainName;
+    public $zoneId;
     protected $_name = [
         'action'          => 'Action',
-        'actionTimestamp' => 'ActionTimestamp',
-        'zoneId'          => 'ZoneId',
-        'clientIp'        => 'ClientIp',
-        'message'         => 'Message',
         'actionTime'      => 'ActionTime',
+        'actionTimestamp' => 'ActionTimestamp',
+        'clientIp'        => 'ClientIp',
         'domainName'      => 'DomainName',
+        'message'         => 'Message',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class domainLog extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+        if (null !== $this->actionTime) {
+            $res['ActionTime'] = $this->actionTime;
+        }
         if (null !== $this->actionTimestamp) {
             $res['ActionTimestamp'] = $this->actionTimestamp;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->actionTime) {
-            $res['ActionTime'] = $this->actionTime;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class domainLog extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+        if (isset($map['ActionTime'])) {
+            $model->actionTime = $map['ActionTime'];
+        }
         if (isset($map['ActionTimestamp'])) {
             $model->actionTimestamp = $map['ActionTimestamp'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['ActionTime'])) {
-            $model->actionTime = $map['ActionTime'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

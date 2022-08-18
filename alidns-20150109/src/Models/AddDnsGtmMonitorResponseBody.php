@@ -11,15 +11,15 @@ class AddDnsGtmMonitorResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $monitorConfigId;
 
     /**
      * @var string
      */
-    public $monitorConfigId;
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'monitorConfigId' => 'MonitorConfigId',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddDnsGtmMonitorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->monitorConfigId) {
             $res['MonitorConfigId'] = $this->monitorConfigId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AddDnsGtmMonitorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MonitorConfigId'])) {
             $model->monitorConfigId = $map['MonitorConfigId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

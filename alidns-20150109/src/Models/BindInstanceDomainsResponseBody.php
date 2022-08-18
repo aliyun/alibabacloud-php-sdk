@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BindInstanceDomainsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $failedCount;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -16,15 +21,10 @@ class BindInstanceDomainsResponseBody extends Model
     /**
      * @var int
      */
-    public $failedCount;
-
-    /**
-     * @var int
-     */
     public $successCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'failedCount'  => 'FailedCount',
+        'requestId'    => 'RequestId',
         'successCount' => 'SuccessCount',
     ];
 
@@ -35,11 +35,11 @@ class BindInstanceDomainsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->failedCount) {
             $res['FailedCount'] = $this->failedCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
@@ -56,11 +56,11 @@ class BindInstanceDomainsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FailedCount'])) {
             $model->failedCount = $map['FailedCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];

@@ -11,7 +11,7 @@ class CopyGtmConfigRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $copyType;
 
     /**
      * @var string
@@ -27,17 +27,11 @@ class CopyGtmConfigRequest extends Model
      * @var string
      */
     public $targetId;
-
-    /**
-     * @var string
-     */
-    public $copyType;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'sourceId'     => 'SourceId',
-        'targetId'     => 'TargetId',
-        'copyType'     => 'CopyType',
+        'copyType' => 'CopyType',
+        'lang'     => 'Lang',
+        'sourceId' => 'SourceId',
+        'targetId' => 'TargetId',
     ];
 
     public function validate()
@@ -47,8 +41,8 @@ class CopyGtmConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->copyType) {
+            $res['CopyType'] = $this->copyType;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -58,9 +52,6 @@ class CopyGtmConfigRequest extends Model
         }
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
-        }
-        if (null !== $this->copyType) {
-            $res['CopyType'] = $this->copyType;
         }
 
         return $res;
@@ -74,8 +65,8 @@ class CopyGtmConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['CopyType'])) {
+            $model->copyType = $map['CopyType'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
@@ -85,9 +76,6 @@ class CopyGtmConfigRequest extends Model
         }
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
-        }
-        if (isset($map['CopyType'])) {
-            $model->copyType = $map['CopyType'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class ChangeDomainOfDnsProductResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $originalDomain;
 
     /**
      * @var string
      */
-    public $originalDomain;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'originalDomain' => 'OriginalDomain',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ChangeDomainOfDnsProductResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->originalDomain) {
             $res['OriginalDomain'] = $this->originalDomain;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ChangeDomainOfDnsProductResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OriginalDomain'])) {
             $model->originalDomain = $map['OriginalDomain'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class AddDomainRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
@@ -26,18 +21,17 @@ class AddDomainRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $lang;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $resourceGroupId;
     protected $_name = [
-        'lang'            => 'Lang',
         'domainName'      => 'DomainName',
         'groupId'         => 'GroupId',
+        'lang'            => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
-        'userClientIp'    => 'UserClientIp',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class AddDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -74,20 +65,17 @@ class AddDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

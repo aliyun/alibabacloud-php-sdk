@@ -16,16 +16,16 @@ class DeleteSubDomainRecordsResponseBody extends Model
     /**
      * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $totalCount;
     protected $_name = [
         'RR'         => 'RR',
-        'totalCount' => 'TotalCount',
         'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteSubDomainRecordsResponseBody extends Model
         if (null !== $this->RR) {
             $res['RR'] = $this->RR;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteSubDomainRecordsResponseBody extends Model
         if (isset($map['RR'])) {
             $model->RR = $map['RR'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

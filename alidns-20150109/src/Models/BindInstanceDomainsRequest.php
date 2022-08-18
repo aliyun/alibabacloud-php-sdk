@@ -11,12 +11,7 @@ class BindInstanceDomainsRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
+    public $domainNames;
 
     /**
      * @var string
@@ -26,12 +21,11 @@ class BindInstanceDomainsRequest extends Model
     /**
      * @var string
      */
-    public $domainNames;
+    public $lang;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'instanceId'   => 'InstanceId',
-        'domainNames'  => 'DomainNames',
+        'domainNames' => 'DomainNames',
+        'instanceId'  => 'InstanceId',
+        'lang'        => 'Lang',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class BindInstanceDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->domainNames) {
+            $res['DomainNames'] = $this->domainNames;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class BindInstanceDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['DomainNames'])) {
+            $model->domainNames = $map['DomainNames'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DomainNames'])) {
-            $model->domainNames = $map['DomainNames'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

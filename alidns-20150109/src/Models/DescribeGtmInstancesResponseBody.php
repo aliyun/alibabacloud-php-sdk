@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstancesResponseBody extends Model
 {
     /**
+     * @var gtmInstances
+     */
+    public $gtmInstances;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -22,29 +32,19 @@ class DescribeGtmInstancesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var gtmInstances
-     */
-    public $gtmInstances;
+    public $totalItems;
 
     /**
      * @var int
      */
     public $totalPages;
-
-    /**
-     * @var int
-     */
-    public $totalItems;
     protected $_name = [
+        'gtmInstances' => 'GtmInstances',
+        'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'requestId'    => 'RequestId',
-        'pageNumber'   => 'PageNumber',
-        'gtmInstances' => 'GtmInstances',
-        'totalPages'   => 'TotalPages',
         'totalItems'   => 'TotalItems',
+        'totalPages'   => 'TotalPages',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeGtmInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->gtmInstances) {
+            $res['GtmInstances'] = null !== $this->gtmInstances ? $this->gtmInstances->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->gtmInstances) {
-            $res['GtmInstances'] = null !== $this->gtmInstances ? $this->gtmInstances->toMap() : null;
+        if (null !== $this->totalItems) {
+            $res['TotalItems'] = $this->totalItems;
         }
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
-        }
-        if (null !== $this->totalItems) {
-            $res['TotalItems'] = $this->totalItems;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeGtmInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GtmInstances'])) {
+            $model->gtmInstances = gtmInstances::fromMap($map['GtmInstances']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['GtmInstances'])) {
-            $model->gtmInstances = gtmInstances::fromMap($map['GtmInstances']);
+        if (isset($map['TotalItems'])) {
+            $model->totalItems = $map['TotalItems'];
         }
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
-        }
-        if (isset($map['TotalItems'])) {
-            $model->totalItems = $map['TotalItems'];
         }
 
         return $model;

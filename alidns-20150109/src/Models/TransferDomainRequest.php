@@ -11,12 +11,12 @@ class TransferDomainRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $domainNames;
 
     /**
      * @var string
      */
-    public $domainNames;
+    public $lang;
 
     /**
      * @var string
@@ -27,17 +27,11 @@ class TransferDomainRequest extends Model
      * @var int
      */
     public $targetUserId;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
         'domainNames'  => 'DomainNames',
+        'lang'         => 'Lang',
         'remark'       => 'Remark',
         'targetUserId' => 'TargetUserId',
-        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class TransferDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
         if (null !== $this->targetUserId) {
             $res['TargetUserId'] = $this->targetUserId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -74,20 +65,17 @@ class TransferDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
         if (isset($map['TargetUserId'])) {
             $model->targetUserId = $map['TargetUserId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

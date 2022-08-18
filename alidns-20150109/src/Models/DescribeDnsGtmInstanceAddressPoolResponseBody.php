@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $addrCount;
+
+    /**
+     * @var string
+     */
+    public $addrPoolId;
+
+    /**
      * @var addrs
      */
     public $addrs;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $lbaStrategy;
 
     /**
      * @var string
@@ -32,32 +32,12 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
     /**
      * @var int
      */
-    public $addrCount;
+    public $createTimestamp;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $addrPoolId;
-
-    /**
-     * @var int
-     */
-    public $updateTimestamp;
+    public $lbaStrategy;
 
     /**
      * @var string
@@ -70,23 +50,43 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
     public $monitorStatus;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
      * @var int
      */
-    public $createTimestamp;
+    public $updateTimestamp;
     protected $_name = [
-        'addrs'           => 'Addrs',
-        'requestId'       => 'RequestId',
-        'lbaStrategy'     => 'LbaStrategy',
-        'createTime'      => 'CreateTime',
         'addrCount'       => 'AddrCount',
-        'name'            => 'Name',
-        'type'            => 'Type',
-        'updateTime'      => 'UpdateTime',
         'addrPoolId'      => 'AddrPoolId',
-        'updateTimestamp' => 'UpdateTimestamp',
+        'addrs'           => 'Addrs',
+        'createTime'      => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'lbaStrategy'     => 'LbaStrategy',
         'monitorConfigId' => 'MonitorConfigId',
         'monitorStatus'   => 'MonitorStatus',
-        'createTimestamp' => 'CreateTimestamp',
+        'name'            => 'Name',
+        'requestId'       => 'RequestId',
+        'type'            => 'Type',
+        'updateTime'      => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
     ];
 
     public function validate()
@@ -96,35 +96,23 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->addrs) {
-            $res['Addrs'] = null !== $this->addrs ? $this->addrs->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lbaStrategy) {
-            $res['LbaStrategy'] = $this->lbaStrategy;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->addrCount) {
             $res['AddrCount'] = $this->addrCount;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
-        if (null !== $this->updateTimestamp) {
-            $res['UpdateTimestamp'] = $this->updateTimestamp;
+        if (null !== $this->addrs) {
+            $res['Addrs'] = null !== $this->addrs ? $this->addrs->toMap() : null;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->lbaStrategy) {
+            $res['LbaStrategy'] = $this->lbaStrategy;
         }
         if (null !== $this->monitorConfigId) {
             $res['MonitorConfigId'] = $this->monitorConfigId;
@@ -132,8 +120,20 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
         if (null !== $this->monitorStatus) {
             $res['MonitorStatus'] = $this->monitorStatus;
         }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->updateTimestamp) {
+            $res['UpdateTimestamp'] = $this->updateTimestamp;
         }
 
         return $res;
@@ -147,35 +147,23 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Addrs'])) {
-            $model->addrs = addrs::fromMap($map['Addrs']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LbaStrategy'])) {
-            $model->lbaStrategy = $map['LbaStrategy'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['AddrCount'])) {
             $model->addrCount = $map['AddrCount'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
-        if (isset($map['UpdateTimestamp'])) {
-            $model->updateTimestamp = $map['UpdateTimestamp'];
+        if (isset($map['Addrs'])) {
+            $model->addrs = addrs::fromMap($map['Addrs']);
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['LbaStrategy'])) {
+            $model->lbaStrategy = $map['LbaStrategy'];
         }
         if (isset($map['MonitorConfigId'])) {
             $model->monitorConfigId = $map['MonitorConfigId'];
@@ -183,8 +171,20 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
         if (isset($map['MonitorStatus'])) {
             $model->monitorStatus = $map['MonitorStatus'];
         }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UpdateTimestamp'])) {
+            $model->updateTimestamp = $map['UpdateTimestamp'];
         }
 
         return $model;

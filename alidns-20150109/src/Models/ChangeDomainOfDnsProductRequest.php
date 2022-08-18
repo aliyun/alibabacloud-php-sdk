@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeDomainOfDnsProductRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
+    public $force;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class ChangeDomainOfDnsProductRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $newDomain;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $force;
+    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'instanceId'   => 'InstanceId',
-        'newDomain'    => 'NewDomain',
         'force'        => 'Force',
+        'instanceId'   => 'InstanceId',
+        'lang'         => 'Lang',
+        'newDomain'    => 'NewDomain',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ChangeDomainOfDnsProductRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->newDomain) {
             $res['NewDomain'] = $this->newDomain;
         }
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ChangeDomainOfDnsProductRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['NewDomain'])) {
             $model->newDomain = $map['NewDomain'];
         }
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

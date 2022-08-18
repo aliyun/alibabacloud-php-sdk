@@ -11,27 +11,7 @@ class record extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $weight;
-
-    /**
-     * @var string
-     */
-    public $value;
-
-    /**
-     * @var int
-     */
-    public $TTL;
+    public $domainName;
 
     /**
      * @var string
@@ -39,9 +19,9 @@ class record extends Model
     public $line;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $recordId;
+    public $locked;
 
     /**
      * @var int
@@ -56,24 +36,44 @@ class record extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $recordId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $locked;
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $TTL;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $value;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'status'     => 'Status',
-        'type'       => 'Type',
-        'weight'     => 'Weight',
-        'value'      => 'Value',
-        'TTL'        => 'TTL',
+        'domainName' => 'DomainName',
         'line'       => 'Line',
-        'recordId'   => 'RecordId',
+        'locked'     => 'Locked',
         'priority'   => 'Priority',
         'RR'         => 'RR',
-        'domainName' => 'DomainName',
-        'locked'     => 'Locked',
+        'recordId'   => 'RecordId',
+        'status'     => 'Status',
+        'TTL'        => 'TTL',
+        'type'       => 'Type',
+        'value'      => 'Value',
+        'weight'     => 'Weight',
     ];
 
     public function validate()
@@ -83,26 +83,14 @@ class record extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->TTL) {
-            $res['TTL'] = $this->TTL;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
-        if (null !== $this->recordId) {
-            $res['RecordId'] = $this->recordId;
+        if (null !== $this->locked) {
+            $res['Locked'] = $this->locked;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -110,11 +98,23 @@ class record extends Model
         if (null !== $this->RR) {
             $res['RR'] = $this->RR;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->recordId) {
+            $res['RecordId'] = $this->recordId;
         }
-        if (null !== $this->locked) {
-            $res['Locked'] = $this->locked;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->TTL) {
+            $res['TTL'] = $this->TTL;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -128,26 +128,14 @@ class record extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['TTL'])) {
-            $model->TTL = $map['TTL'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
-        if (isset($map['RecordId'])) {
-            $model->recordId = $map['RecordId'];
+        if (isset($map['Locked'])) {
+            $model->locked = $map['Locked'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -155,11 +143,23 @@ class record extends Model
         if (isset($map['RR'])) {
             $model->RR = $map['RR'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['RecordId'])) {
+            $model->recordId = $map['RecordId'];
         }
-        if (isset($map['Locked'])) {
-            $model->locked = $map['Locked'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TTL'])) {
+            $model->TTL = $map['TTL'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

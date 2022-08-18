@@ -11,27 +11,21 @@ class DescribeBatchResultCountRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $batchType;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $lang;
 
     /**
      * @var int
      */
     public $taskId;
-
-    /**
-     * @var string
-     */
-    public $batchType;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
-        'taskId'       => 'TaskId',
-        'batchType'    => 'BatchType',
+        'batchType' => 'BatchType',
+        'lang'      => 'Lang',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class DescribeBatchResultCountRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->batchType) {
+            $res['BatchType'] = $this->batchType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->batchType) {
-            $res['BatchType'] = $this->batchType;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class DescribeBatchResultCountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchType'])) {
+            $model->batchType = $map['BatchType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['BatchType'])) {
-            $model->batchType = $map['BatchType'];
         }
 
         return $model;

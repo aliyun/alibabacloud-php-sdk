@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGtmInstanceStatusResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $addrNotAvailableNum;
 
     /**
      * @var int
      */
-    public $strategyNotAvailableNum;
+    public $addrPoolNotAvailableNum;
 
     /**
      * @var string
@@ -24,9 +24,9 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $switchToFailoverStrategyNum;
+    public $status;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     /**
      * @var int
      */
-    public $addrNotAvailableNum;
+    public $strategyNotAvailableNum;
 
     /**
      * @var int
      */
-    public $addrPoolNotAvailableNum;
+    public $switchToFailoverStrategyNum;
     protected $_name = [
-        'status'                      => 'Status',
-        'strategyNotAvailableNum'     => 'StrategyNotAvailableNum',
-        'requestId'                   => 'RequestId',
-        'switchToFailoverStrategyNum' => 'SwitchToFailoverStrategyNum',
-        'statusReason'                => 'StatusReason',
         'addrNotAvailableNum'         => 'AddrNotAvailableNum',
         'addrPoolNotAvailableNum'     => 'AddrPoolNotAvailableNum',
+        'requestId'                   => 'RequestId',
+        'status'                      => 'Status',
+        'statusReason'                => 'StatusReason',
+        'strategyNotAvailableNum'     => 'StrategyNotAvailableNum',
+        'switchToFailoverStrategyNum' => 'SwitchToFailoverStrategyNum',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->strategyNotAvailableNum) {
-            $res['StrategyNotAvailableNum'] = $this->strategyNotAvailableNum;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->switchToFailoverStrategyNum) {
-            $res['SwitchToFailoverStrategyNum'] = $this->switchToFailoverStrategyNum;
-        }
-        if (null !== $this->statusReason) {
-            $res['StatusReason'] = $this->statusReason;
-        }
         if (null !== $this->addrNotAvailableNum) {
             $res['AddrNotAvailableNum'] = $this->addrNotAvailableNum;
         }
         if (null !== $this->addrPoolNotAvailableNum) {
             $res['AddrPoolNotAvailableNum'] = $this->addrPoolNotAvailableNum;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusReason) {
+            $res['StatusReason'] = $this->statusReason;
+        }
+        if (null !== $this->strategyNotAvailableNum) {
+            $res['StrategyNotAvailableNum'] = $this->strategyNotAvailableNum;
+        }
+        if (null !== $this->switchToFailoverStrategyNum) {
+            $res['SwitchToFailoverStrategyNum'] = $this->switchToFailoverStrategyNum;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeGtmInstanceStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StrategyNotAvailableNum'])) {
-            $model->strategyNotAvailableNum = $map['StrategyNotAvailableNum'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SwitchToFailoverStrategyNum'])) {
-            $model->switchToFailoverStrategyNum = $map['SwitchToFailoverStrategyNum'];
-        }
-        if (isset($map['StatusReason'])) {
-            $model->statusReason = $map['StatusReason'];
-        }
         if (isset($map['AddrNotAvailableNum'])) {
             $model->addrNotAvailableNum = $map['AddrNotAvailableNum'];
         }
         if (isset($map['AddrPoolNotAvailableNum'])) {
             $model->addrPoolNotAvailableNum = $map['AddrPoolNotAvailableNum'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StatusReason'])) {
+            $model->statusReason = $map['StatusReason'];
+        }
+        if (isset($map['StrategyNotAvailableNum'])) {
+            $model->strategyNotAvailableNum = $map['StrategyNotAvailableNum'];
+        }
+        if (isset($map['SwitchToFailoverStrategyNum'])) {
+            $model->switchToFailoverStrategyNum = $map['SwitchToFailoverStrategyNum'];
         }
 
         return $model;

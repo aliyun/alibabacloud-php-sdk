@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class faultAddrPool extends Model
 {
     /**
-     * @var addrs
-     */
-    public $addrs;
-
-    /**
      * @var string
      */
     public $addrPoolId;
@@ -22,17 +17,22 @@ class faultAddrPool extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $addrPoolName;
+
+    /**
+     * @var addrs
+     */
+    public $addrs;
 
     /**
      * @var string
      */
-    public $addrPoolName;
+    public $instanceId;
     protected $_name = [
-        'addrs'        => 'Addrs',
         'addrPoolId'   => 'AddrPoolId',
-        'instanceId'   => 'InstanceId',
         'addrPoolName' => 'AddrPoolName',
+        'addrs'        => 'Addrs',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class faultAddrPool extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->addrs) {
-            $res['Addrs'] = null !== $this->addrs ? $this->addrs->toMap() : null;
-        }
         if (null !== $this->addrPoolId) {
             $res['AddrPoolId'] = $this->addrPoolId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->addrPoolName) {
             $res['AddrPoolName'] = $this->addrPoolName;
+        }
+        if (null !== $this->addrs) {
+            $res['Addrs'] = null !== $this->addrs ? $this->addrs->toMap() : null;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class faultAddrPool extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Addrs'])) {
-            $model->addrs = addrs::fromMap($map['Addrs']);
-        }
         if (isset($map['AddrPoolId'])) {
             $model->addrPoolId = $map['AddrPoolId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AddrPoolName'])) {
             $model->addrPoolName = $map['AddrPoolName'];
+        }
+        if (isset($map['Addrs'])) {
+            $model->addrs = addrs::fromMap($map['Addrs']);
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

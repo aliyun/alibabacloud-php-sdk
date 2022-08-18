@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLineResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $lineCode;
+
+    /**
      * @var int
      */
     public $lineId;
@@ -17,15 +22,10 @@ class AddCustomLineResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $lineCode;
     protected $_name = [
+        'lineCode'  => 'LineCode',
         'lineId'    => 'LineId',
         'requestId' => 'RequestId',
-        'lineCode'  => 'LineCode',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddCustomLineResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lineCode) {
+            $res['LineCode'] = $this->lineCode;
+        }
         if (null !== $this->lineId) {
             $res['LineId'] = $this->lineId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->lineCode) {
-            $res['LineCode'] = $this->lineCode;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AddCustomLineResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LineCode'])) {
+            $model->lineCode = $map['LineCode'];
+        }
         if (isset($map['LineId'])) {
             $model->lineId = $map['LineId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LineCode'])) {
-            $model->lineCode = $map['LineCode'];
         }
 
         return $model;

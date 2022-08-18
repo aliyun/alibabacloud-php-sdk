@@ -11,12 +11,12 @@ class DescribeDnsProductInstancesRequest extends Model
     /**
      * @var string
      */
-    public $lang;
+    public $domainType;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $lang;
 
     /**
      * @var int
@@ -31,19 +31,19 @@ class DescribeDnsProductInstancesRequest extends Model
     /**
      * @var string
      */
-    public $versionCode;
+    public $userClientIp;
 
     /**
      * @var string
      */
-    public $domainType;
+    public $versionCode;
     protected $_name = [
+        'domainType'   => 'DomainType',
         'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'userClientIp' => 'UserClientIp',
         'versionCode'  => 'VersionCode',
-        'domainType'   => 'DomainType',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class DescribeDnsProductInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainType) {
+            $res['DomainType'] = $this->domainType;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class DescribeDnsProductInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
+        }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
-        }
-        if (null !== $this->domainType) {
-            $res['DomainType'] = $this->domainType;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class DescribeDnsProductInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainType'])) {
+            $model->domainType = $map['DomainType'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -95,11 +95,11 @@ class DescribeDnsProductInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
+        }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
-        }
-        if (isset($map['DomainType'])) {
-            $model->domainType = $map['DomainType'];
         }
 
         return $model;

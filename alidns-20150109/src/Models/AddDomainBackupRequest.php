@@ -11,27 +11,21 @@ class AddDomainBackupRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
      * @var string
      */
-    public $periodType;
+    public $lang;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $periodType;
     protected $_name = [
-        'lang'         => 'Lang',
-        'domainName'   => 'DomainName',
-        'periodType'   => 'PeriodType',
-        'userClientIp' => 'UserClientIp',
+        'domainName' => 'DomainName',
+        'lang'       => 'Lang',
+        'periodType' => 'PeriodType',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class AddDomainBackupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class AddDomainBackupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

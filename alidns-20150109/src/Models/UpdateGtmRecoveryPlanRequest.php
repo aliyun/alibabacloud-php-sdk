@@ -11,12 +11,17 @@ class UpdateGtmRecoveryPlanRequest extends Model
     /**
      * @var string
      */
+    public $faultAddrPool;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
      * @var string
      */
-    public $userClientIp;
+    public $name;
 
     /**
      * @var int
@@ -26,24 +31,13 @@ class UpdateGtmRecoveryPlanRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $remark;
-
-    /**
-     * @var string
-     */
-    public $faultAddrPool;
     protected $_name = [
-        'lang'           => 'Lang',
-        'userClientIp'   => 'UserClientIp',
-        'recoveryPlanId' => 'RecoveryPlanId',
-        'name'           => 'Name',
-        'remark'         => 'Remark',
         'faultAddrPool'  => 'FaultAddrPool',
+        'lang'           => 'Lang',
+        'name'           => 'Name',
+        'recoveryPlanId' => 'RecoveryPlanId',
+        'remark'         => 'Remark',
     ];
 
     public function validate()
@@ -53,23 +47,20 @@ class UpdateGtmRecoveryPlanRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faultAddrPool) {
+            $res['FaultAddrPool'] = $this->faultAddrPool;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->recoveryPlanId) {
-            $res['RecoveryPlanId'] = $this->recoveryPlanId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->recoveryPlanId) {
+            $res['RecoveryPlanId'] = $this->recoveryPlanId;
+        }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->faultAddrPool) {
-            $res['FaultAddrPool'] = $this->faultAddrPool;
         }
 
         return $res;
@@ -83,23 +74,20 @@ class UpdateGtmRecoveryPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaultAddrPool'])) {
+            $model->faultAddrPool = $map['FaultAddrPool'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['RecoveryPlanId'])) {
-            $model->recoveryPlanId = $map['RecoveryPlanId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['RecoveryPlanId'])) {
+            $model->recoveryPlanId = $map['RecoveryPlanId'];
+        }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
-        }
-        if (isset($map['FaultAddrPool'])) {
-            $model->faultAddrPool = $map['FaultAddrPool'];
         }
 
         return $model;

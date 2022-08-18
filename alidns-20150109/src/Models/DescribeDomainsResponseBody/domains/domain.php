@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $remark;
+    public $aliDomain;
 
     /**
      * @var string
@@ -23,22 +23,12 @@ class domain extends Model
     /**
      * @var int
      */
-    public $recordCount;
+    public $createTimestamp;
 
     /**
-     * @var tags
+     * @var dnsServers
      */
-    public $tags;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
+    public $dnsServers;
 
     /**
      * @var string
@@ -46,9 +36,9 @@ class domain extends Model
     public $domainId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $aliDomain;
+    public $domainName;
 
     /**
      * @var string
@@ -63,11 +53,6 @@ class domain extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $instanceEndTime;
 
     /**
@@ -78,12 +63,42 @@ class domain extends Model
     /**
      * @var string
      */
-    public $versionName;
+    public $instanceId;
 
     /**
-     * @var dnsServers
+     * @var string
      */
-    public $dnsServers;
+    public $punyCode;
+
+    /**
+     * @var int
+     */
+    public $recordCount;
+
+    /**
+     * @var string
+     */
+    public $registrantEmail;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var bool
+     */
+    public $starmark;
+
+    /**
+     * @var tags
+     */
+    public $tags;
 
     /**
      * @var string
@@ -93,43 +108,28 @@ class domain extends Model
     /**
      * @var string
      */
-    public $punyCode;
-
-    /**
-     * @var string
-     */
-    public $registrantEmail;
-
-    /**
-     * @var int
-     */
-    public $createTimestamp;
-
-    /**
-     * @var bool
-     */
-    public $starmark;
+    public $versionName;
     protected $_name = [
-        'remark'          => 'Remark',
-        'createTime'      => 'CreateTime',
-        'recordCount'     => 'RecordCount',
-        'tags'            => 'Tags',
-        'instanceId'      => 'InstanceId',
-        'domainName'      => 'DomainName',
-        'domainId'        => 'DomainId',
         'aliDomain'       => 'AliDomain',
+        'createTime'      => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'dnsServers'      => 'DnsServers',
+        'domainId'        => 'DomainId',
+        'domainName'      => 'DomainName',
         'groupId'         => 'GroupId',
         'groupName'       => 'GroupName',
-        'resourceGroupId' => 'ResourceGroupId',
         'instanceEndTime' => 'InstanceEndTime',
         'instanceExpired' => 'InstanceExpired',
-        'versionName'     => 'VersionName',
-        'dnsServers'      => 'DnsServers',
-        'versionCode'     => 'VersionCode',
+        'instanceId'      => 'InstanceId',
         'punyCode'        => 'PunyCode',
+        'recordCount'     => 'RecordCount',
         'registrantEmail' => 'RegistrantEmail',
-        'createTimestamp' => 'CreateTimestamp',
+        'remark'          => 'Remark',
+        'resourceGroupId' => 'ResourceGroupId',
         'starmark'        => 'Starmark',
+        'tags'            => 'Tags',
+        'versionCode'     => 'VersionCode',
+        'versionName'     => 'VersionName',
     ];
 
     public function validate()
@@ -139,29 +139,23 @@ class domain extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
+        if (null !== $this->aliDomain) {
+            $res['AliDomain'] = $this->aliDomain;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->recordCount) {
-            $res['RecordCount'] = $this->recordCount;
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->dnsServers) {
+            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
         }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
-        if (null !== $this->aliDomain) {
-            $res['AliDomain'] = $this->aliDomain;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -169,35 +163,41 @@ class domain extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->instanceEndTime) {
             $res['InstanceEndTime'] = $this->instanceEndTime;
         }
         if (null !== $this->instanceExpired) {
             $res['InstanceExpired'] = $this->instanceExpired;
         }
-        if (null !== $this->versionName) {
-            $res['VersionName'] = $this->versionName;
-        }
-        if (null !== $this->dnsServers) {
-            $res['DnsServers'] = null !== $this->dnsServers ? $this->dnsServers->toMap() : null;
-        }
-        if (null !== $this->versionCode) {
-            $res['VersionCode'] = $this->versionCode;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->punyCode) {
             $res['PunyCode'] = $this->punyCode;
         }
+        if (null !== $this->recordCount) {
+            $res['RecordCount'] = $this->recordCount;
+        }
         if (null !== $this->registrantEmail) {
             $res['RegistrantEmail'] = $this->registrantEmail;
         }
-        if (null !== $this->createTimestamp) {
-            $res['CreateTimestamp'] = $this->createTimestamp;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->starmark) {
             $res['Starmark'] = $this->starmark;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->versionCode) {
+            $res['VersionCode'] = $this->versionCode;
+        }
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
         }
 
         return $res;
@@ -211,29 +211,23 @@ class domain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
+        if (isset($map['AliDomain'])) {
+            $model->aliDomain = $map['AliDomain'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['RecordCount'])) {
-            $model->recordCount = $map['RecordCount'];
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['DnsServers'])) {
+            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
         }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
-        if (isset($map['AliDomain'])) {
-            $model->aliDomain = $map['AliDomain'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -241,35 +235,41 @@ class domain extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['InstanceEndTime'])) {
             $model->instanceEndTime = $map['InstanceEndTime'];
         }
         if (isset($map['InstanceExpired'])) {
             $model->instanceExpired = $map['InstanceExpired'];
         }
-        if (isset($map['VersionName'])) {
-            $model->versionName = $map['VersionName'];
-        }
-        if (isset($map['DnsServers'])) {
-            $model->dnsServers = dnsServers::fromMap($map['DnsServers']);
-        }
-        if (isset($map['VersionCode'])) {
-            $model->versionCode = $map['VersionCode'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PunyCode'])) {
             $model->punyCode = $map['PunyCode'];
         }
+        if (isset($map['RecordCount'])) {
+            $model->recordCount = $map['RecordCount'];
+        }
         if (isset($map['RegistrantEmail'])) {
             $model->registrantEmail = $map['RegistrantEmail'];
         }
-        if (isset($map['CreateTimestamp'])) {
-            $model->createTimestamp = $map['CreateTimestamp'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Starmark'])) {
             $model->starmark = $map['Starmark'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['VersionCode'])) {
+            $model->versionCode = $map['VersionCode'];
+        }
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
         }
 
         return $model;

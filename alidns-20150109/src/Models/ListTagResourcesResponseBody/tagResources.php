@@ -11,27 +11,27 @@ class tagResources extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $tagValue;
-
-    /**
-     * @var string
-     */
     public $resourceId;
 
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $tagKey;
+
+    /**
+     * @var string
+     */
+    public $tagValue;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'tagValue'     => 'TagValue',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tagKey'       => 'TagKey',
+        'tagValue'     => 'TagValue',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class tagResources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
+        }
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class tagResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
-        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
+        }
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

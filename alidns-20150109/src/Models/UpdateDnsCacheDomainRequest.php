@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsCacheDomainRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $lang;
+    public $cacheTtlMax;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userClientIp;
+    public $cacheTtlMin;
 
     /**
      * @var string
@@ -30,19 +30,14 @@ class UpdateDnsCacheDomainRequest extends Model
     public $instanceId;
 
     /**
-     * @var int
-     */
-    public $cacheTtlMin;
-
-    /**
-     * @var int
-     */
-    public $cacheTtlMax;
-
-    /**
      * @var string
      */
-    public $sourceProtocol;
+    public $lang;
+
+    /**
+     * @var sourceDnsServer[]
+     */
+    public $sourceDnsServer;
 
     /**
      * @var string
@@ -50,19 +45,18 @@ class UpdateDnsCacheDomainRequest extends Model
     public $sourceEdns;
 
     /**
-     * @var sourceDnsServer[]
+     * @var string
      */
-    public $sourceDnsServer;
+    public $sourceProtocol;
     protected $_name = [
-        'lang'            => 'Lang',
-        'userClientIp'    => 'UserClientIp',
+        'cacheTtlMax'     => 'CacheTtlMax',
+        'cacheTtlMin'     => 'CacheTtlMin',
         'domainName'      => 'DomainName',
         'instanceId'      => 'InstanceId',
-        'cacheTtlMin'     => 'CacheTtlMin',
-        'cacheTtlMax'     => 'CacheTtlMax',
-        'sourceProtocol'  => 'SourceProtocol',
-        'sourceEdns'      => 'SourceEdns',
+        'lang'            => 'Lang',
         'sourceDnsServer' => 'SourceDnsServer',
+        'sourceEdns'      => 'SourceEdns',
+        'sourceProtocol'  => 'SourceProtocol',
     ];
 
     public function validate()
@@ -72,11 +66,11 @@ class UpdateDnsCacheDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
+        if (null !== $this->cacheTtlMax) {
+            $res['CacheTtlMax'] = $this->cacheTtlMax;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->cacheTtlMin) {
+            $res['CacheTtlMin'] = $this->cacheTtlMin;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -84,17 +78,8 @@ class UpdateDnsCacheDomainRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->cacheTtlMin) {
-            $res['CacheTtlMin'] = $this->cacheTtlMin;
-        }
-        if (null !== $this->cacheTtlMax) {
-            $res['CacheTtlMax'] = $this->cacheTtlMax;
-        }
-        if (null !== $this->sourceProtocol) {
-            $res['SourceProtocol'] = $this->sourceProtocol;
-        }
-        if (null !== $this->sourceEdns) {
-            $res['SourceEdns'] = $this->sourceEdns;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->sourceDnsServer) {
             $res['SourceDnsServer'] = [];
@@ -104,6 +89,12 @@ class UpdateDnsCacheDomainRequest extends Model
                     $res['SourceDnsServer'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->sourceEdns) {
+            $res['SourceEdns'] = $this->sourceEdns;
+        }
+        if (null !== $this->sourceProtocol) {
+            $res['SourceProtocol'] = $this->sourceProtocol;
         }
 
         return $res;
@@ -117,11 +108,11 @@ class UpdateDnsCacheDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
+        if (isset($map['CacheTtlMax'])) {
+            $model->cacheTtlMax = $map['CacheTtlMax'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['CacheTtlMin'])) {
+            $model->cacheTtlMin = $map['CacheTtlMin'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -129,17 +120,8 @@ class UpdateDnsCacheDomainRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CacheTtlMin'])) {
-            $model->cacheTtlMin = $map['CacheTtlMin'];
-        }
-        if (isset($map['CacheTtlMax'])) {
-            $model->cacheTtlMax = $map['CacheTtlMax'];
-        }
-        if (isset($map['SourceProtocol'])) {
-            $model->sourceProtocol = $map['SourceProtocol'];
-        }
-        if (isset($map['SourceEdns'])) {
-            $model->sourceEdns = $map['SourceEdns'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['SourceDnsServer'])) {
             if (!empty($map['SourceDnsServer'])) {
@@ -149,6 +131,12 @@ class UpdateDnsCacheDomainRequest extends Model
                     $model->sourceDnsServer[$n++] = null !== $item ? sourceDnsServer::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SourceEdns'])) {
+            $model->sourceEdns = $map['SourceEdns'];
+        }
+        if (isset($map['SourceProtocol'])) {
+            $model->sourceProtocol = $map['SourceProtocol'];
         }
 
         return $model;

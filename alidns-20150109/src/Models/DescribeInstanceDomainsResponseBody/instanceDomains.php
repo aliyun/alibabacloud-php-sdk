@@ -14,18 +14,18 @@ class instanceDomains extends Model
     public $createTime;
 
     /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var string
+     */
+    public $domainName;
     protected $_name = [
         'createTime'      => 'CreateTime',
-        'domainName'      => 'DomainName',
         'createTimestamp' => 'CreateTimestamp',
+        'domainName'      => 'DomainName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class instanceDomains extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class instanceDomains extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         return $model;

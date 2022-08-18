@@ -12,27 +12,7 @@ class DescribeGtmAccessStrategyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $strategyId;
-
-    /**
-     * @var string
-     */
-    public $defaultAddrPoolStatus;
-
-    /**
-     * @var string
-     */
-    public $failoverAddrPoolId;
+    public $accessMode;
 
     /**
      * @var string
@@ -52,27 +32,17 @@ class DescribeGtmAccessStrategyResponseBody extends Model
     /**
      * @var string
      */
+    public $defaultAddrPoolStatus;
+
+    /**
+     * @var string
+     */
     public $defultAddrPoolId;
 
     /**
      * @var string
      */
-    public $strategyName;
-
-    /**
-     * @var string
-     */
-    public $failoverAddrPoolStatus;
-
-    /**
-     * @var string
-     */
-    public $accessMode;
-
-    /**
-     * @var string
-     */
-    public $strategyMode;
+    public $failoverAddrPoolId;
 
     /**
      * @var string
@@ -85,26 +55,56 @@ class DescribeGtmAccessStrategyResponseBody extends Model
     public $failoverAddrPoolName;
 
     /**
+     * @var string
+     */
+    public $failoverAddrPoolStatus;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var lines
      */
     public $lines;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $strategyId;
+
+    /**
+     * @var string
+     */
+    public $strategyMode;
+
+    /**
+     * @var string
+     */
+    public $strategyName;
     protected $_name = [
-        'requestId'                     => 'RequestId',
-        'instanceId'                    => 'InstanceId',
-        'strategyId'                    => 'StrategyId',
-        'defaultAddrPoolStatus'         => 'DefaultAddrPoolStatus',
-        'failoverAddrPoolId'            => 'FailoverAddrPoolId',
+        'accessMode'                    => 'AccessMode',
         'accessStatus'                  => 'AccessStatus',
         'defaultAddrPoolMonitorStatus'  => 'DefaultAddrPoolMonitorStatus',
         'defaultAddrPoolName'           => 'DefaultAddrPoolName',
+        'defaultAddrPoolStatus'         => 'DefaultAddrPoolStatus',
         'defultAddrPoolId'              => 'DefultAddrPoolId',
-        'strategyName'                  => 'StrategyName',
-        'failoverAddrPoolStatus'        => 'FailoverAddrPoolStatus',
-        'accessMode'                    => 'AccessMode',
-        'strategyMode'                  => 'StrategyMode',
+        'failoverAddrPoolId'            => 'FailoverAddrPoolId',
         'failoverAddrPoolMonitorStatus' => 'FailoverAddrPoolMonitorStatus',
         'failoverAddrPoolName'          => 'FailoverAddrPoolName',
+        'failoverAddrPoolStatus'        => 'FailoverAddrPoolStatus',
+        'instanceId'                    => 'InstanceId',
         'lines'                         => 'Lines',
+        'requestId'                     => 'RequestId',
+        'strategyId'                    => 'StrategyId',
+        'strategyMode'                  => 'StrategyMode',
+        'strategyName'                  => 'StrategyName',
     ];
 
     public function validate()
@@ -114,20 +114,8 @@ class DescribeGtmAccessStrategyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->strategyId) {
-            $res['StrategyId'] = $this->strategyId;
-        }
-        if (null !== $this->defaultAddrPoolStatus) {
-            $res['DefaultAddrPoolStatus'] = $this->defaultAddrPoolStatus;
-        }
-        if (null !== $this->failoverAddrPoolId) {
-            $res['FailoverAddrPoolId'] = $this->failoverAddrPoolId;
+        if (null !== $this->accessMode) {
+            $res['AccessMode'] = $this->accessMode;
         }
         if (null !== $this->accessStatus) {
             $res['AccessStatus'] = $this->accessStatus;
@@ -138,20 +126,14 @@ class DescribeGtmAccessStrategyResponseBody extends Model
         if (null !== $this->defaultAddrPoolName) {
             $res['DefaultAddrPoolName'] = $this->defaultAddrPoolName;
         }
+        if (null !== $this->defaultAddrPoolStatus) {
+            $res['DefaultAddrPoolStatus'] = $this->defaultAddrPoolStatus;
+        }
         if (null !== $this->defultAddrPoolId) {
             $res['DefultAddrPoolId'] = $this->defultAddrPoolId;
         }
-        if (null !== $this->strategyName) {
-            $res['StrategyName'] = $this->strategyName;
-        }
-        if (null !== $this->failoverAddrPoolStatus) {
-            $res['FailoverAddrPoolStatus'] = $this->failoverAddrPoolStatus;
-        }
-        if (null !== $this->accessMode) {
-            $res['AccessMode'] = $this->accessMode;
-        }
-        if (null !== $this->strategyMode) {
-            $res['StrategyMode'] = $this->strategyMode;
+        if (null !== $this->failoverAddrPoolId) {
+            $res['FailoverAddrPoolId'] = $this->failoverAddrPoolId;
         }
         if (null !== $this->failoverAddrPoolMonitorStatus) {
             $res['FailoverAddrPoolMonitorStatus'] = $this->failoverAddrPoolMonitorStatus;
@@ -159,8 +141,26 @@ class DescribeGtmAccessStrategyResponseBody extends Model
         if (null !== $this->failoverAddrPoolName) {
             $res['FailoverAddrPoolName'] = $this->failoverAddrPoolName;
         }
+        if (null !== $this->failoverAddrPoolStatus) {
+            $res['FailoverAddrPoolStatus'] = $this->failoverAddrPoolStatus;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->lines) {
             $res['Lines'] = null !== $this->lines ? $this->lines->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->strategyId) {
+            $res['StrategyId'] = $this->strategyId;
+        }
+        if (null !== $this->strategyMode) {
+            $res['StrategyMode'] = $this->strategyMode;
+        }
+        if (null !== $this->strategyName) {
+            $res['StrategyName'] = $this->strategyName;
         }
 
         return $res;
@@ -174,20 +174,8 @@ class DescribeGtmAccessStrategyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['StrategyId'])) {
-            $model->strategyId = $map['StrategyId'];
-        }
-        if (isset($map['DefaultAddrPoolStatus'])) {
-            $model->defaultAddrPoolStatus = $map['DefaultAddrPoolStatus'];
-        }
-        if (isset($map['FailoverAddrPoolId'])) {
-            $model->failoverAddrPoolId = $map['FailoverAddrPoolId'];
+        if (isset($map['AccessMode'])) {
+            $model->accessMode = $map['AccessMode'];
         }
         if (isset($map['AccessStatus'])) {
             $model->accessStatus = $map['AccessStatus'];
@@ -198,20 +186,14 @@ class DescribeGtmAccessStrategyResponseBody extends Model
         if (isset($map['DefaultAddrPoolName'])) {
             $model->defaultAddrPoolName = $map['DefaultAddrPoolName'];
         }
+        if (isset($map['DefaultAddrPoolStatus'])) {
+            $model->defaultAddrPoolStatus = $map['DefaultAddrPoolStatus'];
+        }
         if (isset($map['DefultAddrPoolId'])) {
             $model->defultAddrPoolId = $map['DefultAddrPoolId'];
         }
-        if (isset($map['StrategyName'])) {
-            $model->strategyName = $map['StrategyName'];
-        }
-        if (isset($map['FailoverAddrPoolStatus'])) {
-            $model->failoverAddrPoolStatus = $map['FailoverAddrPoolStatus'];
-        }
-        if (isset($map['AccessMode'])) {
-            $model->accessMode = $map['AccessMode'];
-        }
-        if (isset($map['StrategyMode'])) {
-            $model->strategyMode = $map['StrategyMode'];
+        if (isset($map['FailoverAddrPoolId'])) {
+            $model->failoverAddrPoolId = $map['FailoverAddrPoolId'];
         }
         if (isset($map['FailoverAddrPoolMonitorStatus'])) {
             $model->failoverAddrPoolMonitorStatus = $map['FailoverAddrPoolMonitorStatus'];
@@ -219,8 +201,26 @@ class DescribeGtmAccessStrategyResponseBody extends Model
         if (isset($map['FailoverAddrPoolName'])) {
             $model->failoverAddrPoolName = $map['FailoverAddrPoolName'];
         }
+        if (isset($map['FailoverAddrPoolStatus'])) {
+            $model->failoverAddrPoolStatus = $map['FailoverAddrPoolStatus'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Lines'])) {
             $model->lines = lines::fromMap($map['Lines']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StrategyId'])) {
+            $model->strategyId = $map['StrategyId'];
+        }
+        if (isset($map['StrategyMode'])) {
+            $model->strategyMode = $map['StrategyMode'];
+        }
+        if (isset($map['StrategyName'])) {
+            $model->strategyName = $map['StrategyName'];
         }
 
         return $model;

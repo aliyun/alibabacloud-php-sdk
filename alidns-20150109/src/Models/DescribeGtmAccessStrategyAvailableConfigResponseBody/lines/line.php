@@ -11,17 +11,12 @@ class line extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $fatherCode;
 
     /**
      * @var string
      */
-    public $lineCode;
+    public $groupCode;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class line extends Model
     /**
      * @var string
      */
+    public $lineCode;
+
+    /**
+     * @var string
+     */
     public $lineName;
 
     /**
      * @var string
      */
-    public $groupCode;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
         'fatherCode' => 'FatherCode',
-        'lineCode'   => 'LineCode',
-        'groupName'  => 'GroupName',
-        'lineName'   => 'LineName',
         'groupCode'  => 'GroupCode',
+        'groupName'  => 'GroupName',
+        'lineCode'   => 'LineCode',
+        'lineName'   => 'LineName',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class line extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->fatherCode) {
             $res['FatherCode'] = $this->fatherCode;
         }
-        if (null !== $this->lineCode) {
-            $res['LineCode'] = $this->lineCode;
+        if (null !== $this->groupCode) {
+            $res['GroupCode'] = $this->groupCode;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->lineCode) {
+            $res['LineCode'] = $this->lineCode;
+        }
         if (null !== $this->lineName) {
             $res['LineName'] = $this->lineName;
         }
-        if (null !== $this->groupCode) {
-            $res['GroupCode'] = $this->groupCode;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class line extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['FatherCode'])) {
             $model->fatherCode = $map['FatherCode'];
         }
-        if (isset($map['LineCode'])) {
-            $model->lineCode = $map['LineCode'];
+        if (isset($map['GroupCode'])) {
+            $model->groupCode = $map['GroupCode'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['LineCode'])) {
+            $model->lineCode = $map['LineCode'];
+        }
         if (isset($map['LineName'])) {
             $model->lineName = $map['LineName'];
         }
-        if (isset($map['GroupCode'])) {
-            $model->groupCode = $map['GroupCode'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,17 +11,12 @@ class DescribeDnsGtmInstanceAddressPoolsRequest extends Model
     /**
      * @var string
      */
-    public $userClientIp;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
 
     /**
      * @var int
@@ -33,11 +28,10 @@ class DescribeDnsGtmInstanceAddressPoolsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'userClientIp' => 'UserClientIp',
-        'lang'         => 'Lang',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'lang'       => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -47,14 +41,11 @@ class DescribeDnsGtmInstanceAddressPoolsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,14 +65,11 @@ class DescribeDnsGtmInstanceAddressPoolsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
