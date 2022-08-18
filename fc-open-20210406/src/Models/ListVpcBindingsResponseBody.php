@@ -1,49 +1,38 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListVpcBindingsResponseBody extends Model
-{
-    /**
-     * @var string[]
-     */
-    public $vpcIds;
+class ListVpcBindingsResponseBody extends Model {
     protected $_name = [
         'vpcIds' => 'vpcIds',
     ];
-
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
+    public function validate() {}
+    public function toMap() {
         $res = [];
         if (null !== $this->vpcIds) {
             $res['vpcIds'] = $this->vpcIds;
         }
-
         return $res;
     }
-
     /**
      * @param array $map
-     *
      * @return ListVpcBindingsResponseBody
      */
-    public static function fromMap($map = [])
-    {
+    public static function fromMap($map = []) {
         $model = new self();
-        if (isset($map['vpcIds'])) {
-            if (!empty($map['vpcIds'])) {
+        if(isset($map['vpcIds'])){
+            if(!empty($map['vpcIds'])){
                 $model->vpcIds = $map['vpcIds'];
             }
         }
-
         return $model;
     }
+    /**
+     * @var string[]
+     */
+    public $vpcIds;
+
 }
