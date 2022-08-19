@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetOrganizationalUnitHeaders extends Model
+class GetUserIdByPhoneNumberHeaders extends Model
 {
     public $commonHeaders;
 
@@ -38,7 +38,7 @@ class GetOrganizationalUnitHeaders extends Model
     /**
      * @param array $map
      *
-     * @return GetOrganizationalUnitHeaders
+     * @return GetUserIdByPhoneNumberHeaders
      */
     public static function fromMap($map = [])
     {

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationalUnitParentIdsResponseBody extends Model
 {
     /**
-     * @description 父机构ID列表，顺序层级从上到下
-     *
      * @var string[]
      */
     public $parentIds;

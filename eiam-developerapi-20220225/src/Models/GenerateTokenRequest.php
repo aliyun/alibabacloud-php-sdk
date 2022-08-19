@@ -19,71 +19,51 @@ class GenerateTokenRequest extends Model
     public $clientSecret;
 
     /**
-     * @description code码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 验证code
-     *
      * @var string
      */
     public $codeVerifier;
 
     /**
-     * @description 设备码
-     *
      * @var string
      */
     public $deviceCode;
 
     /**
-     * @description 排除的tag
-     *
      * @var string
      */
     public $exclusiveTag;
 
     /**
-     * @description 授权类型
-     *
      * @var string
      */
     public $grantType;
 
     /**
-     * @description 密码
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description 重定向URI
-     *
      * @var string
      */
     public $redirectUri;
 
     /**
-     * @description 更新token
-     *
      * @var string
      */
     public $refreshToken;
 
     /**
-     * @description scope范围
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 用户名
-     *
      * @var string
      */
     public $username;

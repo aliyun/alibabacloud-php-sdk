@@ -11,8 +11,6 @@ class CreateOrganizationalUnitHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description 认证信息，格式:Bearer access_token
-     *
      * @var string
      */
     public $authorization;

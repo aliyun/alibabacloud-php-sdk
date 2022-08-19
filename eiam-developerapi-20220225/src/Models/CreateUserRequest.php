@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 账户展示名
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 邮箱
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description 邮箱是否验证，邮箱若设置此字段必须设置，无特殊业务可直接设置为true
-     *
      * @var bool
      */
     public $emailVerified;
 
     /**
-     * @description 密码, 参考密码策略
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description 手机号
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 手机号是否验证，手机号若设置此字段必须设置，无特殊业务可直接设置为true
-     *
      * @var bool
      */
     public $phoneNumberVerified;
 
     /**
-     * @description 手机地区编号,示例：中国大陆手区号为86，不带 00 或 +, 手机号若设置，此参数必填
-     *
      * @var string
      */
     public $phoneRegion;
 
     /**
-     * @description 账户主机构ID
-     *
      * @var string
      */
     public $primaryOrganizationalUnitId;
 
     /**
-     * @description 账户外部ID
-     *
      * @var string
      */
     public $userExternalId;
 
     /**
-     * @description 账户名
-     *
      * @var string
      */
     public $username;

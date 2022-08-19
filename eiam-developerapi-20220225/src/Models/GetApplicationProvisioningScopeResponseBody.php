@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationProvisioningScopeResponseBody extends Model
 {
     /**
-     * @description 机构ID列表
-     *
      * @var string[]
      */
     public $organizationalUnitIds;

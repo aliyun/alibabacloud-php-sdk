@@ -19,15 +19,11 @@ class RevokeTokenRequest extends Model
     public $clientSecret;
 
     /**
-     * @description 撤销的token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description token类型
-     *
      * @var string
      */
     public $tokenTypeHint;

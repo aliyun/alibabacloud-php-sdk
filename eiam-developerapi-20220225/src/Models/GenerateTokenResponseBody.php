@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GenerateTokenResponseBody extends Model
 {
     /**
-     * @description access_token
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 过期时间
-     *
      * @var int
      */
     public $expiresAt;
 
     /**
-     * @description 有效时长，单位秒
-     *
      * @var int
      */
     public $expiresIn;
 
     /**
-     * @description id_token
-     *
      * @var string
      */
     public $idToken;
 
     /**
-     * @description refresh_token
-     *
      * @var string
      */
     public $refreshToken;
 
     /**
-     * @description token类型，包含Basic,Bearer
-     *
      * @var string
      */
     public $tokenType;

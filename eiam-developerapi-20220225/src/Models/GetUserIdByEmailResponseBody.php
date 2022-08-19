@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateOrganizationalUnitResponseBody extends Model
+class GetUserIdByEmailResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $organizationalUnitId;
+    public $userId;
     protected $_name = [
-        'organizationalUnitId' => 'organizationalUnitId',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class CreateOrganizationalUnitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationalUnitId) {
-            $res['organizationalUnitId'] = $this->organizationalUnitId;
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class CreateOrganizationalUnitResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateOrganizationalUnitResponseBody
+     * @return GetUserIdByEmailResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['organizationalUnitId'])) {
-            $model->organizationalUnitId = $map['organizationalUnitId'];
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

@@ -15,8 +15,6 @@ class ListUsersResponseBody extends Model
     public $data;
 
     /**
-     * @description 记录总数
-     *
      * @var int
      */
     public $totalCount;

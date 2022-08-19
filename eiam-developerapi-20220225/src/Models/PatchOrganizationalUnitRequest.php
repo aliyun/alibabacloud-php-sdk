@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PatchOrganizationalUnitRequest extends Model
 {
     /**
-     * @description 机构描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 机构名称
-     *
      * @var string
      */
     public $organizationalUnitName;

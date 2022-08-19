@@ -10,99 +10,66 @@ use AlibabaCloud\Tea\Model;
 class GetUserResponseBody extends Model
 {
     /**
-     * @description 账户过期时间, 毫秒时间
-     *
      * @var int
      */
     public $accountExpireTime;
 
     /**
-     * @description 创建时间, 毫秒时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 账号描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 显示名
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description 邮箱
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description 邮箱是否验证
-     *
      * @var bool
      */
     public $emailVerified;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 锁定过期时间, 毫秒时间
-     *
      * @var int
      */
     public $lockExpireTime;
 
     /**
-     * @description 账户所属组织列表
-     *
      * @var organizationalUnits[]
      */
     public $organizationalUnits;
 
     /**
-     * @description 密码是否已设置
-     *
-     * @var bool
-     */
-    public $passwordSet;
-
-    /**
-     * @description 手机号
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 手机号是否验证
-     *
      * @var bool
      */
     public $phoneNumberVerified;
 
     /**
-     * @description 手机地区编号,示例：中国大陆手区号为86，不带 00 或 +
-     *
      * @var string
      */
     public $phoneRegion;
 
     /**
-     * @description 账户主机构ID
-     *
      * @var string
      */
     public $primaryOrganizationalUnitId;
@@ -113,50 +80,36 @@ class GetUserResponseBody extends Model
     public $registerTime;
 
     /**
-     * @description 账户状态, enabled:启用,disabled:禁用
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 最近一次更新时间, 毫秒时间
-     *
      * @var int
      */
     public $updateTime;
 
     /**
-     * @description 外部ID
-     *
      * @var string
      */
     public $userExternalId;
 
     /**
-     * @description 账户ID
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 来源ID
-     *
      * @var string
      */
     public $userSourceId;
 
     /**
-     * @description 来源类型，build_in[自建],ding_talk[钉钉导入],ad[AD导入],ldap[LDAP导入]
-     *
      * @var string
      */
     public $userSourceType;
 
     /**
-     * @description 账户名
-     *
      * @var string
      */
     public $username;
@@ -170,7 +123,6 @@ class GetUserResponseBody extends Model
         'instanceId'                  => 'instanceId',
         'lockExpireTime'              => 'lockExpireTime',
         'organizationalUnits'         => 'organizationalUnits',
-        'passwordSet'                 => 'passwordSet',
         'phoneNumber'                 => 'phoneNumber',
         'phoneNumberVerified'         => 'phoneNumberVerified',
         'phoneRegion'                 => 'phoneRegion',
@@ -224,9 +176,6 @@ class GetUserResponseBody extends Model
                     $res['organizationalUnits'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->passwordSet) {
-            $res['passwordSet'] = $this->passwordSet;
         }
         if (null !== $this->phoneNumber) {
             $res['phoneNumber'] = $this->phoneNumber;
@@ -308,9 +257,6 @@ class GetUserResponseBody extends Model
                     $model->organizationalUnits[$n++] = null !== $item ? organizationalUnits::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['passwordSet'])) {
-            $model->passwordSet = $map['passwordSet'];
         }
         if (isset($map['phoneNumber'])) {
             $model->phoneNumber = $map['phoneNumber'];

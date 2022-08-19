@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GenerateDeviceCodeResponseBody extends Model
 {
     /**
-     * @description 设备验证码
-     *
      * @var string
      */
     public $deviceCode;
 
     /**
-     * @description 过期时间
-     *
      * @var int
      */
     public $expiresAt;
 
     /**
-     * @description device_code和user_code的有效时长，单位秒
-     *
      * @var int
      */
     public $expiresIn;
 
     /**
-     * @description 请求token节点的超时时间，单位秒
-     *
      * @var int
      */
     public $interval;
 
     /**
-     * @description 终端用户验证码
-     *
      * @var string
      */
     public $userCode;
 
     /**
-     * @description 验证URI
-     *
      * @var string
      */
     public $verificationUri;
 
     /**
-     * @description 包含user_code的完整验证URI
-     *
      * @var string
      */
     public $verificationUriComplete;

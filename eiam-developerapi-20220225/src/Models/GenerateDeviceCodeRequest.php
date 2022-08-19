@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GenerateDeviceCodeRequest extends Model
 {
     /**
-     * @description scope范围
-     *
      * @var string
      */
     public $scope;

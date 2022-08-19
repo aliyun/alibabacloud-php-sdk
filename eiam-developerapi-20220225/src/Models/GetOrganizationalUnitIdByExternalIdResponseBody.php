@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListUsersRequest extends Model
+class GetOrganizationalUnitIdByExternalIdResponseBody extends Model
 {
     /**
      * @var string
      */
     public $organizationalUnitId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
         'organizationalUnitId' => 'organizationalUnitId',
-        'pageNumber'           => 'pageNumber',
-        'pageSize'             => 'pageSize',
     ];
 
     public function validate()
@@ -38,12 +26,6 @@ class ListUsersRequest extends Model
         if (null !== $this->organizationalUnitId) {
             $res['organizationalUnitId'] = $this->organizationalUnitId;
         }
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
 
         return $res;
     }
@@ -51,19 +33,13 @@ class ListUsersRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListUsersRequest
+     * @return GetOrganizationalUnitIdByExternalIdResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['organizationalUnitId'])) {
             $model->organizationalUnitId = $map['organizationalUnitId'];
-        }
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
-        }
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
         }
 
         return $model;

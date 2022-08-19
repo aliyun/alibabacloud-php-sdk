@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateOrganizationalUnitRequest extends Model
+class GetOrganizationalUnitIdByExternalIdRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $description;
-
     /**
      * @var string
      */
@@ -21,17 +16,16 @@ class CreateOrganizationalUnitRequest extends Model
     /**
      * @var string
      */
-    public $organizationalUnitName;
+    public $organizationalUnitSourceId;
 
     /**
      * @var string
      */
-    public $parentId;
+    public $organizationalUnitSourceType;
     protected $_name = [
-        'description'                  => 'description',
         'organizationalUnitExternalId' => 'organizationalUnitExternalId',
-        'organizationalUnitName'       => 'organizationalUnitName',
-        'parentId'                     => 'parentId',
+        'organizationalUnitSourceId'   => 'organizationalUnitSourceId',
+        'organizationalUnitSourceType' => 'organizationalUnitSourceType',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class CreateOrganizationalUnitRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
-        }
         if (null !== $this->organizationalUnitExternalId) {
             $res['organizationalUnitExternalId'] = $this->organizationalUnitExternalId;
         }
-        if (null !== $this->organizationalUnitName) {
-            $res['organizationalUnitName'] = $this->organizationalUnitName;
+        if (null !== $this->organizationalUnitSourceId) {
+            $res['organizationalUnitSourceId'] = $this->organizationalUnitSourceId;
         }
-        if (null !== $this->parentId) {
-            $res['parentId'] = $this->parentId;
+        if (null !== $this->organizationalUnitSourceType) {
+            $res['organizationalUnitSourceType'] = $this->organizationalUnitSourceType;
         }
 
         return $res;
@@ -60,22 +51,19 @@ class CreateOrganizationalUnitRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateOrganizationalUnitRequest
+     * @return GetOrganizationalUnitIdByExternalIdRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
-        }
         if (isset($map['organizationalUnitExternalId'])) {
             $model->organizationalUnitExternalId = $map['organizationalUnitExternalId'];
         }
-        if (isset($map['organizationalUnitName'])) {
-            $model->organizationalUnitName = $map['organizationalUnitName'];
+        if (isset($map['organizationalUnitSourceId'])) {
+            $model->organizationalUnitSourceId = $map['organizationalUnitSourceId'];
         }
-        if (isset($map['parentId'])) {
-            $model->parentId = $map['parentId'];
+        if (isset($map['organizationalUnitSourceType'])) {
+            $model->organizationalUnitSourceType = $map['organizationalUnitSourceType'];
         }
 
         return $model;

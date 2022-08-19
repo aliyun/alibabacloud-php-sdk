@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetOrganizationalUnitResponseBody extends Model
 {
     /**
-     * @description 创建时间，毫秒
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 外部ID
-     *
      * @var string
      */
     public $organizationalUnitExternalId;
 
     /**
-     * @description 机构ID
-     *
      * @var string
      */
     public $organizationalUnitId;
 
     /**
-     * @description 机构名称
-     *
      * @var string
      */
     public $organizationalUnitName;
 
     /**
-     * @description 来源ID
-     *
      * @var string
      */
     public $organizationalUnitSourceId;
 
     /**
-     * @description 来源类型
-     *
      * @var string
      */
     public $organizationalUnitSourceType;
 
     /**
-     * @description 父机构ID
-     *
      * @var string
      */
     public $parentId;
 
     /**
-     * @description 最近一次更新时间，毫秒
-     *
      * @var int
      */
     public $updateTime;

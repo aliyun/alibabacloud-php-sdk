@@ -23,12 +23,22 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetApplicationProvisioningScopeHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetApplicationProvisioningScopeResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByEmailHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByEmailRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByEmailResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByPhoneNumberHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByPhoneNumberRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByPhoneNumberResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUserExternalIdHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUserExternalIdRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUserExternalIdResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoResponse;
-use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserPasswordPolicyHeaders;
-use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserPasswordPolicyResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitParentIdsHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitParentIdsResponse;
@@ -594,6 +604,71 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @param string                                     $instanceId
+     * @param string                                     $applicationId
+     * @param GetOrganizationalUnitIdByExternalIdRequest $request
+     *
+     * @return GetOrganizationalUnitIdByExternalIdResponse
+     */
+    public function getOrganizationalUnitIdByExternalId($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetOrganizationalUnitIdByExternalIdHeaders([]);
+
+        return $this->getOrganizationalUnitIdByExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                     $instanceId
+     * @param string                                     $applicationId
+     * @param GetOrganizationalUnitIdByExternalIdRequest $request
+     * @param GetOrganizationalUnitIdByExternalIdHeaders $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetOrganizationalUnitIdByExternalIdResponse
+     */
+    public function getOrganizationalUnitIdByExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
+        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
+        $body          = [];
+        if (!Utils::isUnset($request->organizationalUnitExternalId)) {
+            $body['organizationalUnitExternalId'] = $request->organizationalUnitExternalId;
+        }
+        if (!Utils::isUnset($request->organizationalUnitSourceId)) {
+            $body['organizationalUnitSourceId'] = $request->organizationalUnitSourceId;
+        }
+        if (!Utils::isUnset($request->organizationalUnitSourceType)) {
+            $body['organizationalUnitSourceType'] = $request->organizationalUnitSourceType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOrganizationalUnitIdByExternalId',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOrganizationalUnitIdByExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $instanceId
      * @param string $applicationId
      * @param string $userId
@@ -648,6 +723,189 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @param string                  $instanceId
+     * @param string                  $applicationId
+     * @param GetUserIdByEmailRequest $request
+     *
+     * @return GetUserIdByEmailResponse
+     */
+    public function getUserIdByEmail($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdByEmailHeaders([]);
+
+        return $this->getUserIdByEmailWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $instanceId
+     * @param string                  $applicationId
+     * @param GetUserIdByEmailRequest $request
+     * @param GetUserIdByEmailHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetUserIdByEmailResponse
+     */
+    public function getUserIdByEmailWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
+        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
+        $body          = [];
+        if (!Utils::isUnset($request->email)) {
+            $body['email'] = $request->email;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserIdByEmail',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByEmail',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdByEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $instanceId
+     * @param string                        $applicationId
+     * @param GetUserIdByPhoneNumberRequest $request
+     *
+     * @return GetUserIdByPhoneNumberResponse
+     */
+    public function getUserIdByPhoneNumber($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdByPhoneNumberHeaders([]);
+
+        return $this->getUserIdByPhoneNumberWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $instanceId
+     * @param string                        $applicationId
+     * @param GetUserIdByPhoneNumberRequest $request
+     * @param GetUserIdByPhoneNumberHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetUserIdByPhoneNumberResponse
+     */
+    public function getUserIdByPhoneNumberWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
+        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
+        $body          = [];
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['phoneNumber'] = $request->phoneNumber;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserIdByPhoneNumber',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByPhoneNumber',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdByPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $instanceId
+     * @param string                           $applicationId
+     * @param GetUserIdByUserExternalIdRequest $request
+     *
+     * @return GetUserIdByUserExternalIdResponse
+     */
+    public function getUserIdByUserExternalId($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdByUserExternalIdHeaders([]);
+
+        return $this->getUserIdByUserExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                           $instanceId
+     * @param string                           $applicationId
+     * @param GetUserIdByUserExternalIdRequest $request
+     * @param GetUserIdByUserExternalIdHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetUserIdByUserExternalIdResponse
+     */
+    public function getUserIdByUserExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
+        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
+        $body          = [];
+        if (!Utils::isUnset($request->userExternalId)) {
+            $body['userExternalId'] = $request->userExternalId;
+        }
+        if (!Utils::isUnset($request->userSourceId)) {
+            $body['userSourceId'] = $request->userSourceId;
+        }
+        if (!Utils::isUnset($request->userSourceType)) {
+            $body['userSourceType'] = $request->userSourceType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserIdByUserExternalId',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByExternalId',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdByUserExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $instanceId
      * @param string $applicationId
      *
@@ -696,57 +954,6 @@ class Eiamdeveloperapi extends OpenApiClient
         ]);
 
         return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $instanceId
-     * @param string $applicationId
-     *
-     * @return GetUserPasswordPolicyResponse
-     */
-    public function getUserPasswordPolicy($instanceId, $applicationId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new GetUserPasswordPolicyHeaders([]);
-
-        return $this->getUserPasswordPolicyWithOptions($instanceId, $applicationId, $headers, $runtime);
-    }
-
-    /**
-     * @param string                       $instanceId
-     * @param string                       $applicationId
-     * @param GetUserPasswordPolicyHeaders $headers
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetUserPasswordPolicyResponse
-     */
-    public function getUserPasswordPolicyWithOptions($instanceId, $applicationId, $headers, $runtime)
-    {
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $realHeaders   = [];
-        if (!Utils::isUnset($headers->commonHeaders)) {
-            $realHeaders = $headers->commonHeaders;
-        }
-        if (!Utils::isUnset($headers->authorization)) {
-            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
-        }
-        $req = new OpenApiRequest([
-            'headers' => $realHeaders,
-        ]);
-        $params = new Params([
-            'action'      => 'GetUserPasswordPolicy',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserPasswordPolicy',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetUserPasswordPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

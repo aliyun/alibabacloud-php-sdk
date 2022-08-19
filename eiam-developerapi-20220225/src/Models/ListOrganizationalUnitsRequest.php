@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationalUnitsRequest extends Model
 {
     /**
-     * @description 页码，默认1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 单页大小，默认20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 父机构ID
-     *
      * @var string
      */
     public $parentId;
