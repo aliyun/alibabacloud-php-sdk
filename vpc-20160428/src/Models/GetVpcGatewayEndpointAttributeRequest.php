@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetVpcGatewayEndpointAttributeRequest extends Model
 {
     /**
-     * @description VPC网关实例ID
-     *
      * @var string
      */
     public $endpointId;
@@ -26,8 +24,6 @@ class GetVpcGatewayEndpointAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;

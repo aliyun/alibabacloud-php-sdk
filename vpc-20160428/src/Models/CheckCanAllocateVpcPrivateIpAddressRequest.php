@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
 {
     /**
-     * @description IpVersion
-     *
      * @var string
      */
     public $ipVersion;
@@ -26,15 +24,11 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description PrivateIpAddress
-     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
@@ -50,8 +44,6 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description VSwitchId
-     *
      * @var string
      */
     public $vSwitchId;

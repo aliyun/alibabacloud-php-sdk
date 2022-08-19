@@ -19,15 +19,11 @@ class DeleteFullNatEntryRequest extends Model
     public $dryRun;
 
     /**
-     * @description 要修改的DNAT条目的ID。
-     *
      * @var string
      */
     public $fullNatEntryId;
 
     /**
-     * @description FullNAT条目所属的FullNAT列表的ID。
-     *
      * @var string
      */
     public $fullNatTableId;

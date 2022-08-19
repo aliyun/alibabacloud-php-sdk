@@ -14,8 +14,6 @@ class CreateFullNatEntryResponseBody extends Model
     public $fullNatEntryId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

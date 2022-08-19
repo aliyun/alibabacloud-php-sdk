@@ -94,8 +94,6 @@ class DescribeNatGatewaysRequest extends Model
     public $vpcId;
 
     /**
-     * @description 可用区
-     *
      * @var string
      */
     public $zoneId;

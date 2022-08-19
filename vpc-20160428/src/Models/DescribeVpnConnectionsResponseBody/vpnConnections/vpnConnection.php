@@ -13,9 +13,24 @@ use AlibabaCloud\Tea\Model;
 class vpnConnection extends Model
 {
     /**
+     * @var string
+     */
+    public $attachInstanceId;
+
+    /**
+     * @var string
+     */
+    public $attachType;
+
+    /**
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $crossAccountAuthorized;
 
     /**
      * @var string
@@ -60,6 +75,11 @@ class vpnConnection extends Model
     /**
      * @var string
      */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $remoteCaCertificate;
 
     /**
@@ -70,7 +90,27 @@ class vpnConnection extends Model
     /**
      * @var string
      */
+    public $spec;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $transitRouterId;
+
+    /**
+     * @var string
+     */
+    public $transitRouterName;
 
     /**
      * @var vcoHealthCheck
@@ -92,22 +132,30 @@ class vpnConnection extends Model
      */
     public $vpnGatewayId;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'customerGatewayId'   => 'CustomerGatewayId',
-        'effectImmediately'   => 'EffectImmediately',
-        'enableDpd'           => 'EnableDpd',
-        'enableNatTraversal'  => 'EnableNatTraversal',
-        'ikeConfig'           => 'IkeConfig',
-        'ipsecConfig'         => 'IpsecConfig',
-        'localSubnet'         => 'LocalSubnet',
-        'name'                => 'Name',
-        'remoteCaCertificate' => 'RemoteCaCertificate',
-        'remoteSubnet'        => 'RemoteSubnet',
-        'status'              => 'Status',
-        'vcoHealthCheck'      => 'VcoHealthCheck',
-        'vpnBgpConfig'        => 'VpnBgpConfig',
-        'vpnConnectionId'     => 'VpnConnectionId',
-        'vpnGatewayId'        => 'VpnGatewayId',
+        'attachInstanceId'       => 'AttachInstanceId',
+        'attachType'             => 'AttachType',
+        'createTime'             => 'CreateTime',
+        'crossAccountAuthorized' => 'CrossAccountAuthorized',
+        'customerGatewayId'      => 'CustomerGatewayId',
+        'effectImmediately'      => 'EffectImmediately',
+        'enableDpd'              => 'EnableDpd',
+        'enableNatTraversal'     => 'EnableNatTraversal',
+        'ikeConfig'              => 'IkeConfig',
+        'ipsecConfig'            => 'IpsecConfig',
+        'localSubnet'            => 'LocalSubnet',
+        'name'                   => 'Name',
+        'networkType'            => 'NetworkType',
+        'remoteCaCertificate'    => 'RemoteCaCertificate',
+        'remoteSubnet'           => 'RemoteSubnet',
+        'spec'                   => 'Spec',
+        'state'                  => 'State',
+        'status'                 => 'Status',
+        'transitRouterId'        => 'TransitRouterId',
+        'transitRouterName'      => 'TransitRouterName',
+        'vcoHealthCheck'         => 'VcoHealthCheck',
+        'vpnBgpConfig'           => 'VpnBgpConfig',
+        'vpnConnectionId'        => 'VpnConnectionId',
+        'vpnGatewayId'           => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -117,8 +165,17 @@ class vpnConnection extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachInstanceId) {
+            $res['AttachInstanceId'] = $this->attachInstanceId;
+        }
+        if (null !== $this->attachType) {
+            $res['AttachType'] = $this->attachType;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossAccountAuthorized) {
+            $res['CrossAccountAuthorized'] = $this->crossAccountAuthorized;
         }
         if (null !== $this->customerGatewayId) {
             $res['CustomerGatewayId'] = $this->customerGatewayId;
@@ -144,14 +201,29 @@ class vpnConnection extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
         if (null !== $this->remoteCaCertificate) {
             $res['RemoteCaCertificate'] = $this->remoteCaCertificate;
         }
         if (null !== $this->remoteSubnet) {
             $res['RemoteSubnet'] = $this->remoteSubnet;
         }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->transitRouterId) {
+            $res['TransitRouterId'] = $this->transitRouterId;
+        }
+        if (null !== $this->transitRouterName) {
+            $res['TransitRouterName'] = $this->transitRouterName;
         }
         if (null !== $this->vcoHealthCheck) {
             $res['VcoHealthCheck'] = null !== $this->vcoHealthCheck ? $this->vcoHealthCheck->toMap() : null;
@@ -177,8 +249,17 @@ class vpnConnection extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachInstanceId'])) {
+            $model->attachInstanceId = $map['AttachInstanceId'];
+        }
+        if (isset($map['AttachType'])) {
+            $model->attachType = $map['AttachType'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossAccountAuthorized'])) {
+            $model->crossAccountAuthorized = $map['CrossAccountAuthorized'];
         }
         if (isset($map['CustomerGatewayId'])) {
             $model->customerGatewayId = $map['CustomerGatewayId'];
@@ -204,14 +285,29 @@ class vpnConnection extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
         if (isset($map['RemoteCaCertificate'])) {
             $model->remoteCaCertificate = $map['RemoteCaCertificate'];
         }
         if (isset($map['RemoteSubnet'])) {
             $model->remoteSubnet = $map['RemoteSubnet'];
         }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TransitRouterId'])) {
+            $model->transitRouterId = $map['TransitRouterId'];
+        }
+        if (isset($map['TransitRouterName'])) {
+            $model->transitRouterName = $map['TransitRouterName'];
         }
         if (isset($map['VcoHealthCheck'])) {
             $model->vcoHealthCheck = vcoHealthCheck::fromMap($map['VcoHealthCheck']);

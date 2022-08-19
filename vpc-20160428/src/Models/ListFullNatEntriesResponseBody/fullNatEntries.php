@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class fullNatEntries extends Model
 {
     /**
-     * @description 通过DNAT条目进行公网通信的ECS实例的私网IP地址。
-     *
      * @var string
      */
     public $accessIp;
 
     /**
-     * @description DNAT条目中进行端口转发的内部端口，取值范围：1-65535。
-     *
      * @var string
      */
     public $accessPort;
@@ -38,8 +34,6 @@ class fullNatEntries extends Model
     public $fullNatEntryId;
 
     /**
-     * @description FULLNAT规则的名称。 长度为2~128个字符，必须以大小写字母或中文开头，但不能以http://或https://开头。
-     *
      * @var string
      */
     public $fullNatEntryName;
@@ -50,36 +44,26 @@ class fullNatEntries extends Model
     public $fullNatEntryStatus;
 
     /**
-     * @description 协议类型，取值： • TCP：转发TCP协议的报文。 • UDP：转发UDP协议的报文。
-     *
      * @var string
      */
     public $ipProtocol;
 
     /**
-     * @description DNAT条目中提供公网访问的公网IP地址。
-     *
      * @var string
      */
     public $natIp;
 
     /**
-     * @description DNAT条目中进行端口转发的外部端口，取值范围：1~65535。
-     *
      * @var string
      */
     public $natIpPort;
 
     /**
-     * @description 当前VpcNat作为服务资源所加入的eni
-     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
-     * @description ENI类型，目前仅支持Endpoint
-     *
      * @var string
      */
     public $networkInterfaceType;

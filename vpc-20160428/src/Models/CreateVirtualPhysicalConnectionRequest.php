@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualPhysicalConnectionRequest extends Model
 {
     /**
-     * @description Vpconn的description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description DryRun
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description Vpconn的name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description vpconn的支付方
-     *
      * @var string
      */
     public $orderMode;
 
     /**
-     * @description Vpconn的主Pconn
-     *
      * @var string
      */
     public $physicalConnectionId;
@@ -49,29 +39,21 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $regionId;
 
     /**
-     * @description vpconn规格
-     *
      * @var string
      */
     public $spec;
 
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description vpconn的VlanID
-     *
      * @var int
      */
     public $vlanId;
 
     /**
-     * @description Vpconn拥有者
-     *
      * @var int
      */
     public $vpconnAliUid;

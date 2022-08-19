@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualPhysicalConnectionsResponseBody extends Model
 {
     /**
-     * @description 本次查询数量
-     *
      * @var int
      */
     public $count;
@@ -22,22 +20,16 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总数
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description Vpconn
-     *
      * @var virtualPhysicalConnections[]
      */
     public $virtualPhysicalConnections;

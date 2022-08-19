@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcGatewayEndpointAttributeRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 是否只预检此次请求
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 网关节点描述
-     *
      * @var string
      */
     public $endpointDescription;
 
     /**
-     * @description VPC网关实例ID
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description 网关节点名称
-     *
      * @var string
      */
     public $endpointName;
@@ -54,15 +44,11 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description 访问云服务的权限控制策略
-     *
      * @var string
      */
     public $policyDocument;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;

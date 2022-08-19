@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpconnFromVbrRequest extends Model
 {
     /**
-     * @description DryRun
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description vpconn的支付方
-     *
      * @var string
      */
     public $orderMode;
@@ -28,15 +24,11 @@ class CreateVpconnFromVbrRequest extends Model
     public $regionId;
 
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description 跨帐号的VBR
-     *
      * @var string
      */
     public $vbrId;

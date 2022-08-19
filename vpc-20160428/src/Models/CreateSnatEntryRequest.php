@@ -14,6 +14,11 @@ class CreateSnatEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $eipAffinity;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -64,6 +69,7 @@ class CreateSnatEntryRequest extends Model
     public $sourceVSwitchId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'eipAffinity'          => 'EipAffinity',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -85,6 +91,9 @@ class CreateSnatEntryRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -130,6 +139,9 @@ class CreateSnatEntryRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

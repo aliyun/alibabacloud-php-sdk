@@ -15,8 +15,6 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $endpoints;
 
     /**
-     * @description 本次请求最大数量
-     *
      * @var int
      */
     public $maxResults;
@@ -27,8 +25,6 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

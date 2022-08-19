@@ -39,8 +39,6 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $policyDocument;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

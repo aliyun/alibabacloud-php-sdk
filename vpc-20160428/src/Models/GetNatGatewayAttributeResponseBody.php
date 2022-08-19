@@ -91,15 +91,11 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $privateInfo;
 
     /**
-     * @description 默认不支持私网链接。设置为1则意味着支持私网链接
-     *
      * @var bool
      */
     public $privateLinkEnabled;
 
     /**
-     * @description Fullnat：使用FullNat模式 Geneve：使用Geneve模式。 预估大部分场景都是非Geneve模式的。
-     *
      * @var string
      */
     public $privateLinkMode;

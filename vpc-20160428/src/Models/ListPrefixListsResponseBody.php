@@ -25,8 +25,6 @@ class ListPrefixListsResponseBody extends Model
     public $prefixLists;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

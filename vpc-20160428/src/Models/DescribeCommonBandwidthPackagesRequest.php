@@ -69,8 +69,6 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 是否开启安全防护
-     *
      * @var bool
      */
     public $securityProtectionEnabled;

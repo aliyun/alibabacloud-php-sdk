@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListVpcGatewayEndpointsRequest extends Model
 {
     /**
-     * @description VPC网关实例ID
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description VPC网关实例名称
-     *
      * @var string
      */
     public $endpointName;
@@ -43,8 +39,6 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $ownerId;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;
@@ -60,8 +54,6 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 后端的服务名称
-     *
      * @var string
      */
     public $serviceName;

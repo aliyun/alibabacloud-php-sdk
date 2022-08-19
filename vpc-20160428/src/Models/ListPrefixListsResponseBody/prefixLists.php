@@ -9,61 +9,71 @@ use AlibabaCloud\Tea\Model;
 class prefixLists extends Model
 {
     /**
-     * @description 前缀列表包含的网段
-     *
      * @var string[]
      */
     public $cidrBlocks;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description IpVersion
-     *
      * @var string
      */
     public $ipVersion;
 
     /**
-     * @description 描述
-     *
+     * @var int
+     */
+    public $maxEntries;
+
+    /**
+     * @var string
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $prefixListDescription;
 
     /**
-     * @description 前缀列表的实例ID
-     *
      * @var string
      */
     public $prefixListId;
 
     /**
-     * @description 名称
-     *
      * @var string
      */
     public $prefixListName;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $prefixListStatus;
+
+    /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'cidrBlocks'            => 'CidrBlocks',
         'creationTime'          => 'CreationTime',
         'ipVersion'             => 'IpVersion',
+        'maxEntries'            => 'MaxEntries',
+        'ownerId'               => 'OwnerId',
         'prefixListDescription' => 'PrefixListDescription',
         'prefixListId'          => 'PrefixListId',
         'prefixListName'        => 'PrefixListName',
         'prefixListStatus'      => 'PrefixListStatus',
+        'shareType'             => 'ShareType',
+        'status'                => 'Status',
     ];
 
     public function validate()
@@ -82,6 +92,12 @@ class prefixLists extends Model
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+        if (null !== $this->maxEntries) {
+            $res['MaxEntries'] = $this->maxEntries;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->prefixListDescription) {
             $res['PrefixListDescription'] = $this->prefixListDescription;
         }
@@ -93,6 +109,12 @@ class prefixLists extends Model
         }
         if (null !== $this->prefixListStatus) {
             $res['PrefixListStatus'] = $this->prefixListStatus;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -117,6 +139,12 @@ class prefixLists extends Model
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+        if (isset($map['MaxEntries'])) {
+            $model->maxEntries = $map['MaxEntries'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PrefixListDescription'])) {
             $model->prefixListDescription = $map['PrefixListDescription'];
         }
@@ -128,6 +156,12 @@ class prefixLists extends Model
         }
         if (isset($map['PrefixListStatus'])) {
             $model->prefixListStatus = $map['PrefixListStatus'];
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

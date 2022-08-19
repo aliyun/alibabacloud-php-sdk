@@ -29,15 +29,16 @@ class ListPrefixListsRequest extends Model
     public $ownerId;
 
     /**
-     * @description 前缀列表的实例ID
-     *
      * @var string[]
      */
     public $prefixListIds;
 
     /**
-     * @description 地域
-     *
+     * @var string
+     */
+    public $prefixListName;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -57,6 +58,7 @@ class ListPrefixListsRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'prefixListIds'        => 'PrefixListIds',
+        'prefixListName'       => 'PrefixListName',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -83,6 +85,9 @@ class ListPrefixListsRequest extends Model
         }
         if (null !== $this->prefixListIds) {
             $res['PrefixListIds'] = $this->prefixListIds;
+        }
+        if (null !== $this->prefixListName) {
+            $res['PrefixListName'] = $this->prefixListName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -121,6 +126,9 @@ class ListPrefixListsRequest extends Model
             if (!empty($map['PrefixListIds'])) {
                 $model->prefixListIds = $map['PrefixListIds'];
             }
+        }
+        if (isset($map['PrefixListName'])) {
+            $model->prefixListName = $map['PrefixListName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

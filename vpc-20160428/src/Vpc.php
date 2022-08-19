@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipSegmentAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipSegmentAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6InternetBandwidthRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateIpv6InternetBandwidthResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateVpcIpv6CidrRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateVpcIpv6CidrResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ApplyPhysicalConnectionLOARequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ApplyPhysicalConnectionLOAResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateEipAddressRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelPhysicalConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CancelPhysicalConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CheckCanAllocateVpcPrivateIpAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CheckCanAllocateVpcPrivateIpAddressResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CheckVpnBgpEnabledRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CheckVpnBgpEnabledResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CompletePhysicalConnectionLOARequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CompletePhysicalConnectionLOAResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConfirmPhysicalConnectionRequest;
@@ -146,6 +150,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateTrafficMirrorSessionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateTrafficMirrorSessionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVbrHaRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVbrHaResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVcoRouteEntryRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVcoRouteEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVirtualBorderRouterRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVirtualBorderRouterResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVirtualPhysicalConnectionRequest;
@@ -154,8 +160,12 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcGatewayEndpointRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcGatewayEndpointResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpconnFromVbrRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpconnFromVbrResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcPrefixListRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcPrefixListResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnAttachmentRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnAttachmentResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnGatewayRequest;
@@ -242,12 +252,18 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteTrafficMirrorSessionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteTrafficMirrorSessionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVbrHaRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVbrHaResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVcoRouteEntryRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVcoRouteEntryResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVirtualBorderRouterRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVirtualBorderRouterResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpcGatewayEndpointRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpcGatewayEndpointResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpcPrefixListRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpcPrefixListResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpcRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpcResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpnAttachmentRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpnAttachmentResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpnConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpnConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteVpnGatewayRequest;
@@ -320,6 +336,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOARequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePublicIpAddressRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePublicIpAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouteEntryListRequest;
@@ -344,6 +362,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSslVpnServersRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeSslVpnServersResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVbrHaRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVbrHaResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVcoRouteEntriesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVcoRouteEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersForPhysicalConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersForPhysicalConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersRequest;
@@ -352,10 +372,14 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnAttachmentsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnAttachmentsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnCrossAccountAuthorizationsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnCrossAccountAuthorizationsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnGatewaysRequest;
@@ -410,6 +434,10 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcGatewayEndpointAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcGatewayEndpointAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcPrefixListAssociationsRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcPrefixListAssociationsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcPrefixListEntriesRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcPrefixListEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GrantInstanceToCenRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GrantInstanceToCenResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListDhcpOptionsSetsRequest;
@@ -524,10 +552,16 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnClientCertRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnClientCertResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnServerRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnServerResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVcoRouteEntryWeightRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVcoRouteEntryWeightResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVirtualBorderRouterAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVirtualBorderRouterAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpcAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpcAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpcPrefixListRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpcPrefixListResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnGatewayAttributeRequest;
@@ -566,6 +600,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveSourcesFromTrafficMirrorSessionR
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RemoveSourcesFromTrafficMirrorSessionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReplaceVpcDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ReplaceVpcDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\RetryVpcPrefixListAssociationRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\RetryVpcPrefixListAssociationResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RevokeInstanceFromCenRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RevokeInstanceFromCenResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesRequest;
@@ -1618,6 +1654,76 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateIpv6InternetBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AllocateVpcIpv6CidrRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AllocateVpcIpv6CidrResponse
+     */
+    public function allocateVpcIpv6CidrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipv6CidrBlock)) {
+            $query['Ipv6CidrBlock'] = $request->ipv6CidrBlock;
+        }
+        if (!Utils::isUnset($request->ipv6Isp)) {
+            $query['Ipv6Isp'] = $request->ipv6Isp;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocateVpcIpv6Cidr',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AllocateVpcIpv6CidrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AllocateVpcIpv6CidrRequest $request
+     *
+     * @return AllocateVpcIpv6CidrResponse
+     */
+    public function allocateVpcIpv6Cidr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateVpcIpv6CidrWithOptions($request, $runtime);
     }
 
     /**
@@ -2711,6 +2817,61 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkCanAllocateVpcPrivateIpAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckVpnBgpEnabledRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckVpnBgpEnabledResponse
+     */
+    public function checkVpnBgpEnabledWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckVpnBgpEnabled',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckVpnBgpEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckVpnBgpEnabledRequest $request
+     *
+     * @return CheckVpnBgpEnabledResponse
+     */
+    public function checkVpnBgpEnabled($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkVpnBgpEnabledWithOptions($request, $runtime);
     }
 
     /**
@@ -4447,6 +4608,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->duration)) {
             $query['Duration'] = $request->duration;
         }
+        if (!Utils::isUnset($request->eipBindMode)) {
+            $query['EipBindMode'] = $request->eipBindMode;
+        }
         if (!Utils::isUnset($request->icmpReplyEnabled)) {
             $query['IcmpReplyEnabled'] = $request->icmpReplyEnabled;
         }
@@ -5343,6 +5507,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->eipAffinity)) {
+            $query['EipAffinity'] = $request->eipAffinity;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -5945,6 +6112,79 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param CreateVcoRouteEntryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVcoRouteEntryResponse
+     */
+    public function createVcoRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->nextHop)) {
+            $query['NextHop'] = $request->nextHop;
+        }
+        if (!Utils::isUnset($request->overlayMode)) {
+            $query['OverlayMode'] = $request->overlayMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeDest)) {
+            $query['RouteDest'] = $request->routeDest;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVcoRouteEntry',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVcoRouteEntryRequest $request
+     *
+     * @return CreateVcoRouteEntryResponse
+     */
+    public function createVcoRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVcoRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVirtualBorderRouterRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -6279,6 +6519,82 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param CreateVpcPrefixListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVpcPrefixListResponse
+     */
+    public function createVpcPrefixListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->maxEntries)) {
+            $query['MaxEntries'] = $request->maxEntries;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefixListDescription)) {
+            $query['PrefixListDescription'] = $request->prefixListDescription;
+        }
+        if (!Utils::isUnset($request->prefixListEntrys)) {
+            $query['PrefixListEntrys'] = $request->prefixListEntrys;
+        }
+        if (!Utils::isUnset($request->prefixListName)) {
+            $query['PrefixListName'] = $request->prefixListName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpcPrefixList',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpcPrefixListRequest $request
+     *
+     * @return CreateVpcPrefixListResponse
+     */
+    public function createVpcPrefixList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcPrefixListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateVpconnFromVbrRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -6331,6 +6647,103 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVpconnFromVbrWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVpnAttachmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVpnAttachmentResponse
+     */
+    public function createVpnAttachmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoConfigRoute)) {
+            $query['AutoConfigRoute'] = $request->autoConfigRoute;
+        }
+        if (!Utils::isUnset($request->bgpConfig)) {
+            $query['BgpConfig'] = $request->bgpConfig;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->customerGatewayId)) {
+            $query['CustomerGatewayId'] = $request->customerGatewayId;
+        }
+        if (!Utils::isUnset($request->effectImmediately)) {
+            $query['EffectImmediately'] = $request->effectImmediately;
+        }
+        if (!Utils::isUnset($request->enableDpd)) {
+            $query['EnableDpd'] = $request->enableDpd;
+        }
+        if (!Utils::isUnset($request->enableNatTraversal)) {
+            $query['EnableNatTraversal'] = $request->enableNatTraversal;
+        }
+        if (!Utils::isUnset($request->healthCheckConfig)) {
+            $query['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+        if (!Utils::isUnset($request->ikeConfig)) {
+            $query['IkeConfig'] = $request->ikeConfig;
+        }
+        if (!Utils::isUnset($request->ipsecConfig)) {
+            $query['IpsecConfig'] = $request->ipsecConfig;
+        }
+        if (!Utils::isUnset($request->localSubnet)) {
+            $query['LocalSubnet'] = $request->localSubnet;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remoteCaCert)) {
+            $query['RemoteCaCert'] = $request->remoteCaCert;
+        }
+        if (!Utils::isUnset($request->remoteSubnet)) {
+            $query['RemoteSubnet'] = $request->remoteSubnet;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpnAttachment',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVpnAttachmentRequest $request
+     *
+     * @return CreateVpnAttachmentResponse
+     */
+    public function createVpnAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpnAttachmentWithOptions($request, $runtime);
     }
 
     /**
@@ -9119,6 +9532,76 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param DeleteVcoRouteEntryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVcoRouteEntryResponse
+     */
+    public function deleteVcoRouteEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->nextHop)) {
+            $query['NextHop'] = $request->nextHop;
+        }
+        if (!Utils::isUnset($request->overlayMode)) {
+            $query['OverlayMode'] = $request->overlayMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeDest)) {
+            $query['RouteDest'] = $request->routeDest;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVcoRouteEntry',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVcoRouteEntryRequest $request
+     *
+     * @return DeleteVcoRouteEntryResponse
+     */
+    public function deleteVcoRouteEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVcoRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteVirtualBorderRouterRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -9299,6 +9782,128 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVpcGatewayEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVpcPrefixListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVpcPrefixListResponse
+     */
+    public function deleteVpcPrefixListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefixListId)) {
+            $query['PrefixListId'] = $request->prefixListId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcPrefixList',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpcPrefixListRequest $request
+     *
+     * @return DeleteVpcPrefixListResponse
+     */
+    public function deleteVpcPrefixList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpcPrefixListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVpnAttachmentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVpnAttachmentResponse
+     */
+    public function deleteVpnAttachmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpnAttachment',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVpnAttachmentRequest $request
+     *
+     * @return DeleteVpnAttachmentResponse
+     */
+    public function deleteVpnAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVpnAttachmentWithOptions($request, $runtime);
     }
 
     /**
@@ -11845,6 +12450,70 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param DescribePublicIpAddressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePublicIpAddressResponse
+     */
+    public function describePublicIpAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePublicIpAddress',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePublicIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePublicIpAddressRequest $request
+     *
+     * @return DescribePublicIpAddressResponse
+     */
+    public function describePublicIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePublicIpAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -12886,6 +13555,73 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param DescribeVcoRouteEntriesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVcoRouteEntriesResponse
+     */
+    public function describeVcoRouteEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeEntryType)) {
+            $query['RouteEntryType'] = $request->routeEntryType;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVcoRouteEntries',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVcoRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVcoRouteEntriesRequest $request
+     *
+     * @return DescribeVcoRouteEntriesResponse
+     */
+    public function describeVcoRouteEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVcoRouteEntriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVirtualBorderRoutersRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -13157,6 +13893,73 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param DescribeVpnAttachmentsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVpnAttachmentsResponse
+     */
+    public function describeVpnAttachmentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->attachType)) {
+            $query['AttachType'] = $request->attachType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpnAttachments',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnAttachmentsRequest $request
+     *
+     * @return DescribeVpnAttachmentsResponse
+     */
+    public function describeVpnAttachments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnAttachmentsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVpnConnectionRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -13282,6 +14085,70 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpnConnectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVpnCrossAccountAuthorizationsRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeVpnCrossAccountAuthorizationsResponse
+     */
+    public function describeVpnCrossAccountAuthorizationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpnCrossAccountAuthorizations',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVpnCrossAccountAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVpnCrossAccountAuthorizationsRequest $request
+     *
+     * @return DescribeVpnCrossAccountAuthorizationsResponse
+     */
+    public function describeVpnCrossAccountAuthorizations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpnCrossAccountAuthorizationsWithOptions($request, $runtime);
     }
 
     /**
@@ -14767,6 +15634,134 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param GetVpcPrefixListAssociationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetVpcPrefixListAssociationsResponse
+     */
+    public function getVpcPrefixListAssociationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefixListId)) {
+            $query['PrefixListId'] = $request->prefixListId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVpcPrefixListAssociations',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVpcPrefixListAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVpcPrefixListAssociationsRequest $request
+     *
+     * @return GetVpcPrefixListAssociationsResponse
+     */
+    public function getVpcPrefixListAssociations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVpcPrefixListAssociationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVpcPrefixListEntriesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetVpcPrefixListEntriesResponse
+     */
+    public function getVpcPrefixListEntriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefixListId)) {
+            $query['PrefixListId'] = $request->prefixListId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVpcPrefixListEntries',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVpcPrefixListEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVpcPrefixListEntriesRequest $request
+     *
+     * @return GetVpcPrefixListEntriesResponse
+     */
+    public function getVpcPrefixListEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVpcPrefixListEntriesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GrantInstanceToCenRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -15441,6 +16436,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->prefixListIds)) {
             $query['PrefixListIds'] = $request->prefixListIds;
+        }
+        if (!Utils::isUnset($request->prefixListName)) {
+            $query['PrefixListName'] = $request->prefixListName;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -18930,6 +19928,79 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param ModifyVcoRouteEntryWeightRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyVcoRouteEntryWeightResponse
+     */
+    public function modifyVcoRouteEntryWeightWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->newWeight)) {
+            $query['NewWeight'] = $request->newWeight;
+        }
+        if (!Utils::isUnset($request->nextHop)) {
+            $query['NextHop'] = $request->nextHop;
+        }
+        if (!Utils::isUnset($request->overlayMode)) {
+            $query['OverlayMode'] = $request->overlayMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->routeDest)) {
+            $query['RouteDest'] = $request->routeDest;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        if (!Utils::isUnset($request->weight)) {
+            $query['Weight'] = $request->weight;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVcoRouteEntryWeight',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVcoRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVcoRouteEntryWeightRequest $request
+     *
+     * @return ModifyVcoRouteEntryWeightResponse
+     */
+    public function modifyVcoRouteEntryWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVcoRouteEntryWeightWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyVirtualBorderRouterAttributeRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -19112,6 +20183,182 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyVpcAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpcPrefixListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyVpcPrefixListResponse
+     */
+    public function modifyVpcPrefixListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addPrefixListEntry)) {
+            $query['AddPrefixListEntry'] = $request->addPrefixListEntry;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->maxEntries)) {
+            $query['MaxEntries'] = $request->maxEntries;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefixListDescription)) {
+            $query['PrefixListDescription'] = $request->prefixListDescription;
+        }
+        if (!Utils::isUnset($request->prefixListId)) {
+            $query['PrefixListId'] = $request->prefixListId;
+        }
+        if (!Utils::isUnset($request->prefixListName)) {
+            $query['PrefixListName'] = $request->prefixListName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->removePrefixListEntry)) {
+            $query['RemovePrefixListEntry'] = $request->removePrefixListEntry;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcPrefixList',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcPrefixListRequest $request
+     *
+     * @return ModifyVpcPrefixListResponse
+     */
+    public function modifyVpcPrefixList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcPrefixListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpnAttachmentAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyVpnAttachmentAttributeResponse
+     */
+    public function modifyVpnAttachmentAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoConfigRoute)) {
+            $query['AutoConfigRoute'] = $request->autoConfigRoute;
+        }
+        if (!Utils::isUnset($request->bgpConfig)) {
+            $query['BgpConfig'] = $request->bgpConfig;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->effectImmediately)) {
+            $query['EffectImmediately'] = $request->effectImmediately;
+        }
+        if (!Utils::isUnset($request->enableDpd)) {
+            $query['EnableDpd'] = $request->enableDpd;
+        }
+        if (!Utils::isUnset($request->enableNatTraversal)) {
+            $query['EnableNatTraversal'] = $request->enableNatTraversal;
+        }
+        if (!Utils::isUnset($request->healthCheckConfig)) {
+            $query['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+        if (!Utils::isUnset($request->ikeConfig)) {
+            $query['IkeConfig'] = $request->ikeConfig;
+        }
+        if (!Utils::isUnset($request->ipsecConfig)) {
+            $query['IpsecConfig'] = $request->ipsecConfig;
+        }
+        if (!Utils::isUnset($request->localSubnet)) {
+            $query['LocalSubnet'] = $request->localSubnet;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remoteCaCert)) {
+            $query['RemoteCaCert'] = $request->remoteCaCert;
+        }
+        if (!Utils::isUnset($request->remoteSubnet)) {
+            $query['RemoteSubnet'] = $request->remoteSubnet;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpnAttachmentAttribute',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpnAttachmentAttributeRequest $request
+     *
+     * @return ModifyVpnAttachmentAttributeResponse
+     */
+    public function modifyVpnAttachmentAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpnAttachmentAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -20224,6 +21471,76 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->replaceVpcDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetryVpcPrefixListAssociationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RetryVpcPrefixListAssociationResponse
+     */
+    public function retryVpcPrefixListAssociationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->prefixListId)) {
+            $query['PrefixListId'] = $request->prefixListId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryVpcPrefixListAssociation',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryVpcPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryVpcPrefixListAssociationRequest $request
+     *
+     * @return RetryVpcPrefixListAssociationResponse
+     */
+    public function retryVpcPrefixListAssociation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryVpcPrefixListAssociationWithOptions($request, $runtime);
     }
 
     /**

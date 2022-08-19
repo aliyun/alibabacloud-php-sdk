@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AttachVbrToVpconnRequest extends Model
 {
     /**
-     * @description DryRun
-     *
      * @var bool
      */
     public $dryRun;
@@ -21,22 +19,16 @@ class AttachVbrToVpconnRequest extends Model
     public $regionId;
 
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description 待迁移的vbr
-     *
      * @var string
      */
     public $vbrId;
 
     /**
-     * @description 迁移到目标vpconn
-     *
      * @var string
      */
     public $vpconnId;

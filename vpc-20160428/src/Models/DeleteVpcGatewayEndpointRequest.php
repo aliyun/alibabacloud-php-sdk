@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcGatewayEndpointRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 是否只预检此次请求
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description VPC网关实例ID
-     *
      * @var string
      */
     public $endpointId;
@@ -40,8 +34,6 @@ class DeleteVpcGatewayEndpointRequest extends Model
     public $ownerId;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPhysicalConnectionServiceStatusResponseBody extends Model
 {
     /**
-     * @description 是否开通出云流量服务
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

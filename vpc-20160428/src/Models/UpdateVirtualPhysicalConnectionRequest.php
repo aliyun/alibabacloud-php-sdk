@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualPhysicalConnectionRequest extends Model
 {
     /**
-     * @description DryRun
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description ExpectSpec
-     *
      * @var string
      */
     public $expectSpec;
 
     /**
-     * @description Vpconn的实例ID
-     *
      * @var string
      */
     public $instanceId;
@@ -35,15 +29,11 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $regionId;
 
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @description vpconn的VlanID
-     *
      * @var int
      */
     public $vlanId;

@@ -24,6 +24,11 @@ class vcoHealthCheck extends Model
     public $interval;
 
     /**
+     * @var string
+     */
+    public $policy;
+
+    /**
      * @var int
      */
     public $retry;
@@ -41,6 +46,7 @@ class vcoHealthCheck extends Model
         'dip'      => 'Dip',
         'enable'   => 'Enable',
         'interval' => 'Interval',
+        'policy'   => 'Policy',
         'retry'    => 'Retry',
         'sip'      => 'Sip',
         'status'   => 'Status',
@@ -61,6 +67,9 @@ class vcoHealthCheck extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
         }
         if (null !== $this->retry) {
             $res['Retry'] = $this->retry;
@@ -91,6 +100,9 @@ class vcoHealthCheck extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
         }
         if (isset($map['Retry'])) {
             $model->retry = $map['Retry'];

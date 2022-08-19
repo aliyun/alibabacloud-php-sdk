@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcGatewayEndpointRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 是否只预检此次请求
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 网关节点描述
-     *
      * @var string
      */
     public $endpointDescription;
 
     /**
-     * @description 网关节点名称
-     *
      * @var string
      */
     public $endpointName;
@@ -47,15 +39,11 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $ownerId;
 
     /**
-     * @description 访问云服务的权限控制策略
-     *
      * @var string
      */
     public $policyDocument;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;
@@ -71,15 +59,11 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 网关节点服务的名称
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 专有网络实例ID
-     *
      * @var string
      */
     public $vpcId;

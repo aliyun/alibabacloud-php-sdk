@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualPhysicalConnectionsRequest extends Model
 {
     /**
-     * @description Vpconn是否被确认
-     *
      * @var bool
      */
     public $isConfirmed;
 
     /**
-     * @description 单次查询最大量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 单次查询最大量
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Vpconn的主Pconn
-     *
      * @var string
      */
     public $physicalConnectionId;
@@ -42,36 +34,26 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $regionId;
 
     /**
-     * @description Vpconn的OwnerUid
-     *
      * @var string[]
      */
     public $virtualPhysicalConnectionAliUids;
 
     /**
-     * @description Vpconn的商业状态
-     *
      * @var string
      */
     public $virtualPhysicalConnectionBusinessStatus;
 
     /**
-     * @description 根据Vpconn的ID列表过滤
-     *
      * @var string[]
      */
     public $virtualPhysicalConnectionIds;
 
     /**
-     * @description Vpconn的状态
-     *
      * @var string[]
      */
     public $virtualPhysicalConnectionStatuses;
 
     /**
-     * @description Vpconn的vlanId
-     *
      * @var string[]
      */
     public $vlanIds;

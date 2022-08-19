@@ -29,6 +29,11 @@ class CreateNatGatewayRequest extends Model
     public $duration;
 
     /**
+     * @var string
+     */
+    public $eipBindMode;
+
+    /**
      * @var bool
      */
     public $icmpReplyEnabled;
@@ -112,6 +117,7 @@ class CreateNatGatewayRequest extends Model
         'clientToken'               => 'ClientToken',
         'description'               => 'Description',
         'duration'                  => 'Duration',
+        'eipBindMode'               => 'EipBindMode',
         'icmpReplyEnabled'          => 'IcmpReplyEnabled',
         'instanceChargeType'        => 'InstanceChargeType',
         'internetChargeType'        => 'InternetChargeType',
@@ -148,6 +154,9 @@ class CreateNatGatewayRequest extends Model
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->eipBindMode) {
+            $res['EipBindMode'] = $this->eipBindMode;
         }
         if (null !== $this->icmpReplyEnabled) {
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
@@ -220,6 +229,9 @@ class CreateNatGatewayRequest extends Model
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['EipBindMode'])) {
+            $model->eipBindMode = $map['EipBindMode'];
         }
         if (isset($map['IcmpReplyEnabled'])) {
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];
