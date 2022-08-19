@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePublicIpAddressResponseBody\ipRange;
 use AlibabaCloud\Tea\Model;
 
 class DescribePublicIpAddressResponseBody extends Model
@@ -13,11 +12,6 @@ class DescribePublicIpAddressResponseBody extends Model
      * @var string
      */
     public $code;
-
-    /**
-     * @var ipRange
-     */
-    public $ipRange;
 
     /**
      * @var string
@@ -35,7 +29,7 @@ class DescribePublicIpAddressResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $publicIpAddress;
 
@@ -60,7 +54,6 @@ class DescribePublicIpAddressResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'code'            => 'Code',
-        'ipRange'         => 'IpRange',
         'message'         => 'Message',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
@@ -80,9 +73,6 @@ class DescribePublicIpAddressResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->ipRange) {
-            $res['IpRange'] = null !== $this->ipRange ? $this->ipRange->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -123,9 +113,6 @@ class DescribePublicIpAddressResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['IpRange'])) {
-            $model->ipRange = ipRange::fromMap($map['IpRange']);
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -136,7 +123,9 @@ class DescribePublicIpAddressResponseBody extends Model
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PublicIpAddress'])) {
-            $model->publicIpAddress = $map['PublicIpAddress'];
+            if (!empty($map['PublicIpAddress'])) {
+                $model->publicIpAddress = $map['PublicIpAddress'];
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
