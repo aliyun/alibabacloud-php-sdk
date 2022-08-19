@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description 按钮
-     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @description 描述，当Type为Header，且Format为IMGAGE/DOCUMENT/VIDEO 可以增加描述
-     *
      * @var string
      */
     public $caption;
 
     /**
-     * @description 文件名称，当Type为Header，且Format为DOCUMENT时可以给文件指定名称
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 格式
-     * TEXT-文本 IMGAGE-图片 DOCUMENT-文档 VIDEO-视频
      * @var string
      */
     public $format;
 
     /**
-     * @description 所发送消息的文本
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description 组件类型
-     * 值：BODY、HEADER、FOOTER 和 BUTTONS
      * @var string
      */
     public $type;
 
     /**
-     * @description 素材路径
-     *
      * @var string
      */
     public $url;

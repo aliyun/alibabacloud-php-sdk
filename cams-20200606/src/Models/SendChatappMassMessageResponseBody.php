@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\CheckChatappContactsResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CheckChatappContactsResponseBody extends Model
+class SendChatappMassMessageResponseBody extends Model
 {
     /**
      * @var string
@@ -15,9 +14,9 @@ class CheckChatappContactsResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var string
      */
-    public $data;
+    public $groupMessageId;
 
     /**
      * @var string
@@ -29,10 +28,10 @@ class CheckChatappContactsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'code'           => 'Code',
+        'groupMessageId' => 'GroupMessageId',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -45,14 +44,8 @@ class CheckChatappContactsResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->groupMessageId) {
+            $res['GroupMessageId'] = $this->groupMessageId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -67,7 +60,7 @@ class CheckChatappContactsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CheckChatappContactsResponseBody
+     * @return SendChatappMassMessageResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -75,14 +68,8 @@ class CheckChatappContactsResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['GroupMessageId'])) {
+            $model->groupMessageId = $map['GroupMessageId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateRequest extends Model
 {
     /**
-     * @description ISV客户wabaId
-     *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description 模板编码
-     *
      * @var string
      */
     public $templateCode;

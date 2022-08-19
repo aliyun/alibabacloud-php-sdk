@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 号码
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 状态
-     * 有效账号为"valid"，无法账号为"invalid"，查询失败返回"failed"
      * @var string
      */
     public $status;

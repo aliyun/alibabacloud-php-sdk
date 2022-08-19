@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteChatappTemplateResponseBody extends Model
 {
     /**
-     * @description 返回结果 OK 为正常
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 提示信息，当返回异常时有值
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

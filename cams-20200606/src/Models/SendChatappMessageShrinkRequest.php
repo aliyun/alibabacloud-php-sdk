@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMessageShrinkRequest extends Model
 {
     /**
-     * @description 通道类型 whatsapp/viber/line
-     *
      * @var string
      */
     public $channelType;
 
     /**
-     * @description 消息内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description ISV客户wabaId
-     *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description 回落消息内容
-     *
      * @var string
      */
     public $fallBackContent;
 
     /**
-     * @description 回落策略ID，可在控制台创建策略并查看
-     *
      * @var string
      */
     public $fallBackId;
 
     /**
-     * @description 发送方
-     *
      * @var string
      */
     public $from;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 消息类型
-     *
      * @var string
      */
     public $messageType;
@@ -70,8 +54,6 @@ class SendChatappMessageShrinkRequest extends Model
     public $payloadShrink;
 
     /**
-     * @description 模板编码
-     *
      * @var string
      */
     public $templateCode;
@@ -82,15 +64,11 @@ class SendChatappMessageShrinkRequest extends Model
     public $templateParamsShrink;
 
     /**
-     * @description 接收号码
-     *
      * @var string
      */
     public $to;
 
     /**
-     * @description 消息大类
-     * message--非模板
      * @var string
      */
     public $type;

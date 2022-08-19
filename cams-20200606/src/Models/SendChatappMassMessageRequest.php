@@ -4,19 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList;
 use AlibabaCloud\Tea\Model;
 
-class SendChatappMessageRequest extends Model
+class SendChatappMassMessageRequest extends Model
 {
     /**
      * @var string
      */
     public $channelType;
-
-    /**
-     * @var string
-     */
-    public $content;
 
     /**
      * @var string
@@ -44,48 +40,29 @@ class SendChatappMessageRequest extends Model
     public $language;
 
     /**
-     * @var string
+     * @var senderList[]
      */
-    public $messageType;
+    public $senderList;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $payload;
+    public $taskId;
 
     /**
      * @var string
      */
     public $templateCode;
-
-    /**
-     * @var string[]
-     */
-    public $templateParams;
-
-    /**
-     * @var string
-     */
-    public $to;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'channelType'     => 'ChannelType',
-        'content'         => 'Content',
         'custWabaId'      => 'CustWabaId',
         'fallBackContent' => 'FallBackContent',
         'fallBackId'      => 'FallBackId',
         'from'            => 'From',
         'language'        => 'Language',
-        'messageType'     => 'MessageType',
-        'payload'         => 'Payload',
+        'senderList'      => 'SenderList',
+        'taskId'          => 'TaskId',
         'templateCode'    => 'TemplateCode',
-        'templateParams'  => 'TemplateParams',
-        'to'              => 'To',
-        'type'            => 'Type',
     ];
 
     public function validate()
@@ -97,9 +74,6 @@ class SendChatappMessageRequest extends Model
         $res = [];
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
@@ -116,23 +90,20 @@ class SendChatappMessageRequest extends Model
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-        if (null !== $this->messageType) {
-            $res['MessageType'] = $this->messageType;
+        if (null !== $this->senderList) {
+            $res['SenderList'] = [];
+            if (null !== $this->senderList && \is_array($this->senderList)) {
+                $n = 0;
+                foreach ($this->senderList as $item) {
+                    $res['SenderList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
-        if (null !== $this->payload) {
-            $res['Payload'] = $this->payload;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
-        }
-        if (null !== $this->templateParams) {
-            $res['TemplateParams'] = $this->templateParams;
-        }
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -141,16 +112,13 @@ class SendChatappMessageRequest extends Model
     /**
      * @param array $map
      *
-     * @return SendChatappMessageRequest
+     * @return SendChatappMassMessageRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
@@ -167,25 +135,20 @@ class SendChatappMessageRequest extends Model
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-        if (isset($map['MessageType'])) {
-            $model->messageType = $map['MessageType'];
-        }
-        if (isset($map['Payload'])) {
-            if (!empty($map['Payload'])) {
-                $model->payload = $map['Payload'];
+        if (isset($map['SenderList'])) {
+            if (!empty($map['SenderList'])) {
+                $model->senderList = [];
+                $n                 = 0;
+                foreach ($map['SenderList'] as $item) {
+                    $model->senderList[$n++] = null !== $item ? senderList::fromMap($item) : $item;
+                }
             }
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
-        }
-        if (isset($map['TemplateParams'])) {
-            $model->templateParams = $map['TemplateParams'];
-        }
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

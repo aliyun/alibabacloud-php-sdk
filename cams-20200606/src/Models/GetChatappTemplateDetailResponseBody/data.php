@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 审核状态
-     *
      * @var string
      */
     public $auditStatus;
 
     /**
-     * @description 模板分类
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 消息模板组件
-     *
      * @var components[]
      */
     public $components;
 
     /**
-     * @description 变量例子
-     *
      * @var string[]
      */
     public $example;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 模板编码
-     *
      * @var string
      */
     public $templateCode;

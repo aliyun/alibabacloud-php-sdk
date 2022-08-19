@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
-     * @description 查询开始数
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @description 每次查询返回的条数
-     *
      * @var int
      */
     public $size;

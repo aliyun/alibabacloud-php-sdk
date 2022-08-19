@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateRequest extends Model
 {
     /**
-     * @description 模板分类
-     *
      * @var string
      */
     public $category;
@@ -22,36 +20,26 @@ class CreateChatappTemplateRequest extends Model
     public $components;
 
     /**
-     * @description ISV客户WabaId
-     *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description 变量，KEY-VALUE结构
-     *
      * @var string[]
      */
     public $example;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 模板类型
-     *
      * @var string
      */
     public $templateType;

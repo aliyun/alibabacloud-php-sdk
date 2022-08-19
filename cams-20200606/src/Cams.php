@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
@@ -341,6 +344,78 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listChatappTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendChatappMassMessageRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SendChatappMassMessageResponse
+     */
+    public function sendChatappMassMessageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendChatappMassMessageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->senderList)) {
+            $request->senderListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->senderList, 'SenderList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->channelType)) {
+            $body['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
+        }
+        if (!Utils::isUnset($request->fallBackContent)) {
+            $body['FallBackContent'] = $request->fallBackContent;
+        }
+        if (!Utils::isUnset($request->fallBackId)) {
+            $body['FallBackId'] = $request->fallBackId;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $body['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->senderListShrink)) {
+            $body['SenderList'] = $request->senderListShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendChatappMassMessage',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendChatappMassMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendChatappMassMessageRequest $request
+     *
+     * @return SendChatappMassMessageResponse
+     */
+    public function sendChatappMassMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendChatappMassMessageWithOptions($request, $runtime);
     }
 
     /**

@@ -19,8 +19,6 @@ class SendChatappMessageResponseBody extends Model
     public $message;
 
     /**
-     * @description 消息ID
-     *
      * @var string
      */
     public $messageId;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListChatappTemplateShrinkRequest extends Model
 {
     /**
-     * @description 审核状态
-     *
      * @var string
      */
     public $auditStatus;
 
     /**
-     * @description ISV客户WabaId
-     *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;

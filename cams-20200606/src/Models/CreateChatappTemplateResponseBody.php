@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateResponseBody extends Model
 {
     /**
-     * @description 返回结果 OK 为正常
-     *
      * @var string
      */
     public $code;
@@ -22,15 +20,11 @@ class CreateChatappTemplateResponseBody extends Model
     public $data;
 
     /**
-     * @description 提示信息，当返回异常时有值
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

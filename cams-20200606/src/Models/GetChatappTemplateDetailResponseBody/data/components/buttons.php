@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
-     * @description 电话号码
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 所发送消息的文本
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description 按钮类型
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 当按钮类型是
-     * URL 时有效
      * @var string
      */
     public $url;
 
     /**
-     * @description WEB地址类型
-     * dynamic-动态
      * @var string
      */
     public $urlType;

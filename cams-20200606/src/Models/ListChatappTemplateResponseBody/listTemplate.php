@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class listTemplate extends Model
 {
     /**
-     * @description 审核状态
-     *
      * @var string
      */
     public $auditStatus;
 
     /**
-     * @description 模板分类
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 模板编码
-     *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $templateName;

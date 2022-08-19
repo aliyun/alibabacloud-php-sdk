@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailResponseBody extends Model
 {
     /**
-     * @description 返回结果 OK 为正常
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description TemplateDetail
-     *
      * @var data
      */
     public $data;
@@ -29,8 +25,6 @@ class GetChatappTemplateDetailResponseBody extends Model
     public $message;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

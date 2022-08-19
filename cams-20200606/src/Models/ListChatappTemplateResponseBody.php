@@ -15,8 +15,6 @@ class ListChatappTemplateResponseBody extends Model
     public $code;
 
     /**
-     * @description 模板列表
-     *
      * @var listTemplate[]
      */
     public $listTemplate;

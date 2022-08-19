@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetChatappTemplateDetailRequest extends Model
 {
     /**
-     * @description ISV客户WabaId
-     *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 模板分类
-     *
      * @var string
      */
     public $templateCode;

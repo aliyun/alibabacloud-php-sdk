@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 模板Code
-     *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $templateName;
