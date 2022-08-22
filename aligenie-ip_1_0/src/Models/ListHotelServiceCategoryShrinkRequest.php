@@ -1,0 +1,47 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\AliGenie\Vip_1_0\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class ListHotelServiceCategoryShrinkRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $payloadShrink;
+    protected $_name = [
+        'payloadShrink' => 'Payload',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->payloadShrink) {
+            $res['Payload'] = $this->payloadShrink;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return ListHotelServiceCategoryShrinkRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Payload'])) {
+            $model->payloadShrink = $map['Payload'];
+        }
+
+        return $model;
+    }
+}
