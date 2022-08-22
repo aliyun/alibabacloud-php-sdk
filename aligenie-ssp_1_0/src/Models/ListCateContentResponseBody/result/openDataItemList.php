@@ -1,0 +1,243 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListCateContentResponseBody\result;
+
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListCateContentResponseBody\result\openDataItemList\authors;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ListCateContentResponseBody\result\openDataItemList\cover;
+use AlibabaCloud\Tea\Model;
+
+class openDataItemList extends Model
+{
+    /**
+     * @var string[]
+     */
+    public $alias;
+
+    /**
+     * @var bool
+     */
+    public $audition;
+
+    /**
+     * @var authors[]
+     */
+    public $authors;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @var bool
+     */
+    public $charge;
+
+    /**
+     * @var string
+     */
+    public $commCateId;
+
+    /**
+     * @var cover
+     */
+    public $cover;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var float
+     */
+    public $hotScore;
+
+    /**
+     * @var string
+     */
+    public $itemType;
+
+    /**
+     * @var string
+     */
+    public $rawId;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $valid;
+
+    /**
+     * @var int
+     */
+    public $id;
+    protected $_name = [
+        'alias'       => 'Alias',
+        'audition'    => 'Audition',
+        'authors'     => 'Authors',
+        'category'    => 'Category',
+        'charge'      => 'Charge',
+        'commCateId'  => 'CommCateId',
+        'cover'       => 'Cover',
+        'description' => 'Description',
+        'hotScore'    => 'HotScore',
+        'itemType'    => 'ItemType',
+        'rawId'       => 'RawId',
+        'source'      => 'Source',
+        'title'       => 'Title',
+        'type'        => 'Type',
+        'valid'       => 'Valid',
+        'id'          => 'id',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->alias) {
+            $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->audition) {
+            $res['Audition'] = $this->audition;
+        }
+        if (null !== $this->authors) {
+            $res['Authors'] = [];
+            if (null !== $this->authors && \is_array($this->authors)) {
+                $n = 0;
+                foreach ($this->authors as $item) {
+                    $res['Authors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+        if (null !== $this->charge) {
+            $res['Charge'] = $this->charge;
+        }
+        if (null !== $this->commCateId) {
+            $res['CommCateId'] = $this->commCateId;
+        }
+        if (null !== $this->cover) {
+            $res['Cover'] = null !== $this->cover ? $this->cover->toMap() : null;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->hotScore) {
+            $res['HotScore'] = $this->hotScore;
+        }
+        if (null !== $this->itemType) {
+            $res['ItemType'] = $this->itemType;
+        }
+        if (null !== $this->rawId) {
+            $res['RawId'] = $this->rawId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->valid) {
+            $res['Valid'] = $this->valid;
+        }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return openDataItemList
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Alias'])) {
+            if (!empty($map['Alias'])) {
+                $model->alias = $map['Alias'];
+            }
+        }
+        if (isset($map['Audition'])) {
+            $model->audition = $map['Audition'];
+        }
+        if (isset($map['Authors'])) {
+            if (!empty($map['Authors'])) {
+                $model->authors = [];
+                $n              = 0;
+                foreach ($map['Authors'] as $item) {
+                    $model->authors[$n++] = null !== $item ? authors::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['Charge'])) {
+            $model->charge = $map['Charge'];
+        }
+        if (isset($map['CommCateId'])) {
+            $model->commCateId = $map['CommCateId'];
+        }
+        if (isset($map['Cover'])) {
+            $model->cover = cover::fromMap($map['Cover']);
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['HotScore'])) {
+            $model->hotScore = $map['HotScore'];
+        }
+        if (isset($map['ItemType'])) {
+            $model->itemType = $map['ItemType'];
+        }
+        if (isset($map['RawId'])) {
+            $model->rawId = $map['RawId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Valid'])) {
+            $model->valid = $map['Valid'];
+        }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
+
+        return $model;
+    }
+}

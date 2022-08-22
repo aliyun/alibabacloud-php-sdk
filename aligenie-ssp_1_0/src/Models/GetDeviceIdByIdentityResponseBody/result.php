@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 设备信息对应的openId
-     *
      * @var string
      */
     public $deviceOpenId;
 
     /**
-     * @description 组织id及归一id列表
-     *
      * @var deviceUnionIds[]
      */
     public $deviceUnionIds;
