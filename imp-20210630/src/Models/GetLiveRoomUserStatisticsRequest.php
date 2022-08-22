@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GetLiveRoomUserStatisticsRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 查询页码，从1开始，传空默认查询第1页。
-     *
      * @var string
      */
     public $pageNumber;
 
     /**
-     * @description 每页显示个数，最大支持50，参数为空默认显示个数为10。
-     *
      * @var string
      */
     public $pageSize;

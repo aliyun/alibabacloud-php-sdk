@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 返回的弹幕数据模型。
-     *
      * @var commentVO
      */
     public $commentVO;

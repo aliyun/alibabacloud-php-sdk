@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 直播的唯一标识ID。
-     *
      * @var string
      */
     public $liveId;

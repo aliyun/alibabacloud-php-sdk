@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 片段录制文件的地址。
-     *
      * @var string
      */
     public $sliceRecordUrl;

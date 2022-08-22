@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class commentVOList extends Model
 {
     /**
-     * @description 应用ID。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 弹幕消息的唯一ID标识。
-     *
      * @var string
      */
     public $commentId;
 
     /**
-     * @description 弹幕消息的内容。
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 弹幕消息的创建时间，Unix时间戳，单位：毫秒。
-     *
      * @var int
      */
     public $createAt;
 
     /**
-     * @description 扩展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 房间ID。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 弹幕消息的发送者ID标识。
-     *
      * @var string
      */
     public $senderId;
 
     /**
-     * @description 弹幕消息发送者的昵称。
-     *
      * @var string
      */
     public $senderNick;

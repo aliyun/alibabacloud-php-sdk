@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class classList extends Model
 {
     /**
-     * @description 课堂唯一标识，由调用CreateClass返回。
-     *
      * @var string
      */
     public $classId;
 
     /**
-     * @description 连麦会议唯一标识。
-     *
      * @var string
      */
     public $confId;
 
     /**
-     * @description 创建人昵称。
-     *
      * @var string
      */
     public $createNickname;
 
     /**
-     * @description 创建人ID。
-     *
      * @var string
      */
     public $createUserId;
 
     /**
-     * @description 下课时间戳，毫秒。
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 直播的唯一标识ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 房间ID
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 开始上课时间戳，毫秒。
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 课堂状态，0:未开始 1:上课中 2:已下课。
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 课堂标题。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 白板ID
-     *
      * @var string
      */
     public $whiteboardId;
 
     /**
-     * @description 白板录制ID
-     *
      * @var string
      */
     public $whiteboardRecordId;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateClassRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 创建人用户昵称。
-     *
      * @var string
      */
     public $createNickname;
 
     /**
-     * @description 创建人用户ID。
-     *
      * @var string
      */
     public $createUserId;
 
     /**
-     * @description 课堂标题
-     *
      * @var string
      */
     public $title;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSensitiveWordResponseBody extends Model
 {
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 调用发送直播间弹幕的返回结果。
-     *
      * @var result
      */
     public $result;

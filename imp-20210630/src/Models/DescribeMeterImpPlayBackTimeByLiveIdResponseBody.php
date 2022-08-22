@@ -15,8 +15,6 @@ class DescribeMeterImpPlayBackTimeByLiveIdResponseBody extends Model
     public $data;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

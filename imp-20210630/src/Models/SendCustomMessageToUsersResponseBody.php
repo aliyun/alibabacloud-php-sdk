@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SendCustomMessageToUsersResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description API请求的返回结果结构体。
-     *
      * @var result
      */
     public $result;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListCommentsResponseBody extends Model
 {
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 调用查询弹幕消息列表的返回结果。
-     *
      * @var result
      */
     public $result;

@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 会议用户列表。
-     *
      * @var conferenceUserList[]
      */
     public $conferenceUserList;
 
     /**
-     * @description 是否还有数据
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description 总页数
-     *
      * @var int
      */
     public $pageTotal;
 
     /**
-     * @description 总条目数
-     *
      * @var int
      */
     public $totalCount;

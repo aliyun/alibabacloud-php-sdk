@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 弹幕消息列表。
-     *
      * @var commentVOList[]
      */
     public $commentVOList;
 
     /**
-     * @description 是否还有下一页数据。true表示还有，false表示没有。
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description 分页查询弹幕消息列表的总页数。
-     *
      * @var int
      */
     public $pageTotal;
 
     /**
-     * @description 弹幕消息的总数。
-     *
      * @var int
      */
     public $totalCount;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PublishLiveRequest extends Model
 {
     /**
-     * @description 直播资源的唯一标识ID
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 当前用户Id
-     *
      * @var string
      */
     public $userId;

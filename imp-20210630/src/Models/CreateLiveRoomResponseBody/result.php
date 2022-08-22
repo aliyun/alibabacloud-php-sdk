@@ -11,113 +11,81 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 主播ID。
-     *
      * @var string
      */
     public $anchorId;
 
     /**
-     * @description 主播昵称。
-     *
      * @var string
      */
     public $anchorNick;
 
     /**
-     * @description 应用ID。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description RTS低延迟播流信息。
-     *
      * @var artcInfo
      */
     public $artcInfo;
 
     /**
-     * @description 聊天ID。
-     *
      * @var string
      */
     public $chatId;
 
     /**
-     * @description 封面。
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 直播拓展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 原画HLS播放地址。
-     *
      * @var string
      */
     public $hlsUrl;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 直播拉流地址。
-     *
      * @var string
      */
     public $liveUrl;
 
     /**
-     * @description 公告。
-     *
      * @var string
      */
     public $notice;
 
     /**
-     * @description 直播回放地址。
-     *
      * @var string
      */
     public $playbackUrl;
 
     /**
-     * @description 活跃插件列表。
-     *
      * @var pluginInstanceInfoList[]
      */
     public $pluginInstanceInfoList;
 
     /**
-     * @description 直播推流地址。
-     *
      * @var string
      */
     public $pushUrl;
 
     /**
-     * @description 房间ID。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 标题。
-     *
      * @var string
      */
     public $title;

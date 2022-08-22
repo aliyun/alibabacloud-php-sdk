@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListRoomsResponseBody extends Model
 {
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description API请求的返回结果结构体。
-     *
      * @var result
      */
     public $result;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteClassRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 课堂唯一标识。
-     *
      * @var string
      */
     public $classId;
 
     /**
-     * @description 操作人用户ID，仅支持中英文数字，下划线，中划线，1~36个字符。
-     *
      * @var string
      */
     public $userId;

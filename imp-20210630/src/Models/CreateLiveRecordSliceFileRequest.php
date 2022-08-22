@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveRecordSliceFileRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 片段结束时间，时间戳。
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 自定义文件名称。
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 片段开始时间，时间戳。
-     *
      * @var int
      */
     public $startTime;

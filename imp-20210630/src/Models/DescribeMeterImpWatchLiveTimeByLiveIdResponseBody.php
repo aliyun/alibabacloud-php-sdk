@@ -15,8 +15,6 @@ class DescribeMeterImpWatchLiveTimeByLiveIdResponseBody extends Model
     public $data;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class BanCommentRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 禁言时长（秒）
-     *
      * @var int
      */
     public $banCommentTime;
 
     /**
-     * @description 被禁言的用户在房间内的唯一标识
-     *
      * @var string
      */
     public $banCommentUser;
 
     /**
-     * @description 房间唯一标识，由调用CreateRoom返回。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 用户在房间内的唯一标识
-     *
      * @var string
      */
     public $userId;

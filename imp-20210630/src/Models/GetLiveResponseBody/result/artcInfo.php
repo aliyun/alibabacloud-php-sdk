@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class artcInfo extends Model
 {
     /**
-     * @description 原画转码地址
-     *
      * @var string
      */
     public $artcH5Url;
 
     /**
-     * @description 源码地址
-     *
      * @var string
      */
     public $artcUrl;

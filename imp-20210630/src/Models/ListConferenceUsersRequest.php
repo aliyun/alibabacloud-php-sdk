@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListConferenceUsersRequest extends Model
 {
     /**
-     * @description 会议唯一标识符
-     *
      * @var string
      */
     public $conferenceId;
 
     /**
-     * @description 查询页码，从第1页开始。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页显示个数，最大显示个数为100。
-     *
      * @var int
      */
     public $pageSize;

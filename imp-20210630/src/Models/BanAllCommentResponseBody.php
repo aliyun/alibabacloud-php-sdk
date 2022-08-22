@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BanAllCommentResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 操作成功标识
-     *
      * @var bool
      */
     public $result;

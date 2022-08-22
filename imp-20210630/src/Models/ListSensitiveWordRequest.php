@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveWordRequest extends Model
 {
     /**
-     * @description 弹幕发送者的用户ID，最大长度不超过32个字节。
-     *
      * @var string
      */
     public $appId;

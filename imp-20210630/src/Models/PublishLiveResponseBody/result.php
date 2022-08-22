@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 主播ID
-     *
      * @var string
      */
     public $anchorId;
 
     /**
-     * @description 直播资源的唯一标识ID
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 直播拉流地址
-     *
      * @var string
      */
     public $liveUrl;
 
     /**
-     * @description 直播推流地址
-     *
      * @var string
      */
     public $pushUrl;
 
     /**
-     * @description 直播状态：Created-已创建未开播，Living-直播中，End-直播结束
-     *
      * @var string
      */
     public $status;

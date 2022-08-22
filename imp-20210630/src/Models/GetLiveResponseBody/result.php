@@ -11,141 +11,101 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 主播ID
-     *
      * @var string
      */
     public $anchorId;
 
     /**
-     * @description 租户名
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description rts播流信息
-     *
      * @var artcInfo
      */
     public $artcInfo;
 
     /**
-     * @description 直播推送分辨率 -1:lld 1:lsd 2:lhd 3:lud
-     *
      * @var int
      */
     public $codeLevel;
 
     /**
-     * @description 封面图片
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 直播创建时间（毫秒ms）
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 直播持续时间（毫秒ms）
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 直播结束时间（毫秒ms）
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description hls播放地址
-     *
      * @var string
      */
     public $hlsUrl;
 
     /**
-     * @description 直播简介
-     *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description 直播资源的唯一标识ID
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 直播拉流地址
-     *
      * @var string
      */
     public $liveUrl;
 
     /**
-     * @description 多分辨率多协议播放信息
-     *
      * @var playUrlInfoList[]
      */
     public $playUrlInfoList;
 
     /**
-     * @description 直播回放地址
-     *
      * @var string
      */
     public $playbackUrl;
 
     /**
-     * @description 直播推流地址
-     *
      * @var string
      */
     public $pushUrl;
 
     /**
-     * @description 房间id
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 直播状态：Created-已创建，未开播，Living-直播中，End-直播结束
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 直播标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 用户自定义数据存储
-     *
      * @var string
      */
     public $userDefineField;
 
     /**
-     * @description 创建直播用户
-     *
      * @var string
      */
     public $userId;

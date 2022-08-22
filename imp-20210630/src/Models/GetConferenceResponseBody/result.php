@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 租户名
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 会议资源唯一标识。
-     *
      * @var string
      */
     public $conferenceId;
 
     /**
-     * @description 会议创建时间戳，单位：毫秒。
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 录制回放地址，m3u8格式，会议结束后10秒才会生成。
-     *
      * @var string
      */
     public $playbackUrl;
 
     /**
-     * @description 房间ID。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 会议状态。
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 会议标题。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 创建会议用户。
-     *
      * @var string
      */
     public $userId;

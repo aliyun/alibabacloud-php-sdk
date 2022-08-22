@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CommonMediaResource extends Model
 {
     /**
-     * @description media format
-     *
      * @var string
      */
     public $format;
 
     /**
-     * @description media id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description media sha1
-     *
      * @var string
      */
     public $sha1;
 
     /**
-     * @description media size
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description resource url
-     *
      * @var string
      */
     public $url;

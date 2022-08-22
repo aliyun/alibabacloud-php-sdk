@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class artcInfo extends Model
 {
     /**
-     * @description RTS转码流地址，推荐web端使用。
-     *
      * @var string
      */
     public $artcH5Url;
 
     /**
-     * @description RTS原码流地址，推荐移动端使用。
-     *
      * @var string
      */
     public $artcUrl;

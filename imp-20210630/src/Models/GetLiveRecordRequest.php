@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetLiveRecordRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 直播唯一标识，由调用CreateLiveRoom返回。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 操作人用户ID。
-     *
      * @var string
      */
     public $userId;

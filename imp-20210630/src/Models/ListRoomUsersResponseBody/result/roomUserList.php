@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class roomUserList extends Model
 {
     /**
-     * @description 用户拓展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 用户昵称。
-     *
      * @var string
      */
     public $nick;
 
     /**
-     * @description 用户唯一标识。
-     *
      * @var string
      */
     public $userId;

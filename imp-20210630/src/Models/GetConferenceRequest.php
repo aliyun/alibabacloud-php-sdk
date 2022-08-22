@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetConferenceRequest extends Model
 {
     /**
-     * @description 会议资源唯一标识。
-     *
      * @var string
      */
     public $conferenceId;

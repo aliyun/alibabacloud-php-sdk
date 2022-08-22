@@ -9,127 +9,91 @@ use AlibabaCloud\Tea\Model;
 class CommonAsset extends Model
 {
     /**
-     * @description 行政区域地址
-     *
      * @var CommonAddress
      */
     public $address;
 
     /**
-     * @description 应用ID
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 审核状态
-     *
      * @var string
      */
     public $auditStatus;
 
     /**
-     * @description 作者
-     *
      * @var string
      */
     public $author;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description 资产描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 扩展字段
-     *
      * @var mixed[]
      */
     public $extends;
 
     /**
-     * @description 资产ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 图像资源
-     *
      * @var CommonMediaResource[]
      */
     public $images;
 
     /**
-     * @description 定义Label， eg:type:advertise 支持广告类型的label
-     *
      * @var mixed[]
      */
     public $labels;
 
     /**
-     * @description 经纬度地理位置
-     *
      * @var TypeLatLng
      */
     public $location;
 
     /**
-     * @description 资产来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 资产状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 概要
-     *
      * @var string
      */
     public $synopsis;
 
     /**
-     * @description 标签
-     *
      * @var string[]
      */
     public $tags;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $updatedAt;
 
     /**
-     * @description 视频资源
-     *
      * @var CommonMediaResource[]
      */
     public $videos;

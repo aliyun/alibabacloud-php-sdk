@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateShareScreenLayoutRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 课堂唯一标识，由调用CreateClass返回。
-     *
      * @var string
      */
     public $classId;
 
     /**
-     * @description 是否开启叠加老师画面
-     *
      * @var bool
      */
     public $enableOverlay;
 
     /**
-     * @description 叠加画面高度，归一化为1
-     *
      * @var float
      */
     public $overlayHeight;
 
     /**
-     * @description 叠加画面宽度，归一化为1
-     *
      * @var float
      */
     public $overlayWidth;
 
     /**
-     * @description 叠加画面X坐标，归一化为1
-     *
      * @var float
      */
     public $overlayX;
 
     /**
-     * @description 叠加画面Y坐标，归一化为1
-     *
      * @var float
      */
     public $overlayY;

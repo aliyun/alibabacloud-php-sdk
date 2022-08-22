@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RemoveMemberRequest extends Model
 {
     /**
-     * @description 会议唯一标识
-     *
      * @var string
      */
     public $conferenceId;
 
     /**
-     * @description 邀请者用户ID
-     *
      * @var string
      */
     public $fromUserId;
 
     /**
-     * @description 被邀请用户ID
-     *
      * @var string
      */
     public $toUserId;

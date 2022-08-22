@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 是否还有下一页用户列表。
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description 该房间的用户总页数。
-     *
      * @var int
      */
     public $pageTotal;
 
     /**
-     * @description 房间用户列表信息。
-     *
      * @var roomUserList[]
      */
     public $roomUserList;
 
     /**
-     * @description 该房间的用户总数。
-     *
      * @var int
      */
     public $totalCount;

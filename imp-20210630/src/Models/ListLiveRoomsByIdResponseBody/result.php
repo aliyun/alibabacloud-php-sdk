@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 直播列表信息。
-     *
      * @var liveList[]
      */
     public $liveList;

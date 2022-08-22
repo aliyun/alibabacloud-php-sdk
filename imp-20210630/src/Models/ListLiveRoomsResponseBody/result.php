@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 是否还有下一页。
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description 直播列表信息。
-     *
      * @var liveList[]
      */
     public $liveList;
 
     /**
-     * @description 直播总页数。
-     *
      * @var int
      */
     public $pageTotal;
 
     /**
-     * @description 直播总数。
-     *
      * @var int
      */
     public $totalCount;

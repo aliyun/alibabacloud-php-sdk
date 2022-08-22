@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveRequest extends Model
 {
     /**
-     * @description 直播简介，支持中英文，最大长度2048位
-     *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description 直播资源的唯一标识ID
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 直播标题，支持中英文，最大长度256位
-     *
      * @var string
      */
     public $title;

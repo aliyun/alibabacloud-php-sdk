@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class AssetsListAssetsRequest extends Model
 {
     /**
-     * @description AppId
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description Optional. Used to specify a subset of fields that should be
-     * returned by a get operation or modified by an update operation.
      * @var string
      */
     public $fieldMask;
 
     /**
-     * @description 每页显示个数，最大支持20，参数为空默认显示个数为10。
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页Token Optional.
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 参数
-     *
      * @var string
      */
     public $params;
 
     /**
-     * @description 订阅Topic
-     *
      * @var string
      */
     public $topic;

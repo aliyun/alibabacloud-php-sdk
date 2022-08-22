@@ -9,120 +9,86 @@ use AlibabaCloud\Tea\Model;
 class liveList extends Model
 {
     /**
-     * @description 主播ID。
-     *
      * @var string
      */
     public $anchorId;
 
     /**
-     * @description 主播昵称。
-     *
      * @var string
      */
     public $anchorNick;
 
     /**
-     * @description 应用ID。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 聊天ID。
-     *
      * @var string
      */
     public $chatId;
 
     /**
-     * @description 封面。
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 直播的创建时间。单位为ms。
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 直播的结束时间。单位为ms。
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 直播拓展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 公告。
-     *
      * @var string
      */
     public $notice;
 
     /**
-     * @description 在线用户数。
-     *
      * @var int
      */
     public $onlineCount;
 
     /**
-     * @description 访问用户人次。
-     *
      * @var int
      */
     public $pv;
 
     /**
-     * @description 房间ID。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 直播的开始时间。单位为ms。
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 直播状态，0-在播 1-下播。
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 标题。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 访问用户数。
-     *
      * @var int
      */
     public $uv;

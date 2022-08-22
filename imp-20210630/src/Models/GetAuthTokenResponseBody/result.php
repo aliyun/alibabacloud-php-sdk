@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 用于长连接建连的token
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 登录token过期时间(毫秒)
-     *
      * @var int
      */
     public $accessTokenExpiredTime;
 
     /**
-     * @description 更新Token，若AccessToken过期，则可以使用RefreshToken再次获取新Token
-     *
      * @var string
      */
     public $refreshToken;

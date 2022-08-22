@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class conferenceUserList extends Model
 {
     /**
-     * @description 用户状态。
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 用户ID。
-     *
      * @var string
      */
     public $userId;

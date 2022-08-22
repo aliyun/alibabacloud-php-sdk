@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 直播结束时间，单位：毫秒。
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 点赞数。
-     *
      * @var int
      */
     public $likeCount;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 互动消息数。
-     *
      * @var int
      */
     public $messageCount;
 
     /**
-     * @description 在线用户数。
-     *
      * @var int
      */
     public $onlineCount;
 
     /**
-     * @description 访问用户人次。
-     *
      * @var int
      */
     public $pv;
 
     /**
-     * @description 直播开始时间，单位：毫秒。
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 直播状态，0-已创建 1-直播中 2-已关闭。
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 访问用户数。
-     *
      * @var int
      */
     public $uv;
 
     /**
-     * @description 总观看时长，单位：毫秒。
-     *
      * @var int
      */
     public $watchLiveTime;

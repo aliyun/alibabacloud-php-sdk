@@ -11,204 +11,146 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 主播ID。
-     *
      * @var string
      */
     public $anchorId;
 
     /**
-     * @description 主播昵称
-     *
      * @var string
      */
     public $anchorNick;
 
     /**
-     * @description 应用ID。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description RTS低延迟播流信息。
-     *
      * @var artcInfo
      */
     public $artcInfo;
 
     /**
-     * @description 聊天ID。
-     *
      * @var string
      */
     public $chatId;
 
     /**
-     * @description 连麦会议唯一标识。
-     *
      * @var string
      */
     public $confId;
 
     /**
-     * @description 封面。
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 直播创建时间，单位：毫秒。
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 是否开启连麦。
-     *
      * @var bool
      */
     public $enableLinkMic;
 
     /**
-     * @description 直播结束时间，单位：毫秒。
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 直播拓展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 原画HLS播放地址。
-     *
      * @var string
      */
     public $hlsUrl;
 
     /**
-     * @description https协议的原画HLS播放地址。
-     *
      * @var string
      */
     public $hlsUrlHttps;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 直播拉流地址。
-     *
      * @var string
      */
     public $liveUrl;
 
     /**
-     * @description https协议的直播拉流地址。
-     *
      * @var string
      */
     public $liveUrlHttps;
 
     /**
-     * @description 公告。
-     *
      * @var string
      */
     public $notice;
 
     /**
-     * @description 在线用户数。
-     *
      * @var int
      */
     public $onlineCount;
 
     /**
-     * @description 直播回放地址。
-     *
      * @var string
      */
     public $playbackUrl;
 
     /**
-     * @description https协议的直播回放地址
-     *
      * @var string
      */
     public $playbackUrlHttps;
 
     /**
-     * @description 活跃插件列表。
-     *
      * @var pluginInstanceInfoList[]
      */
     public $pluginInstanceInfoList;
 
     /**
-     * @description 直播推流地址。
-     *
      * @var string
      */
     public $pushUrl;
 
     /**
-     * @description 访问用户人次。
-     *
      * @var int
      */
     public $pv;
 
     /**
-     * @description 房间ID。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description rtmp协议的播放地址
-     *
      * @var string
      */
     public $rtmpUrl;
 
     /**
-     * @description 直播开始时间，单位：毫秒。
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 直播状态，0-在播 1-下播。
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 标题。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 访问用户数。
-     *
      * @var int
      */
     public $uv;

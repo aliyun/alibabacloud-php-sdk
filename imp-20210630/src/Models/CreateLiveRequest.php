@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveRequest extends Model
 {
     /**
-     * @description 主播ID，支持中英文，最大长度128位，缺省时主播为当前创建直播用户。
-     *
      * @var string
      */
     public $anchorId;
 
     /**
-     * @description 应用唯一标识，可以包含小写字母、数字，长度为6个字符。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 直播推流码率，缺省时默认为3。取值：  -1：流畅lld。 1：标清lsd。 2：高清lhd。 3：超清lud。
-     *
      * @var int
      */
     public $codeLevel;
 
     /**
-     * @description 直播简介，支持中英文，最大长度2048位。
-     *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description 直播资源的唯一标识ID，缺省时系统自动生成36位随机uuid字符串。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 房间ID，最大长度36个字符，传空值，则随机生成一个房间ID。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 直播标题，支持中英文，最大长度256位。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 创建直播用户。
-     *
      * @var string
      */
     public $userId;

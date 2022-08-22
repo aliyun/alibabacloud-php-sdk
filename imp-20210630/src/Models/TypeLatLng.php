@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TypeLatLng extends Model
 {
     /**
-     * @description The latitude in degrees. It must be in the range [-90.0, +90.0].
-     *
      * @var float
      */
     public $latitude;
 
     /**
-     * @description The longitude in degrees. It must be in the range [-180.0, +180.0].
-     *
      * @var float
      */
     public $longitude;

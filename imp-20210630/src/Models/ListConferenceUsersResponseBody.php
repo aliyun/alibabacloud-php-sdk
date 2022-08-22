@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListConferenceUsersResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回结果
-     *
      * @var result
      */
     public $result;

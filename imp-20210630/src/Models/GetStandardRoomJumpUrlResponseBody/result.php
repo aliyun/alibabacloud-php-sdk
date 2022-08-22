@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 样板间跳转协议地址
-     *
      * @var string
      */
     public $standardRoomJumpUrl;

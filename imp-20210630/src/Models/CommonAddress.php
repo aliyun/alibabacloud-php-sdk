@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CommonAddress extends Model
 {
     /**
-     * @description 地址
-     *
      * @var string
      */
     public $address;
 
     /**
-     * @description 城市
-     *
      * @var string
      */
     public $city;
 
     /**
-     * @description 国家
-     *
      * @var string
      */
     public $country;
 
     /**
-     * @description 区域
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description zip
-     *
      * @var string
      */
     public $zip;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRoomsByIdRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 直播ID列表。
-     *
      * @var string[]
      */
     public $liveIdList;

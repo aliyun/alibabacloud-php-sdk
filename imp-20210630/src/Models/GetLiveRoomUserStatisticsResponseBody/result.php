@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 是否还有下一页。
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 用户总页数。
-     *
      * @var int
      */
     public $pageTotal;
 
     /**
-     * @description 用户总数
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description 用户观看数据列表。
-     *
      * @var userStatisticsList[]
      */
     public $userStatisticsList;

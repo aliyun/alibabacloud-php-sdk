@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetStandardRoomJumpUrlRequest extends Model
 {
     /**
-     * @description 用户的应用ID，在控制台创建应用时生成
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 终端设备类型,通过控制台创建和查询
-     *
      * @var string
      */
     public $appKey;
 
     /**
-     * @description 资源ID：根据业务类型来定，比如直播ID，课堂ID等
-     *
      * @var string
      */
     public $bizId;
 
     /**
-     * @description 业务类型：互动直播live，互动课堂class
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description 平台：win, mac, android, ios, web
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description 用户UserId,在AppId下单独唯一
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 用户昵称
-     *
      * @var string
      */
     public $userNick;

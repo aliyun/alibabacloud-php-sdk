@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RpcStatus extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 错误详情
-     *
      * @var string
      */
     public $detail;
 
     /**
-     * @description 错误消息
-     *
      * @var string
      */
     public $message;

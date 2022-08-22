@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AssetsListAssetsResponse extends Model
 {
     /**
-     * @description Asset列表
-     *
      * @var CommonAsset[]
      */
     public $assets;
 
     /**
-     * @description 分页Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 响应状态
-     *
      * @var RpcStatus
      */
     public $status;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class pluginInstanceInfoList extends Model
 {
     /**
-     * @description 插件实例创建时间戳，单位：毫秒。
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 插件拓展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 插件实例唯一标识。
-     *
      * @var string
      */
     public $pluginId;
 
     /**
-     * @description 插件唯一标识，取值：live-直播，wb-白板，chat-聊天，rtc。
-     *
      * @var string
      */
     public $pluginType;

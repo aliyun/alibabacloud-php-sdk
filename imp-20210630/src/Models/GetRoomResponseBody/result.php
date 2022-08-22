@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 房间信息。
-     *
      * @var roomInfo
      */
     public $roomInfo;

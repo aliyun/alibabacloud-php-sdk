@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateRoomShrinkRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 拓展字段，按需传递，需要额外记录的房间属性。
-     *
      * @var string
      */
     public $extensionShrink;
 
     /**
-     * @description 房间公告，支持中英文，最大长度256位。
-     *
      * @var string
      */
     public $notice;
 
     /**
-     * @description 房间唯一标识。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 房主用户id，仅支持英文和数字，最大长度36位。
-     *
      * @var string
      */
     public $roomOwnerId;
 
     /**
-     * @description 房间标题，支持中英文，最大长度32位。
-     *
      * @var string
      */
     public $title;

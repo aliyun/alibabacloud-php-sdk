@@ -10,78 +10,56 @@ use AlibabaCloud\Tea\Model;
 class roomInfoList extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 房间创建时间戳，单位：毫秒。
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 房间拓展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 房间公告。
-     *
      * @var string
      */
     public $notice;
 
     /**
-     * @description 用户在线数。
-     *
      * @var int
      */
     public $onlineCount;
 
     /**
-     * @description 活跃插件列表。
-     *
      * @var pluginInstanceInfoList[]
      */
     public $pluginInstanceInfoList;
 
     /**
-     * @description 房间唯一标识。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 房主用户id。
-     *
      * @var string
      */
     public $roomOwnerId;
 
     /**
-     * @description 创建房间使用的模板id。
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 房间标题。
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 用户访问数。
-     *
      * @var int
      */
     public $uv;

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SendCommentShrinkRequest extends Model
 {
     /**
-     * @description 应用唯一标识，可以包含小写字母、数字，长度为6个字符。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 发送的文本内容。最大的长度不超过256个字节。
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 扩展字段，服务端仅做透传。
-     *
      * @var string
      */
     public $extensionShrink;
 
     /**
-     * @description 直播间唯一标识，在调用CreateRoom返回。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 弹幕发送者的用户ID，最大长度不超过32个字节。
-     *
      * @var string
      */
     public $senderId;
 
     /**
-     * @description 弹幕消息发送者的昵称。
-     *
      * @var string
      */
     public $senderNick;

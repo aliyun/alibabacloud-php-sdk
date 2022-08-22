@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SendCustomMessageToAllRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 消息体内容。
-     *
      * @var string
      */
     public $body;
 
     /**
-     * @description 房间唯一标识，由调用CreateRoom返回。
-     *
      * @var string
      */
     public $roomId;

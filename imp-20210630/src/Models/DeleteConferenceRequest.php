@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteConferenceRequest extends Model
 {
     /**
-     * @description 租户名
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 会议资源的唯一标识ID
-     *
      * @var string
      */
     public $conferenceId;
 
     /**
-     * @description 房间ID，最大长度36位
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 创建会议用户ID
-     *
      * @var string
      */
     public $userId;

@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteCommentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteCommentResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteConferenceResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveFilesByIdRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveFilesByIdResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\DeleteLiveRoomRequest;
@@ -82,6 +84,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListConferenceUsersResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveFilesRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveFilesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListLiveRoomsByIdShrinkRequest;
@@ -1033,6 +1037,52 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLiveWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteLiveFilesByIdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteLiveFilesByIdResponse
+     */
+    public function deleteLiveFilesByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLiveFilesById',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLiveFilesByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLiveFilesByIdRequest $request
+     *
+     * @return DeleteLiveFilesByIdResponse
+     */
+    public function deleteLiveFilesById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLiveFilesByIdWithOptions($request, $runtime);
     }
 
     /**
@@ -2030,6 +2080,52 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConferenceUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLiveFilesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListLiveFilesResponse
+     */
+    public function listLiveFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->liveId)) {
+            $body['LiveId'] = $request->liveId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLiveFiles',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLiveFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLiveFilesRequest $request
+     *
+     * @return ListLiveFilesResponse
+     */
+    public function listLiveFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLiveFilesWithOptions($request, $runtime);
     }
 
     /**

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetRoomResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 查询房间信息返回结果。
-     *
      * @var result
      */
     public $result;

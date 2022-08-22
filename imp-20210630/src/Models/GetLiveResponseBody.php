@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetLiveResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

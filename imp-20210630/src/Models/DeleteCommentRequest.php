@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteCommentRequest extends Model
 {
     /**
-     * @description 应用唯一标识，可以包含小写字母、数字，长度为6个字符。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 需要删除的弹幕id列表
-     *
      * @var string[]
      */
     public $commentIdList;
 
     /**
-     * @description 直播间唯一标识，在调用CreateRoom返回。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 删除的操作人ID。
-     *
      * @var string
      */
     public $userId;

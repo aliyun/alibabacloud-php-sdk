@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 直播ID。
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description 直播拉流地址。
-     *
      * @var string
      */
     public $liveUrl;
 
     /**
-     * @description 直播推流地址。
-     *
      * @var string
      */
     public $pushUrl;

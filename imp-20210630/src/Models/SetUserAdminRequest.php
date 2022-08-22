@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SetUserAdminRequest extends Model
 {
     /**
-     * @description 应用唯一标识，由6位小写字母、数字组成。
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 房间唯一标识，由字母、数字、符号.和-组成，最大长度36位。
-     *
      * @var string
      */
     public $roomId;
 
     /**
-     * @description 用户ID
-     *
      * @var string
      */
     public $userId;

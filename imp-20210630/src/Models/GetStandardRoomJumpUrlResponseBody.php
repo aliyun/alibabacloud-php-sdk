@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetStandardRoomJumpUrlResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

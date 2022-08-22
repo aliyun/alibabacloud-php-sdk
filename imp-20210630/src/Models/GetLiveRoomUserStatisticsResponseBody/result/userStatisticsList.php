@@ -19,15 +19,11 @@ class userStatisticsList extends Model
     public $likeCount;
 
     /**
-     * @description 用户ID。
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description 观看时长，单位：毫秒。
-     *
      * @var int
      */
     public $watchLiveTime;

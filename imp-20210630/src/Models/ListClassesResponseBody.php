@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListClassesResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 创建课程返回的结果。
-     *
      * @var result
      */
     public $result;

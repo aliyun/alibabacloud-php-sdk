@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class commentVO extends Model
 {
     /**
-     * @description 弹幕的唯一ID。
-     *
      * @var string
      */
     public $commentId;
 
     /**
-     * @description 弹幕的内容。
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 弹幕的创建时间，Unix时间戳，单位：毫秒。
-     *
      * @var int
      */
     public $createAt;
 
     /**
-     * @description 扩展字段。
-     *
      * @var string[]
      */
     public $extension;
 
     /**
-     * @description 弹幕的发送者ID标识。
-     *
      * @var string
      */
     public $senderId;
 
     /**
-     * @description 弹幕发送者的昵称。
-     *
      * @var string
      */
     public $senderNick;

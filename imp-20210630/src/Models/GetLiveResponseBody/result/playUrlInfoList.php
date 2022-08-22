@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class playUrlInfoList extends Model
 {
     /**
-     * @description 直播拉取分辨率 -1:lld 1:lsd 2:lhd 3:lud
-     *
      * @var int
      */
     public $codeLevel;
 
     /**
-     * @description flv拉流地址
-     *
      * @var string
      */
     public $flvUrl;
 
     /**
-     * @description hls拉流地址
-     *
      * @var string
      */
     public $hlsUrl;
 
     /**
-     * @description rtmp拉流地址
-     *
      * @var string
      */
     public $rtmpUrl;
