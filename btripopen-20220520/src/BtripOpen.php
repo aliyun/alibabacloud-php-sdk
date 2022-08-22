@@ -40,6 +40,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterDeleteRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveRequest;
@@ -1285,14 +1286,14 @@ class BtripOpen extends OpenApiClient
     public function costCenterQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CostCenterQueryHeaders([]);
 
         return $this->costCenterQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CostCenterQueryRequest $request
-     * @param string[]               $headers
+     * @param CostCenterQueryHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return CostCenterQueryResponse
@@ -1313,8 +1314,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
