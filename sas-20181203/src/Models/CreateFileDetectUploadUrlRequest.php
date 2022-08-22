@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest\hashKeyContextList;
 use AlibabaCloud\Tea\Model;
 
 class CreateFileDetectUploadUrlRequest extends Model
 {
+    /**
+     * @var hashKeyContextList[]
+     */
+    public $hashKeyContextList;
+
     /**
      * @var string[]
      */
@@ -18,8 +24,9 @@ class CreateFileDetectUploadUrlRequest extends Model
      */
     public $type;
     protected $_name = [
-        'hashKeyList' => 'HashKeyList',
-        'type'        => 'Type',
+        'hashKeyContextList' => 'HashKeyContextList',
+        'hashKeyList'        => 'HashKeyList',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -29,6 +36,15 @@ class CreateFileDetectUploadUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hashKeyContextList) {
+            $res['HashKeyContextList'] = [];
+            if (null !== $this->hashKeyContextList && \is_array($this->hashKeyContextList)) {
+                $n = 0;
+                foreach ($this->hashKeyContextList as $item) {
+                    $res['HashKeyContextList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->hashKeyList) {
             $res['HashKeyList'] = $this->hashKeyList;
         }
@@ -47,6 +63,15 @@ class CreateFileDetectUploadUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HashKeyContextList'])) {
+            if (!empty($map['HashKeyContextList'])) {
+                $model->hashKeyContextList = [];
+                $n                         = 0;
+                foreach ($map['HashKeyContextList'] as $item) {
+                    $model->hashKeyContextList[$n++] = null !== $item ? hashKeyContextList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['HashKeyList'])) {
             if (!empty($map['HashKeyList'])) {
                 $model->hashKeyList = $map['HashKeyList'];

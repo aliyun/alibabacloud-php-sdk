@@ -901,6 +901,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->hashKeyContextList)) {
+            $query['HashKeyContextList'] = $request->hashKeyContextList;
+        }
         if (!Utils::isUnset($request->hashKeyList)) {
             $query['HashKeyList'] = $request->hashKeyList;
         }

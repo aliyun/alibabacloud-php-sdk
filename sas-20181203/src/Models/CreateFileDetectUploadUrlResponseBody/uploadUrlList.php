@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class uploadUrlList extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var context
      */
     public $context;
@@ -37,13 +42,20 @@ class uploadUrlList extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $publicUrl;
     protected $_name = [
+        'code'        => 'Code',
         'context'     => 'Context',
         'expire'      => 'Expire',
         'fileExist'   => 'FileExist',
         'hashKey'     => 'HashKey',
         'internalUrl' => 'InternalUrl',
+        'message'     => 'Message',
         'publicUrl'   => 'PublicUrl',
     ];
 
@@ -54,6 +66,9 @@ class uploadUrlList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->context) {
             $res['Context'] = null !== $this->context ? $this->context->toMap() : null;
         }
@@ -68,6 +83,9 @@ class uploadUrlList extends Model
         }
         if (null !== $this->internalUrl) {
             $res['InternalUrl'] = $this->internalUrl;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->publicUrl) {
             $res['PublicUrl'] = $this->publicUrl;
@@ -84,6 +102,9 @@ class uploadUrlList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['Context'])) {
             $model->context = context::fromMap($map['Context']);
         }
@@ -98,6 +119,9 @@ class uploadUrlList extends Model
         }
         if (isset($map['InternalUrl'])) {
             $model->internalUrl = $map['InternalUrl'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['PublicUrl'])) {
             $model->publicUrl = $map['PublicUrl'];
