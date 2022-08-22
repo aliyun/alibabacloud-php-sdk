@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListDbfsAttachableEcsInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $filterKey;
+
+    /**
+     * @var string
+     */
+    public $filterValue;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -23,9 +33,11 @@ class ListDbfsAttachableEcsInstancesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'filterKey'   => 'FilterKey',
+        'filterValue' => 'FilterValue',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -35,6 +47,12 @@ class ListDbfsAttachableEcsInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filterKey) {
+            $res['FilterKey'] = $this->filterKey;
+        }
+        if (null !== $this->filterValue) {
+            $res['FilterValue'] = $this->filterValue;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -56,6 +74,12 @@ class ListDbfsAttachableEcsInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FilterKey'])) {
+            $model->filterKey = $map['FilterKey'];
+        }
+        if (isset($map['FilterValue'])) {
+            $model->filterValue = $map['FilterValue'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
