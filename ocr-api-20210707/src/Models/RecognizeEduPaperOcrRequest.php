@@ -10,36 +10,26 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeEduPaperOcrRequest extends Model
 {
     /**
-     * @description 图片类型
-     *
      * @var string
      */
     public $imageType;
 
     /**
-     * @description 是否输出原图坐标信息(如果图片被做过旋转，图片校正等处理)
-     *
      * @var bool
      */
     public $outputOricoord;
 
     /**
-     * @description 年级学科
-     *
      * @var string
      */
     public $subject;
 
     /**
-     * @description 图片链接（长度不超 2048，不支持 base64）
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 图片二进制字节流，最大10MB
-     *
      * @var Stream
      */
     public $body;

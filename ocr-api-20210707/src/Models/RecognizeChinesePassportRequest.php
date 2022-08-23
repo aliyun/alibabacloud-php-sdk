@@ -10,22 +10,16 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeChinesePassportRequest extends Model
 {
     /**
-     * @description 是否需要图案检测功能，默认需要
-     *
      * @var bool
      */
     public $outputFigure;
 
     /**
-     * @description 图片链接（长度不超 2048，不支持 base64）
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 图片二进制字节流，最大10MB
-     *
      * @var Stream
      */
     public $body;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RecognizeBusShipTicketResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 返回数据
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description 错误提示
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求唯一 ID
-     *
      * @var string
      */
     public $requestId;

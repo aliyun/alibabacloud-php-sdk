@@ -15,15 +15,11 @@ class RecognizeCovidTestReportRequest extends Model
     public $multipleResult;
 
     /**
-     * @description 图片链接（长度不超 2048，不支持 base64）
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 图片二进制字节流，最大10MB
-     *
      * @var Stream
      */
     public $body;

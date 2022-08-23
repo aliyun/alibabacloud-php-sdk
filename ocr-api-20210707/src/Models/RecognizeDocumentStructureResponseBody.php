@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RecognizeTravelCardResponseBody extends Model
+class RecognizeDocumentStructureResponseBody extends Model
 {
     /**
      * @var string
@@ -60,7 +60,7 @@ class RecognizeTravelCardResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeTravelCardResponseBody
+     * @return RecognizeDocumentStructureResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -10,36 +10,26 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTableOcrRequest extends Model
 {
     /**
-     * @description 是否无线条
-     *
      * @var bool
      */
     public $lineLess;
 
     /**
-     * @description 是否需要自动旋转功能，默认需要
-     *
      * @var bool
      */
     public $needRotate;
 
     /**
-     * @description 是否跳过表格识别，如果没有检测到表格，可以设置"skip_detection":true
-     *
      * @var bool
      */
     public $skipDetection;
 
     /**
-     * @description 图片链接（长度不超 2048，不支持 base64）
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 图片二进制字节流，最大10MB
-     *
      * @var Stream
      */
     public $body;

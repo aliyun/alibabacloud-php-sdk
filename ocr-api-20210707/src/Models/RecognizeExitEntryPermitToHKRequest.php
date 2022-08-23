@@ -10,22 +10,16 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeExitEntryPermitToHKRequest extends Model
 {
     /**
-     * @description 图案坐标信息输出，针对结构化，如身份证人脸头像
-     *
      * @var bool
      */
     public $outputFigure;
 
     /**
-     * @description 图片链接（长度不超 2048，不支持 base64）
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 图片二进制字节流，最大10MB
-     *
      * @var Stream
      */
     public $body;

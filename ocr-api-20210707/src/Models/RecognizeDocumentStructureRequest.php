@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizeAdvancedRequest extends Model
+class RecognizeDocumentStructureRequest extends Model
 {
     /**
      * @var bool
@@ -32,12 +32,12 @@ class RecognizeAdvancedRequest extends Model
     /**
      * @var bool
      */
-    public $outputFigure;
+    public $outputTable;
 
     /**
      * @var bool
      */
-    public $outputTable;
+    public $page;
 
     /**
      * @var bool
@@ -55,20 +55,26 @@ class RecognizeAdvancedRequest extends Model
     public $url;
 
     /**
+     * @var bool
+     */
+    public $useNewStyleOutput;
+
+    /**
      * @var Stream
      */
     public $body;
     protected $_name = [
-        'needRotate'     => 'NeedRotate',
-        'needSortPage'   => 'NeedSortPage',
-        'noStamp'        => 'NoStamp',
-        'outputCharInfo' => 'OutputCharInfo',
-        'outputFigure'   => 'OutputFigure',
-        'outputTable'    => 'OutputTable',
-        'paragraph'      => 'Paragraph',
-        'row'            => 'Row',
-        'url'            => 'Url',
-        'body'           => 'body',
+        'needRotate'        => 'NeedRotate',
+        'needSortPage'      => 'NeedSortPage',
+        'noStamp'           => 'NoStamp',
+        'outputCharInfo'    => 'OutputCharInfo',
+        'outputTable'       => 'OutputTable',
+        'page'              => 'Page',
+        'paragraph'         => 'Paragraph',
+        'row'               => 'Row',
+        'url'               => 'Url',
+        'useNewStyleOutput' => 'UseNewStyleOutput',
+        'body'              => 'body',
     ];
 
     public function validate()
@@ -90,11 +96,11 @@ class RecognizeAdvancedRequest extends Model
         if (null !== $this->outputCharInfo) {
             $res['OutputCharInfo'] = $this->outputCharInfo;
         }
-        if (null !== $this->outputFigure) {
-            $res['OutputFigure'] = $this->outputFigure;
-        }
         if (null !== $this->outputTable) {
             $res['OutputTable'] = $this->outputTable;
+        }
+        if (null !== $this->page) {
+            $res['Page'] = $this->page;
         }
         if (null !== $this->paragraph) {
             $res['Paragraph'] = $this->paragraph;
@@ -104,6 +110,9 @@ class RecognizeAdvancedRequest extends Model
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->useNewStyleOutput) {
+            $res['UseNewStyleOutput'] = $this->useNewStyleOutput;
         }
         if (null !== $this->body) {
             $res['body'] = $this->body;
@@ -115,7 +124,7 @@ class RecognizeAdvancedRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeAdvancedRequest
+     * @return RecognizeDocumentStructureRequest
      */
     public static function fromMap($map = [])
     {
@@ -132,11 +141,11 @@ class RecognizeAdvancedRequest extends Model
         if (isset($map['OutputCharInfo'])) {
             $model->outputCharInfo = $map['OutputCharInfo'];
         }
-        if (isset($map['OutputFigure'])) {
-            $model->outputFigure = $map['OutputFigure'];
-        }
         if (isset($map['OutputTable'])) {
             $model->outputTable = $map['OutputTable'];
+        }
+        if (isset($map['Page'])) {
+            $model->page = $map['Page'];
         }
         if (isset($map['Paragraph'])) {
             $model->paragraph = $map['Paragraph'];
@@ -146,6 +155,9 @@ class RecognizeAdvancedRequest extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['UseNewStyleOutput'])) {
+            $model->useNewStyleOutput = $map['UseNewStyleOutput'];
         }
         if (isset($map['body'])) {
             $model->body = $map['body'];

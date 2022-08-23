@@ -18,8 +18,6 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankCardRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankCardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBasicRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBasicResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBatchRecognizeRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBatchRecognizeResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBirthCertificationRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBirthCertificationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBusinessLicenseRequest;
@@ -42,8 +40,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCovidTestReportRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCovidTestReportResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeCtwoMedicalDeviceManageLicenseResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDeleteExcelRecordRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDeleteExcelRecordResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDocumentStructureRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDocumentStructureResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDrivingLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeDrivingLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEduFormulaRequest;
@@ -62,10 +60,6 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEnglishRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEnglishResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEstateCertificationRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeEstateCertificationResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelExportRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelExportResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelRecordRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExcelRecordResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToHKRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToHKResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeExitEntryPermitToMainlandRequest;
@@ -482,70 +476,6 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeBasicWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeBatchRecognizeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RecognizeBatchRecognizeResponse
-     */
-    public function recognizeBatchRecognizeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->imageName)) {
-            $query['ImageName'] = $request->imageName;
-        }
-        if (!Utils::isUnset($request->imageOp)) {
-            $query['ImageOp'] = $request->imageOp;
-        }
-        if (!Utils::isUnset($request->imageOssKey)) {
-            $query['ImageOssKey'] = $request->imageOssKey;
-        }
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
-        }
-        if (!Utils::isUnset($request->needSortPage)) {
-            $query['NeedSortPage'] = $request->needSortPage;
-        }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
-        }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
-        }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeBatchRecognize',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RecognizeBatchRecognizeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeBatchRecognizeRequest $request
-     *
-     * @return RecognizeBatchRecognizeResponse
-     */
-    public function recognizeBatchRecognize($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeBatchRecognizeWithOptions($request, $runtime);
     }
 
     /**
@@ -1050,23 +980,52 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @param RecognizeDeleteExcelRecordRequest $request
+     * @param RecognizeDocumentStructureRequest $request
      * @param RuntimeOptions                    $runtime
      *
-     * @return RecognizeDeleteExcelRecordResponse
+     * @return RecognizeDocumentStructureResponse
      */
-    public function recognizeDeleteExcelRecordWithOptions($request, $runtime)
+    public function recognizeDocumentStructureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (!Utils::isUnset($request->needRotate)) {
+            $query['NeedRotate'] = $request->needRotate;
+        }
+        if (!Utils::isUnset($request->needSortPage)) {
+            $query['NeedSortPage'] = $request->needSortPage;
+        }
+        if (!Utils::isUnset($request->noStamp)) {
+            $query['NoStamp'] = $request->noStamp;
+        }
+        if (!Utils::isUnset($request->outputCharInfo)) {
+            $query['OutputCharInfo'] = $request->outputCharInfo;
+        }
+        if (!Utils::isUnset($request->outputTable)) {
+            $query['OutputTable'] = $request->outputTable;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->paragraph)) {
+            $query['Paragraph'] = $request->paragraph;
+        }
+        if (!Utils::isUnset($request->row)) {
+            $query['Row'] = $request->row;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->useNewStyleOutput)) {
+            $query['UseNewStyleOutput'] = $request->useNewStyleOutput;
         }
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeDeleteExcelRecord',
+            'action'      => 'RecognizeDocumentStructure',
             'version'     => '2021-07-07',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1077,19 +1036,19 @@ class Ocrapi extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return RecognizeDeleteExcelRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecognizeDocumentStructureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RecognizeDeleteExcelRecordRequest $request
+     * @param RecognizeDocumentStructureRequest $request
      *
-     * @return RecognizeDeleteExcelRecordResponse
+     * @return RecognizeDocumentStructureResponse
      */
-    public function recognizeDeleteExcelRecord($request)
+    public function recognizeDocumentStructure($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->recognizeDeleteExcelRecordWithOptions($request, $runtime);
+        return $this->recognizeDocumentStructureWithOptions($request, $runtime);
     }
 
     /**
@@ -1528,107 +1487,6 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeEstateCertificationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeExcelExportRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeExcelExportResponse
-     */
-    public function recognizeExcelExportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->imageOp)) {
-            $query['ImageOp'] = $request->imageOp;
-        }
-        if (!Utils::isUnset($request->ocrImageCount)) {
-            $query['OcrImageCount'] = $request->ocrImageCount;
-        }
-        if (!Utils::isUnset($request->ocrResult)) {
-            $query['OcrResult'] = $request->ocrResult;
-        }
-        if (!Utils::isUnset($request->ocrType)) {
-            $query['OcrType'] = $request->ocrType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeExcelExport',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RecognizeExcelExportResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeExcelExportRequest $request
-     *
-     * @return RecognizeExcelExportResponse
-     */
-    public function recognizeExcelExport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeExcelExportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeExcelRecordRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RecognizeExcelRecordResponse
-     */
-    public function recognizeExcelRecordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currPage)) {
-            $query['CurrPage'] = $request->currPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeExcelRecord',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RecognizeExcelRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeExcelRecordRequest $request
-     *
-     * @return RecognizeExcelRecordResponse
-     */
-    public function recognizeExcelRecord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeExcelRecordWithOptions($request, $runtime);
     }
 
     /**
