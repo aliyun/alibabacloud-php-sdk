@@ -1,3 +1,6 @@
+2022-08-23 Version: 1.0.8
+- Change some input parameter type.
+
 2022-08-22 Version: 1.0.7
 - Change the input parameter type.
 

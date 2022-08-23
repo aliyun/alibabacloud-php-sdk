@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest;
+namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 
 use AlibabaCloud\Tea\Model;
 

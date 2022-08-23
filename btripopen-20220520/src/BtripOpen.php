@@ -290,6 +290,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->itineraryList)) {
             $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
         }
+        if (!Utils::isUnset($tmpReq->itinerarySetList)) {
+            $request->itinerarySetListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
+        }
         if (!Utils::isUnset($tmpReq->travelerList)) {
             $request->travelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
         }
@@ -333,6 +336,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
+        }
+        if (!Utils::isUnset($request->itineraryRule)) {
+            $body['itinerary_rule'] = $request->itineraryRule;
+        }
+        if (!Utils::isUnset($request->itinerarySetListShrink)) {
+            $body['itinerary_set_list'] = $request->itinerarySetListShrink;
         }
         if (!Utils::isUnset($request->limitTraveler)) {
             $body['limit_traveler'] = $request->limitTraveler;
@@ -515,6 +524,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->itineraryList)) {
             $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
         }
+        if (!Utils::isUnset($tmpReq->itinerarySetList)) {
+            $request->itinerarySetListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itinerarySetList, 'itinerary_set_list', 'json');
+        }
         if (!Utils::isUnset($tmpReq->travelerList)) {
             $request->travelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerList, 'traveler_list', 'json');
         }
@@ -554,6 +566,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
+        }
+        if (!Utils::isUnset($request->itineraryRule)) {
+            $body['itinerary_rule'] = $request->itineraryRule;
+        }
+        if (!Utils::isUnset($request->itinerarySetListShrink)) {
+            $body['itinerary_set_list'] = $request->itinerarySetListShrink;
         }
         if (!Utils::isUnset($request->limitTraveler)) {
             $body['limit_traveler'] = $request->limitTraveler;

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\approverList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\externalTravelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\itineraryList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\itinerarySetList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponseBody\moduleList\travelerList;
 use AlibabaCloud\Tea\Model;
 
@@ -76,6 +77,11 @@ class moduleList extends Model
      * @var int
      */
     public $itineraryRule;
+
+    /**
+     * @var itinerarySetList[]
+     */
+    public $itinerarySetList;
 
     /**
      * @var int
@@ -150,6 +156,7 @@ class moduleList extends Model
         'id'                   => 'id',
         'itineraryList'        => 'itinerary_list',
         'itineraryRule'        => 'itinerary_rule',
+        'itinerarySetList'     => 'itinerary_set_list',
         'status'               => 'status',
         'statusDesc'           => 'status_desc',
         'thirdpartBusinessId'  => 'thirdpart_business_id',
@@ -227,6 +234,15 @@ class moduleList extends Model
         }
         if (null !== $this->itineraryRule) {
             $res['itinerary_rule'] = $this->itineraryRule;
+        }
+        if (null !== $this->itinerarySetList) {
+            $res['itinerary_set_list'] = [];
+            if (null !== $this->itinerarySetList && \is_array($this->itinerarySetList)) {
+                $n = 0;
+                foreach ($this->itinerarySetList as $item) {
+                    $res['itinerary_set_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -338,6 +354,15 @@ class moduleList extends Model
         }
         if (isset($map['itinerary_rule'])) {
             $model->itineraryRule = $map['itinerary_rule'];
+        }
+        if (isset($map['itinerary_set_list'])) {
+            if (!empty($map['itinerary_set_list'])) {
+                $model->itinerarySetList = [];
+                $n                       = 0;
+                foreach ($map['itinerary_set_list'] as $item) {
+                    $model->itinerarySetList[$n++] = null !== $item ? itinerarySetList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

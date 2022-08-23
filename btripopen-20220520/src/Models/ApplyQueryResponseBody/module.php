@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\ap
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\externalTravelerList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\hotelShare;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\itineraryList;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\itinerarySetList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module\travelerList;
 use AlibabaCloud\Tea\Model;
 
@@ -97,6 +98,11 @@ class module extends Model
      * @var int
      */
     public $itineraryRule;
+
+    /**
+     * @var itinerarySetList[]
+     */
+    public $itinerarySetList;
 
     /**
      * @var int
@@ -195,6 +201,7 @@ class module extends Model
         'id'                   => 'id',
         'itineraryList'        => 'itinerary_list',
         'itineraryRule'        => 'itinerary_rule',
+        'itinerarySetList'     => 'itinerary_set_list',
         'limitTraveler'        => 'limit_traveler',
         'status'               => 'status',
         'statusDesc'           => 'status_desc',
@@ -288,6 +295,15 @@ class module extends Model
         }
         if (null !== $this->itineraryRule) {
             $res['itinerary_rule'] = $this->itineraryRule;
+        }
+        if (null !== $this->itinerarySetList) {
+            $res['itinerary_set_list'] = [];
+            if (null !== $this->itinerarySetList && \is_array($this->itinerarySetList)) {
+                $n = 0;
+                foreach ($this->itinerarySetList as $item) {
+                    $res['itinerary_set_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->limitTraveler) {
             $res['limit_traveler'] = $this->limitTraveler;
@@ -423,6 +439,15 @@ class module extends Model
         }
         if (isset($map['itinerary_rule'])) {
             $model->itineraryRule = $map['itinerary_rule'];
+        }
+        if (isset($map['itinerary_set_list'])) {
+            if (!empty($map['itinerary_set_list'])) {
+                $model->itinerarySetList = [];
+                $n                       = 0;
+                foreach ($map['itinerary_set_list'] as $item) {
+                    $model->itinerarySetList[$n++] = null !== $item ? itinerarySetList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['limit_traveler'])) {
             $model->limitTraveler = $map['limit_traveler'];

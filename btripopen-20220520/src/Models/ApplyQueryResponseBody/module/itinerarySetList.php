@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest;
+namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponseBody\module;
 
 use AlibabaCloud\Tea\Model;
 
@@ -24,9 +24,9 @@ class itinerarySetList extends Model
     public $citySet;
 
     /**
-     * @var int
+     * @var string
      */
-    public $costCenterId;
+    public $costCenterName;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class itinerarySetList extends Model
     public $depDate;
 
     /**
-     * @var int
+     * @var string
      */
-    public $invoiceId;
+    public $invoiceName;
 
     /**
      * @var string
@@ -54,32 +54,20 @@ class itinerarySetList extends Model
     public $projectTitle;
 
     /**
-     * @var string
-     */
-    public $thirdPartInvoiceId;
-
-    /**
-     * @var string
-     */
-    public $thirdpartCostCenterId;
-
-    /**
      * @var int
      */
     public $trafficType;
     protected $_name = [
-        'arrDate'               => 'arr_date',
-        'cityCodeSet'           => 'city_code_set',
-        'citySet'               => 'city_set',
-        'costCenterId'          => 'cost_center_id',
-        'depDate'               => 'dep_date',
-        'invoiceId'             => 'invoice_id',
-        'itineraryId'           => 'itinerary_id',
-        'projectCode'           => 'project_code',
-        'projectTitle'          => 'project_title',
-        'thirdPartInvoiceId'    => 'third_part_invoice_id',
-        'thirdpartCostCenterId' => 'thirdpart_cost_center_id',
-        'trafficType'           => 'traffic_type',
+        'arrDate'        => 'arr_date',
+        'cityCodeSet'    => 'city_code_set',
+        'citySet'        => 'city_set',
+        'costCenterName' => 'cost_center_name',
+        'depDate'        => 'dep_date',
+        'invoiceName'    => 'invoice_name',
+        'itineraryId'    => 'itinerary_id',
+        'projectCode'    => 'project_code',
+        'projectTitle'   => 'project_title',
+        'trafficType'    => 'traffic_type',
     ];
 
     public function validate()
@@ -98,14 +86,14 @@ class itinerarySetList extends Model
         if (null !== $this->citySet) {
             $res['city_set'] = $this->citySet;
         }
-        if (null !== $this->costCenterId) {
-            $res['cost_center_id'] = $this->costCenterId;
+        if (null !== $this->costCenterName) {
+            $res['cost_center_name'] = $this->costCenterName;
         }
         if (null !== $this->depDate) {
             $res['dep_date'] = $this->depDate;
         }
-        if (null !== $this->invoiceId) {
-            $res['invoice_id'] = $this->invoiceId;
+        if (null !== $this->invoiceName) {
+            $res['invoice_name'] = $this->invoiceName;
         }
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
@@ -115,12 +103,6 @@ class itinerarySetList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
-        }
-        if (null !== $this->thirdPartInvoiceId) {
-            $res['third_part_invoice_id'] = $this->thirdPartInvoiceId;
-        }
-        if (null !== $this->thirdpartCostCenterId) {
-            $res['thirdpart_cost_center_id'] = $this->thirdpartCostCenterId;
         }
         if (null !== $this->trafficType) {
             $res['traffic_type'] = $this->trafficType;
@@ -146,14 +128,14 @@ class itinerarySetList extends Model
         if (isset($map['city_set'])) {
             $model->citySet = $map['city_set'];
         }
-        if (isset($map['cost_center_id'])) {
-            $model->costCenterId = $map['cost_center_id'];
+        if (isset($map['cost_center_name'])) {
+            $model->costCenterName = $map['cost_center_name'];
         }
         if (isset($map['dep_date'])) {
             $model->depDate = $map['dep_date'];
         }
-        if (isset($map['invoice_id'])) {
-            $model->invoiceId = $map['invoice_id'];
+        if (isset($map['invoice_name'])) {
+            $model->invoiceName = $map['invoice_name'];
         }
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
@@ -163,12 +145,6 @@ class itinerarySetList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
-        }
-        if (isset($map['third_part_invoice_id'])) {
-            $model->thirdPartInvoiceId = $map['third_part_invoice_id'];
-        }
-        if (isset($map['thirdpart_cost_center_id'])) {
-            $model->thirdpartCostCenterId = $map['thirdpart_cost_center_id'];
         }
         if (isset($map['traffic_type'])) {
             $model->trafficType = $map['traffic_type'];
