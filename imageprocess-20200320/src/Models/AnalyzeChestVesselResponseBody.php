@@ -15,8 +15,6 @@ class AnalyzeChestVesselResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
