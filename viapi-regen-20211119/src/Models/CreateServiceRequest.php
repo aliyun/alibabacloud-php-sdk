@@ -11,6 +11,16 @@ class CreateServiceRequest extends Model
     /**
      * @var string
      */
+    public $authorizationType;
+
+    /**
+     * @var string
+     */
+    public $authorizedAccount;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -23,9 +33,11 @@ class CreateServiceRequest extends Model
      */
     public $trainTaskId;
     protected $_name = [
-        'description' => 'Description',
-        'name'        => 'Name',
-        'trainTaskId' => 'TrainTaskId',
+        'authorizationType' => 'AuthorizationType',
+        'authorizedAccount' => 'AuthorizedAccount',
+        'description'       => 'Description',
+        'name'              => 'Name',
+        'trainTaskId'       => 'TrainTaskId',
     ];
 
     public function validate()
@@ -35,6 +47,12 @@ class CreateServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authorizationType) {
+            $res['AuthorizationType'] = $this->authorizationType;
+        }
+        if (null !== $this->authorizedAccount) {
+            $res['AuthorizedAccount'] = $this->authorizedAccount;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -56,6 +74,12 @@ class CreateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthorizationType'])) {
+            $model->authorizationType = $map['AuthorizationType'];
+        }
+        if (isset($map['AuthorizedAccount'])) {
+            $model->authorizedAccount = $map['AuthorizedAccount'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class StartTrainTaskRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $forceStartFlag;
+
+    /**
      * @var int
      */
     public $id;
     protected $_name = [
-        'id' => 'Id',
+        'forceStartFlag' => 'ForceStartFlag',
+        'id'             => 'Id',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class StartTrainTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forceStartFlag) {
+            $res['ForceStartFlag'] = $this->forceStartFlag;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -38,6 +47,9 @@ class StartTrainTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForceStartFlag'])) {
+            $model->forceStartFlag = $map['ForceStartFlag'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTrainTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $advancedParameters;
+
+    /**
      * @var int
      */
     public $datasetId;
@@ -38,12 +43,13 @@ class CreateTrainTaskRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'datasetId'   => 'DatasetId',
-        'description' => 'Description',
-        'labelId'     => 'LabelId',
-        'name'        => 'Name',
-        'trainMode'   => 'TrainMode',
-        'workspaceId' => 'WorkspaceId',
+        'advancedParameters' => 'AdvancedParameters',
+        'datasetId'          => 'DatasetId',
+        'description'        => 'Description',
+        'labelId'            => 'LabelId',
+        'name'               => 'Name',
+        'trainMode'          => 'TrainMode',
+        'workspaceId'        => 'WorkspaceId',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class CreateTrainTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedParameters) {
+            $res['AdvancedParameters'] = $this->advancedParameters;
+        }
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
@@ -83,6 +92,9 @@ class CreateTrainTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedParameters'])) {
+            $model->advancedParameters = $map['AdvancedParameters'];
+        }
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }

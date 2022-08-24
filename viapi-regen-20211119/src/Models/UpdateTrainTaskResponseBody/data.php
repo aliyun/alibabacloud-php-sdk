@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $advancedParameters;
+
+    /**
      * @var int
      */
     public $datasetId;
@@ -68,18 +73,19 @@ class data extends Model
      */
     public $trainStatus;
     protected $_name = [
-        'datasetId'   => 'DatasetId',
-        'datasetName' => 'DatasetName',
-        'description' => 'Description',
-        'gmtCreate'   => 'GmtCreate',
-        'id'          => 'Id',
-        'labelId'     => 'LabelId',
-        'labelName'   => 'LabelName',
-        'modelEffect' => 'ModelEffect',
-        'modelId'     => 'ModelId',
-        'taskName'    => 'TaskName',
-        'trainMode'   => 'TrainMode',
-        'trainStatus' => 'TrainStatus',
+        'advancedParameters' => 'AdvancedParameters',
+        'datasetId'          => 'DatasetId',
+        'datasetName'        => 'DatasetName',
+        'description'        => 'Description',
+        'gmtCreate'          => 'GmtCreate',
+        'id'                 => 'Id',
+        'labelId'            => 'LabelId',
+        'labelName'          => 'LabelName',
+        'modelEffect'        => 'ModelEffect',
+        'modelId'            => 'ModelId',
+        'taskName'           => 'TaskName',
+        'trainMode'          => 'TrainMode',
+        'trainStatus'        => 'TrainStatus',
     ];
 
     public function validate()
@@ -89,6 +95,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedParameters) {
+            $res['AdvancedParameters'] = $this->advancedParameters;
+        }
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
@@ -137,6 +146,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedParameters'])) {
+            $model->advancedParameters = $map['AdvancedParameters'];
+        }
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }

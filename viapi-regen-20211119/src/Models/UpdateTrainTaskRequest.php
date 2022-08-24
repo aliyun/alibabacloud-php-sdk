@@ -11,6 +11,11 @@ class UpdateTrainTaskRequest extends Model
     /**
      * @var string
      */
+    public $advancedParameters;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -23,9 +28,10 @@ class UpdateTrainTaskRequest extends Model
      */
     public $name;
     protected $_name = [
-        'description' => 'Description',
-        'id'          => 'Id',
-        'name'        => 'Name',
+        'advancedParameters' => 'AdvancedParameters',
+        'description'        => 'Description',
+        'id'                 => 'Id',
+        'name'               => 'Name',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class UpdateTrainTaskRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->advancedParameters) {
+            $res['AdvancedParameters'] = $this->advancedParameters;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -56,6 +65,9 @@ class UpdateTrainTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedParameters'])) {
+            $model->advancedParameters = $map['AdvancedParameters'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

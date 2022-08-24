@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $checkResult;
+
+    /**
      * @var int
      */
     public $datasetId;
@@ -68,6 +73,7 @@ class data extends Model
      */
     public $trainStatus;
     protected $_name = [
+        'checkResult' => 'CheckResult',
         'datasetId'   => 'DatasetId',
         'datasetName' => 'DatasetName',
         'description' => 'Description',
@@ -89,6 +95,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkResult) {
+            $res['CheckResult'] = $this->checkResult;
+        }
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
@@ -137,6 +146,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckResult'])) {
+            $model->checkResult = $map['CheckResult'];
+        }
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }

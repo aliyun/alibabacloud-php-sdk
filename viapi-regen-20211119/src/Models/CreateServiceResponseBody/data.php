@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $authorizationType;
+
+    /**
+     * @var string
+     */
+    public $authorizedAccount;
+
+    /**
      * @var int
      */
     public $gmtCreate;
@@ -33,6 +43,8 @@ class data extends Model
      */
     public $status;
     protected $_name = [
+        'authorizationType'  => 'AuthorizationType',
+        'authorizedAccount'  => 'AuthorizedAccount',
         'gmtCreate'          => 'GmtCreate',
         'id'                 => 'Id',
         'serviceDescription' => 'ServiceDescription',
@@ -47,6 +59,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authorizationType) {
+            $res['AuthorizationType'] = $this->authorizationType;
+        }
+        if (null !== $this->authorizedAccount) {
+            $res['AuthorizedAccount'] = $this->authorizedAccount;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
@@ -74,6 +92,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthorizationType'])) {
+            $model->authorizationType = $map['AuthorizationType'];
+        }
+        if (isset($map['AuthorizedAccount'])) {
+            $model->authorizedAccount = $map['AuthorizedAccount'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }

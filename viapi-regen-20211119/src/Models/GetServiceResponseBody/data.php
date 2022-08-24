@@ -11,11 +11,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $curlExample;
-
-    /**
-     * @var string
-     */
     public $errorcodes;
 
     /**
@@ -56,6 +51,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $serviceId;
+
+    /**
+     * @var string
+     */
     public $serviceName;
 
     /**
@@ -63,7 +63,6 @@ class data extends Model
      */
     public $status;
     protected $_name = [
-        'curlExample'        => 'CurlExample',
         'errorcodes'         => 'Errorcodes',
         'gmtCreate'          => 'GmtCreate',
         'id'                 => 'Id',
@@ -72,6 +71,7 @@ class data extends Model
         'outputExample'      => 'OutputExample',
         'outputParams'       => 'OutputParams',
         'serviceDescription' => 'ServiceDescription',
+        'serviceId'          => 'ServiceId',
         'serviceName'        => 'ServiceName',
         'status'             => 'Status',
     ];
@@ -83,9 +83,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->curlExample) {
-            $res['CurlExample'] = $this->curlExample;
-        }
         if (null !== $this->errorcodes) {
             $res['Errorcodes'] = $this->errorcodes;
         }
@@ -110,6 +107,9 @@ class data extends Model
         if (null !== $this->serviceDescription) {
             $res['ServiceDescription'] = $this->serviceDescription;
         }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -128,9 +128,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurlExample'])) {
-            $model->curlExample = $map['CurlExample'];
-        }
         if (isset($map['Errorcodes'])) {
             $model->errorcodes = $map['Errorcodes'];
         }
@@ -154,6 +151,9 @@ class data extends Model
         }
         if (isset($map['ServiceDescription'])) {
             $model->serviceDescription = $map['ServiceDescription'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
