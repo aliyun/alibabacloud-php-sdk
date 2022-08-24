@@ -16,6 +16,11 @@ class DescribeDcdnWafServiceResponseBody extends Model
     /**
      * @var string
      */
+    public $enabled;
+
+    /**
+     * @var string
+     */
     public $openingTime;
 
     /**
@@ -39,6 +44,7 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $status;
     protected $_name = [
         'edition'            => 'Edition',
+        'enabled'            => 'Enabled',
         'openingTime'        => 'OpeningTime',
         'requestBillingType' => 'RequestBillingType',
         'requestId'          => 'RequestId',
@@ -55,6 +61,9 @@ class DescribeDcdnWafServiceResponseBody extends Model
         $res = [];
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
         if (null !== $this->openingTime) {
             $res['OpeningTime'] = $this->openingTime;
@@ -85,6 +94,9 @@ class DescribeDcdnWafServiceResponseBody extends Model
         $model = new self();
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
         if (isset($map['OpeningTime'])) {
             $model->openingTime = $map['OpeningTime'];

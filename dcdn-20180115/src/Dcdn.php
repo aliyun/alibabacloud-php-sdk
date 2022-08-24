@@ -34,8 +34,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryRequest;
@@ -51,6 +49,9 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateWasmRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateWasmResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainRequest;
@@ -92,10 +93,10 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigGroupDetailRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigGroupDetailResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigOfVersionRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigOfVersionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
@@ -186,22 +187,24 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketHttpCodeDa
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketHttpCodeDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketTrafficDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketTrafficDataResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExceptionDataRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExceptionDataResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExecuteDataRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExecuteDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnErUsageDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnErUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainDetailResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainMultiUsageDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainMultiUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsByDomainRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsByDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshQuotaRequest;
@@ -274,6 +277,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPolicyDomainsRequest;
@@ -292,6 +297,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCodeRevisionRequest;
@@ -342,12 +349,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RollbackDcdnStagingConfigResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnConfigOfVersionRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnConfigOfVersionResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
@@ -1033,6 +1036,9 @@ class Dcdn extends OpenApiClient
             $query['OwnerId'] = $request->ownerId;
         }
         $body = [];
+        if (!Utils::isUnset($request->clientIpTag)) {
+            $body['ClientIpTag'] = $request->clientIpTag;
+        }
         if (!Utils::isUnset($request->defenseStatus)) {
             $body['DefenseStatus'] = $request->defenseStatus;
         }
@@ -1257,73 +1263,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->commitStagingRoutineCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDcdnCertificateSigningRequestRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return CreateDcdnCertificateSigningRequestResponse
-     */
-    public function createDcdnCertificateSigningRequestWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
-        }
-        if (!Utils::isUnset($request->commonName)) {
-            $query['CommonName'] = $request->commonName;
-        }
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
-        }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
-        }
-        if (!Utils::isUnset($request->organization)) {
-            $query['Organization'] = $request->organization;
-        }
-        if (!Utils::isUnset($request->organizationUnit)) {
-            $query['OrganizationUnit'] = $request->organizationUnit;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->SANs)) {
-            $query['SANs'] = $request->SANs;
-        }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDcdnCertificateSigningRequest',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDcdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDcdnCertificateSigningRequestRequest $request
-     *
-     * @return CreateDcdnCertificateSigningRequestResponse
-     */
-    public function createDcdnCertificateSigningRequest($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDcdnCertificateSigningRequestWithOptions($request, $runtime);
     }
 
     /**
@@ -1722,6 +1661,80 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createWasmWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DcdnHttpRequestTestToolRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DcdnHttpRequestTestToolResponse
+     */
+    public function dcdnHttpRequestTestToolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DcdnHttpRequestTestToolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->header)) {
+            $request->headerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->header, 'Header', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->args)) {
+            $body['Args'] = $request->args;
+        }
+        if (!Utils::isUnset($request->body)) {
+            $body['Body'] = $request->body;
+        }
+        if (!Utils::isUnset($request->headerShrink)) {
+            $body['Header'] = $request->headerShrink;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $body['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->method)) {
+            $body['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->proxyIp)) {
+            $body['ProxyIp'] = $request->proxyIp;
+        }
+        if (!Utils::isUnset($request->scheme)) {
+            $body['Scheme'] = $request->scheme;
+        }
+        if (!Utils::isUnset($request->uri)) {
+            $body['Uri'] = $request->uri;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DcdnHttpRequestTestTool',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTP',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DcdnHttpRequestTestToolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DcdnHttpRequestTestToolRequest $request
+     *
+     * @return DcdnHttpRequestTestToolResponse
+     */
+    public function dcdnHttpRequestTestTool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dcdnHttpRequestTestToolWithOptions($request, $runtime);
     }
 
     /**
@@ -2477,6 +2490,12 @@ class Dcdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->devicePort)) {
+            $query['DevicePort'] = $request->devicePort;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -2716,87 +2735,26 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnConfigGroupDetailRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeDcdnDdosServiceRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeDcdnConfigGroupDetailResponse
+     * @return DescribeDcdnDdosServiceResponse
      */
-    public function describeDcdnConfigGroupDetailWithOptions($request, $runtime)
+    public function describeDcdnDdosServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->configGroupId)) {
-            $query['ConfigGroupId'] = $request->configGroupId;
-        }
-        if (!Utils::isUnset($request->configGroupName)) {
-            $query['ConfigGroupName'] = $request->configGroupName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnConfigGroupDetail',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnConfigGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnConfigGroupDetailRequest $request
-     *
-     * @return DescribeDcdnConfigGroupDetailResponse
-     */
-    public function describeDcdnConfigGroupDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnConfigGroupDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnConfigOfVersionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDcdnConfigOfVersionResponse
-     */
-    public function describeDcdnConfigOfVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionId)) {
-            $query['FunctionId'] = $request->functionId;
-        }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnConfigOfVersion',
+            'action'      => 'DescribeDcdnDdosService',
             'version'     => '2018-01-15',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -2807,19 +2765,62 @@ class Dcdn extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDcdnDdosServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDcdnConfigOfVersionRequest $request
+     * @param DescribeDcdnDdosServiceRequest $request
      *
-     * @return DescribeDcdnConfigOfVersionResponse
+     * @return DescribeDcdnDdosServiceResponse
      */
-    public function describeDcdnConfigOfVersion($request)
+    public function describeDcdnDdosService($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDcdnConfigOfVersionWithOptions($request, $runtime);
+        return $this->describeDcdnDdosServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDdosSpecInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnDdosSpecInfoResponse
+     */
+    public function describeDcdnDdosSpecInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDdosSpecInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDdosSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDdosSpecInfoRequest $request
+     *
+     * @return DescribeDcdnDdosSpecInfoResponse
+     */
+    public function describeDcdnDdosSpecInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDdosSpecInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -5247,12 +5248,12 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnEsExceptionDataRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeDcdnErUsageDataRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeDcdnEsExceptionDataResponse
+     * @return DescribeDcdnErUsageDataResponse
      */
-    public function describeDcdnEsExceptionDataWithOptions($request, $runtime)
+    public function describeDcdnErUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
@@ -5262,8 +5263,14 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (!Utils::isUnset($request->routineID)) {
+            $query['RoutineID'] = $request->routineID;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $query['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->splitBy)) {
+            $query['SplitBy'] = $request->splitBy;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -5272,7 +5279,7 @@ class Dcdn extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDcdnEsExceptionData',
+            'action'      => 'DescribeDcdnErUsageData',
             'version'     => '2018-01-15',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -5283,71 +5290,19 @@ class Dcdn extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnEsExceptionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDcdnErUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDcdnEsExceptionDataRequest $request
+     * @param DescribeDcdnErUsageDataRequest $request
      *
-     * @return DescribeDcdnEsExceptionDataResponse
+     * @return DescribeDcdnErUsageDataResponse
      */
-    public function describeDcdnEsExceptionData($request)
+    public function describeDcdnErUsageData($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDcdnEsExceptionDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnEsExecuteDataRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDcdnEsExecuteDataResponse
-     */
-    public function describeDcdnEsExecuteDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnEsExecuteData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnEsExecuteDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnEsExecuteDataRequest $request
-     *
-     * @return DescribeDcdnEsExecuteDataResponse
-     */
-    public function describeDcdnEsExecuteData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnEsExecuteDataWithOptions($request, $runtime);
+        return $this->describeDcdnErUsageDataWithOptions($request, $runtime);
     }
 
     /**
@@ -5553,6 +5508,58 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnIpaDomainMultiUsageDataRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeDcdnIpaDomainMultiUsageDataResponse
+     */
+    public function describeDcdnIpaDomainMultiUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpaDomainMultiUsageData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnIpaDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnIpaDomainMultiUsageDataRequest $request
+     *
+     * @return DescribeDcdnIpaDomainMultiUsageDataResponse
+     */
+    public function describeDcdnIpaDomainMultiUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnIpaDomainMultiUsageDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnIpaServiceRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -5672,6 +5679,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnIpaUserDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnL2VipsByDomainRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnL2VipsByDomainResponse
+     */
+    public function describeDcdnL2VipsByDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnL2VipsByDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnL2VipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnL2VipsByDomainRequest $request
+     *
+     * @return DescribeDcdnL2VipsByDomainResponse
+     */
+    public function describeDcdnL2VipsByDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnL2VipsByDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -7426,6 +7479,52 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnWafGeoInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnWafGeoInfoResponse
+     */
+    public function describeDcdnWafGeoInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafGeoInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafGeoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafGeoInfoRequest $request
+     *
+     * @return DescribeDcdnWafGeoInfoResponse
+     */
+    public function describeDcdnWafGeoInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafGeoInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnWafPoliciesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -7861,6 +7960,64 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnWafSpecInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafUsageDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDcdnWafUsageDataResponse
+     */
+    public function describeDcdnWafUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->splitBy)) {
+            $query['SplitBy'] = $request->splitBy;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafUsageData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafUsageDataRequest $request
+     *
+     * @return DescribeDcdnWafUsageDataResponse
+     */
+    public function describeDcdnWafUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafUsageDataWithOptions($request, $runtime);
     }
 
     /**
@@ -9102,119 +9259,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackDcdnStagingConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetDcdnConfigOfVersionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SetDcdnConfigOfVersionResponse
-     */
-    public function setDcdnConfigOfVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
-        }
-        if (!Utils::isUnset($request->functionArgs)) {
-            $query['FunctionArgs'] = $request->functionArgs;
-        }
-        if (!Utils::isUnset($request->functionId)) {
-            $query['FunctionId'] = $request->functionId;
-        }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDcdnConfigOfVersion',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDcdnConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetDcdnConfigOfVersionRequest $request
-     *
-     * @return SetDcdnConfigOfVersionResponse
-     */
-    public function setDcdnConfigOfVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDcdnConfigOfVersionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetDcdnDomainCSRCertificateRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return SetDcdnDomainCSRCertificateResponse
-     */
-    public function setDcdnDomainCSRCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->serverCertificate)) {
-            $query['ServerCertificate'] = $request->serverCertificate;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDcdnDomainCSRCertificate',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDcdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetDcdnDomainCSRCertificateRequest $request
-     *
-     * @return SetDcdnDomainCSRCertificateResponse
-     */
-    public function setDcdnDomainCSRCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDcdnDomainCSRCertificateWithOptions($request, $runtime);
     }
 
     /**

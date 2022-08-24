@@ -68,6 +68,11 @@ class domainDetail extends Model
      * @var sources
      */
     public $sources;
+
+    /**
+     * @var string
+     */
+    public $tenantID;
     protected $_name = [
         'certName'        => 'CertName',
         'cname'           => 'Cname',
@@ -81,6 +86,7 @@ class domainDetail extends Model
         'SSLPub'          => 'SSLPub',
         'scope'           => 'Scope',
         'sources'         => 'Sources',
+        'tenantID'        => 'TenantID',
     ];
 
     public function validate()
@@ -125,6 +131,9 @@ class domainDetail extends Model
         }
         if (null !== $this->sources) {
             $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
+        }
+        if (null !== $this->tenantID) {
+            $res['TenantID'] = $this->tenantID;
         }
 
         return $res;
@@ -173,6 +182,9 @@ class domainDetail extends Model
         }
         if (isset($map['Sources'])) {
             $model->sources = sources::fromMap($map['Sources']);
+        }
+        if (isset($map['TenantID'])) {
+            $model->tenantID = $map['TenantID'];
         }
 
         return $model;

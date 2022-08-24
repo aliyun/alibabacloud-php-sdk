@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDcdnBgpBpsDataRequest extends Model
+class DescribeDcdnWafUsageDataRequest extends Model
 {
     /**
      * @var string
      */
-    public $deviceName;
-
-    /**
-     * @var string
-     */
-    public $devicePort;
+    public $domainName;
 
     /**
      * @var string
@@ -29,11 +24,6 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     public $interval;
 
     /**
-     * @var string
-     */
-    public $isp;
-
-    /**
      * @var int
      */
     public $ownerId;
@@ -41,14 +31,18 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     /**
      * @var string
      */
+    public $splitBy;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'deviceName' => 'DeviceName',
-        'devicePort' => 'DevicePort',
+        'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
-        'isp'        => 'Isp',
         'ownerId'    => 'OwnerId',
+        'splitBy'    => 'SplitBy',
         'startTime'  => 'StartTime',
     ];
 
@@ -59,11 +53,8 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->devicePort) {
-            $res['DevicePort'] = $this->devicePort;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -71,11 +62,11 @@ class DescribeDcdnBgpBpsDataRequest extends Model
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-        if (null !== $this->isp) {
-            $res['Isp'] = $this->isp;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->splitBy) {
+            $res['SplitBy'] = $this->splitBy;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -87,16 +78,13 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDcdnBgpBpsDataRequest
+     * @return DescribeDcdnWafUsageDataRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['DevicePort'])) {
-            $model->devicePort = $map['DevicePort'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -104,11 +92,11 @@ class DescribeDcdnBgpBpsDataRequest extends Model
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-        if (isset($map['Isp'])) {
-            $model->isp = $map['Isp'];
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SplitBy'])) {
+            $model->splitBy = $map['SplitBy'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

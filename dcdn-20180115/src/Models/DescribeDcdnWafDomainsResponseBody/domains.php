@@ -11,6 +11,11 @@ class domains extends Model
     /**
      * @var string
      */
+    public $clientIpTag;
+
+    /**
+     * @var string
+     */
     public $domainName;
 
     /**
@@ -18,6 +23,7 @@ class domains extends Model
      */
     public $policyCount;
     protected $_name = [
+        'clientIpTag' => 'ClientIpTag',
         'domainName'  => 'DomainName',
         'policyCount' => 'PolicyCount',
     ];
@@ -29,6 +35,9 @@ class domains extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientIpTag) {
+            $res['ClientIpTag'] = $this->clientIpTag;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -47,6 +56,9 @@ class domains extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientIpTag'])) {
+            $model->clientIpTag = $map['ClientIpTag'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

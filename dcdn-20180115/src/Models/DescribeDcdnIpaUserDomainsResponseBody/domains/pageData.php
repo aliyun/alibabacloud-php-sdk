@@ -58,6 +58,11 @@ class pageData extends Model
      * @var sources
      */
     public $sources;
+
+    /**
+     * @var string
+     */
+    public $tenantID;
     protected $_name = [
         'cname'           => 'Cname',
         'description'     => 'Description',
@@ -69,6 +74,7 @@ class pageData extends Model
         'SSLProtocol'     => 'SSLProtocol',
         'sandbox'         => 'Sandbox',
         'sources'         => 'Sources',
+        'tenantID'        => 'TenantID',
     ];
 
     public function validate()
@@ -107,6 +113,9 @@ class pageData extends Model
         }
         if (null !== $this->sources) {
             $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
+        }
+        if (null !== $this->tenantID) {
+            $res['TenantID'] = $this->tenantID;
         }
 
         return $res;
@@ -149,6 +158,9 @@ class pageData extends Model
         }
         if (isset($map['Sources'])) {
             $model->sources = sources::fromMap($map['Sources']);
+        }
+        if (isset($map['TenantID'])) {
+            $model->tenantID = $map['TenantID'];
         }
 
         return $model;

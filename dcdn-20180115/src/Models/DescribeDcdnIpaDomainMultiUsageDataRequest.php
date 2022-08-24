@@ -6,32 +6,17 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDcdnBgpBpsDataRequest extends Model
+class DescribeDcdnIpaDomainMultiUsageDataRequest extends Model
 {
     /**
      * @var string
      */
-    public $deviceName;
-
-    /**
-     * @var string
-     */
-    public $devicePort;
+    public $domainName;
 
     /**
      * @var string
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $interval;
-
-    /**
-     * @var string
-     */
-    public $isp;
 
     /**
      * @var int
@@ -43,11 +28,8 @@ class DescribeDcdnBgpBpsDataRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'deviceName' => 'DeviceName',
-        'devicePort' => 'DevicePort',
+        'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'interval'   => 'Interval',
-        'isp'        => 'Isp',
         'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
     ];
@@ -59,20 +41,11 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
-        if (null !== $this->devicePort) {
-            $res['DevicePort'] = $this->devicePort;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->isp) {
-            $res['Isp'] = $this->isp;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -87,25 +60,16 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDcdnBgpBpsDataRequest
+     * @return DescribeDcdnIpaDomainMultiUsageDataRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['DevicePort'])) {
-            $model->devicePort = $map['DevicePort'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
-        if (isset($map['Isp'])) {
-            $model->isp = $map['Isp'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

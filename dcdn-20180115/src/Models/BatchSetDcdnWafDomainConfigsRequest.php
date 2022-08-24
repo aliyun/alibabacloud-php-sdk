@@ -11,6 +11,11 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     /**
      * @var string
      */
+    public $clientIpTag;
+
+    /**
+     * @var string
+     */
     public $defenseStatus;
 
     /**
@@ -23,6 +28,7 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
      */
     public $ownerId;
     protected $_name = [
+        'clientIpTag'   => 'ClientIpTag',
         'defenseStatus' => 'DefenseStatus',
         'domainNames'   => 'DomainNames',
         'ownerId'       => 'OwnerId',
@@ -35,6 +41,9 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientIpTag) {
+            $res['ClientIpTag'] = $this->clientIpTag;
+        }
         if (null !== $this->defenseStatus) {
             $res['DefenseStatus'] = $this->defenseStatus;
         }
@@ -56,6 +65,9 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientIpTag'])) {
+            $model->clientIpTag = $map['ClientIpTag'];
+        }
         if (isset($map['DefenseStatus'])) {
             $model->defenseStatus = $map['DefenseStatus'];
         }
