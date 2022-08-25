@@ -59,8 +59,6 @@ class videoStreamList extends Model
     public $fps;
 
     /**
-     * @description 视频流HDR类型
-     *
      * @var string
      */
     public $HDRType;

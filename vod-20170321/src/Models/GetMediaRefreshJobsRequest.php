@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetMediaRefreshJobsRequest extends Model
 {
     /**
-     * @description 媒资ID
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description 媒资刷新预热任务ID
-     *
      * @var string
      */
     public $mediaRefreshJobId;

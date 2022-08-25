@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadImageResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadVideoResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DecryptKMSDataKeyRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DecryptKMSDataKeyResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAIImageInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAIImageInfosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAITemplateRequest;
@@ -116,6 +118,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodVerifyContentResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DetachAppPolicyFromIdentityResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GenerateKMSDataKeyRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GenerateKMSDataKeyResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobRequest;
@@ -140,6 +144,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfoResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultDetailRequest;
@@ -301,8 +307,9 @@ class Vod extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'vod.aliyuncs.com',
             'ap-southeast-2'              => 'vod.aliyuncs.com',
             'ap-southeast-3'              => 'vod.aliyuncs.com',
@@ -1321,6 +1328,61 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUploadVideoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DecryptKMSDataKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DecryptKMSDataKeyResponse
+     */
+    public function decryptKMSDataKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cipherText)) {
+            $query['CipherText'] = $request->cipherText;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DecryptKMSDataKey',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DecryptKMSDataKeyRequest $request
+     *
+     * @return DecryptKMSDataKeyResponse
+     */
+    public function decryptKMSDataKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->decryptKMSDataKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -3258,6 +3320,58 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param GenerateKMSDataKeyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GenerateKMSDataKeyResponse
+     */
+    public function generateKMSDataKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateKMSDataKey',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateKMSDataKeyRequest $request
+     *
+     * @return GenerateKMSDataKeyResponse
+     */
+    public function generateKMSDataKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateKMSDataKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAIImageJobsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3858,6 +3972,55 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getImageInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetImageInfosRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetImageInfosResponse
+     */
+    public function getImageInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authTimeout)) {
+            $query['AuthTimeout'] = $request->authTimeout;
+        }
+        if (!Utils::isUnset($request->imageIds)) {
+            $query['ImageIds'] = $request->imageIds;
+        }
+        if (!Utils::isUnset($request->outputType)) {
+            $query['OutputType'] = $request->outputType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetImageInfosRequest $request
+     *
+     * @return GetImageInfosResponse
+     */
+    public function getImageInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageInfosWithOptions($request, $runtime);
     }
 
     /**

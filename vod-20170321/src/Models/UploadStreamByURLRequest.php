@@ -19,8 +19,6 @@ class UploadStreamByURLRequest extends Model
     public $fileExtension;
 
     /**
-     * @description 视频流HDR类型
-     *
      * @var string
      */
     public $HDRType;

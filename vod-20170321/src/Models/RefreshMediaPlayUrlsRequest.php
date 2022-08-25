@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class RefreshMediaPlayUrlsRequest extends Model
 {
     /**
-     * @description 播放流清晰度
-     *
      * @var string
      */
     public $definitions;
 
     /**
-     * @description 播放流格式
-     *
      * @var string
      */
     public $formats;
 
     /**
-     * @description 媒资ID列表
-     *
      * @var string
      */
     public $mediaIds;
 
     /**
-     * @description 结果类型：Single或Multiple
-     *
      * @var string
      */
     public $resultType;
 
     /**
-     * @description M3U8文件的ts链接数量
-     *
      * @var int
      */
     public $sliceCount;
 
     /**
-     * @description M3U8文件是否获取ts链接
-     *
      * @var bool
      */
     public $sliceFlag;
 
     /**
-     * @description 播放流类型：视频或音频
-     *
      * @var string
      */
     public $streamType;
 
     /**
-     * @description Refresh: 刷新。Preload: 预热
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description 回调设置
-     *
      * @var string
      */
     public $userData;

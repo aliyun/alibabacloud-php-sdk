@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class playInfo extends Model
 {
     /**
-     * @description 颜色位深
-     *
      * @var int
      */
     public $bitDepth;
@@ -56,8 +54,6 @@ class playInfo extends Model
     public $fps;
 
     /**
-     * @description 视频流HDR类型
-     *
      * @var string
      */
     public $HDRType;

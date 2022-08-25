@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RefreshMediaPlayUrlsResponseBody extends Model
 {
     /**
-     * @description 没有多应用权限的视频ID
-     *
      * @var string
      */
     public $forbiddenMediaIds;
 
     /**
-     * @description 刷新预热任务ID
-     *
      * @var string
      */
     public $mediaRefreshJobId;
 
     /**
-     * @description 不存在的媒资ID
-     *
      * @var string
      */
     public $nonExistMediaIds;
