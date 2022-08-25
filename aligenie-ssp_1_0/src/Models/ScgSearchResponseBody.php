@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models;
 
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
 class ScgSearchResponseBody extends Model
@@ -34,7 +35,7 @@ class ScgSearchResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var result[]
      */
     public $result;
     protected $_name = [
@@ -69,7 +70,13 @@ class ScgSearchResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            $res['Result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                $n = 0;
+                foreach ($this->result as $item) {
+                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -99,7 +106,13 @@ class ScgSearchResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                $n             = 0;
+                foreach ($map['Result'] as $item) {
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
