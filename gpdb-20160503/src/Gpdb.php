@@ -64,8 +64,6 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeReque
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest;
@@ -172,6 +170,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionRequest;
@@ -411,6 +411,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -581,8 +584,8 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->planDesc)) {
             $query['PlanDesc'] = $request->planDesc;
         }
-        if (!Utils::isUnset($request->planEndTime)) {
-            $query['PlanEndTime'] = $request->planEndTime;
+        if (!Utils::isUnset($request->planEndDate)) {
+            $query['PlanEndDate'] = $request->planEndDate;
         }
         if (!Utils::isUnset($request->planName)) {
             $query['PlanName'] = $request->planName;
@@ -590,8 +593,8 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->planScheduleType)) {
             $query['PlanScheduleType'] = $request->planScheduleType;
         }
-        if (!Utils::isUnset($request->planStartTime)) {
-            $query['PlanStartTime'] = $request->planStartTime;
+        if (!Utils::isUnset($request->planStartDate)) {
+            $query['PlanStartDate'] = $request->planStartDate;
         }
         if (!Utils::isUnset($request->planType)) {
             $query['PlanType'] = $request->planType;
@@ -1682,67 +1685,6 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePlansRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDBInstancePlansResponse
-     */
-    public function describeDBInstancePlansWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->planCreateDate)) {
-            $query['PlanCreateDate'] = $request->planCreateDate;
-        }
-        if (!Utils::isUnset($request->planDesc)) {
-            $query['PlanDesc'] = $request->planDesc;
-        }
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
-        }
-        if (!Utils::isUnset($request->planSchedulerType)) {
-            $query['PlanSchedulerType'] = $request->planSchedulerType;
-        }
-        if (!Utils::isUnset($request->planType)) {
-            $query['PlanType'] = $request->planType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstancePlans',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDBInstancePlansResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDBInstancePlansRequest $request
-     *
-     * @return DescribeDBInstancePlansResponse
-     */
-    public function describeDBInstancePlans($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDBInstancePlansWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDBInstanceSQLPatternsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2588,6 +2530,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -2651,6 +2596,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4501,8 +4449,8 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->planId)) {
             $query['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->planStaus)) {
-            $query['PlanStaus'] = $request->planStaus;
+        if (!Utils::isUnset($request->planStatus)) {
+            $query['PlanStatus'] = $request->planStatus;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4769,6 +4717,70 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDBInstancePlanRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDBInstancePlanResponse
+     */
+    public function updateDBInstancePlanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->planConfig)) {
+            $query['PlanConfig'] = $request->planConfig;
+        }
+        if (!Utils::isUnset($request->planDesc)) {
+            $query['PlanDesc'] = $request->planDesc;
+        }
+        if (!Utils::isUnset($request->planEndDate)) {
+            $query['PlanEndDate'] = $request->planEndDate;
+        }
+        if (!Utils::isUnset($request->planId)) {
+            $query['PlanId'] = $request->planId;
+        }
+        if (!Utils::isUnset($request->planName)) {
+            $query['PlanName'] = $request->planName;
+        }
+        if (!Utils::isUnset($request->planStartDate)) {
+            $query['PlanStartDate'] = $request->planStartDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDBInstancePlan',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDBInstancePlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDBInstancePlanRequest $request
+     *
+     * @return UpdateDBInstancePlanResponse
+     */
+    public function updateDBInstancePlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDBInstancePlanWithOptions($request, $runtime);
     }
 
     /**

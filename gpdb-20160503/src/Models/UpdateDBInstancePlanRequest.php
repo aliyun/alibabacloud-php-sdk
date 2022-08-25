@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDBInstancePlanRequest extends Model
+class UpdateDBInstancePlanRequest extends Model
 {
     /**
      * @var string
@@ -36,32 +36,26 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @var string
      */
+    public $planId;
+
+    /**
+     * @var string
+     */
     public $planName;
 
     /**
      * @var string
      */
-    public $planScheduleType;
-
-    /**
-     * @var string
-     */
     public $planStartDate;
-
-    /**
-     * @var string
-     */
-    public $planType;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'ownerId'          => 'OwnerId',
-        'planConfig'       => 'PlanConfig',
-        'planDesc'         => 'PlanDesc',
-        'planEndDate'      => 'PlanEndDate',
-        'planName'         => 'PlanName',
-        'planScheduleType' => 'PlanScheduleType',
-        'planStartDate'    => 'PlanStartDate',
-        'planType'         => 'PlanType',
+        'DBInstanceId'  => 'DBInstanceId',
+        'ownerId'       => 'OwnerId',
+        'planConfig'    => 'PlanConfig',
+        'planDesc'      => 'PlanDesc',
+        'planEndDate'   => 'PlanEndDate',
+        'planId'        => 'PlanId',
+        'planName'      => 'PlanName',
+        'planStartDate' => 'PlanStartDate',
     ];
 
     public function validate()
@@ -86,17 +80,14 @@ class CreateDBInstancePlanRequest extends Model
         if (null !== $this->planEndDate) {
             $res['PlanEndDate'] = $this->planEndDate;
         }
+        if (null !== $this->planId) {
+            $res['PlanId'] = $this->planId;
+        }
         if (null !== $this->planName) {
             $res['PlanName'] = $this->planName;
         }
-        if (null !== $this->planScheduleType) {
-            $res['PlanScheduleType'] = $this->planScheduleType;
-        }
         if (null !== $this->planStartDate) {
             $res['PlanStartDate'] = $this->planStartDate;
-        }
-        if (null !== $this->planType) {
-            $res['PlanType'] = $this->planType;
         }
 
         return $res;
@@ -105,7 +96,7 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDBInstancePlanRequest
+     * @return UpdateDBInstancePlanRequest
      */
     public static function fromMap($map = [])
     {
@@ -125,17 +116,14 @@ class CreateDBInstancePlanRequest extends Model
         if (isset($map['PlanEndDate'])) {
             $model->planEndDate = $map['PlanEndDate'];
         }
+        if (isset($map['PlanId'])) {
+            $model->planId = $map['PlanId'];
+        }
         if (isset($map['PlanName'])) {
             $model->planName = $map['PlanName'];
         }
-        if (isset($map['PlanScheduleType'])) {
-            $model->planScheduleType = $map['PlanScheduleType'];
-        }
         if (isset($map['PlanStartDate'])) {
             $model->planStartDate = $map['PlanStartDate'];
-        }
-        if (isset($map['PlanType'])) {
-            $model->planType = $map['PlanType'];
         }
 
         return $model;
