@@ -19,6 +19,16 @@ class managementRoutes extends Model
     public $description;
 
     /**
+     * @var string[]
+     */
+    public $destinationHost;
+
+    /**
+     * @var string[]
+     */
+    public $destinationSubSet;
+
+    /**
      * @var string
      */
     public $namespace;
@@ -43,13 +53,15 @@ class managementRoutes extends Model
      */
     public $status;
     protected $_name = [
-        'ASMGatewayName' => 'ASMGatewayName',
-        'description'    => 'Description',
-        'namespace'      => 'Namespace',
-        'priority'       => 'Priority',
-        'routeName'      => 'RouteName',
-        'routePath'      => 'RoutePath',
-        'status'         => 'Status',
+        'ASMGatewayName'    => 'ASMGatewayName',
+        'description'       => 'Description',
+        'destinationHost'   => 'DestinationHost',
+        'destinationSubSet' => 'DestinationSubSet',
+        'namespace'         => 'Namespace',
+        'priority'          => 'Priority',
+        'routeName'         => 'RouteName',
+        'routePath'         => 'RoutePath',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -64,6 +76,12 @@ class managementRoutes extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->destinationHost) {
+            $res['DestinationHost'] = $this->destinationHost;
+        }
+        if (null !== $this->destinationSubSet) {
+            $res['DestinationSubSet'] = $this->destinationSubSet;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -97,6 +115,16 @@ class managementRoutes extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DestinationHost'])) {
+            if (!empty($map['DestinationHost'])) {
+                $model->destinationHost = $map['DestinationHost'];
+            }
+        }
+        if (isset($map['DestinationSubSet'])) {
+            if (!empty($map['DestinationSubSet'])) {
+                $model->destinationSubSet = $map['DestinationSubSet'];
+            }
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class routeDetail extends Model
 {
     /**
+     * @var string[]
+     */
+    public $domains;
+
+    /**
      * @var HTTPAdvancedOptions
      */
     public $HTTPAdvancedOptions;
@@ -36,6 +41,7 @@ class routeDetail extends Model
      */
     public $routeType;
     protected $_name = [
+        'domains'             => 'Domains',
         'HTTPAdvancedOptions' => 'HTTPAdvancedOptions',
         'matchRequest'        => 'MatchRequest',
         'routeDestinations'   => 'RouteDestinations',
@@ -50,6 +56,9 @@ class routeDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
+        }
         if (null !== $this->HTTPAdvancedOptions) {
             $res['HTTPAdvancedOptions'] = null !== $this->HTTPAdvancedOptions ? $this->HTTPAdvancedOptions->toMap() : null;
         }
@@ -83,6 +92,11 @@ class routeDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Domains'])) {
+            if (!empty($map['Domains'])) {
+                $model->domains = $map['Domains'];
+            }
+        }
         if (isset($map['HTTPAdvancedOptions'])) {
             $model->HTTPAdvancedOptions = HTTPAdvancedOptions::fromMap($map['HTTPAdvancedOptions']);
         }

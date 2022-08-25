@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
 
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\accessLogExtraConf;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\autoDiagnosis;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\CRAggregationConfiguration;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\istioCRHistory;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig\extraConfiguration\lifecycle;
@@ -22,6 +23,11 @@ class extraConfiguration extends Model
      * @var accessLogExtraConf
      */
     public $accessLogExtraConf;
+
+    /**
+     * @var autoDiagnosis
+     */
+    public $autoDiagnosis;
 
     /**
      * @var CRAggregationConfiguration
@@ -84,6 +90,7 @@ class extraConfiguration extends Model
     public $terminationDrainDuration;
     protected $_name = [
         'accessLogExtraConf'              => 'AccessLogExtraConf',
+        'autoDiagnosis'                   => 'AutoDiagnosis',
         'CRAggregationConfiguration'      => 'CRAggregationConfiguration',
         'CRAggregationEnabled'            => 'CRAggregationEnabled',
         'discoverySelectors'              => 'DiscoverySelectors',
@@ -107,6 +114,9 @@ class extraConfiguration extends Model
         $res = [];
         if (null !== $this->accessLogExtraConf) {
             $res['AccessLogExtraConf'] = null !== $this->accessLogExtraConf ? $this->accessLogExtraConf->toMap() : null;
+        }
+        if (null !== $this->autoDiagnosis) {
+            $res['AutoDiagnosis'] = null !== $this->autoDiagnosis ? $this->autoDiagnosis->toMap() : null;
         }
         if (null !== $this->CRAggregationConfiguration) {
             $res['CRAggregationConfiguration'] = null !== $this->CRAggregationConfiguration ? $this->CRAggregationConfiguration->toMap() : null;
@@ -158,6 +168,9 @@ class extraConfiguration extends Model
         $model = new self();
         if (isset($map['AccessLogExtraConf'])) {
             $model->accessLogExtraConf = accessLogExtraConf::fromMap($map['AccessLogExtraConf']);
+        }
+        if (isset($map['AutoDiagnosis'])) {
+            $model->autoDiagnosis = autoDiagnosis::fromMap($map['AutoDiagnosis']);
         }
         if (isset($map['CRAggregationConfiguration'])) {
             $model->CRAggregationConfiguration = CRAggregationConfiguration::fromMap($map['CRAggregationConfiguration']);

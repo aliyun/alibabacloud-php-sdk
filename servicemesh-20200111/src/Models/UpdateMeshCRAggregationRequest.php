@@ -37,6 +37,11 @@ class UpdateMeshCRAggregationRequest extends Model
      * @var string
      */
     public $serviceMeshId;
+
+    /**
+     * @var bool
+     */
+    public $updatePermission;
     protected $_name = [
         'CPULimit'          => 'CPULimit',
         'CPURequirement'    => 'CPURequirement',
@@ -44,6 +49,7 @@ class UpdateMeshCRAggregationRequest extends Model
         'memoryLimit'       => 'MemoryLimit',
         'memoryRequirement' => 'MemoryRequirement',
         'serviceMeshId'     => 'ServiceMeshId',
+        'updatePermission'  => 'UpdatePermission',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class UpdateMeshCRAggregationRequest extends Model
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
+        }
+        if (null !== $this->updatePermission) {
+            $res['UpdatePermission'] = $this->updatePermission;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class UpdateMeshCRAggregationRequest extends Model
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
+        }
+        if (isset($map['UpdatePermission'])) {
+            $model->updatePermission = $map['UpdatePermission'];
         }
 
         return $model;
