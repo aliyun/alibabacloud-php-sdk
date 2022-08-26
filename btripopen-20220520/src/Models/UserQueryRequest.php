@@ -14,11 +14,23 @@ class UserQueryRequest extends Model
     public $modifiedTimeGreaterOrEqualThan;
 
     /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pageToken;
+
+    /**
      * @var string
      */
     public $thirdPartJobNo;
     protected $_name = [
         'modifiedTimeGreaterOrEqualThan' => 'modified_time_greater_or_equal_than',
+        'pageSize'                       => 'page_size',
+        'pageToken'                      => 'page_token',
         'thirdPartJobNo'                 => 'third_part_job_no',
     ];
 
@@ -31,6 +43,12 @@ class UserQueryRequest extends Model
         $res = [];
         if (null !== $this->modifiedTimeGreaterOrEqualThan) {
             $res['modified_time_greater_or_equal_than'] = $this->modifiedTimeGreaterOrEqualThan;
+        }
+        if (null !== $this->pageSize) {
+            $res['page_size'] = $this->pageSize;
+        }
+        if (null !== $this->pageToken) {
+            $res['page_token'] = $this->pageToken;
         }
         if (null !== $this->thirdPartJobNo) {
             $res['third_part_job_no'] = $this->thirdPartJobNo;
@@ -49,6 +67,12 @@ class UserQueryRequest extends Model
         $model = new self();
         if (isset($map['modified_time_greater_or_equal_than'])) {
             $model->modifiedTimeGreaterOrEqualThan = $map['modified_time_greater_or_equal_than'];
+        }
+        if (isset($map['page_size'])) {
+            $model->pageSize = $map['page_size'];
+        }
+        if (isset($map['page_token'])) {
+            $model->pageToken = $map['page_token'];
         }
         if (isset($map['third_part_job_no'])) {
             $model->thirdPartJobNo = $map['third_part_job_no'];

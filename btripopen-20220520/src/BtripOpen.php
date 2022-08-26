@@ -8,101 +8,159 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AirportSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AirportSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AirportSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyApproveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CommonApplySyncResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterDeleteHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterDeleteRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterModifyResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityDeleteHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityDeleteRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityDeleteShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceDeleteHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceDeleteRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceRuleSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectAddResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainExceedApplyQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainExceedApplyQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainExceedApplyQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
 use AlibabaCloud\Tea\Tea;
@@ -203,14 +261,14 @@ class BtripOpen extends OpenApiClient
     public function addressGet($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new AddressGetHeaders([]);
 
         return $this->addressGetWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param AddressGetRequest $request
-     * @param string[]          $headers
+     * @param AddressGetHeaders $headers
      * @param RuntimeOptions    $runtime
      *
      * @return AddressGetResponse
@@ -234,8 +292,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -254,6 +319,62 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param AirportSearchRequest $request
+     *
+     * @return AirportSearchResponse
+     */
+    public function airportSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AirportSearchHeaders([]);
+
+        return $this->airportSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AirportSearchRequest $request
+     * @param AirportSearchHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AirportSearchResponse
+     */
+    public function airportSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AirportSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/city/v1/airport',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AirportSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param ApplyAddRequest $request
      *
      * @return ApplyAddResponse
@@ -261,14 +382,14 @@ class BtripOpen extends OpenApiClient
     public function applyAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ApplyAddHeaders([]);
 
         return $this->applyAddWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ApplyAddRequest $tmpReq
-     * @param string[]        $headers
+     * @param ApplyAddHeaders $headers
      * @param RuntimeOptions  $runtime
      *
      * @return ApplyAddResponse
@@ -391,8 +512,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->vehicleBudget)) {
             $body['vehicle_budget'] = $request->vehicleBudget;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -412,6 +540,74 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param ApplyApproveRequest $request
+     *
+     * @return ApplyApproveResponse
+     */
+    public function applyApprove($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ApplyApproveHeaders([]);
+
+        return $this->applyApproveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ApplyApproveRequest $request
+     * @param ApplyApproveHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApplyApproveResponse
+     */
+    public function applyApproveWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->applyId)) {
+            $body['apply_id'] = $request->applyId;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $body['note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->operateTime)) {
+            $body['operate_time'] = $request->operateTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyApprove',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apply/v1/biz-trip/action/approve',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyApproveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param ApplyListQueryRequest $request
      *
      * @return ApplyListQueryResponse
@@ -419,14 +615,14 @@ class BtripOpen extends OpenApiClient
     public function applyListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ApplyListQueryHeaders([]);
 
         return $this->applyListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ApplyListQueryRequest $request
-     * @param string[]              $headers
+     * @param ApplyListQueryHeaders $headers
      * @param RuntimeOptions        $runtime
      *
      * @return ApplyListQueryResponse
@@ -468,8 +664,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -495,14 +698,14 @@ class BtripOpen extends OpenApiClient
     public function applyModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ApplyModifyHeaders([]);
 
         return $this->applyModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ApplyModifyRequest $tmpReq
-     * @param string[]           $headers
+     * @param ApplyModifyHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return ApplyModifyResponse
@@ -618,8 +821,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->vehicleBudget)) {
             $body['vehicle_budget'] = $request->vehicleBudget;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -645,14 +855,14 @@ class BtripOpen extends OpenApiClient
     public function applyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ApplyQueryHeaders([]);
 
         return $this->applyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ApplyQueryRequest $request
-     * @param string[]          $headers
+     * @param ApplyQueryHeaders $headers
      * @param RuntimeOptions    $runtime
      *
      * @return ApplyQueryResponse
@@ -673,8 +883,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -700,14 +917,14 @@ class BtripOpen extends OpenApiClient
     public function carApplyAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CarApplyAddHeaders([]);
 
         return $this->carApplyAddWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CarApplyAddRequest $request
-     * @param string[]           $headers
+     * @param CarApplyAddHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return CarApplyAddResponse
@@ -761,8 +978,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $body['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -788,14 +1012,14 @@ class BtripOpen extends OpenApiClient
     public function carApplyModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CarApplyModifyHeaders([]);
 
         return $this->carApplyModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CarApplyModifyRequest $request
-     * @param string[]              $headers
+     * @param CarApplyModifyHeaders $headers
      * @param RuntimeOptions        $runtime
      *
      * @return CarApplyModifyResponse
@@ -819,8 +1043,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $body['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -846,14 +1077,14 @@ class BtripOpen extends OpenApiClient
     public function carApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CarApplyQueryHeaders([]);
 
         return $this->carApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CarApplyQueryRequest $request
-     * @param string[]             $headers
+     * @param CarApplyQueryHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return CarApplyQueryResponse
@@ -880,8 +1111,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -907,14 +1145,14 @@ class BtripOpen extends OpenApiClient
     public function carBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CarBillSettlementQueryHeaders([]);
 
         return $this->carBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CarBillSettlementQueryRequest $request
-     * @param string[]                      $headers
+     * @param CarBillSettlementQueryHeaders $headers
      * @param RuntimeOptions                $runtime
      *
      * @return CarBillSettlementQueryResponse
@@ -935,8 +1173,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -962,14 +1207,14 @@ class BtripOpen extends OpenApiClient
     public function carOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CarOrderListQueryHeaders([]);
 
         return $this->carOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CarOrderListQueryRequest $request
-     * @param string[]                 $headers
+     * @param CarOrderListQueryHeaders $headers
      * @param RuntimeOptions           $runtime
      *
      * @return CarOrderListQueryResponse
@@ -1011,8 +1256,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1031,6 +1283,59 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param CitySearchRequest $request
+     *
+     * @return CitySearchResponse
+     */
+    public function citySearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CitySearchHeaders([]);
+
+        return $this->citySearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CitySearchRequest $request
+     * @param CitySearchHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CitySearchResponse
+     */
+    public function citySearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CitySearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/city/v1/city',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CitySearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param CommonApplyQueryRequest $request
      *
      * @return CommonApplyQueryResponse
@@ -1038,14 +1343,14 @@ class BtripOpen extends OpenApiClient
     public function commonApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CommonApplyQueryHeaders([]);
 
         return $this->commonApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CommonApplyQueryRequest $request
-     * @param string[]                $headers
+     * @param CommonApplyQueryHeaders $headers
      * @param RuntimeOptions          $runtime
      *
      * @return CommonApplyQueryResponse
@@ -1063,8 +1368,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1090,14 +1402,14 @@ class BtripOpen extends OpenApiClient
     public function commonApplySync($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CommonApplySyncHeaders([]);
 
         return $this->commonApplySyncWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CommonApplySyncRequest $request
-     * @param string[]               $headers
+     * @param CommonApplySyncHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return CommonApplySyncResponse
@@ -1124,8 +1436,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1151,14 +1470,14 @@ class BtripOpen extends OpenApiClient
     public function corpToken($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CorpTokenHeaders([]);
 
         return $this->corpTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CorpTokenRequest $request
-     * @param string[]         $headers
+     * @param CorpTokenHeaders $headers
      * @param RuntimeOptions   $runtime
      *
      * @return CorpTokenResponse
@@ -1173,8 +1492,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
+            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1200,14 +1526,14 @@ class BtripOpen extends OpenApiClient
     public function costCenterDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CostCenterDeleteHeaders([]);
 
         return $this->costCenterDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CostCenterDeleteRequest $request
-     * @param string[]                $headers
+     * @param CostCenterDeleteHeaders $headers
      * @param RuntimeOptions          $runtime
      *
      * @return CostCenterDeleteResponse
@@ -1219,8 +1545,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdpartId)) {
             $query['thirdpart_id'] = $request->thirdpartId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1246,14 +1579,14 @@ class BtripOpen extends OpenApiClient
     public function costCenterModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CostCenterModifyHeaders([]);
 
         return $this->costCenterModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CostCenterModifyRequest $request
-     * @param string[]                $headers
+     * @param CostCenterModifyHeaders $headers
      * @param RuntimeOptions          $runtime
      *
      * @return CostCenterModifyResponse
@@ -1277,8 +1610,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->title)) {
             $body['title'] = $request->title;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1366,14 +1706,14 @@ class BtripOpen extends OpenApiClient
     public function costCenterSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CostCenterSaveHeaders([]);
 
         return $this->costCenterSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CostCenterSaveRequest $request
-     * @param string[]              $headers
+     * @param CostCenterSaveHeaders $headers
      * @param RuntimeOptions        $runtime
      *
      * @return CostCenterSaveResponse
@@ -1397,8 +1737,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->title)) {
             $body['title'] = $request->title;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1424,14 +1771,14 @@ class BtripOpen extends OpenApiClient
     public function departmentSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DepartmentSaveHeaders([]);
 
         return $this->departmentSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param DepartmentSaveRequest $tmpReq
-     * @param string[]              $headers
+     * @param DepartmentSaveHeaders $headers
      * @param RuntimeOptions        $runtime
      *
      * @return DepartmentSaveResponse
@@ -1448,8 +1795,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->departListShrink)) {
             $body['depart_list'] = $request->departListShrink;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1475,14 +1829,14 @@ class BtripOpen extends OpenApiClient
     public function entityAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new EntityAddHeaders([]);
 
         return $this->entityAddWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param EntityAddRequest $tmpReq
-     * @param string[]         $headers
+     * @param EntityAddHeaders $headers
      * @param RuntimeOptions   $runtime
      *
      * @return EntityAddResponse
@@ -1502,8 +1856,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdpartId)) {
             $body['thirdpart_id'] = $request->thirdpartId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1529,14 +1890,14 @@ class BtripOpen extends OpenApiClient
     public function entityDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new EntityDeleteHeaders([]);
 
         return $this->entityDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param EntityDeleteRequest $tmpReq
-     * @param string[]            $headers
+     * @param EntityDeleteHeaders $headers
      * @param RuntimeOptions      $runtime
      *
      * @return EntityDeleteResponse
@@ -1560,8 +1921,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->entityDOListShrink)) {
             $body['entity_d_o_list'] = $request->entityDOListShrink;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1588,14 +1956,14 @@ class BtripOpen extends OpenApiClient
     public function entitySet($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new EntitySetHeaders([]);
 
         return $this->entitySetWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param EntitySetRequest $tmpReq
-     * @param string[]         $headers
+     * @param EntitySetHeaders $headers
      * @param RuntimeOptions   $runtime
      *
      * @return EntitySetResponse
@@ -1615,8 +1983,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdpartId)) {
             $body['thirdpart_id'] = $request->thirdpartId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1642,14 +2017,14 @@ class BtripOpen extends OpenApiClient
     public function exceedApplySync($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ExceedApplySyncHeaders([]);
 
         return $this->exceedApplySyncWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ExceedApplySyncRequest $request
-     * @param string[]               $headers
+     * @param ExceedApplySyncHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return ExceedApplySyncResponse
@@ -1676,8 +2051,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1703,14 +2085,14 @@ class BtripOpen extends OpenApiClient
     public function flightBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new FlightBillSettlementQueryHeaders([]);
 
         return $this->flightBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param FlightBillSettlementQueryRequest $request
-     * @param string[]                         $headers
+     * @param FlightBillSettlementQueryHeaders $headers
      * @param RuntimeOptions                   $runtime
      *
      * @return FlightBillSettlementQueryResponse
@@ -1731,8 +2113,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1758,14 +2147,14 @@ class BtripOpen extends OpenApiClient
     public function flightExceedApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new FlightExceedApplyQueryHeaders([]);
 
         return $this->flightExceedApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param FlightExceedApplyQueryRequest $request
-     * @param string[]                      $headers
+     * @param FlightExceedApplyQueryHeaders $headers
      * @param RuntimeOptions                $runtime
      *
      * @return FlightExceedApplyQueryResponse
@@ -1777,8 +2166,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1804,14 +2200,14 @@ class BtripOpen extends OpenApiClient
     public function flightOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new FlightOrderListQueryHeaders([]);
 
         return $this->flightOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param FlightOrderListQueryRequest $request
-     * @param string[]                    $headers
+     * @param FlightOrderListQueryHeaders $headers
      * @param RuntimeOptions              $runtime
      *
      * @return FlightOrderListQueryResponse
@@ -1853,8 +2249,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1880,14 +2283,14 @@ class BtripOpen extends OpenApiClient
     public function flightOrderQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new FlightOrderQueryHeaders([]);
 
         return $this->flightOrderQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param FlightOrderQueryRequest $request
-     * @param string[]                $headers
+     * @param FlightOrderQueryHeaders $headers
      * @param RuntimeOptions          $runtime
      *
      * @return FlightOrderQueryResponse
@@ -1902,8 +2305,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1929,14 +2339,14 @@ class BtripOpen extends OpenApiClient
     public function hotelBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new HotelBillSettlementQueryHeaders([]);
 
         return $this->hotelBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param HotelBillSettlementQueryRequest $request
-     * @param string[]                        $headers
+     * @param HotelBillSettlementQueryHeaders $headers
      * @param RuntimeOptions                  $runtime
      *
      * @return HotelBillSettlementQueryResponse
@@ -1957,8 +2367,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1984,14 +2401,14 @@ class BtripOpen extends OpenApiClient
     public function hotelExceedApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new HotelExceedApplyQueryHeaders([]);
 
         return $this->hotelExceedApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param HotelExceedApplyQueryRequest $request
-     * @param string[]                     $headers
+     * @param HotelExceedApplyQueryHeaders $headers
      * @param RuntimeOptions               $runtime
      *
      * @return HotelExceedApplyQueryResponse
@@ -2003,8 +2420,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2030,14 +2454,14 @@ class BtripOpen extends OpenApiClient
     public function hotelOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new HotelOrderListQueryHeaders([]);
 
         return $this->hotelOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param HotelOrderListQueryRequest $request
-     * @param string[]                   $headers
+     * @param HotelOrderListQueryHeaders $headers
      * @param RuntimeOptions             $runtime
      *
      * @return HotelOrderListQueryResponse
@@ -2079,8 +2503,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2099,6 +2530,68 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param IeFlightBillSettlementQueryRequest $request
+     *
+     * @return IeFlightBillSettlementQueryResponse
+     */
+    public function ieFlightBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IeFlightBillSettlementQueryHeaders([]);
+
+        return $this->ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param IeFlightBillSettlementQueryRequest $request
+     * @param IeFlightBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return IeFlightBillSettlementQueryResponse
+     */
+    public function ieFlightBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->periodEnd)) {
+            $query['period_end'] = $request->periodEnd;
+        }
+        if (!Utils::isUnset($request->periodStart)) {
+            $query['period_start'] = $request->periodStart;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IeFlightBillSettlementQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ie-flight/v1/bill-settlement',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IeFlightBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param InvoiceAddRequest $request
      *
      * @return InvoiceAddResponse
@@ -2106,14 +2599,14 @@ class BtripOpen extends OpenApiClient
     public function invoiceAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new InvoiceAddHeaders([]);
 
         return $this->invoiceAddWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param InvoiceAddRequest $request
-     * @param string[]          $headers
+     * @param InvoiceAddHeaders $headers
      * @param RuntimeOptions    $runtime
      *
      * @return InvoiceAddResponse
@@ -2146,8 +2639,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -2173,14 +2673,14 @@ class BtripOpen extends OpenApiClient
     public function invoiceDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new InvoiceDeleteHeaders([]);
 
         return $this->invoiceDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param InvoiceDeleteRequest $request
-     * @param string[]             $headers
+     * @param InvoiceDeleteHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return InvoiceDeleteResponse
@@ -2192,8 +2692,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartId)) {
             $query['third_part_id'] = $request->thirdPartId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2219,14 +2726,14 @@ class BtripOpen extends OpenApiClient
     public function invoiceModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new InvoiceModifyHeaders([]);
 
         return $this->invoiceModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param InvoiceModifyRequest $request
-     * @param string[]             $headers
+     * @param InvoiceModifyHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return InvoiceModifyResponse
@@ -2259,8 +2766,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -2286,14 +2800,14 @@ class BtripOpen extends OpenApiClient
     public function invoiceRuleSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new InvoiceRuleSaveHeaders([]);
 
         return $this->invoiceRuleSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param InvoiceRuleSaveRequest $tmpReq
-     * @param string[]               $headers
+     * @param InvoiceRuleSaveHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return InvoiceRuleSaveResponse
@@ -2316,8 +2830,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartId)) {
             $body['third_part_id'] = $request->thirdPartId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -2343,14 +2864,14 @@ class BtripOpen extends OpenApiClient
     public function invoiceSearch($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new InvoiceSearchHeaders([]);
 
         return $this->invoiceSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param InvoiceSearchRequest $request
-     * @param string[]             $headers
+     * @param InvoiceSearchHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return InvoiceSearchResponse
@@ -2365,8 +2886,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2392,14 +2920,14 @@ class BtripOpen extends OpenApiClient
     public function isvUserSave($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new IsvUserSaveHeaders([]);
 
         return $this->isvUserSaveWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param IsvUserSaveRequest $tmpReq
-     * @param string[]           $headers
+     * @param IsvUserSaveHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return IsvUserSaveResponse
@@ -2416,8 +2944,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userListShrink)) {
             $body['user_list'] = $request->userListShrink;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -2443,14 +2978,14 @@ class BtripOpen extends OpenApiClient
     public function monthBillGet($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new MonthBillGetHeaders([]);
 
         return $this->monthBillGetWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param MonthBillGetRequest $request
-     * @param string[]            $headers
+     * @param MonthBillGetHeaders $headers
      * @param RuntimeOptions      $runtime
      *
      * @return MonthBillGetResponse
@@ -2462,8 +2997,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->billMonth)) {
             $query['bill_month'] = $request->billMonth;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2489,14 +3031,14 @@ class BtripOpen extends OpenApiClient
     public function projectAdd($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ProjectAddHeaders([]);
 
         return $this->projectAddWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ProjectAddRequest $request
-     * @param string[]          $headers
+     * @param ProjectAddHeaders $headers
      * @param RuntimeOptions    $runtime
      *
      * @return ProjectAddResponse
@@ -2520,8 +3062,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartInvoiceId)) {
             $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -2547,14 +3096,14 @@ class BtripOpen extends OpenApiClient
     public function projectDelete($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ProjectDeleteHeaders([]);
 
         return $this->projectDeleteWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ProjectDeleteRequest $request
-     * @param string[]             $headers
+     * @param ProjectDeleteHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return ProjectDeleteResponse
@@ -2566,8 +3115,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartId)) {
             $query['third_part_id'] = $request->thirdPartId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2593,14 +3149,14 @@ class BtripOpen extends OpenApiClient
     public function projectModify($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ProjectModifyHeaders([]);
 
         return $this->projectModifyWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ProjectModifyRequest $request
-     * @param string[]             $headers
+     * @param ProjectModifyHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return ProjectModifyResponse
@@ -2624,8 +3180,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdPartInvoiceId)) {
             $body['third_part_invoice_id'] = $request->thirdPartInvoiceId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -2651,14 +3214,14 @@ class BtripOpen extends OpenApiClient
     public function trainBillSettlementQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new TrainBillSettlementQueryHeaders([]);
 
         return $this->trainBillSettlementQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param TrainBillSettlementQueryRequest $request
-     * @param string[]                        $headers
+     * @param TrainBillSettlementQueryHeaders $headers
      * @param RuntimeOptions                  $runtime
      *
      * @return TrainBillSettlementQueryResponse
@@ -2679,8 +3242,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2706,14 +3276,14 @@ class BtripOpen extends OpenApiClient
     public function trainExceedApplyQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new TrainExceedApplyQueryHeaders([]);
 
         return $this->trainExceedApplyQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param TrainExceedApplyQueryRequest $request
-     * @param string[]                     $headers
+     * @param TrainExceedApplyQueryHeaders $headers
      * @param RuntimeOptions               $runtime
      *
      * @return TrainExceedApplyQueryResponse
@@ -2725,8 +3295,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2752,14 +3329,14 @@ class BtripOpen extends OpenApiClient
     public function trainOrderListQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new TrainOrderListQueryHeaders([]);
 
         return $this->trainOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param TrainOrderListQueryRequest $request
-     * @param string[]                   $headers
+     * @param TrainOrderListQueryHeaders $headers
      * @param RuntimeOptions             $runtime
      *
      * @return TrainOrderListQueryResponse
@@ -2801,8 +3378,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2828,14 +3412,14 @@ class BtripOpen extends OpenApiClient
     public function trainOrderQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new TrainOrderQueryHeaders([]);
 
         return $this->trainOrderQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param TrainOrderQueryRequest $request
-     * @param string[]               $headers
+     * @param TrainOrderQueryHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return TrainOrderQueryResponse
@@ -2850,8 +3434,15 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['user_id'] = $request->userId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2870,6 +3461,59 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param TrainStationSearchRequest $request
+     *
+     * @return TrainStationSearchResponse
+     */
+    public function trainStationSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new TrainStationSearchHeaders([]);
+
+        return $this->trainStationSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TrainStationSearchRequest $request
+     * @param TrainStationSearchHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TrainStationSearchResponse
+     */
+    public function trainStationSearchWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyword)) {
+            $query['keyword'] = $request->keyword;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TrainStationSearch',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/city/v1/train',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TrainStationSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param UserQueryRequest $request
      *
      * @return UserQueryResponse
@@ -2877,14 +3521,14 @@ class BtripOpen extends OpenApiClient
     public function userQuery($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new UserQueryHeaders([]);
 
         return $this->userQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param UserQueryRequest $request
-     * @param string[]         $headers
+     * @param UserQueryHeaders $headers
      * @param RuntimeOptions   $runtime
      *
      * @return UserQueryResponse
@@ -2896,11 +3540,24 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->modifiedTimeGreaterOrEqualThan)) {
             $query['modified_time_greater_or_equal_than'] = $request->modifiedTimeGreaterOrEqualThan;
         }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['page_token'] = $request->pageToken;
+        }
         if (!Utils::isUnset($request->thirdPartJobNo)) {
             $query['third_part_job_no'] = $request->thirdPartJobNo;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
