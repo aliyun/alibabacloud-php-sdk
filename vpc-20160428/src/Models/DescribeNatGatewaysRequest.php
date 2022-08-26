@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeNatGatewaysRequest extends Model
@@ -89,6 +90,11 @@ class DescribeNatGatewaysRequest extends Model
     public $status;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -114,6 +120,7 @@ class DescribeNatGatewaysRequest extends Model
         'resourceOwnerId'      => 'ResourceOwnerId',
         'spec'                 => 'Spec',
         'status'               => 'Status',
+        'tag'                  => 'Tag',
         'vpcId'                => 'VpcId',
         'zoneId'               => 'ZoneId',
     ];
@@ -172,6 +179,15 @@ class DescribeNatGatewaysRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -238,6 +254,15 @@ class DescribeNatGatewaysRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

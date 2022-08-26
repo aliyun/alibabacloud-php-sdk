@@ -422,6 +422,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableVpcIpv4GatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableVpcIpv4GatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetFlowLogServiceStatusRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetFlowLogServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeRequest;
@@ -576,6 +578,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVSwitchAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVSwitchAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\MoveResourceGroupResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenFlowLogServiceRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenFlowLogServiceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPhysicalConnectionServiceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenPhysicalConnectionServiceResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\OpenTrafficMirrorServiceRequest;
@@ -12142,6 +12146,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -15292,6 +15299,67 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetFlowLogServiceStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetFlowLogServiceStatusResponse
+     */
+    public function getFlowLogServiceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFlowLogServiceStatus',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFlowLogServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetFlowLogServiceStatusRequest $request
+     *
+     * @return GetFlowLogServiceStatusResponse
+     */
+    public function getFlowLogServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlowLogServiceStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -20745,6 +20813,67 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param OpenFlowLogServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OpenFlowLogServiceResponse
+     */
+    public function openFlowLogServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenFlowLogService',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenFlowLogServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenFlowLogServiceRequest $request
+     *
+     * @return OpenFlowLogServiceResponse
+     */
+    public function openFlowLogService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openFlowLogServiceWithOptions($request, $runtime);
     }
 
     /**

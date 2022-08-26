@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGat
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\ipLists;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\natGatewayPrivateInfo;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\snatTableIds;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway\tags;
 use AlibabaCloud\Tea\Model;
 
 class natGateway extends Model
@@ -144,6 +145,11 @@ class natGateway extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $vpcId;
@@ -174,6 +180,7 @@ class natGateway extends Model
         'snatTableIds'              => 'SnatTableIds',
         'spec'                      => 'Spec',
         'status'                    => 'Status',
+        'tags'                      => 'Tags',
         'vpcId'                     => 'VpcId',
     ];
 
@@ -261,6 +268,9 @@ class natGateway extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -354,6 +364,9 @@ class natGateway extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
