@@ -9,106 +9,76 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
-     * @description 工程业务配置
-     *
      * @var string
      */
     public $businessConfig;
 
     /**
-     * @description 业务状态，业务状态 /** 预约中 **\/ RESERVING(0, "Reserving"), /** 预约取消 **\/ RESERVATION_CANCELED(1, "ReservationCanceled"), /** 直播中 **\/ BROADCASTING(3, "BroadCasting"), /** 加载失败 **\/ LOADING_FAILED(4, "LoadingFailed"), /** 直播结束 **\/ LIVE_FINISHED(5, "LiveFinished");
-     *
      * @var string
      */
     public $businessStatus;
 
     /**
-     * @description 模板素材参数
-     *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description 云剪辑工程封面。
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 云剪辑工程创建方式  -OpenAPI  -AliyunConsole  -WebSDK -LiveEditingOpenAPI -LiveEditingConsole
-     *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description 云剪辑工程创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 云剪辑工程描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 云剪辑工程时长
-     *
      * @var float
      */
     public $duration;
 
     /**
-     * @description 云剪辑工程创建方式  -OpenAPI  -AliyunConsole  -WebSDK -LiveEditingOpenAPI -LiveEditingConsole
-     *
      * @var string
      */
     public $modifiedSource;
 
     /**
-     * @description 云剪辑工程编辑时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 云剪辑工程ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 剪辑工程类型，EditingProject: 普通剪辑工程；LiveEditingProject: 直播剪辑工程
-     *
      * @var string
      */
     public $projectType;
 
     /**
-     * @description 云剪辑工程状态。  所有云剪辑工程状态列表：  -1:Draft  -2:Editing  -3:Producing  -4:Produced  -5:ProduceFailed  -7:Deleted
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 云剪辑状态名称，对应状态列表中状态名称。
-     *
      * @var string
      */
     public $statusName;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
@@ -119,15 +89,11 @@ class project extends Model
     public $templateType;
 
     /**
-     * @description 云剪辑工程时间线，Json格式
-     *
      * @var string
      */
     public $timeline;
 
     /**
-     * @description 云剪辑工程标题
-     *
      * @var string
      */
     public $title;

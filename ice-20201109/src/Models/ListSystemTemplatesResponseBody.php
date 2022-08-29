@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListSystemTemplatesResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 模板信息列表
-     *
      * @var systemTemplateList[]
      */
     public $systemTemplateList;
 
     /**
-     * @description 模板总数
-     *
      * @var int
      */
     public $total;

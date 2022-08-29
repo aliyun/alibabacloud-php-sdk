@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicChartJobRequest extends Model
 {
     /**
-     * @description 坐标样式。XAxisFontInterval不传或为0则算法自动计算间距
-     *
      * @var string
      */
     public $axisParams;
 
     /**
-     * @description 图表背景
-     *
      * @var string
      */
     public $background;
 
     /**
-     * @description 图表配置
-     *
      * @var string
      */
     public $chartConfig;
 
     /**
-     * @description 主标题
-     *
      * @var string
      */
     public $chartTitle;
 
     /**
-     * @description 图表类型
-     *
      * @var string
      */
     public $chartType;
 
     /**
-     * @description 数据来源
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description 任务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 图表输入数据
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description 输出设置
-     *
      * @var string
      */
     public $outputConfig;
 
     /**
-     * @description 副标题
-     *
      * @var string
      */
     public $subtitle;
 
     /**
-     * @description 任务标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 单位
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @description 自定义数据，JSON格式
-     *
      * @var string
      */
     public $userData;

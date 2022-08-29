@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectResponseBody extends Model
 {
     /**
-     * @description 云剪辑工程总数
-     *
      * @var int
      */
     public $maxResults;
@@ -22,15 +20,11 @@ class SearchEditingProjectResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 云剪辑工程列表
-     *
      * @var projectList[]
      */
     public $projectList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

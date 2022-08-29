@@ -22,10 +22,16 @@ class filterConfigs extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $uuId;
     protected $_name = [
         'filterName'  => 'FilterName',
         'itemConfigs' => 'ItemConfigs',
         'type'        => 'Type',
+        'uuId'        => 'UuId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class filterConfigs extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->uuId) {
+            $res['UuId'] = $this->uuId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class filterConfigs extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UuId'])) {
+            $model->uuId = $map['UuId'];
         }
 
         return $model;

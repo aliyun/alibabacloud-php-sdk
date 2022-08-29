@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetPipelineRequest extends Model
 {
     /**
-     * @description 管道ID
-     *
      * @var string
      */
     public $pipelineId;

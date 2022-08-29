@@ -15,8 +15,6 @@ class CreateEditingProjectResponseBody extends Model
     public $project;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

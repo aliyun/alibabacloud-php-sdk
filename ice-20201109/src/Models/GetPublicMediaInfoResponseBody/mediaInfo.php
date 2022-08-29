@@ -12,29 +12,21 @@ use AlibabaCloud\Tea\Model;
 class mediaInfo extends Model
 {
     /**
-     * @description 公共媒资动态元数据
-     *
      * @var dynamicMetaData
      */
     public $dynamicMetaData;
 
     /**
-     * @description FileInfos
-     *
      * @var fileInfoList[]
      */
     public $fileInfoList;
 
     /**
-     * @description BasicInfo
-     *
      * @var mediaBasicInfo
      */
     public $mediaBasicInfo;
 
     /**
-     * @description 媒资ID
-     *
      * @var string
      */
     public $mediaId;

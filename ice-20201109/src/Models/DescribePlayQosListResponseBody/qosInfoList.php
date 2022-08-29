@@ -46,7 +46,7 @@ class qosInfoList extends Model
     /**
      * @var string
      */
-    public $vpsid;
+    public $traceId;
     protected $_name = [
         'qosFirstFrame'   => 'QosFirstFrame',
         'qosKbps'         => 'QosKbps',
@@ -55,7 +55,7 @@ class qosInfoList extends Model
         'qosRealPlay'     => 'QosRealPlay',
         'qosSeedFailRate' => 'QosSeedFailRate',
         'qosStuckRate'    => 'QosStuckRate',
-        'vpsid'           => 'Vpsid',
+        'traceId'         => 'TraceId',
     ];
 
     public function validate()
@@ -86,8 +86,8 @@ class qosInfoList extends Model
         if (null !== $this->qosStuckRate) {
             $res['QosStuckRate'] = $this->qosStuckRate;
         }
-        if (null !== $this->vpsid) {
-            $res['Vpsid'] = $this->vpsid;
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
         }
 
         return $res;
@@ -122,8 +122,8 @@ class qosInfoList extends Model
         if (isset($map['QosStuckRate'])) {
             $model->qosStuckRate = $map['QosStuckRate'];
         }
-        if (isset($map['Vpsid'])) {
-            $model->vpsid = $map['Vpsid'];
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
         }
 
         return $model;

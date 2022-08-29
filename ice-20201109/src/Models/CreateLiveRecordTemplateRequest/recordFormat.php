@@ -14,30 +14,22 @@ class recordFormat extends Model
     public $cycleDuration;
 
     /**
-     * @description 格式
-     *
-     * @var int[]
+     * @var string
      */
     public $format;
 
     /**
-     * @description Oss对象名
-     *
-     * @var int[]
+     * @var string
      */
     public $ossObjectPrefix;
 
     /**
-     * @description 切片时长
-     *
      * @var int
      */
     public $sliceDuration;
 
     /**
-     * @description 切片Oss对象名
-     *
-     * @var int[]
+     * @var string
      */
     public $sliceOssObjectPrefix;
     protected $_name = [

@@ -15,8 +15,6 @@ class input extends Model
     public $media;
 
     /**
-     * @description 输入类型为媒资ID时的OSS地址
-     *
      * @var ossFile
      */
     public $ossFile;

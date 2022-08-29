@@ -9,37 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListPublicMediaBasicInfosRequest extends Model
 {
     /**
-     * @description 返回值中是否包含文件基础信息
-     *
      * @var bool
      */
     public $includeFileBasicInfo;
 
     /**
-     * @description 分页大小
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 标签
-     *
      * @var string
      */
     public $mediaTagId;
 
     /**
-     * @description 下一次读取的位置
-     *
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
     protected $_name = [
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
         'maxResults'           => 'MaxResults',
         'mediaTagId'           => 'MediaTagId',
         'nextToken'            => 'NextToken',
+        'pageNo'               => 'PageNo',
+        'pageSize'             => 'PageSize',
     ];
 
     public function validate()
@@ -60,6 +64,12 @@ class ListPublicMediaBasicInfosRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -84,6 +94,12 @@ class ListPublicMediaBasicInfosRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

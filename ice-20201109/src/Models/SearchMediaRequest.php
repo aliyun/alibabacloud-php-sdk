@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaRequest extends Model
 {
     /**
-     * @description 实体Id
-     *
      * @var string
      */
     public $entityId;
 
     /**
-     * @description 过滤条件
-     *
      * @var string
      */
     public $match;
 
     /**
-     * @description 当前页码。默认值为1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 每页返回的数据条数。默认值为10，最大值为100
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 排序字段和排序顺序。多个使用英文逗号（,）分隔
-     *
      * @var string
      */
     public $sortBy;

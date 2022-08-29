@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class imageWatermarks extends Model
 {
     /**
-     * @description 覆盖参数, 若填写会覆盖模板对应参数
-     *
      * @var overwriteParams
      */
     public $overwriteParams;
 
     /**
-     * @description 模板 id
-     *
      * @var string
      */
     public $templateId;

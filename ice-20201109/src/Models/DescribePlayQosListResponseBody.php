@@ -25,8 +25,6 @@ class DescribePlayQosListResponseBody extends Model
     public $qosInfoList;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaInfoJobShrinkRequest extends Model
 {
     /**
-     * @description 任务输入
-     *
      * @var string
      */
     public $inputShrink;
 
     /**
-     * @description 任务名字
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 调度参数
-     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

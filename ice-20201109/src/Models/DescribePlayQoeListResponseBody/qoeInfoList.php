@@ -51,7 +51,7 @@ class qoeInfoList extends Model
     /**
      * @var string
      */
-    public $vpsid;
+    public $traceId;
     protected $_name = [
         'qoeFinishedVV'      => 'QoeFinishedVV',
         'qoeFinishedVVRate'  => 'QoeFinishedVVRate',
@@ -61,7 +61,7 @@ class qoeInfoList extends Model
         'qoeUVVTime'         => 'QoeUVVTime',
         'qoeVDuration'       => 'QoeVDuration',
         'qoeVVDuration'      => 'QoeVVDuration',
-        'vpsid'              => 'Vpsid',
+        'traceId'            => 'TraceId',
     ];
 
     public function validate()
@@ -95,8 +95,8 @@ class qoeInfoList extends Model
         if (null !== $this->qoeVVDuration) {
             $res['QoeVVDuration'] = $this->qoeVVDuration;
         }
-        if (null !== $this->vpsid) {
-            $res['Vpsid'] = $this->vpsid;
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
         }
 
         return $res;
@@ -134,8 +134,8 @@ class qoeInfoList extends Model
         if (isset($map['QoeVVDuration'])) {
             $model->qoeVVDuration = $map['QoeVVDuration'];
         }
-        if (isset($map['Vpsid'])) {
-            $model->vpsid = $map['Vpsid'];
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
         }
 
         return $model;

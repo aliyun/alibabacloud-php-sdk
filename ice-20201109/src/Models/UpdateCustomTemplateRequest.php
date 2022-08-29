@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomTemplateRequest extends Model
 {
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 模板参数
-     *
      * @var string
      */
     public $templateConfig;
 
     /**
-     * @description 模板ID
-     *
      * @var string
      */
     public $templateId;

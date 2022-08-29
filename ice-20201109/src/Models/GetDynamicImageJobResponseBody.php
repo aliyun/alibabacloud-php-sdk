@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetDynamicImageJobResponseBody extends Model
 {
     /**
-     * @description 截图任务信息
-     *
      * @var dynamicImageJob
      */
     public $dynamicImageJob;

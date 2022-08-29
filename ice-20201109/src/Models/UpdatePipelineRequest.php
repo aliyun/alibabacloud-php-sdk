@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelineRequest extends Model
 {
     /**
-     * @description 管道名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 管道ID
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description 优先级
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 管道状态。
-     *
      * @var string
      */
     public $status;

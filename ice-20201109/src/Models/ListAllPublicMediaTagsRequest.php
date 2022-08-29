@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAllPublicMediaTagsRequest extends Model
 {
     /**
-     * @description 媒资业务类型
-     *
      * @var string
      */
     public $businessType;

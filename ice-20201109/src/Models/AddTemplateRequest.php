@@ -9,61 +9,53 @@ use AlibabaCloud\Tea\Model;
 class AddTemplateRequest extends Model
 {
     /**
-     * @description 参见Timeline模板Config文档
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description 模板封面
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 预览视频媒资id
-     *
      * @var string
      */
     public $previewMedia;
 
     /**
-     * @description 模板创建来源，默认OpenAPI
-     *
+     * @var string
+     */
+    public $relatedMediaids;
+
+    /**
      * @var string
      */
     public $source;
 
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板类型，取值范围：Timeline
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'config'       => 'Config',
-        'coverUrl'     => 'CoverUrl',
-        'name'         => 'Name',
-        'previewMedia' => 'PreviewMedia',
-        'source'       => 'Source',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'config'          => 'Config',
+        'coverUrl'        => 'CoverUrl',
+        'name'            => 'Name',
+        'previewMedia'    => 'PreviewMedia',
+        'relatedMediaids' => 'RelatedMediaids',
+        'source'          => 'Source',
+        'status'          => 'Status',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -84,6 +76,9 @@ class AddTemplateRequest extends Model
         }
         if (null !== $this->previewMedia) {
             $res['PreviewMedia'] = $this->previewMedia;
+        }
+        if (null !== $this->relatedMediaids) {
+            $res['RelatedMediaids'] = $this->relatedMediaids;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -117,6 +112,9 @@ class AddTemplateRequest extends Model
         }
         if (isset($map['PreviewMedia'])) {
             $model->previewMedia = $map['PreviewMedia'];
+        }
+        if (isset($map['RelatedMediaids'])) {
+            $model->relatedMediaids = $map['RelatedMediaids'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

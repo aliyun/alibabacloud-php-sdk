@@ -15,8 +15,6 @@ class ListPublicMediaBasicInfosResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 符合要求的媒资集合
-     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
@@ -27,15 +25,11 @@ class ListPublicMediaBasicInfosResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 符合要求的媒资总数
-     *
      * @var int
      */
     public $totalCount;

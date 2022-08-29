@@ -14,8 +14,6 @@ class RefreshUploadMediaResponseBody extends Model
     public $mediaId;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

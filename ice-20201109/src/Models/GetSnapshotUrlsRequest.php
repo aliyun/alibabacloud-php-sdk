@@ -14,8 +14,6 @@ class GetSnapshotUrlsRequest extends Model
     public $jobId;
 
     /**
-     * @description 排列顺序。取值：Asc，Desc
-     *
      * @var string
      */
     public $orderBy;
@@ -31,8 +29,6 @@ class GetSnapshotUrlsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 鉴权超时时间
-     *
      * @var int
      */
     public $timeout;

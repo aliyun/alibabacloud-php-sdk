@@ -14,22 +14,16 @@ class GetSnapshotUrlsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 截图URL
-     *
      * @var string[]
      */
     public $snapshotUrls;
 
     /**
-     * @description 截图总数量
-     *
      * @var int
      */
     public $total;
 
     /**
-     * @description WebVTT文件URL
-     *
      * @var string
      */
     public $webVTTUrl;

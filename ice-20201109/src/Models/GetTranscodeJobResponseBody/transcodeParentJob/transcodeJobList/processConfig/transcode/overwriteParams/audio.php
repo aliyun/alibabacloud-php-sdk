@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class audio extends Model
 {
     /**
-     * @description 输出文件的音频码率。
-     *
      * @var string
      */
     public $bitrate;
 
     /**
-     * @description 声道数。
-     *
      * @var string
      */
     public $channels;
 
     /**
-     * @description 音频编解码格式，AAC、MP3、VORBIS、FLAC。
-     *
      * @var string
      */
     public $codec;
 
     /**
-     * @description 音频编码预置。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 是否删除音频流。
-     *
      * @var string
      */
     public $remove;
 
     /**
-     * @description 采样率。
-     *
      * @var string
      */
     public $samplerate;
 
     /**
-     * @description 音量控制
-     *
      * @var volume
      */
     public $volume;

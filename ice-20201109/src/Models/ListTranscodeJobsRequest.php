@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListTranscodeJobsRequest extends Model
 {
     /**
-     * @description 任务创建时间筛选条件的结束时间
-     *
      * @var string
      */
     public $endOfCreateTime;
 
     /**
-     * @description 按 jobId 筛选
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 连续分页查询时下一页的标记 (第一页没有)
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description 排序顺序，目前只支持两种：CreateTimeDesc 和 CreateTimeAsc
-     *
      * @var string
      */
     public $orderBy;
@@ -42,15 +34,11 @@ class ListTranscodeJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description 任务创建时间筛选条件的起始时间
-     *
      * @var string
      */
     public $startOfCreateTime;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;

@@ -62,8 +62,6 @@ class QueryIProductionJobResponseBody extends Model
     public $outputUrls;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

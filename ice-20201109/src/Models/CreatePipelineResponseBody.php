@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreatePipelineResponseBody extends Model
 {
     /**
-     * @description 管道信息
-     *
      * @var pipeline
      */
     public $pipeline;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

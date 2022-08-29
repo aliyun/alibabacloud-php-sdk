@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateEditingProjectRequest extends Model
 {
     /**
-     * @description 工程业务配置。如果是直播剪辑工程必填OutputMediaConfig.StorageLocation,   Path 不填默认合成的直播片段存储在根路径下 OutputMediaTarget 不填默认oss-object，可以填vod-media 表示存储到vod  OutputMediaTarget 为vod-media 时，Path不生效。
-     *
      * @var string
      */
     public $businessConfig;
 
     /**
-     * @description 模板素材参数
-     *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description 云剪辑工程封面
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 云剪辑工程描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 工程关联素材，多个素材以逗号（,）分隔；每种类型最多支持10个素材ID
-     *
      * @var string
      */
     public $materialMaps;
 
     /**
-     * @description 剪辑工程类型，EditingProject: 普通剪辑工程；LiveEditingProject: 直播剪辑工程
-     *
      * @var string
      */
     public $projectType;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 云剪辑工程时间线，Json格式
-     *
      * @var string
      */
     public $timeline;
 
     /**
-     * @description 云剪辑工程标题
-     *
      * @var string
      */
     public $title;

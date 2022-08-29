@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SubmitASRJobRequest extends Model
 {
     /**
-     * @description 任务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 持续时间
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 输入配置，支持OSS地址和内容库素材ID
-     *
      * @var string
      */
     public $inputFile;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 任务标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 自定义设置，为JSON字符串
-     *
      * @var string
      */
     public $userData;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateMaterialsRequest extends Model
 {
     /**
-     * @description 所需文件列表
-     *
      * @var string
      */
     public $fileList;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;

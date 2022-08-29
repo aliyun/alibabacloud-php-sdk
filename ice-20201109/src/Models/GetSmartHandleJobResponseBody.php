@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class GetSmartHandleJobResponseBody extends Model
 {
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 任务结果
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 智能任务信息
-     *
      * @var smartJobInfo
      */
     public $smartJobInfo;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description 用户自定义信息
-     *
      * @var string
      */
     public $userData;

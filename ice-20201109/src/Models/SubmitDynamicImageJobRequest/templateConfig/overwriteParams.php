@@ -35,8 +35,6 @@ class overwriteParams extends Model
     public $scanMode;
 
     /**
-     * @description 时间线参数
-     *
      * @var timeSpan
      */
     public $timeSpan;

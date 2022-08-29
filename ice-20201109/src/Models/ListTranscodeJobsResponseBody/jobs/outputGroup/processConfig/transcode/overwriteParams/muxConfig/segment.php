@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
-     * @description 切片时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 强制切片时间点
-     *
      * @var string
      */
     public $forceSegTime;

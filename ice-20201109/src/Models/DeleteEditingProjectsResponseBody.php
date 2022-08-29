@@ -11,17 +11,9 @@ class DeleteEditingProjectsResponseBody extends Model
     /**
      * @var string
      */
-    public $ignoredList;
-
-    /**
-     * @description Id of the request
-     *
-     * @var string
-     */
     public $requestId;
     protected $_name = [
-        'ignoredList' => 'IgnoredList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,9 +23,6 @@ class DeleteEditingProjectsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ignoredList) {
-            $res['IgnoredList'] = $this->ignoredList;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,9 +38,6 @@ class DeleteEditingProjectsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IgnoredList'])) {
-            $model->ignoredList = $map['IgnoredList'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class mediaTagList extends Model
 {
     /**
-     * @description 素材标签id
-     *
      * @var string
      */
     public $mediaTagId;
 
     /**
-     * @description 素材标签中文名
-     *
      * @var string
      */
     public $mediaTagNameChinese;
 
     /**
-     * @description 素材标签英文名
-     *
      * @var string
      */
     public $mediaTagNameEnglish;

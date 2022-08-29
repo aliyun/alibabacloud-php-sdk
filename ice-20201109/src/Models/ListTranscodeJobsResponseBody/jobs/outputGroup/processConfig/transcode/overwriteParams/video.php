@@ -14,120 +14,86 @@ class video extends Model
     public $abrMax;
 
     /**
-     * @description 视频平均码率。
-     *
      * @var string
      */
     public $bitrate;
 
     /**
-     * @description 缓冲区大小
-     *
      * @var string
      */
     public $bufsize;
 
     /**
-     * @description 编码格式
-     *
      * @var string
      */
     public $codec;
 
     /**
-     * @description 码率-质量控制因子。
-     *
      * @var string
      */
     public $crf;
 
     /**
-     * @description 视频画面裁切
-     *
      * @var string
      */
     public $crop;
 
     /**
-     * @description 帧率。
-     *
      * @var string
      */
     public $fps;
 
     /**
-     * @description 关键帧间最大帧数。
-     *
      * @var string
      */
     public $gop;
 
     /**
-     * @description 高。
-     *
      * @var string
      */
     public $height;
 
     /**
-     * @description 是否开启横竖屏自适应（即：长短边模式）
-     *
      * @var string
      */
     public $longShortMode;
 
     /**
-     * @description 视频码率峰值
-     *
      * @var string
      */
     public $maxrate;
 
     /**
-     * @description 视频贴黑边
-     *
      * @var string
      */
     public $pad;
 
     /**
-     * @description 视频颜色格式。
-     *
      * @var string
      */
     public $pixFmt;
 
     /**
-     * @description 只有H264支持该参数
-     *
      * @var string
      */
     public $preset;
 
     /**
-     * @description 编码级别。
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 是否去掉视频
-     *
      * @var string
      */
     public $remove;
 
     /**
-     * @description 扫描模式。
-     *
      * @var string
      */
     public $scanMode;
 
     /**
-     * @description 宽。
-     *
      * @var string
      */
     public $width;

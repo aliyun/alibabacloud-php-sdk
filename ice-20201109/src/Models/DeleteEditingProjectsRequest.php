@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteEditingProjectsRequest extends Model
 {
     /**
-     * @description 云剪辑工程ID。支持多个云剪辑工程，以逗号分隔。
-     *
      * @var string
      */
     public $projectIds;

@@ -11,15 +11,15 @@ class nodes extends Model
     /**
      * @var int
      */
-    public $duration;
+    public $x;
 
     /**
      * @var int
      */
-    public $time;
+    public $y;
     protected $_name = [
-        'duration' => 'Duration',
-        'time'     => 'Time',
+        'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class nodes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->x) {
+            $res['X'] = $this->x;
         }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class nodes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['X'])) {
+            $model->x = $map['X'];
         }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

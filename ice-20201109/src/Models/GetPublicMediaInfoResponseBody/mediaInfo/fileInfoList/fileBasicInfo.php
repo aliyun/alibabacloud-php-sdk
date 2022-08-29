@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class fileBasicInfo extends Model
 {
     /**
-     * @description 码率
-     *
      * @var string
      */
     public $bitrate;
 
     /**
-     * @description 时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 文件名
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description 文件大小（字节）
-     *
      * @var string
      */
     public $fileSize;
 
     /**
-     * @description 文件状态
-     *
      * @var string
      */
     public $fileStatus;
 
     /**
-     * @description 文件类型
-     *
      * @var string
      */
     public $fileType;
 
     /**
-     * @description 文件oss地址
-     *
      * @var string
      */
     public $fileUrl;
 
     /**
-     * @description 封装格式
-     *
      * @var string
      */
     public $formatName;
 
     /**
-     * @description 高
-     *
      * @var string
      */
     public $height;
 
     /**
-     * @description 文件存储区域
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description 宽
-     *
      * @var string
      */
     public $width;

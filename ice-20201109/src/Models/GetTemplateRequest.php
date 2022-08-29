@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
-     * @description 是否返回模板关联素材，1返回，默认0，不返回
-     *
      * @var string
      */
     public $relatedMediaidFlag;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;

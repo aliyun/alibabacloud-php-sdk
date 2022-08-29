@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class file extends Model
 {
     /**
-     * @description 媒体值：
-     * type 为 Media 时，为媒资 id。
      * @var string
      */
     public $media;
 
     /**
-     * @description 媒体对象类型 - OSS: oss文件, Media: 媒资 ID
-     *
      * @var string
      */
     public $type;

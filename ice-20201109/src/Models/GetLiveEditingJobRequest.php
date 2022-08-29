@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetLiveEditingJobRequest extends Model
 {
     /**
-     * @description 直播剪辑JobId
-     *
      * @var string
      */
     public $jobId;

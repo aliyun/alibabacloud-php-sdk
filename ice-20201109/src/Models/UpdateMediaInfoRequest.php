@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaInfoRequest extends Model
 {
     /**
-     * @description 是否以append的形式更新Tags字段
-     *
      * @var bool
      */
     public $appendTags;
 
     /**
-     * @description 媒资业务类型
-     *
      * @var string
      */
     public $businessType;
@@ -28,57 +24,41 @@ class UpdateMediaInfoRequest extends Model
     public $cateId;
 
     /**
-     * @description 分类
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 封面图，仅视频媒资有效
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 媒资媒体类型
-     *
      * @var string
      */
     public $inputURL;
 
     /**
-     * @description 媒资Id
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description 标签,如果有多个标签用逗号隔开
-     *
      * @var string
      */
     public $mediaTags;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 用户数据，最大1024字节
-     *
      * @var string
      */
     public $userData;

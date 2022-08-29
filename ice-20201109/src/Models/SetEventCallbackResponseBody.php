@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetEventCallbackResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否设置成功
-     *
      * @var bool
      */
     public $success;

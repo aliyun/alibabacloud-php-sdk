@@ -16,8 +16,6 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public $liveMaterials;
 
     /**
-     * @description 符合要求的媒资集合
-     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
@@ -33,8 +31,6 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public $projectMaterials;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

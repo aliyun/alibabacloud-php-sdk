@@ -20,8 +20,6 @@ class ListSnapshotJobsResponseBody extends Model
     public $nextPageToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

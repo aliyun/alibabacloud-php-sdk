@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListMediaBasicInfosRequest extends Model
 {
     /**
-     * @description 媒资业务类型
-     *
      * @var string
      */
     public $businessType;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 返回值中是否包含文件基础信息
-     *
      * @var bool
      */
     public $includeFileBasicInfo;
 
     /**
-     * @description 分页大小
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 媒资ID，单个媒资ID支持前缀匹配
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description 媒资媒体类型
-     *
      * @var string
      */
     public $mediaType;
 
     /**
-     * @description 页号
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序
-     *
      * @var string
      */
     public $sortBy;
 
     /**
-     * @description 来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 资源状态
-     *
      * @var string
      */
     public $status;

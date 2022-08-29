@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class systemTemplate extends Model
 {
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板子类型ID
-     *
      * @var int
      */
     public $subtype;
 
     /**
-     * @description 模板子类型名称
-     *
      * @var string
      */
     public $subtypeName;
 
     /**
-     * @description 模板参数
-     *
      * @var string
      */
     public $templateConfig;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 模板类型ID
-     *
      * @var int
      */
     public $type;
 
     /**
-     * @description 模板类型名称
-     *
      * @var string
      */
     public $typeName;

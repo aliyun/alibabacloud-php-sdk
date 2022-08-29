@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeTemplatesResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

@@ -13,106 +13,76 @@ use AlibabaCloud\Tea\Model;
 class transcodeParentJob extends Model
 {
     /**
-     * @description 任务创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 任务结束时间
-     *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description 任务输入组 (目前只支持单个输入)
-     *
      * @var inputGroup[]
      */
     public $inputGroup;
 
     /**
-     * @description 子任务数量
-     *
      * @var int
      */
     public $jobCount;
 
     /**
-     * @description 任务名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 任务输出组
-     *
      * @var outputGroup[]
      */
     public $outputGroup;
 
     /**
-     * @description 主任务 id
-     *
      * @var string
      */
     public $parentJobId;
 
     /**
-     * @description 任务完成百分比
-     *
      * @var int
      */
     public $percent;
 
     /**
-     * @description 提交任务时请求 id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务调度配置
-     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
-     * @description 任务状态 Success: 有子任务成功, Fail: 所有子任务失败
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 任务提交时间
-     *
      * @var string
      */
     public $submitTime;
 
     /**
-     * @description 子任务列表
-     *
      * @var transcodeJobList[]
      */
     public $transcodeJobList;
 
     /**
-     * @description 任务来源 - API, WorkFlow, Console
-     *
      * @var string
      */
     public $triggerSource;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

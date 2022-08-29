@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description 素材ID
-     *
      * @var string
      */
     public $materialIds;
 
     /**
-     * @description 素材类型
-     *
      * @var string
      */
     public $materialType;
 
     /**
-     * @description 云剪辑工程ID
-     *
      * @var string
      */
     public $projectId;

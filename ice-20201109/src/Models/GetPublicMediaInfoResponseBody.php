@@ -15,8 +15,6 @@ class GetPublicMediaInfoResponseBody extends Model
     public $mediaInfo;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

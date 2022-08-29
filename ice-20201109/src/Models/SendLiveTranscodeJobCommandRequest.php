@@ -14,8 +14,6 @@ class SendLiveTranscodeJobCommandRequest extends Model
     public $command;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $jobId;

@@ -20,8 +20,6 @@ class overwriteParams extends Model
     public $count;
 
     /**
-     * @description 截图公共参数
-     *
      * @var string
      */
     public $frameType;
@@ -37,8 +35,6 @@ class overwriteParams extends Model
     public $interval;
 
     /**
-     * @description Webvtt截图配置:是否拼合输出
-     *
      * @var bool
      */
     public $isSptFrag;
@@ -49,8 +45,6 @@ class overwriteParams extends Model
     public $pixelBlackThreshold;
 
     /**
-     * @description 雪碧图配置
-     *
      * @var spriteSnapshotConfig
      */
     public $spriteSnapshotConfig;

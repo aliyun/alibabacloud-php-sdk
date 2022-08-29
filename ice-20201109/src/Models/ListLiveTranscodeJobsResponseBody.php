@@ -15,8 +15,6 @@ class ListLiveTranscodeJobsResponseBody extends Model
     public $jobList;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

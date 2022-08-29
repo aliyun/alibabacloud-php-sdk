@@ -15,8 +15,6 @@ class GetMediaProducingJobResponseBody extends Model
     public $mediaProducingJob;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

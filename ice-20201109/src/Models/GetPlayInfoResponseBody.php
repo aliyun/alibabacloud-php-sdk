@@ -21,8 +21,6 @@ class GetPlayInfoResponseBody extends Model
     public $playInfoList;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

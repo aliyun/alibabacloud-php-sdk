@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
-     * @description 参见Timeline模板Config文档
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description 模板封面
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 模板创建来源
-     *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description 模板修改来源
-     *
      * @var string
      */
     public $modifiedSource;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 预览视频媒资id
-     *
      * @var string
      */
     public $previewMedia;
 
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 模板类型
-     *
      * @var string
      */
     public $type;

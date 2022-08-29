@@ -9,21 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaInfosResponseBody extends Model
 {
     /**
-     * @description 出现获取错误的ID或inputUr
-     *
+     * @var string[]
+     */
+    public $forbiddenList;
+
+    /**
      * @var string[]
      */
     public $ignoredList;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'ignoredList' => 'IgnoredList',
-        'requestId'   => 'RequestId',
+        'forbiddenList' => 'ForbiddenList',
+        'ignoredList'   => 'IgnoredList',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -33,6 +35,9 @@ class DeleteMediaInfosResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forbiddenList) {
+            $res['ForbiddenList'] = $this->forbiddenList;
+        }
         if (null !== $this->ignoredList) {
             $res['IgnoredList'] = $this->ignoredList;
         }
@@ -51,6 +56,11 @@ class DeleteMediaInfosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForbiddenList'])) {
+            if (!empty($map['ForbiddenList'])) {
+                $model->forbiddenList = $map['ForbiddenList'];
+            }
+        }
         if (isset($map['IgnoredList'])) {
             if (!empty($map['IgnoredList'])) {
                 $model->ignoredList = $map['IgnoredList'];

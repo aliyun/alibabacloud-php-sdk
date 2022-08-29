@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListCustomTemplatesRequest extends Model
 {
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 排序顺序：CreateTimeDesc 和 CreateTimeAsc
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 分页数目
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 模板子类型ID
-     *
      * @var string
      */
     public $subtype;
 
     /**
-     * @description 模板ID
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 模板类型。逗号分隔
-     *
      * @var string
      */
     public $type;

@@ -14,8 +14,6 @@ class GetCustomTemplateRequest extends Model
     public $subtype;
 
     /**
-     * @description 模板ID
-     *
      * @var string
      */
     public $templateId;

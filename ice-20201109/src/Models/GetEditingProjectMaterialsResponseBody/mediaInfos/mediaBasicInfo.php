@@ -9,127 +9,91 @@ use AlibabaCloud\Tea\Model;
 class mediaBasicInfo extends Model
 {
     /**
-     * @description 媒资业务类型
-     *
      * @var string
      */
     public $businessType;
 
     /**
-     * @description 分类
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 封面地址
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 媒资创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 媒资删除时间
-     *
      * @var string
      */
     public $deletedTime;
 
     /**
-     * @description 内容描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 待注册的媒资在相应系统中的地址
-     *
      * @var string
      */
     public $inputURL;
 
     /**
-     * @description MediaId
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description 标签
-     *
      * @var string
      */
     public $mediaTags;
 
     /**
-     * @description 媒资媒体类型
-     *
      * @var string
      */
     public $mediaType;
 
     /**
-     * @description 媒资修改时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 截图
-     *
      * @var string
      */
     public $snapshots;
 
     /**
-     * @description 来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 雪碧图
-     *
      * @var string
      */
     public $spriteImages;
 
     /**
-     * @description 资源状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 转码状态
-     *
      * @var string
      */
     public $transcodeStatus;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

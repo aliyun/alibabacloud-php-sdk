@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class subtitleStreamInfoList extends Model
 {
     /**
-     * @description 编码格式长述名
-     *
      * @var string
      */
     public $codecLongName;
 
     /**
-     * @description 编码格式简述名
-     *
      * @var string
      */
     public $codecName;
 
     /**
-     * @description 编码格式标记
-     *
      * @var string
      */
     public $codecTag;
 
     /**
-     * @description 编码格式标记文本
-     *
      * @var string
      */
     public $codecTagString;
 
     /**
-     * @description 编码时基
-     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
-     * @description 时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 音频流序号
-     *
      * @var string
      */
     public $index;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description 起始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 时基
-     *
      * @var string
      */
     public $timebase;

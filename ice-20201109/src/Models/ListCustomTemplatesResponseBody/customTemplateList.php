@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class customTemplateList extends Model
 {
     /**
-     * @description 模板创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 是否默认模板
-     *
      * @var bool
      */
     public $isDefault;
 
     /**
-     * @description 模板修改时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板子类型ID
-     *
      * @var int
      */
     public $subtype;
 
     /**
-     * @description 模板子类型名称
-     *
      * @var string
      */
     public $subtypeName;
 
     /**
-     * @description 模板参数
-     *
      * @var string
      */
     public $templateConfig;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 模板类型ID
-     *
      * @var int
      */
     public $type;
 
     /**
-     * @description 模板类型名称
-     *
      * @var string
      */
     public $typeName;

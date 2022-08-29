@@ -34,8 +34,6 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $sortBy;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $type;

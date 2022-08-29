@@ -39,8 +39,6 @@ class GetEventCallbackResponseBody extends Model
     public $eventTypeList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

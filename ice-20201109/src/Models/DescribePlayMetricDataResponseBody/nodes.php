@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $x;
 
     /**
-     * @var int
+     * @var string
      */
     public $y;
     protected $_name = [

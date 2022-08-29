@@ -13,29 +13,21 @@ use AlibabaCloud\Tea\Model;
 class processConfig extends Model
 {
     /**
-     * @description 图片水印配置
-     *
      * @var imageWatermarks[]
      */
     public $imageWatermarks;
 
     /**
-     * @description 字幕压制配置
-     *
      * @var subtitles[]
      */
     public $subtitles;
 
     /**
-     * @description 文字水印配置
-     *
      * @var textWatermarks[]
      */
     public $textWatermarks;
 
     /**
-     * @description 转码配置
-     *
      * @var transcode
      */
     public $transcode;

@@ -29,8 +29,6 @@ class SubmitLiveEditingJobResponseBody extends Model
     public $projectId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

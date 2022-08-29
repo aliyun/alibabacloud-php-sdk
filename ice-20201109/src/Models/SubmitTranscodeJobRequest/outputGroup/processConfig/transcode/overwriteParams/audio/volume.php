@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class volume extends Model
 {
     /**
-     * @description 目标音量
-     *
      * @var string
      */
     public $integratedLoudnessTarget;
 
     /**
-     * @description 音量范围
-     *
      * @var string
      */
     public $loudnessRangeTarget;
 
     /**
-     * @description 音量调整方式
-     *
      * @var string
      */
     public $method;
 
     /**
-     * @description 最大峰值
-     *
      * @var string
      */
     public $truePeak;

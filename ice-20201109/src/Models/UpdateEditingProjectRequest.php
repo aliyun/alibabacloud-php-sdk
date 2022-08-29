@@ -14,50 +14,36 @@ class UpdateEditingProjectRequest extends Model
     public $businessStatus;
 
     /**
-     * @description 模板对应的素材参数
-     *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description 云剪辑工程封面
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 云剪辑工程描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 云剪辑工程ID
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 云剪辑工程时间线，Json格式
-     *
      * @var string
      */
     public $timeline;
 
     /**
-     * @description 云剪辑工程标题
-     *
      * @var string
      */
     public $title;

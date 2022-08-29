@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaInfoRequest extends Model
 {
     /**
-     * @description 媒资业务类型
-     *
      * @var string
      */
     public $businessType;
@@ -21,74 +19,59 @@ class RegisterMediaInfoRequest extends Model
     public $cateId;
 
     /**
-     * @description 客户端token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 封面图，仅视频媒资有效
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 媒资媒体url
-     *
      * @var string
      */
     public $inputURL;
 
     /**
-     * @description 标签,如果有多个标签用逗号隔开
-     *
      * @var string
      */
     public $mediaTags;
 
     /**
-     * @description 媒资媒体类型
-     *
      * @var string
      */
     public $mediaType;
 
     /**
-     * @description 是否覆盖已有媒资
-     *
      * @var bool
      */
     public $overwrite;
 
     /**
-     * @description 注册媒资的配置
-     *
      * @var string
      */
     public $registerConfig;
 
     /**
-     * @description 标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 用户数据，最大1024字节
-     *
      * @var string
      */
     public $userData;
+
+    /**
+     * @var string
+     */
+    public $workflowId;
     protected $_name = [
         'businessType'   => 'BusinessType',
         'cateId'         => 'CateId',
@@ -102,6 +85,7 @@ class RegisterMediaInfoRequest extends Model
         'registerConfig' => 'RegisterConfig',
         'title'          => 'Title',
         'userData'       => 'UserData',
+        'workflowId'     => 'WorkflowId',
     ];
 
     public function validate()
@@ -146,6 +130,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->workflowId) {
+            $res['WorkflowId'] = $this->workflowId;
         }
 
         return $res;
@@ -194,6 +181,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['WorkflowId'])) {
+            $model->workflowId = $map['WorkflowId'];
         }
 
         return $model;

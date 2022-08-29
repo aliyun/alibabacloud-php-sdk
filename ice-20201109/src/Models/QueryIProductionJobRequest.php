@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryIProductionJobRequest extends Model
 {
     /**
-     * @description 幂等参数
-     *
      * @var string
      */
     public $clientToken;

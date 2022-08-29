@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
-     * @description 参见模板Config文档
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description 模板封面
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 预览视频媒资id
-     *
      * @var string
      */
     public $previewMedia;
 
     /**
-     * @description 模板相关素材，模板编辑器使用
-     *
      * @var string
      */
     public $relatedMediaids;
 
     /**
-     * @description 修改来源，默认OpenAPI
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板ID
-     *
      * @var string
      */
     public $templateId;

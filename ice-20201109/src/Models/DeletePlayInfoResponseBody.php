@@ -9,13 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeletePlayInfoResponseBody extends Model
 {
     /**
-     * @description RequestId
-     *
+     * @var string[]
+     */
+    public $forbiddenList;
+
+    /**
+     * @var string[]
+     */
+    public $ignoredList;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'forbiddenList' => 'ForbiddenList',
+        'ignoredList'   => 'IgnoredList',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -25,6 +35,12 @@ class DeletePlayInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forbiddenList) {
+            $res['ForbiddenList'] = $this->forbiddenList;
+        }
+        if (null !== $this->ignoredList) {
+            $res['IgnoredList'] = $this->ignoredList;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,6 +56,16 @@ class DeletePlayInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForbiddenList'])) {
+            if (!empty($map['ForbiddenList'])) {
+                $model->forbiddenList = $map['ForbiddenList'];
+            }
+        }
+        if (isset($map['IgnoredList'])) {
+            if (!empty($map['IgnoredList'])) {
+                $model->ignoredList = $map['IgnoredList'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

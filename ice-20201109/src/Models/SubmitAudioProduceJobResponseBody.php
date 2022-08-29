@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SubmitAudioProduceJobResponseBody extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $state;

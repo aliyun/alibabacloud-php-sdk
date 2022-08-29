@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
-     * @description 文件 encoding 格式
-     *
      * @var string
      */
     public $charEnc;
 
     /**
-     * @description 字幕文件
-     *
      * @var file
      */
     public $file;
 
     /**
-     * @description 字幕文件格式
-     *
      * @var string
      */
     public $format;

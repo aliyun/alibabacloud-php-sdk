@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomTemplateResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否成功
-     *
      * @var bool
      */
     public $success;

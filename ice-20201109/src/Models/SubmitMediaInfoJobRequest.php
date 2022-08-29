@@ -11,29 +11,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaInfoJobRequest extends Model
 {
     /**
-     * @description 任务输入
-     *
      * @var input
      */
     public $input;
 
     /**
-     * @description 任务名字
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 调度参数
-     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitSyncMediaInfoJobResponseBody extends Model
 {
     /**
-     * @description MediaInfoJobDTO
-     *
      * @var mediaInfoJob
      */
     public $mediaInfoJob;
 
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;

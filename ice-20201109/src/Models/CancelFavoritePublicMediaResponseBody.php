@@ -14,8 +14,6 @@ class CancelFavoritePublicMediaResponseBody extends Model
     public $ignoredList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

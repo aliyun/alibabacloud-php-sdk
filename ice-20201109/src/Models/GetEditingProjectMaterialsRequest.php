@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description 云剪辑工程ID
-     *
      * @var string
      */
     public $projectId;

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitTranscodeJobResponseBody extends Model
 {
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description TranscodeParentJobWithSubJobDTO
-     *
      * @var transcodeParentJob
      */
     public $transcodeParentJob;

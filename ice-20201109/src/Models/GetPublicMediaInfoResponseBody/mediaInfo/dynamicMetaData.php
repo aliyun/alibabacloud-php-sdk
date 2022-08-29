@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dynamicMetaData extends Model
 {
     /**
-     * @description 元数据json
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description 类型
-     *
      * @var string
      */
     public $type;

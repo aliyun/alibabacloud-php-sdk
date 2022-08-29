@@ -12,92 +12,66 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoJob extends Model
 {
     /**
-     * @description 是否异步处理
-     *
      * @var bool
      */
     public $async;
 
     /**
-     * @description 任务完成时间
-     *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description 任务输入
-     *
      * @var input
      */
     public $input;
 
     /**
-     * @description 任务 id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 媒体信息详情
-     *
      * @var mediaInfoProperty
      */
     public $mediaInfoProperty;
 
     /**
-     * @description 任务名字
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 调度信息
-     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
-     * @description 任务状态 - Init: 已提交, Success: 成功, Fail: 失败
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 任务提交信息
-     *
      * @var mixed[]
      */
     public $submitResultJson;
 
     /**
-     * @description 任务提交时间
-     *
      * @var string
      */
     public $submitTime;
 
     /**
-     * @description 任务来源 - API, WorkFlow, Console
-     *
      * @var string
      */
     public $triggerSource;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

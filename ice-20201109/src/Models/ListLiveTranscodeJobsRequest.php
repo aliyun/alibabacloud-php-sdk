@@ -39,8 +39,6 @@ class ListLiveTranscodeJobsRequest extends Model
     public $status;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $type;

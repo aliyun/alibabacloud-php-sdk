@@ -24,8 +24,6 @@ class CreateUploadMediaResponseBody extends Model
     public $mediaURL;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

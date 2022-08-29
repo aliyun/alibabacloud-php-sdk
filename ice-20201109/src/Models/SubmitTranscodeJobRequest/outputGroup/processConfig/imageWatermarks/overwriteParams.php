@@ -11,50 +11,36 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
-     * @description 水印位置，x
-     *
      * @var string
      */
     public $dx;
 
     /**
-     * @description 水印位置，y
-     *
      * @var string
      */
     public $dy;
 
     /**
-     * @description 水印文件oss路径
-     *
      * @var file
      */
     public $file;
 
     /**
-     * @description 高
-     *
      * @var string
      */
     public $height;
 
     /**
-     * @description 参考位置: TopLeft, TopRight, BottomLeft, BottomRight  default: TopLeft
-     *
      * @var string
      */
     public $referPos;
 
     /**
-     * @description 显示时间设置
-     *
      * @var timeline
      */
     public $timeline;
 
     /**
-     * @description 宽
-     *
      * @var string
      */
     public $width;

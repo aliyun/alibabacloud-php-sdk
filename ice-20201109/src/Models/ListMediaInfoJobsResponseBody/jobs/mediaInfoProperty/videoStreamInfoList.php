@@ -19,29 +19,21 @@ class videoStreamInfoList extends Model
     public $bitRate;
 
     /**
-     * @description 编码格式名
-     *
      * @var string
      */
     public $codecLongName;
 
     /**
-     * @description 编码格式
-     *
      * @var string
      */
     public $codecName;
 
     /**
-     * @description 编码格式标记
-     *
      * @var string
      */
     public $codecTag;
 
     /**
-     * @description 编码格式标记文本
-     *
      * @var string
      */
     public $codecTagString;
@@ -52,22 +44,16 @@ class videoStreamInfoList extends Model
     public $codecTimeBase;
 
     /**
-     * @description 图像显示宽高比
-     *
      * @var string
      */
     public $dar;
 
     /**
-     * @description 时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 帧率
-     *
      * @var string
      */
     public $fps;
@@ -78,71 +64,51 @@ class videoStreamInfoList extends Model
     public $hasBFrames;
 
     /**
-     * @description 高
-     *
      * @var string
      */
     public $height;
 
     /**
-     * @description 流序号
-     *
      * @var string
      */
     public $index;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description 编码等级
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description 总帧数
-     *
      * @var string
      */
     public $numFrames;
 
     /**
-     * @description 颜色存储格式
-     *
      * @var string
      */
     public $pixFmt;
 
     /**
-     * @description 编码器预设
-     *
      * @var string
      */
     public $profile;
 
     /**
-     * @description 视频画面旋转角度
-     *
      * @var string
      */
     public $rotate;
 
     /**
-     * @description 采集点数宽高比
-     *
      * @var string
      */
     public $sar;
 
     /**
-     * @description 起始时间
-     *
      * @var string
      */
     public $startTime;
@@ -153,8 +119,6 @@ class videoStreamInfoList extends Model
     public $timeBase;
 
     /**
-     * @description 宽
-     *
      * @var string
      */
     public $width;

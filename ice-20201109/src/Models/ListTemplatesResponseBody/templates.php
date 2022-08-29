@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
-     * @description ClipsParam
-     *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description 模板配置
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description 封面URL
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 创建来源
-     *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description 修改来源
-     *
      * @var string
      */
     public $modifiedSource;
 
     /**
-     * @description 修改时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 预览素材
-     *
      * @var string
      */
     public $previewMedia;
 
     /**
-     * @description 预览素材状态
-     *
      * @var string
      */
     public $previewMediaStatus;
 
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板ID
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 模板类型
-     *
      * @var string
      */
     public $type;

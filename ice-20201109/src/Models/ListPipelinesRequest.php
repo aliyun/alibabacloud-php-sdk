@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListPipelinesRequest extends Model
 {
     /**
-     * @description 管道类型。
-     *
      * @var string
      */
     public $speed;

@@ -15,8 +15,6 @@ class ListPipelinesResponseBody extends Model
     public $pipelineList;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

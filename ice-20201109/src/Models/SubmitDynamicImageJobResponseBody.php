@@ -14,8 +14,6 @@ class SubmitDynamicImageJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

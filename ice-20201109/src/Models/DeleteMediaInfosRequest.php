@@ -9,21 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaInfosRequest extends Model
 {
     /**
-     * @description 待注册的媒资在相应系统中的地址
-     *
+     * @var bool
+     */
+    public $deletePhysicalFiles;
+
+    /**
      * @var string
      */
     public $inputURLs;
 
     /**
-     * @description ICE 媒资ID
-     *
      * @var string
      */
     public $mediaIds;
     protected $_name = [
-        'inputURLs' => 'InputURLs',
-        'mediaIds'  => 'MediaIds',
+        'deletePhysicalFiles' => 'DeletePhysicalFiles',
+        'inputURLs'           => 'InputURLs',
+        'mediaIds'            => 'MediaIds',
     ];
 
     public function validate()
@@ -33,6 +35,9 @@ class DeleteMediaInfosRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deletePhysicalFiles) {
+            $res['DeletePhysicalFiles'] = $this->deletePhysicalFiles;
+        }
         if (null !== $this->inputURLs) {
             $res['InputURLs'] = $this->inputURLs;
         }
@@ -51,6 +56,9 @@ class DeleteMediaInfosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeletePhysicalFiles'])) {
+            $model->deletePhysicalFiles = $map['DeletePhysicalFiles'];
+        }
         if (isset($map['InputURLs'])) {
             $model->inputURLs = $map['InputURLs'];
         }

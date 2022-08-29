@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaInfoResponseBody extends Model
 {
     /**
-     * @description ICE媒资ID
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

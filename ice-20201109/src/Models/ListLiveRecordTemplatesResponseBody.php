@@ -20,15 +20,11 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description 数组，返回示例目录。
-     *
      * @var recordTemplateList[]
      */
     public $recordTemplateList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -39,8 +35,6 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $sortBy;
 
     /**
-     * @description 总记录数。
-     *
      * @var int
      */
     public $totalCount;

@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsResponseBody extends Model
 {
     /**
-     * @description 本次请求所返回的最大记录条数，最后一页前每页记录条数为MaxResults取值。  例如：  正例：10,10,5，反例：10,5,10
-     *
      * @var string
      */
     public $maxResults;
 
     /**
-     * @description 用来表示当前调用返回读取到的位置，空代表数据已经读取完毕。
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
@@ -36,8 +30,6 @@ class ListSmartJobsResponseBody extends Model
     public $smartJobList;
 
     /**
-     * @description 本次请求条件下的数据总量，此参数为可选参数，默认可不返回。
-     *
      * @var string
      */
     public $totalCount;

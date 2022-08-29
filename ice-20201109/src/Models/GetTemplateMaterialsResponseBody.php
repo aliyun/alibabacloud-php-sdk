@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateMaterialsResponseBody extends Model
 {
     /**
-     * @description 关联素材地址
-     *
      * @var string
      */
     public $materialUrls;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

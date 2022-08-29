@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateRequest extends Model
 {
     /**
-     * @description 模板id，多个id用英文逗号隔开
-     *
      * @var string
      */
     public $templateIds;

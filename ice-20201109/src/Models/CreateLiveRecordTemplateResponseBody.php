@@ -14,9 +14,7 @@ class CreateLiveRecordTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 资源一级ID
-     *
-     * @var int[]
+     * @var string
      */
     public $templateId;
     protected $_name = [

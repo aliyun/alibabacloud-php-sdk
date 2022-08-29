@@ -11,85 +11,61 @@ use AlibabaCloud\Tea\Model;
 class smartJobList extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 任务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 输入配置
-     *
      * @var string
      */
     public $editingConfig;
 
     /**
-     * @description 任务输入配置
-     *
      * @var inputConfig
      */
     public $inputConfig;
 
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $jobState;
 
     /**
-     * @description 任务类型
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description 最后修改时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 任务输出配置
-     *
      * @var outputConfig
      */
     public $outputConfig;
 
     /**
-     * @description 任务标题
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 用户自定义字段
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description 用户Id
-     *
      * @var int
      */
     public $userId;

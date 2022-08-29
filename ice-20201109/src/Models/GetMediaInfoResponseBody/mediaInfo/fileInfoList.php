@@ -13,29 +13,21 @@ use AlibabaCloud\Tea\Model;
 class fileInfoList extends Model
 {
     /**
-     * @description 音频流信息，一个媒资可能有多条音频流
-     *
      * @var audioStreamInfoList[]
      */
     public $audioStreamInfoList;
 
     /**
-     * @description 文件基础信息，包含时长，大小等
-     *
      * @var fileBasicInfo
      */
     public $fileBasicInfo;
 
     /**
-     * @description 字幕流信息，一个媒资可能有多条字幕流
-     *
      * @var subtitleStreamInfoList[]
      */
     public $subtitleStreamInfoList;
 
     /**
-     * @description 视频流信息，一个媒资可能有多条视频流
-     *
      * @var videoStreamInfoList[]
      */
     public $videoStreamInfoList;

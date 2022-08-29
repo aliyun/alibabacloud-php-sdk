@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetDefaultStorageLocationResponseBody extends Model
 {
     /**
-     * @description oss bucket 名称
-     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @description 路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 存储类型
-     *
      * @var string
      */
     public $storageType;

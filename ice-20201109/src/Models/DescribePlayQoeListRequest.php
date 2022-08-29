@@ -34,14 +34,24 @@ class DescribePlayQoeListRequest extends Model
     public $itemConfigs;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $metricType;
+    public $metricTypes;
 
     /**
      * @var string
      */
     public $network;
+
+    /**
+     * @var string
+     */
+    public $orderName;
+
+    /**
+     * @var string
+     */
+    public $orderType;
 
     /**
      * @var string
@@ -68,8 +78,10 @@ class DescribePlayQoeListRequest extends Model
         'definition'   => 'Definition',
         'endTs'        => 'EndTs',
         'itemConfigs'  => 'ItemConfigs',
-        'metricType'   => 'MetricType',
+        'metricTypes'  => 'MetricTypes',
         'network'      => 'Network',
+        'orderName'    => 'OrderName',
+        'orderType'    => 'OrderType',
         'os'           => 'Os',
         'pageNo'       => 'PageNo',
         'pageSize'     => 'PageSize',
@@ -98,11 +110,17 @@ class DescribePlayQoeListRequest extends Model
         if (null !== $this->itemConfigs) {
             $res['ItemConfigs'] = $this->itemConfigs;
         }
-        if (null !== $this->metricType) {
-            $res['MetricType'] = $this->metricType;
+        if (null !== $this->metricTypes) {
+            $res['MetricTypes'] = $this->metricTypes;
         }
         if (null !== $this->network) {
             $res['Network'] = $this->network;
+        }
+        if (null !== $this->orderName) {
+            $res['OrderName'] = $this->orderName;
+        }
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
@@ -143,11 +161,19 @@ class DescribePlayQoeListRequest extends Model
         if (isset($map['ItemConfigs'])) {
             $model->itemConfigs = $map['ItemConfigs'];
         }
-        if (isset($map['MetricType'])) {
-            $model->metricType = $map['MetricType'];
+        if (isset($map['MetricTypes'])) {
+            if (!empty($map['MetricTypes'])) {
+                $model->metricTypes = $map['MetricTypes'];
+            }
         }
         if (isset($map['Network'])) {
             $model->network = $map['Network'];
+        }
+        if (isset($map['OrderName'])) {
+            $model->orderName = $map['OrderName'];
+        }
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];

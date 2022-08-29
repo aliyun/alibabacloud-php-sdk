@@ -19,64 +19,46 @@ class project extends Model
     public $businessStatus;
 
     /**
-     * @description 模板素材参数
-     *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description 云剪辑工程封面
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description 云剪辑工程创建来源
-     *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description 云剪辑工程创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 云剪辑工程描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 云剪辑工程总时长
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 云剪辑工程修改来源
-     *
      * @var string
      */
     public $modifiedSource;
 
     /**
-     * @description 云剪辑工程最新修改时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 云剪辑工程ID
-     *
      * @var string
      */
     public $projectId;
@@ -87,36 +69,26 @@ class project extends Model
     public $projectType;
 
     /**
-     * @description 云剪辑工程状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板Id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 云剪辑工程模板类型
-     *
      * @var string
      */
     public $templateType;
 
     /**
-     * @description 云剪辑工程时间线
-     *
      * @var string
      */
     public $timeline;
 
     /**
-     * @description 云剪辑工程标题
-     *
      * @var string
      */
     public $title;

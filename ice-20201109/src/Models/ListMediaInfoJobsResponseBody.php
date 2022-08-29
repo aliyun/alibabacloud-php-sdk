@@ -20,8 +20,6 @@ class ListMediaInfoJobsResponseBody extends Model
     public $nextPageToken;
 
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;

@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class audioStreamInfoList extends Model
 {
     /**
-     * @description 码率
-     *
      * @var string
      */
     public $bitrate;
 
     /**
-     * @description 声道布局
-     *
      * @var string
      */
     public $channelLayout;
 
     /**
-     * @description 声道数
-     *
      * @var string
      */
     public $channels;
 
     /**
-     * @description 编码格式名
-     *
      * @var string
      */
     public $codecLongName;
 
     /**
-     * @description 编码格式
-     *
      * @var string
      */
     public $codecName;
 
     /**
-     * @description 编码器标签
-     *
      * @var string
      */
     public $codecTag;
 
     /**
-     * @description 编码器标签名
-     *
      * @var string
      */
     public $codecTagString;
 
     /**
-     * @description 编码器时间基
-     *
      * @var string
      */
     public $codecTimeBase;
 
     /**
-     * @description 时长
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description 流序号
-     *
      * @var string
      */
     public $index;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $lang;
@@ -91,22 +69,16 @@ class audioStreamInfoList extends Model
     public $sampleFmt;
 
     /**
-     * @description 采样率
-     *
      * @var string
      */
     public $sampleRate;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 时间基
-     *
      * @var string
      */
     public $timebase;

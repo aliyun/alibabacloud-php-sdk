@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetMediaInfoJobResponseBody extends Model
 {
     /**
-     * @description MediaInfoJobDTO
-     *
      * @var mediaInfoJob
      */
     public $mediaInfoJob;
 
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitDynamicChartJobResponseBody extends Model
 {
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

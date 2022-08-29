@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetMediaInfoJobRequest extends Model
 {
     /**
-     * @description 任务 id
-     *
      * @var string
      */
     public $jobId;

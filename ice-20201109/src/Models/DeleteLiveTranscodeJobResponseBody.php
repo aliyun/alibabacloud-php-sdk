@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveTranscodeJobResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

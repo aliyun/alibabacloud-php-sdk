@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class UploadMediaByURLResponseBody extends Model
 {
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

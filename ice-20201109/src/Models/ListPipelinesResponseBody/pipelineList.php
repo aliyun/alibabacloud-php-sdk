@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class pipelineList extends Model
 {
     /**
-     * @description 模板创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 模板修改时间
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 管道名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 管道Id
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description 管道优先级
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 管道类型
-     *
      * @var string
      */
     public $speed;
 
     /**
-     * @description 管道状态
-     *
      * @var string
      */
     public $status;

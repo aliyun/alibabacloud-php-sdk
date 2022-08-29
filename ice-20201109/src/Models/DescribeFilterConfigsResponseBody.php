@@ -15,8 +15,6 @@ class DescribeFilterConfigsResponseBody extends Model
     public $filterConfigs;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

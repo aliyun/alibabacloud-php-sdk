@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class inputConfig extends Model
 {
     /**
-     * @description 文件信息
-     *
      * @var string
      */
     public $inputFile;
 
     /**
-     * @description 关键词信息
-     *
      * @var string
      */
     public $keyword;

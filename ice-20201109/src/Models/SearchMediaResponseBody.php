@@ -15,8 +15,6 @@ class SearchMediaResponseBody extends Model
     public $code;
 
     /**
-     * @description 符合要求的媒资集合
-     *
      * @var mediaInfoList[]
      */
     public $mediaInfoList;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeJobRequest extends Model
 {
     /**
-     * @description 任务 id
-     *
      * @var string
      */
     public $jobId;

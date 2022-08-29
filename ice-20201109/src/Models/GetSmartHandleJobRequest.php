@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetSmartHandleJobRequest extends Model
 {
     /**
-     * @description 任务Id
-     *
      * @var string
      */
     public $jobId;

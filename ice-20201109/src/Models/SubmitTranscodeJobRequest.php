@@ -12,36 +12,26 @@ use AlibabaCloud\Tea\Model;
 class SubmitTranscodeJobRequest extends Model
 {
     /**
-     * @description 任务输入组 (目前只支持一个)
-     *
      * @var inputGroup[]
      */
     public $inputGroup;
 
     /**
-     * @description 任务名字
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 任务输出组
-     *
      * @var outputGroup[]
      */
     public $outputGroup;
 
     /**
-     * @description 任务调度信息
-     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

@@ -10,44 +10,32 @@ use AlibabaCloud\Tea\Model;
 class recordTemplateList extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 最后修改时间
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description 资源名称
-     *
-     * @var int[]
+     * @var string
      */
     public $name;
 
     /**
-     * @description 录制格式
-     *
      * @var recordFormatList[]
      */
     public $recordFormatList;
 
     /**
-     * @description 资源一级ID
-     *
-     * @var int[]
+     * @var string
      */
     public $templateId;
 
     /**
-     * @description 资源名称
-     *
-     * @var int[]
+     * @var string
      */
     public $type;
     protected $_name = [

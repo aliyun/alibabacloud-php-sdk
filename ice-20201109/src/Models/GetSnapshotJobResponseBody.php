@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetSnapshotJobResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 截图任务信息
-     *
      * @var snapshotJob
      */
     public $snapshotJob;

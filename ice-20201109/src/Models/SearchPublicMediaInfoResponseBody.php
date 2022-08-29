@@ -15,8 +15,6 @@ class SearchPublicMediaInfoResponseBody extends Model
     public $publicMediaInfos;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

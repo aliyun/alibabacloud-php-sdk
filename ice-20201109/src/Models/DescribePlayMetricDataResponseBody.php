@@ -15,14 +15,18 @@ class DescribePlayMetricDataResponseBody extends Model
     public $nodes;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $summaryData;
     protected $_name = [
-        'nodes'     => 'Nodes',
-        'requestId' => 'RequestId',
+        'nodes'       => 'Nodes',
+        'requestId'   => 'RequestId',
+        'summaryData' => 'SummaryData',
     ];
 
     public function validate()
@@ -43,6 +47,9 @@ class DescribePlayMetricDataResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->summaryData) {
+            $res['SummaryData'] = $this->summaryData;
         }
 
         return $res;
@@ -67,6 +74,9 @@ class DescribePlayMetricDataResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SummaryData'])) {
+            $model->summaryData = $map['SummaryData'];
         }
 
         return $model;

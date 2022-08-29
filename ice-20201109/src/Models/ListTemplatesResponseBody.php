@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
@@ -22,8 +20,6 @@ class ListTemplatesResponseBody extends Model
     public $templates;
 
     /**
-     * @description 本次请求条件下的数据总量。
-     *
      * @var int
      */
     public $totalCount;

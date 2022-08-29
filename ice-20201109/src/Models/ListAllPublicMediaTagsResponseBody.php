@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListAllPublicMediaTagsResponseBody extends Model
 {
     /**
-     * @description 公共素材库标签列表
-     *
      * @var mediaTagList[]
      */
     public $mediaTagList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

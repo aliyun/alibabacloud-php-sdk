@@ -13,29 +13,21 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
-     * @description audio 设置
-     *
      * @var audio
      */
     public $audio;
 
     /**
-     * @description 封装格式设置
-     *
      * @var container
      */
     public $container;
 
     /**
-     * @description 封装设置
-     *
      * @var muxConfig
      */
     public $muxConfig;
 
     /**
-     * @description video 设置
-     *
      * @var video
      */
     public $video;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectRequest extends Model
 {
     /**
-     * @description 创建来源
-     *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description CreationTime（创建时间）的结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 分页参数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页参数
-     *
      * @var string
      */
     public $nextToken;
@@ -42,29 +34,21 @@ class SearchEditingProjectRequest extends Model
     public $projectType;
 
     /**
-     * @description 结果排序方式
-     *
      * @var string
      */
     public $sortBy;
 
     /**
-     * @description CreateTime（创建时间）的开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 云剪辑工程状态。多个用逗号分隔
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板类型
-     *
      * @var string
      */
     public $templateType;

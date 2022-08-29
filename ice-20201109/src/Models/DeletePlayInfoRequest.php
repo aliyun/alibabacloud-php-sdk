@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeletePlayInfoRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deletePhysicalFiles;
+
+    /**
      * @var string
      */
     public $fileURLs;
@@ -18,8 +23,9 @@ class DeletePlayInfoRequest extends Model
      */
     public $mediaId;
     protected $_name = [
-        'fileURLs' => 'FileURLs',
-        'mediaId'  => 'MediaId',
+        'deletePhysicalFiles' => 'DeletePhysicalFiles',
+        'fileURLs'            => 'FileURLs',
+        'mediaId'             => 'MediaId',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class DeletePlayInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deletePhysicalFiles) {
+            $res['DeletePhysicalFiles'] = $this->deletePhysicalFiles;
+        }
         if (null !== $this->fileURLs) {
             $res['FileURLs'] = $this->fileURLs;
         }
@@ -47,6 +56,9 @@ class DeletePlayInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeletePhysicalFiles'])) {
+            $model->deletePhysicalFiles = $map['DeletePhysicalFiles'];
+        }
         if (isset($map['FileURLs'])) {
             $model->fileURLs = $map['FileURLs'];
         }

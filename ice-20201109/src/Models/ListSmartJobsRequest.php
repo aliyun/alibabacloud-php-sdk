@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListSmartJobsRequest extends Model
 {
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $jobState;
 
     /**
-     * @description 任务类型
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description 分页大小。最大不超过100。  默认值：10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 当前开始读取的位置
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 当前页码。默认值为1。
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 分页大小，每页显示条数。默认值为10，最大值为100。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 排序参数，默认根据创建时间倒序
-     *
      * @var string
      */
     public $sortBy;

@@ -15,8 +15,6 @@ class GetEditingProjectResponseBody extends Model
     public $project;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

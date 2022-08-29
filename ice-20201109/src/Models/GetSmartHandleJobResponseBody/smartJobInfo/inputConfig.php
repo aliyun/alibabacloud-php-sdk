@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class inputConfig extends Model
 {
     /**
-     * @description OSS地址 或 内容库素材ID
-     *
      * @var string
      */
     public $inputFile;

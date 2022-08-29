@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class SubmitTranscodeJobShrinkRequest extends Model
 {
     /**
-     * @description 任务输入组 (目前只支持一个)
-     *
      * @var string
      */
     public $inputGroupShrink;
 
     /**
-     * @description 任务名字
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 任务输出组
-     *
      * @var string
      */
     public $outputGroupShrink;
 
     /**
-     * @description 任务调度信息
-     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

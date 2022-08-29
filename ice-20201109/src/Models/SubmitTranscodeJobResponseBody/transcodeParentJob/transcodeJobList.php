@@ -14,113 +14,81 @@ use AlibabaCloud\Tea\Model;
 class transcodeJobList extends Model
 {
     /**
-     * @description 任务创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 任务结束时间
-     *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description 任务输入组 (目前只支持单个输入)
-     *
      * @var inputGroup[]
      */
     public $inputGroup;
 
     /**
-     * @description 子任务 id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 子任务在整个任务中的索引号
-     *
      * @var int
      */
     public $jobIndex;
 
     /**
-     * @description 任务名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 任务生成视频 media 信息
-     *
      * @var outFileMeta
      */
     public $outFileMeta;
 
     /**
-     * @description 输出媒体配置
-     *
      * @var output
      */
     public $output;
 
     /**
-     * @description 主任务 id
-     *
      * @var string
      */
     public $parentJobId;
 
     /**
-     * @description 转码处理配置
-     *
      * @var processConfig
      */
     public $processConfig;
 
     /**
-     * @description 请求 id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务调度信息
-     *
      * @var scheduleConfig
      */
     public $scheduleConfig;
 
     /**
-     * @description 转码任务任务状态 - Init: 已提交, Processing: 转码中, Success: 转码成功, Fail: 转码失败, Deleted: 已删除
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 任务提交结果
-     *
      * @var mixed[]
      */
     public $submitResultJson;
 
     /**
-     * @description 任务提交时间
-     *
      * @var string
      */
     public $submitTime;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetSystemTemplateRequest extends Model
 {
     /**
-     * @description 模板ID
-     *
      * @var string
      */
     public $templateId;

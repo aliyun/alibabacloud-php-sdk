@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomTemplateRequest extends Model
 {
     /**
-     * @description 模板名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 模板子类型。
-     *
      * @var int
      */
     public $subtype;
 
     /**
-     * @description 模板参数
-     *
      * @var string
      */
     public $templateConfig;
 
     /**
-     * @description 模板类型。
-     *
      * @var int
      */
     public $type;

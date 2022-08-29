@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class overwriteParams extends Model
 {
     /**
-     * @description 根据输出视频大小调整字体 size。 true / false, default: false
-     *
      * @var string
      */
     public $adaptive;
 
     /**
-     * @description 边框颜色
-     *
      * @var string
      */
     public $borderColor;
 
     /**
-     * @description 边框宽度
-     *
      * @var int
      */
     public $borderWidth;
 
     /**
-     * @description 水印文本，不需要 base64 encode，字符串需要 utf-8 编码
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 透明度
-     *
      * @var string
      */
     public $fontAlpha;
 
     /**
-     * @description 颜色
-     *
      * @var string
      */
     public $fontColor;
 
     /**
-     * @description 字体
-     *
      * @var string
      */
     public $fontName;
 
     /**
-     * @description 字体大小
-     *
      * @var int
      */
     public $fontSize;
 
     /**
-     * @description 水印位置，距离左边距离
-     *
      * @var string
      */
     public $left;
 
     /**
-     * @description 水印位置，距离上边距离
-     *
      * @var string
      */
     public $top;

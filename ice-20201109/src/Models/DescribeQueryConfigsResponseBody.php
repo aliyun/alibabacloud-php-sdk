@@ -15,8 +15,6 @@ class DescribeQueryConfigsResponseBody extends Model
     public $configs;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

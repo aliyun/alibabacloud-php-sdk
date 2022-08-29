@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class outputGroup extends Model
 {
     /**
-     * @description 输出媒体配置
-     *
      * @var output
      */
     public $output;
 
     /**
-     * @description 任务处理配置
-     *
      * @var processConfig
      */
     public $processConfig;

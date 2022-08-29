@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddEditingProjectMaterialsRequest extends Model
 {
     /**
-     * @description 素材ID
-     *
      * @var string
      */
     public $materialMaps;
 
     /**
-     * @description 云剪辑工程ID
-     *
      * @var string
      */
     public $projectId;

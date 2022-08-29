@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
-     * @description 创建来源
-     *
      * @var string
      */
     public $createSource;
 
     /**
-     * @description 搜索关键词，可以根据模板id和title搜索
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 当前页码。默认值为1。
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description 分页大小，每页显示条数。默认值为10，最大值为100。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 排序参数，默认根据创建时间倒序
-     *
      * @var string
      */
     public $sortType;
 
     /**
-     * @description 模板状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 模板类型
-     *
      * @var string
      */
     public $type;

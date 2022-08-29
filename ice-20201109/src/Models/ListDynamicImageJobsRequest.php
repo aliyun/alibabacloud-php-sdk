@@ -14,22 +14,16 @@ class ListDynamicImageJobsRequest extends Model
     public $endOfCreateTime;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 连续分页查询时下一页的标记
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description 排序顺序：CreateTimeDesc 和 CreateTimeAsc
-     *
      * @var string
      */
     public $orderBy;

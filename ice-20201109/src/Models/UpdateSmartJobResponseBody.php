@@ -19,8 +19,6 @@ class UpdateSmartJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
