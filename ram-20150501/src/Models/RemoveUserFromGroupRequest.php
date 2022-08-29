@@ -11,15 +11,15 @@ class RemoveUserFromGroupRequest extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $groupName;
 
     /**
      * @var string
      */
-    public $groupName;
+    public $userName;
     protected $_name = [
-        'userName'  => 'UserName',
         'groupName' => 'GroupName',
+        'userName'  => 'UserName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RemoveUserFromGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RemoveUserFromGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

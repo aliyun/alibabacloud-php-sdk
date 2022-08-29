@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class defaultPolicyVersion extends Model
 {
     /**
+     * @var string
+     */
+    public $createDate;
+
+    /**
      * @var bool
      */
     public $isDefaultVersion;
@@ -22,16 +27,11 @@ class defaultPolicyVersion extends Model
      * @var string
      */
     public $versionId;
-
-    /**
-     * @var string
-     */
-    public $createDate;
     protected $_name = [
+        'createDate'       => 'CreateDate',
         'isDefaultVersion' => 'IsDefaultVersion',
         'policyDocument'   => 'PolicyDocument',
         'versionId'        => 'VersionId',
-        'createDate'       => 'CreateDate',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class defaultPolicyVersion extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createDate) {
+            $res['CreateDate'] = $this->createDate;
+        }
         if (null !== $this->isDefaultVersion) {
             $res['IsDefaultVersion'] = $this->isDefaultVersion;
         }
@@ -49,9 +52,6 @@ class defaultPolicyVersion extends Model
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
-        }
-        if (null !== $this->createDate) {
-            $res['CreateDate'] = $this->createDate;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class defaultPolicyVersion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateDate'])) {
+            $model->createDate = $map['CreateDate'];
+        }
         if (isset($map['IsDefaultVersion'])) {
             $model->isDefaultVersion = $map['IsDefaultVersion'];
         }
@@ -73,9 +76,6 @@ class defaultPolicyVersion extends Model
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
-        }
-        if (isset($map['CreateDate'])) {
-            $model->createDate = $map['CreateDate'];
         }
 
         return $model;

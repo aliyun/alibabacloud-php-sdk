@@ -11,7 +11,7 @@ class accessKey extends Model
     /**
      * @var string
      */
-    public $status;
+    public $accessKeyId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class accessKey extends Model
     /**
      * @var string
      */
-    public $accessKeyId;
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
+        'accessKeyId'     => 'AccessKeyId',
         'accessKeySecret' => 'AccessKeySecret',
         'createDate'      => 'CreateDate',
-        'accessKeyId'     => 'AccessKeyId',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class accessKey extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->accessKeyId) {
+            $res['AccessKeyId'] = $this->accessKeyId;
         }
         if (null !== $this->accessKeySecret) {
             $res['AccessKeySecret'] = $this->accessKeySecret;
@@ -50,8 +50,8 @@ class accessKey extends Model
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class accessKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AccessKeyId'])) {
+            $model->accessKeyId = $map['AccessKeyId'];
         }
         if (isset($map['AccessKeySecret'])) {
             $model->accessKeySecret = $map['AccessKeySecret'];
@@ -74,8 +74,8 @@ class accessKey extends Model
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class AttachPolicyToGroupRequest extends Model
     /**
      * @var string
      */
-    public $policyType;
+    public $groupName;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class AttachPolicyToGroupRequest extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $policyType;
     protected $_name = [
-        'policyType' => 'PolicyType',
-        'policyName' => 'PolicyName',
         'groupName'  => 'GroupName',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AttachPolicyToGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AttachPolicyToGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
 
         return $model;

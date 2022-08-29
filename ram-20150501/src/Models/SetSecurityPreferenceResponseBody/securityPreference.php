@@ -18,14 +18,14 @@ class securityPreference extends Model
     public $accessKeyPreference;
 
     /**
-     * @var MFAPreference
-     */
-    public $MFAPreference;
-
-    /**
      * @var loginProfilePreference
      */
     public $loginProfilePreference;
+
+    /**
+     * @var MFAPreference
+     */
+    public $MFAPreference;
 
     /**
      * @var publicKeyPreference
@@ -33,8 +33,8 @@ class securityPreference extends Model
     public $publicKeyPreference;
     protected $_name = [
         'accessKeyPreference'    => 'AccessKeyPreference',
-        'MFAPreference'          => 'MFAPreference',
         'loginProfilePreference' => 'LoginProfilePreference',
+        'MFAPreference'          => 'MFAPreference',
         'publicKeyPreference'    => 'PublicKeyPreference',
     ];
 
@@ -48,11 +48,11 @@ class securityPreference extends Model
         if (null !== $this->accessKeyPreference) {
             $res['AccessKeyPreference'] = null !== $this->accessKeyPreference ? $this->accessKeyPreference->toMap() : null;
         }
-        if (null !== $this->MFAPreference) {
-            $res['MFAPreference'] = null !== $this->MFAPreference ? $this->MFAPreference->toMap() : null;
-        }
         if (null !== $this->loginProfilePreference) {
             $res['LoginProfilePreference'] = null !== $this->loginProfilePreference ? $this->loginProfilePreference->toMap() : null;
+        }
+        if (null !== $this->MFAPreference) {
+            $res['MFAPreference'] = null !== $this->MFAPreference ? $this->MFAPreference->toMap() : null;
         }
         if (null !== $this->publicKeyPreference) {
             $res['PublicKeyPreference'] = null !== $this->publicKeyPreference ? $this->publicKeyPreference->toMap() : null;
@@ -72,11 +72,11 @@ class securityPreference extends Model
         if (isset($map['AccessKeyPreference'])) {
             $model->accessKeyPreference = accessKeyPreference::fromMap($map['AccessKeyPreference']);
         }
-        if (isset($map['MFAPreference'])) {
-            $model->MFAPreference = MFAPreference::fromMap($map['MFAPreference']);
-        }
         if (isset($map['LoginProfilePreference'])) {
             $model->loginProfilePreference = loginProfilePreference::fromMap($map['LoginProfilePreference']);
+        }
+        if (isset($map['MFAPreference'])) {
+            $model->MFAPreference = MFAPreference::fromMap($map['MFAPreference']);
         }
         if (isset($map['PublicKeyPreference'])) {
             $model->publicKeyPreference = publicKeyPreference::fromMap($map['PublicKeyPreference']);

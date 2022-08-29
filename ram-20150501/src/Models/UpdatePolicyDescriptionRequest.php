@@ -6,26 +6,20 @@ namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DetachPolicyFromRoleRequest extends Model
+class UpdatePolicyDescriptionRequest extends Model
 {
     /**
      * @var string
      */
+    public $newDescription;
+
+    /**
+     * @var string
+     */
     public $policyName;
-
-    /**
-     * @var string
-     */
-    public $policyType;
-
-    /**
-     * @var string
-     */
-    public $roleName;
     protected $_name = [
-        'policyName' => 'PolicyName',
-        'policyType' => 'PolicyType',
-        'roleName'   => 'RoleName',
+        'newDescription' => 'NewDescription',
+        'policyName'     => 'PolicyName',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DetachPolicyFromRoleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->newDescription) {
+            $res['NewDescription'] = $this->newDescription;
+        }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
-        }
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
-        }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
         }
 
         return $res;
@@ -51,19 +42,16 @@ class DetachPolicyFromRoleRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetachPolicyFromRoleRequest
+     * @return UpdatePolicyDescriptionRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NewDescription'])) {
+            $model->newDescription = $map['NewDescription'];
+        }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
-        }
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
-        }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
         }
 
         return $model;

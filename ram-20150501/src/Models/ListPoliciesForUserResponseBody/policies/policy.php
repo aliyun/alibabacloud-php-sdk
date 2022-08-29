@@ -11,6 +11,11 @@ class policy extends Model
     /**
      * @var string
      */
+    public $attachDate;
+
+    /**
+     * @var string
+     */
     public $defaultVersion;
 
     /**
@@ -26,17 +31,12 @@ class policy extends Model
     /**
      * @var string
      */
-    public $attachDate;
-
-    /**
-     * @var string
-     */
     public $policyType;
     protected $_name = [
+        'attachDate'     => 'AttachDate',
         'defaultVersion' => 'DefaultVersion',
         'description'    => 'Description',
         'policyName'     => 'PolicyName',
-        'attachDate'     => 'AttachDate',
         'policyType'     => 'PolicyType',
     ];
 
@@ -47,6 +47,9 @@ class policy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachDate) {
+            $res['AttachDate'] = $this->attachDate;
+        }
         if (null !== $this->defaultVersion) {
             $res['DefaultVersion'] = $this->defaultVersion;
         }
@@ -55,9 +58,6 @@ class policy extends Model
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
-        }
-        if (null !== $this->attachDate) {
-            $res['AttachDate'] = $this->attachDate;
         }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
@@ -74,6 +74,9 @@ class policy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachDate'])) {
+            $model->attachDate = $map['AttachDate'];
+        }
         if (isset($map['DefaultVersion'])) {
             $model->defaultVersion = $map['DefaultVersion'];
         }
@@ -82,9 +85,6 @@ class policy extends Model
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
-        }
-        if (isset($map['AttachDate'])) {
-            $model->attachDate = $map['AttachDate'];
         }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];

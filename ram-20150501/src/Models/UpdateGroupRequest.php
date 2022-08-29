@@ -16,16 +16,16 @@ class UpdateGroupRequest extends Model
     /**
      * @var string
      */
-    public $newGroupName;
+    public $newComments;
 
     /**
      * @var string
      */
-    public $newComments;
+    public $newGroupName;
     protected $_name = [
         'groupName'    => 'GroupName',
-        'newGroupName' => 'NewGroupName',
         'newComments'  => 'NewComments',
+        'newGroupName' => 'NewGroupName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class UpdateGroupRequest extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->newGroupName) {
-            $res['NewGroupName'] = $this->newGroupName;
-        }
         if (null !== $this->newComments) {
             $res['NewComments'] = $this->newComments;
+        }
+        if (null !== $this->newGroupName) {
+            $res['NewGroupName'] = $this->newGroupName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class UpdateGroupRequest extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['NewGroupName'])) {
-            $model->newGroupName = $map['NewGroupName'];
-        }
         if (isset($map['NewComments'])) {
             $model->newComments = $map['NewComments'];
+        }
+        if (isset($map['NewGroupName'])) {
+            $model->newGroupName = $map['NewGroupName'];
         }
 
         return $model;

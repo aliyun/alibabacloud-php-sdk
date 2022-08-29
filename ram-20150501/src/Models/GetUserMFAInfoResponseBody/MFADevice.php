@@ -12,8 +12,14 @@ class MFADevice extends Model
      * @var string
      */
     public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'serialNumber' => 'SerialNumber',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class MFADevice extends Model
         $res = [];
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class MFADevice extends Model
         $model = new self();
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

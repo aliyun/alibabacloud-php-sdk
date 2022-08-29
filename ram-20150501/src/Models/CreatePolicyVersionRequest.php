@@ -11,27 +11,27 @@ class CreatePolicyVersionRequest extends Model
     /**
      * @var string
      */
+    public $policyDocument;
+
+    /**
+     * @var string
+     */
     public $policyName;
 
     /**
      * @var string
      */
-    public $policyDocument;
+    public $rotateStrategy;
 
     /**
      * @var bool
      */
     public $setAsDefault;
-
-    /**
-     * @var string
-     */
-    public $rotateStrategy;
     protected $_name = [
-        'policyName'     => 'PolicyName',
         'policyDocument' => 'PolicyDocument',
-        'setAsDefault'   => 'SetAsDefault',
+        'policyName'     => 'PolicyName',
         'rotateStrategy' => 'RotateStrategy',
+        'setAsDefault'   => 'SetAsDefault',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreatePolicyVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyName) {
-            $res['PolicyName'] = $this->policyName;
-        }
         if (null !== $this->policyDocument) {
             $res['PolicyDocument'] = $this->policyDocument;
         }
-        if (null !== $this->setAsDefault) {
-            $res['SetAsDefault'] = $this->setAsDefault;
+        if (null !== $this->policyName) {
+            $res['PolicyName'] = $this->policyName;
         }
         if (null !== $this->rotateStrategy) {
             $res['RotateStrategy'] = $this->rotateStrategy;
+        }
+        if (null !== $this->setAsDefault) {
+            $res['SetAsDefault'] = $this->setAsDefault;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreatePolicyVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyName'])) {
-            $model->policyName = $map['PolicyName'];
-        }
         if (isset($map['PolicyDocument'])) {
             $model->policyDocument = $map['PolicyDocument'];
         }
-        if (isset($map['SetAsDefault'])) {
-            $model->setAsDefault = $map['SetAsDefault'];
+        if (isset($map['PolicyName'])) {
+            $model->policyName = $map['PolicyName'];
         }
         if (isset($map['RotateStrategy'])) {
             $model->rotateStrategy = $map['RotateStrategy'];
+        }
+        if (isset($map['SetAsDefault'])) {
+            $model->setAsDefault = $map['SetAsDefault'];
         }
 
         return $model;

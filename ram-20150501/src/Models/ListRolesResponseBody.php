@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListRolesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $isTruncated;
 
     /**
-     * @var roles
+     * @var string
      */
-    public $roles;
+    public $marker;
 
     /**
      * @var string
      */
-    public $marker;
+    public $requestId;
+
+    /**
+     * @var roles
+     */
+    public $roles;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'isTruncated' => 'IsTruncated',
-        'roles'       => 'Roles',
         'marker'      => 'Marker',
+        'requestId'   => 'RequestId',
+        'roles'       => 'Roles',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class ListRolesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
-        if (null !== $this->roles) {
-            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
-        }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->roles) {
+            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class ListRolesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
-        if (isset($map['Roles'])) {
-            $model->roles = roles::fromMap($map['Roles']);
-        }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Roles'])) {
+            $model->roles = roles::fromMap($map['Roles']);
         }
 
         return $model;

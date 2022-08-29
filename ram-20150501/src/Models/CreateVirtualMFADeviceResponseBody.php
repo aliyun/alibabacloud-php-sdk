@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualMFADeviceResponseBody extends Model
 {
     /**
-     * @var virtualMFADevice
-     */
-    public $virtualMFADevice;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var virtualMFADevice
+     */
+    public $virtualMFADevice;
     protected $_name = [
-        'virtualMFADevice' => 'VirtualMFADevice',
         'requestId'        => 'RequestId',
+        'virtualMFADevice' => 'VirtualMFADevice',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateVirtualMFADeviceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->virtualMFADevice) {
-            $res['VirtualMFADevice'] = null !== $this->virtualMFADevice ? $this->virtualMFADevice->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->virtualMFADevice) {
+            $res['VirtualMFADevice'] = null !== $this->virtualMFADevice ? $this->virtualMFADevice->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class CreateVirtualMFADeviceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VirtualMFADevice'])) {
-            $model->virtualMFADevice = virtualMFADevice::fromMap($map['VirtualMFADevice']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VirtualMFADevice'])) {
+            $model->virtualMFADevice = virtualMFADevice::fromMap($map['VirtualMFADevice']);
         }
 
         return $model;

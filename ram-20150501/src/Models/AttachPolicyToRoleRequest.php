@@ -11,20 +11,20 @@ class AttachPolicyToRoleRequest extends Model
     /**
      * @var string
      */
-    public $policyType;
+    public $policyName;
 
     /**
      * @var string
      */
-    public $policyName;
+    public $policyType;
 
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
-        'policyType' => 'PolicyType',
         'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
         'roleName'   => 'RoleName',
     ];
 
@@ -35,11 +35,11 @@ class AttachPolicyToRoleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
-        }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
@@ -56,11 +56,11 @@ class AttachPolicyToRoleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
-        }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];

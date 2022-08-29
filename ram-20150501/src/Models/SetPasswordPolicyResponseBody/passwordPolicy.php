@@ -11,27 +11,12 @@ class passwordPolicy extends Model
     /**
      * @var bool
      */
-    public $requireNumbers;
-
-    /**
-     * @var bool
-     */
-    public $requireLowercaseCharacters;
-
-    /**
-     * @var bool
-     */
     public $hardExpiry;
 
     /**
      * @var int
      */
-    public $passwordReusePrevention;
-
-    /**
-     * @var bool
-     */
-    public $requireSymbols;
+    public $maxLoginAttemps;
 
     /**
      * @var int
@@ -44,24 +29,39 @@ class passwordPolicy extends Model
     public $minimumPasswordLength;
 
     /**
+     * @var int
+     */
+    public $passwordReusePrevention;
+
+    /**
+     * @var bool
+     */
+    public $requireLowercaseCharacters;
+
+    /**
+     * @var bool
+     */
+    public $requireNumbers;
+
+    /**
+     * @var bool
+     */
+    public $requireSymbols;
+
+    /**
      * @var bool
      */
     public $requireUppercaseCharacters;
-
-    /**
-     * @var int
-     */
-    public $maxLoginAttemps;
     protected $_name = [
-        'requireNumbers'             => 'RequireNumbers',
-        'requireLowercaseCharacters' => 'RequireLowercaseCharacters',
         'hardExpiry'                 => 'HardExpiry',
-        'passwordReusePrevention'    => 'PasswordReusePrevention',
-        'requireSymbols'             => 'RequireSymbols',
+        'maxLoginAttemps'            => 'MaxLoginAttemps',
         'maxPasswordAge'             => 'MaxPasswordAge',
         'minimumPasswordLength'      => 'MinimumPasswordLength',
+        'passwordReusePrevention'    => 'PasswordReusePrevention',
+        'requireLowercaseCharacters' => 'RequireLowercaseCharacters',
+        'requireNumbers'             => 'RequireNumbers',
+        'requireSymbols'             => 'RequireSymbols',
         'requireUppercaseCharacters' => 'RequireUppercaseCharacters',
-        'maxLoginAttemps'            => 'MaxLoginAttemps',
     ];
 
     public function validate()
@@ -71,20 +71,11 @@ class passwordPolicy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requireNumbers) {
-            $res['RequireNumbers'] = $this->requireNumbers;
-        }
-        if (null !== $this->requireLowercaseCharacters) {
-            $res['RequireLowercaseCharacters'] = $this->requireLowercaseCharacters;
-        }
         if (null !== $this->hardExpiry) {
             $res['HardExpiry'] = $this->hardExpiry;
         }
-        if (null !== $this->passwordReusePrevention) {
-            $res['PasswordReusePrevention'] = $this->passwordReusePrevention;
-        }
-        if (null !== $this->requireSymbols) {
-            $res['RequireSymbols'] = $this->requireSymbols;
+        if (null !== $this->maxLoginAttemps) {
+            $res['MaxLoginAttemps'] = $this->maxLoginAttemps;
         }
         if (null !== $this->maxPasswordAge) {
             $res['MaxPasswordAge'] = $this->maxPasswordAge;
@@ -92,11 +83,20 @@ class passwordPolicy extends Model
         if (null !== $this->minimumPasswordLength) {
             $res['MinimumPasswordLength'] = $this->minimumPasswordLength;
         }
+        if (null !== $this->passwordReusePrevention) {
+            $res['PasswordReusePrevention'] = $this->passwordReusePrevention;
+        }
+        if (null !== $this->requireLowercaseCharacters) {
+            $res['RequireLowercaseCharacters'] = $this->requireLowercaseCharacters;
+        }
+        if (null !== $this->requireNumbers) {
+            $res['RequireNumbers'] = $this->requireNumbers;
+        }
+        if (null !== $this->requireSymbols) {
+            $res['RequireSymbols'] = $this->requireSymbols;
+        }
         if (null !== $this->requireUppercaseCharacters) {
             $res['RequireUppercaseCharacters'] = $this->requireUppercaseCharacters;
-        }
-        if (null !== $this->maxLoginAttemps) {
-            $res['MaxLoginAttemps'] = $this->maxLoginAttemps;
         }
 
         return $res;
@@ -110,20 +110,11 @@ class passwordPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequireNumbers'])) {
-            $model->requireNumbers = $map['RequireNumbers'];
-        }
-        if (isset($map['RequireLowercaseCharacters'])) {
-            $model->requireLowercaseCharacters = $map['RequireLowercaseCharacters'];
-        }
         if (isset($map['HardExpiry'])) {
             $model->hardExpiry = $map['HardExpiry'];
         }
-        if (isset($map['PasswordReusePrevention'])) {
-            $model->passwordReusePrevention = $map['PasswordReusePrevention'];
-        }
-        if (isset($map['RequireSymbols'])) {
-            $model->requireSymbols = $map['RequireSymbols'];
+        if (isset($map['MaxLoginAttemps'])) {
+            $model->maxLoginAttemps = $map['MaxLoginAttemps'];
         }
         if (isset($map['MaxPasswordAge'])) {
             $model->maxPasswordAge = $map['MaxPasswordAge'];
@@ -131,11 +122,20 @@ class passwordPolicy extends Model
         if (isset($map['MinimumPasswordLength'])) {
             $model->minimumPasswordLength = $map['MinimumPasswordLength'];
         }
+        if (isset($map['PasswordReusePrevention'])) {
+            $model->passwordReusePrevention = $map['PasswordReusePrevention'];
+        }
+        if (isset($map['RequireLowercaseCharacters'])) {
+            $model->requireLowercaseCharacters = $map['RequireLowercaseCharacters'];
+        }
+        if (isset($map['RequireNumbers'])) {
+            $model->requireNumbers = $map['RequireNumbers'];
+        }
+        if (isset($map['RequireSymbols'])) {
+            $model->requireSymbols = $map['RequireSymbols'];
+        }
         if (isset($map['RequireUppercaseCharacters'])) {
             $model->requireUppercaseCharacters = $map['RequireUppercaseCharacters'];
-        }
-        if (isset($map['MaxLoginAttemps'])) {
-            $model->maxLoginAttemps = $map['MaxLoginAttemps'];
         }
 
         return $model;

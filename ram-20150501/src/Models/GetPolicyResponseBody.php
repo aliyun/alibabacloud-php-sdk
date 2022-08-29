@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyResponseBody extends Model
 {
     /**
+     * @var defaultPolicyVersion
+     */
+    public $defaultPolicyVersion;
+
+    /**
      * @var policy
      */
     public $policy;
@@ -19,15 +24,10 @@ class GetPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var defaultPolicyVersion
-     */
-    public $defaultPolicyVersion;
     protected $_name = [
+        'defaultPolicyVersion' => 'DefaultPolicyVersion',
         'policy'               => 'Policy',
         'requestId'            => 'RequestId',
-        'defaultPolicyVersion' => 'DefaultPolicyVersion',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class GetPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->defaultPolicyVersion) {
+            $res['DefaultPolicyVersion'] = null !== $this->defaultPolicyVersion ? $this->defaultPolicyVersion->toMap() : null;
+        }
         if (null !== $this->policy) {
             $res['Policy'] = null !== $this->policy ? $this->policy->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->defaultPolicyVersion) {
-            $res['DefaultPolicyVersion'] = null !== $this->defaultPolicyVersion ? $this->defaultPolicyVersion->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class GetPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultPolicyVersion'])) {
+            $model->defaultPolicyVersion = defaultPolicyVersion::fromMap($map['DefaultPolicyVersion']);
+        }
         if (isset($map['Policy'])) {
             $model->policy = policy::fromMap($map['Policy']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DefaultPolicyVersion'])) {
-            $model->defaultPolicyVersion = defaultPolicyVersion::fromMap($map['DefaultPolicyVersion']);
         }
 
         return $model;

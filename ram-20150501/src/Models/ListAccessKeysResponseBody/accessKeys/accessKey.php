@@ -11,21 +11,21 @@ class accessKey extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $accessKeyId;
 
     /**
      * @var string
      */
     public $createDate;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
         'accessKeyId' => 'AccessKeyId',
         'createDate'  => 'CreateDate',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class accessKey extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class accessKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

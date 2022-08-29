@@ -12,21 +12,21 @@ class virtualMFADevice extends Model
     /**
      * @var string
      */
+    public $activateDate;
+
+    /**
+     * @var string
+     */
     public $serialNumber;
 
     /**
      * @var user
      */
     public $user;
-
-    /**
-     * @var string
-     */
-    public $activateDate;
     protected $_name = [
+        'activateDate' => 'ActivateDate',
         'serialNumber' => 'SerialNumber',
         'user'         => 'User',
-        'activateDate' => 'ActivateDate',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class virtualMFADevice extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activateDate) {
+            $res['ActivateDate'] = $this->activateDate;
+        }
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
         if (null !== $this->user) {
             $res['User'] = null !== $this->user ? $this->user->toMap() : null;
-        }
-        if (null !== $this->activateDate) {
-            $res['ActivateDate'] = $this->activateDate;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class virtualMFADevice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivateDate'])) {
+            $model->activateDate = $map['ActivateDate'];
+        }
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
         if (isset($map['User'])) {
             $model->user = user::fromMap($map['User']);
-        }
-        if (isset($map['ActivateDate'])) {
-            $model->activateDate = $map['ActivateDate'];
         }
 
         return $model;

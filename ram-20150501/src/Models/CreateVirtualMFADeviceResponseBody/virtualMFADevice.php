@@ -11,7 +11,7 @@ class virtualMFADevice extends Model
     /**
      * @var string
      */
-    public $serialNumber;
+    public $base32StringSeed;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class virtualMFADevice extends Model
     /**
      * @var string
      */
-    public $base32StringSeed;
+    public $serialNumber;
     protected $_name = [
-        'serialNumber'     => 'SerialNumber',
-        'QRCodePNG'        => 'QRCodePNG',
         'base32StringSeed' => 'Base32StringSeed',
+        'QRCodePNG'        => 'QRCodePNG',
+        'serialNumber'     => 'SerialNumber',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class virtualMFADevice extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serialNumber) {
-            $res['SerialNumber'] = $this->serialNumber;
+        if (null !== $this->base32StringSeed) {
+            $res['Base32StringSeed'] = $this->base32StringSeed;
         }
         if (null !== $this->QRCodePNG) {
             $res['QRCodePNG'] = $this->QRCodePNG;
         }
-        if (null !== $this->base32StringSeed) {
-            $res['Base32StringSeed'] = $this->base32StringSeed;
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class virtualMFADevice extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SerialNumber'])) {
-            $model->serialNumber = $map['SerialNumber'];
+        if (isset($map['Base32StringSeed'])) {
+            $model->base32StringSeed = $map['Base32StringSeed'];
         }
         if (isset($map['QRCodePNG'])) {
             $model->QRCodePNG = $map['QRCodePNG'];
         }
-        if (isset($map['Base32StringSeed'])) {
-            $model->base32StringSeed = $map['Base32StringSeed'];
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
         }
 
         return $model;

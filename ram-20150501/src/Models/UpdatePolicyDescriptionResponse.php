@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ram\V20150501\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddUserToGroupResponse extends Model
+class UpdatePolicyDescriptionResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AddUserToGroupResponse extends Model
     public $statusCode;
 
     /**
-     * @var AddUserToGroupResponseBody
+     * @var UpdatePolicyDescriptionResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class AddUserToGroupResponse extends Model
     /**
      * @param array $map
      *
-     * @return AddUserToGroupResponse
+     * @return UpdatePolicyDescriptionResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class AddUserToGroupResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AddUserToGroupResponseBody::fromMap($map['body']);
+            $model->body = UpdatePolicyDescriptionResponseBody::fromMap($map['body']);
         }
 
         return $model;

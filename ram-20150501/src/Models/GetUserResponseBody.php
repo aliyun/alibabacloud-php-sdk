@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetUserResponseBody extends Model
 {
     /**
-     * @var user
-     */
-    public $user;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var user
+     */
+    public $user;
     protected $_name = [
-        'user'      => 'User',
         'requestId' => 'RequestId',
+        'user'      => 'User',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->user) {
-            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->user) {
+            $res['User'] = null !== $this->user ? $this->user->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['User'])) {
-            $model->user = user::fromMap($map['User']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['User'])) {
+            $model->user = user::fromMap($map['User']);
         }
 
         return $model;

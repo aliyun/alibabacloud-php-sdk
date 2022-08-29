@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var groups
      */
     public $groups;
@@ -28,11 +23,16 @@ class ListGroupsResponseBody extends Model
      * @var string
      */
     public $marker;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'groups'      => 'Groups',
         'isTruncated' => 'IsTruncated',
         'marker'      => 'Marker',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -42,9 +42,6 @@ class ListGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->groups) {
             $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
         }
@@ -53,6 +50,9 @@ class ListGroupsResponseBody extends Model
         }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class ListGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Groups'])) {
             $model->groups = groups::fromMap($map['Groups']);
         }
@@ -77,6 +74,9 @@ class ListGroupsResponseBody extends Model
         }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

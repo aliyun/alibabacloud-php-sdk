@@ -11,12 +11,17 @@ class group extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $comments;
 
     /**
      * @var string
      */
-    public $updateDate;
+    public $createDate;
+
+    /**
+     * @var string
+     */
+    public $groupId;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class group extends Model
     /**
      * @var string
      */
-    public $comments;
-
-    /**
-     * @var string
-     */
-    public $createDate;
+    public $updateDate;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'updateDate' => 'UpdateDate',
-        'groupName'  => 'GroupName',
         'comments'   => 'Comments',
         'createDate' => 'CreateDate',
+        'groupId'    => 'GroupId',
+        'groupName'  => 'GroupName',
+        'updateDate' => 'UpdateDate',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class group extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->updateDate) {
-            $res['UpdateDate'] = $this->updateDate;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->updateDate) {
+            $res['UpdateDate'] = $this->updateDate;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class group extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['UpdateDate'])) {
-            $model->updateDate = $map['UpdateDate'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['UpdateDate'])) {
+            $model->updateDate = $map['UpdateDate'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class GetAccessKeyLastUsedRequest extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $userAccessKeyId;
 
     /**
      * @var string
      */
-    public $userAccessKeyId;
+    public $userName;
     protected $_name = [
-        'userName'        => 'UserName',
         'userAccessKeyId' => 'UserAccessKeyId',
+        'userName'        => 'UserName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetAccessKeyLastUsedRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
-        }
         if (null !== $this->userAccessKeyId) {
             $res['UserAccessKeyId'] = $this->userAccessKeyId;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetAccessKeyLastUsedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
-        }
         if (isset($map['UserAccessKeyId'])) {
             $model->userAccessKeyId = $map['UserAccessKeyId'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

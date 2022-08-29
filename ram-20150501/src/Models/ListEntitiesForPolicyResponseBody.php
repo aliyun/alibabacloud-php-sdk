@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class ListEntitiesForPolicyResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var groups
      */
     public $groups;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var roles
@@ -31,8 +31,8 @@ class ListEntitiesForPolicyResponseBody extends Model
      */
     public $users;
     protected $_name = [
-        'requestId' => 'RequestId',
         'groups'    => 'Groups',
+        'requestId' => 'RequestId',
         'roles'     => 'Roles',
         'users'     => 'Users',
     ];
@@ -44,11 +44,11 @@ class ListEntitiesForPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->groups) {
             $res['Groups'] = null !== $this->groups ? $this->groups->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roles) {
             $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
@@ -68,11 +68,11 @@ class ListEntitiesForPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Groups'])) {
             $model->groups = groups::fromMap($map['Groups']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Roles'])) {
             $model->roles = roles::fromMap($map['Roles']);

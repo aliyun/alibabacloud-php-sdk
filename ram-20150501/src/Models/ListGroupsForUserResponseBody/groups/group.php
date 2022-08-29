@@ -11,6 +11,11 @@ class group extends Model
     /**
      * @var string
      */
+    public $comments;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -21,16 +26,11 @@ class group extends Model
     /**
      * @var string
      */
-    public $comments;
-
-    /**
-     * @var string
-     */
     public $joinDate;
     protected $_name = [
+        'comments'  => 'Comments',
         'groupId'   => 'GroupId',
         'groupName' => 'GroupName',
-        'comments'  => 'Comments',
         'joinDate'  => 'JoinDate',
     ];
 
@@ -41,14 +41,14 @@ class group extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->comments) {
+            $res['Comments'] = $this->comments;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
         }
         if (null !== $this->joinDate) {
             $res['JoinDate'] = $this->joinDate;
@@ -65,14 +65,14 @@ class group extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Comments'])) {
+            $model->comments = $map['Comments'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
         }
         if (isset($map['JoinDate'])) {
             $model->joinDate = $map['JoinDate'];

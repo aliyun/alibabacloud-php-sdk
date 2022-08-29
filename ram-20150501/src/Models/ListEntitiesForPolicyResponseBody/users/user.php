@@ -11,6 +11,11 @@ class user extends Model
     /**
      * @var string
      */
+    public $attachDate;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -22,16 +27,11 @@ class user extends Model
      * @var string
      */
     public $userName;
-
-    /**
-     * @var string
-     */
-    public $attachDate;
     protected $_name = [
+        'attachDate'  => 'AttachDate',
         'displayName' => 'DisplayName',
         'userId'      => 'UserId',
         'userName'    => 'UserName',
-        'attachDate'  => 'AttachDate',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class user extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachDate) {
+            $res['AttachDate'] = $this->attachDate;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -49,9 +52,6 @@ class user extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->attachDate) {
-            $res['AttachDate'] = $this->attachDate;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachDate'])) {
+            $model->attachDate = $map['AttachDate'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -73,9 +76,6 @@ class user extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
-        }
-        if (isset($map['AttachDate'])) {
-            $model->attachDate = $map['AttachDate'];
         }
 
         return $model;

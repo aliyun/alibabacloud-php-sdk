@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListUsersForGroupResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $isTruncated;
@@ -25,13 +20,18 @@ class ListUsersForGroupResponseBody extends Model
     public $marker;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var users
      */
     public $users;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'isTruncated' => 'IsTruncated',
         'marker'      => 'Marker',
+        'requestId'   => 'RequestId',
         'users'       => 'Users',
     ];
 
@@ -42,14 +42,14 @@ class ListUsersForGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->users) {
             $res['Users'] = null !== $this->users ? $this->users->toMap() : null;
@@ -66,14 +66,14 @@ class ListUsersForGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Users'])) {
             $model->users = users::fromMap($map['Users']);

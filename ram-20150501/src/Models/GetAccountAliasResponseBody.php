@@ -11,15 +11,15 @@ class GetAccountAliasResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $accountAlias;
 
     /**
      * @var string
      */
-    public $accountAlias;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'accountAlias' => 'AccountAlias',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetAccountAliasResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accountAlias) {
             $res['AccountAlias'] = $this->accountAlias;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetAccountAliasResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccountAlias'])) {
             $model->accountAlias = $map['AccountAlias'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
-    public $userName;
+    public $comments;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
-    public $mobilePhone;
-
-    /**
-     * @var string
-     */
     public $email;
 
     /**
      * @var string
      */
-    public $comments;
+    public $mobilePhone;
+
+    /**
+     * @var string
+     */
+    public $userName;
     protected $_name = [
-        'userName'    => 'UserName',
-        'displayName' => 'DisplayName',
-        'mobilePhone' => 'MobilePhone',
-        'email'       => 'Email',
         'comments'    => 'Comments',
+        'displayName' => 'DisplayName',
+        'email'       => 'Email',
+        'mobilePhone' => 'MobilePhone',
+        'userName'    => 'UserName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userName) {
-            $res['UserName'] = $this->userName;
+        if (null !== $this->comments) {
+            $res['Comments'] = $this->comments;
         }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->mobilePhone) {
-            $res['MobilePhone'] = $this->mobilePhone;
-        }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
+        if (null !== $this->mobilePhone) {
+            $res['MobilePhone'] = $this->mobilePhone;
+        }
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserName'])) {
-            $model->userName = $map['UserName'];
+        if (isset($map['Comments'])) {
+            $model->comments = $map['Comments'];
         }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['MobilePhone'])) {
-            $model->mobilePhone = $map['MobilePhone'];
-        }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
+        if (isset($map['MobilePhone'])) {
+            $model->mobilePhone = $map['MobilePhone'];
+        }
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

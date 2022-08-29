@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesResponseBody extends Model
 {
     /**
-     * @var policies
-     */
-    public $policies;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $isTruncated;
@@ -28,11 +18,21 @@ class ListPoliciesResponseBody extends Model
      * @var string
      */
     public $marker;
+
+    /**
+     * @var policies
+     */
+    public $policies;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'policies'    => 'Policies',
-        'requestId'   => 'RequestId',
         'isTruncated' => 'IsTruncated',
         'marker'      => 'Marker',
+        'policies'    => 'Policies',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class ListPoliciesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policies) {
-            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->isTruncated) {
             $res['IsTruncated'] = $this->isTruncated;
         }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->policies) {
+            $res['Policies'] = null !== $this->policies ? $this->policies->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class ListPoliciesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Policies'])) {
-            $model->policies = policies::fromMap($map['Policies']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IsTruncated'])) {
             $model->isTruncated = $map['IsTruncated'];
         }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
+        }
+        if (isset($map['Policies'])) {
+            $model->policies = policies::fromMap($map['Policies']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

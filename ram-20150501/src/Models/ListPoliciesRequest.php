@@ -11,21 +11,21 @@ class ListPoliciesRequest extends Model
     /**
      * @var string
      */
-    public $policyType;
-
-    /**
-     * @var string
-     */
     public $marker;
 
     /**
      * @var int
      */
     public $maxItems;
+
+    /**
+     * @var string
+     */
+    public $policyType;
     protected $_name = [
-        'policyType' => 'PolicyType',
         'marker'     => 'Marker',
         'maxItems'   => 'MaxItems',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->policyType) {
-            $res['PolicyType'] = $this->policyType;
-        }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
         }
         if (null !== $this->maxItems) {
             $res['MaxItems'] = $this->maxItems;
+        }
+        if (null !== $this->policyType) {
+            $res['PolicyType'] = $this->policyType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PolicyType'])) {
-            $model->policyType = $map['PolicyType'];
-        }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
         }
         if (isset($map['MaxItems'])) {
             $model->maxItems = $map['MaxItems'];
+        }
+        if (isset($map['PolicyType'])) {
+            $model->policyType = $map['PolicyType'];
         }
 
         return $model;
