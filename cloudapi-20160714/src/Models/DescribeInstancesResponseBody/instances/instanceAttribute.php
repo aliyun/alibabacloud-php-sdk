@@ -42,6 +42,11 @@ class instanceAttribute extends Model
     /**
      * @var bool
      */
+    public $egressAddressChangeNotify;
+
+    /**
+     * @var bool
+     */
     public $egressIpv6Enable;
 
     /**
@@ -154,35 +159,36 @@ class instanceAttribute extends Model
      */
     public $zoneLocalName;
     protected $_name = [
-        'aclId'                  => 'AclId',
-        'aclName'                => 'AclName',
-        'aclStatus'              => 'AclStatus',
-        'aclType'                => 'AclType',
-        'classicEgressAddress'   => 'ClassicEgressAddress',
-        'createdTime'            => 'CreatedTime',
-        'egressIpv6Enable'       => 'EgressIpv6Enable',
-        'expiredTime'            => 'ExpiredTime',
-        'httpsPolicies'          => 'HttpsPolicies',
-        'instanceChargeType'     => 'InstanceChargeType',
-        'instanceId'             => 'InstanceId',
-        'instanceName'           => 'InstanceName',
-        'instanceRpsLimit'       => 'InstanceRpsLimit',
-        'instanceSpec'           => 'InstanceSpec',
-        'instanceSpecAttributes' => 'InstanceSpecAttributes',
-        'instanceType'           => 'InstanceType',
-        'internetEgressAddress'  => 'InternetEgressAddress',
-        'regionId'               => 'RegionId',
-        'status'                 => 'Status',
-        'supportIpv6'            => 'SupportIpv6',
-        'userVpcId'              => 'UserVpcId',
-        'userVswitchId'          => 'UserVswitchId',
-        'vipTypeList'            => 'VipTypeList',
-        'vpcEgressAddress'       => 'VpcEgressAddress',
-        'vpcIntranetEnable'      => 'VpcIntranetEnable',
-        'vpcOwnerId'             => 'VpcOwnerId',
-        'vpcSlbIntranetEnable'   => 'VpcSlbIntranetEnable',
-        'zoneId'                 => 'ZoneId',
-        'zoneLocalName'          => 'ZoneLocalName',
+        'aclId'                     => 'AclId',
+        'aclName'                   => 'AclName',
+        'aclStatus'                 => 'AclStatus',
+        'aclType'                   => 'AclType',
+        'classicEgressAddress'      => 'ClassicEgressAddress',
+        'createdTime'               => 'CreatedTime',
+        'egressAddressChangeNotify' => 'EgressAddressChangeNotify',
+        'egressIpv6Enable'          => 'EgressIpv6Enable',
+        'expiredTime'               => 'ExpiredTime',
+        'httpsPolicies'             => 'HttpsPolicies',
+        'instanceChargeType'        => 'InstanceChargeType',
+        'instanceId'                => 'InstanceId',
+        'instanceName'              => 'InstanceName',
+        'instanceRpsLimit'          => 'InstanceRpsLimit',
+        'instanceSpec'              => 'InstanceSpec',
+        'instanceSpecAttributes'    => 'InstanceSpecAttributes',
+        'instanceType'              => 'InstanceType',
+        'internetEgressAddress'     => 'InternetEgressAddress',
+        'regionId'                  => 'RegionId',
+        'status'                    => 'Status',
+        'supportIpv6'               => 'SupportIpv6',
+        'userVpcId'                 => 'UserVpcId',
+        'userVswitchId'             => 'UserVswitchId',
+        'vipTypeList'               => 'VipTypeList',
+        'vpcEgressAddress'          => 'VpcEgressAddress',
+        'vpcIntranetEnable'         => 'VpcIntranetEnable',
+        'vpcOwnerId'                => 'VpcOwnerId',
+        'vpcSlbIntranetEnable'      => 'VpcSlbIntranetEnable',
+        'zoneId'                    => 'ZoneId',
+        'zoneLocalName'             => 'ZoneLocalName',
     ];
 
     public function validate()
@@ -209,6 +215,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->egressAddressChangeNotify) {
+            $res['EgressAddressChangeNotify'] = $this->egressAddressChangeNotify;
         }
         if (null !== $this->egressIpv6Enable) {
             $res['EgressIpv6Enable'] = $this->egressIpv6Enable;
@@ -308,6 +317,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['EgressAddressChangeNotify'])) {
+            $model->egressAddressChangeNotify = $map['EgressAddressChangeNotify'];
         }
         if (isset($map['EgressIpv6Enable'])) {
             $model->egressIpv6Enable = $map['EgressIpv6Enable'];

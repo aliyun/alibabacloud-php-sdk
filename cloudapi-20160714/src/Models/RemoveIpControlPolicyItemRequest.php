@@ -17,15 +17,9 @@ class RemoveIpControlPolicyItemRequest extends Model
      * @var string
      */
     public $policyItemIds;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'ipControlId'   => 'IpControlId',
         'policyItemIds' => 'PolicyItemIds',
-        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class RemoveIpControlPolicyItemRequest extends Model
         }
         if (null !== $this->policyItemIds) {
             $res['PolicyItemIds'] = $this->policyItemIds;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class RemoveIpControlPolicyItemRequest extends Model
         }
         if (isset($map['PolicyItemIds'])) {
             $model->policyItemIds = $map['PolicyItemIds'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

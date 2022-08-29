@@ -37,13 +37,19 @@ class vpcConfig extends Model
      * @var string
      */
     public $vpcScheme;
+
+    /**
+     * @var string
+     */
+    public $vpcTargetHostName;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
-        'port'        => 'Port',
-        'vpcAccessId' => 'VpcAccessId',
-        'vpcId'       => 'VpcId',
-        'vpcScheme'   => 'VpcScheme',
+        'instanceId'        => 'InstanceId',
+        'name'              => 'Name',
+        'port'              => 'Port',
+        'vpcAccessId'       => 'VpcAccessId',
+        'vpcId'             => 'VpcId',
+        'vpcScheme'         => 'VpcScheme',
+        'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class vpcConfig extends Model
         }
         if (null !== $this->vpcScheme) {
             $res['VpcScheme'] = $this->vpcScheme;
+        }
+        if (null !== $this->vpcTargetHostName) {
+            $res['VpcTargetHostName'] = $this->vpcTargetHostName;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class vpcConfig extends Model
         }
         if (isset($map['VpcScheme'])) {
             $model->vpcScheme = $map['VpcScheme'];
+        }
+        if (isset($map['VpcTargetHostName'])) {
+            $model->vpcTargetHostName = $map['VpcTargetHostName'];
         }
 
         return $model;

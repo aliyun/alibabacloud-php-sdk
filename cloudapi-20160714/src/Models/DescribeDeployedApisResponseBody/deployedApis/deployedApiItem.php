@@ -16,7 +16,17 @@ class deployedApiItem extends Model
     /**
      * @var string
      */
+    public $apiMethod;
+
+    /**
+     * @var string
+     */
     public $apiName;
+
+    /**
+     * @var string
+     */
+    public $apiPath;
 
     /**
      * @var string
@@ -54,7 +64,9 @@ class deployedApiItem extends Model
     public $visibility;
     protected $_name = [
         'apiId'        => 'ApiId',
+        'apiMethod'    => 'ApiMethod',
         'apiName'      => 'ApiName',
+        'apiPath'      => 'ApiPath',
         'deployedTime' => 'DeployedTime',
         'description'  => 'Description',
         'groupId'      => 'GroupId',
@@ -74,8 +86,14 @@ class deployedApiItem extends Model
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+        if (null !== $this->apiMethod) {
+            $res['ApiMethod'] = $this->apiMethod;
+        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->apiPath) {
+            $res['ApiPath'] = $this->apiPath;
         }
         if (null !== $this->deployedTime) {
             $res['DeployedTime'] = $this->deployedTime;
@@ -113,8 +131,14 @@ class deployedApiItem extends Model
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+        if (isset($map['ApiMethod'])) {
+            $model->apiMethod = $map['ApiMethod'];
+        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['ApiPath'])) {
+            $model->apiPath = $map['ApiPath'];
         }
         if (isset($map['DeployedTime'])) {
             $model->deployedTime = $map['DeployedTime'];

@@ -22,16 +22,10 @@ class ModifyIpControlRequest extends Model
      * @var string
      */
     public $ipControlName;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
         'description'   => 'Description',
         'ipControlId'   => 'IpControlId',
         'ipControlName' => 'IpControlName',
-        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class ModifyIpControlRequest extends Model
         }
         if (null !== $this->ipControlName) {
             $res['IpControlName'] = $this->ipControlName;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class ModifyIpControlRequest extends Model
         }
         if (isset($map['IpControlName'])) {
             $model->ipControlName = $map['IpControlName'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

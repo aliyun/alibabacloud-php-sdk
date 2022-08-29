@@ -21,16 +21,10 @@ class SetWildcardDomainPatternsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
     public $wildcardDomainPatterns;
     protected $_name = [
         'domainName'             => 'DomainName',
         'groupId'                => 'GroupId',
-        'securityToken'          => 'SecurityToken',
         'wildcardDomainPatterns' => 'WildcardDomainPatterns',
     ];
 
@@ -46,9 +40,6 @@ class SetWildcardDomainPatternsRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->wildcardDomainPatterns) {
             $res['WildcardDomainPatterns'] = $this->wildcardDomainPatterns;
@@ -70,9 +61,6 @@ class SetWildcardDomainPatternsRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['WildcardDomainPatterns'])) {
             $model->wildcardDomainPatterns = $map['WildcardDomainPatterns'];

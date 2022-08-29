@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeUpdateVpcInfoTaskRequest extends Model
+class ModifyApiGroupNetworkPolicyResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $operationUid;
+    public $requestId;
     protected $_name = [
-        'operationUid' => 'OperationUid',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operationUid) {
-            $res['OperationUid'] = $this->operationUid;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeUpdateVpcInfoTaskRequest
+     * @return ModifyApiGroupNetworkPolicyResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperationUid'])) {
-            $model->operationUid = $map['OperationUid'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -17,7 +17,17 @@ class DescribeDeployedApisRequest extends Model
     /**
      * @var string
      */
+    public $apiMethod;
+
+    /**
+     * @var string
+     */
     public $apiName;
+
+    /**
+     * @var string
+     */
+    public $apiPath;
 
     /**
      * @var bool
@@ -55,7 +65,9 @@ class DescribeDeployedApisRequest extends Model
     public $tag;
     protected $_name = [
         'apiId'         => 'ApiId',
+        'apiMethod'     => 'ApiMethod',
         'apiName'       => 'ApiName',
+        'apiPath'       => 'ApiPath',
         'enableTagAuth' => 'EnableTagAuth',
         'groupId'       => 'GroupId',
         'pageNumber'    => 'PageNumber',
@@ -75,8 +87,14 @@ class DescribeDeployedApisRequest extends Model
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+        if (null !== $this->apiMethod) {
+            $res['ApiMethod'] = $this->apiMethod;
+        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->apiPath) {
+            $res['ApiPath'] = $this->apiPath;
         }
         if (null !== $this->enableTagAuth) {
             $res['EnableTagAuth'] = $this->enableTagAuth;
@@ -120,8 +138,14 @@ class DescribeDeployedApisRequest extends Model
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+        if (isset($map['ApiMethod'])) {
+            $model->apiMethod = $map['ApiMethod'];
+        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['ApiPath'])) {
+            $model->apiPath = $map['ApiPath'];
         }
         if (isset($map['EnableTagAuth'])) {
             $model->enableTagAuth = $map['EnableTagAuth'];

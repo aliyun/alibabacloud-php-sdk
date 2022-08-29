@@ -29,15 +29,21 @@ class ModifyInstanceSpecRequest extends Model
     public $modifyAction;
 
     /**
+     * @var bool
+     */
+    public $skipWaitSwitch;
+
+    /**
      * @var string
      */
     public $token;
     protected $_name = [
-        'autoPay'      => 'AutoPay',
-        'instanceId'   => 'InstanceId',
-        'instanceSpec' => 'InstanceSpec',
-        'modifyAction' => 'ModifyAction',
-        'token'        => 'Token',
+        'autoPay'        => 'AutoPay',
+        'instanceId'     => 'InstanceId',
+        'instanceSpec'   => 'InstanceSpec',
+        'modifyAction'   => 'ModifyAction',
+        'skipWaitSwitch' => 'SkipWaitSwitch',
+        'token'          => 'Token',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->modifyAction) {
             $res['ModifyAction'] = $this->modifyAction;
+        }
+        if (null !== $this->skipWaitSwitch) {
+            $res['SkipWaitSwitch'] = $this->skipWaitSwitch;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -85,6 +94,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['ModifyAction'])) {
             $model->modifyAction = $map['ModifyAction'];
+        }
+        if (isset($map['SkipWaitSwitch'])) {
+            $model->skipWaitSwitch = $map['SkipWaitSwitch'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

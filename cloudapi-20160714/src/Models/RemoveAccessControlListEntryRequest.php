@@ -17,15 +17,9 @@ class RemoveAccessControlListEntryRequest extends Model
      * @var string
      */
     public $aclId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
-        'aclEntrys'     => 'AclEntrys',
-        'aclId'         => 'AclId',
-        'securityToken' => 'SecurityToken',
+        'aclEntrys' => 'AclEntrys',
+        'aclId'     => 'AclId',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class RemoveAccessControlListEntryRequest extends Model
         }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class RemoveAccessControlListEntryRequest extends Model
         }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

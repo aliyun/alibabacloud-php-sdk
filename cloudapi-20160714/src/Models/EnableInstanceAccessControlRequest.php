@@ -22,16 +22,10 @@ class EnableInstanceAccessControlRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
-        'aclId'         => 'AclId',
-        'aclType'       => 'AclType',
-        'instanceId'    => 'InstanceId',
-        'securityToken' => 'SecurityToken',
+        'aclId'      => 'AclId',
+        'aclType'    => 'AclType',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class EnableInstanceAccessControlRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class EnableInstanceAccessControlRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

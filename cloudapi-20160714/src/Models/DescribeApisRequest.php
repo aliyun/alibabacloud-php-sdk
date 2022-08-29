@@ -17,7 +17,17 @@ class DescribeApisRequest extends Model
     /**
      * @var string
      */
+    public $apiMethod;
+
+    /**
+     * @var string
+     */
     public $apiName;
+
+    /**
+     * @var string
+     */
+    public $apiPath;
 
     /**
      * @var string
@@ -55,12 +65,19 @@ class DescribeApisRequest extends Model
     public $tag;
 
     /**
+     * @var bool
+     */
+    public $unDeployed;
+
+    /**
      * @var string
      */
     public $visibility;
     protected $_name = [
         'apiId'         => 'ApiId',
+        'apiMethod'     => 'ApiMethod',
         'apiName'       => 'ApiName',
+        'apiPath'       => 'ApiPath',
         'catalogId'     => 'CatalogId',
         'enableTagAuth' => 'EnableTagAuth',
         'groupId'       => 'GroupId',
@@ -68,6 +85,7 @@ class DescribeApisRequest extends Model
         'pageSize'      => 'PageSize',
         'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
+        'unDeployed'    => 'UnDeployed',
         'visibility'    => 'Visibility',
     ];
 
@@ -81,8 +99,14 @@ class DescribeApisRequest extends Model
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+        if (null !== $this->apiMethod) {
+            $res['ApiMethod'] = $this->apiMethod;
+        }
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->apiPath) {
+            $res['ApiPath'] = $this->apiPath;
         }
         if (null !== $this->catalogId) {
             $res['CatalogId'] = $this->catalogId;
@@ -111,6 +135,9 @@ class DescribeApisRequest extends Model
                 }
             }
         }
+        if (null !== $this->unDeployed) {
+            $res['UnDeployed'] = $this->unDeployed;
+        }
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
         }
@@ -129,8 +156,14 @@ class DescribeApisRequest extends Model
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+        if (isset($map['ApiMethod'])) {
+            $model->apiMethod = $map['ApiMethod'];
+        }
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['ApiPath'])) {
+            $model->apiPath = $map['ApiPath'];
         }
         if (isset($map['CatalogId'])) {
             $model->catalogId = $map['CatalogId'];
@@ -158,6 +191,9 @@ class DescribeApisRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UnDeployed'])) {
+            $model->unDeployed = $map['UnDeployed'];
         }
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];

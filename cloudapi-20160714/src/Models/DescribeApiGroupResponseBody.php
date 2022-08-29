@@ -26,6 +26,11 @@ class DescribeApiGroupResponseBody extends Model
     public $classicVpcSubDomain;
 
     /**
+     * @var bool
+     */
+    public $cloudMarketCommodity;
+
+    /**
      * @var string
      */
     public $cmsMonitorGroup;
@@ -168,6 +173,7 @@ class DescribeApiGroupResponseBody extends Model
         'basePath'             => 'BasePath',
         'billingStatus'        => 'BillingStatus',
         'classicVpcSubDomain'  => 'ClassicVpcSubDomain',
+        'cloudMarketCommodity' => 'CloudMarketCommodity',
         'cmsMonitorGroup'      => 'CmsMonitorGroup',
         'compatibleFlags'      => 'CompatibleFlags',
         'createdTime'          => 'CreatedTime',
@@ -213,6 +219,9 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (null !== $this->classicVpcSubDomain) {
             $res['ClassicVpcSubDomain'] = $this->classicVpcSubDomain;
+        }
+        if (null !== $this->cloudMarketCommodity) {
+            $res['CloudMarketCommodity'] = $this->cloudMarketCommodity;
         }
         if (null !== $this->cmsMonitorGroup) {
             $res['CmsMonitorGroup'] = $this->cmsMonitorGroup;
@@ -318,6 +327,9 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (isset($map['ClassicVpcSubDomain'])) {
             $model->classicVpcSubDomain = $map['ClassicVpcSubDomain'];
+        }
+        if (isset($map['CloudMarketCommodity'])) {
+            $model->cloudMarketCommodity = $map['CloudMarketCommodity'];
         }
         if (isset($map['CmsMonitorGroup'])) {
             $model->cmsMonitorGroup = $map['CmsMonitorGroup'];
