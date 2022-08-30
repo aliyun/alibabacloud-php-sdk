@@ -128,6 +128,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterTagsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyPolicyInstanceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyPolicyInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\OpenAckServiceRequest;
@@ -4166,9 +4168,6 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->management)) {
             $body['management'] = $request->management;
         }
-        if (!Utils::isUnset($request->nodeConfig)) {
-            $body['node_config'] = $request->nodeConfig;
-        }
         if (!Utils::isUnset($request->nodepoolInfo)) {
             $body['nodepool_info'] = $request->nodepoolInfo;
         }
@@ -4243,6 +4242,61 @@ class CS extends OpenApiClient
         ]);
 
         return ModifyClusterTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $ClusterId
+     * @param string                          $NodepoolId
+     * @param ModifyNodePoolNodeConfigRequest $request
+     *
+     * @return ModifyNodePoolNodeConfigResponse
+     */
+    public function modifyNodePoolNodeConfig($ClusterId, $NodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyNodePoolNodeConfigWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $ClusterId
+     * @param string                          $NodepoolId
+     * @param ModifyNodePoolNodeConfigRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyNodePoolNodeConfigResponse
+     */
+    public function modifyNodePoolNodeConfigWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
+        $body       = [];
+        if (!Utils::isUnset($request->kubeletConfig)) {
+            $body['kubelet_config'] = $request->kubeletConfig;
+        }
+        if (!Utils::isUnset($request->rollingPolicy)) {
+            $body['rolling_policy'] = $request->rollingPolicy;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNodePoolNodeConfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '/node_config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyNodePoolNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
