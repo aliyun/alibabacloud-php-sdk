@@ -25,7 +25,7 @@ class domainConfig extends Model
     public $functionName;
 
     /**
-     * @var int
+     * @var string
      */
     public $parentId;
 

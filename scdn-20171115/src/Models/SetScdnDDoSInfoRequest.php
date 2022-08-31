@@ -12,14 +12,8 @@ class SetScdnDDoSInfoRequest extends Model
      * @var int
      */
     public $elasticBandwidth;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'elasticBandwidth' => 'ElasticBandwidth',
-        'ownerId'          => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class SetScdnDDoSInfoRequest extends Model
         $res = [];
         if (null !== $this->elasticBandwidth) {
             $res['ElasticBandwidth'] = $this->elasticBandwidth;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class SetScdnDDoSInfoRequest extends Model
         $model = new self();
         if (isset($map['ElasticBandwidth'])) {
             $model->elasticBandwidth = $map['ElasticBandwidth'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

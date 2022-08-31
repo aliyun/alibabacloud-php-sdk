@@ -29,11 +29,6 @@ class DescribeScdnDomainRealTimeBpsDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -42,7 +37,6 @@ class DescribeScdnDomainRealTimeBpsDataRequest extends Model
         'endTime'        => 'EndTime',
         'ispNameEn'      => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
     ];
 
@@ -64,9 +58,6 @@ class DescribeScdnDomainRealTimeBpsDataRequest extends Model
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -94,9 +85,6 @@ class DescribeScdnDomainRealTimeBpsDataRequest extends Model
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

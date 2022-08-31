@@ -24,11 +24,6 @@ class DescribeScdnDomainHitRateDataRequest extends Model
     public $interval;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -36,7 +31,6 @@ class DescribeScdnDomainHitRateDataRequest extends Model
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
-        'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
     ];
 
@@ -55,9 +49,6 @@ class DescribeScdnDomainHitRateDataRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -82,9 +73,6 @@ class DescribeScdnDomainHitRateDataRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

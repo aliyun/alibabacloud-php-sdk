@@ -19,18 +19,12 @@ class DescribeScdnDDoSTrafficInfoRequest extends Model
     public $line;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
         'line'      => 'Line',
-        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
@@ -46,9 +40,6 @@ class DescribeScdnDDoSTrafficInfoRequest extends Model
         }
         if (null !== $this->line) {
             $res['Line'] = $this->line;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -70,9 +61,6 @@ class DescribeScdnDDoSTrafficInfoRequest extends Model
         }
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

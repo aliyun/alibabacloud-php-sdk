@@ -24,7 +24,6 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnSpecificConfigRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DeleteScdnSpecificConfigResponse;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcQpsInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCcQpsInfoResponse;
@@ -36,7 +35,6 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCertificateListRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnCertificateListResponse;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnDDoSInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnDDoSInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnDDoSTrafficInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnDDoSTrafficInfoResponse;
@@ -102,14 +100,11 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnTopDomainsByFlowRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnTopDomainsByFlowResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserDomainsRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserDomainsResponse;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserProtectInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserProtectInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserQuotaRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnUserQuotaResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnVerifyContentRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\DescribeScdnVerifyContentResponse;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\OpenScdnServiceRequest;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\OpenScdnServiceResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\PreloadScdnObjectCachesRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\PreloadScdnObjectCachesResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\RefreshScdnObjectCachesRequest;
@@ -120,14 +115,14 @@ use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnCcInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnCcInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnDDoSInfoRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnDDoSInfoResponse;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnDomainBizInfoRequest;
-use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnDomainBizInfoResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\SetScdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StartScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StartScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StopScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\StopScdnDomainResponse;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\TestAmpDescribeScdnDomainIspDataRequest;
+use AlibabaCloud\SDK\Scdn\V20171115\Models\TestAmpDescribeScdnDomainIspDataResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainRequest;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\UpdateScdnDomainResponse;
 use AlibabaCloud\SDK\Scdn\V20171115\Models\VerifyScdnDomainOwnerRequest;
@@ -708,18 +703,13 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeScdnCcInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeScdnCcInfoResponse
      */
-    public function describeScdnCcInfoWithOptions($request, $runtime)
+    public function describeScdnCcInfoWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeScdnCcInfo',
             'version'     => '2017-11-15',
@@ -736,15 +726,13 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeScdnCcInfoRequest $request
-     *
      * @return DescribeScdnCcInfoResponse
      */
-    public function describeScdnCcInfo($request)
+    public function describeScdnCcInfo()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeScdnCcInfoWithOptions($request, $runtime);
+        return $this->describeScdnCcInfoWithOptions($runtime);
     }
 
     /**
@@ -966,18 +954,13 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeScdnDDoSInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeScdnDDoSInfoResponse
      */
-    public function describeScdnDDoSInfoWithOptions($request, $runtime)
+    public function describeScdnDDoSInfoWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeScdnDDoSInfo',
             'version'     => '2017-11-15',
@@ -994,15 +977,13 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeScdnDDoSInfoRequest $request
-     *
      * @return DescribeScdnDDoSInfoResponse
      */
-    public function describeScdnDDoSInfo($request)
+    public function describeScdnDDoSInfo()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeScdnDDoSInfoWithOptions($request, $runtime);
+        return $this->describeScdnDDoSInfoWithOptions($runtime);
     }
 
     /**
@@ -1070,9 +1051,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1118,9 +1096,6 @@ class Scdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1315,9 +1290,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1376,9 +1348,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1428,9 +1397,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1479,9 +1445,6 @@ class Scdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -1541,9 +1504,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1596,9 +1556,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1647,9 +1604,6 @@ class Scdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -1708,9 +1662,6 @@ class Scdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -1847,9 +1798,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -1979,9 +1927,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2030,9 +1975,6 @@ class Scdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -2083,9 +2025,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2135,9 +2074,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2183,9 +2119,6 @@ class Scdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
@@ -2235,9 +2168,6 @@ class Scdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
@@ -2300,9 +2230,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->locationNameEn)) {
             $query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -2351,9 +2278,6 @@ class Scdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -2572,9 +2496,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->limit)) {
             $query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->product)) {
             $query['Product'] = $request->product;
         }
@@ -2685,18 +2606,13 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeScdnUserProtectInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeScdnUserProtectInfoResponse
      */
-    public function describeScdnUserProtectInfoWithOptions($request, $runtime)
+    public function describeScdnUserProtectInfoWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeScdnUserProtectInfo',
             'version'     => '2017-11-15',
@@ -2713,15 +2629,13 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeScdnUserProtectInfoRequest $request
-     *
      * @return DescribeScdnUserProtectInfoResponse
      */
-    public function describeScdnUserProtectInfo($request)
+    public function describeScdnUserProtectInfo()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeScdnUserProtectInfoWithOptions($request, $runtime);
+        return $this->describeScdnUserProtectInfoWithOptions($runtime);
     }
 
     /**
@@ -2783,9 +2697,6 @@ class Scdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2814,76 +2725,6 @@ class Scdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScdnVerifyContentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OpenScdnServiceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return OpenScdnServiceResponse
-     */
-    public function openScdnServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
-        }
-        if (!Utils::isUnset($request->ccProtection)) {
-            $query['CcProtection'] = $request->ccProtection;
-        }
-        if (!Utils::isUnset($request->DDoSBasic)) {
-            $query['DDoSBasic'] = $request->DDoSBasic;
-        }
-        if (!Utils::isUnset($request->domainCount)) {
-            $query['DomainCount'] = $request->domainCount;
-        }
-        if (!Utils::isUnset($request->elasticProtection)) {
-            $query['ElasticProtection'] = $request->elasticProtection;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->protectType)) {
-            $query['ProtectType'] = $request->protectType;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenScdnService',
-            'version'     => '2017-11-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenScdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param OpenScdnServiceRequest $request
-     *
-     * @return OpenScdnServiceResponse
-     */
-    public function openScdnService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openScdnServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -3114,46 +2955,6 @@ class Scdn extends OpenApiClient
     }
 
     /**
-     * @param SetScdnDomainBizInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SetScdnDomainBizInfoResponse
-     */
-    public function setScdnDomainBizInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetScdnDomainBizInfo',
-            'version'     => '2017-11-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetScdnDomainBizInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetScdnDomainBizInfoRequest $request
-     *
-     * @return SetScdnDomainBizInfoResponse
-     */
-    public function setScdnDomainBizInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setScdnDomainBizInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetScdnDomainCertificateRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3322,6 +3123,55 @@ class Scdn extends OpenApiClient
     }
 
     /**
+     * @param TestAmpDescribeScdnDomainIspDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return TestAmpDescribeScdnDomainIspDataResponse
+     */
+    public function testAmpDescribeScdnDomainIspDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TestAmpDescribeScdnDomainIspData',
+            'version'     => '2017-11-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TestAmpDescribeScdnDomainIspDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TestAmpDescribeScdnDomainIspDataRequest $request
+     *
+     * @return TestAmpDescribeScdnDomainIspDataResponse
+     */
+    public function testAmpDescribeScdnDomainIspData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testAmpDescribeScdnDomainIspDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateScdnDomainRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3388,9 +3238,6 @@ class Scdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->verifyType)) {
             $query['VerifyType'] = $request->verifyType;

@@ -14,17 +14,11 @@ class VerifyScdnDomainOwnerRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $verifyType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
         'verifyType' => 'VerifyType',
     ];
 
@@ -37,9 +31,6 @@ class VerifyScdnDomainOwnerRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
@@ -58,9 +49,6 @@ class VerifyScdnDomainOwnerRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];

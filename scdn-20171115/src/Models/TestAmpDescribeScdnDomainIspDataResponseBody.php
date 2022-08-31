@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Scdn\V20171115\Models;
 
+use AlibabaCloud\SDK\Scdn\V20171115\Models\TestAmpDescribeScdnDomainIspDataResponseBody\value;
 use AlibabaCloud\Tea\Model;
 
-class DescribeScdnDomainOriginBpsDataRequest extends Model
+class TestAmpDescribeScdnDomainIspDataResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $dataInterval;
+
     /**
      * @var string
      */
@@ -21,17 +27,24 @@ class DescribeScdnDomainOriginBpsDataRequest extends Model
     /**
      * @var string
      */
-    public $interval;
+    public $requestId;
 
     /**
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var value
+     */
+    public $value;
     protected $_name = [
-        'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'interval'   => 'Interval',
-        'startTime'  => 'StartTime',
+        'dataInterval' => 'DataInterval',
+        'domainName'   => 'DomainName',
+        'endTime'      => 'EndTime',
+        'requestId'    => 'RequestId',
+        'startTime'    => 'StartTime',
+        'value'        => 'Value',
     ];
 
     public function validate()
@@ -41,17 +54,23 @@ class DescribeScdnDomainOriginBpsDataRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataInterval) {
+            $res['DataInterval'] = $this->dataInterval;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = null !== $this->value ? $this->value->toMap() : null;
         }
 
         return $res;
@@ -60,22 +79,28 @@ class DescribeScdnDomainOriginBpsDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeScdnDomainOriginBpsDataRequest
+     * @return TestAmpDescribeScdnDomainIspDataResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataInterval'])) {
+            $model->dataInterval = $map['DataInterval'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = value::fromMap($map['Value']);
         }
 
         return $model;

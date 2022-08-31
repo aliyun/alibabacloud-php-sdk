@@ -19,11 +19,6 @@ class DescribeScdnCcTopIpRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $pageNumber;
@@ -40,7 +35,6 @@ class DescribeScdnCcTopIpRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'startTime'  => 'StartTime',
@@ -58,9 +52,6 @@ class DescribeScdnCcTopIpRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -88,9 +79,6 @@ class DescribeScdnCcTopIpRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

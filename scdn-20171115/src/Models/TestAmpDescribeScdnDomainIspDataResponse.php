@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Scdn\V20171115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeScdnDomainRealTimeReqHitRateDataResponse extends Model
+class TestAmpDescribeScdnDomainIspDataResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeScdnDomainRealTimeReqHitRateDataResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeScdnDomainRealTimeReqHitRateDataResponseBody
+     * @var TestAmpDescribeScdnDomainIspDataResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeScdnDomainRealTimeReqHitRateDataResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeScdnDomainRealTimeReqHitRateDataResponse
+     * @return TestAmpDescribeScdnDomainIspDataResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeScdnDomainRealTimeReqHitRateDataResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeScdnDomainRealTimeReqHitRateDataResponseBody::fromMap($map['body']);
+            $model->body = TestAmpDescribeScdnDomainIspDataResponseBody::fromMap($map['body']);
         }
 
         return $model;

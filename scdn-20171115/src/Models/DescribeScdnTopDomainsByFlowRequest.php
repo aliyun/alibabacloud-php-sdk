@@ -19,11 +19,6 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
     public $limit;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $product;
@@ -35,7 +30,6 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
     protected $_name = [
         'endTime'   => 'EndTime',
         'limit'     => 'Limit',
-        'ownerId'   => 'OwnerId',
         'product'   => 'Product',
         'startTime' => 'StartTime',
     ];
@@ -52,9 +46,6 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -79,9 +70,6 @@ class DescribeScdnTopDomainsByFlowRequest extends Model
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Scdn\V20171115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeScdnDomainRealTimeByteHitRateDataRequest extends Model
+class TestAmpDescribeScdnDomainIspDataRequest extends Model
 {
     /**
      * @var string
@@ -51,7 +51,7 @@ class DescribeScdnDomainRealTimeByteHitRateDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeScdnDomainRealTimeByteHitRateDataRequest
+     * @return TestAmpDescribeScdnDomainIspDataRequest
      */
     public static function fromMap($map = [])
     {
