@@ -97,6 +97,11 @@ class suspEvents extends Model
     public $details;
 
     /**
+     * @var bool
+     */
+    public $displaySandboxResult;
+
+    /**
      * @var eventNotes[]
      */
     public $eventNotes;
@@ -273,6 +278,7 @@ class suspEvents extends Model
         'dataSource'            => 'DataSource',
         'desc'                  => 'Desc',
         'details'               => 'Details',
+        'displaySandboxResult'  => 'DisplaySandboxResult',
         'eventNotes'            => 'EventNotes',
         'eventStatus'           => 'EventStatus',
         'eventSubType'          => 'EventSubType',
@@ -370,6 +376,9 @@ class suspEvents extends Model
                     $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->displaySandboxResult) {
+            $res['DisplaySandboxResult'] = $this->displaySandboxResult;
         }
         if (null !== $this->eventNotes) {
             $res['EventNotes'] = [];
@@ -547,6 +556,9 @@ class suspEvents extends Model
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DisplaySandboxResult'])) {
+            $model->displaySandboxResult = $map['DisplaySandboxResult'];
         }
         if (isset($map['EventNotes'])) {
             if (!empty($map['EventNotes'])) {

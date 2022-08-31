@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckUserHasEcsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CheckUserHasEcsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyRequest;
@@ -713,6 +715,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkSecurityEventIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckUserHasEcsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CheckUserHasEcsResponse
+     */
+    public function checkUserHasEcsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckUserHasEcs',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckUserHasEcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckUserHasEcsRequest $request
+     *
+     * @return CheckUserHasEcsResponse
+     */
+    public function checkUserHasEcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkUserHasEcsWithOptions($request, $runtime);
     }
 
     /**
