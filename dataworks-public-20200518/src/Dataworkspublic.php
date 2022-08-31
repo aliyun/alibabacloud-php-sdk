@@ -7271,6 +7271,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->alertUser)) {
             $body['AlertUser'] = $request->alertUser;
         }
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
         if (!Utils::isUnset($request->beginTime)) {
             $body['BeginTime'] = $request->beginTime;
         }
@@ -8890,6 +8893,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

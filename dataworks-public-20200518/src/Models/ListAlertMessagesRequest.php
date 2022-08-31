@@ -24,6 +24,11 @@ class ListAlertMessagesRequest extends Model
     public $alertUser;
 
     /**
+     * @var int
+     */
+    public $baselineId;
+
+    /**
      * @var string
      */
     public $beginTime;
@@ -51,6 +56,7 @@ class ListAlertMessagesRequest extends Model
         'alertMethods'   => 'AlertMethods',
         'alertRuleTypes' => 'AlertRuleTypes',
         'alertUser'      => 'AlertUser',
+        'baselineId'     => 'BaselineId',
         'beginTime'      => 'BeginTime',
         'endTime'        => 'EndTime',
         'pageNumber'     => 'PageNumber',
@@ -73,6 +79,9 @@ class ListAlertMessagesRequest extends Model
         }
         if (null !== $this->alertUser) {
             $res['AlertUser'] = $this->alertUser;
+        }
+        if (null !== $this->baselineId) {
+            $res['BaselineId'] = $this->baselineId;
         }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
@@ -109,6 +118,9 @@ class ListAlertMessagesRequest extends Model
         }
         if (isset($map['AlertUser'])) {
             $model->alertUser = $map['AlertUser'];
+        }
+        if (isset($map['BaselineId'])) {
+            $model->baselineId = $map['BaselineId'];
         }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];

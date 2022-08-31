@@ -72,6 +72,11 @@ class ListInstancesRequest extends Model
      * @var int
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'beginBizdate' => 'BeginBizdate',
         'bizName'      => 'BizName',
@@ -86,6 +91,7 @@ class ListInstancesRequest extends Model
         'programType'  => 'ProgramType',
         'projectEnv'   => 'ProjectEnv',
         'projectId'    => 'ProjectId',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -184,6 +193,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
