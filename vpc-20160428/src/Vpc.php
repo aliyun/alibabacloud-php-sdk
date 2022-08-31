@@ -484,8 +484,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBgpPeerAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyBgpPeerAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageAttributeResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageInternetChargeTypeRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageInternetChargeTypeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageIpBandwidthRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageIpBandwidthResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyCommonBandwidthPackageSpecRequest;
@@ -17388,79 +17386,6 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCommonBandwidthPackageAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackageInternetChargeTypeRequest $request
-     * @param RuntimeOptions                                        $runtime
-     *
-     * @return ModifyCommonBandwidthPackageInternetChargeTypeResponse
-     */
-    public function modifyCommonBandwidthPackageInternetChargeTypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
-        }
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        }
-        if (!Utils::isUnset($request->instanceChargeType)) {
-            $query['InstanceChargeType'] = $request->instanceChargeType;
-        }
-        if (!Utils::isUnset($request->internetChargeType)) {
-            $query['InternetChargeType'] = $request->internetChargeType;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->ratio)) {
-            $query['Ratio'] = $request->ratio;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyCommonBandwidthPackageInternetChargeType',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyCommonBandwidthPackageInternetChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyCommonBandwidthPackageInternetChargeTypeRequest $request
-     *
-     * @return ModifyCommonBandwidthPackageInternetChargeTypeResponse
-     */
-    public function modifyCommonBandwidthPackageInternetChargeType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCommonBandwidthPackageInternetChargeTypeWithOptions($request, $runtime);
     }
 
     /**
