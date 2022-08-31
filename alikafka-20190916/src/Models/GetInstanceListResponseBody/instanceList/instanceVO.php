@@ -66,6 +66,11 @@ class instanceVO extends Model
     public $ioMax;
 
     /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @var int
      */
     public $msgRetain;
@@ -176,6 +181,7 @@ class instanceVO extends Model
         'expiredTime'              => 'ExpiredTime',
         'instanceId'               => 'InstanceId',
         'ioMax'                    => 'IoMax',
+        'kmsKeyId'                 => 'KmsKeyId',
         'msgRetain'                => 'MsgRetain',
         'name'                     => 'Name',
         'paidType'                 => 'PaidType',
@@ -237,6 +243,9 @@ class instanceVO extends Model
         }
         if (null !== $this->ioMax) {
             $res['IoMax'] = $this->ioMax;
+        }
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
         }
         if (null !== $this->msgRetain) {
             $res['MsgRetain'] = $this->msgRetain;
@@ -342,6 +351,9 @@ class instanceVO extends Model
         }
         if (isset($map['IoMax'])) {
             $model->ioMax = $map['IoMax'];
+        }
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
         }
         if (isset($map['MsgRetain'])) {
             $model->msgRetain = $map['MsgRetain'];

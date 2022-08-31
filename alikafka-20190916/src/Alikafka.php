@@ -394,6 +394,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
         }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -463,6 +466,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -2037,6 +2043,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
         }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2103,6 +2112,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->ioMaxSpec)) {
             $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

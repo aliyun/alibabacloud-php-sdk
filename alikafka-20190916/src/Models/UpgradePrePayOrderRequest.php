@@ -39,6 +39,11 @@ class UpgradePrePayOrderRequest extends Model
     public $ioMaxSpec;
 
     /**
+     * @var int
+     */
+    public $partitionNum;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -53,15 +58,16 @@ class UpgradePrePayOrderRequest extends Model
      */
     public $topicQuota;
     protected $_name = [
-        'diskSize'   => 'DiskSize',
-        'eipMax'     => 'EipMax',
-        'eipModel'   => 'EipModel',
-        'instanceId' => 'InstanceId',
-        'ioMax'      => 'IoMax',
-        'ioMaxSpec'  => 'IoMaxSpec',
-        'regionId'   => 'RegionId',
-        'specType'   => 'SpecType',
-        'topicQuota' => 'TopicQuota',
+        'diskSize'     => 'DiskSize',
+        'eipMax'       => 'EipMax',
+        'eipModel'     => 'EipModel',
+        'instanceId'   => 'InstanceId',
+        'ioMax'        => 'IoMax',
+        'ioMaxSpec'    => 'IoMaxSpec',
+        'partitionNum' => 'PartitionNum',
+        'regionId'     => 'RegionId',
+        'specType'     => 'SpecType',
+        'topicQuota'   => 'TopicQuota',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class UpgradePrePayOrderRequest extends Model
         }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->partitionNum) {
+            $res['PartitionNum'] = $this->partitionNum;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -127,6 +136,9 @@ class UpgradePrePayOrderRequest extends Model
         }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['PartitionNum'])) {
+            $model->partitionNum = $map['PartitionNum'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

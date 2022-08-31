@@ -39,6 +39,11 @@ class CreatePrePayOrderRequest extends Model
     public $ioMaxSpec;
 
     /**
+     * @var int
+     */
+    public $partitionNum;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -64,6 +69,7 @@ class CreatePrePayOrderRequest extends Model
         'eipMax'          => 'EipMax',
         'ioMax'           => 'IoMax',
         'ioMaxSpec'       => 'IoMaxSpec',
+        'partitionNum'    => 'PartitionNum',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'specType'        => 'SpecType',
@@ -94,6 +100,9 @@ class CreatePrePayOrderRequest extends Model
         }
         if (null !== $this->ioMaxSpec) {
             $res['IoMaxSpec'] = $this->ioMaxSpec;
+        }
+        if (null !== $this->partitionNum) {
+            $res['PartitionNum'] = $this->partitionNum;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -136,6 +145,9 @@ class CreatePrePayOrderRequest extends Model
         }
         if (isset($map['IoMaxSpec'])) {
             $model->ioMaxSpec = $map['IoMaxSpec'];
+        }
+        if (isset($map['PartitionNum'])) {
+            $model->partitionNum = $map['PartitionNum'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
