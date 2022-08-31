@@ -17,9 +17,15 @@ class DescribeCdnDomainStagingConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'domainConfigs' => 'DomainConfigs',
+        'domainName'    => 'DomainName',
         'requestId'     => 'RequestId',
     ];
 
@@ -38,6 +44,9 @@ class DescribeCdnDomainStagingConfigResponseBody extends Model
                     $res['DomainConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -62,6 +71,9 @@ class DescribeCdnDomainStagingConfigResponseBody extends Model
                     $model->domainConfigs[$n++] = null !== $item ? domainConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

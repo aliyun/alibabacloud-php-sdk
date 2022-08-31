@@ -30,6 +30,11 @@ class pageData extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $domainId;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -73,6 +78,7 @@ class pageData extends Model
         'cname'           => 'Cname',
         'coverage'        => 'Coverage',
         'description'     => 'Description',
+        'domainId'        => 'DomainId',
         'domainName'      => 'DomainName',
         'domainStatus'    => 'DomainStatus',
         'gmtCreated'      => 'GmtCreated',
@@ -101,6 +107,9 @@ class pageData extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -149,6 +158,9 @@ class pageData extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

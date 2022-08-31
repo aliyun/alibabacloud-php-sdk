@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteRealTimeLogLogstoreRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteRealTimeLogLogstoreResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteSpecificConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteSpecificConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteSpecificStagingConfigRequest;
@@ -230,6 +232,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspService
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeDeliveryAccRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeDeliveryAccResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeLogAuthorizedRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeLogAuthorizedResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshQuotaRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshQuotaResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTaskByIdRequest;
@@ -278,8 +282,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyUserCustomLogConfigRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyUserCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionRequest;
@@ -298,18 +300,10 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetConfigOfVersionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetConfigOfVersionResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainGreenManagerConfigRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainGreenManagerConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetErrorPageConfigRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetErrorPageConfigResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetHttpErrorPageConfigRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetHttpErrorPageConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetUserGreenManagerConfigRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetUserGreenManagerConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetWaitingRoomConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetWaitingRoomConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\StartCdnDomainRequest;
@@ -1493,6 +1487,46 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFCTriggerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRealTimeLogLogstoreRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteRealTimeLogLogstoreResponse
+     */
+    public function deleteRealTimeLogLogstoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRealTimeLogLogstore',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRealTimeLogLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRealTimeLogLogstoreRequest $request
+     *
+     * @return DeleteRealTimeLogLogstoreResponse
+     */
+    public function deleteRealTimeLogLogstore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRealTimeLogLogstoreWithOptions($request, $runtime);
     }
 
     /**
@@ -5382,9 +5416,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->percent)) {
-            $query['Percent'] = $request->percent;
-        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -6199,6 +6230,46 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRealtimeDeliveryAccWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRealtimeLogAuthorizedRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeRealtimeLogAuthorizedResponse
+     */
+    public function describeRealtimeLogAuthorizedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRealtimeLogAuthorized',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRealtimeLogAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRealtimeLogAuthorizedRequest $request
+     *
+     * @return DescribeRealtimeLogAuthorizedResponse
+     */
+    public function describeRealtimeLogAuthorized($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRealtimeLogAuthorizedWithOptions($request, $runtime);
     }
 
     /**
@@ -7348,46 +7419,6 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserCustomLogConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyUserCustomLogConfigResponse
-     */
-    public function modifyUserCustomLogConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyUserCustomLogConfig',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyUserCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyUserCustomLogConfigRequest $request
-     *
-     * @return ModifyUserCustomLogConfigResponse
-     */
-    public function modifyUserCustomLogConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyUserCustomLogConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param OpenCdnServiceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -7807,9 +7838,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->functionId)) {
             $query['FunctionId'] = $request->functionId;
         }
-        if (!Utils::isUnset($request->functionMatches)) {
-            $query['FunctionMatches'] = $request->functionMatches;
-        }
         if (!Utils::isUnset($request->functionName)) {
             $query['FunctionName'] = $request->functionName;
         }
@@ -7853,55 +7881,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setConfigOfVersionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetDomainGreenManagerConfigRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return SetDomainGreenManagerConfigResponse
-     */
-    public function setDomainGreenManagerConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDomainGreenManagerConfig',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetDomainGreenManagerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetDomainGreenManagerConfigRequest $request
-     *
-     * @return SetDomainGreenManagerConfigResponse
-     */
-    public function setDomainGreenManagerConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDomainGreenManagerConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -7972,116 +7951,6 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param SetErrorPageConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetErrorPageConfigResponse
-     */
-    public function setErrorPageConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->customPageUrl)) {
-            $query['CustomPageUrl'] = $request->customPageUrl;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageType)) {
-            $query['PageType'] = $request->pageType;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetErrorPageConfig',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetErrorPageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetErrorPageConfigRequest $request
-     *
-     * @return SetErrorPageConfigResponse
-     */
-    public function setErrorPageConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setErrorPageConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetHttpErrorPageConfigRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SetHttpErrorPageConfigResponse
-     */
-    public function setHttpErrorPageConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
-        }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->errorCode)) {
-            $query['ErrorCode'] = $request->errorCode;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageUrl)) {
-            $query['PageUrl'] = $request->pageUrl;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetHttpErrorPageConfig',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetHttpErrorPageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetHttpErrorPageConfigRequest $request
-     *
-     * @return SetHttpErrorPageConfigResponse
-     */
-    public function setHttpErrorPageConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setHttpErrorPageConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetReqHeaderConfigRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -8137,58 +8006,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setReqHeaderConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetUserGreenManagerConfigRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SetUserGreenManagerConfigResponse
-     */
-    public function setUserGreenManagerConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->quota)) {
-            $query['Quota'] = $request->quota;
-        }
-        if (!Utils::isUnset($request->ratio)) {
-            $query['Ratio'] = $request->ratio;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetUserGreenManagerConfig',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetUserGreenManagerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetUserGreenManagerConfigRequest $request
-     *
-     * @return SetUserGreenManagerConfigResponse
-     */
-    public function setUserGreenManagerConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setUserGreenManagerConfigWithOptions($request, $runtime);
     }
 
     /**

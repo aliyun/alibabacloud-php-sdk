@@ -26,11 +26,6 @@ class SetConfigOfVersionRequest extends Model
     /**
      * @var string
      */
-    public $functionMatches;
-
-    /**
-     * @var string
-     */
     public $functionName;
 
     /**
@@ -53,15 +48,14 @@ class SetConfigOfVersionRequest extends Model
      */
     public $versionId;
     protected $_name = [
-        'configId'        => 'ConfigId',
-        'functionArgs'    => 'FunctionArgs',
-        'functionId'      => 'FunctionId',
-        'functionMatches' => 'FunctionMatches',
-        'functionName'    => 'FunctionName',
-        'ownerAccount'    => 'OwnerAccount',
-        'ownerId'         => 'OwnerId',
-        'securityToken'   => 'SecurityToken',
-        'versionId'       => 'VersionId',
+        'configId'      => 'ConfigId',
+        'functionArgs'  => 'FunctionArgs',
+        'functionId'    => 'FunctionId',
+        'functionName'  => 'FunctionName',
+        'ownerAccount'  => 'OwnerAccount',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
+        'versionId'     => 'VersionId',
     ];
 
     public function validate()
@@ -79,9 +73,6 @@ class SetConfigOfVersionRequest extends Model
         }
         if (null !== $this->functionId) {
             $res['FunctionId'] = $this->functionId;
-        }
-        if (null !== $this->functionMatches) {
-            $res['FunctionMatches'] = $this->functionMatches;
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
@@ -118,9 +109,6 @@ class SetConfigOfVersionRequest extends Model
         }
         if (isset($map['FunctionId'])) {
             $model->functionId = $map['FunctionId'];
-        }
-        if (isset($map['FunctionMatches'])) {
-            $model->functionMatches = $map['FunctionMatches'];
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];

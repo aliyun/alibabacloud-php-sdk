@@ -26,11 +26,6 @@ class DescribeDomainTopReferVisitRequest extends Model
     /**
      * @var string
      */
-    public $percent;
-
-    /**
-     * @var string
-     */
     public $sortBy;
 
     /**
@@ -41,7 +36,6 @@ class DescribeDomainTopReferVisitRequest extends Model
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
         'ownerId'    => 'OwnerId',
-        'percent'    => 'Percent',
         'sortBy'     => 'SortBy',
         'startTime'  => 'StartTime',
     ];
@@ -61,9 +55,6 @@ class DescribeDomainTopReferVisitRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->percent) {
-            $res['Percent'] = $this->percent;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -91,9 +82,6 @@ class DescribeDomainTopReferVisitRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Percent'])) {
-            $model->percent = $map['Percent'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
