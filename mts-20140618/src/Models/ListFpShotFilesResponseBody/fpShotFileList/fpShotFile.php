@@ -23,10 +23,16 @@ class fpShotFile extends Model
      * @var string
      */
     public $primaryKey;
+
+    /**
+     * @var string
+     */
+    public $storeTime;
     protected $_name = [
         'fileId'     => 'FileId',
         'inputFile'  => 'InputFile',
         'primaryKey' => 'PrimaryKey',
+        'storeTime'  => 'StoreTime',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class fpShotFile extends Model
         }
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
+        }
+        if (null !== $this->storeTime) {
+            $res['StoreTime'] = $this->storeTime;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class fpShotFile extends Model
         }
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
+        }
+        if (isset($map['StoreTime'])) {
+            $model->storeTime = $map['StoreTime'];
         }
 
         return $model;

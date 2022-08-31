@@ -21,17 +21,7 @@ class SubmitSmarttagJobRequest extends Model
     /**
      * @var string
      */
-    public $contentType;
-
-    /**
-     * @var string
-     */
     public $input;
-
-    /**
-     * @var string
-     */
-    public $notifyUrl;
 
     /**
      * @var string
@@ -80,9 +70,7 @@ class SubmitSmarttagJobRequest extends Model
     protected $_name = [
         'content'              => 'Content',
         'contentAddr'          => 'ContentAddr',
-        'contentType'          => 'ContentType',
         'input'                => 'Input',
-        'notifyUrl'            => 'NotifyUrl',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'params'               => 'Params',
@@ -107,14 +95,8 @@ class SubmitSmarttagJobRequest extends Model
         if (null !== $this->contentAddr) {
             $res['ContentAddr'] = $this->contentAddr;
         }
-        if (null !== $this->contentType) {
-            $res['ContentType'] = $this->contentType;
-        }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
-        }
-        if (null !== $this->notifyUrl) {
-            $res['NotifyUrl'] = $this->notifyUrl;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -161,14 +143,8 @@ class SubmitSmarttagJobRequest extends Model
         if (isset($map['ContentAddr'])) {
             $model->contentAddr = $map['ContentAddr'];
         }
-        if (isset($map['ContentType'])) {
-            $model->contentType = $map['ContentType'];
-        }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
-        }
-        if (isset($map['NotifyUrl'])) {
-            $model->notifyUrl = $map['NotifyUrl'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -28,10 +28,20 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\BindOutputBucketRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\BindOutputBucketResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CancelJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CancelJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\CreateCustomEntityRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\CreateCustomEntityResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\CreateCustomGroupRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\CreateCustomGroupResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateFpShotDBRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateFpShotDBResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeactivateMediaWorkflowRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeactivateMediaWorkflowResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteCustomEntityRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteCustomEntityResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteCustomGroupRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteCustomGroupResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteCustomViewRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteCustomViewResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteMediaRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteMediaResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteMediaTagRequest;
@@ -52,8 +62,14 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\ImportFpShotJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ImportFpShotJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListAllMediaBucketRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListAllMediaBucketResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomEntitiesRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomEntitiesResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomGroupsRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomGroupsResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomPersonsResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomViewsRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListCustomViewsResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesRequest;
@@ -108,6 +124,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryWaterMarkTemplateListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomFaceRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomFaceResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomViewRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\RegisterCustomViewResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ReportFpShotJobResultRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ReportFpShotJobResultResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SearchMediaWorkflowRequest;
@@ -120,8 +138,6 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SearchWaterMarkTemplateRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SearchWaterMarkTemplateResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitAnalysisJobResponse;
-use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitEditingJobsRequest;
-use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitEditingJobsResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpDBDeleteJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpDBDeleteJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitFpFileDeleteJobRequest;
@@ -613,6 +629,12 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->labelVersion)) {
             $query['LabelVersion'] = $request->labelVersion;
         }
+        if (!Utils::isUnset($request->landmarkGroupIds)) {
+            $query['LandmarkGroupIds'] = $request->landmarkGroupIds;
+        }
+        if (!Utils::isUnset($request->objectGroupIds)) {
+            $query['ObjectGroupIds'] = $request->objectGroupIds;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -964,6 +986,131 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param CreateCustomEntityRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCustomEntityResponse
+     */
+    public function createCustomEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customEntityInfo)) {
+            $query['CustomEntityInfo'] = $request->customEntityInfo;
+        }
+        if (!Utils::isUnset($request->customEntityName)) {
+            $query['CustomEntityName'] = $request->customEntityName;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomEntity',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomEntityRequest $request
+     *
+     * @return CreateCustomEntityResponse
+     */
+    public function createCustomEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomGroupResponse
+     */
+    public function createCustomGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customGroupDescription)) {
+            $query['CustomGroupDescription'] = $request->customGroupDescription;
+        }
+        if (!Utils::isUnset($request->customGroupName)) {
+            $query['CustomGroupName'] = $request->customGroupName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomGroup',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomGroupRequest $request
+     *
+     * @return CreateCustomGroupResponse
+     */
+    public function createCustomGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateFpShotDBRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1080,6 +1227,189 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deactivateMediaWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomEntityRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCustomEntityResponse
+     */
+    public function deleteCustomEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customEntityId)) {
+            $query['CustomEntityId'] = $request->customEntityId;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomEntity',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomEntityRequest $request
+     *
+     * @return DeleteCustomEntityResponse
+     */
+    public function deleteCustomEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCustomGroupResponse
+     */
+    public function deleteCustomGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomGroup',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomGroupRequest $request
+     *
+     * @return DeleteCustomGroupResponse
+     */
+    public function deleteCustomGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomViewRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCustomViewResponse
+     */
+    public function deleteCustomViewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customEntityId)) {
+            $query['CustomEntityId'] = $request->customEntityId;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->customViewId)) {
+            $query['CustomViewId'] = $request->customViewId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomView',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomViewRequest $request
+     *
+     * @return DeleteCustomViewResponse
+     */
+    public function deleteCustomView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomViewWithOptions($request, $runtime);
     }
 
     /**
@@ -1657,6 +1987,131 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param ListCustomEntitiesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCustomEntitiesResponse
+     */
+    public function listCustomEntitiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomEntities',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomEntitiesRequest $request
+     *
+     * @return ListCustomEntitiesResponse
+     */
+    public function listCustomEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCustomGroupsResponse
+     */
+    public function listCustomGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomGroups',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomGroupsRequest $request
+     *
+     * @return ListCustomGroupsResponse
+     */
+    public function listCustomGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListCustomPersonsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1712,6 +2167,73 @@ class Mts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomPersonsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomViewsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCustomViewsResponse
+     */
+    public function listCustomViewsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customEntityId)) {
+            $query['CustomEntityId'] = $request->customEntityId;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomViews',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomViewsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomViewsRequest $request
+     *
+     * @return ListCustomViewsResponse
+     */
+    public function listCustomViews($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomViewsWithOptions($request, $runtime);
     }
 
     /**
@@ -3299,6 +3821,70 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param RegisterCustomViewRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RegisterCustomViewResponse
+     */
+    public function registerCustomViewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->customEntityId)) {
+            $query['CustomEntityId'] = $request->customEntityId;
+        }
+        if (!Utils::isUnset($request->customGroupId)) {
+            $query['CustomGroupId'] = $request->customGroupId;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterCustomView',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterCustomViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterCustomViewRequest $request
+     *
+     * @return RegisterCustomViewResponse
+     */
+    public function registerCustomView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerCustomViewWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReportFpShotJobResultRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3671,82 +4257,6 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitEditingJobsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SubmitEditingJobsResponse
-     */
-    public function submitEditingJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->editingInputs)) {
-            $query['EditingInputs'] = $request->editingInputs;
-        }
-        if (!Utils::isUnset($request->editingJobOssFileRoleArn)) {
-            $query['EditingJobOssFileRoleArn'] = $request->editingJobOssFileRoleArn;
-        }
-        if (!Utils::isUnset($request->editingJobOssFileUid)) {
-            $query['EditingJobOssFileUid'] = $request->editingJobOssFileUid;
-        }
-        if (!Utils::isUnset($request->editingJobOutputs)) {
-            $query['EditingJobOutputs'] = $request->editingJobOutputs;
-        }
-        if (!Utils::isUnset($request->editingJobURL)) {
-            $query['EditingJobURL'] = $request->editingJobURL;
-        }
-        if (!Utils::isUnset($request->outputBucket)) {
-            $query['OutputBucket'] = $request->outputBucket;
-        }
-        if (!Utils::isUnset($request->outputLocation)) {
-            $query['OutputLocation'] = $request->outputLocation;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitEditingJobs',
-            'version'     => '2014-06-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitEditingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitEditingJobsRequest $request
-     *
-     * @return SubmitEditingJobsResponse
-     */
-    public function submitEditingJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitEditingJobsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitFpDBDeleteJobRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3834,6 +4344,9 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->pipelineId)) {
             $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->primaryKeys)) {
+            $query['PrimaryKeys'] = $request->primaryKeys;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4243,14 +4756,8 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->contentAddr)) {
             $query['ContentAddr'] = $request->contentAddr;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $query['ContentType'] = $request->contentType;
-        }
         if (!Utils::isUnset($request->input)) {
             $query['Input'] = $request->input;
-        }
-        if (!Utils::isUnset($request->notifyUrl)) {
-            $query['NotifyUrl'] = $request->notifyUrl;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -5150,6 +5657,12 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->labelVersion)) {
             $query['LabelVersion'] = $request->labelVersion;
+        }
+        if (!Utils::isUnset($request->landmarkGroupIds)) {
+            $query['LandmarkGroupIds'] = $request->landmarkGroupIds;
+        }
+        if (!Utils::isUnset($request->objectGroupIds)) {
+            $query['ObjectGroupIds'] = $request->objectGroupIds;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

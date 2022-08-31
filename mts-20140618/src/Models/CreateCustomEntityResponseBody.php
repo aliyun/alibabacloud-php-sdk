@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ImportFpShotJobResponseBody extends Model
+class CreateCustomEntityResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $jobId;
+    public $customEntityId;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'requestId' => 'RequestId',
+        'customEntityId' => 'CustomEntityId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class ImportFpShotJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->customEntityId) {
+            $res['CustomEntityId'] = $this->customEntityId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +42,13 @@ class ImportFpShotJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ImportFpShotJobResponseBody
+     * @return CreateCustomEntityResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['CustomEntityId'])) {
+            $model->customEntityId = $map['CustomEntityId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

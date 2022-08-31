@@ -56,6 +56,16 @@ class template extends Model
     /**
      * @var string
      */
+    public $landmarkGroupIds;
+
+    /**
+     * @var string
+     */
+    public $objectGroupIds;
+
+    /**
+     * @var string
+     */
     public $scene;
 
     /**
@@ -77,6 +87,8 @@ class template extends Model
         'knowledgeConfig'        => 'KnowledgeConfig',
         'labelType'              => 'LabelType',
         'labelVersion'           => 'LabelVersion',
+        'landmarkGroupIds'       => 'LandmarkGroupIds',
+        'objectGroupIds'         => 'ObjectGroupIds',
         'scene'                  => 'Scene',
         'templateId'             => 'TemplateId',
         'templateName'           => 'TemplateName',
@@ -115,6 +127,12 @@ class template extends Model
         }
         if (null !== $this->labelVersion) {
             $res['LabelVersion'] = $this->labelVersion;
+        }
+        if (null !== $this->landmarkGroupIds) {
+            $res['LandmarkGroupIds'] = $this->landmarkGroupIds;
+        }
+        if (null !== $this->objectGroupIds) {
+            $res['ObjectGroupIds'] = $this->objectGroupIds;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
@@ -163,6 +181,12 @@ class template extends Model
         }
         if (isset($map['LabelVersion'])) {
             $model->labelVersion = $map['LabelVersion'];
+        }
+        if (isset($map['LandmarkGroupIds'])) {
+            $model->landmarkGroupIds = $map['LandmarkGroupIds'];
+        }
+        if (isset($map['ObjectGroupIds'])) {
+            $model->objectGroupIds = $map['ObjectGroupIds'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];

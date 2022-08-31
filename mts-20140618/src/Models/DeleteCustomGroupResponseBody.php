@@ -6,19 +6,13 @@ namespace AlibabaCloud\SDK\Mts\V20140618\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ImportFpShotJobResponseBody extends Model
+class DeleteCustomGroupResponseBody extends Model
 {
-    /**
-     * @var string
-     */
-    public $jobId;
-
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'jobId'     => 'JobId',
         'requestId' => 'RequestId',
     ];
 
@@ -29,9 +23,6 @@ class ImportFpShotJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,14 +33,11 @@ class ImportFpShotJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ImportFpShotJobResponseBody
+     * @return DeleteCustomGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

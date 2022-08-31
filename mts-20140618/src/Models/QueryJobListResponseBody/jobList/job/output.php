@@ -56,8 +56,6 @@ class output extends Model
     public $encryption;
 
     /**
-     * @description 扩展字段
-     *
      * @var string
      */
     public $extendData;

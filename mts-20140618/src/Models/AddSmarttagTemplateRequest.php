@@ -56,6 +56,16 @@ class AddSmarttagTemplateRequest extends Model
     /**
      * @var string
      */
+    public $landmarkGroupIds;
+
+    /**
+     * @var string
+     */
+    public $objectGroupIds;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -92,6 +102,8 @@ class AddSmarttagTemplateRequest extends Model
         'knowledgeConfig'        => 'KnowledgeConfig',
         'labelType'              => 'LabelType',
         'labelVersion'           => 'LabelVersion',
+        'landmarkGroupIds'       => 'LandmarkGroupIds',
+        'objectGroupIds'         => 'ObjectGroupIds',
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
@@ -133,6 +145,12 @@ class AddSmarttagTemplateRequest extends Model
         }
         if (null !== $this->labelVersion) {
             $res['LabelVersion'] = $this->labelVersion;
+        }
+        if (null !== $this->landmarkGroupIds) {
+            $res['LandmarkGroupIds'] = $this->landmarkGroupIds;
+        }
+        if (null !== $this->objectGroupIds) {
+            $res['ObjectGroupIds'] = $this->objectGroupIds;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -190,6 +208,12 @@ class AddSmarttagTemplateRequest extends Model
         }
         if (isset($map['LabelVersion'])) {
             $model->labelVersion = $map['LabelVersion'];
+        }
+        if (isset($map['LandmarkGroupIds'])) {
+            $model->landmarkGroupIds = $map['LandmarkGroupIds'];
+        }
+        if (isset($map['ObjectGroupIds'])) {
+            $model->objectGroupIds = $map['ObjectGroupIds'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -20,8 +20,6 @@ class ListFpShotImportJobResponseBody extends Model
     public $nonExistIds;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
