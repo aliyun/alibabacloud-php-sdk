@@ -19,7 +19,7 @@ class dataModule extends Model
     public $totalValue;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $value;
     protected $_name = [
