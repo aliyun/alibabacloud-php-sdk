@@ -26,6 +26,11 @@ class ModifyDBProxyEndpointRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $dbEndpointAliases;
 
     /**
@@ -81,6 +86,7 @@ class ModifyDBProxyEndpointRequest extends Model
         'configDBProxyFeatures'            => 'ConfigDBProxyFeatures',
         'DBInstanceId'                     => 'DBInstanceId',
         'DBProxyEndpointId'                => 'DBProxyEndpointId',
+        'DBProxyEngineType'                => 'DBProxyEngineType',
         'dbEndpointAliases'                => 'DbEndpointAliases',
         'dbEndpointOperator'               => 'DbEndpointOperator',
         'dbEndpointReadWriteMode'          => 'DbEndpointReadWriteMode',
@@ -109,6 +115,9 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->dbEndpointAliases) {
             $res['DbEndpointAliases'] = $this->dbEndpointAliases;
@@ -163,6 +172,9 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['DbEndpointAliases'])) {
             $model->dbEndpointAliases = $map['DbEndpointAliases'];

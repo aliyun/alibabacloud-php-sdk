@@ -14,6 +14,11 @@ class DescribeDBProxyRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $DBProxyEngineType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,6 +31,11 @@ class DescribeDBProxyRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -34,8 +44,10 @@ class DescribeDBProxyRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
+        'DBProxyEngineType'    => 'DBProxyEngineType',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -50,11 +62,17 @@ class DescribeDBProxyRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -77,11 +95,17 @@ class DescribeDBProxyRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

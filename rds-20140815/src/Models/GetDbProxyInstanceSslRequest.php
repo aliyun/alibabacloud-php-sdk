@@ -11,6 +11,11 @@ class GetDbProxyInstanceSslRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $dbInstanceId;
 
     /**
@@ -18,8 +23,9 @@ class GetDbProxyInstanceSslRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'dbInstanceId' => 'DbInstanceId',
-        'regionId'     => 'RegionId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'dbInstanceId'      => 'DbInstanceId',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class GetDbProxyInstanceSslRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
+        }
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
@@ -47,6 +56,9 @@ class GetDbProxyInstanceSslRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
+        }
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }

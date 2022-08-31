@@ -26,6 +26,11 @@ class DescribeBackupsRequest extends Model
     /**
      * @var string
      */
+    public $backupType;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -44,6 +49,11 @@ class DescribeBackupsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -56,10 +66,12 @@ class DescribeBackupsRequest extends Model
         'backupId'        => 'BackupId',
         'backupMode'      => 'BackupMode',
         'backupStatus'    => 'BackupStatus',
+        'backupType'      => 'BackupType',
         'DBInstanceId'    => 'DBInstanceId',
         'endTime'         => 'EndTime',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startTime'       => 'StartTime',
     ];
@@ -80,6 +92,9 @@ class DescribeBackupsRequest extends Model
         if (null !== $this->backupStatus) {
             $res['BackupStatus'] = $this->backupStatus;
         }
+        if (null !== $this->backupType) {
+            $res['BackupType'] = $this->backupType;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -91,6 +106,9 @@ class DescribeBackupsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -119,6 +137,9 @@ class DescribeBackupsRequest extends Model
         if (isset($map['BackupStatus'])) {
             $model->backupStatus = $map['BackupStatus'];
         }
+        if (isset($map['BackupType'])) {
+            $model->backupType = $map['BackupType'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
@@ -130,6 +151,9 @@ class DescribeBackupsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

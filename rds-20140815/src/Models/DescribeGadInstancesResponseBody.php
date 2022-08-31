@@ -15,8 +15,6 @@ class DescribeGadInstancesResponseBody extends Model
     public $gadInstances;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

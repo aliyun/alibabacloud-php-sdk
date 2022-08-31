@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPause;
+
+    /**
      * @var float
      */
     public $scaleMax;
@@ -17,9 +22,16 @@ class serverlessConfig extends Model
      * @var float
      */
     public $scaleMin;
+
+    /**
+     * @var bool
+     */
+    public $switchForce;
     protected $_name = [
-        'scaleMax' => 'ScaleMax',
-        'scaleMin' => 'ScaleMin',
+        'autoPause'   => 'AutoPause',
+        'scaleMax'    => 'ScaleMax',
+        'scaleMin'    => 'ScaleMin',
+        'switchForce' => 'SwitchForce',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class serverlessConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPause) {
+            $res['AutoPause'] = $this->autoPause;
+        }
         if (null !== $this->scaleMax) {
             $res['ScaleMax'] = $this->scaleMax;
         }
         if (null !== $this->scaleMin) {
             $res['ScaleMin'] = $this->scaleMin;
+        }
+        if (null !== $this->switchForce) {
+            $res['SwitchForce'] = $this->switchForce;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class serverlessConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPause'])) {
+            $model->autoPause = $map['AutoPause'];
+        }
         if (isset($map['ScaleMax'])) {
             $model->scaleMax = $map['ScaleMax'];
         }
         if (isset($map['ScaleMin'])) {
             $model->scaleMin = $map['ScaleMin'];
+        }
+        if (isset($map['SwitchForce'])) {
+            $model->switchForce = $map['SwitchForce'];
         }
 
         return $model;

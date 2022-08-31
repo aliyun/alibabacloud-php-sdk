@@ -86,6 +86,11 @@ class SQLSlowRecord extends Model
     /**
      * @var string
      */
+    public $SQLHash;
+
+    /**
+     * @var string
+     */
     public $SQLText;
 
     /**
@@ -113,6 +118,7 @@ class SQLSlowRecord extends Model
         'queryTimes'            => 'QueryTimes',
         'returnRowCounts'       => 'ReturnRowCounts',
         'rowsAffectedCount'     => 'RowsAffectedCount',
+        'SQLHash'               => 'SQLHash',
         'SQLText'               => 'SQLText',
         'userName'              => 'UserName',
         'writeIOCount'          => 'WriteIOCount',
@@ -169,6 +175,9 @@ class SQLSlowRecord extends Model
         }
         if (null !== $this->rowsAffectedCount) {
             $res['RowsAffectedCount'] = $this->rowsAffectedCount;
+        }
+        if (null !== $this->SQLHash) {
+            $res['SQLHash'] = $this->SQLHash;
         }
         if (null !== $this->SQLText) {
             $res['SQLText'] = $this->SQLText;
@@ -235,6 +244,9 @@ class SQLSlowRecord extends Model
         }
         if (isset($map['RowsAffectedCount'])) {
             $model->rowsAffectedCount = $map['RowsAffectedCount'];
+        }
+        if (isset($map['SQLHash'])) {
+            $model->SQLHash = $map['SQLHash'];
         }
         if (isset($map['SQLText'])) {
             $model->SQLText = $map['SQLText'];

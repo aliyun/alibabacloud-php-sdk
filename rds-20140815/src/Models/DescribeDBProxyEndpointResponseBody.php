@@ -32,6 +32,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyFeatures;
 
     /**
@@ -73,6 +78,7 @@ class DescribeDBProxyEndpointResponseBody extends Model
         'DBProxyConnectStringNetType'      => 'DBProxyConnectStringNetType',
         'DBProxyConnectStringPort'         => 'DBProxyConnectStringPort',
         'DBProxyEndpointId'                => 'DBProxyEndpointId',
+        'DBProxyEngineType'                => 'DBProxyEngineType',
         'DBProxyFeatures'                  => 'DBProxyFeatures',
         'dbProxyEndpointAliases'           => 'DbProxyEndpointAliases',
         'dbProxyEndpointReadWriteMode'     => 'DbProxyEndpointReadWriteMode',
@@ -101,6 +107,9 @@ class DescribeDBProxyEndpointResponseBody extends Model
         }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->DBProxyFeatures) {
             $res['DBProxyFeatures'] = $this->DBProxyFeatures;
@@ -149,6 +158,9 @@ class DescribeDBProxyEndpointResponseBody extends Model
         }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['DBProxyFeatures'])) {
             $model->DBProxyFeatures = $map['DBProxyFeatures'];

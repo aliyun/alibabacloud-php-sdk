@@ -26,17 +26,11 @@ class DBInstanceWeight extends Model
     /**
      * @var string
      */
-    public $role;
-
-    /**
-     * @var string
-     */
     public $weight;
     protected $_name = [
         'DBInstanceId'                   => 'DBInstanceId',
         'DBInstanceType'                 => 'DBInstanceType',
         'readonlyInstanceSQLDelayedTime' => 'ReadonlyInstanceSQLDelayedTime',
-        'role'                           => 'Role',
         'weight'                         => 'Weight',
     ];
 
@@ -55,9 +49,6 @@ class DBInstanceWeight extends Model
         }
         if (null !== $this->readonlyInstanceSQLDelayedTime) {
             $res['ReadonlyInstanceSQLDelayedTime'] = $this->readonlyInstanceSQLDelayedTime;
-        }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
@@ -82,9 +73,6 @@ class DBInstanceWeight extends Model
         }
         if (isset($map['ReadonlyInstanceSQLDelayedTime'])) {
             $model->readonlyInstanceSQLDelayedTime = $map['ReadonlyInstanceSQLDelayedTime'];
-        }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];

@@ -332,6 +332,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $kindCode;
     protected $_name = [
         'accountMaxQuantity'             => 'AccountMaxQuantity',
         'advancedFeatures'               => 'AdvancedFeatures',
@@ -397,6 +402,7 @@ class DBInstanceAttribute extends Model
         'vpcCloudInstanceId'             => 'VpcCloudInstanceId',
         'vpcId'                          => 'VpcId',
         'zoneId'                         => 'ZoneId',
+        'kindCode'                       => 'kindCode',
     ];
 
     public function validate()
@@ -597,6 +603,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->kindCode) {
+            $res['kindCode'] = $this->kindCode;
         }
 
         return $res;
@@ -801,6 +810,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['kindCode'])) {
+            $model->kindCode = $map['kindCode'];
         }
 
         return $model;

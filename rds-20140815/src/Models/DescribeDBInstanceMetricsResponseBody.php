@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceMetricsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceName;
+
+    /**
      * @var items[]
      */
     public $items;
@@ -24,6 +29,7 @@ class DescribeDBInstanceMetricsResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
+        'DBInstanceName'   => 'DBInstanceName',
         'items'            => 'Items',
         'requestId'        => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
@@ -36,6 +42,9 @@ class DescribeDBInstanceMetricsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -63,6 +72,9 @@ class DescribeDBInstanceMetricsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];

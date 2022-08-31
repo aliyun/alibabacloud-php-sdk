@@ -70,8 +70,6 @@ class ModifyDBInstanceSpecRequest extends Model
     public $payType;
 
     /**
-     * @description 资源组名称
-     *
      * @var string
      */
     public $resourceGroupId;

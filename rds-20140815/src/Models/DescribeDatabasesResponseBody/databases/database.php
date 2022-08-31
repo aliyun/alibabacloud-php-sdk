@@ -43,6 +43,26 @@ class database extends Model
      * @var string
      */
     public $engine;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'accounts'         => 'Accounts',
         'characterSetName' => 'CharacterSetName',
@@ -51,6 +71,10 @@ class database extends Model
         'DBName'           => 'DBName',
         'DBStatus'         => 'DBStatus',
         'engine'           => 'Engine',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'totalCount'       => 'TotalCount',
     ];
 
     public function validate()
@@ -80,6 +104,18 @@ class database extends Model
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -113,6 +149,18 @@ class database extends Model
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

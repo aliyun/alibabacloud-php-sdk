@@ -26,6 +26,11 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyNewConnectString;
 
     /**
@@ -51,6 +56,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
         'DBInstanceId'                => 'DBInstanceId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
         'DBProxyEndpointId'           => 'DBProxyEndpointId',
+        'DBProxyEngineType'           => 'DBProxyEngineType',
         'DBProxyNewConnectString'     => 'DBProxyNewConnectString',
         'DBProxyNewConnectStringPort' => 'DBProxyNewConnectStringPort',
         'ownerId'                     => 'OwnerId',
@@ -73,6 +79,9 @@ class ModifyDBProxyEndpointAddressRequest extends Model
         }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->DBProxyNewConnectString) {
             $res['DBProxyNewConnectString'] = $this->DBProxyNewConnectString;
@@ -109,6 +118,9 @@ class ModifyDBProxyEndpointAddressRequest extends Model
         }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['DBProxyNewConnectString'])) {
             $model->DBProxyNewConnectString = $map['DBProxyNewConnectString'];

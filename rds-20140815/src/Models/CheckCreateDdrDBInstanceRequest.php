@@ -16,21 +16,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $binlogName;
-
-    /**
-     * @var string
-     */
-    public $binlogPosition;
-
-    /**
-     * @var string
-     */
-    public $binlogRole;
-
-    /**
-     * @var string
-     */
     public $DBInstanceClass;
 
     /**
@@ -89,9 +74,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
     public $sourceRegion;
     protected $_name = [
         'backupSetId'          => 'BackupSetId',
-        'binlogName'           => 'BinlogName',
-        'binlogPosition'       => 'BinlogPosition',
-        'binlogRole'           => 'BinlogRole',
         'DBInstanceClass'      => 'DBInstanceClass',
         'DBInstanceStorage'    => 'DBInstanceStorage',
         'engine'               => 'Engine',
@@ -115,15 +97,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
-        }
-        if (null !== $this->binlogName) {
-            $res['BinlogName'] = $this->binlogName;
-        }
-        if (null !== $this->binlogPosition) {
-            $res['BinlogPosition'] = $this->binlogPosition;
-        }
-        if (null !== $this->binlogRole) {
-            $res['BinlogRole'] = $this->binlogRole;
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
@@ -175,15 +148,6 @@ class CheckCreateDdrDBInstanceRequest extends Model
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
-        }
-        if (isset($map['BinlogName'])) {
-            $model->binlogName = $map['BinlogName'];
-        }
-        if (isset($map['BinlogPosition'])) {
-            $model->binlogPosition = $map['BinlogPosition'];
-        }
-        if (isset($map['BinlogRole'])) {
-            $model->binlogRole = $map['BinlogRole'];
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];

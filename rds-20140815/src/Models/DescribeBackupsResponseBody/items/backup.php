@@ -112,6 +112,11 @@ class backup extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $storageClass;
 
     /**
@@ -139,6 +144,7 @@ class backup extends Model
         'hostInstanceID'            => 'HostInstanceID',
         'isAvail'                   => 'IsAvail',
         'metaStatus'                => 'MetaStatus',
+        'resourceGroupId'           => 'ResourceGroupId',
         'storageClass'              => 'StorageClass',
         'storeStatus'               => 'StoreStatus',
     ];
@@ -209,6 +215,9 @@ class backup extends Model
         }
         if (null !== $this->metaStatus) {
             $res['MetaStatus'] = $this->metaStatus;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->storageClass) {
             $res['StorageClass'] = $this->storageClass;
@@ -287,6 +296,9 @@ class backup extends Model
         }
         if (isset($map['MetaStatus'])) {
             $model->metaStatus = $map['MetaStatus'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StorageClass'])) {
             $model->storageClass = $map['StorageClass'];

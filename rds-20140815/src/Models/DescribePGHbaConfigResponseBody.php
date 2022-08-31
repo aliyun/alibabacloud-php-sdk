@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePGHbaConfigResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @var defaultHbaItems
      */
     public $defaultHbaItems;
@@ -40,6 +45,7 @@ class DescribePGHbaConfigResponseBody extends Model
      */
     public $runningHbaItems;
     protected $_name = [
+        'DBInstanceId'       => 'DBInstanceId',
         'defaultHbaItems'    => 'DefaultHbaItems',
         'hbaModifyTime'      => 'HbaModifyTime',
         'lastModifyStatus'   => 'LastModifyStatus',
@@ -55,6 +61,9 @@ class DescribePGHbaConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->defaultHbaItems) {
             $res['DefaultHbaItems'] = null !== $this->defaultHbaItems ? $this->defaultHbaItems->toMap() : null;
         }
@@ -85,6 +94,9 @@ class DescribePGHbaConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['DefaultHbaItems'])) {
             $model->defaultHbaItems = defaultHbaItems::fromMap($map['DefaultHbaItems']);
         }

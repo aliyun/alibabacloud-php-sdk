@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\CloneDBInstanceRequest\serverlessConfig;
 use AlibabaCloud\Tea\Model;
 
 class CloneDBInstanceRequest extends Model
@@ -99,6 +100,11 @@ class CloneDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
+     * @var serverlessConfig
+     */
+    public $serverlessConfig;
+
+    /**
      * @var string
      */
     public $tableMeta;
@@ -141,6 +147,7 @@ class CloneDBInstanceRequest extends Model
         'resourceOwnerId'       => 'ResourceOwnerId',
         'restoreTable'          => 'RestoreTable',
         'restoreTime'           => 'RestoreTime',
+        'serverlessConfig'      => 'ServerlessConfig',
         'tableMeta'             => 'TableMeta',
         'usedTime'              => 'UsedTime',
         'VPCId'                 => 'VPCId',
@@ -208,6 +215,9 @@ class CloneDBInstanceRequest extends Model
         }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
+        }
+        if (null !== $this->serverlessConfig) {
+            $res['ServerlessConfig'] = null !== $this->serverlessConfig ? $this->serverlessConfig->toMap() : null;
         }
         if (null !== $this->tableMeta) {
             $res['TableMeta'] = $this->tableMeta;
@@ -289,6 +299,9 @@ class CloneDBInstanceRequest extends Model
         }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
+        }
+        if (isset($map['ServerlessConfig'])) {
+            $model->serverlessConfig = serverlessConfig::fromMap($map['ServerlessConfig']);
         }
         if (isset($map['TableMeta'])) {
             $model->tableMeta = $map['TableMeta'];

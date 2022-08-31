@@ -36,6 +36,11 @@ class gadInstanceMembers extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
@@ -43,13 +48,14 @@ class gadInstanceMembers extends Model
      */
     public $status;
     protected $_name = [
-        'DBInstanceID'  => 'DBInstanceID',
-        'dtsInstance'   => 'DtsInstance',
-        'engine'        => 'Engine',
-        'engineVersion' => 'EngineVersion',
-        'regionId'      => 'RegionId',
-        'role'          => 'Role',
-        'status'        => 'Status',
+        'DBInstanceID'    => 'DBInstanceID',
+        'dtsInstance'     => 'DtsInstance',
+        'engine'          => 'Engine',
+        'engineVersion'   => 'EngineVersion',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'role'            => 'Role',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class gadInstanceMembers extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -106,6 +115,9 @@ class gadInstanceMembers extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];

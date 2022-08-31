@@ -31,12 +31,22 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyNewConnectStringPort;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -52,8 +62,10 @@ class CreateDBProxyEndpointAddressRequest extends Model
         'DBInstanceId'                => 'DBInstanceId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
         'DBProxyEndpointId'           => 'DBProxyEndpointId',
+        'DBProxyEngineType'           => 'DBProxyEngineType',
         'DBProxyNewConnectStringPort' => 'DBProxyNewConnectStringPort',
         'regionId'                    => 'RegionId',
+        'resourceGroupId'             => 'ResourceGroupId',
         'VPCId'                       => 'VPCId',
         'vSwitchId'                   => 'VSwitchId',
     ];
@@ -77,11 +89,17 @@ class CreateDBProxyEndpointAddressRequest extends Model
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
         }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
+        }
         if (null !== $this->DBProxyNewConnectStringPort) {
             $res['DBProxyNewConnectStringPort'] = $this->DBProxyNewConnectStringPort;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -113,11 +131,17 @@ class CreateDBProxyEndpointAddressRequest extends Model
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
         }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
+        }
         if (isset($map['DBProxyNewConnectStringPort'])) {
             $model->DBProxyNewConnectStringPort = $map['DBProxyNewConnectStringPort'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];

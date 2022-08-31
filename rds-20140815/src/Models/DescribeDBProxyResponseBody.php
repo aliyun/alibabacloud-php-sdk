@@ -18,6 +18,11 @@ class DescribeDBProxyResponseBody extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyInstanceCurrentMinorVersion;
 
     /**
@@ -64,8 +69,14 @@ class DescribeDBProxyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'DBProxyConnectStringItems'          => 'DBProxyConnectStringItems',
+        'DBProxyEngineType'                  => 'DBProxyEngineType',
         'DBProxyInstanceCurrentMinorVersion' => 'DBProxyInstanceCurrentMinorVersion',
         'DBProxyInstanceLatestMinorVersion'  => 'DBProxyInstanceLatestMinorVersion',
         'DBProxyInstanceName'                => 'DBProxyInstanceName',
@@ -76,6 +87,7 @@ class DescribeDBProxyResponseBody extends Model
         'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
         'dbProxyEndpointItems'               => 'DbProxyEndpointItems',
         'requestId'                          => 'RequestId',
+        'resourceGroupId'                    => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -87,6 +99,9 @@ class DescribeDBProxyResponseBody extends Model
         $res = [];
         if (null !== $this->DBProxyConnectStringItems) {
             $res['DBProxyConnectStringItems'] = null !== $this->DBProxyConnectStringItems ? $this->DBProxyConnectStringItems->toMap() : null;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->DBProxyInstanceCurrentMinorVersion) {
             $res['DBProxyInstanceCurrentMinorVersion'] = $this->DBProxyInstanceCurrentMinorVersion;
@@ -118,6 +133,9 @@ class DescribeDBProxyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
 
         return $res;
     }
@@ -132,6 +150,9 @@ class DescribeDBProxyResponseBody extends Model
         $model = new self();
         if (isset($map['DBProxyConnectStringItems'])) {
             $model->DBProxyConnectStringItems = DBProxyConnectStringItems::fromMap($map['DBProxyConnectStringItems']);
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['DBProxyInstanceCurrentMinorVersion'])) {
             $model->DBProxyInstanceCurrentMinorVersion = $map['DBProxyInstanceCurrentMinorVersion'];
@@ -162,6 +183,9 @@ class DescribeDBProxyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

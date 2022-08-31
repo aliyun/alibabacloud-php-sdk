@@ -51,6 +51,11 @@ class DescribeMetaListRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -76,6 +81,7 @@ class DescribeMetaListRequest extends Model
         'pageIndex'            => 'PageIndex',
         'pageSize'             => 'PageSize',
         'pattern'              => 'Pattern',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'restoreTime'          => 'RestoreTime',
@@ -112,6 +118,9 @@ class DescribeMetaListRequest extends Model
         }
         if (null !== $this->pattern) {
             $res['Pattern'] = $this->pattern;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -160,6 +169,9 @@ class DescribeMetaListRequest extends Model
         }
         if (isset($map['Pattern'])) {
             $model->pattern = $map['Pattern'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceRequest\tag;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceRequest\unitNode;
 use AlibabaCloud\Tea\Model;
 
@@ -40,6 +41,16 @@ class CreateGADInstanceRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var unitNode[]
      */
     public $unitNode;
@@ -50,6 +61,8 @@ class CreateGADInstanceRequest extends Model
         'centralRegionId'            => 'CentralRegionId',
         'DBList'                     => 'DBList',
         'description'                => 'Description',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'tag'                        => 'Tag',
         'unitNode'                   => 'UnitNode',
     ];
 
@@ -77,6 +90,18 @@ class CreateGADInstanceRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->unitNode) {
             $res['UnitNode'] = [];
@@ -116,6 +141,18 @@ class CreateGADInstanceRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UnitNode'])) {
             if (!empty($map['UnitNode'])) {

@@ -16,6 +16,11 @@ class ModifyDBProxyInstanceRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyInstanceNum;
 
     /**
@@ -54,6 +59,7 @@ class ModifyDBProxyInstanceRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBInstanceId'          => 'DBInstanceId',
+        'DBProxyEngineType'     => 'DBProxyEngineType',
         'DBProxyInstanceNum'    => 'DBProxyInstanceNum',
         'DBProxyInstanceType'   => 'DBProxyInstanceType',
         'effectiveSpecificTime' => 'EffectiveSpecificTime',
@@ -73,6 +79,9 @@ class ModifyDBProxyInstanceRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->DBProxyInstanceNum) {
             $res['DBProxyInstanceNum'] = $this->DBProxyInstanceNum;
@@ -112,6 +121,9 @@ class ModifyDBProxyInstanceRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['DBProxyInstanceNum'])) {
             $model->DBProxyInstanceNum = $map['DBProxyInstanceNum'];

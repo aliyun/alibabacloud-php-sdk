@@ -21,6 +21,11 @@ class ModifyDBProxyRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyInstanceNum;
 
     /**
@@ -37,6 +42,11 @@ class ModifyDBProxyRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -60,10 +70,12 @@ class ModifyDBProxyRequest extends Model
     protected $_name = [
         'configDBProxyService' => 'ConfigDBProxyService',
         'DBInstanceId'         => 'DBInstanceId',
+        'DBProxyEngineType'    => 'DBProxyEngineType',
         'DBProxyInstanceNum'   => 'DBProxyInstanceNum',
         'instanceNetworkType'  => 'InstanceNetworkType',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'VPCId'                => 'VPCId',
@@ -83,6 +95,9 @@ class ModifyDBProxyRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
+        }
         if (null !== $this->DBProxyInstanceNum) {
             $res['DBProxyInstanceNum'] = $this->DBProxyInstanceNum;
         }
@@ -94,6 +109,9 @@ class ModifyDBProxyRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -125,6 +143,9 @@ class ModifyDBProxyRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
+        }
         if (isset($map['DBProxyInstanceNum'])) {
             $model->DBProxyInstanceNum = $map['DBProxyInstanceNum'];
         }
@@ -136,6 +157,9 @@ class ModifyDBProxyRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

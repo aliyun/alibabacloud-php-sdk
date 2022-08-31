@@ -24,6 +24,11 @@ class DescribeDBProxyEndpointRequest extends Model
     public $DBProxyEndpointId;
 
     /**
+     * @var string
+     */
+    public $DBProxyEngineType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -46,6 +51,7 @@ class DescribeDBProxyEndpointRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBProxyConnectString' => 'DBProxyConnectString',
         'DBProxyEndpointId'    => 'DBProxyEndpointId',
+        'DBProxyEngineType'    => 'DBProxyEngineType',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -67,6 +73,9 @@ class DescribeDBProxyEndpointRequest extends Model
         }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -100,6 +109,9 @@ class DescribeDBProxyEndpointRequest extends Model
         }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

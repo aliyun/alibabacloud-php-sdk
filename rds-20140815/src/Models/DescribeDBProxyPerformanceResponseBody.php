@@ -17,6 +17,11 @@ class DescribeDBProxyPerformanceResponseBody extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -34,11 +39,12 @@ class DescribeDBProxyPerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'endTime'         => 'EndTime',
-        'performanceKeys' => 'PerformanceKeys',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'DBInstanceId'      => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'endTime'           => 'EndTime',
+        'performanceKeys'   => 'PerformanceKeys',
+        'requestId'         => 'RequestId',
+        'startTime'         => 'StartTime',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class DescribeDBProxyPerformanceResponseBody extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -77,6 +86,9 @@ class DescribeDBProxyPerformanceResponseBody extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

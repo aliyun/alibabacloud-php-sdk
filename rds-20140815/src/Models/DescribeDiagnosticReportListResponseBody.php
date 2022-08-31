@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticReportListResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @var reportList[]
      */
     public $reportList;
@@ -19,8 +24,9 @@ class DescribeDiagnosticReportListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'reportList' => 'ReportList',
-        'requestId'  => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'reportList'   => 'ReportList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class DescribeDiagnosticReportListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->reportList) {
             $res['ReportList'] = [];
             if (null !== $this->reportList && \is_array($this->reportList)) {
@@ -54,6 +63,9 @@ class DescribeDiagnosticReportListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['ReportList'])) {
             if (!empty($map['ReportList'])) {
                 $model->reportList = [];

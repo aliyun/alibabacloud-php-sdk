@@ -14,6 +14,11 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $DBProxyEngineType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -39,6 +44,7 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     public $upgradeTime;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
+        'DBProxyEngineType'    => 'DBProxyEngineType',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -55,6 +61,9 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -85,6 +94,9 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

@@ -31,6 +31,11 @@ class DescribeReadDBInstanceDelayRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -47,6 +52,7 @@ class DescribeReadDBInstanceDelayRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'readInstanceId'       => 'ReadInstanceId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -70,6 +76,9 @@ class DescribeReadDBInstanceDelayRequest extends Model
         }
         if (null !== $this->readInstanceId) {
             $res['ReadInstanceId'] = $this->readInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -103,6 +112,9 @@ class DescribeReadDBInstanceDelayRequest extends Model
         }
         if (isset($map['ReadInstanceId'])) {
             $model->readInstanceId = $map['ReadInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

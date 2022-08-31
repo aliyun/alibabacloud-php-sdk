@@ -16,6 +16,11 @@ class RenewInstanceRequest extends Model
     /**
      * @var string
      */
+    public $autoRenew;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -44,6 +49,7 @@ class RenewInstanceRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
         'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
         'ownerId'              => 'OwnerId',
@@ -61,6 +67,9 @@ class RenewInstanceRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -94,6 +103,9 @@ class RenewInstanceRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

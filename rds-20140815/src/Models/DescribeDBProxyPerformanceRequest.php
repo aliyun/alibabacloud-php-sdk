@@ -16,6 +16,11 @@ class DescribeDBProxyPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $DBProxyEngineType;
+
+    /**
+     * @var string
+     */
     public $DBProxyInstanceType;
 
     /**
@@ -54,6 +59,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $startTime;
     protected $_name = [
         'DBInstanceId'         => 'DBInstanceId',
+        'DBProxyEngineType'    => 'DBProxyEngineType',
         'DBProxyInstanceType'  => 'DBProxyInstanceType',
         'endTime'              => 'EndTime',
         'metricsName'          => 'MetricsName',
@@ -73,6 +79,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBProxyEngineType) {
+            $res['DBProxyEngineType'] = $this->DBProxyEngineType;
         }
         if (null !== $this->DBProxyInstanceType) {
             $res['DBProxyInstanceType'] = $this->DBProxyInstanceType;
@@ -112,6 +121,9 @@ class DescribeDBProxyPerformanceRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBProxyEngineType'])) {
+            $model->DBProxyEngineType = $map['DBProxyEngineType'];
         }
         if (isset($map['DBProxyInstanceType'])) {
             $model->DBProxyInstanceType = $map['DBProxyInstanceType'];

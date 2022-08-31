@@ -28,8 +28,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CheckDBNameAvailableRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckDBNameAvailableResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckInstanceExistRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckInstanceExistResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CloneDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CloneDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CloneDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CloneParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CloneParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ConfirmNotifyRequest;
@@ -70,12 +73,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateSecretRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateTempDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateTempDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteADSettingRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteADSettingResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteBackupFileRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteBackupRequest;
@@ -90,6 +97,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSecretRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteUserBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescibeImportsFromDatabaseRequest;
@@ -98,6 +107,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeADInfoRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeADInfoResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAnalyticdbByPrimaryDBInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAnalyticdbByPrimaryDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableCrossRegionRequest;
@@ -138,6 +151,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEncryptionKeyRequest;
@@ -152,10 +167,14 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMetricsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMetricsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMonitorRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceMonitorResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoForChannelRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoForChannelResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceNetInfoResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancePerformanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancePerformanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancePromoteActivityRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancePromoteActivityResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceProxyConfigurationRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceProxyConfigurationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesAsCsvRequest;
@@ -172,6 +191,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceTDERequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceTDEResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBMiniEngineVersionsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBMiniEngineVersionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyEndpointRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyEndpointResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyPerformanceRequest;
@@ -198,6 +219,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksStatRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksStatResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceCrossBackupPolicyRequest;
@@ -236,12 +261,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionInfosRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionInfosResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRenewalPriceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeResourceUsageResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecretsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecretsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecurityGroupConfigurationRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSecurityGroupConfigurationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSlowLogRecordsRequest;
@@ -272,6 +301,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GrantAccountPrivilegeRequest;
@@ -290,6 +321,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ListUserBackupFilesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListUserBackupFilesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\LockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\LockAccountResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateConnectionToOtherZoneRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateConnectionToOtherZoneResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\MigrateSecurityIPModeRequest;
@@ -300,6 +333,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyActionEventPolicyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyADInfoRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyADInfoResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyCollationTimeZoneRequest;
@@ -314,6 +349,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDelayedReplicationTimeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDelayedReplicationTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDeletionProtectionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDeletionProtectionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDescriptionRequest;
@@ -387,6 +424,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RebuildDBInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ReceiveDBInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ReceiveDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RecoveryDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RecoveryDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ReleaseInstanceConnectionRequest;
@@ -399,6 +438,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\RemoveTagsFromResourceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RemoveTagsFromResourceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RenewInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RequestServiceOfCloudDBARequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RequestServiceOfCloudDBAResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ResetAccountRequest;
@@ -423,6 +464,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchGuardToMasterInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchGuardToMasterInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TerminateMigrateTaskRequest;
@@ -981,6 +1024,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -1035,15 +1081,6 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->backupSetId)) {
             $query['BackupSetId'] = $request->backupSetId;
-        }
-        if (!Utils::isUnset($request->binlogName)) {
-            $query['BinlogName'] = $request->binlogName;
-        }
-        if (!Utils::isUnset($request->binlogPosition)) {
-            $query['BinlogPosition'] = $request->binlogPosition;
-        }
-        if (!Utils::isUnset($request->binlogRole)) {
-            $query['BinlogRole'] = $request->binlogRole;
         }
         if (!Utils::isUnset($request->DBInstanceClass)) {
             $query['DBInstanceClass'] = $request->DBInstanceClass;
@@ -1225,14 +1262,77 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CloneDBInstanceRequest $request
+     * @param CheckServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckServiceLinkedRoleResponse
+     */
+    public function checkServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serviceLinkedRole)) {
+            $query['ServiceLinkedRole'] = $request->serviceLinkedRole;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckServiceLinkedRole',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckServiceLinkedRoleRequest $request
+     *
+     * @return CheckServiceLinkedRoleResponse
+     */
+    public function checkServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkServiceLinkedRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloneDBInstanceRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return CloneDBInstanceResponse
      */
-    public function cloneDBInstanceWithOptions($request, $runtime)
+    public function cloneDBInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CloneDBInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->serverlessConfig), 'ServerlessConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->backupId)) {
             $query['BackupId'] = $request->backupId;
@@ -1287,6 +1387,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
+        }
+        if (!Utils::isUnset($request->serverlessConfigShrink)) {
+            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
         if (!Utils::isUnset($request->tableMeta)) {
             $query['TableMeta'] = $request->tableMeta;
@@ -1649,6 +1752,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBName)) {
             $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -2025,11 +2131,17 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBProxyEndpointId)) {
             $query['DBProxyEndpointId'] = $request->DBProxyEndpointId;
         }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->DBProxyNewConnectStringPort)) {
             $query['DBProxyNewConnectStringPort'] = $request->DBProxyNewConnectStringPort;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->VPCId)) {
             $query['VPCId'] = $request->VPCId;
@@ -2095,6 +2207,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -2143,15 +2258,6 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->backupSetId)) {
             $query['BackupSetId'] = $request->backupSetId;
-        }
-        if (!Utils::isUnset($request->binlogName)) {
-            $query['BinlogName'] = $request->binlogName;
-        }
-        if (!Utils::isUnset($request->binlogPosition)) {
-            $query['BinlogPosition'] = $request->binlogPosition;
-        }
-        if (!Utils::isUnset($request->binlogRole)) {
-            $query['BinlogRole'] = $request->binlogRole;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -2346,6 +2452,12 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->unitNode)) {
             $query['UnitNode'] = $request->unitNode;
@@ -2779,6 +2891,85 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param CreateSecretRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSecretResponse
+     */
+    public function createSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
+        }
+        if (!Utils::isUnset($request->dbNames)) {
+            $query['DbNames'] = $request->dbNames;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSecret',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSecretRequest $request
+     *
+     * @return CreateSecretResponse
+     */
+    public function createSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecretWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateServiceLinkedRoleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2855,6 +3046,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -2892,6 +3086,64 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTempDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteADSettingRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteADSettingResponse
+     */
+    public function deleteADSettingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteADSetting',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteADSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteADSettingRequest $request
+     *
+     * @return DeleteADSettingResponse
+     */
+    public function deleteADSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteADSettingWithOptions($request, $runtime);
     }
 
     /**
@@ -3154,6 +3406,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBProxyEndpointId)) {
             $query['DBProxyEndpointId'] = $request->DBProxyEndpointId;
         }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3338,6 +3593,70 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DeleteSecretRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteSecretResponse
+     */
+    public function deleteSecretWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->secretArn)) {
+            $query['SecretArn'] = $request->secretArn;
+        }
+        if (!Utils::isUnset($request->secretName)) {
+            $query['SecretName'] = $request->secretName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecret',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSecretRequest $request
+     *
+     * @return DeleteSecretResponse
+     */
+    public function deleteSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecretWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteUserBackupFileRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3469,6 +3788,64 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeADInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeADInfoResponse
+     */
+    public function describeADInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeADInfo',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeADInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeADInfoRequest $request
+     *
+     * @return DescribeADInfoResponse
+     */
+    public function describeADInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeADInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAccountsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3576,6 +3953,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActionEventPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAnalyticdbByPrimaryDBInstanceRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
+     */
+    public function describeAnalyticdbByPrimaryDBInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAnalyticdbByPrimaryDBInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAnalyticdbByPrimaryDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAnalyticdbByPrimaryDBInstanceRequest $request
+     *
+     * @return DescribeAnalyticdbByPrimaryDBInstanceResponse
+     */
+    public function describeAnalyticdbByPrimaryDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAnalyticdbByPrimaryDBInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -3716,6 +4148,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceName)) {
             $query['DBInstanceName'] = $request->DBInstanceName;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -3762,11 +4197,17 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->crossBackupId)) {
             $query['CrossBackupId'] = $request->crossBackupId;
         }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4079,6 +4520,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->backupStatus)) {
             $query['BackupStatus'] = $request->backupStatus;
         }
+        if (!Utils::isUnset($request->backupType)) {
+            $query['BackupType'] = $request->backupType;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -4090,6 +4534,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -4460,6 +4907,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -4593,6 +5043,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -4753,6 +5206,76 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceByTagsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDBInstanceByTagsResponse
+     */
+    public function describeDBInstanceByTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['proxyId'] = $request->proxyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceByTags',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceByTagsRequest $request
+     *
+     * @return DescribeDBInstanceByTagsResponse
+     */
+    public function describeDBInstanceByTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceByTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstanceDetailRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -4773,6 +5296,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -5058,6 +5584,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceName)) {
             $query['DBInstanceName'] = $request->DBInstanceName;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -5217,6 +5746,70 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceNetInfoForChannelRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeDBInstanceNetInfoForChannelResponse
+     */
+    public function describeDBInstanceNetInfoForChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBInstanceNetRWSplitType)) {
+            $query['DBInstanceNetRWSplitType'] = $request->DBInstanceNetRWSplitType;
+        }
+        if (!Utils::isUnset($request->flag)) {
+            $query['Flag'] = $request->flag;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceNetInfoForChannel',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceNetInfoForChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceNetInfoForChannelRequest $request
+     *
+     * @return DescribeDBInstanceNetInfoForChannelResponse
+     */
+    public function describeDBInstanceNetInfoForChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceNetInfoForChannelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstancePerformanceRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -5269,6 +5862,64 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstancePerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstancePromoteActivityRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDBInstancePromoteActivityResponse
+     */
+    public function describeDBInstancePromoteActivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->dbInstanceName)) {
+            $query['DbInstanceName'] = $request->dbInstanceName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstancePromoteActivity',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstancePromoteActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstancePromoteActivityRequest $request
+     *
+     * @return DescribeDBInstancePromoteActivityResponse
+     */
+    public function describeDBInstancePromoteActivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstancePromoteActivityWithOptions($request, $runtime);
     }
 
     /**
@@ -5585,6 +6236,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5725,6 +6379,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5840,6 +6497,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -5892,6 +6552,73 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBMiniEngineVersionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDBMiniEngineVersionsResponse
+     */
+    public function describeDBMiniEngineVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->minorVersionTag)) {
+            $query['MinorVersionTag'] = $request->minorVersionTag;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBMiniEngineVersions',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBMiniEngineVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBMiniEngineVersionsRequest $request
+     *
+     * @return DescribeDBMiniEngineVersionsResponse
+     */
+    public function describeDBMiniEngineVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBMiniEngineVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBProxyRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5907,11 +6634,17 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -5971,6 +6704,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBProxyEndpointId)) {
             $query['DBProxyEndpointId'] = $request->DBProxyEndpointId;
         }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -6028,6 +6764,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
         }
         if (!Utils::isUnset($request->DBProxyInstanceType)) {
             $query['DBProxyInstanceType'] = $request->DBProxyInstanceType;
@@ -6105,6 +6844,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -6174,6 +6916,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -6376,6 +7121,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -6424,6 +7172,9 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6602,6 +7353,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6740,6 +7494,155 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHASwitchConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHistoryTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
+        }
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
+        }
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryTasks',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHistoryTasksRequest $request
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHistoryTasksStatRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStatWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
+        }
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
+        }
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryTasksStat',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHistoryTasksStatRequest $request
+     *
+     * @return DescribeHistoryTasksStatResponse
+     */
+    public function describeHistoryTasksStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksStatWithOptions($request, $runtime);
     }
 
     /**
@@ -6941,6 +7844,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7078,6 +7984,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->pattern)) {
             $query['Pattern'] = $request->pattern;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7139,6 +8048,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7199,6 +8111,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -7263,6 +8178,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -7389,6 +8307,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7446,6 +8367,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -7553,6 +8477,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -7892,6 +8819,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->readInstanceId)) {
             $query['ReadInstanceId'] = $request->readInstanceId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7929,6 +8859,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeReadDBInstanceDelayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionInfosRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRegionInfosResponse
+     */
+    public function describeRegionInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegionInfos',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRegionInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionInfosRequest $request
+     *
+     * @return DescribeRegionInfosResponse
+     */
+    public function describeRegionInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionInfosWithOptions($request, $runtime);
     }
 
     /**
@@ -8077,6 +9062,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -8450,6 +9438,76 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLLogReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSecretsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeSecretsResponse
+     */
+    public function describeSecretsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecrets',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSecretsRequest $request
+     *
+     * @return DescribeSecretsResponse
+     */
+    public function describeSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecretsWithOptions($request, $runtime);
     }
 
     /**
@@ -8955,6 +10013,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -9108,6 +10169,49 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param GetDBInstanceTopologyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDBInstanceTopologyResponse
+     */
+    public function getDBInstanceTopologyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDBInstanceTopology',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDBInstanceTopologyRequest $request
+     *
+     * @return GetDBInstanceTopologyResponse
+     */
+    public function getDBInstanceTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDBInstanceTopologyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDbProxyInstanceSslRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -9117,6 +10221,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->dbInstanceId)) {
             $query['DbInstanceId'] = $request->dbInstanceId;
         }
@@ -9657,6 +10764,55 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param MigrateConnectionToOtherZoneRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return MigrateConnectionToOtherZoneResponse
+     */
+    public function migrateConnectionToOtherZoneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MigrateConnectionToOtherZone',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MigrateConnectionToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MigrateConnectionToOtherZoneRequest $request
+     *
+     * @return MigrateConnectionToOtherZoneResponse
+     */
+    public function migrateConnectionToOtherZone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->migrateConnectionToOtherZoneWithOptions($request, $runtime);
+    }
+
+    /**
      * @param MigrateDBInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -9870,6 +11026,76 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->migrateToOtherZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyADInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyADInfoResponse
+     */
+    public function modifyADInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ADAccountName)) {
+            $query['ADAccountName'] = $request->ADAccountName;
+        }
+        if (!Utils::isUnset($request->ADDNS)) {
+            $query['ADDNS'] = $request->ADDNS;
+        }
+        if (!Utils::isUnset($request->ADPassword)) {
+            $query['ADPassword'] = $request->ADPassword;
+        }
+        if (!Utils::isUnset($request->ADServerIpAddress)) {
+            $query['ADServerIpAddress'] = $request->ADServerIpAddress;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyADInfo',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyADInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyADInfoRequest $request
+     *
+     * @return ModifyADInfoResponse
+     */
+    public function modifyADInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyADInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -10406,6 +11632,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceConnectionStringWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceDelayedReplicationTimeRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ModifyDBInstanceDelayedReplicationTimeResponse
+     */
+    public function modifyDBInstanceDelayedReplicationTimeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->readSQLReplicationTime)) {
+            $query['ReadSQLReplicationTime'] = $request->readSQLReplicationTime;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceDelayedReplicationTime',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceDelayedReplicationTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceDelayedReplicationTimeRequest $request
+     *
+     * @return ModifyDBInstanceDelayedReplicationTimeResponse
+     */
+    public function modifyDBInstanceDelayedReplicationTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceDelayedReplicationTimeWithOptions($request, $runtime);
     }
 
     /**
@@ -11303,6 +12584,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->DBProxyInstanceNum)) {
             $query['DBProxyInstanceNum'] = $request->DBProxyInstanceNum;
         }
@@ -11314,6 +12598,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -11378,6 +12665,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBProxyEndpointId)) {
             $query['DBProxyEndpointId'] = $request->DBProxyEndpointId;
+        }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
         }
         if (!Utils::isUnset($request->dbEndpointAliases)) {
             $query['DbEndpointAliases'] = $request->dbEndpointAliases;
@@ -11464,6 +12754,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->DBProxyEndpointId)) {
             $query['DBProxyEndpointId'] = $request->DBProxyEndpointId;
         }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->DBProxyNewConnectString)) {
             $query['DBProxyNewConnectString'] = $request->DBProxyNewConnectString;
         }
@@ -11524,6 +12817,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
         }
         if (!Utils::isUnset($request->DBProxyInstanceNum)) {
             $query['DBProxyInstanceNum'] = $request->DBProxyInstanceNum;
@@ -11720,6 +13016,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
+        }
         if (!Utils::isUnset($request->dbInstanceId)) {
             $query['DbInstanceId'] = $request->dbInstanceId;
         }
@@ -12842,6 +14141,64 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param ReceiveDBInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReceiveDBInstanceResponse
+     */
+    public function receiveDBInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->guardDBInstanceId)) {
+            $query['GuardDBInstanceId'] = $request->guardDBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReceiveDBInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReceiveDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReceiveDBInstanceRequest $request
+     *
+     * @return ReceiveDBInstanceResponse
+     */
+    public function receiveDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->receiveDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RecoveryDBInstanceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -13186,6 +14543,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -13232,6 +14592,55 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RequestServiceOfCloudDBARequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RequestServiceOfCloudDBAResponse
+     */
+    public function requestServiceOfCloudDBAWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->serviceRequestParam)) {
+            $query['ServiceRequestParam'] = $request->serviceRequestParam;
+        }
+        if (!Utils::isUnset($request->serviceRequestType)) {
+            $query['ServiceRequestType'] = $request->serviceRequestType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RequestServiceOfCloudDBA',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RequestServiceOfCloudDBAResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RequestServiceOfCloudDBARequest $request
+     *
+     * @return RequestServiceOfCloudDBAResponse
+     */
+    public function requestServiceOfCloudDBA($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requestServiceOfCloudDBAWithOptions($request, $runtime);
     }
 
     /**
@@ -13438,6 +14847,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -14006,6 +15418,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchDBInstanceVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchGuardToMasterInstanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SwitchGuardToMasterInstanceResponse
+     */
+    public function switchGuardToMasterInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchGuardToMasterInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchGuardToMasterInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchGuardToMasterInstanceRequest $request
+     *
+     * @return SwitchGuardToMasterInstanceResponse
+     */
+    public function switchGuardToMasterInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchGuardToMasterInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -14663,6 +16130,9 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBProxyEngineType)) {
+            $query['DBProxyEngineType'] = $request->DBProxyEngineType;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
