@@ -37,6 +37,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByPhoneNumberRes
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUserExternalIdHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUserExternalIdRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUserExternalIdResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUsernameHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUsernameRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUsernameResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponse;
@@ -903,6 +906,65 @@ class Eiamdeveloperapi extends OpenApiClient
         ]);
 
         return GetUserIdByUserExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $instanceId
+     * @param string                     $applicationId
+     * @param GetUserIdByUsernameRequest $request
+     *
+     * @return GetUserIdByUsernameResponse
+     */
+    public function getUserIdByUsername($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdByUsernameHeaders([]);
+
+        return $this->getUserIdByUsernameWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $instanceId
+     * @param string                     $applicationId
+     * @param GetUserIdByUsernameRequest $request
+     * @param GetUserIdByUsernameHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetUserIdByUsernameResponse
+     */
+    public function getUserIdByUsernameWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
+        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
+        $body          = [];
+        if (!Utils::isUnset($request->username)) {
+            $body['username'] = $request->username;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserIdByUsername',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByUsername',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserIdByUsernameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
