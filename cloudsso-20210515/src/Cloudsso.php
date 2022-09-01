@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetExternalSAMLIdentityProviderRe
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetExternalSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetGroupResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSCIMSynchronizationStatusRequest;
@@ -65,6 +67,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserMFAAuthenticationSettingsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListAccessAssignmentsRequest;
@@ -116,8 +120,12 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateGroupRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateGroupResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateInlinePolicyForAccessConfigurationRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateInlinePolicyForAccessConfigurationResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateMFAAuthenticationSettingsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateSCIMServerCredentialStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateSCIMServerCredentialStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserMFAAuthenticationSettingsRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserStatusRequest;
@@ -170,12 +178,15 @@ class Cloudsso extends OpenApiClient
     public function addExternalSAMLIdPCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['DirectoryId']     = $request->directoryId;
-        $query['X509Certificate'] = $request->x509Certificate;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->x509Certificate)) {
+            $query['X509Certificate'] = $request->x509Certificate;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddExternalSAMLIdPCertificate',
@@ -185,7 +196,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -213,15 +224,24 @@ class Cloudsso extends OpenApiClient
     public function addPermissionPolicyToAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['InlinePolicyDocument']  = $request->inlinePolicyDocument;
-        $query['PermissionPolicyName']  = $request->permissionPolicyName;
-        $query['PermissionPolicyType']  = $request->permissionPolicyType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->inlinePolicyDocument)) {
+            $query['InlinePolicyDocument'] = $request->inlinePolicyDocument;
+        }
+        if (!Utils::isUnset($request->permissionPolicyName)) {
+            $query['PermissionPolicyName'] = $request->permissionPolicyName;
+        }
+        if (!Utils::isUnset($request->permissionPolicyType)) {
+            $query['PermissionPolicyType'] = $request->permissionPolicyType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddPermissionPolicyToAccessConfiguration',
@@ -231,7 +251,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -259,13 +279,18 @@ class Cloudsso extends OpenApiClient
     public function addUserToGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['GroupId']     = $request->groupId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddUserToGroup',
@@ -275,7 +300,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -303,11 +328,12 @@ class Cloudsso extends OpenApiClient
     public function clearExternalSAMLIdentityProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ClearExternalSAMLIdentityProvider',
@@ -317,7 +343,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -345,16 +371,27 @@ class Cloudsso extends OpenApiClient
     public function createAccessAssignmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['PrincipalId']           = $request->principalId;
-        $query['PrincipalType']         = $request->principalType;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->principalId)) {
+            $query['PrincipalId'] = $request->principalId;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessAssignment',
@@ -364,7 +401,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -392,15 +429,24 @@ class Cloudsso extends OpenApiClient
     public function createAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AccessConfigurationName'] = $request->accessConfigurationName;
-        $query['Description']             = $request->description;
-        $query['DirectoryId']             = $request->directoryId;
-        $query['RelayState']              = $request->relayState;
-        $query['SessionDuration']         = $request->sessionDuration;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationName)) {
+            $query['AccessConfigurationName'] = $request->accessConfigurationName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->relayState)) {
+            $query['RelayState'] = $request->relayState;
+        }
+        if (!Utils::isUnset($request->sessionDuration)) {
+            $query['SessionDuration'] = $request->sessionDuration;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateAccessConfiguration',
@@ -410,7 +456,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -438,11 +484,12 @@ class Cloudsso extends OpenApiClient
     public function createDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DirectoryName'] = $request->directoryName;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryName)) {
+            $query['DirectoryName'] = $request->directoryName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDirectory',
@@ -452,7 +499,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -480,13 +527,18 @@ class Cloudsso extends OpenApiClient
     public function createGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Description'] = $request->description;
-        $query['DirectoryId'] = $request->directoryId;
-        $query['GroupName']   = $request->groupName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateGroup',
@@ -496,7 +548,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -524,11 +576,12 @@ class Cloudsso extends OpenApiClient
     public function createSCIMServerCredentialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSCIMServerCredential',
@@ -538,7 +591,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -566,18 +619,33 @@ class Cloudsso extends OpenApiClient
     public function createUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['Description'] = $request->description;
-        $query['DirectoryId'] = $request->directoryId;
-        $query['DisplayName'] = $request->displayName;
-        $query['Email']       = $request->email;
-        $query['FirstName']   = $request->firstName;
-        $query['LastName']    = $request->lastName;
-        $query['Status']      = $request->status;
-        $query['UserName']    = $request->userName;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->firstName)) {
+            $query['FirstName'] = $request->firstName;
+        }
+        if (!Utils::isUnset($request->lastName)) {
+            $query['LastName'] = $request->lastName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUser',
@@ -587,7 +655,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -615,17 +683,30 @@ class Cloudsso extends OpenApiClient
     public function deleteAccessAssignmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DeprovisionStrategy']   = $request->deprovisionStrategy;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['PrincipalId']           = $request->principalId;
-        $query['PrincipalType']         = $request->principalType;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->deprovisionStrategy)) {
+            $query['DeprovisionStrategy'] = $request->deprovisionStrategy;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->principalId)) {
+            $query['PrincipalId'] = $request->principalId;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessAssignment',
@@ -635,7 +716,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -663,13 +744,18 @@ class Cloudsso extends OpenApiClient
     public function deleteAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                  = [];
-        $query['AccessConfigurationId']         = $request->accessConfigurationId;
-        $query['DirectoryId']                   = $request->directoryId;
-        $query['ForceRemovePermissionPolicies'] = $request->forceRemovePermissionPolicies;
-        $req                                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->forceRemovePermissionPolicies)) {
+            $query['ForceRemovePermissionPolicies'] = $request->forceRemovePermissionPolicies;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccessConfiguration',
@@ -679,7 +765,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -707,11 +793,12 @@ class Cloudsso extends OpenApiClient
     public function deleteDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDirectory',
@@ -721,7 +808,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -749,12 +836,15 @@ class Cloudsso extends OpenApiClient
     public function deleteGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['GroupId']     = $request->groupId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteGroup',
@@ -764,7 +854,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -792,13 +882,18 @@ class Cloudsso extends OpenApiClient
     public function deleteMFADeviceForUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['MFADeviceId'] = $request->MFADeviceId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->MFADeviceId)) {
+            $query['MFADeviceId'] = $request->MFADeviceId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteMFADeviceForUser',
@@ -808,7 +903,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -836,12 +931,15 @@ class Cloudsso extends OpenApiClient
     public function deleteSCIMServerCredentialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['CredentialId'] = $request->credentialId;
-        $query['DirectoryId']  = $request->directoryId;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->credentialId)) {
+            $query['CredentialId'] = $request->credentialId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSCIMServerCredential',
@@ -851,7 +949,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -879,12 +977,15 @@ class Cloudsso extends OpenApiClient
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteUser',
@@ -894,7 +995,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -922,14 +1023,21 @@ class Cloudsso extends OpenApiClient
     public function deprovisionAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeprovisionAccessConfiguration',
@@ -939,7 +1047,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -974,7 +1082,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1007,7 +1115,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1033,12 +1141,15 @@ class Cloudsso extends OpenApiClient
     public function getAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAccessConfiguration',
@@ -1048,7 +1159,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1076,11 +1187,12 @@ class Cloudsso extends OpenApiClient
     public function getDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDirectory',
@@ -1090,7 +1202,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1118,11 +1230,12 @@ class Cloudsso extends OpenApiClient
     public function getDirectorySAMLServiceProviderInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDirectorySAMLServiceProviderInfo',
@@ -1132,7 +1245,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1160,11 +1273,12 @@ class Cloudsso extends OpenApiClient
     public function getDirectoryStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDirectoryStatistics',
@@ -1174,7 +1288,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1202,11 +1316,12 @@ class Cloudsso extends OpenApiClient
     public function getExternalSAMLIdentityProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetExternalSAMLIdentityProvider',
@@ -1216,7 +1331,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1244,12 +1359,15 @@ class Cloudsso extends OpenApiClient
     public function getGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['GroupId']     = $request->groupId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetGroup',
@@ -1259,7 +1377,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1279,6 +1397,49 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param GetMFAAuthenticationSettingsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetMFAAuthenticationSettingsResponse
+     */
+    public function getMFAAuthenticationSettingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMFAAuthenticationSettings',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMFAAuthenticationSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMFAAuthenticationSettingsRequest $request
+     *
+     * @return GetMFAAuthenticationSettingsResponse
+     */
+    public function getMFAAuthenticationSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMFAAuthenticationSettingsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMFAAuthenticationStatusRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1287,11 +1448,12 @@ class Cloudsso extends OpenApiClient
     public function getMFAAuthenticationStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMFAAuthenticationStatus',
@@ -1301,7 +1463,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1329,11 +1491,12 @@ class Cloudsso extends OpenApiClient
     public function getSCIMSynchronizationStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSCIMSynchronizationStatus',
@@ -1343,7 +1506,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1378,7 +1541,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1404,12 +1567,15 @@ class Cloudsso extends OpenApiClient
     public function getTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['TaskId']      = $request->taskId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTask',
@@ -1419,7 +1585,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1447,12 +1613,15 @@ class Cloudsso extends OpenApiClient
     public function getTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['TaskId']      = $request->taskId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTaskStatus',
@@ -1462,7 +1631,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1490,12 +1659,15 @@ class Cloudsso extends OpenApiClient
     public function getUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetUser',
@@ -1505,7 +1677,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1525,6 +1697,52 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param GetUserMFAAuthenticationSettingsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetUserMFAAuthenticationSettingsResponse
+     */
+    public function getUserMFAAuthenticationSettingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserMFAAuthenticationSettings',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserMFAAuthenticationSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserMFAAuthenticationSettingsRequest $request
+     *
+     * @return GetUserMFAAuthenticationSettingsResponse
+     */
+    public function getUserMFAAuthenticationSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserMFAAuthenticationSettingsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAccessAssignmentsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1533,18 +1751,33 @@ class Cloudsso extends OpenApiClient
     public function listAccessAssignmentsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['MaxResults']            = $request->maxResults;
-        $query['NextToken']             = $request->nextToken;
-        $query['PrincipalId']           = $request->principalId;
-        $query['PrincipalType']         = $request->principalType;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->principalId)) {
+            $query['PrincipalId'] = $request->principalId;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAccessAssignments',
@@ -1554,7 +1787,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1582,17 +1815,30 @@ class Cloudsso extends OpenApiClient
     public function listAccessConfigurationProvisioningsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['MaxResults']            = $request->maxResults;
-        $query['NextToken']             = $request->nextToken;
-        $query['ProvisioningStatus']    = $request->provisioningStatus;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->provisioningStatus)) {
+            $query['ProvisioningStatus'] = $request->provisioningStatus;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAccessConfigurationProvisionings',
@@ -1602,7 +1848,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1630,15 +1876,24 @@ class Cloudsso extends OpenApiClient
     public function listAccessConfigurationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                        = [];
-        $query['DirectoryId']         = $request->directoryId;
-        $query['Filter']              = $request->filter;
-        $query['MaxResults']          = $request->maxResults;
-        $query['NextToken']           = $request->nextToken;
-        $query['StatusNotifications'] = $request->statusNotifications;
-        $req                          = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->statusNotifications)) {
+            $query['StatusNotifications'] = $request->statusNotifications;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAccessConfigurations',
@@ -1648,7 +1903,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1683,7 +1938,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1709,11 +1964,12 @@ class Cloudsso extends OpenApiClient
     public function listExternalSAMLIdPCertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListExternalSAMLIdPCertificates',
@@ -1723,7 +1979,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1751,14 +2007,21 @@ class Cloudsso extends OpenApiClient
     public function listGroupMembersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['GroupId']     = $request->groupId;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListGroupMembers',
@@ -1768,7 +2031,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1796,15 +2059,24 @@ class Cloudsso extends OpenApiClient
     public function listGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DirectoryId']   = $request->directoryId;
-        $query['Filter']        = $request->filter;
-        $query['MaxResults']    = $request->maxResults;
-        $query['NextToken']     = $request->nextToken;
-        $query['ProvisionType'] = $request->provisionType;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->provisionType)) {
+            $query['ProvisionType'] = $request->provisionType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListGroups',
@@ -1814,7 +2086,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1842,14 +2114,21 @@ class Cloudsso extends OpenApiClient
     public function listJoinedGroupsForUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['MaxResults']  = $request->maxResults;
-        $query['NextToken']   = $request->nextToken;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListJoinedGroupsForUser',
@@ -1859,7 +2138,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1887,12 +2166,15 @@ class Cloudsso extends OpenApiClient
     public function listMFADevicesForUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListMFADevicesForUser',
@@ -1902,7 +2184,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1930,13 +2212,18 @@ class Cloudsso extends OpenApiClient
     public function listPermissionPoliciesInAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['PermissionPolicyType']  = $request->permissionPolicyType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->permissionPolicyType)) {
+            $query['PermissionPolicyType'] = $request->permissionPolicyType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListPermissionPoliciesInAccessConfiguration',
@@ -1946,7 +2233,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1974,11 +2261,12 @@ class Cloudsso extends OpenApiClient
     public function listSCIMServerCredentialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSCIMServerCredentials',
@@ -1988,7 +2276,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2016,21 +2304,42 @@ class Cloudsso extends OpenApiClient
     public function listTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['Filter']                = $request->filter;
-        $query['MaxResults']            = $request->maxResults;
-        $query['NextToken']             = $request->nextToken;
-        $query['PrincipalId']           = $request->principalId;
-        $query['PrincipalType']         = $request->principalType;
-        $query['Status']                = $request->status;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $query['TaskType']              = $request->taskType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->principalId)) {
+            $query['PrincipalId'] = $request->principalId;
+        }
+        if (!Utils::isUnset($request->principalType)) {
+            $query['PrincipalType'] = $request->principalType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTasks',
@@ -2040,7 +2349,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2068,16 +2377,27 @@ class Cloudsso extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['DirectoryId']   = $request->directoryId;
-        $query['Filter']        = $request->filter;
-        $query['MaxResults']    = $request->maxResults;
-        $query['NextToken']     = $request->nextToken;
-        $query['ProvisionType'] = $request->provisionType;
-        $query['Status']        = $request->status;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->provisionType)) {
+            $query['ProvisionType'] = $request->provisionType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -2087,7 +2407,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2115,14 +2435,21 @@ class Cloudsso extends OpenApiClient
     public function provisionAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['TargetId']              = $request->targetId;
-        $query['TargetType']            = $request->targetType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ProvisionAccessConfiguration',
@@ -2132,7 +2459,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2160,12 +2487,15 @@ class Cloudsso extends OpenApiClient
     public function removeExternalSAMLIdPCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['CertificateId'] = $request->certificateId;
-        $query['DirectoryId']   = $request->directoryId;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveExternalSAMLIdPCertificate',
@@ -2175,7 +2505,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2203,14 +2533,21 @@ class Cloudsso extends OpenApiClient
     public function removePermissionPolicyFromAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['PermissionPolicyName']  = $request->permissionPolicyName;
-        $query['PermissionPolicyType']  = $request->permissionPolicyType;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->permissionPolicyName)) {
+            $query['PermissionPolicyName'] = $request->permissionPolicyName;
+        }
+        if (!Utils::isUnset($request->permissionPolicyType)) {
+            $query['PermissionPolicyType'] = $request->permissionPolicyType;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemovePermissionPolicyFromAccessConfiguration',
@@ -2220,7 +2557,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2248,13 +2585,18 @@ class Cloudsso extends OpenApiClient
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['GroupId']     = $request->groupId;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveUserFromGroup',
@@ -2264,7 +2606,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2292,15 +2634,24 @@ class Cloudsso extends OpenApiClient
     public function resetUserPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                                     = [];
-        $query['DirectoryId']                      = $request->directoryId;
-        $query['GenerateRandomPassword']           = $request->generateRandomPassword;
-        $query['Password']                         = $request->password;
-        $query['RequirePasswordResetForNextLogin'] = $request->requirePasswordResetForNextLogin;
-        $query['UserId']                           = $request->userId;
-        $req                                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->generateRandomPassword)) {
+            $query['GenerateRandomPassword'] = $request->generateRandomPassword;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->requirePasswordResetForNextLogin)) {
+            $query['RequirePasswordResetForNextLogin'] = $request->requirePasswordResetForNextLogin;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResetUserPassword',
@@ -2310,7 +2661,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2338,17 +2689,30 @@ class Cloudsso extends OpenApiClient
     public function setExternalSAMLIdentityProviderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['DirectoryId']             = $request->directoryId;
-        $query['EncodedMetadataDocument'] = $request->encodedMetadataDocument;
-        $query['EntityId']                = $request->entityId;
-        $query['LoginUrl']                = $request->loginUrl;
-        $query['SSOStatus']               = $request->SSOStatus;
-        $query['WantRequestSigned']       = $request->wantRequestSigned;
-        $query['X509Certificate']         = $request->x509Certificate;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->encodedMetadataDocument)) {
+            $query['EncodedMetadataDocument'] = $request->encodedMetadataDocument;
+        }
+        if (!Utils::isUnset($request->entityId)) {
+            $query['EntityId'] = $request->entityId;
+        }
+        if (!Utils::isUnset($request->loginUrl)) {
+            $query['LoginUrl'] = $request->loginUrl;
+        }
+        if (!Utils::isUnset($request->SSOStatus)) {
+            $query['SSOStatus'] = $request->SSOStatus;
+        }
+        if (!Utils::isUnset($request->wantRequestSigned)) {
+            $query['WantRequestSigned'] = $request->wantRequestSigned;
+        }
+        if (!Utils::isUnset($request->x509Certificate)) {
+            $query['X509Certificate'] = $request->x509Certificate;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetExternalSAMLIdentityProvider',
@@ -2358,7 +2722,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2386,12 +2750,15 @@ class Cloudsso extends OpenApiClient
     public function setMFAAuthenticationStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['DirectoryId']             = $request->directoryId;
-        $query['MFAAuthenticationStatus'] = $request->MFAAuthenticationStatus;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->MFAAuthenticationStatus)) {
+            $query['MFAAuthenticationStatus'] = $request->MFAAuthenticationStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetMFAAuthenticationStatus',
@@ -2401,7 +2768,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2429,12 +2796,15 @@ class Cloudsso extends OpenApiClient
     public function setSCIMSynchronizationStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                              = [];
-        $query['DirectoryId']               = $request->directoryId;
-        $query['SCIMSynchronizationStatus'] = $request->SCIMSynchronizationStatus;
-        $req                                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->SCIMSynchronizationStatus)) {
+            $query['SCIMSynchronizationStatus'] = $request->SCIMSynchronizationStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetSCIMSynchronizationStatus',
@@ -2444,7 +2814,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2472,15 +2842,24 @@ class Cloudsso extends OpenApiClient
     public function updateAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                          = [];
-        $query['AccessConfigurationId'] = $request->accessConfigurationId;
-        $query['DirectoryId']           = $request->directoryId;
-        $query['NewDescription']        = $request->newDescription;
-        $query['NewRelayState']         = $request->newRelayState;
-        $query['NewSessionDuration']    = $request->newSessionDuration;
-        $req                            = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->newRelayState)) {
+            $query['NewRelayState'] = $request->newRelayState;
+        }
+        if (!Utils::isUnset($request->newSessionDuration)) {
+            $query['NewSessionDuration'] = $request->newSessionDuration;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAccessConfiguration',
@@ -2490,7 +2869,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2518,12 +2897,15 @@ class Cloudsso extends OpenApiClient
     public function updateDirectoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['DirectoryId']      = $request->directoryId;
-        $query['NewDirectoryName'] = $request->newDirectoryName;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->newDirectoryName)) {
+            $query['NewDirectoryName'] = $request->newDirectoryName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateDirectory',
@@ -2533,7 +2915,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2561,14 +2943,21 @@ class Cloudsso extends OpenApiClient
     public function updateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DirectoryId']    = $request->directoryId;
-        $query['GroupId']        = $request->groupId;
-        $query['NewDescription'] = $request->newDescription;
-        $query['NewGroupName']   = $request->newGroupName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->newGroupName)) {
+            $query['NewGroupName'] = $request->newGroupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateGroup',
@@ -2578,7 +2967,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2606,14 +2995,21 @@ class Cloudsso extends OpenApiClient
     public function updateInlinePolicyForAccessConfigurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                            = [];
-        $query['AccessConfigurationId']   = $request->accessConfigurationId;
-        $query['DirectoryId']             = $request->directoryId;
-        $query['InlinePolicyName']        = $request->inlinePolicyName;
-        $query['NewInlinePolicyDocument'] = $request->newInlinePolicyDocument;
-        $req                              = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accessConfigurationId)) {
+            $query['AccessConfigurationId'] = $request->accessConfigurationId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->inlinePolicyName)) {
+            $query['InlinePolicyName'] = $request->inlinePolicyName;
+        }
+        if (!Utils::isUnset($request->newInlinePolicyDocument)) {
+            $query['NewInlinePolicyDocument'] = $request->newInlinePolicyDocument;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateInlinePolicyForAccessConfiguration',
@@ -2623,7 +3019,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2643,6 +3039,52 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param UpdateMFAAuthenticationSettingsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateMFAAuthenticationSettingsResponse
+     */
+    public function updateMFAAuthenticationSettingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->MFAAuthenticationSettings)) {
+            $query['MFAAuthenticationSettings'] = $request->MFAAuthenticationSettings;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMFAAuthenticationSettings',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMFAAuthenticationSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMFAAuthenticationSettingsRequest $request
+     *
+     * @return UpdateMFAAuthenticationSettingsResponse
+     */
+    public function updateMFAAuthenticationSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMFAAuthenticationSettingsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateSCIMServerCredentialStatusRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -2651,13 +3093,18 @@ class Cloudsso extends OpenApiClient
     public function updateSCIMServerCredentialStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['CredentialId'] = $request->credentialId;
-        $query['DirectoryId']  = $request->directoryId;
-        $query['NewStatus']    = $request->newStatus;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->credentialId)) {
+            $query['CredentialId'] = $request->credentialId;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->newStatus)) {
+            $query['NewStatus'] = $request->newStatus;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateSCIMServerCredentialStatus',
@@ -2667,7 +3114,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2695,17 +3142,30 @@ class Cloudsso extends OpenApiClient
     public function updateUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DirectoryId']    = $request->directoryId;
-        $query['NewDescription'] = $request->newDescription;
-        $query['NewDisplayName'] = $request->newDisplayName;
-        $query['NewEmail']       = $request->newEmail;
-        $query['NewFirstName']   = $request->newFirstName;
-        $query['NewLastName']    = $request->newLastName;
-        $query['UserId']         = $request->userId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
+        }
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
+        }
+        if (!Utils::isUnset($request->newEmail)) {
+            $query['NewEmail'] = $request->newEmail;
+        }
+        if (!Utils::isUnset($request->newFirstName)) {
+            $query['NewFirstName'] = $request->newFirstName;
+        }
+        if (!Utils::isUnset($request->newLastName)) {
+            $query['NewLastName'] = $request->newLastName;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -2715,7 +3175,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2735,6 +3195,55 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * @param UpdateUserMFAAuthenticationSettingsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateUserMFAAuthenticationSettingsResponse
+     */
+    public function updateUserMFAAuthenticationSettingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userMFAAuthenticationSettings)) {
+            $query['UserMFAAuthenticationSettings'] = $request->userMFAAuthenticationSettings;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserMFAAuthenticationSettings',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUserMFAAuthenticationSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserMFAAuthenticationSettingsRequest $request
+     *
+     * @return UpdateUserMFAAuthenticationSettingsResponse
+     */
+    public function updateUserMFAAuthenticationSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserMFAAuthenticationSettingsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateUserStatusRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2743,13 +3252,18 @@ class Cloudsso extends OpenApiClient
     public function updateUserStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['DirectoryId'] = $request->directoryId;
-        $query['NewStatus']   = $request->newStatus;
-        $query['UserId']      = $request->userId;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        if (!Utils::isUnset($request->newStatus)) {
+            $query['NewStatus'] = $request->newStatus;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateUserStatus',
@@ -2759,7 +3273,7 @@ class Cloudsso extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

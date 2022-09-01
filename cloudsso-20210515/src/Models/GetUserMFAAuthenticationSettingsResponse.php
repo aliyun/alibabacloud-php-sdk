@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetExternalSAMLIdentityProviderResponse extends Model
+class GetUserMFAAuthenticationSettingsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetExternalSAMLIdentityProviderResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetExternalSAMLIdentityProviderResponseBody
+     * @var GetUserMFAAuthenticationSettingsResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class GetExternalSAMLIdentityProviderResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetExternalSAMLIdentityProviderResponse
+     * @return GetUserMFAAuthenticationSettingsResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class GetExternalSAMLIdentityProviderResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetExternalSAMLIdentityProviderResponseBody::fromMap($map['body']);
+            $model->body = GetUserMFAAuthenticationSettingsResponseBody::fromMap($map['body']);
         }
 
         return $model;
