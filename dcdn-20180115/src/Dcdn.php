@@ -205,6 +205,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsByDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsByDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshQuotaRequest;
@@ -5679,6 +5681,49 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnIpaUserDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnL2VipsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDcdnL2VipsResponse
+     */
+    public function describeDcdnL2VipsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnL2Vips',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnL2VipsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnL2VipsRequest $request
+     *
+     * @return DescribeDcdnL2VipsResponse
+     */
+    public function describeDcdnL2Vips($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnL2VipsWithOptions($request, $runtime);
     }
 
     /**
