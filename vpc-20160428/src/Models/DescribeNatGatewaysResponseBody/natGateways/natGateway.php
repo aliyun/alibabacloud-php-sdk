@@ -47,6 +47,11 @@ class natGateway extends Model
     /**
      * @var string
      */
+    public $eipBindMode;
+
+    /**
+     * @var string
+     */
     public $expiredTime;
 
     /**
@@ -160,6 +165,7 @@ class natGateway extends Model
         'deletionProtection'        => 'DeletionProtection',
         'description'               => 'Description',
         'ecsMetricEnabled'          => 'EcsMetricEnabled',
+        'eipBindMode'               => 'EipBindMode',
         'expiredTime'               => 'ExpiredTime',
         'forwardTableIds'           => 'ForwardTableIds',
         'fullNatTableIds'           => 'FullNatTableIds',
@@ -208,6 +214,9 @@ class natGateway extends Model
         }
         if (null !== $this->ecsMetricEnabled) {
             $res['EcsMetricEnabled'] = $this->ecsMetricEnabled;
+        }
+        if (null !== $this->eipBindMode) {
+            $res['EipBindMode'] = $this->eipBindMode;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -304,6 +313,9 @@ class natGateway extends Model
         }
         if (isset($map['EcsMetricEnabled'])) {
             $model->ecsMetricEnabled = $map['EcsMetricEnabled'];
+        }
+        if (isset($map['EipBindMode'])) {
+            $model->eipBindMode = $map['EipBindMode'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
