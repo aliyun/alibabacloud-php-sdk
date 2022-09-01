@@ -14,6 +14,19 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddSubHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddSubRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddSubResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AddSubShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithAligenieUserInfoHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithAligenieUserInfoRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithAligenieUserInfoResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithTaobaoUserInfoHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithTaobaoUserInfoRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithTaobaoUserInfoResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtResponse;
@@ -45,6 +58,15 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeviceControlHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeviceControlRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeviceControlResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\DeviceControlShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessAuthenticateHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessAuthenticateRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessAuthenticateResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessSendVerificationCodeHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessSendVerificationCodeRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\EcologyOpennessSendVerificationCodeResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\FindUserlistToAuthLoginWithPhoneNumberHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\FindUserlistToAuthLoginWithPhoneNumberRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\FindUserlistToAuthLoginWithPhoneNumberResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlarmHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlarmRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlarmResponse;
@@ -414,6 +436,250 @@ class AliGenie extends OpenApiClient
         ]);
 
         return AddSubResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AuthLoginWithAligenieUserInfoRequest $request
+     *
+     * @return AuthLoginWithAligenieUserInfoResponse
+     */
+    public function authLoginWithAligenieUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AuthLoginWithAligenieUserInfoHeaders([]);
+
+        return $this->authLoginWithAligenieUserInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AuthLoginWithAligenieUserInfoRequest $request
+     * @param AuthLoginWithAligenieUserInfoHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AuthLoginWithAligenieUserInfoResponse
+     */
+    public function authLoginWithAligenieUserInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->encryptedAligenieUserIdentifier)) {
+            $body['EncryptedAligenieUserIdentifier'] = $request->encryptedAligenieUserIdentifier;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AuthLoginWithAligenieUserInfo',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/authLoginWithAligenieUserInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AuthLoginWithAligenieUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest $request
+     *
+     * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
+     */
+    public function authLoginWithAligenieUserInfoGeneratedByPhoneNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders([]);
+
+        return $this->authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest $request
+     * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders $headers
+     * @param RuntimeOptions                                             $runtime
+     *
+     * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
+     */
+    public function authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AuthLoginWithAligenieUserInfoGeneratedByPhoneNumber',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/authLoginWithAligenieUserInfoGeneratedByPhoneNumber',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AuthLoginWithTaobaoUserInfoRequest $request
+     *
+     * @return AuthLoginWithTaobaoUserInfoResponse
+     */
+    public function authLoginWithTaobaoUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AuthLoginWithTaobaoUserInfoHeaders([]);
+
+        return $this->authLoginWithTaobaoUserInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AuthLoginWithTaobaoUserInfoRequest $request
+     * @param AuthLoginWithTaobaoUserInfoHeaders $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AuthLoginWithTaobaoUserInfoResponse
+     */
+    public function authLoginWithTaobaoUserInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->encryptedTaobaoUserIdentifier)) {
+            $body['EncryptedTaobaoUserIdentifier'] = $request->encryptedTaobaoUserIdentifier;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AuthLoginWithTaobaoUserInfo',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/authLoginWithTaobaoUserInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AuthLoginWithTaobaoUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AuthLoginWithThirdUserInfoRequest $request
+     *
+     * @return AuthLoginWithThirdUserInfoResponse
+     */
+    public function authLoginWithThirdUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AuthLoginWithThirdUserInfoHeaders([]);
+
+        return $this->authLoginWithThirdUserInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AuthLoginWithThirdUserInfoRequest $tmpReq
+     * @param AuthLoginWithThirdUserInfoHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AuthLoginWithThirdUserInfoResponse
+     */
+    public function authLoginWithThirdUserInfoWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AuthLoginWithThirdUserInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extInfo)) {
+            $request->extInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extInfo, 'ExtInfo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->extInfoShrink)) {
+            $body['ExtInfo'] = $request->extInfoShrink;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $body['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->thirdUserIdentifier)) {
+            $body['ThirdUserIdentifier'] = $request->thirdUserIdentifier;
+        }
+        if (!Utils::isUnset($request->thirdUserType)) {
+            $body['ThirdUserType'] = $request->thirdUserType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AuthLoginWithThirdUserInfo',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/authLoginWithThirdUserInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AuthLoginWithThirdUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -976,6 +1242,195 @@ class AliGenie extends OpenApiClient
         ]);
 
         return DeviceControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EcologyOpennessAuthenticateRequest $request
+     *
+     * @return EcologyOpennessAuthenticateResponse
+     */
+    public function ecologyOpennessAuthenticate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new EcologyOpennessAuthenticateHeaders([]);
+
+        return $this->ecologyOpennessAuthenticateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param EcologyOpennessAuthenticateRequest $request
+     * @param EcologyOpennessAuthenticateHeaders $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EcologyOpennessAuthenticateResponse
+     */
+    public function ecologyOpennessAuthenticateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->encodeKey)) {
+            $body['EncodeKey'] = $request->encodeKey;
+        }
+        if (!Utils::isUnset($request->encodeType)) {
+            $body['EncodeType'] = $request->encodeType;
+        }
+        if (!Utils::isUnset($request->loginStateAccessToken)) {
+            $body['LoginStateAccessToken'] = $request->loginStateAccessToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EcologyOpennessAuthenticate',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/ecologyOpennessAuthenticate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EcologyOpennessAuthenticateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EcologyOpennessSendVerificationCodeRequest $request
+     *
+     * @return EcologyOpennessSendVerificationCodeResponse
+     */
+    public function ecologyOpennessSendVerificationCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new EcologyOpennessSendVerificationCodeHeaders([]);
+
+        return $this->ecologyOpennessSendVerificationCodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param EcologyOpennessSendVerificationCodeRequest $request
+     * @param EcologyOpennessSendVerificationCodeHeaders $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return EcologyOpennessSendVerificationCodeResponse
+     */
+    public function ecologyOpennessSendVerificationCodeWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EcologyOpennessSendVerificationCode',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/ecologyOpennessSendVerificationCode',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EcologyOpennessSendVerificationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FindUserlistToAuthLoginWithPhoneNumberRequest $request
+     *
+     * @return FindUserlistToAuthLoginWithPhoneNumberResponse
+     */
+    public function findUserlistToAuthLoginWithPhoneNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FindUserlistToAuthLoginWithPhoneNumberHeaders([]);
+
+        return $this->findUserlistToAuthLoginWithPhoneNumberWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FindUserlistToAuthLoginWithPhoneNumberRequest $request
+     * @param FindUserlistToAuthLoginWithPhoneNumberHeaders $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return FindUserlistToAuthLoginWithPhoneNumberResponse
+     */
+    public function findUserlistToAuthLoginWithPhoneNumberWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FindUserlistToAuthLoginWithPhoneNumber',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/findUserlistToAuthLoginWithPhoneNumber',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FindUserlistToAuthLoginWithPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
