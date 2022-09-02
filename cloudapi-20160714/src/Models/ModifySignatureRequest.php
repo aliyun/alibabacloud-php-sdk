@@ -11,6 +11,11 @@ class ModifySignatureRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $signatureId;
 
     /**
@@ -28,6 +33,7 @@ class ModifySignatureRequest extends Model
      */
     public $signatureSecret;
     protected $_name = [
+        'securityToken'   => 'SecurityToken',
         'signatureId'     => 'SignatureId',
         'signatureKey'    => 'SignatureKey',
         'signatureName'   => 'SignatureName',
@@ -41,6 +47,9 @@ class ModifySignatureRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
         }
@@ -65,6 +74,9 @@ class ModifySignatureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
         }

@@ -21,6 +21,11 @@ class RemoveTrafficControlApisRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $stageName;
 
     /**
@@ -30,6 +35,7 @@ class RemoveTrafficControlApisRequest extends Model
     protected $_name = [
         'apiIds'           => 'ApiIds',
         'groupId'          => 'GroupId',
+        'securityToken'    => 'SecurityToken',
         'stageName'        => 'StageName',
         'trafficControlId' => 'TrafficControlId',
     ];
@@ -46,6 +52,9 @@ class RemoveTrafficControlApisRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -70,6 +79,9 @@ class RemoveTrafficControlApisRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

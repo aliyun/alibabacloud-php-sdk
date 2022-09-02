@@ -17,9 +17,15 @@ class ReactivateDomainRequest extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'domainName' => 'DomainName',
-        'groupId'    => 'GroupId',
+        'domainName'    => 'DomainName',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ReactivateDomainRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ReactivateDomainRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

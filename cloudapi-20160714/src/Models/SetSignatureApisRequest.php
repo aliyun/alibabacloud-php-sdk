@@ -21,6 +21,11 @@ class SetSignatureApisRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $signatureId;
 
     /**
@@ -28,10 +33,11 @@ class SetSignatureApisRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'apiIds'      => 'ApiIds',
-        'groupId'     => 'GroupId',
-        'signatureId' => 'SignatureId',
-        'stageName'   => 'StageName',
+        'apiIds'        => 'ApiIds',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'signatureId'   => 'SignatureId',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class SetSignatureApisRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
@@ -70,6 +79,9 @@ class SetSignatureApisRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];

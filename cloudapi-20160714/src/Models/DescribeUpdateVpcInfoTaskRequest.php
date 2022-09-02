@@ -12,8 +12,14 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
      * @var string
      */
     public $operationUid;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'operationUid' => 'OperationUid',
+        'operationUid'  => 'OperationUid',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
         $res = [];
         if (null !== $this->operationUid) {
             $res['OperationUid'] = $this->operationUid;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeUpdateVpcInfoTaskRequest extends Model
         $model = new self();
         if (isset($map['OperationUid'])) {
             $model->operationUid = $map['OperationUid'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

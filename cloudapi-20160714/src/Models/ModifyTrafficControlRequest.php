@@ -26,6 +26,11 @@ class ModifyTrafficControlRequest extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $trafficControlId;
 
     /**
@@ -46,6 +51,7 @@ class ModifyTrafficControlRequest extends Model
         'apiDefault'         => 'ApiDefault',
         'appDefault'         => 'AppDefault',
         'description'        => 'Description',
+        'securityToken'      => 'SecurityToken',
         'trafficControlId'   => 'TrafficControlId',
         'trafficControlName' => 'TrafficControlName',
         'trafficControlUnit' => 'TrafficControlUnit',
@@ -67,6 +73,9 @@ class ModifyTrafficControlRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->trafficControlId) {
             $res['TrafficControlId'] = $this->trafficControlId;
@@ -100,6 +109,9 @@ class ModifyTrafficControlRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TrafficControlId'])) {
             $model->trafficControlId = $map['TrafficControlId'];

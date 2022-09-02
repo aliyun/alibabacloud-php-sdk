@@ -226,8 +226,6 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiConfigurationResponse;
-use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupNetworkPolicyRequest;
-use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupNetworkPolicyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyApiGroupVpcWhitelistRequest;
@@ -256,6 +254,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifySignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifySignatureResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyTrafficControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyTrafficControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyVpcAccessAndUpdateApisRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyVpcAccessAndUpdateApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\OpenApiGatewayServiceResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ReactivateDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ReactivateDomainResponse;
@@ -5629,6 +5629,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
         }
@@ -5675,6 +5678,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->operationUid)) {
             $query['OperationUid'] = $request->operationUid;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5717,6 +5723,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->operationUid)) {
             $query['OperationUid'] = $request->operationUid;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5929,6 +5938,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6042,6 +6054,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6545,67 +6560,6 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param ModifyApiGroupNetworkPolicyRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyApiGroupNetworkPolicyResponse
-     */
-    public function modifyApiGroupNetworkPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->httpsPolicy)) {
-            $query['HttpsPolicy'] = $request->httpsPolicy;
-        }
-        if (!Utils::isUnset($request->internetEnable)) {
-            $query['InternetEnable'] = $request->internetEnable;
-        }
-        if (!Utils::isUnset($request->internetIPV6Enable)) {
-            $query['InternetIPV6Enable'] = $request->internetIPV6Enable;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->vpcIntranetEnable)) {
-            $query['VpcIntranetEnable'] = $request->vpcIntranetEnable;
-        }
-        if (!Utils::isUnset($request->vpcSlbIntranetEnable)) {
-            $query['VpcSlbIntranetEnable'] = $request->vpcSlbIntranetEnable;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyApiGroupNetworkPolicy',
-            'version'     => '2016-07-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyApiGroupNetworkPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyApiGroupNetworkPolicyRequest $request
-     *
-     * @return ModifyApiGroupNetworkPolicyResponse
-     */
-    public function modifyApiGroupNetworkPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyApiGroupNetworkPolicyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyApiGroupVpcWhitelistRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -6902,6 +6856,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->ipControlName)) {
             $query['IpControlName'] = $request->ipControlName;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7162,6 +7119,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->signatureId)) {
             $query['SignatureId'] = $request->signatureId;
         }
@@ -7223,6 +7183,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->trafficControlId)) {
             $query['TrafficControlId'] = $request->trafficControlId;
         }
@@ -7263,6 +7226,73 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTrafficControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyVpcAccessAndUpdateApisRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyVpcAccessAndUpdateApisResponse
+     */
+    public function modifyVpcAccessAndUpdateApisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->needBatchWork)) {
+            $query['NeedBatchWork'] = $request->needBatchWork;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->refresh)) {
+            $query['Refresh'] = $request->refresh;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vpcTargetHostName)) {
+            $query['VpcTargetHostName'] = $request->vpcTargetHostName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVpcAccessAndUpdateApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVpcAccessAndUpdateApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVpcAccessAndUpdateApisRequest $request
+     *
+     * @return ModifyVpcAccessAndUpdateApisResponse
+     */
+    public function modifyVpcAccessAndUpdateApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVpcAccessAndUpdateApisWithOptions($request, $runtime);
     }
 
     /**
@@ -7314,6 +7344,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7359,6 +7392,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->aclId)) {
             $query['AclId'] = $request->aclId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7411,6 +7447,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -7571,6 +7610,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->policyItemIds)) {
             $query['PolicyItemIds'] = $request->policyItemIds;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7616,6 +7658,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->signatureId)) {
             $query['SignatureId'] = $request->signatureId;
@@ -7668,6 +7713,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -8476,6 +8524,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
         if (!Utils::isUnset($request->signatureId)) {
             $query['SignatureId'] = $request->signatureId;
         }
@@ -8527,6 +8578,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->stageName)) {
             $query['StageName'] = $request->stageName;
@@ -8640,6 +8694,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
         if (!Utils::isUnset($request->wildcardDomainPatterns)) {
             $query['WildcardDomainPatterns'] = $request->wildcardDomainPatterns;
