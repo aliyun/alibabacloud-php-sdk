@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsResponseBody;
 
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CustomContainerConfig;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CustomHealthCheckConfig;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\InstanceLifecycleConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -34,6 +35,11 @@ class functions extends Model
      * @var CustomContainerConfig
      */
     public $customContainerConfig;
+
+    /**
+     * @var CustomHealthCheckConfig
+     */
+    public $customHealthCheckConfig;
 
     /**
      * @var string
@@ -120,6 +126,7 @@ class functions extends Model
         'codeSize'                => 'codeSize',
         'createdTime'             => 'createdTime',
         'customContainerConfig'   => 'customContainerConfig',
+        'customHealthCheckConfig' => 'customHealthCheckConfig',
         'description'             => 'description',
         'environmentVariables'    => 'environmentVariables',
         'functionId'              => 'functionId',
@@ -159,6 +166,9 @@ class functions extends Model
         }
         if (null !== $this->customContainerConfig) {
             $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toMap() : null;
+        }
+        if (null !== $this->customHealthCheckConfig) {
+            $res['customHealthCheckConfig'] = null !== $this->customHealthCheckConfig ? $this->customHealthCheckConfig->toMap() : null;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -234,6 +244,9 @@ class functions extends Model
         }
         if (isset($map['customContainerConfig'])) {
             $model->customContainerConfig = CustomContainerConfig::fromMap($map['customContainerConfig']);
+        }
+        if (isset($map['customHealthCheckConfig'])) {
+            $model->customHealthCheckConfig = CustomHealthCheckConfig::fromMap($map['customHealthCheckConfig']);
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];

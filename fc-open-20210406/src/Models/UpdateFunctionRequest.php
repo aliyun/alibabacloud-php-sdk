@@ -34,6 +34,11 @@ class UpdateFunctionRequest extends Model
     public $customDNS;
 
     /**
+     * @var CustomHealthCheckConfig
+     */
+    public $customHealthCheckConfig;
+
+    /**
      * @var CustomRuntimeConfig
      */
     public $customRuntimeConfig;
@@ -103,6 +108,7 @@ class UpdateFunctionRequest extends Model
         'code'                    => 'code',
         'customContainerConfig'   => 'customContainerConfig',
         'customDNS'               => 'customDNS',
+        'customHealthCheckConfig' => 'customHealthCheckConfig',
         'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
         'environmentVariables'    => 'environmentVariables',
@@ -139,6 +145,9 @@ class UpdateFunctionRequest extends Model
         }
         if (null !== $this->customDNS) {
             $res['customDNS'] = null !== $this->customDNS ? $this->customDNS->toMap() : null;
+        }
+        if (null !== $this->customHealthCheckConfig) {
+            $res['customHealthCheckConfig'] = null !== $this->customHealthCheckConfig ? $this->customHealthCheckConfig->toMap() : null;
         }
         if (null !== $this->customRuntimeConfig) {
             $res['customRuntimeConfig'] = null !== $this->customRuntimeConfig ? $this->customRuntimeConfig->toMap() : null;
@@ -205,6 +214,9 @@ class UpdateFunctionRequest extends Model
         }
         if (isset($map['customDNS'])) {
             $model->customDNS = CustomDNS::fromMap($map['customDNS']);
+        }
+        if (isset($map['customHealthCheckConfig'])) {
+            $model->customHealthCheckConfig = CustomHealthCheckConfig::fromMap($map['customHealthCheckConfig']);
         }
         if (isset($map['customRuntimeConfig'])) {
             $model->customRuntimeConfig = CustomRuntimeConfig::fromMap($map['customRuntimeConfig']);

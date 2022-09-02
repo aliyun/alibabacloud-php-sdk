@@ -29,6 +29,11 @@ class CreateServiceRequest extends Model
     public $nasConfig;
 
     /**
+     * @var OSSMountConfig
+     */
+    public $ossMountConfig;
+
+    /**
      * @var string
      */
     public $role;
@@ -52,6 +57,7 @@ class CreateServiceRequest extends Model
         'internetAccess' => 'internetAccess',
         'logConfig'      => 'logConfig',
         'nasConfig'      => 'nasConfig',
+        'ossMountConfig' => 'ossMountConfig',
         'role'           => 'role',
         'serviceName'    => 'serviceName',
         'tracingConfig'  => 'tracingConfig',
@@ -76,6 +82,9 @@ class CreateServiceRequest extends Model
         }
         if (null !== $this->nasConfig) {
             $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toMap() : null;
+        }
+        if (null !== $this->ossMountConfig) {
+            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toMap() : null;
         }
         if (null !== $this->role) {
             $res['role'] = $this->role;
@@ -112,6 +121,9 @@ class CreateServiceRequest extends Model
         }
         if (isset($map['nasConfig'])) {
             $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+        if (isset($map['ossMountConfig'])) {
+            $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
         }
         if (isset($map['role'])) {
             $model->role = $map['role'];

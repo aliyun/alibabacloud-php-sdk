@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ClaimGPUInstanceHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ClaimGPUInstanceRequest;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ClaimGPUInstanceResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateAliasHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateAliasRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateAliasResponse;
@@ -160,6 +163,8 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\RegisterEventSourceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\RegisterEventSourceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\RegisterEventSourceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ReleaseGPUInstanceHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ReleaseGPUInstanceResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\StopStatefulAsyncInvocationHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\StopStatefulAsyncInvocationRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\StopStatefulAsyncInvocationResponse;
@@ -244,6 +249,89 @@ class FCOpen extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ClaimGPUInstanceRequest $request
+     *
+     * @return ClaimGPUInstanceResponse
+     */
+    public function claimGPUInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ClaimGPUInstanceHeaders([]);
+
+        return $this->claimGPUInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ClaimGPUInstanceRequest $request
+     * @param ClaimGPUInstanceHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ClaimGPUInstanceResponse
+     */
+    public function claimGPUInstanceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->diskPerformanceLevel)) {
+            $body['diskPerformanceLevel'] = $request->diskPerformanceLevel;
+        }
+        if (!Utils::isUnset($request->diskSizeGigabytes)) {
+            $body['diskSizeGigabytes'] = $request->diskSizeGigabytes;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $body['imageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $body['instanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetBandwidthOut)) {
+            $body['internetBandwidthOut'] = $request->internetBandwidthOut;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->sourceCidrIp)) {
+            $body['sourceCidrIp'] = $request->sourceCidrIp;
+        }
+        if (!Utils::isUnset($request->tcpPortRange)) {
+            $body['tcpPortRange'] = $request->tcpPortRange;
+        }
+        if (!Utils::isUnset($request->udpPortRange)) {
+            $body['udpPortRange'] = $request->udpPortRange;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ClaimGPUInstance',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/gpuInstances',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClaimGPUInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -433,6 +521,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->customDNS)) {
             $body['customDNS'] = $request->customDNS;
         }
+        if (!Utils::isUnset($request->customHealthCheckConfig)) {
+            $body['customHealthCheckConfig'] = $request->customHealthCheckConfig;
+        }
         if (!Utils::isUnset($request->customRuntimeConfig)) {
             $body['customRuntimeConfig'] = $request->customRuntimeConfig;
         }
@@ -616,6 +707,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->nasConfig)) {
             $body['nasConfig'] = $request->nasConfig;
+        }
+        if (!Utils::isUnset($request->ossMountConfig)) {
+            $body['ossMountConfig'] = $request->ossMountConfig;
         }
         if (!Utils::isUnset($request->role)) {
             $body['role'] = $request->role;
@@ -4027,6 +4121,60 @@ class FCOpen extends OpenApiClient
     }
 
     /**
+     * @param string $instanceId
+     *
+     * @return ReleaseGPUInstanceResponse
+     */
+    public function releaseGPUInstance($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ReleaseGPUInstanceHeaders([]);
+
+        return $this->releaseGPUInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $instanceId
+     * @param ReleaseGPUInstanceHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ReleaseGPUInstanceResponse
+     */
+    public function releaseGPUInstanceWithOptions($instanceId, $headers, $runtime)
+    {
+        $instanceId  = OpenApiUtilClient::getEncodeParam($instanceId);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            $realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            $realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            $realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseGPUInstance',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/gpuInstances/' . $instanceId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return ReleaseGPUInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                             $serviceName
      * @param string                             $functionName
      * @param string                             $invocationId
@@ -4417,6 +4565,9 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->customDNS)) {
             $body['customDNS'] = $request->customDNS;
         }
+        if (!Utils::isUnset($request->customHealthCheckConfig)) {
+            $body['customHealthCheckConfig'] = $request->customHealthCheckConfig;
+        }
         if (!Utils::isUnset($request->customRuntimeConfig)) {
             $body['customRuntimeConfig'] = $request->customRuntimeConfig;
         }
@@ -4532,6 +4683,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->nasConfig)) {
             $body['nasConfig'] = $request->nasConfig;
+        }
+        if (!Utils::isUnset($request->ossMountConfig)) {
+            $body['ossMountConfig'] = $request->ossMountConfig;
         }
         if (!Utils::isUnset($request->role)) {
             $body['role'] = $request->role;
