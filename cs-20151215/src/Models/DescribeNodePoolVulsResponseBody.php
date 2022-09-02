@@ -13,8 +13,14 @@ class DescribeNodePoolVulsResponseBody extends Model
      * @var vulRecords[]
      */
     public $vulRecords;
+
+    /**
+     * @var bool
+     */
+    public $vulsFixServicePurchased;
     protected $_name = [
-        'vulRecords' => 'vul_records',
+        'vulRecords'              => 'vul_records',
+        'vulsFixServicePurchased' => 'vuls_fix_service_purchased',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class DescribeNodePoolVulsResponseBody extends Model
                     $res['vul_records'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vulsFixServicePurchased) {
+            $res['vuls_fix_service_purchased'] = $this->vulsFixServicePurchased;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class DescribeNodePoolVulsResponseBody extends Model
                     $model->vulRecords[$n++] = null !== $item ? vulRecords::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['vuls_fix_service_purchased'])) {
+            $model->vulsFixServicePurchased = $map['vuls_fix_service_purchased'];
         }
 
         return $model;
