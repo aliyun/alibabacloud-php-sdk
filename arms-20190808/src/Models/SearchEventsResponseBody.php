@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SearchEventsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $isTrigger;
+
+    /**
      * @var pageBean
      */
     public $pageBean;
@@ -18,15 +23,10 @@ class SearchEventsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $isTrigger;
     protected $_name = [
+        'isTrigger' => 'IsTrigger',
         'pageBean'  => 'PageBean',
         'requestId' => 'RequestId',
-        'isTrigger' => 'IsTrigger',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class SearchEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isTrigger) {
+            $res['IsTrigger'] = $this->isTrigger;
+        }
         if (null !== $this->pageBean) {
             $res['PageBean'] = null !== $this->pageBean ? $this->pageBean->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->isTrigger) {
-            $res['IsTrigger'] = $this->isTrigger;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class SearchEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsTrigger'])) {
+            $model->isTrigger = $map['IsTrigger'];
+        }
         if (isset($map['PageBean'])) {
             $model->pageBean = pageBean::fromMap($map['PageBean']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['IsTrigger'])) {
-            $model->isTrigger = $map['IsTrigger'];
         }
 
         return $model;

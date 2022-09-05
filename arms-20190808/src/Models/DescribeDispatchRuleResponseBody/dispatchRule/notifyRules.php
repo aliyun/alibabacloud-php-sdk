@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class notifyRules extends Model
 {
     /**
-     * @var notifyObjects[]
-     */
-    public $notifyObjects;
-
-    /**
      * @var string[]
      */
     public $notifyChannels;
+
+    /**
+     * @var notifyObjects[]
+     */
+    public $notifyObjects;
     protected $_name = [
-        'notifyObjects'  => 'NotifyObjects',
         'notifyChannels' => 'NotifyChannels',
+        'notifyObjects'  => 'NotifyObjects',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class notifyRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->notifyChannels) {
+            $res['NotifyChannels'] = $this->notifyChannels;
+        }
         if (null !== $this->notifyObjects) {
             $res['NotifyObjects'] = [];
             if (null !== $this->notifyObjects && \is_array($this->notifyObjects)) {
@@ -38,9 +41,6 @@ class notifyRules extends Model
                     $res['NotifyObjects'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->notifyChannels) {
-            $res['NotifyChannels'] = $this->notifyChannels;
         }
 
         return $res;
@@ -54,6 +54,11 @@ class notifyRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NotifyChannels'])) {
+            if (!empty($map['NotifyChannels'])) {
+                $model->notifyChannels = $map['NotifyChannels'];
+            }
+        }
         if (isset($map['NotifyObjects'])) {
             if (!empty($map['NotifyObjects'])) {
                 $model->notifyObjects = [];
@@ -61,11 +66,6 @@ class notifyRules extends Model
                 foreach ($map['NotifyObjects'] as $item) {
                     $model->notifyObjects[$n++] = null !== $item ? notifyObjects::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['NotifyChannels'])) {
-            if (!empty($map['NotifyChannels'])) {
-                $model->notifyChannels = $map['NotifyChannels'];
             }
         }
 

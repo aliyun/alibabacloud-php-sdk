@@ -11,7 +11,12 @@ class ImportAppAlertRulesRequest extends Model
     /**
      * @var string
      */
-    public $templateAlertId;
+    public $contactGroupIds;
+
+    /**
+     * @var bool
+     */
+    public $isAutoStart;
 
     /**
      * @var string
@@ -26,30 +31,19 @@ class ImportAppAlertRulesRequest extends Model
     /**
      * @var string
      */
-    public $contactGroupIds;
-
-    /**
-     * @var bool
-     */
-    public $isAutoStart;
-
-    /**
-     * @var string
-     */
     public $templageAlertConfig;
 
     /**
      * @var string
      */
-    public $proxyUserId;
+    public $templateAlertId;
     protected $_name = [
-        'templateAlertId'     => 'TemplateAlertId',
-        'pids'                => 'Pids',
-        'regionId'            => 'RegionId',
         'contactGroupIds'     => 'ContactGroupIds',
         'isAutoStart'         => 'IsAutoStart',
+        'pids'                => 'Pids',
+        'regionId'            => 'RegionId',
         'templageAlertConfig' => 'TemplageAlertConfig',
-        'proxyUserId'         => 'ProxyUserId',
+        'templateAlertId'     => 'TemplateAlertId',
     ];
 
     public function validate()
@@ -59,8 +53,11 @@ class ImportAppAlertRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateAlertId) {
-            $res['TemplateAlertId'] = $this->templateAlertId;
+        if (null !== $this->contactGroupIds) {
+            $res['ContactGroupIds'] = $this->contactGroupIds;
+        }
+        if (null !== $this->isAutoStart) {
+            $res['IsAutoStart'] = $this->isAutoStart;
         }
         if (null !== $this->pids) {
             $res['Pids'] = $this->pids;
@@ -68,17 +65,11 @@ class ImportAppAlertRulesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->contactGroupIds) {
-            $res['ContactGroupIds'] = $this->contactGroupIds;
-        }
-        if (null !== $this->isAutoStart) {
-            $res['IsAutoStart'] = $this->isAutoStart;
-        }
         if (null !== $this->templageAlertConfig) {
             $res['TemplageAlertConfig'] = $this->templageAlertConfig;
         }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
+        if (null !== $this->templateAlertId) {
+            $res['TemplateAlertId'] = $this->templateAlertId;
         }
 
         return $res;
@@ -92,8 +83,11 @@ class ImportAppAlertRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateAlertId'])) {
-            $model->templateAlertId = $map['TemplateAlertId'];
+        if (isset($map['ContactGroupIds'])) {
+            $model->contactGroupIds = $map['ContactGroupIds'];
+        }
+        if (isset($map['IsAutoStart'])) {
+            $model->isAutoStart = $map['IsAutoStart'];
         }
         if (isset($map['Pids'])) {
             $model->pids = $map['Pids'];
@@ -101,17 +95,11 @@ class ImportAppAlertRulesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ContactGroupIds'])) {
-            $model->contactGroupIds = $map['ContactGroupIds'];
-        }
-        if (isset($map['IsAutoStart'])) {
-            $model->isAutoStart = $map['IsAutoStart'];
-        }
         if (isset($map['TemplageAlertConfig'])) {
             $model->templageAlertConfig = $map['TemplageAlertConfig'];
         }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
+        if (isset($map['TemplateAlertId'])) {
+            $model->templateAlertId = $map['TemplateAlertId'];
         }
 
         return $model;

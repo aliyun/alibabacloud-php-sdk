@@ -11,15 +11,15 @@ class ListRetcodeAppsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'regionId'      => 'RegionId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListRetcodeAppsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListRetcodeAppsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

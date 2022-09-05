@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDispatchRuleResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var dispatchRule
      */
     public $dispatchRule;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'dispatchRule' => 'DispatchRule',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDispatchRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dispatchRule) {
             $res['DispatchRule'] = null !== $this->dispatchRule ? $this->dispatchRule->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDispatchRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DispatchRule'])) {
             $model->dispatchRule = dispatchRule::fromMap($map['DispatchRule']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SearchTraceAppByNameResponseBody extends Model
 {
     /**
-     * @var traceApps[]
-     */
-    public $traceApps;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var traceApps[]
+     */
+    public $traceApps;
     protected $_name = [
-        'traceApps' => 'TraceApps',
         'requestId' => 'RequestId',
+        'traceApps' => 'TraceApps',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class SearchTraceAppByNameResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->traceApps) {
             $res['TraceApps'] = [];
             if (null !== $this->traceApps && \is_array($this->traceApps)) {
@@ -38,9 +41,6 @@ class SearchTraceAppByNameResponseBody extends Model
                     $res['TraceApps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class SearchTraceAppByNameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TraceApps'])) {
             if (!empty($map['TraceApps'])) {
                 $model->traceApps = [];
@@ -62,9 +65,6 @@ class SearchTraceAppByNameResponseBody extends Model
                     $model->traceApps[$n++] = null !== $item ? traceApps::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

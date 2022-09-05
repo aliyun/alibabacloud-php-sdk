@@ -11,21 +11,21 @@ class CreateRetcodeAppRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $retcodeAppName;
 
     /**
      * @var string
      */
     public $retcodeAppType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
+        'regionId'       => 'RegionId',
         'retcodeAppName' => 'RetcodeAppName',
         'retcodeAppType' => 'RetcodeAppType',
-        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateRetcodeAppRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->retcodeAppName) {
             $res['RetcodeAppName'] = $this->retcodeAppName;
         }
         if (null !== $this->retcodeAppType) {
             $res['RetcodeAppType'] = $this->retcodeAppType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateRetcodeAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RetcodeAppName'])) {
             $model->retcodeAppName = $map['RetcodeAppName'];
         }
         if (isset($map['RetcodeAppType'])) {
             $model->retcodeAppType = $map['RetcodeAppType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListClusterFromGrafanaResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var promClusterList[]
      */
     public $promClusterList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'promClusterList' => 'PromClusterList',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListClusterFromGrafanaResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->promClusterList) {
             $res['PromClusterList'] = [];
             if (null !== $this->promClusterList && \is_array($this->promClusterList)) {
@@ -41,6 +38,9 @@ class ListClusterFromGrafanaResponseBody extends Model
                     $res['PromClusterList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListClusterFromGrafanaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PromClusterList'])) {
             if (!empty($map['PromClusterList'])) {
                 $model->promClusterList = [];
@@ -65,6 +62,9 @@ class ListClusterFromGrafanaResponseBody extends Model
                     $model->promClusterList[$n++] = null !== $item ? promClusterList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

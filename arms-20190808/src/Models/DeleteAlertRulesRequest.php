@@ -16,16 +16,10 @@ class DeleteAlertRulesRequest extends Model
     /**
      * @var string
      */
-    public $proxyUserId;
-
-    /**
-     * @var string
-     */
     public $regionId;
     protected $_name = [
-        'alertIds'    => 'AlertIds',
-        'proxyUserId' => 'ProxyUserId',
-        'regionId'    => 'RegionId',
+        'alertIds' => 'AlertIds',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class DeleteAlertRulesRequest extends Model
         $res = [];
         if (null !== $this->alertIds) {
             $res['AlertIds'] = $this->alertIds;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -58,9 +49,6 @@ class DeleteAlertRulesRequest extends Model
         $model = new self();
         if (isset($map['AlertIds'])) {
             $model->alertIds = $map['AlertIds'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

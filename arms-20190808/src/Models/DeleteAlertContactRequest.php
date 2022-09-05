@@ -9,23 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertContactRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $proxyUserId;
-
-    /**
      * @var int
      */
     public $contactId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'proxyUserId' => 'ProxyUserId',
-        'contactId'   => 'ContactId',
+        'contactId' => 'ContactId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DeleteAlertContactRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DeleteAlertContactRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

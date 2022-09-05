@@ -11,15 +11,15 @@ class CreateAlertContactResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $contactId;
 
     /**
      * @var string
      */
-    public $contactId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'contactId' => 'ContactId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAlertContactResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAlertContactResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

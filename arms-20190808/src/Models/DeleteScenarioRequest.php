@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteScenarioRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $scenarioId;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $scenarioId;
     protected $_name = [
-        'scenarioId' => 'ScenarioId',
         'regionId'   => 'RegionId',
+        'scenarioId' => 'ScenarioId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteScenarioRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteScenarioRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
         }
 
         return $model;

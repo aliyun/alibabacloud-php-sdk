@@ -11,22 +11,12 @@ class SearchAlertContactGroupRequest extends Model
     /**
      * @var string
      */
+    public $contactGroupIds;
+
+    /**
+     * @var string
+     */
     public $contactGroupName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $proxyUserId;
-
-    /**
-     * @var string
-     */
-    public $contactName;
 
     /**
      * @var int
@@ -36,20 +26,24 @@ class SearchAlertContactGroupRequest extends Model
     /**
      * @var string
      */
-    public $contactGroupIds;
+    public $contactName;
 
     /**
      * @var bool
      */
     public $isDetail;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'contactGroupName' => 'ContactGroupName',
-        'regionId'         => 'RegionId',
-        'proxyUserId'      => 'ProxyUserId',
-        'contactName'      => 'ContactName',
-        'contactId'        => 'ContactId',
         'contactGroupIds'  => 'ContactGroupIds',
+        'contactGroupName' => 'ContactGroupName',
+        'contactId'        => 'ContactId',
+        'contactName'      => 'ContactName',
         'isDetail'         => 'IsDetail',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -59,26 +53,23 @@ class SearchAlertContactGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactGroupIds) {
+            $res['ContactGroupIds'] = $this->contactGroupIds;
+        }
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
-        if (null !== $this->contactName) {
-            $res['ContactName'] = $this->contactName;
         }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
-        if (null !== $this->contactGroupIds) {
-            $res['ContactGroupIds'] = $this->contactGroupIds;
+        if (null !== $this->contactName) {
+            $res['ContactName'] = $this->contactName;
         }
         if (null !== $this->isDetail) {
             $res['IsDetail'] = $this->isDetail;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -92,26 +83,23 @@ class SearchAlertContactGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactGroupIds'])) {
+            $model->contactGroupIds = $map['ContactGroupIds'];
+        }
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
-        if (isset($map['ContactName'])) {
-            $model->contactName = $map['ContactName'];
         }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
-        if (isset($map['ContactGroupIds'])) {
-            $model->contactGroupIds = $map['ContactGroupIds'];
+        if (isset($map['ContactName'])) {
+            $model->contactName = $map['ContactName'];
         }
         if (isset($map['IsDetail'])) {
             $model->isDetail = $map['IsDetail'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

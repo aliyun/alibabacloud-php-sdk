@@ -11,15 +11,15 @@ class extInfo extends Model
     /**
      * @var string
      */
-    public $type;
+    public $info;
 
     /**
      * @var string
      */
-    public $info;
+    public $type;
     protected $_name = [
-        'type' => 'Type',
         'info' => 'Info',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class extInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->info) {
             $res['Info'] = $this->info;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class extInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Info'])) {
             $model->info = $map['Info'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $contactId;
+
+    /**
      * @var string
      */
     public $contactName;
@@ -16,7 +21,7 @@ class UpdateAlertContactRequest extends Model
     /**
      * @var string
      */
-    public $phoneNum;
+    public $dingRobotWebhookUrl;
 
     /**
      * @var string
@@ -26,12 +31,7 @@ class UpdateAlertContactRequest extends Model
     /**
      * @var string
      */
-    public $dingRobotWebhookUrl;
-
-    /**
-     * @var bool
-     */
-    public $systemNoc;
+    public $phoneNum;
 
     /**
      * @var string
@@ -39,23 +39,17 @@ class UpdateAlertContactRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $proxyUserId;
-
-    /**
-     * @var int
-     */
-    public $contactId;
+    public $systemNoc;
     protected $_name = [
-        'contactName'         => 'ContactName',
-        'phoneNum'            => 'PhoneNum',
-        'email'               => 'Email',
-        'dingRobotWebhookUrl' => 'DingRobotWebhookUrl',
-        'systemNoc'           => 'SystemNoc',
-        'regionId'            => 'RegionId',
-        'proxyUserId'         => 'ProxyUserId',
         'contactId'           => 'ContactId',
+        'contactName'         => 'ContactName',
+        'dingRobotWebhookUrl' => 'DingRobotWebhookUrl',
+        'email'               => 'Email',
+        'phoneNum'            => 'PhoneNum',
+        'regionId'            => 'RegionId',
+        'systemNoc'           => 'SystemNoc',
     ];
 
     public function validate()
@@ -65,29 +59,26 @@ class UpdateAlertContactRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactId) {
+            $res['ContactId'] = $this->contactId;
+        }
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
-        }
-        if (null !== $this->phoneNum) {
-            $res['PhoneNum'] = $this->phoneNum;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
         if (null !== $this->dingRobotWebhookUrl) {
             $res['DingRobotWebhookUrl'] = $this->dingRobotWebhookUrl;
         }
-        if (null !== $this->systemNoc) {
-            $res['SystemNoc'] = $this->systemNoc;
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
+        if (null !== $this->phoneNum) {
+            $res['PhoneNum'] = $this->phoneNum;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
-        if (null !== $this->contactId) {
-            $res['ContactId'] = $this->contactId;
+        if (null !== $this->systemNoc) {
+            $res['SystemNoc'] = $this->systemNoc;
         }
 
         return $res;
@@ -101,29 +92,26 @@ class UpdateAlertContactRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactId'])) {
+            $model->contactId = $map['ContactId'];
+        }
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
-        }
-        if (isset($map['PhoneNum'])) {
-            $model->phoneNum = $map['PhoneNum'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
         if (isset($map['DingRobotWebhookUrl'])) {
             $model->dingRobotWebhookUrl = $map['DingRobotWebhookUrl'];
         }
-        if (isset($map['SystemNoc'])) {
-            $model->systemNoc = $map['SystemNoc'];
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
+        if (isset($map['PhoneNum'])) {
+            $model->phoneNum = $map['PhoneNum'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
-        if (isset($map['ContactId'])) {
-            $model->contactId = $map['ContactId'];
+        if (isset($map['SystemNoc'])) {
+            $model->systemNoc = $map['SystemNoc'];
         }
 
         return $model;

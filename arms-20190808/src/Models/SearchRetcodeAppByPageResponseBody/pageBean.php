@@ -20,19 +20,19 @@ class pageBean extends Model
     public $pageSize;
 
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var retcodeApps[]
      */
     public $retcodeApps;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
         'retcodeApps' => 'RetcodeApps',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class pageBean extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->retcodeApps) {
             $res['RetcodeApps'] = [];
             if (null !== $this->retcodeApps && \is_array($this->retcodeApps)) {
@@ -59,6 +56,9 @@ class pageBean extends Model
                     $res['RetcodeApps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class pageBean extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RetcodeApps'])) {
             if (!empty($map['RetcodeApps'])) {
                 $model->retcodeApps = [];
@@ -89,6 +86,9 @@ class pageBean extends Model
                     $model->retcodeApps[$n++] = null !== $item ? retcodeApps::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

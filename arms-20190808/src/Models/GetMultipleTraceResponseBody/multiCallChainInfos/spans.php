@@ -11,34 +11,9 @@ use AlibabaCloud\Tea\Model;
 class spans extends Model
 {
     /**
-     * @var string
-     */
-    public $operationName;
-
-    /**
-     * @var string
-     */
-    public $resultCode;
-
-    /**
      * @var int
      */
-    public $timestamp;
-
-    /**
-     * @var int
-     */
-    public $rpcType;
-
-    /**
-     * @var tagEntryList[]
-     */
-    public $tagEntryList;
-
-    /**
-     * @var logEventList[]
-     */
-    public $logEventList;
+    public $duration;
 
     /**
      * @var bool
@@ -46,19 +21,39 @@ class spans extends Model
     public $haveStack;
 
     /**
-     * @var string
+     * @var logEventList[]
      */
-    public $serviceIp;
+    public $logEventList;
 
     /**
-     * @var int
+     * @var string
      */
-    public $duration;
+    public $operationName;
+
+    /**
+     * @var string
+     */
+    public $parentSpanId;
+
+    /**
+     * @var string
+     */
+    public $resultCode;
 
     /**
      * @var string
      */
     public $rpcId;
+
+    /**
+     * @var int
+     */
+    public $rpcType;
+
+    /**
+     * @var string
+     */
+    public $serviceIp;
 
     /**
      * @var string
@@ -68,19 +63,36 @@ class spans extends Model
     /**
      * @var string
      */
+    public $spanId;
+
+    /**
+     * @var tagEntryList[]
+     */
+    public $tagEntryList;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
+
+    /**
+     * @var string
+     */
     public $traceID;
     protected $_name = [
-        'operationName' => 'OperationName',
-        'resultCode'    => 'ResultCode',
-        'timestamp'     => 'Timestamp',
-        'rpcType'       => 'RpcType',
-        'tagEntryList'  => 'TagEntryList',
-        'logEventList'  => 'LogEventList',
-        'haveStack'     => 'HaveStack',
-        'serviceIp'     => 'ServiceIp',
         'duration'      => 'Duration',
+        'haveStack'     => 'HaveStack',
+        'logEventList'  => 'LogEventList',
+        'operationName' => 'OperationName',
+        'parentSpanId'  => 'ParentSpanId',
+        'resultCode'    => 'ResultCode',
         'rpcId'         => 'RpcId',
+        'rpcType'       => 'RpcType',
+        'serviceIp'     => 'ServiceIp',
         'serviceName'   => 'ServiceName',
+        'spanId'        => 'SpanId',
+        'tagEntryList'  => 'TagEntryList',
+        'timestamp'     => 'Timestamp',
         'traceID'       => 'TraceID',
     ];
 
@@ -91,26 +103,11 @@ class spans extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operationName) {
-            $res['OperationName'] = $this->operationName;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
-        if (null !== $this->resultCode) {
-            $res['ResultCode'] = $this->resultCode;
-        }
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->rpcType) {
-            $res['RpcType'] = $this->rpcType;
-        }
-        if (null !== $this->tagEntryList) {
-            $res['TagEntryList'] = [];
-            if (null !== $this->tagEntryList && \is_array($this->tagEntryList)) {
-                $n = 0;
-                foreach ($this->tagEntryList as $item) {
-                    $res['TagEntryList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->haveStack) {
+            $res['HaveStack'] = $this->haveStack;
         }
         if (null !== $this->logEventList) {
             $res['LogEventList'] = [];
@@ -121,20 +118,41 @@ class spans extends Model
                 }
             }
         }
-        if (null !== $this->haveStack) {
-            $res['HaveStack'] = $this->haveStack;
+        if (null !== $this->operationName) {
+            $res['OperationName'] = $this->operationName;
         }
-        if (null !== $this->serviceIp) {
-            $res['ServiceIp'] = $this->serviceIp;
+        if (null !== $this->parentSpanId) {
+            $res['ParentSpanId'] = $this->parentSpanId;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->resultCode) {
+            $res['ResultCode'] = $this->resultCode;
         }
         if (null !== $this->rpcId) {
             $res['RpcId'] = $this->rpcId;
         }
+        if (null !== $this->rpcType) {
+            $res['RpcType'] = $this->rpcType;
+        }
+        if (null !== $this->serviceIp) {
+            $res['ServiceIp'] = $this->serviceIp;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->spanId) {
+            $res['SpanId'] = $this->spanId;
+        }
+        if (null !== $this->tagEntryList) {
+            $res['TagEntryList'] = [];
+            if (null !== $this->tagEntryList && \is_array($this->tagEntryList)) {
+                $n = 0;
+                foreach ($this->tagEntryList as $item) {
+                    $res['TagEntryList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
         if (null !== $this->traceID) {
             $res['TraceID'] = $this->traceID;
@@ -151,26 +169,11 @@ class spans extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperationName'])) {
-            $model->operationName = $map['OperationName'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
-        if (isset($map['ResultCode'])) {
-            $model->resultCode = $map['ResultCode'];
-        }
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['RpcType'])) {
-            $model->rpcType = $map['RpcType'];
-        }
-        if (isset($map['TagEntryList'])) {
-            if (!empty($map['TagEntryList'])) {
-                $model->tagEntryList = [];
-                $n                   = 0;
-                foreach ($map['TagEntryList'] as $item) {
-                    $model->tagEntryList[$n++] = null !== $item ? tagEntryList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['HaveStack'])) {
+            $model->haveStack = $map['HaveStack'];
         }
         if (isset($map['LogEventList'])) {
             if (!empty($map['LogEventList'])) {
@@ -181,20 +184,41 @@ class spans extends Model
                 }
             }
         }
-        if (isset($map['HaveStack'])) {
-            $model->haveStack = $map['HaveStack'];
+        if (isset($map['OperationName'])) {
+            $model->operationName = $map['OperationName'];
         }
-        if (isset($map['ServiceIp'])) {
-            $model->serviceIp = $map['ServiceIp'];
+        if (isset($map['ParentSpanId'])) {
+            $model->parentSpanId = $map['ParentSpanId'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['ResultCode'])) {
+            $model->resultCode = $map['ResultCode'];
         }
         if (isset($map['RpcId'])) {
             $model->rpcId = $map['RpcId'];
         }
+        if (isset($map['RpcType'])) {
+            $model->rpcType = $map['RpcType'];
+        }
+        if (isset($map['ServiceIp'])) {
+            $model->serviceIp = $map['ServiceIp'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['SpanId'])) {
+            $model->spanId = $map['SpanId'];
+        }
+        if (isset($map['TagEntryList'])) {
+            if (!empty($map['TagEntryList'])) {
+                $model->tagEntryList = [];
+                $n                   = 0;
+                foreach ($map['TagEntryList'] as $item) {
+                    $model->tagEntryList[$n++] = null !== $item ? tagEntryList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
         if (isset($map['TraceID'])) {
             $model->traceID = $map['TraceID'];

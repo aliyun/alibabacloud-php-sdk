@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SearchTraceAppByPageRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $traceAppName;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -27,11 +22,16 @@ class SearchTraceAppByPageRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $traceAppName;
     protected $_name = [
-        'traceAppName' => 'TraceAppName',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'regionId'     => 'RegionId',
+        'traceAppName' => 'TraceAppName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class SearchTraceAppByPageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->traceAppName) {
-            $res['TraceAppName'] = $this->traceAppName;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -52,6 +49,9 @@ class SearchTraceAppByPageRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->traceAppName) {
+            $res['TraceAppName'] = $this->traceAppName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class SearchTraceAppByPageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TraceAppName'])) {
-            $model->traceAppName = $map['TraceAppName'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -76,6 +73,9 @@ class SearchTraceAppByPageRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TraceAppName'])) {
+            $model->traceAppName = $map['TraceAppName'];
         }
 
         return $model;

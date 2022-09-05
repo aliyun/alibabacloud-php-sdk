@@ -12,11 +12,6 @@ class metricParam extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $appGroupId;
 
     /**
@@ -25,20 +20,25 @@ class metricParam extends Model
     public $appId;
 
     /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
+    /**
      * @var string
      */
     public $pid;
 
     /**
-     * @var dimensions[]
+     * @var string
      */
-    public $dimensions;
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
         'appGroupId' => 'AppGroupId',
         'appId'      => 'AppId',
-        'pid'        => 'Pid',
         'dimensions' => 'Dimensions',
+        'pid'        => 'Pid',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class metricParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->appGroupId) {
             $res['AppGroupId'] = $this->appGroupId;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
         }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = [];
@@ -68,6 +62,12 @@ class metricParam extends Model
                     $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class metricParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['AppGroupId'])) {
             $model->appGroupId = $map['AppGroupId'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
-        }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
         }
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
@@ -101,6 +95,12 @@ class metricParam extends Model
                     $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

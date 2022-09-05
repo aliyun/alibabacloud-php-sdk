@@ -11,17 +11,17 @@ class rules extends Model
     /**
      * @var string
      */
-    public $measure;
-
-    /**
-     * @var float
-     */
-    public $value;
+    public $aggregates;
 
     /**
      * @var string
      */
-    public $aggregates;
+    public $alias;
+
+    /**
+     * @var string
+     */
+    public $measure;
 
     /**
      * @var int
@@ -34,16 +34,16 @@ class rules extends Model
     public $operator;
 
     /**
-     * @var string
+     * @var float
      */
-    public $alias;
+    public $value;
     protected $_name = [
-        'measure'    => 'Measure',
-        'value'      => 'Value',
         'aggregates' => 'Aggregates',
+        'alias'      => 'Alias',
+        'measure'    => 'Measure',
         'NValue'     => 'NValue',
         'operator'   => 'Operator',
-        'alias'      => 'Alias',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->measure) {
-            $res['Measure'] = $this->measure;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->aggregates) {
             $res['Aggregates'] = $this->aggregates;
+        }
+        if (null !== $this->alias) {
+            $res['Alias'] = $this->alias;
+        }
+        if (null !== $this->measure) {
+            $res['Measure'] = $this->measure;
         }
         if (null !== $this->NValue) {
             $res['NValue'] = $this->NValue;
@@ -68,8 +68,8 @@ class rules extends Model
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-        if (null !== $this->alias) {
-            $res['Alias'] = $this->alias;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -83,14 +83,14 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Measure'])) {
-            $model->measure = $map['Measure'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Aggregates'])) {
             $model->aggregates = $map['Aggregates'];
+        }
+        if (isset($map['Alias'])) {
+            $model->alias = $map['Alias'];
+        }
+        if (isset($map['Measure'])) {
+            $model->measure = $map['Measure'];
         }
         if (isset($map['NValue'])) {
             $model->NValue = $map['NValue'];
@@ -98,8 +98,8 @@ class rules extends Model
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-        if (isset($map['Alias'])) {
-            $model->alias = $map['Alias'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class retcodeAppDataBean extends Model
 {
     /**
-     * @var string
-     */
-    public $pid;
-
-    /**
      * @var int
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $pid;
     protected $_name = [
-        'pid'   => 'Pid',
         'appId' => 'AppId',
+        'pid'   => 'Pid',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class retcodeAppDataBean extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class retcodeAppDataBean extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
         }
 
         return $model;

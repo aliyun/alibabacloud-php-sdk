@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
-     * @var traceInfos[]
-     */
-    public $traceInfos;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -28,11 +23,16 @@ class pageBean extends Model
      * @var int
      */
     public $total;
+
+    /**
+     * @var traceInfos[]
+     */
+    public $traceInfos;
     protected $_name = [
-        'traceInfos' => 'TraceInfos',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'total'      => 'Total',
+        'traceInfos' => 'TraceInfos',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class pageBean extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->traceInfos) {
-            $res['TraceInfos'] = [];
-            if (null !== $this->traceInfos && \is_array($this->traceInfos)) {
-                $n = 0;
-                foreach ($this->traceInfos as $item) {
-                    $res['TraceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -59,6 +50,15 @@ class pageBean extends Model
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
+        }
+        if (null !== $this->traceInfos) {
+            $res['TraceInfos'] = [];
+            if (null !== $this->traceInfos && \is_array($this->traceInfos)) {
+                $n = 0;
+                foreach ($this->traceInfos as $item) {
+                    $res['TraceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -72,15 +72,6 @@ class pageBean extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TraceInfos'])) {
-            if (!empty($map['TraceInfos'])) {
-                $model->traceInfos = [];
-                $n                 = 0;
-                foreach ($map['TraceInfos'] as $item) {
-                    $model->traceInfos[$n++] = null !== $item ? traceInfos::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -89,6 +80,15 @@ class pageBean extends Model
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
+        }
+        if (isset($map['TraceInfos'])) {
+            if (!empty($map['TraceInfos'])) {
+                $model->traceInfos = [];
+                $n                 = 0;
+                foreach ($map['TraceInfos'] as $item) {
+                    $model->traceInfos[$n++] = null !== $item ? traceInfos::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -11,21 +11,21 @@ class notifyObjects extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $notifyObjectId;
 
     /**
      * @var string
      */
     public $notifyType;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
+        'name'           => 'Name',
         'notifyObjectId' => 'NotifyObjectId',
         'notifyType'     => 'NotifyType',
-        'name'           => 'Name',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class notifyObjects extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->notifyObjectId) {
             $res['NotifyObjectId'] = $this->notifyObjectId;
         }
         if (null !== $this->notifyType) {
             $res['NotifyType'] = $this->notifyType;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class notifyObjects extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['NotifyObjectId'])) {
             $model->notifyObjectId = $map['NotifyObjectId'];
         }
         if (isset($map['NotifyType'])) {
             $model->notifyType = $map['NotifyType'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

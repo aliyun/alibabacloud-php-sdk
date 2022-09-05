@@ -11,7 +11,17 @@ class contacts extends Model
     /**
      * @var int
      */
-    public $updateTime;
+    public $contactId;
+
+    /**
+     * @var string
+     */
+    public $contactName;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -24,24 +34,9 @@ class contacts extends Model
     public $email;
 
     /**
-     * @var int
-     */
-    public $contactId;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $contactName;
+    public $phone;
 
     /**
      * @var bool
@@ -49,19 +44,24 @@ class contacts extends Model
     public $systemNoc;
 
     /**
+     * @var int
+     */
+    public $updateTime;
+
+    /**
      * @var string
      */
-    public $phone;
+    public $userId;
     protected $_name = [
-        'updateTime'  => 'UpdateTime',
+        'contactId'   => 'ContactId',
+        'contactName' => 'ContactName',
+        'createTime'  => 'CreateTime',
         'dingRobot'   => 'DingRobot',
         'email'       => 'Email',
-        'contactId'   => 'ContactId',
-        'createTime'  => 'CreateTime',
-        'userId'      => 'UserId',
-        'contactName' => 'ContactName',
-        'systemNoc'   => 'SystemNoc',
         'phone'       => 'Phone',
+        'systemNoc'   => 'SystemNoc',
+        'updateTime'  => 'UpdateTime',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -71,8 +71,14 @@ class contacts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->contactId) {
+            $res['ContactId'] = $this->contactId;
+        }
+        if (null !== $this->contactName) {
+            $res['ContactName'] = $this->contactName;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->dingRobot) {
             $res['DingRobot'] = $this->dingRobot;
@@ -80,23 +86,17 @@ class contacts extends Model
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-        if (null !== $this->contactId) {
-            $res['ContactId'] = $this->contactId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->contactName) {
-            $res['ContactName'] = $this->contactName;
+        if (null !== $this->phone) {
+            $res['Phone'] = $this->phone;
         }
         if (null !== $this->systemNoc) {
             $res['SystemNoc'] = $this->systemNoc;
         }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -110,8 +110,14 @@ class contacts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['ContactId'])) {
+            $model->contactId = $map['ContactId'];
+        }
+        if (isset($map['ContactName'])) {
+            $model->contactName = $map['ContactName'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['DingRobot'])) {
             $model->dingRobot = $map['DingRobot'];
@@ -119,23 +125,17 @@ class contacts extends Model
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-        if (isset($map['ContactId'])) {
-            $model->contactId = $map['ContactId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['ContactName'])) {
-            $model->contactName = $map['ContactName'];
+        if (isset($map['Phone'])) {
+            $model->phone = $map['Phone'];
         }
         if (isset($map['SystemNoc'])) {
             $model->systemNoc = $map['SystemNoc'];
         }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

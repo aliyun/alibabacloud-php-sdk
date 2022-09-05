@@ -16,7 +16,7 @@ class CreateAlertContactRequest extends Model
     /**
      * @var string
      */
-    public $phoneNum;
+    public $dingRobotWebhookUrl;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class CreateAlertContactRequest extends Model
     /**
      * @var string
      */
-    public $dingRobotWebhookUrl;
-
-    /**
-     * @var bool
-     */
-    public $systemNoc;
+    public $phoneNum;
 
     /**
      * @var string
@@ -39,17 +34,16 @@ class CreateAlertContactRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $proxyUserId;
+    public $systemNoc;
     protected $_name = [
         'contactName'         => 'ContactName',
-        'phoneNum'            => 'PhoneNum',
-        'email'               => 'Email',
         'dingRobotWebhookUrl' => 'DingRobotWebhookUrl',
-        'systemNoc'           => 'SystemNoc',
+        'email'               => 'Email',
+        'phoneNum'            => 'PhoneNum',
         'regionId'            => 'RegionId',
-        'proxyUserId'         => 'ProxyUserId',
+        'systemNoc'           => 'SystemNoc',
     ];
 
     public function validate()
@@ -62,23 +56,20 @@ class CreateAlertContactRequest extends Model
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
         }
-        if (null !== $this->phoneNum) {
-            $res['PhoneNum'] = $this->phoneNum;
+        if (null !== $this->dingRobotWebhookUrl) {
+            $res['DingRobotWebhookUrl'] = $this->dingRobotWebhookUrl;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-        if (null !== $this->dingRobotWebhookUrl) {
-            $res['DingRobotWebhookUrl'] = $this->dingRobotWebhookUrl;
-        }
-        if (null !== $this->systemNoc) {
-            $res['SystemNoc'] = $this->systemNoc;
+        if (null !== $this->phoneNum) {
+            $res['PhoneNum'] = $this->phoneNum;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
+        if (null !== $this->systemNoc) {
+            $res['SystemNoc'] = $this->systemNoc;
         }
 
         return $res;
@@ -95,23 +86,20 @@ class CreateAlertContactRequest extends Model
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
         }
-        if (isset($map['PhoneNum'])) {
-            $model->phoneNum = $map['PhoneNum'];
+        if (isset($map['DingRobotWebhookUrl'])) {
+            $model->dingRobotWebhookUrl = $map['DingRobotWebhookUrl'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-        if (isset($map['DingRobotWebhookUrl'])) {
-            $model->dingRobotWebhookUrl = $map['DingRobotWebhookUrl'];
-        }
-        if (isset($map['SystemNoc'])) {
-            $model->systemNoc = $map['SystemNoc'];
+        if (isset($map['PhoneNum'])) {
+            $model->phoneNum = $map['PhoneNum'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
+        if (isset($map['SystemNoc'])) {
+            $model->systemNoc = $map['SystemNoc'];
         }
 
         return $model;

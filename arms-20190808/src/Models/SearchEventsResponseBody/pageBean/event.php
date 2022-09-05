@@ -11,27 +11,17 @@ class event extends Model
     /**
      * @var int
      */
-    public $eventTime;
-
-    /**
-     * @var string[]
-     */
-    public $links;
+    public $alertId;
 
     /**
      * @var string
      */
-    public $eventLevel;
+    public $alertName;
 
     /**
      * @var string
      */
     public $alertRule;
-
-    /**
-     * @var string
-     */
-    public $message;
 
     /**
      * @var int
@@ -41,7 +31,12 @@ class event extends Model
     /**
      * @var string
      */
-    public $alertName;
+    public $eventLevel;
+
+    /**
+     * @var int
+     */
+    public $eventTime;
 
     /**
      * @var int
@@ -49,19 +44,24 @@ class event extends Model
     public $id;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $alertId;
+    public $links;
+
+    /**
+     * @var string
+     */
+    public $message;
     protected $_name = [
-        'eventTime'  => 'EventTime',
-        'links'      => 'Links',
-        'eventLevel' => 'EventLevel',
-        'alertRule'  => 'AlertRule',
-        'message'    => 'Message',
-        'alertType'  => 'AlertType',
-        'alertName'  => 'AlertName',
-        'id'         => 'Id',
         'alertId'    => 'AlertId',
+        'alertName'  => 'AlertName',
+        'alertRule'  => 'AlertRule',
+        'alertType'  => 'AlertType',
+        'eventLevel' => 'EventLevel',
+        'eventTime'  => 'EventTime',
+        'id'         => 'Id',
+        'links'      => 'Links',
+        'message'    => 'Message',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class event extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->eventTime) {
-            $res['EventTime'] = $this->eventTime;
-        }
-        if (null !== $this->links) {
-            $res['Links'] = $this->links;
-        }
-        if (null !== $this->eventLevel) {
-            $res['EventLevel'] = $this->eventLevel;
-        }
-        if (null !== $this->alertRule) {
-            $res['AlertRule'] = $this->alertRule;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->alertType) {
-            $res['AlertType'] = $this->alertType;
+        if (null !== $this->alertId) {
+            $res['AlertId'] = $this->alertId;
         }
         if (null !== $this->alertName) {
             $res['AlertName'] = $this->alertName;
         }
+        if (null !== $this->alertRule) {
+            $res['AlertRule'] = $this->alertRule;
+        }
+        if (null !== $this->alertType) {
+            $res['AlertType'] = $this->alertType;
+        }
+        if (null !== $this->eventLevel) {
+            $res['EventLevel'] = $this->eventLevel;
+        }
+        if (null !== $this->eventTime) {
+            $res['EventTime'] = $this->eventTime;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->alertId) {
-            $res['AlertId'] = $this->alertId;
+        if (null !== $this->links) {
+            $res['Links'] = $this->links;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -110,34 +110,34 @@ class event extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertId'])) {
+            $model->alertId = $map['AlertId'];
+        }
+        if (isset($map['AlertName'])) {
+            $model->alertName = $map['AlertName'];
+        }
+        if (isset($map['AlertRule'])) {
+            $model->alertRule = $map['AlertRule'];
+        }
+        if (isset($map['AlertType'])) {
+            $model->alertType = $map['AlertType'];
+        }
+        if (isset($map['EventLevel'])) {
+            $model->eventLevel = $map['EventLevel'];
+        }
         if (isset($map['EventTime'])) {
             $model->eventTime = $map['EventTime'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Links'])) {
             if (!empty($map['Links'])) {
                 $model->links = $map['Links'];
             }
         }
-        if (isset($map['EventLevel'])) {
-            $model->eventLevel = $map['EventLevel'];
-        }
-        if (isset($map['AlertRule'])) {
-            $model->alertRule = $map['AlertRule'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['AlertType'])) {
-            $model->alertType = $map['AlertType'];
-        }
-        if (isset($map['AlertName'])) {
-            $model->alertName = $map['AlertName'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['AlertId'])) {
-            $model->alertId = $map['AlertId'];
         }
 
         return $model;

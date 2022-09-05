@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class stackInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $api;
+
+    /**
      * @var int
      */
-    public $startTime;
+    public $duration;
 
     /**
      * @var string
@@ -20,19 +25,14 @@ class stackInfo extends Model
     public $exception;
 
     /**
-     * @var string
+     * @var extInfo
      */
-    public $api;
+    public $extInfo;
 
     /**
      * @var string
      */
     public $line;
-
-    /**
-     * @var int
-     */
-    public $duration;
 
     /**
      * @var string
@@ -45,18 +45,18 @@ class stackInfo extends Model
     public $serviceName;
 
     /**
-     * @var extInfo
+     * @var int
      */
-    public $extInfo;
+    public $startTime;
     protected $_name = [
-        'startTime'   => 'StartTime',
-        'exception'   => 'Exception',
         'api'         => 'Api',
-        'line'        => 'Line',
         'duration'    => 'Duration',
+        'exception'   => 'Exception',
+        'extInfo'     => 'ExtInfo',
+        'line'        => 'Line',
         'rpcId'       => 'RpcId',
         'serviceName' => 'ServiceName',
-        'extInfo'     => 'ExtInfo',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -66,20 +66,20 @@ class stackInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->api) {
+            $res['Api'] = $this->api;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->exception) {
             $res['Exception'] = $this->exception;
         }
-        if (null !== $this->api) {
-            $res['Api'] = $this->api;
+        if (null !== $this->extInfo) {
+            $res['ExtInfo'] = null !== $this->extInfo ? $this->extInfo->toMap() : null;
         }
         if (null !== $this->line) {
             $res['Line'] = $this->line;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
         if (null !== $this->rpcId) {
             $res['RpcId'] = $this->rpcId;
@@ -87,8 +87,8 @@ class stackInfo extends Model
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-        if (null !== $this->extInfo) {
-            $res['ExtInfo'] = null !== $this->extInfo ? $this->extInfo->toMap() : null;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -102,20 +102,20 @@ class stackInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['Api'])) {
+            $model->api = $map['Api'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['Exception'])) {
             $model->exception = $map['Exception'];
         }
-        if (isset($map['Api'])) {
-            $model->api = $map['Api'];
+        if (isset($map['ExtInfo'])) {
+            $model->extInfo = extInfo::fromMap($map['ExtInfo']);
         }
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
         if (isset($map['RpcId'])) {
             $model->rpcId = $map['RpcId'];
@@ -123,8 +123,8 @@ class stackInfo extends Model
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-        if (isset($map['ExtInfo'])) {
-            $model->extInfo = extInfo::fromMap($map['ExtInfo']);
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

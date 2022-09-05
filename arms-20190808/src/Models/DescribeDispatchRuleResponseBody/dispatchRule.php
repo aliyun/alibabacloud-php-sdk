@@ -14,7 +14,17 @@ class dispatchRule extends Model
     /**
      * @var string
      */
-    public $state;
+    public $dispatchType;
+
+    /**
+     * @var groupRules[]
+     */
+    public $groupRules;
+
+    /**
+     * @var bool
+     */
+    public $isRecover;
 
     /**
      * @var labelMatchExpressionGrid
@@ -27,9 +37,9 @@ class dispatchRule extends Model
     public $name;
 
     /**
-     * @var groupRules[]
+     * @var notifyRules[]
      */
-    public $groupRules;
+    public $notifyRules;
 
     /**
      * @var int
@@ -37,16 +47,18 @@ class dispatchRule extends Model
     public $ruleId;
 
     /**
-     * @var notifyRules[]
+     * @var string
      */
-    public $notifyRules;
+    public $state;
     protected $_name = [
-        'state'                    => 'State',
+        'dispatchType'             => 'DispatchType',
+        'groupRules'               => 'GroupRules',
+        'isRecover'                => 'IsRecover',
         'labelMatchExpressionGrid' => 'LabelMatchExpressionGrid',
         'name'                     => 'Name',
-        'groupRules'               => 'GroupRules',
-        'ruleId'                   => 'RuleId',
         'notifyRules'              => 'NotifyRules',
+        'ruleId'                   => 'RuleId',
+        'state'                    => 'State',
     ];
 
     public function validate()
@@ -56,14 +68,8 @@ class dispatchRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->labelMatchExpressionGrid) {
-            $res['LabelMatchExpressionGrid'] = null !== $this->labelMatchExpressionGrid ? $this->labelMatchExpressionGrid->toMap() : null;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->dispatchType) {
+            $res['DispatchType'] = $this->dispatchType;
         }
         if (null !== $this->groupRules) {
             $res['GroupRules'] = [];
@@ -74,8 +80,14 @@ class dispatchRule extends Model
                 }
             }
         }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+        if (null !== $this->isRecover) {
+            $res['IsRecover'] = $this->isRecover;
+        }
+        if (null !== $this->labelMatchExpressionGrid) {
+            $res['LabelMatchExpressionGrid'] = null !== $this->labelMatchExpressionGrid ? $this->labelMatchExpressionGrid->toMap() : null;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->notifyRules) {
             $res['NotifyRules'] = [];
@@ -85,6 +97,12 @@ class dispatchRule extends Model
                     $res['NotifyRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -98,14 +116,8 @@ class dispatchRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['LabelMatchExpressionGrid'])) {
-            $model->labelMatchExpressionGrid = labelMatchExpressionGrid::fromMap($map['LabelMatchExpressionGrid']);
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['DispatchType'])) {
+            $model->dispatchType = $map['DispatchType'];
         }
         if (isset($map['GroupRules'])) {
             if (!empty($map['GroupRules'])) {
@@ -116,8 +128,14 @@ class dispatchRule extends Model
                 }
             }
         }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['IsRecover'])) {
+            $model->isRecover = $map['IsRecover'];
+        }
+        if (isset($map['LabelMatchExpressionGrid'])) {
+            $model->labelMatchExpressionGrid = labelMatchExpressionGrid::fromMap($map['LabelMatchExpressionGrid']);
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NotifyRules'])) {
             if (!empty($map['NotifyRules'])) {
@@ -127,6 +145,12 @@ class dispatchRule extends Model
                     $model->notifyRules[$n++] = null !== $item ? notifyRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

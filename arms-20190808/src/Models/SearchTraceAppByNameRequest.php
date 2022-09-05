@@ -11,15 +11,15 @@ class SearchTraceAppByNameRequest extends Model
     /**
      * @var string
      */
-    public $traceAppName;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $traceAppName;
     protected $_name = [
-        'traceAppName' => 'TraceAppName',
         'regionId'     => 'RegionId',
+        'traceAppName' => 'TraceAppName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class SearchTraceAppByNameRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->traceAppName) {
-            $res['TraceAppName'] = $this->traceAppName;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->traceAppName) {
+            $res['TraceAppName'] = $this->traceAppName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class SearchTraceAppByNameRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TraceAppName'])) {
-            $model->traceAppName = $map['TraceAppName'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TraceAppName'])) {
+            $model->traceAppName = $map['TraceAppName'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class labelMatchExpressions extends Model
     /**
      * @var string
      */
-    public $value;
+    public $operator;
 
     /**
      * @var string
      */
-    public $operator;
+    public $value;
     protected $_name = [
         'key'      => 'Key',
-        'value'    => 'Value',
         'operator' => 'Operator',
+        'value'    => 'Value',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class labelMatchExpressions extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class labelMatchExpressions extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

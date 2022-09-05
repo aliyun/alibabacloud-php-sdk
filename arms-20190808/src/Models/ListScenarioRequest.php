@@ -11,6 +11,16 @@ class ListScenarioRequest extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -21,22 +31,12 @@ class ListScenarioRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $appId;
-
-    /**
-     * @var string
-     */
     public $sign;
     protected $_name = [
+        'appId'    => 'AppId',
+        'name'     => 'Name',
         'regionId' => 'RegionId',
         'scenario' => 'Scenario',
-        'name'     => 'Name',
-        'appId'    => 'AppId',
         'sign'     => 'Sign',
     ];
 
@@ -47,17 +47,17 @@ class ListScenarioRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->scenario) {
             $res['Scenario'] = $this->scenario;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
         }
         if (null !== $this->sign) {
             $res['Sign'] = $this->sign;
@@ -74,17 +74,17 @@ class ListScenarioRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['Scenario'])) {
             $model->scenario = $map['Scenario'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
         }
         if (isset($map['Sign'])) {
             $model->sign = $map['Sign'];

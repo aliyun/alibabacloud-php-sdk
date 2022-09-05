@@ -16,22 +16,22 @@ class DeleteTraceAppRequest extends Model
     /**
      * @var string
      */
+    public $pid;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $pid;
     protected $_name = [
         'appId'    => 'AppId',
+        'pid'      => 'Pid',
         'regionId' => 'RegionId',
         'type'     => 'Type',
-        'pid'      => 'Pid',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DeleteTraceAppRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DeleteTraceAppRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
         }
 
         return $model;

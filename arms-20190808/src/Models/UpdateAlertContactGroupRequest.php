@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactGroupRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $contactGroupId;
+
+    /**
      * @var string
      */
     public $contactGroupName;
@@ -22,22 +27,11 @@ class UpdateAlertContactGroupRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $proxyUserId;
-
-    /**
-     * @var int
-     */
-    public $contactGroupId;
     protected $_name = [
+        'contactGroupId'   => 'ContactGroupId',
         'contactGroupName' => 'ContactGroupName',
         'contactIds'       => 'ContactIds',
         'regionId'         => 'RegionId',
-        'proxyUserId'      => 'ProxyUserId',
-        'contactGroupId'   => 'ContactGroupId',
     ];
 
     public function validate()
@@ -47,6 +41,9 @@ class UpdateAlertContactGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactGroupId) {
+            $res['ContactGroupId'] = $this->contactGroupId;
+        }
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
@@ -55,12 +52,6 @@ class UpdateAlertContactGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
-        if (null !== $this->contactGroupId) {
-            $res['ContactGroupId'] = $this->contactGroupId;
         }
 
         return $res;
@@ -74,6 +65,9 @@ class UpdateAlertContactGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactGroupId'])) {
+            $model->contactGroupId = $map['ContactGroupId'];
+        }
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
@@ -82,12 +76,6 @@ class UpdateAlertContactGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
-        if (isset($map['ContactGroupId'])) {
-            $model->contactGroupId = $map['ContactGroupId'];
         }
 
         return $model;

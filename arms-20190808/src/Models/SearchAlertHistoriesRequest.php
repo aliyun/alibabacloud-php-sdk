@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertHistoriesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $proxyUserId;
-
-    /**
      * @var int
      */
     public $alertId;
@@ -31,6 +26,11 @@ class SearchAlertHistoriesRequest extends Model
     /**
      * @var int
      */
+    public $endTime;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -42,20 +42,14 @@ class SearchAlertHistoriesRequest extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
     protected $_name = [
-        'proxyUserId' => 'ProxyUserId',
         'alertId'     => 'AlertId',
         'alertType'   => 'AlertType',
         'currentPage' => 'CurrentPage',
+        'endTime'     => 'EndTime',
         'pageSize'    => 'PageSize',
         'regionId'    => 'RegionId',
         'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
     ];
 
     public function validate()
@@ -65,9 +59,6 @@ class SearchAlertHistoriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
         if (null !== $this->alertId) {
             $res['AlertId'] = $this->alertId;
         }
@@ -77,6 +68,9 @@ class SearchAlertHistoriesRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -85,9 +79,6 @@ class SearchAlertHistoriesRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -101,9 +92,6 @@ class SearchAlertHistoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
         if (isset($map['AlertId'])) {
             $model->alertId = $map['AlertId'];
         }
@@ -113,6 +101,9 @@ class SearchAlertHistoriesRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -121,9 +112,6 @@ class SearchAlertHistoriesRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

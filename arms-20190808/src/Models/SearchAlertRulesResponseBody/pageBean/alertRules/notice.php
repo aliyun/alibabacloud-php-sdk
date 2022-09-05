@@ -21,17 +21,17 @@ class notice extends Model
     /**
      * @var int
      */
-    public $startTime;
+    public $noticeStartTime;
 
     /**
      * @var int
      */
-    public $noticeStartTime;
+    public $startTime;
     protected $_name = [
         'endTime'         => 'EndTime',
         'noticeEndTime'   => 'NoticeEndTime',
-        'startTime'       => 'StartTime',
         'noticeStartTime' => 'NoticeStartTime',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class notice extends Model
         if (null !== $this->noticeEndTime) {
             $res['NoticeEndTime'] = $this->noticeEndTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->noticeStartTime) {
             $res['NoticeStartTime'] = $this->noticeStartTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class notice extends Model
         if (isset($map['NoticeEndTime'])) {
             $model->noticeEndTime = $map['NoticeEndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['NoticeStartTime'])) {
             $model->noticeStartTime = $map['NoticeStartTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

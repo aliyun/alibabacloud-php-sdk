@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertRuleRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $alertId;
 
     /**
      * @var string
@@ -26,24 +26,18 @@ class UpdateAlertRuleRequest extends Model
     /**
      * @var string
      */
-    public $templageAlertConfig;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $proxyUserId;
-
-    /**
-     * @var int
-     */
-    public $alertId;
+    public $templageAlertConfig;
     protected $_name = [
-        'regionId'            => 'RegionId',
+        'alertId'             => 'AlertId',
         'contactGroupIds'     => 'ContactGroupIds',
         'isAutoStart'         => 'IsAutoStart',
+        'regionId'            => 'RegionId',
         'templageAlertConfig' => 'TemplageAlertConfig',
-        'proxyUserId'         => 'ProxyUserId',
-        'alertId'             => 'AlertId',
     ];
 
     public function validate()
@@ -53,8 +47,8 @@ class UpdateAlertRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->alertId) {
+            $res['AlertId'] = $this->alertId;
         }
         if (null !== $this->contactGroupIds) {
             $res['ContactGroupIds'] = $this->contactGroupIds;
@@ -62,14 +56,11 @@ class UpdateAlertRuleRequest extends Model
         if (null !== $this->isAutoStart) {
             $res['IsAutoStart'] = $this->isAutoStart;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->templageAlertConfig) {
             $res['TemplageAlertConfig'] = $this->templageAlertConfig;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
-        if (null !== $this->alertId) {
-            $res['AlertId'] = $this->alertId;
         }
 
         return $res;
@@ -83,8 +74,8 @@ class UpdateAlertRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AlertId'])) {
+            $model->alertId = $map['AlertId'];
         }
         if (isset($map['ContactGroupIds'])) {
             $model->contactGroupIds = $map['ContactGroupIds'];
@@ -92,14 +83,11 @@ class UpdateAlertRuleRequest extends Model
         if (isset($map['IsAutoStart'])) {
             $model->isAutoStart = $map['IsAutoStart'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['TemplageAlertConfig'])) {
             $model->templageAlertConfig = $map['TemplageAlertConfig'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
-        if (isset($map['AlertId'])) {
-            $model->alertId = $map['AlertId'];
         }
 
         return $model;

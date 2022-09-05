@@ -21,17 +21,17 @@ class alarmContext extends Model
     /**
      * @var string
      */
-    public $subTitle;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $subTitle;
     protected $_name = [
         'alarmContentSubTitle' => 'AlarmContentSubTitle',
         'alarmContentTemplate' => 'AlarmContentTemplate',
-        'subTitle'             => 'SubTitle',
         'content'              => 'Content',
+        'subTitle'             => 'SubTitle',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class alarmContext extends Model
         if (null !== $this->alarmContentTemplate) {
             $res['AlarmContentTemplate'] = $this->alarmContentTemplate;
         }
-        if (null !== $this->subTitle) {
-            $res['SubTitle'] = $this->subTitle;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->subTitle) {
+            $res['SubTitle'] = $this->subTitle;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class alarmContext extends Model
         if (isset($map['AlarmContentTemplate'])) {
             $model->alarmContentTemplate = $map['AlarmContentTemplate'];
         }
-        if (isset($map['SubTitle'])) {
-            $model->subTitle = $map['SubTitle'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['SubTitle'])) {
+            $model->subTitle = $map['SubTitle'];
         }
 
         return $model;

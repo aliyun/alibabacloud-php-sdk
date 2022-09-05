@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTraceAppsResponseBody extends Model
 {
     /**
-     * @var traceApps[]
+     * @var int
      */
-    public $traceApps;
+    public $code;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class ListTraceAppsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var traceApps[]
+     */
+    public $traceApps;
     protected $_name = [
-        'traceApps' => 'TraceApps',
+        'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'code'      => 'Code',
         'success'   => 'Success',
+        'traceApps' => 'TraceApps',
     ];
 
     public function validate()
@@ -48,6 +48,18 @@ class ListTraceAppsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
         if (null !== $this->traceApps) {
             $res['TraceApps'] = [];
             if (null !== $this->traceApps && \is_array($this->traceApps)) {
@@ -56,18 +68,6 @@ class ListTraceAppsResponseBody extends Model
                     $res['TraceApps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,6 +81,18 @@ class ListTraceAppsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
         if (isset($map['TraceApps'])) {
             if (!empty($map['TraceApps'])) {
                 $model->traceApps = [];
@@ -89,18 +101,6 @@ class ListTraceAppsResponseBody extends Model
                     $model->traceApps[$n++] = null !== $item ? traceApps::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

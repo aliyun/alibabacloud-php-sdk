@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class retcodeApps extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $appId;
 
     /**
      * @var string
@@ -21,17 +21,7 @@ class retcodeApps extends Model
     /**
      * @var int
      */
-    public $updateTime;
-
-    /**
-     * @var int
-     */
     public $createTime;
-
-    /**
-     * @var int
-     */
-    public $appId;
 
     /**
      * @var string
@@ -41,21 +31,37 @@ class retcodeApps extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $retcodeAppType;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'type'       => 'Type',
-        'appName'    => 'AppName',
-        'updateTime' => 'UpdateTime',
-        'createTime' => 'CreateTime',
-        'appId'      => 'AppId',
-        'pid'        => 'Pid',
-        'userId'     => 'UserId',
-        'regionId'   => 'RegionId',
+        'appId'          => 'AppId',
+        'appName'        => 'AppName',
+        'createTime'     => 'CreateTime',
+        'pid'            => 'Pid',
+        'regionId'       => 'RegionId',
+        'retcodeAppType' => 'RetcodeAppType',
+        'type'           => 'Type',
+        'updateTime'     => 'UpdateTime',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -65,29 +71,32 @@ class retcodeApps extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->retcodeAppType) {
+            $res['RetcodeAppType'] = $this->retcodeAppType;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -101,29 +110,32 @@ class retcodeApps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RetcodeAppType'])) {
+            $model->retcodeAppType = $map['RetcodeAppType'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

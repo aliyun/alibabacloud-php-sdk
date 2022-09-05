@@ -17,15 +17,9 @@ class DescribeDispatchRuleRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $proxyUserId;
     protected $_name = [
-        'id'          => 'Id',
-        'regionId'    => 'RegionId',
-        'proxyUserId' => 'ProxyUserId',
+        'id'       => 'Id',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DescribeDispatchRuleRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DescribeDispatchRuleRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class groupRules extends Model
 {
     /**
-     * @var string[]
-     */
-    public $groupingFields;
-
-    /**
      * @var int
      */
     public $groupId;
@@ -27,11 +22,22 @@ class groupRules extends Model
      * @var int
      */
     public $groupWaitTime;
+
+    /**
+     * @var string[]
+     */
+    public $groupingFields;
+
+    /**
+     * @var int
+     */
+    public $repeatInterval;
     protected $_name = [
-        'groupingFields' => 'GroupingFields',
         'groupId'        => 'GroupId',
         'groupInterval'  => 'GroupInterval',
         'groupWaitTime'  => 'GroupWaitTime',
+        'groupingFields' => 'GroupingFields',
+        'repeatInterval' => 'RepeatInterval',
     ];
 
     public function validate()
@@ -41,9 +47,6 @@ class groupRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupingFields) {
-            $res['GroupingFields'] = $this->groupingFields;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -52,6 +55,12 @@ class groupRules extends Model
         }
         if (null !== $this->groupWaitTime) {
             $res['GroupWaitTime'] = $this->groupWaitTime;
+        }
+        if (null !== $this->groupingFields) {
+            $res['GroupingFields'] = $this->groupingFields;
+        }
+        if (null !== $this->repeatInterval) {
+            $res['RepeatInterval'] = $this->repeatInterval;
         }
 
         return $res;
@@ -65,11 +74,6 @@ class groupRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupingFields'])) {
-            if (!empty($map['GroupingFields'])) {
-                $model->groupingFields = $map['GroupingFields'];
-            }
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
@@ -78,6 +82,14 @@ class groupRules extends Model
         }
         if (isset($map['GroupWaitTime'])) {
             $model->groupWaitTime = $map['GroupWaitTime'];
+        }
+        if (isset($map['GroupingFields'])) {
+            if (!empty($map['GroupingFields'])) {
+                $model->groupingFields = $map['GroupingFields'];
+            }
+        }
+        if (isset($map['RepeatInterval'])) {
+            $model->repeatInterval = $map['RepeatInterval'];
         }
 
         return $model;

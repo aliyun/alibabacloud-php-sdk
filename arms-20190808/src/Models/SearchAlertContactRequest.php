@@ -11,17 +11,12 @@ class SearchAlertContactRequest extends Model
     /**
      * @var string
      */
+    public $contactIds;
+
+    /**
+     * @var string
+     */
     public $contactName;
-
-    /**
-     * @var string
-     */
-    public $phone;
-
-    /**
-     * @var string
-     */
-    public $email;
 
     /**
      * @var string
@@ -31,31 +26,30 @@ class SearchAlertContactRequest extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
     public $pageSize;
 
     /**
      * @var string
      */
+    public $phone;
+
+    /**
+     * @var string
+     */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $proxyUserId;
-
-    /**
-     * @var string
-     */
-    public $contactIds;
     protected $_name = [
-        'contactName' => 'ContactName',
-        'phone'       => 'Phone',
-        'email'       => 'Email',
-        'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'proxyUserId' => 'ProxyUserId',
         'contactIds'  => 'ContactIds',
+        'contactName' => 'ContactName',
+        'currentPage' => 'CurrentPage',
+        'email'       => 'Email',
+        'pageSize'    => 'PageSize',
+        'phone'       => 'Phone',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -65,29 +59,26 @@ class SearchAlertContactRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactIds) {
+            $res['ContactIds'] = $this->contactIds;
+        }
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
-        }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->phone) {
+            $res['Phone'] = $this->phone;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
-        }
-        if (null !== $this->contactIds) {
-            $res['ContactIds'] = $this->contactIds;
         }
 
         return $res;
@@ -101,29 +92,26 @@ class SearchAlertContactRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactIds'])) {
+            $model->contactIds = $map['ContactIds'];
+        }
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
-        }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['Phone'])) {
+            $model->phone = $map['Phone'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
-        }
-        if (isset($map['ContactIds'])) {
-            $model->contactIds = $map['ContactIds'];
         }
 
         return $model;

@@ -16,16 +16,10 @@ class StartAlertRequest extends Model
     /**
      * @var string
      */
-    public $proxyUserId;
-
-    /**
-     * @var string
-     */
     public $regionId;
     protected $_name = [
-        'alertId'     => 'AlertId',
-        'proxyUserId' => 'ProxyUserId',
-        'regionId'    => 'RegionId',
+        'alertId'  => 'AlertId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class StartAlertRequest extends Model
         $res = [];
         if (null !== $this->alertId) {
             $res['AlertId'] = $this->alertId;
-        }
-        if (null !== $this->proxyUserId) {
-            $res['ProxyUserId'] = $this->proxyUserId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -58,9 +49,6 @@ class StartAlertRequest extends Model
         $model = new self();
         if (isset($map['AlertId'])) {
             $model->alertId = $map['AlertId'];
-        }
-        if (isset($map['ProxyUserId'])) {
-            $model->proxyUserId = $map['ProxyUserId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
