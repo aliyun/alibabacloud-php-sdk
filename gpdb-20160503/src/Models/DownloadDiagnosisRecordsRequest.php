@@ -36,6 +36,11 @@ class DownloadDiagnosisRecordsRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -43,13 +48,14 @@ class DownloadDiagnosisRecordsRequest extends Model
      */
     public $user;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
-        'database'       => 'Database',
-        'endTime'        => 'EndTime',
-        'lang'           => 'Lang',
-        'queryCondition' => 'QueryCondition',
-        'startTime'      => 'StartTime',
-        'user'           => 'User',
+        'DBInstanceId'    => 'DBInstanceId',
+        'database'        => 'Database',
+        'endTime'         => 'EndTime',
+        'lang'            => 'Lang',
+        'queryCondition'  => 'QueryCondition',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
+        'user'            => 'User',
     ];
 
     public function validate()
@@ -73,6 +79,9 @@ class DownloadDiagnosisRecordsRequest extends Model
         }
         if (null !== $this->queryCondition) {
             $res['QueryCondition'] = $this->queryCondition;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -106,6 +115,9 @@ class DownloadDiagnosisRecordsRequest extends Model
         }
         if (isset($map['QueryCondition'])) {
             $model->queryCondition = $map['QueryCondition'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

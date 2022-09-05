@@ -11,6 +11,11 @@ class DownloadDiagnosisRecordsResponseBody extends Model
     /**
      * @var string
      */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
     public $downloadId;
 
     /**
@@ -18,8 +23,9 @@ class DownloadDiagnosisRecordsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'downloadId' => 'DownloadId',
-        'requestId'  => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'downloadId'   => 'DownloadId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class DownloadDiagnosisRecordsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
         if (null !== $this->downloadId) {
             $res['DownloadId'] = $this->downloadId;
         }
@@ -47,6 +56,9 @@ class DownloadDiagnosisRecordsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
         if (isset($map['DownloadId'])) {
             $model->downloadId = $map['DownloadId'];
         }

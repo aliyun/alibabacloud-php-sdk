@@ -51,6 +51,11 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $segNodeNum;
 
     /**
@@ -71,6 +76,7 @@ class UpgradeDBInstanceRequest extends Model
         'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'segNodeNum'           => 'SegNodeNum',
         'storageSize'          => 'StorageSize',
         'upgradeType'          => 'UpgradeType',
@@ -106,6 +112,9 @@ class UpgradeDBInstanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->segNodeNum) {
             $res['SegNodeNum'] = $this->segNodeNum;
@@ -151,6 +160,9 @@ class UpgradeDBInstanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SegNodeNum'])) {
             $model->segNodeNum = $map['SegNodeNum'];

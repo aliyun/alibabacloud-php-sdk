@@ -17,9 +17,15 @@ class ModifyDBInstanceDescriptionRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId'          => 'DBInstanceId',
+        'resourceGroupId'       => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ModifyDBInstanceDescriptionRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ModifyDBInstanceDescriptionRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

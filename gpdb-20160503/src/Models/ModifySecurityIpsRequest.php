@@ -26,11 +26,17 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityIPList;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
         'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
         'DBInstanceId'               => 'DBInstanceId',
+        'resourceGroupId'            => 'ResourceGroupId',
         'securityIPList'             => 'SecurityIPList',
     ];
 
@@ -49,6 +55,9 @@ class ModifySecurityIpsRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
@@ -73,6 +82,9 @@ class ModifySecurityIpsRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];

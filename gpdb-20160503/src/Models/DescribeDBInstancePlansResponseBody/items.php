@@ -4,17 +4,17 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody\items\plan;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody\items\planList;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @var plan[]
+     * @var planList[]
      */
-    public $plan;
+    public $planList;
     protected $_name = [
-        'plan' => 'Plan',
+        'planList' => 'PlanList',
     ];
 
     public function validate()
@@ -24,12 +24,12 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->plan) {
-            $res['Plan'] = [];
-            if (null !== $this->plan && \is_array($this->plan)) {
+        if (null !== $this->planList) {
+            $res['PlanList'] = [];
+            if (null !== $this->planList && \is_array($this->planList)) {
                 $n = 0;
-                foreach ($this->plan as $item) {
-                    $res['Plan'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->planList as $item) {
+                    $res['PlanList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -45,12 +45,12 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Plan'])) {
-            if (!empty($map['Plan'])) {
-                $model->plan = [];
-                $n           = 0;
-                foreach ($map['Plan'] as $item) {
-                    $model->plan[$n++] = null !== $item ? plan::fromMap($item) : $item;
+        if (isset($map['PlanList'])) {
+            if (!empty($map['PlanList'])) {
+                $model->planList = [];
+                $n               = 0;
+                foreach ($map['PlanList'] as $item) {
+                    $model->planList[$n++] = null !== $item ? planList::fromMap($item) : $item;
                 }
             }
         }

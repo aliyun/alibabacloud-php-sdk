@@ -26,12 +26,18 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'endTime'      => 'EndTime',
-        'key'          => 'Key',
-        'startTime'    => 'StartTime',
+        'DBInstanceId'    => 'DBInstanceId',
+        'endTime'         => 'EndTime',
+        'key'             => 'Key',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -73,6 +82,9 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

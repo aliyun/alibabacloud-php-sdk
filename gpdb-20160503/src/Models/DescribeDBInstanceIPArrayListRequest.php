@@ -12,8 +12,14 @@ class DescribeDBInstanceIPArrayListRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceId'    => 'DBInstanceId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeDBInstanceIPArrayListRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeDBInstanceIPArrayListRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

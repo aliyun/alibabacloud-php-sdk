@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
+namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody\items;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstancePlansRequest extends Model
+class planList extends Model
 {
     /**
      * @var string
@@ -14,14 +14,9 @@ class DescribeDBInstancePlansRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $planCreateDate;
+    public $planConfig;
 
     /**
      * @var string
@@ -31,7 +26,17 @@ class DescribeDBInstancePlansRequest extends Model
     /**
      * @var string
      */
+    public $planEndDate;
+
+    /**
+     * @var string
+     */
     public $planId;
+
+    /**
+     * @var string
+     */
+    public $planName;
 
     /**
      * @var string
@@ -41,14 +46,27 @@ class DescribeDBInstancePlansRequest extends Model
     /**
      * @var string
      */
+    public $planStartDate;
+
+    /**
+     * @var string
+     */
+    public $planStatus;
+
+    /**
+     * @var string
+     */
     public $planType;
     protected $_name = [
         'DBInstanceId'     => 'DBInstanceId',
-        'ownerId'          => 'OwnerId',
-        'planCreateDate'   => 'PlanCreateDate',
+        'planConfig'       => 'PlanConfig',
         'planDesc'         => 'PlanDesc',
+        'planEndDate'      => 'PlanEndDate',
         'planId'           => 'PlanId',
+        'planName'         => 'PlanName',
         'planScheduleType' => 'PlanScheduleType',
+        'planStartDate'    => 'PlanStartDate',
+        'planStatus'       => 'PlanStatus',
         'planType'         => 'PlanType',
     ];
 
@@ -62,20 +80,29 @@ class DescribeDBInstancePlansRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->planCreateDate) {
-            $res['PlanCreateDate'] = $this->planCreateDate;
+        if (null !== $this->planConfig) {
+            $res['PlanConfig'] = $this->planConfig;
         }
         if (null !== $this->planDesc) {
             $res['PlanDesc'] = $this->planDesc;
         }
+        if (null !== $this->planEndDate) {
+            $res['PlanEndDate'] = $this->planEndDate;
+        }
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
+        if (null !== $this->planName) {
+            $res['PlanName'] = $this->planName;
+        }
         if (null !== $this->planScheduleType) {
             $res['PlanScheduleType'] = $this->planScheduleType;
+        }
+        if (null !== $this->planStartDate) {
+            $res['PlanStartDate'] = $this->planStartDate;
+        }
+        if (null !== $this->planStatus) {
+            $res['PlanStatus'] = $this->planStatus;
         }
         if (null !== $this->planType) {
             $res['PlanType'] = $this->planType;
@@ -87,7 +114,7 @@ class DescribeDBInstancePlansRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstancePlansRequest
+     * @return planList
      */
     public static function fromMap($map = [])
     {
@@ -95,20 +122,29 @@ class DescribeDBInstancePlansRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PlanCreateDate'])) {
-            $model->planCreateDate = $map['PlanCreateDate'];
+        if (isset($map['PlanConfig'])) {
+            $model->planConfig = $map['PlanConfig'];
         }
         if (isset($map['PlanDesc'])) {
             $model->planDesc = $map['PlanDesc'];
         }
+        if (isset($map['PlanEndDate'])) {
+            $model->planEndDate = $map['PlanEndDate'];
+        }
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }
+        if (isset($map['PlanName'])) {
+            $model->planName = $map['PlanName'];
+        }
         if (isset($map['PlanScheduleType'])) {
             $model->planScheduleType = $map['PlanScheduleType'];
+        }
+        if (isset($map['PlanStartDate'])) {
+            $model->planStartDate = $map['PlanStartDate'];
+        }
+        if (isset($map['PlanStatus'])) {
+            $model->planStatus = $map['PlanStatus'];
         }
         if (isset($map['PlanType'])) {
             $model->planType = $map['PlanType'];

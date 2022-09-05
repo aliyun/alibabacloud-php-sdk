@@ -22,10 +22,16 @@ class DeleteDBInstanceRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'DBInstanceId' => 'DBInstanceId',
-        'ownerId'      => 'OwnerId',
+        'clientToken'     => 'ClientToken',
+        'DBInstanceId'    => 'DBInstanceId',
+        'ownerId'         => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DeleteDBInstanceRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DeleteDBInstanceRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

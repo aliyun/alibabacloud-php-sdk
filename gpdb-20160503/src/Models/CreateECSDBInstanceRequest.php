@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateECSDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateECSDBInstanceRequest extends Model
@@ -119,6 +120,11 @@ class CreateECSDBInstanceRequest extends Model
     public $storageSize;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $usedTime;
@@ -160,6 +166,7 @@ class CreateECSDBInstanceRequest extends Model
         'segStorageType'        => 'SegStorageType',
         'srcDbInstanceName'     => 'SrcDbInstanceName',
         'storageSize'           => 'StorageSize',
+        'tag'                   => 'Tag',
         'usedTime'              => 'UsedTime',
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
@@ -238,6 +245,15 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -328,6 +344,15 @@ class CreateECSDBInstanceRequest extends Model
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

@@ -17,9 +17,15 @@ class DeleteDatabaseRequest extends Model
      * @var string
      */
     public $DBName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'DBName'       => 'DBName',
+        'DBInstanceId'    => 'DBInstanceId',
+        'DBName'          => 'DBName',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DeleteDatabaseRequest extends Model
         }
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteDatabaseRequest extends Model
         }
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
