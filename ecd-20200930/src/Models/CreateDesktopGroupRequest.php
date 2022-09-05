@@ -61,6 +61,11 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @var int
      */
+    public $connectDuration;
+
+    /**
+     * @var int
+     */
     public $defaultInitDesktopCount;
 
     /**
@@ -77,6 +82,11 @@ class CreateDesktopGroupRequest extends Model
      * @var string[]
      */
     public $endUserIds;
+
+    /**
+     * @var int
+     */
+    public $idleDisconnectDuration;
 
     /**
      * @var int
@@ -124,6 +134,11 @@ class CreateDesktopGroupRequest extends Model
     public $policyGroupId;
 
     /**
+     * @var float
+     */
+    public $ratioThreshold;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -137,6 +152,11 @@ class CreateDesktopGroupRequest extends Model
      * @var string
      */
     public $scaleStrategyId;
+
+    /**
+     * @var int
+     */
+    public $stopDuration;
 
     /**
      * @var bool
@@ -163,10 +183,12 @@ class CreateDesktopGroupRequest extends Model
         'classify'                => 'Classify',
         'clientToken'             => 'ClientToken',
         'comments'                => 'Comments',
+        'connectDuration'         => 'ConnectDuration',
         'defaultInitDesktopCount' => 'DefaultInitDesktopCount',
         'desktopGroupName'        => 'DesktopGroupName',
         'directoryId'             => 'DirectoryId',
         'endUserIds'              => 'EndUserIds',
+        'idleDisconnectDuration'  => 'IdleDisconnectDuration',
         'keepDuration'            => 'KeepDuration',
         'loadPolicy'              => 'LoadPolicy',
         'maxDesktopsCount'        => 'MaxDesktopsCount',
@@ -176,9 +198,11 @@ class CreateDesktopGroupRequest extends Model
         'period'                  => 'Period',
         'periodUnit'              => 'PeriodUnit',
         'policyGroupId'           => 'PolicyGroupId',
+        'ratioThreshold'          => 'RatioThreshold',
         'regionId'                => 'RegionId',
         'resetType'               => 'ResetType',
         'scaleStrategyId'         => 'ScaleStrategyId',
+        'stopDuration'            => 'StopDuration',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
         'vpcId'                   => 'VpcId',
@@ -221,6 +245,9 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
+        if (null !== $this->connectDuration) {
+            $res['ConnectDuration'] = $this->connectDuration;
+        }
         if (null !== $this->defaultInitDesktopCount) {
             $res['DefaultInitDesktopCount'] = $this->defaultInitDesktopCount;
         }
@@ -232,6 +259,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
+        }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
         }
         if (null !== $this->keepDuration) {
             $res['KeepDuration'] = $this->keepDuration;
@@ -260,6 +290,9 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
+        if (null !== $this->ratioThreshold) {
+            $res['RatioThreshold'] = $this->ratioThreshold;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -268,6 +301,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->scaleStrategyId) {
             $res['ScaleStrategyId'] = $this->scaleStrategyId;
+        }
+        if (null !== $this->stopDuration) {
+            $res['StopDuration'] = $this->stopDuration;
         }
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
@@ -320,6 +356,9 @@ class CreateDesktopGroupRequest extends Model
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
+        if (isset($map['ConnectDuration'])) {
+            $model->connectDuration = $map['ConnectDuration'];
+        }
         if (isset($map['DefaultInitDesktopCount'])) {
             $model->defaultInitDesktopCount = $map['DefaultInitDesktopCount'];
         }
@@ -333,6 +372,9 @@ class CreateDesktopGroupRequest extends Model
             if (!empty($map['EndUserIds'])) {
                 $model->endUserIds = $map['EndUserIds'];
             }
+        }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
         }
         if (isset($map['KeepDuration'])) {
             $model->keepDuration = $map['KeepDuration'];
@@ -361,6 +403,9 @@ class CreateDesktopGroupRequest extends Model
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
+        if (isset($map['RatioThreshold'])) {
+            $model->ratioThreshold = $map['RatioThreshold'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -369,6 +414,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['ScaleStrategyId'])) {
             $model->scaleStrategyId = $map['ScaleStrategyId'];
+        }
+        if (isset($map['StopDuration'])) {
+            $model->stopDuration = $map['StopDuration'];
         }
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];

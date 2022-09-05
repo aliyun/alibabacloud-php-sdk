@@ -32,6 +32,11 @@ class desktops extends Model
     /**
      * @var int
      */
+    public $connectDuration;
+
+    /**
+     * @var int
+     */
     public $cpu;
 
     /**
@@ -88,6 +93,11 @@ class desktops extends Model
      * @var string
      */
     public $gpuSpec;
+
+    /**
+     * @var int
+     */
+    public $idleDisconnectDuration;
 
     /**
      * @var int
@@ -160,6 +170,11 @@ class desktops extends Model
     public $policyGroupName;
 
     /**
+     * @var float
+     */
+    public $ratioThreshold;
+
+    /**
      * @var int
      */
     public $resType;
@@ -175,6 +190,11 @@ class desktops extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $stopDuration;
+
+    /**
      * @var string
      */
     public $systemDiskCategory;
@@ -188,43 +208,53 @@ class desktops extends Model
      * @var timerInfos[]
      */
     public $timerInfos;
+
+    /**
+     * @var int
+     */
+    public $version;
     protected $_name = [
-        'allowAutoSetup'     => 'AllowAutoSetup',
-        'allowBufferCount'   => 'AllowBufferCount',
-        'bindAmount'         => 'BindAmount',
-        'comments'           => 'Comments',
-        'cpu'                => 'Cpu',
-        'creationTime'       => 'CreationTime',
-        'creator'            => 'Creator',
-        'dataDiskCategory'   => 'DataDiskCategory',
-        'dataDiskSize'       => 'DataDiskSize',
-        'desktopGroupId'     => 'DesktopGroupId',
-        'desktopGroupName'   => 'DesktopGroupName',
-        'directoryId'        => 'DirectoryId',
-        'directoryType'      => 'DirectoryType',
-        'expiredTime'        => 'ExpiredTime',
-        'gpuCount'           => 'GpuCount',
-        'gpuSpec'            => 'GpuSpec',
-        'keepDuration'       => 'KeepDuration',
-        'loadPolicy'         => 'LoadPolicy',
-        'maxDesktopsCount'   => 'MaxDesktopsCount',
-        'memory'             => 'Memory',
-        'minDesktopsCount'   => 'MinDesktopsCount',
-        'officeSiteId'       => 'OfficeSiteId',
-        'officeSiteName'     => 'OfficeSiteName',
-        'officeSiteType'     => 'OfficeSiteType',
-        'ownBundleId'        => 'OwnBundleId',
-        'ownBundleName'      => 'OwnBundleName',
-        'ownType'            => 'OwnType',
-        'payType'            => 'PayType',
-        'policyGroupId'      => 'PolicyGroupId',
-        'policyGroupName'    => 'PolicyGroupName',
-        'resType'            => 'ResType',
-        'resetType'          => 'ResetType',
-        'status'             => 'Status',
-        'systemDiskCategory' => 'SystemDiskCategory',
-        'systemDiskSize'     => 'SystemDiskSize',
-        'timerInfos'         => 'TimerInfos',
+        'allowAutoSetup'         => 'AllowAutoSetup',
+        'allowBufferCount'       => 'AllowBufferCount',
+        'bindAmount'             => 'BindAmount',
+        'comments'               => 'Comments',
+        'connectDuration'        => 'ConnectDuration',
+        'cpu'                    => 'Cpu',
+        'creationTime'           => 'CreationTime',
+        'creator'                => 'Creator',
+        'dataDiskCategory'       => 'DataDiskCategory',
+        'dataDiskSize'           => 'DataDiskSize',
+        'desktopGroupId'         => 'DesktopGroupId',
+        'desktopGroupName'       => 'DesktopGroupName',
+        'directoryId'            => 'DirectoryId',
+        'directoryType'          => 'DirectoryType',
+        'expiredTime'            => 'ExpiredTime',
+        'gpuCount'               => 'GpuCount',
+        'gpuSpec'                => 'GpuSpec',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'keepDuration'           => 'KeepDuration',
+        'loadPolicy'             => 'LoadPolicy',
+        'maxDesktopsCount'       => 'MaxDesktopsCount',
+        'memory'                 => 'Memory',
+        'minDesktopsCount'       => 'MinDesktopsCount',
+        'officeSiteId'           => 'OfficeSiteId',
+        'officeSiteName'         => 'OfficeSiteName',
+        'officeSiteType'         => 'OfficeSiteType',
+        'ownBundleId'            => 'OwnBundleId',
+        'ownBundleName'          => 'OwnBundleName',
+        'ownType'                => 'OwnType',
+        'payType'                => 'PayType',
+        'policyGroupId'          => 'PolicyGroupId',
+        'policyGroupName'        => 'PolicyGroupName',
+        'ratioThreshold'         => 'RatioThreshold',
+        'resType'                => 'ResType',
+        'resetType'              => 'ResetType',
+        'status'                 => 'Status',
+        'stopDuration'           => 'StopDuration',
+        'systemDiskCategory'     => 'SystemDiskCategory',
+        'systemDiskSize'         => 'SystemDiskSize',
+        'timerInfos'             => 'TimerInfos',
+        'version'                => 'Version',
     ];
 
     public function validate()
@@ -245,6 +275,9 @@ class desktops extends Model
         }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
+        }
+        if (null !== $this->connectDuration) {
+            $res['ConnectDuration'] = $this->connectDuration;
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
@@ -281,6 +314,9 @@ class desktops extends Model
         }
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
+        }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
         }
         if (null !== $this->keepDuration) {
             $res['KeepDuration'] = $this->keepDuration;
@@ -324,6 +360,9 @@ class desktops extends Model
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
         }
+        if (null !== $this->ratioThreshold) {
+            $res['RatioThreshold'] = $this->ratioThreshold;
+        }
         if (null !== $this->resType) {
             $res['ResType'] = $this->resType;
         }
@@ -332,6 +371,9 @@ class desktops extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->stopDuration) {
+            $res['StopDuration'] = $this->stopDuration;
         }
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
@@ -347,6 +389,9 @@ class desktops extends Model
                     $res['TimerInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -371,6 +416,9 @@ class desktops extends Model
         }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
+        }
+        if (isset($map['ConnectDuration'])) {
+            $model->connectDuration = $map['ConnectDuration'];
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
@@ -407,6 +455,9 @@ class desktops extends Model
         }
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
+        }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
         }
         if (isset($map['KeepDuration'])) {
             $model->keepDuration = $map['KeepDuration'];
@@ -450,6 +501,9 @@ class desktops extends Model
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
         }
+        if (isset($map['RatioThreshold'])) {
+            $model->ratioThreshold = $map['RatioThreshold'];
+        }
         if (isset($map['ResType'])) {
             $model->resType = $map['ResType'];
         }
@@ -458,6 +512,9 @@ class desktops extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StopDuration'])) {
+            $model->stopDuration = $map['StopDuration'];
         }
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];
@@ -473,6 +530,9 @@ class desktops extends Model
                     $model->timerInfos[$n++] = null !== $item ? timerInfos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

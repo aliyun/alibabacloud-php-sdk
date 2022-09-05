@@ -14,6 +14,11 @@ class DescribeDesktopsInGroupRequest extends Model
     public $desktopGroupId;
 
     /**
+     * @var bool
+     */
+    public $ignoreDeleted;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -34,6 +39,7 @@ class DescribeDesktopsInGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
+        'ignoreDeleted'  => 'IgnoreDeleted',
         'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
         'payType'        => 'PayType',
@@ -49,6 +55,9 @@ class DescribeDesktopsInGroupRequest extends Model
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
+        }
+        if (null !== $this->ignoreDeleted) {
+            $res['IgnoreDeleted'] = $this->ignoreDeleted;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -76,6 +85,9 @@ class DescribeDesktopsInGroupRequest extends Model
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
+        }
+        if (isset($map['IgnoreDeleted'])) {
+            $model->ignoreDeleted = $map['IgnoreDeleted'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

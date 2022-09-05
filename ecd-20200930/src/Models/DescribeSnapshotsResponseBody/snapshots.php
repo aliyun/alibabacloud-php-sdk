@@ -29,6 +29,11 @@ class snapshots extends Model
     public $progress;
 
     /**
+     * @var string
+     */
+    public $protocolType;
+
+    /**
      * @var int
      */
     public $remainTime;
@@ -77,6 +82,7 @@ class snapshots extends Model
         'description'             => 'Description',
         'desktopId'               => 'DesktopId',
         'progress'                => 'Progress',
+        'protocolType'            => 'ProtocolType',
         'remainTime'              => 'RemainTime',
         'snapshotId'              => 'SnapshotId',
         'snapshotName'            => 'SnapshotName',
@@ -106,6 +112,9 @@ class snapshots extends Model
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->protocolType) {
+            $res['ProtocolType'] = $this->protocolType;
         }
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
@@ -157,6 +166,9 @@ class snapshots extends Model
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['ProtocolType'])) {
+            $model->protocolType = $map['ProtocolType'];
         }
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];

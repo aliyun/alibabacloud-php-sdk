@@ -74,9 +74,24 @@ class paidDesktops extends Model
     public $managementFlag;
 
     /**
+     * @var string[]
+     */
+    public $managementFlags;
+
+    /**
+     * @var string
+     */
+    public $memberEniIp;
+
+    /**
      * @var string
      */
     public $osType;
+
+    /**
+     * @var string
+     */
+    public $primaryEniIp;
 
     /**
      * @var string
@@ -101,7 +116,10 @@ class paidDesktops extends Model
         'imageId'          => 'ImageId',
         'imageName'        => 'ImageName',
         'managementFlag'   => 'ManagementFlag',
+        'managementFlags'  => 'ManagementFlags',
+        'memberEniIp'      => 'MemberEniIp',
         'osType'           => 'OsType',
+        'primaryEniIp'     => 'PrimaryEniIp',
         'resetTime'        => 'ResetTime',
         'systemDiskSize'   => 'SystemDiskSize',
     ];
@@ -152,8 +170,17 @@ class paidDesktops extends Model
         if (null !== $this->managementFlag) {
             $res['ManagementFlag'] = $this->managementFlag;
         }
+        if (null !== $this->managementFlags) {
+            $res['ManagementFlags'] = $this->managementFlags;
+        }
+        if (null !== $this->memberEniIp) {
+            $res['MemberEniIp'] = $this->memberEniIp;
+        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->primaryEniIp) {
+            $res['PrimaryEniIp'] = $this->primaryEniIp;
         }
         if (null !== $this->resetTime) {
             $res['ResetTime'] = $this->resetTime;
@@ -216,8 +243,19 @@ class paidDesktops extends Model
         if (isset($map['ManagementFlag'])) {
             $model->managementFlag = $map['ManagementFlag'];
         }
+        if (isset($map['ManagementFlags'])) {
+            if (!empty($map['ManagementFlags'])) {
+                $model->managementFlags = $map['ManagementFlags'];
+            }
+        }
+        if (isset($map['MemberEniIp'])) {
+            $model->memberEniIp = $map['MemberEniIp'];
+        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['PrimaryEniIp'])) {
+            $model->primaryEniIp = $map['PrimaryEniIp'];
         }
         if (isset($map['ResetTime'])) {
             $model->resetTime = $map['ResetTime'];

@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class describePolicyGroups extends Model
 {
     /**
+     * @var string
+     */
+    public $appContentProtection;
+
+    /**
      * @var authorizeAccessPolicyRules[]
      */
     public $authorizeAccessPolicyRules;
@@ -110,12 +115,27 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $recordContent;
+
+    /**
+     * @var int
+     */
+    public $recordContentExpires;
+
+    /**
+     * @var string
+     */
     public $recording;
 
     /**
      * @var string
      */
     public $recordingEndTime;
+
+    /**
+     * @var int
+     */
+    public $recordingExpires;
 
     /**
      * @var int
@@ -162,6 +182,7 @@ class describePolicyGroups extends Model
      */
     public $watermarkType;
     protected $_name = [
+        'appContentProtection'         => 'AppContentProtection',
         'authorizeAccessPolicyRules'   => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
         'cameraRedirect'               => 'CameraRedirect',
@@ -181,8 +202,11 @@ class describePolicyGroups extends Model
         'preemptLogin'                 => 'PreemptLogin',
         'preemptLoginUsers'            => 'PreemptLoginUsers',
         'printerRedirection'           => 'PrinterRedirection',
+        'recordContent'                => 'RecordContent',
+        'recordContentExpires'         => 'RecordContentExpires',
         'recording'                    => 'Recording',
         'recordingEndTime'             => 'RecordingEndTime',
+        'recordingExpires'             => 'RecordingExpires',
         'recordingFps'                 => 'RecordingFps',
         'recordingStartTime'           => 'RecordingStartTime',
         'usbRedirect'                  => 'UsbRedirect',
@@ -201,6 +225,9 @@ class describePolicyGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appContentProtection) {
+            $res['AppContentProtection'] = $this->appContentProtection;
+        }
         if (null !== $this->authorizeAccessPolicyRules) {
             $res['AuthorizeAccessPolicyRules'] = [];
             if (null !== $this->authorizeAccessPolicyRules && \is_array($this->authorizeAccessPolicyRules)) {
@@ -276,11 +303,20 @@ class describePolicyGroups extends Model
         if (null !== $this->printerRedirection) {
             $res['PrinterRedirection'] = $this->printerRedirection;
         }
+        if (null !== $this->recordContent) {
+            $res['RecordContent'] = $this->recordContent;
+        }
+        if (null !== $this->recordContentExpires) {
+            $res['RecordContentExpires'] = $this->recordContentExpires;
+        }
         if (null !== $this->recording) {
             $res['Recording'] = $this->recording;
         }
         if (null !== $this->recordingEndTime) {
             $res['RecordingEndTime'] = $this->recordingEndTime;
+        }
+        if (null !== $this->recordingExpires) {
+            $res['RecordingExpires'] = $this->recordingExpires;
         }
         if (null !== $this->recordingFps) {
             $res['RecordingFps'] = $this->recordingFps;
@@ -327,6 +363,9 @@ class describePolicyGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppContentProtection'])) {
+            $model->appContentProtection = $map['AppContentProtection'];
+        }
         if (isset($map['AuthorizeAccessPolicyRules'])) {
             if (!empty($map['AuthorizeAccessPolicyRules'])) {
                 $model->authorizeAccessPolicyRules = [];
@@ -404,11 +443,20 @@ class describePolicyGroups extends Model
         if (isset($map['PrinterRedirection'])) {
             $model->printerRedirection = $map['PrinterRedirection'];
         }
+        if (isset($map['RecordContent'])) {
+            $model->recordContent = $map['RecordContent'];
+        }
+        if (isset($map['RecordContentExpires'])) {
+            $model->recordContentExpires = $map['RecordContentExpires'];
+        }
         if (isset($map['Recording'])) {
             $model->recording = $map['Recording'];
         }
         if (isset($map['RecordingEndTime'])) {
             $model->recordingEndTime = $map['RecordingEndTime'];
+        }
+        if (isset($map['RecordingExpires'])) {
+            $model->recordingExpires = $map['RecordingExpires'];
         }
         if (isset($map['RecordingFps'])) {
             $model->recordingFps = $map['RecordingFps'];

@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsRequest extends Model
+class DeleteCloudDriveUsersRequest extends Model
 {
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $cdsId;
+
+    /**
+     * @var string[]
+     */
+    public $endUserId;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'regionId'       => 'RegionId',
+        'cdsId'     => 'CdsId',
+        'endUserId' => 'EndUserId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -29,8 +35,11 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
+        if (null !== $this->cdsId) {
+            $res['CdsId'] = $this->cdsId;
+        }
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -42,13 +51,18 @@ class DescribeRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsRequest
+     * @return DeleteCloudDriveUsersRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
+        if (isset($map['CdsId'])) {
+            $model->cdsId = $map['CdsId'];
+        }
+        if (isset($map['EndUserId'])) {
+            if (!empty($map['EndUserId'])) {
+                $model->endUserId = $map['EndUserId'];
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

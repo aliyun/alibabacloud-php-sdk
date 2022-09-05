@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNASFileSystemRequest;
@@ -58,12 +60,16 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteBundlesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteBundlesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveUsersRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDirectoriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDriveRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteImagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNASFileSystemsRequest;
@@ -86,6 +92,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCensRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCensResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesRequest;
@@ -98,6 +106,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopTypesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopTypesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDirectoriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowMetricResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeFlowStatisticRequest;
@@ -128,8 +138,6 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponse;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsRequest;
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeScanTaskProgressRequest;
@@ -150,6 +158,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectionRecordsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUserConnectionRecordsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersInGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersInGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersPasswordRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeUsersPasswordResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVirtualMFADevicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeVulDetailsRequest;
@@ -200,6 +210,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyADConnectorOfficeSiteResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDrivePermissionRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDrivePermissionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopGroupRequest;
@@ -264,6 +276,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SendVerifyCodeResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerStatusRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\SetDesktopGroupTimerStatusResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetIdpMetadataRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetIdpMetadataResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\SetOfficeSiteSsoStatusRequest;
@@ -1234,6 +1250,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->comments)) {
             $query['Comments'] = $request->comments;
         }
+        if (!Utils::isUnset($request->connectDuration)) {
+            $query['ConnectDuration'] = $request->connectDuration;
+        }
         if (!Utils::isUnset($request->defaultInitDesktopCount)) {
             $query['DefaultInitDesktopCount'] = $request->defaultInitDesktopCount;
         }
@@ -1245,6 +1264,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->endUserIds)) {
             $query['EndUserIds'] = $request->endUserIds;
+        }
+        if (!Utils::isUnset($request->idleDisconnectDuration)) {
+            $query['IdleDisconnectDuration'] = $request->idleDisconnectDuration;
         }
         if (!Utils::isUnset($request->keepDuration)) {
             $query['KeepDuration'] = $request->keepDuration;
@@ -1273,6 +1295,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->policyGroupId)) {
             $query['PolicyGroupId'] = $request->policyGroupId;
         }
+        if (!Utils::isUnset($request->ratioThreshold)) {
+            $query['RatioThreshold'] = $request->ratioThreshold;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1281,6 +1306,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->scaleStrategyId)) {
             $query['ScaleStrategyId'] = $request->scaleStrategyId;
+        }
+        if (!Utils::isUnset($request->stopDuration)) {
+            $query['StopDuration'] = $request->stopDuration;
         }
         if (!Utils::isUnset($request->volumeEncryptionEnabled)) {
             $query['VolumeEncryptionEnabled'] = $request->volumeEncryptionEnabled;
@@ -1388,6 +1416,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->userAssignMode)) {
             $query['UserAssignMode'] = $request->userAssignMode;
         }
+        if (!Utils::isUnset($request->userCommands)) {
+            $query['UserCommands'] = $request->userCommands;
+        }
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
         }
@@ -1471,6 +1502,82 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDiskEncryptionServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDriveRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDriveResponse
+     */
+    public function createDriveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->driveName)) {
+            $query['DriveName'] = $request->driveName;
+        }
+        if (!Utils::isUnset($request->externalDomainId)) {
+            $query['ExternalDomainId'] = $request->externalDomainId;
+        }
+        if (!Utils::isUnset($request->profileRoaming)) {
+            $query['ProfileRoaming'] = $request->profileRoaming;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->totalSize)) {
+            $query['TotalSize'] = $request->totalSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->usedSize)) {
+            $query['UsedSize'] = $request->usedSize;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDrive',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDriveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDriveRequest $request
+     *
+     * @return CreateDriveResponse
+     */
+    public function createDrive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDriveWithOptions($request, $runtime);
     }
 
     /**
@@ -1675,6 +1782,9 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appContentProtection)) {
+            $query['AppContentProtection'] = $request->appContentProtection;
+        }
         if (!Utils::isUnset($request->authorizeAccessPolicyRule)) {
             $query['AuthorizeAccessPolicyRule'] = $request->authorizeAccessPolicyRule;
         }
@@ -1720,11 +1830,20 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->printerRedirection)) {
             $query['PrinterRedirection'] = $request->printerRedirection;
         }
+        if (!Utils::isUnset($request->recordContent)) {
+            $query['RecordContent'] = $request->recordContent;
+        }
+        if (!Utils::isUnset($request->recordContentExpires)) {
+            $query['RecordContentExpires'] = $request->recordContentExpires;
+        }
         if (!Utils::isUnset($request->recording)) {
             $query['Recording'] = $request->recording;
         }
         if (!Utils::isUnset($request->recordingEndTime)) {
             $query['RecordingEndTime'] = $request->recordingEndTime;
+        }
+        if (!Utils::isUnset($request->recordingExpires)) {
+            $query['RecordingExpires'] = $request->recordingExpires;
         }
         if (!Utils::isUnset($request->recordingFps)) {
             $query['RecordingFps'] = $request->recordingFps;
@@ -2022,6 +2141,55 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DeleteCloudDriveUsersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCloudDriveUsersResponse
+     */
+    public function deleteCloudDriveUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCloudDriveUsers',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCloudDriveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCloudDriveUsersRequest $request
+     *
+     * @return DeleteCloudDriveUsersResponse
+     */
+    public function deleteCloudDriveUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudDriveUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDesktopGroupRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2157,6 +2325,52 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDirectoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDriveRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDriveResponse
+     */
+    public function deleteDriveWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $query['DriveId'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDrive',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDriveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDriveRequest $request
+     *
+     * @return DeleteDriveResponse
+     */
+    public function deleteDrive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDriveWithOptions($request, $runtime);
     }
 
     /**
@@ -2750,6 +2964,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeCloudDrivePermissionsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeCloudDrivePermissionsResponse
+     */
+    public function describeCloudDrivePermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudDrivePermissions',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudDrivePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudDrivePermissionsRequest $request
+     *
+     * @return DescribeCloudDrivePermissionsResponse
+     */
+    public function describeCloudDrivePermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudDrivePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDesktopGroupsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3066,6 +3326,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->desktopGroupId)) {
             $query['DesktopGroupId'] = $request->desktopGroupId;
         }
+        if (!Utils::isUnset($request->ignoreDeleted)) {
+            $query['IgnoreDeleted'] = $request->ignoreDeleted;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -3167,6 +3430,58 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDirectoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDrivesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeDrivesResponse
+     */
+    public function describeDrivesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainIds)) {
+            $query['DomainIds'] = $request->domainIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrives',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDrivesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDrivesRequest $request
+     *
+     * @return DescribeDrivesResponse
+     */
+    public function describeDrives($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDrivesWithOptions($request, $runtime);
     }
 
     /**
@@ -4010,55 +4325,6 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordingsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeRecordingsResponse
-     */
-    public function describeRecordingsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRecordings',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRecordingsRequest $request
-     *
-     * @return DescribeRecordingsResponse
-     */
-    public function describeRecordings($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRecordingsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4068,6 +4334,9 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -4606,6 +4875,52 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeUsersPasswordRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeUsersPasswordResponse
+     */
+    public function describeUsersPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUsersPassword',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUsersPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUsersPasswordRequest $request
+     *
+     * @return DescribeUsersPasswordResponse
+     */
+    public function describeUsersPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUsersPasswordWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVirtualMFADevicesRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4736,6 +5051,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->necessity)) {
             $query['Necessity'] = $request->necessity;
@@ -6035,6 +6353,58 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyCloudDrivePermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyCloudDrivePermissionResponse
+     */
+    public function modifyCloudDrivePermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cdsId)) {
+            $query['CdsId'] = $request->cdsId;
+        }
+        if (!Utils::isUnset($request->downloadEndUserIds)) {
+            $query['DownloadEndUserIds'] = $request->downloadEndUserIds;
+        }
+        if (!Utils::isUnset($request->downloadUploadEndUserIds)) {
+            $query['DownloadUploadEndUserIds'] = $request->downloadUploadEndUserIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCloudDrivePermission',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCloudDrivePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCloudDrivePermissionRequest $request
+     *
+     * @return ModifyCloudDrivePermissionResponse
+     */
+    public function modifyCloudDrivePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudDrivePermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDesktopChargeTypeRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -6120,11 +6490,20 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->comments)) {
             $query['Comments'] = $request->comments;
         }
+        if (!Utils::isUnset($request->connectDuration)) {
+            $query['ConnectDuration'] = $request->connectDuration;
+        }
         if (!Utils::isUnset($request->desktopGroupId)) {
             $query['DesktopGroupId'] = $request->desktopGroupId;
         }
         if (!Utils::isUnset($request->desktopGroupName)) {
             $query['DesktopGroupName'] = $request->desktopGroupName;
+        }
+        if (!Utils::isUnset($request->disableSessionConfig)) {
+            $query['DisableSessionConfig'] = $request->disableSessionConfig;
+        }
+        if (!Utils::isUnset($request->idleDisconnectDuration)) {
+            $query['IdleDisconnectDuration'] = $request->idleDisconnectDuration;
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
@@ -6147,6 +6526,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->policyGroupId)) {
             $query['PolicyGroupId'] = $request->policyGroupId;
         }
+        if (!Utils::isUnset($request->ratioThreshold)) {
+            $query['RatioThreshold'] = $request->ratioThreshold;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -6155,6 +6537,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->scaleStrategyId)) {
             $query['ScaleStrategyId'] = $request->scaleStrategyId;
+        }
+        if (!Utils::isUnset($request->stopDuration)) {
+            $query['StopDuration'] = $request->stopDuration;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6982,6 +7367,9 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appContentProtection)) {
+            $query['AppContentProtection'] = $request->appContentProtection;
+        }
         if (!Utils::isUnset($request->authorizeAccessPolicyRule)) {
             $query['AuthorizeAccessPolicyRule'] = $request->authorizeAccessPolicyRule;
         }
@@ -7030,11 +7418,20 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->printerRedirection)) {
             $query['PrinterRedirection'] = $request->printerRedirection;
         }
+        if (!Utils::isUnset($request->recordContent)) {
+            $query['RecordContent'] = $request->recordContent;
+        }
+        if (!Utils::isUnset($request->recordContentExpires)) {
+            $query['RecordContentExpires'] = $request->recordContentExpires;
+        }
         if (!Utils::isUnset($request->recording)) {
             $query['Recording'] = $request->recording;
         }
         if (!Utils::isUnset($request->recordingEndTime)) {
             $query['RecordingEndTime'] = $request->recordingEndTime;
+        }
+        if (!Utils::isUnset($request->recordingExpires)) {
+            $query['RecordingExpires'] = $request->recordingExpires;
         }
         if (!Utils::isUnset($request->recordingFps)) {
             $query['RecordingFps'] = $request->recordingFps;
@@ -7831,6 +8228,116 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendVerifyCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDesktopGroupTimerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetDesktopGroupTimerResponse
+     */
+    public function setDesktopGroupTimerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cronExpression)) {
+            $query['CronExpression'] = $request->cronExpression;
+        }
+        if (!Utils::isUnset($request->desktopGroupId)) {
+            $query['DesktopGroupId'] = $request->desktopGroupId;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resetType)) {
+            $query['ResetType'] = $request->resetType;
+        }
+        if (!Utils::isUnset($request->timerType)) {
+            $query['TimerType'] = $request->timerType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDesktopGroupTimer',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDesktopGroupTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDesktopGroupTimerRequest $request
+     *
+     * @return SetDesktopGroupTimerResponse
+     */
+    public function setDesktopGroupTimer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDesktopGroupTimerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDesktopGroupTimerStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetDesktopGroupTimerStatusResponse
+     */
+    public function setDesktopGroupTimerStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopGroupId)) {
+            $query['DesktopGroupId'] = $request->desktopGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->timerType)) {
+            $query['TimerType'] = $request->timerType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDesktopGroupTimerStatus',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDesktopGroupTimerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDesktopGroupTimerStatusRequest $request
+     *
+     * @return SetDesktopGroupTimerStatusResponse
+     */
+    public function setDesktopGroupTimerStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDesktopGroupTimerStatusWithOptions($request, $runtime);
     }
 
     /**

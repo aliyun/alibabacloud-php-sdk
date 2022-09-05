@@ -2,21 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ecd\V20200930\Models\GetDesktopGroupDetailResponseBody\desktops;
+namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class timerInfos extends Model
+class SetDesktopGroupTimerStatusRequest extends Model
 {
     /**
      * @var string
      */
-    public $cronExpression;
+    public $desktopGroupId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $forced;
+    public $regionId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class timerInfos extends Model
      */
     public $timerType;
     protected $_name = [
-        'cronExpression' => 'CronExpression',
-        'forced'         => 'Forced',
+        'desktopGroupId' => 'DesktopGroupId',
+        'regionId'       => 'RegionId',
         'status'         => 'Status',
         'timerType'      => 'TimerType',
     ];
@@ -41,11 +41,11 @@ class timerInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cronExpression) {
-            $res['CronExpression'] = $this->cronExpression;
+        if (null !== $this->desktopGroupId) {
+            $res['DesktopGroupId'] = $this->desktopGroupId;
         }
-        if (null !== $this->forced) {
-            $res['Forced'] = $this->forced;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -60,16 +60,16 @@ class timerInfos extends Model
     /**
      * @param array $map
      *
-     * @return timerInfos
+     * @return SetDesktopGroupTimerStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CronExpression'])) {
-            $model->cronExpression = $map['CronExpression'];
+        if (isset($map['DesktopGroupId'])) {
+            $model->desktopGroupId = $map['DesktopGroupId'];
         }
-        if (isset($map['Forced'])) {
-            $model->forced = $map['Forced'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

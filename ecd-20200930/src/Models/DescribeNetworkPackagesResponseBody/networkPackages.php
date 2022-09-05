@@ -52,6 +52,11 @@ class networkPackages extends Model
      * @var string
      */
     public $officeSiteName;
+
+    /**
+     * @var string
+     */
+    public $officeSiteVpcType;
     protected $_name = [
         'bandwidth'            => 'Bandwidth',
         'createTime'           => 'CreateTime',
@@ -62,6 +67,7 @@ class networkPackages extends Model
         'networkPackageStatus' => 'NetworkPackageStatus',
         'officeSiteId'         => 'OfficeSiteId',
         'officeSiteName'       => 'OfficeSiteName',
+        'officeSiteVpcType'    => 'OfficeSiteVpcType',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class networkPackages extends Model
         }
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
+        }
+        if (null !== $this->officeSiteVpcType) {
+            $res['OfficeSiteVpcType'] = $this->officeSiteVpcType;
         }
 
         return $res;
@@ -138,6 +147,9 @@ class networkPackages extends Model
         }
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
+        }
+        if (isset($map['OfficeSiteVpcType'])) {
+            $model->officeSiteVpcType = $map['OfficeSiteVpcType'];
         }
 
         return $model;

@@ -21,6 +21,11 @@ class desktopGroups extends Model
     /**
      * @var int
      */
+    public $connectDuration;
+
+    /**
+     * @var int
+     */
     public $cpu;
 
     /**
@@ -72,6 +77,11 @@ class desktopGroups extends Model
      * @var string
      */
     public $gpuSpec;
+
+    /**
+     * @var int
+     */
+    public $idleDisconnectDuration;
 
     /**
      * @var string
@@ -149,6 +159,11 @@ class desktopGroups extends Model
     public $policyGroupName;
 
     /**
+     * @var float
+     */
+    public $ratioThreshold;
+
+    /**
      * @var int
      */
     public $resetType;
@@ -159,6 +174,11 @@ class desktopGroups extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $stopDuration;
+
+    /**
      * @var string
      */
     public $systemDiskCategory;
@@ -167,6 +187,11 @@ class desktopGroups extends Model
      * @var int
      */
     public $systemDiskSize;
+
+    /**
+     * @var int
+     */
+    public $version;
 
     /**
      * @var bool
@@ -180,6 +205,7 @@ class desktopGroups extends Model
     protected $_name = [
         'bindAmount'              => 'BindAmount',
         'comments'                => 'Comments',
+        'connectDuration'         => 'ConnectDuration',
         'cpu'                     => 'Cpu',
         'createTime'              => 'CreateTime',
         'creator'                 => 'Creator',
@@ -191,6 +217,7 @@ class desktopGroups extends Model
         'expiredTime'             => 'ExpiredTime',
         'gpuCount'                => 'GpuCount',
         'gpuSpec'                 => 'GpuSpec',
+        'idleDisconnectDuration'  => 'IdleDisconnectDuration',
         'imageId'                 => 'ImageId',
         'keepDuration'            => 'KeepDuration',
         'loadPolicy'              => 'LoadPolicy',
@@ -206,10 +233,13 @@ class desktopGroups extends Model
         'payType'                 => 'PayType',
         'policyGroupId'           => 'PolicyGroupId',
         'policyGroupName'         => 'PolicyGroupName',
+        'ratioThreshold'          => 'RatioThreshold',
         'resetType'               => 'ResetType',
         'status'                  => 'Status',
+        'stopDuration'            => 'StopDuration',
         'systemDiskCategory'      => 'SystemDiskCategory',
         'systemDiskSize'          => 'SystemDiskSize',
+        'version'                 => 'Version',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
     ];
@@ -226,6 +256,9 @@ class desktopGroups extends Model
         }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
+        }
+        if (null !== $this->connectDuration) {
+            $res['ConnectDuration'] = $this->connectDuration;
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
@@ -259,6 +292,9 @@ class desktopGroups extends Model
         }
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
+        }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -305,17 +341,26 @@ class desktopGroups extends Model
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
         }
+        if (null !== $this->ratioThreshold) {
+            $res['RatioThreshold'] = $this->ratioThreshold;
+        }
         if (null !== $this->resetType) {
             $res['ResetType'] = $this->resetType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->stopDuration) {
+            $res['StopDuration'] = $this->stopDuration;
+        }
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
@@ -340,6 +385,9 @@ class desktopGroups extends Model
         }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
+        }
+        if (isset($map['ConnectDuration'])) {
+            $model->connectDuration = $map['ConnectDuration'];
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
@@ -373,6 +421,9 @@ class desktopGroups extends Model
         }
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
+        }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -419,17 +470,26 @@ class desktopGroups extends Model
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
         }
+        if (isset($map['RatioThreshold'])) {
+            $model->ratioThreshold = $map['RatioThreshold'];
+        }
         if (isset($map['ResetType'])) {
             $model->resetType = $map['ResetType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['StopDuration'])) {
+            $model->stopDuration = $map['StopDuration'];
+        }
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];

@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsRequest extends Model
+class DescribeUsersPasswordRequest extends Model
 {
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $desktopId;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'regionId'       => 'RegionId',
+        'desktopId' => 'DesktopId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -42,13 +42,13 @@ class DescribeRegionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsRequest
+     * @return DescribeUsersPasswordRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
+        if (isset($map['DesktopId'])) {
+            $model->desktopId = $map['DesktopId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

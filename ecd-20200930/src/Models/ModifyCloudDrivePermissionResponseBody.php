@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisableDesktopsInGroupResponseBody extends Model
+class ModifyCloudDrivePermissionResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class DisableDesktopsInGroupResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DisableDesktopsInGroupResponseBody
+     * @return ModifyCloudDrivePermissionResponseBody
      */
     public static function fromMap($map = [])
     {

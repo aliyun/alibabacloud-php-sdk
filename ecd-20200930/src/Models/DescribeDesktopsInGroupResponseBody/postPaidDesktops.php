@@ -84,9 +84,24 @@ class postPaidDesktops extends Model
     public $managementFlag;
 
     /**
+     * @var string[]
+     */
+    public $managementFlags;
+
+    /**
+     * @var string
+     */
+    public $memberEniIp;
+
+    /**
      * @var string
      */
     public $osType;
+
+    /**
+     * @var string
+     */
+    public $primaryEniIp;
 
     /**
      * @var string
@@ -118,7 +133,10 @@ class postPaidDesktops extends Model
         'imageId'          => 'ImageId',
         'imageName'        => 'ImageName',
         'managementFlag'   => 'ManagementFlag',
+        'managementFlags'  => 'ManagementFlags',
+        'memberEniIp'      => 'MemberEniIp',
         'osType'           => 'OsType',
+        'primaryEniIp'     => 'PrimaryEniIp',
         'releaseTime'      => 'ReleaseTime',
         'resetTime'        => 'ResetTime',
         'systemDiskSize'   => 'SystemDiskSize',
@@ -176,8 +194,17 @@ class postPaidDesktops extends Model
         if (null !== $this->managementFlag) {
             $res['ManagementFlag'] = $this->managementFlag;
         }
+        if (null !== $this->managementFlags) {
+            $res['ManagementFlags'] = $this->managementFlags;
+        }
+        if (null !== $this->memberEniIp) {
+            $res['MemberEniIp'] = $this->memberEniIp;
+        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->primaryEniIp) {
+            $res['PrimaryEniIp'] = $this->primaryEniIp;
         }
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
@@ -249,8 +276,19 @@ class postPaidDesktops extends Model
         if (isset($map['ManagementFlag'])) {
             $model->managementFlag = $map['ManagementFlag'];
         }
+        if (isset($map['ManagementFlags'])) {
+            if (!empty($map['ManagementFlags'])) {
+                $model->managementFlags = $map['ManagementFlags'];
+            }
+        }
+        if (isset($map['MemberEniIp'])) {
+            $model->memberEniIp = $map['MemberEniIp'];
+        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['PrimaryEniIp'])) {
+            $model->primaryEniIp = $map['PrimaryEniIp'];
         }
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];

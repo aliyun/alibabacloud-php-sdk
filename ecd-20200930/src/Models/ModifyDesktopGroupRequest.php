@@ -34,6 +34,11 @@ class ModifyDesktopGroupRequest extends Model
     public $comments;
 
     /**
+     * @var int
+     */
+    public $connectDuration;
+
+    /**
      * @var string
      */
     public $desktopGroupId;
@@ -42,6 +47,16 @@ class ModifyDesktopGroupRequest extends Model
      * @var string
      */
     public $desktopGroupName;
+
+    /**
+     * @var bool
+     */
+    public $disableSessionConfig;
+
+    /**
+     * @var int
+     */
+    public $idleDisconnectDuration;
 
     /**
      * @var string
@@ -79,6 +94,11 @@ class ModifyDesktopGroupRequest extends Model
     public $policyGroupId;
 
     /**
+     * @var float
+     */
+    public $ratioThreshold;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -92,24 +112,34 @@ class ModifyDesktopGroupRequest extends Model
      * @var string
      */
     public $scaleStrategyId;
+
+    /**
+     * @var int
+     */
+    public $stopDuration;
     protected $_name = [
-        'allowAutoSetup'   => 'AllowAutoSetup',
-        'allowBufferCount' => 'AllowBufferCount',
-        'bindAmount'       => 'BindAmount',
-        'classify'         => 'Classify',
-        'comments'         => 'Comments',
-        'desktopGroupId'   => 'DesktopGroupId',
-        'desktopGroupName' => 'DesktopGroupName',
-        'imageId'          => 'ImageId',
-        'keepDuration'     => 'KeepDuration',
-        'loadPolicy'       => 'LoadPolicy',
-        'maxDesktopsCount' => 'MaxDesktopsCount',
-        'minDesktopsCount' => 'MinDesktopsCount',
-        'ownBundleId'      => 'OwnBundleId',
-        'policyGroupId'    => 'PolicyGroupId',
-        'regionId'         => 'RegionId',
-        'resetType'        => 'ResetType',
-        'scaleStrategyId'  => 'ScaleStrategyId',
+        'allowAutoSetup'         => 'AllowAutoSetup',
+        'allowBufferCount'       => 'AllowBufferCount',
+        'bindAmount'             => 'BindAmount',
+        'classify'               => 'Classify',
+        'comments'               => 'Comments',
+        'connectDuration'        => 'ConnectDuration',
+        'desktopGroupId'         => 'DesktopGroupId',
+        'desktopGroupName'       => 'DesktopGroupName',
+        'disableSessionConfig'   => 'DisableSessionConfig',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'imageId'                => 'ImageId',
+        'keepDuration'           => 'KeepDuration',
+        'loadPolicy'             => 'LoadPolicy',
+        'maxDesktopsCount'       => 'MaxDesktopsCount',
+        'minDesktopsCount'       => 'MinDesktopsCount',
+        'ownBundleId'            => 'OwnBundleId',
+        'policyGroupId'          => 'PolicyGroupId',
+        'ratioThreshold'         => 'RatioThreshold',
+        'regionId'               => 'RegionId',
+        'resetType'              => 'ResetType',
+        'scaleStrategyId'        => 'ScaleStrategyId',
+        'stopDuration'           => 'StopDuration',
     ];
 
     public function validate()
@@ -134,11 +164,20 @@ class ModifyDesktopGroupRequest extends Model
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
+        if (null !== $this->connectDuration) {
+            $res['ConnectDuration'] = $this->connectDuration;
+        }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
+        }
+        if (null !== $this->disableSessionConfig) {
+            $res['DisableSessionConfig'] = $this->disableSessionConfig;
+        }
+        if (null !== $this->idleDisconnectDuration) {
+            $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -161,6 +200,9 @@ class ModifyDesktopGroupRequest extends Model
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
+        if (null !== $this->ratioThreshold) {
+            $res['RatioThreshold'] = $this->ratioThreshold;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -169,6 +211,9 @@ class ModifyDesktopGroupRequest extends Model
         }
         if (null !== $this->scaleStrategyId) {
             $res['ScaleStrategyId'] = $this->scaleStrategyId;
+        }
+        if (null !== $this->stopDuration) {
+            $res['StopDuration'] = $this->stopDuration;
         }
 
         return $res;
@@ -197,11 +242,20 @@ class ModifyDesktopGroupRequest extends Model
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
+        if (isset($map['ConnectDuration'])) {
+            $model->connectDuration = $map['ConnectDuration'];
+        }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
+        }
+        if (isset($map['DisableSessionConfig'])) {
+            $model->disableSessionConfig = $map['DisableSessionConfig'];
+        }
+        if (isset($map['IdleDisconnectDuration'])) {
+            $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
@@ -224,6 +278,9 @@ class ModifyDesktopGroupRequest extends Model
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
+        if (isset($map['RatioThreshold'])) {
+            $model->ratioThreshold = $map['RatioThreshold'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -232,6 +289,9 @@ class ModifyDesktopGroupRequest extends Model
         }
         if (isset($map['ScaleStrategyId'])) {
             $model->scaleStrategyId = $map['ScaleStrategyId'];
+        }
+        if (isset($map['StopDuration'])) {
+            $model->stopDuration = $map['StopDuration'];
         }
 
         return $model;

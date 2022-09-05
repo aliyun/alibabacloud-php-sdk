@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\userCommands;
 use AlibabaCloud\Tea\Model;
 
 class CreateDesktopsRequest extends Model
@@ -105,6 +106,11 @@ class CreateDesktopsRequest extends Model
     public $userAssignMode;
 
     /**
+     * @var userCommands[]
+     */
+    public $userCommands;
+
+    /**
      * @var string
      */
     public $userName;
@@ -143,6 +149,7 @@ class CreateDesktopsRequest extends Model
         'regionId'                => 'RegionId',
         'tag'                     => 'Tag',
         'userAssignMode'          => 'UserAssignMode',
+        'userCommands'            => 'UserCommands',
         'userName'                => 'UserName',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
@@ -218,6 +225,15 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->userAssignMode) {
             $res['UserAssignMode'] = $this->userAssignMode;
+        }
+        if (null !== $this->userCommands) {
+            $res['UserCommands'] = [];
+            if (null !== $this->userCommands && \is_array($this->userCommands)) {
+                $n = 0;
+                foreach ($this->userCommands as $item) {
+                    $res['UserCommands'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -307,6 +323,15 @@ class CreateDesktopsRequest extends Model
         }
         if (isset($map['UserAssignMode'])) {
             $model->userAssignMode = $map['UserAssignMode'];
+        }
+        if (isset($map['UserCommands'])) {
+            if (!empty($map['UserCommands'])) {
+                $model->userCommands = [];
+                $n                   = 0;
+                foreach ($map['UserCommands'] as $item) {
+                    $model->userCommands[$n++] = null !== $item ? userCommands::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

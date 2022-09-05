@@ -56,6 +56,11 @@ class endUsers extends Model
     public $externalInfo;
 
     /**
+     * @var string
+     */
+    public $userDesktopId;
+
+    /**
      * @var userSetPropertiesModels[]
      */
     public $userSetPropertiesModels;
@@ -69,6 +74,7 @@ class endUsers extends Model
         'endUserPhone'            => 'EndUserPhone',
         'endUserType'             => 'EndUserType',
         'externalInfo'            => 'ExternalInfo',
+        'userDesktopId'           => 'UserDesktopId',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
     ];
 
@@ -105,6 +111,9 @@ class endUsers extends Model
         }
         if (null !== $this->externalInfo) {
             $res['ExternalInfo'] = null !== $this->externalInfo ? $this->externalInfo->toMap() : null;
+        }
+        if (null !== $this->userDesktopId) {
+            $res['UserDesktopId'] = $this->userDesktopId;
         }
         if (null !== $this->userSetPropertiesModels) {
             $res['UserSetPropertiesModels'] = [];
@@ -153,6 +162,9 @@ class endUsers extends Model
         }
         if (isset($map['ExternalInfo'])) {
             $model->externalInfo = externalInfo::fromMap($map['ExternalInfo']);
+        }
+        if (isset($map['UserDesktopId'])) {
+            $model->userDesktopId = $map['UserDesktopId'];
         }
         if (isset($map['UserSetPropertiesModels'])) {
             if (!empty($map['UserSetPropertiesModels'])) {
