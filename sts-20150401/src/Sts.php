@@ -24,8 +24,9 @@ class Sts extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'sts.aliyuncs.com',
             'cn-beijing-finance-1'        => 'sts.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'sts.aliyuncs.com',
