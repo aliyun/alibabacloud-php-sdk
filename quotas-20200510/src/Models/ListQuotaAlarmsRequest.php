@@ -12,7 +12,7 @@ class ListQuotaAlarmsRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
+    public $alarmName;
 
     /**
      * @var int
@@ -22,12 +22,12 @@ class ListQuotaAlarmsRequest extends Model
     /**
      * @var string
      */
-    public $productCode;
+    public $nextToken;
 
     /**
      * @var string
      */
-    public $alarmName;
+    public $productCode;
 
     /**
      * @var string
@@ -39,10 +39,10 @@ class ListQuotaAlarmsRequest extends Model
      */
     public $quotaDimensions;
     protected $_name = [
-        'nextToken'       => 'NextToken',
-        'maxResults'      => 'MaxResults',
-        'productCode'     => 'ProductCode',
         'alarmName'       => 'AlarmName',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
         'quotaDimensions' => 'QuotaDimensions',
     ];
@@ -54,17 +54,17 @@ class ListQuotaAlarmsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->alarmName) {
+            $res['AlarmName'] = $this->alarmName;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->alarmName) {
-            $res['AlarmName'] = $this->alarmName;
         }
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
@@ -90,17 +90,17 @@ class ListQuotaAlarmsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['AlarmName'])) {
+            $model->alarmName = $map['AlarmName'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['AlarmName'])) {
-            $model->alarmName = $map['AlarmName'];
         }
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];

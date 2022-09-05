@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListProductQuotaDimensionsResponseBody extends Model
 {
     /**
-     * @var quotaDimensions[]
-     */
-    public $quotaDimensions;
-
-    /**
      * @var int
      */
-    public $totalCount;
+    public $maxResults;
 
     /**
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var quotaDimensions[]
+     */
+    public $quotaDimensions;
 
     /**
      * @var string
@@ -32,13 +32,13 @@ class ListProductQuotaDimensionsResponseBody extends Model
     /**
      * @var int
      */
-    public $maxResults;
+    public $totalCount;
     protected $_name = [
-        'quotaDimensions' => 'QuotaDimensions',
-        'totalCount'      => 'TotalCount',
-        'nextToken'       => 'NextToken',
-        'requestId'       => 'RequestId',
         'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'quotaDimensions' => 'QuotaDimensions',
+        'requestId'       => 'RequestId',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class ListProductQuotaDimensionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->quotaDimensions) {
             $res['QuotaDimensions'] = [];
             if (null !== $this->quotaDimensions && \is_array($this->quotaDimensions)) {
@@ -57,17 +63,11 @@ class ListProductQuotaDimensionsResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,6 +81,12 @@ class ListProductQuotaDimensionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['QuotaDimensions'])) {
             if (!empty($map['QuotaDimensions'])) {
                 $model->quotaDimensions = [];
@@ -90,17 +96,11 @@ class ListProductQuotaDimensionsResponseBody extends Model
                 }
             }
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

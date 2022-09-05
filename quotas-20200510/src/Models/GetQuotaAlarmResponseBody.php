@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetQuotaAlarmResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var quotaAlarm
      */
     public $quotaAlarm;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'quotaAlarm' => 'QuotaAlarm',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetQuotaAlarmResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->quotaAlarm) {
             $res['QuotaAlarm'] = null !== $this->quotaAlarm ? $this->quotaAlarm->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetQuotaAlarmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QuotaAlarm'])) {
             $model->quotaAlarm = quotaAlarm::fromMap($map['QuotaAlarm']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -12,6 +12,11 @@ class CreateQuotaAlarmRequest extends Model
     /**
      * @var string
      */
+    public $alarmName;
+
+    /**
+     * @var string
+     */
     public $productCode;
 
     /**
@@ -20,9 +25,9 @@ class CreateQuotaAlarmRequest extends Model
     public $quotaActionCode;
 
     /**
-     * @var string
+     * @var quotaDimensions[]
      */
-    public $alarmName;
+    public $quotaDimensions;
 
     /**
      * @var float
@@ -37,20 +42,21 @@ class CreateQuotaAlarmRequest extends Model
     /**
      * @var string
      */
-    public $webHook;
+    public $thresholdType;
 
     /**
-     * @var quotaDimensions[]
+     * @var string
      */
-    public $quotaDimensions;
+    public $webHook;
     protected $_name = [
+        'alarmName'        => 'AlarmName',
         'productCode'      => 'ProductCode',
         'quotaActionCode'  => 'QuotaActionCode',
-        'alarmName'        => 'AlarmName',
+        'quotaDimensions'  => 'QuotaDimensions',
         'threshold'        => 'Threshold',
         'thresholdPercent' => 'ThresholdPercent',
+        'thresholdType'    => 'ThresholdType',
         'webHook'          => 'WebHook',
-        'quotaDimensions'  => 'QuotaDimensions',
     ];
 
     public function validate()
@@ -60,23 +66,14 @@ class CreateQuotaAlarmRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarmName) {
+            $res['AlarmName'] = $this->alarmName;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->quotaActionCode) {
             $res['QuotaActionCode'] = $this->quotaActionCode;
-        }
-        if (null !== $this->alarmName) {
-            $res['AlarmName'] = $this->alarmName;
-        }
-        if (null !== $this->threshold) {
-            $res['Threshold'] = $this->threshold;
-        }
-        if (null !== $this->thresholdPercent) {
-            $res['ThresholdPercent'] = $this->thresholdPercent;
-        }
-        if (null !== $this->webHook) {
-            $res['WebHook'] = $this->webHook;
         }
         if (null !== $this->quotaDimensions) {
             $res['QuotaDimensions'] = [];
@@ -86,6 +83,18 @@ class CreateQuotaAlarmRequest extends Model
                     $res['QuotaDimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->threshold) {
+            $res['Threshold'] = $this->threshold;
+        }
+        if (null !== $this->thresholdPercent) {
+            $res['ThresholdPercent'] = $this->thresholdPercent;
+        }
+        if (null !== $this->thresholdType) {
+            $res['ThresholdType'] = $this->thresholdType;
+        }
+        if (null !== $this->webHook) {
+            $res['WebHook'] = $this->webHook;
         }
 
         return $res;
@@ -99,23 +108,14 @@ class CreateQuotaAlarmRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmName'])) {
+            $model->alarmName = $map['AlarmName'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
         if (isset($map['QuotaActionCode'])) {
             $model->quotaActionCode = $map['QuotaActionCode'];
-        }
-        if (isset($map['AlarmName'])) {
-            $model->alarmName = $map['AlarmName'];
-        }
-        if (isset($map['Threshold'])) {
-            $model->threshold = $map['Threshold'];
-        }
-        if (isset($map['ThresholdPercent'])) {
-            $model->thresholdPercent = $map['ThresholdPercent'];
-        }
-        if (isset($map['WebHook'])) {
-            $model->webHook = $map['WebHook'];
         }
         if (isset($map['QuotaDimensions'])) {
             if (!empty($map['QuotaDimensions'])) {
@@ -125,6 +125,18 @@ class CreateQuotaAlarmRequest extends Model
                     $model->quotaDimensions[$n++] = null !== $item ? quotaDimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Threshold'])) {
+            $model->threshold = $map['Threshold'];
+        }
+        if (isset($map['ThresholdPercent'])) {
+            $model->thresholdPercent = $map['ThresholdPercent'];
+        }
+        if (isset($map['ThresholdType'])) {
+            $model->thresholdType = $map['ThresholdType'];
+        }
+        if (isset($map['WebHook'])) {
+            $model->webHook = $map['WebHook'];
         }
 
         return $model;

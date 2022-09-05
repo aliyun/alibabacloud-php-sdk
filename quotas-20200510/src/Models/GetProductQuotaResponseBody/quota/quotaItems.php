@@ -11,11 +11,6 @@ class quotaItems extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $quota;
 
     /**
@@ -26,11 +21,16 @@ class quotaItems extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $usage;
     protected $_name = [
-        'type'      => 'Type',
         'quota'     => 'Quota',
         'quotaUnit' => 'QuotaUnit',
+        'type'      => 'Type',
         'usage'     => 'Usage',
     ];
 
@@ -41,14 +41,14 @@ class quotaItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->quota) {
             $res['Quota'] = $this->quota;
         }
         if (null !== $this->quotaUnit) {
             $res['QuotaUnit'] = $this->quotaUnit;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
@@ -65,14 +65,14 @@ class quotaItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Quota'])) {
             $model->quota = $map['Quota'];
         }
         if (isset($map['QuotaUnit'])) {
             $model->quotaUnit = $map['QuotaUnit'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];

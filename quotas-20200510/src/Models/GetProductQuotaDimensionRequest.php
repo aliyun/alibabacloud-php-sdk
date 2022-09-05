@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaDimensionRequest extends Model
 {
     /**
-     * @var string
+     * @var dependentDimensions[]
      */
-    public $productCode;
+    public $dependentDimensions;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class GetProductQuotaDimensionRequest extends Model
     public $dimensionKey;
 
     /**
-     * @var dependentDimensions[]
+     * @var string
      */
-    public $dependentDimensions;
+    public $productCode;
     protected $_name = [
-        'productCode'         => 'ProductCode',
-        'dimensionKey'        => 'DimensionKey',
         'dependentDimensions' => 'DependentDimensions',
+        'dimensionKey'        => 'DimensionKey',
+        'productCode'         => 'ProductCode',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class GetProductQuotaDimensionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->dimensionKey) {
-            $res['DimensionKey'] = $this->dimensionKey;
-        }
         if (null !== $this->dependentDimensions) {
             $res['DependentDimensions'] = [];
             if (null !== $this->dependentDimensions && \is_array($this->dependentDimensions)) {
@@ -50,6 +44,12 @@ class GetProductQuotaDimensionRequest extends Model
                     $res['DependentDimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dimensionKey) {
+            $res['DimensionKey'] = $this->dimensionKey;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class GetProductQuotaDimensionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['DimensionKey'])) {
-            $model->dimensionKey = $map['DimensionKey'];
-        }
         if (isset($map['DependentDimensions'])) {
             if (!empty($map['DependentDimensions'])) {
                 $model->dependentDimensions = [];
@@ -77,6 +71,12 @@ class GetProductQuotaDimensionRequest extends Model
                     $model->dependentDimensions[$n++] = null !== $item ? dependentDimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DimensionKey'])) {
+            $model->dimensionKey = $map['DimensionKey'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         return $model;

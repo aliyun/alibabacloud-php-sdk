@@ -4,19 +4,25 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaDimensionResponseBody;
 
+use AlibabaCloud\SDK\Quotas\V20200510\Models\GetProductQuotaDimensionResponseBody\quotaDimension\dimensionValueDetail;
 use AlibabaCloud\Tea\Model;
 
 class quotaDimension extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $dependentDimensions;
+
     /**
      * @var string
      */
     public $dimensionKey;
 
     /**
-     * @var string[]
+     * @var dimensionValueDetail[]
      */
-    public $dependentDimensions;
+    public $dimensionValueDetail;
 
     /**
      * @var string[]
@@ -28,10 +34,11 @@ class quotaDimension extends Model
      */
     public $name;
     protected $_name = [
-        'dimensionKey'        => 'DimensionKey',
-        'dependentDimensions' => 'DependentDimensions',
-        'dimensionValues'     => 'DimensionValues',
-        'name'                => 'Name',
+        'dependentDimensions'  => 'DependentDimensions',
+        'dimensionKey'         => 'DimensionKey',
+        'dimensionValueDetail' => 'DimensionValueDetail',
+        'dimensionValues'      => 'DimensionValues',
+        'name'                 => 'Name',
     ];
 
     public function validate()
@@ -41,11 +48,20 @@ class quotaDimension extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dependentDimensions) {
+            $res['DependentDimensions'] = $this->dependentDimensions;
+        }
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
-        if (null !== $this->dependentDimensions) {
-            $res['DependentDimensions'] = $this->dependentDimensions;
+        if (null !== $this->dimensionValueDetail) {
+            $res['DimensionValueDetail'] = [];
+            if (null !== $this->dimensionValueDetail && \is_array($this->dimensionValueDetail)) {
+                $n = 0;
+                foreach ($this->dimensionValueDetail as $item) {
+                    $res['DimensionValueDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dimensionValues) {
             $res['DimensionValues'] = $this->dimensionValues;
@@ -65,12 +81,21 @@ class quotaDimension extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DimensionKey'])) {
-            $model->dimensionKey = $map['DimensionKey'];
-        }
         if (isset($map['DependentDimensions'])) {
             if (!empty($map['DependentDimensions'])) {
                 $model->dependentDimensions = $map['DependentDimensions'];
+            }
+        }
+        if (isset($map['DimensionKey'])) {
+            $model->dimensionKey = $map['DimensionKey'];
+        }
+        if (isset($map['DimensionValueDetail'])) {
+            if (!empty($map['DimensionValueDetail'])) {
+                $model->dimensionValueDetail = [];
+                $n                           = 0;
+                foreach ($map['DimensionValueDetail'] as $item) {
+                    $model->dimensionValueDetail[$n++] = null !== $item ? dimensionValueDetail::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['DimensionValues'])) {

@@ -10,14 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListProductQuotasRequest extends Model
 {
     /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
+    /**
      * @var string
      */
-    public $nextToken;
+    public $groupCode;
+
+    /**
+     * @var string
+     */
+    public $keyWord;
 
     /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -32,7 +47,7 @@ class ListProductQuotasRequest extends Model
     /**
      * @var string
      */
-    public $keyWord;
+    public $quotaCategory;
 
     /**
      * @var string
@@ -43,20 +58,17 @@ class ListProductQuotasRequest extends Model
      * @var string
      */
     public $sortOrder;
-
-    /**
-     * @var dimensions[]
-     */
-    public $dimensions;
     protected $_name = [
-        'nextToken'       => 'NextToken',
+        'dimensions'      => 'Dimensions',
+        'groupCode'       => 'GroupCode',
+        'keyWord'         => 'KeyWord',
         'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
         'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
-        'keyWord'         => 'KeyWord',
+        'quotaCategory'   => 'QuotaCategory',
         'sortField'       => 'SortField',
         'sortOrder'       => 'SortOrder',
-        'dimensions'      => 'Dimensions',
     ];
 
     public function validate()
@@ -66,27 +78,6 @@ class ListProductQuotasRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->quotaActionCode) {
-            $res['QuotaActionCode'] = $this->quotaActionCode;
-        }
-        if (null !== $this->keyWord) {
-            $res['KeyWord'] = $this->keyWord;
-        }
-        if (null !== $this->sortField) {
-            $res['SortField'] = $this->sortField;
-        }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
-        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = [];
             if (null !== $this->dimensions && \is_array($this->dimensions)) {
@@ -95,6 +86,33 @@ class ListProductQuotasRequest extends Model
                     $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->groupCode) {
+            $res['GroupCode'] = $this->groupCode;
+        }
+        if (null !== $this->keyWord) {
+            $res['KeyWord'] = $this->keyWord;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->quotaActionCode) {
+            $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
+        }
+        if (null !== $this->sortField) {
+            $res['SortField'] = $this->sortField;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
         }
 
         return $res;
@@ -108,27 +126,6 @@ class ListProductQuotasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['QuotaActionCode'])) {
-            $model->quotaActionCode = $map['QuotaActionCode'];
-        }
-        if (isset($map['KeyWord'])) {
-            $model->keyWord = $map['KeyWord'];
-        }
-        if (isset($map['SortField'])) {
-            $model->sortField = $map['SortField'];
-        }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
-        }
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
@@ -137,6 +134,33 @@ class ListProductQuotasRequest extends Model
                     $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['GroupCode'])) {
+            $model->groupCode = $map['GroupCode'];
+        }
+        if (isset($map['KeyWord'])) {
+            $model->keyWord = $map['KeyWord'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['QuotaActionCode'])) {
+            $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
+        }
+        if (isset($map['SortField'])) {
+            $model->sortField = $map['SortField'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
         }
 
         return $model;

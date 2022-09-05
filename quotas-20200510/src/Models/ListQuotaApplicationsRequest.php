@@ -10,14 +10,24 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsRequest extends Model
 {
     /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
+    /**
      * @var string
      */
-    public $nextToken;
+    public $keyWord;
 
     /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var string
@@ -32,25 +42,21 @@ class ListQuotaApplicationsRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $quotaCategory;
 
     /**
      * @var string
      */
-    public $keyWord;
-
-    /**
-     * @var dimensions[]
-     */
-    public $dimensions;
+    public $status;
     protected $_name = [
-        'nextToken'       => 'NextToken',
+        'dimensions'      => 'Dimensions',
+        'keyWord'         => 'KeyWord',
         'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
         'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
+        'quotaCategory'   => 'QuotaCategory',
         'status'          => 'Status',
-        'keyWord'         => 'KeyWord',
-        'dimensions'      => 'Dimensions',
     ];
 
     public function validate()
@@ -60,24 +66,6 @@ class ListQuotaApplicationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->quotaActionCode) {
-            $res['QuotaActionCode'] = $this->quotaActionCode;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->keyWord) {
-            $res['KeyWord'] = $this->keyWord;
-        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = [];
             if (null !== $this->dimensions && \is_array($this->dimensions)) {
@@ -86,6 +74,27 @@ class ListQuotaApplicationsRequest extends Model
                     $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->keyWord) {
+            $res['KeyWord'] = $this->keyWord;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->quotaActionCode) {
+            $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -99,24 +108,6 @@ class ListQuotaApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['QuotaActionCode'])) {
-            $model->quotaActionCode = $map['QuotaActionCode'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['KeyWord'])) {
-            $model->keyWord = $map['KeyWord'];
-        }
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
@@ -125,6 +116,27 @@ class ListQuotaApplicationsRequest extends Model
                     $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['KeyWord'])) {
+            $model->keyWord = $map['KeyWord'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['QuotaActionCode'])) {
+            $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDependentQuotasResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var quotas[]
      */
     public $quotas;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'quotas'    => 'Quotas',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListDependentQuotasResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->quotas) {
             $res['Quotas'] = [];
             if (null !== $this->quotas && \is_array($this->quotas)) {
@@ -41,6 +38,9 @@ class ListDependentQuotasResponseBody extends Model
                     $res['Quotas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListDependentQuotasResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Quotas'])) {
             if (!empty($map['Quotas'])) {
                 $model->quotas = [];
@@ -65,6 +62,9 @@ class ListDependentQuotasResponseBody extends Model
                     $model->quotas[$n++] = null !== $item ? quotas::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

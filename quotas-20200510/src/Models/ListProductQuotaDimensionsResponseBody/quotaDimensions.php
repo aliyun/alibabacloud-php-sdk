@@ -4,14 +4,15 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotaDimensionsResponseBody;
 
+use AlibabaCloud\SDK\Quotas\V20200510\Models\ListProductQuotaDimensionsResponseBody\quotaDimensions\dimensionValueDetail;
 use AlibabaCloud\Tea\Model;
 
 class quotaDimensions extends Model
 {
     /**
-     * @var bool
+     * @var string[]
      */
-    public $requisite;
+    public $dependentDimensions;
 
     /**
      * @var string
@@ -19,9 +20,9 @@ class quotaDimensions extends Model
     public $dimensionKey;
 
     /**
-     * @var string[]
+     * @var dimensionValueDetail[]
      */
-    public $dependentDimensions;
+    public $dimensionValueDetail;
 
     /**
      * @var string[]
@@ -32,12 +33,18 @@ class quotaDimensions extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $requisite;
     protected $_name = [
-        'requisite'           => 'Requisite',
-        'dimensionKey'        => 'DimensionKey',
-        'dependentDimensions' => 'DependentDimensions',
-        'dimensionValues'     => 'DimensionValues',
-        'name'                => 'Name',
+        'dependentDimensions'  => 'DependentDimensions',
+        'dimensionKey'         => 'DimensionKey',
+        'dimensionValueDetail' => 'DimensionValueDetail',
+        'dimensionValues'      => 'DimensionValues',
+        'name'                 => 'Name',
+        'requisite'            => 'Requisite',
     ];
 
     public function validate()
@@ -47,20 +54,29 @@ class quotaDimensions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requisite) {
-            $res['Requisite'] = $this->requisite;
+        if (null !== $this->dependentDimensions) {
+            $res['DependentDimensions'] = $this->dependentDimensions;
         }
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
-        if (null !== $this->dependentDimensions) {
-            $res['DependentDimensions'] = $this->dependentDimensions;
+        if (null !== $this->dimensionValueDetail) {
+            $res['DimensionValueDetail'] = [];
+            if (null !== $this->dimensionValueDetail && \is_array($this->dimensionValueDetail)) {
+                $n = 0;
+                foreach ($this->dimensionValueDetail as $item) {
+                    $res['DimensionValueDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->dimensionValues) {
             $res['DimensionValues'] = $this->dimensionValues;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requisite) {
+            $res['Requisite'] = $this->requisite;
         }
 
         return $res;
@@ -74,15 +90,21 @@ class quotaDimensions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Requisite'])) {
-            $model->requisite = $map['Requisite'];
+        if (isset($map['DependentDimensions'])) {
+            if (!empty($map['DependentDimensions'])) {
+                $model->dependentDimensions = $map['DependentDimensions'];
+            }
         }
         if (isset($map['DimensionKey'])) {
             $model->dimensionKey = $map['DimensionKey'];
         }
-        if (isset($map['DependentDimensions'])) {
-            if (!empty($map['DependentDimensions'])) {
-                $model->dependentDimensions = $map['DependentDimensions'];
+        if (isset($map['DimensionValueDetail'])) {
+            if (!empty($map['DimensionValueDetail'])) {
+                $model->dimensionValueDetail = [];
+                $n                           = 0;
+                foreach ($map['DimensionValueDetail'] as $item) {
+                    $model->dimensionValueDetail[$n++] = null !== $item ? dimensionValueDetail::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['DimensionValues'])) {
@@ -92,6 +114,9 @@ class quotaDimensions extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Requisite'])) {
+            $model->requisite = $map['Requisite'];
         }
 
         return $model;

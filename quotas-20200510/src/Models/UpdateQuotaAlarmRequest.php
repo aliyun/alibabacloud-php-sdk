@@ -31,12 +31,18 @@ class UpdateQuotaAlarmRequest extends Model
     /**
      * @var string
      */
+    public $thresholdType;
+
+    /**
+     * @var string
+     */
     public $webHook;
     protected $_name = [
         'alarmId'          => 'AlarmId',
         'alarmName'        => 'AlarmName',
         'threshold'        => 'Threshold',
         'thresholdPercent' => 'ThresholdPercent',
+        'thresholdType'    => 'ThresholdType',
         'webHook'          => 'WebHook',
     ];
 
@@ -58,6 +64,9 @@ class UpdateQuotaAlarmRequest extends Model
         }
         if (null !== $this->thresholdPercent) {
             $res['ThresholdPercent'] = $this->thresholdPercent;
+        }
+        if (null !== $this->thresholdType) {
+            $res['ThresholdType'] = $this->thresholdType;
         }
         if (null !== $this->webHook) {
             $res['WebHook'] = $this->webHook;
@@ -85,6 +94,9 @@ class UpdateQuotaAlarmRequest extends Model
         }
         if (isset($map['ThresholdPercent'])) {
             $model->thresholdPercent = $map['ThresholdPercent'];
+        }
+        if (isset($map['ThresholdType'])) {
+            $model->thresholdType = $map['ThresholdType'];
         }
         if (isset($map['WebHook'])) {
             $model->webHook = $map['WebHook'];

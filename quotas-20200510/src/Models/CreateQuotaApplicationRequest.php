@@ -12,6 +12,31 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @var string
      */
+    public $auditMode;
+
+    /**
+     * @var float
+     */
+    public $desireValue;
+
+    /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
+    /**
+     * @var string
+     */
+    public $envLanguage;
+
+    /**
+     * @var int
+     */
+    public $noticeType;
+
+    /**
+     * @var string
+     */
     public $productCode;
 
     /**
@@ -20,31 +45,24 @@ class CreateQuotaApplicationRequest extends Model
     public $quotaActionCode;
 
     /**
-     * @var float
+     * @var string
      */
-    public $desireValue;
+    public $quotaCategory;
 
     /**
      * @var string
      */
     public $reason;
-
-    /**
-     * @var int
-     */
-    public $noticeType;
-
-    /**
-     * @var dimensions[]
-     */
-    public $dimensions;
     protected $_name = [
+        'auditMode'       => 'AuditMode',
+        'desireValue'     => 'DesireValue',
+        'dimensions'      => 'Dimensions',
+        'envLanguage'     => 'EnvLanguage',
+        'noticeType'      => 'NoticeType',
         'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
-        'desireValue'     => 'DesireValue',
+        'quotaCategory'   => 'QuotaCategory',
         'reason'          => 'Reason',
-        'noticeType'      => 'NoticeType',
-        'dimensions'      => 'Dimensions',
     ];
 
     public function validate()
@@ -54,20 +72,11 @@ class CreateQuotaApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->quotaActionCode) {
-            $res['QuotaActionCode'] = $this->quotaActionCode;
+        if (null !== $this->auditMode) {
+            $res['AuditMode'] = $this->auditMode;
         }
         if (null !== $this->desireValue) {
             $res['DesireValue'] = $this->desireValue;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
-        }
-        if (null !== $this->noticeType) {
-            $res['NoticeType'] = $this->noticeType;
         }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = [];
@@ -77,6 +86,24 @@ class CreateQuotaApplicationRequest extends Model
                     $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->envLanguage) {
+            $res['EnvLanguage'] = $this->envLanguage;
+        }
+        if (null !== $this->noticeType) {
+            $res['NoticeType'] = $this->noticeType;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->quotaActionCode) {
+            $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaCategory) {
+            $res['QuotaCategory'] = $this->quotaCategory;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         return $res;
@@ -90,20 +117,11 @@ class CreateQuotaApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['QuotaActionCode'])) {
-            $model->quotaActionCode = $map['QuotaActionCode'];
+        if (isset($map['AuditMode'])) {
+            $model->auditMode = $map['AuditMode'];
         }
         if (isset($map['DesireValue'])) {
             $model->desireValue = $map['DesireValue'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
-        }
-        if (isset($map['NoticeType'])) {
-            $model->noticeType = $map['NoticeType'];
         }
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
@@ -113,6 +131,24 @@ class CreateQuotaApplicationRequest extends Model
                     $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EnvLanguage'])) {
+            $model->envLanguage = $map['EnvLanguage'];
+        }
+        if (isset($map['NoticeType'])) {
+            $model->noticeType = $map['NoticeType'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['QuotaActionCode'])) {
+            $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaCategory'])) {
+            $model->quotaCategory = $map['QuotaCategory'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         return $model;

@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class quotaAlarms extends Model
 {
     /**
-     * @var float
-     */
-    public $thresholdPercent;
-
-    /**
-     * @var mixed[]
-     */
-    public $quotaDimensions;
-
-    /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $quotaActionCode;
+    public $alarmId;
 
     /**
      * @var string
@@ -36,12 +21,37 @@ class quotaAlarms extends Model
     /**
      * @var string
      */
-    public $notifyTarget;
+    public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $exceedThreshold;
 
     /**
      * @var string[]
      */
     public $notifyChannels;
+
+    /**
+     * @var string
+     */
+    public $notifyTarget;
+
+    /**
+     * @var string
+     */
+    public $productCode;
+
+    /**
+     * @var string
+     */
+    public $quotaActionCode;
+
+    /**
+     * @var mixed[]
+     */
+    public $quotaDimensions;
 
     /**
      * @var float
@@ -54,44 +64,40 @@ class quotaAlarms extends Model
     public $quotaValue;
 
     /**
-     * @var string
-     */
-    public $alarmId;
-
-    /**
      * @var float
      */
     public $threshold;
 
     /**
+     * @var float
+     */
+    public $thresholdPercent;
+
+    /**
      * @var string
      */
-    public $productCode;
+    public $thresholdType;
 
     /**
      * @var string
      */
     public $webHook;
-
-    /**
-     * @var bool
-     */
-    public $exceedThreshold;
     protected $_name = [
-        'thresholdPercent' => 'ThresholdPercent',
-        'quotaDimensions'  => 'QuotaDimensions',
-        'createTime'       => 'CreateTime',
-        'quotaActionCode'  => 'QuotaActionCode',
+        'alarmId'          => 'AlarmId',
         'alarmName'        => 'AlarmName',
-        'notifyTarget'     => 'NotifyTarget',
+        'createTime'       => 'CreateTime',
+        'exceedThreshold'  => 'ExceedThreshold',
         'notifyChannels'   => 'NotifyChannels',
+        'notifyTarget'     => 'NotifyTarget',
+        'productCode'      => 'ProductCode',
+        'quotaActionCode'  => 'QuotaActionCode',
+        'quotaDimensions'  => 'QuotaDimensions',
         'quotaUsage'       => 'QuotaUsage',
         'quotaValue'       => 'QuotaValue',
-        'alarmId'          => 'AlarmId',
         'threshold'        => 'Threshold',
-        'productCode'      => 'ProductCode',
+        'thresholdPercent' => 'ThresholdPercent',
+        'thresholdType'    => 'ThresholdType',
         'webHook'          => 'WebHook',
-        'exceedThreshold'  => 'ExceedThreshold',
     ];
 
     public function validate()
@@ -101,26 +107,32 @@ class quotaAlarms extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->thresholdPercent) {
-            $res['ThresholdPercent'] = $this->thresholdPercent;
-        }
-        if (null !== $this->quotaDimensions) {
-            $res['QuotaDimensions'] = $this->quotaDimensions;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->quotaActionCode) {
-            $res['QuotaActionCode'] = $this->quotaActionCode;
+        if (null !== $this->alarmId) {
+            $res['AlarmId'] = $this->alarmId;
         }
         if (null !== $this->alarmName) {
             $res['AlarmName'] = $this->alarmName;
         }
-        if (null !== $this->notifyTarget) {
-            $res['NotifyTarget'] = $this->notifyTarget;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->exceedThreshold) {
+            $res['ExceedThreshold'] = $this->exceedThreshold;
         }
         if (null !== $this->notifyChannels) {
             $res['NotifyChannels'] = $this->notifyChannels;
+        }
+        if (null !== $this->notifyTarget) {
+            $res['NotifyTarget'] = $this->notifyTarget;
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->quotaActionCode) {
+            $res['QuotaActionCode'] = $this->quotaActionCode;
+        }
+        if (null !== $this->quotaDimensions) {
+            $res['QuotaDimensions'] = $this->quotaDimensions;
         }
         if (null !== $this->quotaUsage) {
             $res['QuotaUsage'] = $this->quotaUsage;
@@ -128,20 +140,17 @@ class quotaAlarms extends Model
         if (null !== $this->quotaValue) {
             $res['QuotaValue'] = $this->quotaValue;
         }
-        if (null !== $this->alarmId) {
-            $res['AlarmId'] = $this->alarmId;
-        }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+        if (null !== $this->thresholdPercent) {
+            $res['ThresholdPercent'] = $this->thresholdPercent;
+        }
+        if (null !== $this->thresholdType) {
+            $res['ThresholdType'] = $this->thresholdType;
         }
         if (null !== $this->webHook) {
             $res['WebHook'] = $this->webHook;
-        }
-        if (null !== $this->exceedThreshold) {
-            $res['ExceedThreshold'] = $this->exceedThreshold;
         }
 
         return $res;
@@ -155,28 +164,34 @@ class quotaAlarms extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ThresholdPercent'])) {
-            $model->thresholdPercent = $map['ThresholdPercent'];
-        }
-        if (isset($map['QuotaDimensions'])) {
-            $model->quotaDimensions = $map['QuotaDimensions'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['QuotaActionCode'])) {
-            $model->quotaActionCode = $map['QuotaActionCode'];
+        if (isset($map['AlarmId'])) {
+            $model->alarmId = $map['AlarmId'];
         }
         if (isset($map['AlarmName'])) {
             $model->alarmName = $map['AlarmName'];
         }
-        if (isset($map['NotifyTarget'])) {
-            $model->notifyTarget = $map['NotifyTarget'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ExceedThreshold'])) {
+            $model->exceedThreshold = $map['ExceedThreshold'];
         }
         if (isset($map['NotifyChannels'])) {
             if (!empty($map['NotifyChannels'])) {
                 $model->notifyChannels = $map['NotifyChannels'];
             }
+        }
+        if (isset($map['NotifyTarget'])) {
+            $model->notifyTarget = $map['NotifyTarget'];
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['QuotaActionCode'])) {
+            $model->quotaActionCode = $map['QuotaActionCode'];
+        }
+        if (isset($map['QuotaDimensions'])) {
+            $model->quotaDimensions = $map['QuotaDimensions'];
         }
         if (isset($map['QuotaUsage'])) {
             $model->quotaUsage = $map['QuotaUsage'];
@@ -184,20 +199,17 @@ class quotaAlarms extends Model
         if (isset($map['QuotaValue'])) {
             $model->quotaValue = $map['QuotaValue'];
         }
-        if (isset($map['AlarmId'])) {
-            $model->alarmId = $map['AlarmId'];
-        }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
+        if (isset($map['ThresholdPercent'])) {
+            $model->thresholdPercent = $map['ThresholdPercent'];
+        }
+        if (isset($map['ThresholdType'])) {
+            $model->thresholdType = $map['ThresholdType'];
         }
         if (isset($map['WebHook'])) {
             $model->webHook = $map['WebHook'];
-        }
-        if (isset($map['ExceedThreshold'])) {
-            $model->exceedThreshold = $map['ExceedThreshold'];
         }
 
         return $model;

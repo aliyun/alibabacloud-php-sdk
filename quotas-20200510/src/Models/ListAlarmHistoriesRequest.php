@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmHistoriesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var int
      */
-    public $maxResults;
+    public $endTime;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class ListAlarmHistoriesRequest extends Model
     /**
      * @var int
      */
-    public $startTime;
+    public $maxResults;
 
     /**
-     * @var int
+     * @var string
      */
-    public $endTime;
+    public $nextToken;
 
     /**
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'nextToken'   => 'NextToken',
-        'maxResults'  => 'MaxResults',
-        'keyword'     => 'Keyword',
-        'startTime'   => 'StartTime',
         'endTime'     => 'EndTime',
+        'keyword'     => 'Keyword',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
         'productCode' => 'ProductCode',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListAlarmHistoriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListAlarmHistoriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaRequest extends Model
 {
     /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
+    /**
      * @var string
      */
     public $productCode;
@@ -18,15 +23,10 @@ class GetProductQuotaRequest extends Model
      * @var string
      */
     public $quotaActionCode;
-
-    /**
-     * @var dimensions[]
-     */
-    public $dimensions;
     protected $_name = [
+        'dimensions'      => 'Dimensions',
         'productCode'     => 'ProductCode',
         'quotaActionCode' => 'QuotaActionCode',
-        'dimensions'      => 'Dimensions',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class GetProductQuotaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
-        if (null !== $this->quotaActionCode) {
-            $res['QuotaActionCode'] = $this->quotaActionCode;
-        }
         if (null !== $this->dimensions) {
             $res['Dimensions'] = [];
             if (null !== $this->dimensions && \is_array($this->dimensions)) {
@@ -50,6 +44,12 @@ class GetProductQuotaRequest extends Model
                     $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->quotaActionCode) {
+            $res['QuotaActionCode'] = $this->quotaActionCode;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class GetProductQuotaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
-        if (isset($map['QuotaActionCode'])) {
-            $model->quotaActionCode = $map['QuotaActionCode'];
-        }
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
@@ -77,6 +71,12 @@ class GetProductQuotaRequest extends Model
                     $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['QuotaActionCode'])) {
+            $model->quotaActionCode = $map['QuotaActionCode'];
         }
 
         return $model;

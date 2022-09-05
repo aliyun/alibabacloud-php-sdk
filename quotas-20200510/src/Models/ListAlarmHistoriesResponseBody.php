@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmHistoriesResponseBody extends Model
 {
     /**
+     * @var alarmHistories[]
+     */
+    public $alarmHistories;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $maxResults;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class ListAlarmHistoriesResponseBody extends Model
     /**
      * @var int
      */
-    public $maxResults;
-
-    /**
-     * @var alarmHistories[]
-     */
-    public $alarmHistories;
+    public $totalCount;
     protected $_name = [
-        'totalCount'     => 'TotalCount',
+        'alarmHistories' => 'AlarmHistories',
+        'maxResults'     => 'MaxResults',
         'nextToken'      => 'NextToken',
         'requestId'      => 'RequestId',
-        'maxResults'     => 'MaxResults',
-        'alarmHistories' => 'AlarmHistories',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListAlarmHistoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->alarmHistories) {
             $res['AlarmHistories'] = [];
             if (null !== $this->alarmHistories && \is_array($this->alarmHistories)) {
@@ -68,6 +56,18 @@ class ListAlarmHistoriesResponseBody extends Model
                     $res['AlarmHistories'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListAlarmHistoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['AlarmHistories'])) {
             if (!empty($map['AlarmHistories'])) {
                 $model->alarmHistories = [];
@@ -101,6 +89,18 @@ class ListAlarmHistoriesResponseBody extends Model
                     $model->alarmHistories[$n++] = null !== $item ? alarmHistories::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

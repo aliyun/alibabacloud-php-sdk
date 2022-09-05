@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaDimensionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var quotaDimension
      */
     public $quotaDimension;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'quotaDimension' => 'QuotaDimension',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetProductQuotaDimensionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->quotaDimension) {
             $res['QuotaDimension'] = null !== $this->quotaDimension ? $this->quotaDimension->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetProductQuotaDimensionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QuotaDimension'])) {
             $model->quotaDimension = quotaDimension::fromMap($map['QuotaDimension']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
