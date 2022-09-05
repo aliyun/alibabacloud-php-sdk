@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack\resources\configRuleEvaluations;
 use AlibabaCloud\Tea\Model;
 
 class resources extends Model
@@ -12,6 +13,11 @@ class resources extends Model
      * @var string
      */
     public $action;
+
+    /**
+     * @var configRuleEvaluations[]
+     */
+    public $configRuleEvaluations;
 
     /**
      * @var string
@@ -48,14 +54,15 @@ class resources extends Model
      */
     public $stack;
     protected $_name = [
-        'action'            => 'Action',
-        'description'       => 'Description',
-        'logicalResourceId' => 'LogicalResourceId',
-        'properties'        => 'Properties',
-        'replacement'       => 'Replacement',
-        'requiredBy'        => 'RequiredBy',
-        'resourceType'      => 'ResourceType',
-        'stack'             => 'Stack',
+        'action'                => 'Action',
+        'configRuleEvaluations' => 'ConfigRuleEvaluations',
+        'description'           => 'Description',
+        'logicalResourceId'     => 'LogicalResourceId',
+        'properties'            => 'Properties',
+        'replacement'           => 'Replacement',
+        'requiredBy'            => 'RequiredBy',
+        'resourceType'          => 'ResourceType',
+        'stack'                 => 'Stack',
     ];
 
     public function validate()
@@ -67,6 +74,15 @@ class resources extends Model
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
+        }
+        if (null !== $this->configRuleEvaluations) {
+            $res['ConfigRuleEvaluations'] = [];
+            if (null !== $this->configRuleEvaluations && \is_array($this->configRuleEvaluations)) {
+                $n = 0;
+                foreach ($this->configRuleEvaluations as $item) {
+                    $res['ConfigRuleEvaluations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -103,6 +119,15 @@ class resources extends Model
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
+        }
+        if (isset($map['ConfigRuleEvaluations'])) {
+            if (!empty($map['ConfigRuleEvaluations'])) {
+                $model->configRuleEvaluations = [];
+                $n                            = 0;
+                foreach ($map['ConfigRuleEvaluations'] as $item) {
+                    $model->configRuleEvaluations[$n++] = null !== $item ? configRuleEvaluations::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

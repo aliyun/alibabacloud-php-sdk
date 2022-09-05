@@ -4,11 +4,10 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest\parameters;
-use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest\resourceConfigRules;
+use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackShrinkRequest\parameters;
 use AlibabaCloud\Tea\Model;
 
-class PreviewStackRequest extends Model
+class PreviewStackShrinkRequest extends Model
 {
     /**
      * @var string
@@ -36,9 +35,9 @@ class PreviewStackRequest extends Model
     public $regionId;
 
     /**
-     * @var resourceConfigRules[]
+     * @var string
      */
-    public $resourceConfigRules;
+    public $resourceConfigRulesShrink;
 
     /**
      * @var string
@@ -95,23 +94,23 @@ class PreviewStackRequest extends Model
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'disableRollback'         => 'DisableRollback',
-        'parallelism'             => 'Parallelism',
-        'parameters'              => 'Parameters',
-        'regionId'                => 'RegionId',
-        'resourceConfigRules'     => 'ResourceConfigRules',
-        'stackId'                 => 'StackId',
-        'stackName'               => 'StackName',
-        'stackPolicyBody'         => 'StackPolicyBody',
-        'stackPolicyURL'          => 'StackPolicyURL',
-        'templateBody'            => 'TemplateBody',
-        'templateId'              => 'TemplateId',
-        'templateScratchId'       => 'TemplateScratchId',
-        'templateScratchRegionId' => 'TemplateScratchRegionId',
-        'templateURL'             => 'TemplateURL',
-        'templateVersion'         => 'TemplateVersion',
-        'timeoutInMinutes'        => 'TimeoutInMinutes',
+        'clientToken'               => 'ClientToken',
+        'disableRollback'           => 'DisableRollback',
+        'parallelism'               => 'Parallelism',
+        'parameters'                => 'Parameters',
+        'regionId'                  => 'RegionId',
+        'resourceConfigRulesShrink' => 'ResourceConfigRules',
+        'stackId'                   => 'StackId',
+        'stackName'                 => 'StackName',
+        'stackPolicyBody'           => 'StackPolicyBody',
+        'stackPolicyURL'            => 'StackPolicyURL',
+        'templateBody'              => 'TemplateBody',
+        'templateId'                => 'TemplateId',
+        'templateScratchId'         => 'TemplateScratchId',
+        'templateScratchRegionId'   => 'TemplateScratchRegionId',
+        'templateURL'               => 'TemplateURL',
+        'templateVersion'           => 'TemplateVersion',
+        'timeoutInMinutes'          => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -142,14 +141,8 @@ class PreviewStackRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceConfigRules) {
-            $res['ResourceConfigRules'] = [];
-            if (null !== $this->resourceConfigRules && \is_array($this->resourceConfigRules)) {
-                $n = 0;
-                foreach ($this->resourceConfigRules as $item) {
-                    $res['ResourceConfigRules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->resourceConfigRulesShrink) {
+            $res['ResourceConfigRules'] = $this->resourceConfigRulesShrink;
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
@@ -191,7 +184,7 @@ class PreviewStackRequest extends Model
     /**
      * @param array $map
      *
-     * @return PreviewStackRequest
+     * @return PreviewStackShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -218,13 +211,7 @@ class PreviewStackRequest extends Model
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceConfigRules'])) {
-            if (!empty($map['ResourceConfigRules'])) {
-                $model->resourceConfigRules = [];
-                $n                          = 0;
-                foreach ($map['ResourceConfigRules'] as $item) {
-                    $model->resourceConfigRules[$n++] = null !== $item ? resourceConfigRules::fromMap($item) : $item;
-                }
-            }
+            $model->resourceConfigRulesShrink = $map['ResourceConfigRules'];
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];

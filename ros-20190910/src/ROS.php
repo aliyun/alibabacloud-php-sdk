@@ -126,6 +126,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetStackPolicyRequest;
@@ -3440,14 +3441,19 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param PreviewStackRequest $request
+     * @param PreviewStackRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return PreviewStackResponse
      */
-    public function previewStackWithOptions($request, $runtime)
+    public function previewStackWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new PreviewStackShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceConfigRules)) {
+            $request->resourceConfigRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceConfigRules, 'ResourceConfigRules', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -3463,6 +3469,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceConfigRulesShrink)) {
+            $query['ResourceConfigRules'] = $request->resourceConfigRulesShrink;
         }
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
