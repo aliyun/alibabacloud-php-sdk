@@ -14,15 +14,11 @@ class app extends Model
     public $ext;
 
     /**
-     * @description mediaid
-     *
      * @var string
      */
     public $mediaid;
 
     /**
-     * @description sn
-     *
      * @var string
      */
     public $sn;

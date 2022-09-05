@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartListByUserIdResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SendSmsResponseBody extends Model
+class GetMainPartListByUserIdResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var data
      */
     public $data;
 
@@ -54,7 +55,7 @@ class SendSmsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -78,13 +79,13 @@ class SendSmsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SendSmsResponseBody
+     * @return GetMainPartListByUserIdResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

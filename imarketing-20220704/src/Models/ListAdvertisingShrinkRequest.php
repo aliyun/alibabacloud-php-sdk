@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAdvertisingShrinkRequest extends Model
 {
     /**
-     * @description app
-     *
      * @var string
      */
     public $appShrink;
@@ -31,29 +29,21 @@ class ListAdvertisingShrinkRequest extends Model
     public $extShrink;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description imp
-     *
      * @var string
      */
     public $impShrink;
 
     /**
-     * @description test
-     *
      * @var int
      */
     public $test;
 
     /**
-     * @description user
-     *
      * @var string
      */
     public $userShrink;

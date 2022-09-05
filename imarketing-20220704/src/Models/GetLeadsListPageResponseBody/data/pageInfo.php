@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageResponseBody\data;
+namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\GetLeadsListPageResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 

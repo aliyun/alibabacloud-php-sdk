@@ -4,29 +4,25 @@
 
 namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetRelatedByCreativeIdResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SendSmsResponseBody extends Model
+class GetRelatedByCreativeIdResponseBody extends Model
 {
-    /**
-     * @var bool
-     */
-    public $data;
-
     /**
      * @var int
      */
-    public $errorCode;
+    public $code;
+
+    /**
+     * @var data[]
+     */
+    public $data;
 
     /**
      * @var string
      */
     public $errorMessage;
-
-    /**
-     * @var int
-     */
-    public $httpCode;
 
     /**
      * @var string
@@ -38,10 +34,9 @@ class SendSmsResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'code'         => 'Code',
         'data'         => 'Data',
-        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'httpCode'     => 'HttpCode',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
@@ -53,17 +48,20 @@ class SendSmsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->data) {
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->httpCode) {
-            $res['HttpCode'] = $this->httpCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -78,22 +76,25 @@ class SendSmsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SendSmsResponseBody
+     * @return GetRelatedByCreativeIdResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['HttpCode'])) {
-            $model->httpCode = $map['HttpCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

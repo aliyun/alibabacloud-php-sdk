@@ -13,8 +13,6 @@ use AlibabaCloud\Tea\Model;
 class ListAdvertisingRequest extends Model
 {
     /**
-     * @description app
-     *
      * @var app
      */
     public $app;
@@ -35,29 +33,21 @@ class ListAdvertisingRequest extends Model
     public $ext;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description imp
-     *
      * @var imp[]
      */
     public $imp;
 
     /**
-     * @description test
-     *
      * @var int
      */
     public $test;
 
     /**
-     * @description user
-     *
      * @var user
      */
     public $user;

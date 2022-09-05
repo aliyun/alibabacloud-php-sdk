@@ -9,17 +9,38 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceShrinkRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\DeleteCreativeInfoRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\DeleteCreativeInfoResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBrandPageRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBrandPageResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBusinessIdRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBusinessIdResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetCreativeInfoRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetCreativeInfoResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetLeadsListPageRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetLeadsListPageResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartListByUserIdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetOssUploadSignatureRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetOssUploadSignatureResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetRelatedByCreativeIdRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetRelatedByCreativeIdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingShrinkRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\SyncInfoRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\SyncInfoResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\UpdateAdxCreativeContentRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\UpdateAdxCreativeContentResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifySmsCodeRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifySmsCodeResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -148,6 +169,61 @@ class Imarketing extends OpenApiClient
     }
 
     /**
+     * @param DeleteCreativeInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCreativeInfoResponse
+     */
+    public function deleteCreativeInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountNo)) {
+            $query['AccountNo'] = $request->accountNo;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mainId)) {
+            $query['MainId'] = $request->mainId;
+        }
+        if (!Utils::isUnset($request->updateUser)) {
+            $query['UpdateUser'] = $request->updateUser;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCreativeInfo',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCreativeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCreativeInfoRequest $request
+     *
+     * @return DeleteCreativeInfoResponse
+     */
+    public function deleteCreativeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCreativeInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBrandPageRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -203,6 +279,201 @@ class Imarketing extends OpenApiClient
     }
 
     /**
+     * @param GetBusinessIdRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetBusinessIdResponse
+     */
+    public function getBusinessIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBusinessId',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBusinessIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBusinessIdRequest $request
+     *
+     * @return GetBusinessIdResponse
+     */
+    public function getBusinessId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBusinessIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCreativeInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCreativeInfoResponse
+     */
+    public function getCreativeInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountNo)) {
+            $query['AccountNo'] = $request->accountNo;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mainId)) {
+            $query['MainId'] = $request->mainId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCreativeInfo',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCreativeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCreativeInfoRequest $request
+     *
+     * @return GetCreativeInfoResponse
+     */
+    public function getCreativeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCreativeInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLeadsListPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetLeadsListPageResponse
+     */
+    public function getLeadsListPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->componentId)) {
+            $query['ComponentId'] = $request->componentId;
+        }
+        if (!Utils::isUnset($request->contentId)) {
+            $query['ContentId'] = $request->contentId;
+        }
+        if (!Utils::isUnset($request->creativeId)) {
+            $query['CreativeId'] = $request->creativeId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->mainId)) {
+            $query['MainId'] = $request->mainId;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLeadsListPage',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLeadsListPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLeadsListPageRequest $request
+     *
+     * @return GetLeadsListPageResponse
+     */
+    public function getLeadsListPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLeadsListPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMainPartListByUserIdResponse
+     */
+    public function getMainPartListByUserIdWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetMainPartListByUserId',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMainPartListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetMainPartListByUserIdResponse
+     */
+    public function getMainPartListByUserId()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMainPartListByUserIdWithOptions($runtime);
+    }
+
+    /**
      * @param GetMainPartPageRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -252,6 +523,89 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMainPartPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOssUploadSignatureRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetOssUploadSignatureResponse
+     */
+    public function getOssUploadSignatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOssUploadSignature',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOssUploadSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOssUploadSignatureRequest $request
+     *
+     * @return GetOssUploadSignatureResponse
+     */
+    public function getOssUploadSignature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssUploadSignatureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRelatedByCreativeIdRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRelatedByCreativeIdResponse
+     */
+    public function getRelatedByCreativeIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRelatedByCreativeId',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRelatedByCreativeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRelatedByCreativeIdRequest $request
+     *
+     * @return GetRelatedByCreativeIdResponse
+     */
+    public function getRelatedByCreativeId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRelatedByCreativeIdWithOptions($request, $runtime);
     }
 
     /**
@@ -352,6 +706,52 @@ class Imarketing extends OpenApiClient
     }
 
     /**
+     * @param QueryAuditResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAuditResultResponse
+     */
+    public function queryAuditResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dspId)) {
+            $query['DspId'] = $request->dspId;
+        }
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAuditResult',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAuditResultRequest $request
+     *
+     * @return QueryAuditResultResponse
+     */
+    public function queryAuditResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendSmsRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -361,8 +761,14 @@ class Imarketing extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->nowStamp)) {
+            $query['NowStamp'] = $request->nowStamp;
+        }
         if (!Utils::isUnset($request->phoneNumbers)) {
             $query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+        if (!Utils::isUnset($request->signKey)) {
+            $query['SignKey'] = $request->signKey;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -392,5 +798,188 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendSmsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SyncInfoRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SyncInfoResponse
+     */
+    public function syncInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountNo)) {
+            $query['AccountNo'] = $request->accountNo;
+        }
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->chainValue)) {
+            $query['ChainValue'] = $request->chainValue;
+        }
+        if (!Utils::isUnset($request->componentIdList)) {
+            $query['ComponentIdList'] = $request->componentIdList;
+        }
+        if (!Utils::isUnset($request->createUser)) {
+            $query['CreateUser'] = $request->createUser;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mainId)) {
+            $query['MainId'] = $request->mainId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextChainValue)) {
+            $query['NextChainValue'] = $request->nextChainValue;
+        }
+        if (!Utils::isUnset($request->ossFileUrl)) {
+            $query['OssFileUrl'] = $request->ossFileUrl;
+        }
+        if (!Utils::isUnset($request->pageId)) {
+            $query['PageId'] = $request->pageId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->updateUser)) {
+            $query['UpdateUser'] = $request->updateUser;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->urlType)) {
+            $query['UrlType'] = $request->urlType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncInfo',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SyncInfoRequest $request
+     *
+     * @return SyncInfoResponse
+     */
+    public function syncInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAdxCreativeContentRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateAdxCreativeContentResponse
+     */
+    public function updateAdxCreativeContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ad)) {
+            $query['Ad'] = $request->ad;
+        }
+        if (!Utils::isUnset($request->dspId)) {
+            $query['DspId'] = $request->dspId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAdxCreativeContent',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAdxCreativeContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAdxCreativeContentRequest $request
+     *
+     * @return UpdateAdxCreativeContentResponse
+     */
+    public function updateAdxCreativeContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAdxCreativeContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifySmsCodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return VerifySmsCodeResponse
+     */
+    public function verifySmsCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->nowStamp)) {
+            $query['NowStamp'] = $request->nowStamp;
+        }
+        if (!Utils::isUnset($request->phoneNumbers)) {
+            $query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+        if (!Utils::isUnset($request->signKey)) {
+            $query['SignKey'] = $request->signKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifySmsCode',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifySmsCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifySmsCodeRequest $request
+     *
+     * @return VerifySmsCodeResponse
+     */
+    public function verifySmsCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifySmsCodeWithOptions($request, $runtime);
     }
 }

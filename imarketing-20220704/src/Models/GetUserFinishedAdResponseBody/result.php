@@ -16,6 +16,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $id;
+
+    /**
+     * @var string
+     */
     public $marketingType;
 
     /**
@@ -29,6 +34,7 @@ class result extends Model
     public $success;
     protected $_name = [
         'commission'    => 'Commission',
+        'id'            => 'Id',
         'marketingType' => 'MarketingType',
         'objective'     => 'Objective',
         'success'       => 'Success',
@@ -43,6 +49,9 @@ class result extends Model
         $res = [];
         if (null !== $this->commission) {
             $res['Commission'] = $this->commission;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->marketingType) {
             $res['MarketingType'] = $this->marketingType;
@@ -67,6 +76,9 @@ class result extends Model
         $model = new self();
         if (isset($map['Commission'])) {
             $model->commission = $map['Commission'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['MarketingType'])) {
             $model->marketingType = $map['MarketingType'];

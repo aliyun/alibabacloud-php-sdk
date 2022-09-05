@@ -11,29 +11,21 @@ use AlibabaCloud\Tea\Model;
 class ListAdvertisingResponseBody extends Model
 {
     /**
-     * @description errorCode
-     *
      * @var string
      */
     public $errorcode;
 
     /**
-     * @description errorMsg
-     *
      * @var string
      */
     public $errormsg;
 
     /**
-     * @description ext
-     *
      * @var string[]
      */
     public $ext;
 
     /**
-     * @description header
-     *
      * @var header
      */
     public $header;
@@ -49,8 +41,6 @@ class ListAdvertisingResponseBody extends Model
     public $result;
 
     /**
-     * @description success
-     *
      * @var bool
      */
     public $success;

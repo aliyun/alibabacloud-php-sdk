@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SendSmsRequest extends Model
+class VerifySmsCodeRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $code;
+
     /**
      * @var int
      */
@@ -23,6 +28,7 @@ class SendSmsRequest extends Model
      */
     public $signKey;
     protected $_name = [
+        'code'         => 'Code',
         'nowStamp'     => 'NowStamp',
         'phoneNumbers' => 'PhoneNumbers',
         'signKey'      => 'SignKey',
@@ -35,6 +41,9 @@ class SendSmsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->nowStamp) {
             $res['NowStamp'] = $this->nowStamp;
         }
@@ -51,11 +60,14 @@ class SendSmsRequest extends Model
     /**
      * @param array $map
      *
-     * @return SendSmsRequest
+     * @return VerifySmsCodeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['NowStamp'])) {
             $model->nowStamp = $map['NowStamp'];
         }

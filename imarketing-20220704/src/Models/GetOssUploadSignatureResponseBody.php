@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetOssUploadSignatureResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SendSmsResponseBody extends Model
+class GetOssUploadSignatureResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var data
      */
     public $data;
 
@@ -17,11 +18,6 @@ class SendSmsResponseBody extends Model
      * @var int
      */
     public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
 
     /**
      * @var int
@@ -38,12 +34,11 @@ class SendSmsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'         => 'Data',
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'httpCode'     => 'HttpCode',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
+        'httpCode'  => 'HttpCode',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -54,13 +49,10 @@ class SendSmsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->httpCode) {
             $res['HttpCode'] = $this->httpCode;
@@ -78,19 +70,16 @@ class SendSmsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SendSmsResponseBody
+     * @return GetOssUploadSignatureResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['HttpCode'])) {
             $model->httpCode = $map['HttpCode'];

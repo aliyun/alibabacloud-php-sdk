@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class header extends Model
 {
     /**
-     * @description costTime
-     *
      * @var int
      */
     public $costTime;
 
     /**
-     * @description rpcId
-     *
      * @var string
      */
     public $rpcId;
 
     /**
-     * @description traceId
-     *
      * @var string
      */
     public $traceId;
 
     /**
-     * @description version
-     *
      * @var string
      */
     public $version;

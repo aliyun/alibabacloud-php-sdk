@@ -11,29 +11,21 @@ use AlibabaCloud\Tea\Model;
 class GetUserFinishedAdResponseBody extends Model
 {
     /**
-     * @description errorCode
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description errorMsg
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description ext
-     *
      * @var string[]
      */
     public $ext;
 
     /**
-     * @description header
-     *
      * @var header
      */
     public $header;
@@ -49,8 +41,6 @@ class GetUserFinishedAdResponseBody extends Model
     public $result;
 
     /**
-     * @description success
-     *
      * @var bool
      */
     public $success;

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetUserFinishedAdRequest extends Model
 {
     /**
-     * @description adid
-     *
      * @var int
      */
     public $adid;
 
     /**
-     * @description clicklink
-     *
      * @var string
      */
     public $clicklink;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description mediaid
-     *
      * @var string
      */
     public $mediaid;
 
     /**
-     * @description tagid
-     *
      * @var string
      */
     public $tagid;
 
     /**
-     * @description uid
-     *
      * @var string
      */
     public $uid;
