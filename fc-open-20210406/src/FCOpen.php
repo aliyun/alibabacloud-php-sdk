@@ -3965,7 +3965,7 @@ class FCOpen extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'string',
+            'bodyType'    => 'none',
         ]);
 
         return PutLayerACLResponse::fromMap($this->callApi($params, $req, $runtime));
