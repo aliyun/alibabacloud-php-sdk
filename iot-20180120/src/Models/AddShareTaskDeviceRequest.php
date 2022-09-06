@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BindLicenseDeviceRequest extends Model
+class AddShareTaskDeviceRequest extends Model
 {
-    /**
-     * @var string[]
-     */
-    public $deviceNameList;
-
     /**
      * @var string[]
      */
@@ -26,18 +21,17 @@ class BindLicenseDeviceRequest extends Model
     /**
      * @var string
      */
-    public $licenseCode;
+    public $productKey;
 
     /**
      * @var string
      */
-    public $productKey;
+    public $shareTaskId;
     protected $_name = [
-        'deviceNameList' => 'DeviceNameList',
-        'iotIdList'      => 'IotIdList',
-        'iotInstanceId'  => 'IotInstanceId',
-        'licenseCode'    => 'LicenseCode',
-        'productKey'     => 'ProductKey',
+        'iotIdList'     => 'IotIdList',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey'    => 'ProductKey',
+        'shareTaskId'   => 'ShareTaskId',
     ];
 
     public function validate()
@@ -47,20 +41,17 @@ class BindLicenseDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceNameList) {
-            $res['DeviceNameList'] = $this->deviceNameList;
-        }
         if (null !== $this->iotIdList) {
             $res['IotIdList'] = $this->iotIdList;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
-        if (null !== $this->licenseCode) {
-            $res['LicenseCode'] = $this->licenseCode;
-        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->shareTaskId) {
+            $res['ShareTaskId'] = $this->shareTaskId;
         }
 
         return $res;
@@ -69,16 +60,11 @@ class BindLicenseDeviceRequest extends Model
     /**
      * @param array $map
      *
-     * @return BindLicenseDeviceRequest
+     * @return AddShareTaskDeviceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceNameList'])) {
-            if (!empty($map['DeviceNameList'])) {
-                $model->deviceNameList = $map['DeviceNameList'];
-            }
-        }
         if (isset($map['IotIdList'])) {
             if (!empty($map['IotIdList'])) {
                 $model->iotIdList = $map['IotIdList'];
@@ -87,11 +73,11 @@ class BindLicenseDeviceRequest extends Model
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
-        if (isset($map['LicenseCode'])) {
-            $model->licenseCode = $map['LicenseCode'];
-        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['ShareTaskId'])) {
+            $model->shareTaskId = $map['ShareTaskId'];
         }
 
         return $model;

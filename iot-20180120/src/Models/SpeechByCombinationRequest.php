@@ -24,6 +24,11 @@ class SpeechByCombinationRequest extends Model
     public $deviceName;
 
     /**
+     * @var bool
+     */
+    public $enforceFlag;
+
+    /**
      * @var string
      */
     public $iotId;
@@ -46,6 +51,7 @@ class SpeechByCombinationRequest extends Model
         'audioFormat'     => 'AudioFormat',
         'combinationList' => 'CombinationList',
         'deviceName'      => 'DeviceName',
+        'enforceFlag'     => 'EnforceFlag',
         'iotId'           => 'IotId',
         'iotInstanceId'   => 'IotInstanceId',
         'productKey'      => 'ProductKey',
@@ -67,6 +73,9 @@ class SpeechByCombinationRequest extends Model
         }
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
+        }
+        if (null !== $this->enforceFlag) {
+            $res['EnforceFlag'] = $this->enforceFlag;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
@@ -102,6 +111,9 @@ class SpeechByCombinationRequest extends Model
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
+        }
+        if (isset($map['EnforceFlag'])) {
+            $model->enforceFlag = $map['EnforceFlag'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];

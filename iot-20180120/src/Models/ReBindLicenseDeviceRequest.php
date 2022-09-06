@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BindLicenseDeviceRequest extends Model
+class ReBindLicenseDeviceRequest extends Model
 {
     /**
      * @var string[]
      */
     public $deviceNameList;
-
-    /**
-     * @var string[]
-     */
-    public $iotIdList;
 
     /**
      * @var string
@@ -34,7 +29,6 @@ class BindLicenseDeviceRequest extends Model
     public $productKey;
     protected $_name = [
         'deviceNameList' => 'DeviceNameList',
-        'iotIdList'      => 'IotIdList',
         'iotInstanceId'  => 'IotInstanceId',
         'licenseCode'    => 'LicenseCode',
         'productKey'     => 'ProductKey',
@@ -49,9 +43,6 @@ class BindLicenseDeviceRequest extends Model
         $res = [];
         if (null !== $this->deviceNameList) {
             $res['DeviceNameList'] = $this->deviceNameList;
-        }
-        if (null !== $this->iotIdList) {
-            $res['IotIdList'] = $this->iotIdList;
         }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
@@ -69,7 +60,7 @@ class BindLicenseDeviceRequest extends Model
     /**
      * @param array $map
      *
-     * @return BindLicenseDeviceRequest
+     * @return ReBindLicenseDeviceRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,11 +68,6 @@ class BindLicenseDeviceRequest extends Model
         if (isset($map['DeviceNameList'])) {
             if (!empty($map['DeviceNameList'])) {
                 $model->deviceNameList = $map['DeviceNameList'];
-            }
-        }
-        if (isset($map['IotIdList'])) {
-            if (!empty($map['IotIdList'])) {
-                $model->iotIdList = $map['IotIdList'];
             }
         }
         if (isset($map['IotInstanceId'])) {

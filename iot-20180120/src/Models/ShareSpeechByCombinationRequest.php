@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SyncSpeechByCombinationRequest extends Model
+class ShareSpeechByCombinationRequest extends Model
 {
     /**
      * @var string
@@ -22,11 +22,6 @@ class SyncSpeechByCombinationRequest extends Model
      * @var string
      */
     public $deviceName;
-
-    /**
-     * @var bool
-     */
-    public $enforceFlag;
 
     /**
      * @var string
@@ -51,7 +46,6 @@ class SyncSpeechByCombinationRequest extends Model
         'audioFormat'     => 'AudioFormat',
         'combinationList' => 'CombinationList',
         'deviceName'      => 'DeviceName',
-        'enforceFlag'     => 'EnforceFlag',
         'iotId'           => 'IotId',
         'iotInstanceId'   => 'IotInstanceId',
         'productKey'      => 'ProductKey',
@@ -74,9 +68,6 @@ class SyncSpeechByCombinationRequest extends Model
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
-        if (null !== $this->enforceFlag) {
-            $res['EnforceFlag'] = $this->enforceFlag;
-        }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
@@ -96,7 +87,7 @@ class SyncSpeechByCombinationRequest extends Model
     /**
      * @param array $map
      *
-     * @return SyncSpeechByCombinationRequest
+     * @return ShareSpeechByCombinationRequest
      */
     public static function fromMap($map = [])
     {
@@ -111,9 +102,6 @@ class SyncSpeechByCombinationRequest extends Model
         }
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
-        }
-        if (isset($map['EnforceFlag'])) {
-            $model->enforceFlag = $map['EnforceFlag'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
