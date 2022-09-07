@@ -42,6 +42,11 @@ class ioTCloudConnectorGroups extends Model
     /**
      * @var string
      */
+    public $serviceType;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'createTime'                   => 'CreateTime',
@@ -50,6 +55,7 @@ class ioTCloudConnectorGroups extends Model
         'ioTCloudConnectorGroupStatus' => 'IoTCloudConnectorGroupStatus',
         'ioTCloudConnectors'           => 'IoTCloudConnectors',
         'name'                         => 'Name',
+        'serviceType'                  => 'ServiceType',
         'type'                         => 'Type',
     ];
 
@@ -83,6 +89,9 @@ class ioTCloudConnectorGroups extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -122,6 +131,9 @@ class ioTCloudConnectorGroups extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

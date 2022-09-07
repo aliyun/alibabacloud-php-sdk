@@ -36,6 +36,11 @@ class UpdateIoTCloudConnectorAttributeRequest extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -48,6 +53,7 @@ class UpdateIoTCloudConnectorAttributeRequest extends Model
         'ioTCloudConnectorDescription' => 'IoTCloudConnectorDescription',
         'ioTCloudConnectorId'          => 'IoTCloudConnectorId',
         'ioTCloudConnectorName'        => 'IoTCloudConnectorName',
+        'mode'                         => 'Mode',
         'regionId'                     => 'RegionId',
         'wildcardDomainEnabled'        => 'WildcardDomainEnabled',
     ];
@@ -73,6 +79,9 @@ class UpdateIoTCloudConnectorAttributeRequest extends Model
         }
         if (null !== $this->ioTCloudConnectorName) {
             $res['IoTCloudConnectorName'] = $this->ioTCloudConnectorName;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -106,6 +115,9 @@ class UpdateIoTCloudConnectorAttributeRequest extends Model
         }
         if (isset($map['IoTCloudConnectorName'])) {
             $model->ioTCloudConnectorName = $map['IoTCloudConnectorName'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

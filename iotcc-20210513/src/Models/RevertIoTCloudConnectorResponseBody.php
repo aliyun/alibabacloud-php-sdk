@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IoTCC\V20210513\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetConnectionPoolIpOperationResultResponseBody extends Model
+class RevertIoTCloudConnectorResponseBody extends Model
 {
     /**
      * @var string
@@ -14,12 +14,12 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $resultFilePaths;
+    public $resourceId;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'resultFilePaths' => 'ResultFilePaths',
+        'requestId'  => 'RequestId',
+        'resourceId' => 'ResourceId',
     ];
 
     public function validate()
@@ -32,8 +32,8 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->resultFilePaths) {
-            $res['ResultFilePaths'] = $this->resultFilePaths;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -42,7 +42,7 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetConnectionPoolIpOperationResultResponseBody
+     * @return RevertIoTCloudConnectorResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -50,10 +50,8 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ResultFilePaths'])) {
-            if (!empty($map['ResultFilePaths'])) {
-                $model->resultFilePaths = $map['ResultFilePaths'];
-            }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         return $model;

@@ -31,6 +31,11 @@ class ListGroupAuthorizationRulesRequest extends Model
     /**
      * @var string[]
      */
+    public $destinationPort;
+
+    /**
+     * @var string[]
+     */
     public $destinationType;
 
     /**
@@ -54,6 +59,11 @@ class ListGroupAuthorizationRulesRequest extends Model
     public $policy;
 
     /**
+     * @var string[]
+     */
+    public $protocol;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -67,11 +77,13 @@ class ListGroupAuthorizationRulesRequest extends Model
         'authorizationRuleName'    => 'AuthorizationRuleName',
         'authorizationRuleStatus'  => 'AuthorizationRuleStatus',
         'destination'              => 'Destination',
+        'destinationPort'          => 'DestinationPort',
         'destinationType'          => 'DestinationType',
         'ioTCloudConnectorGroupId' => 'IoTCloudConnectorGroupId',
         'maxResults'               => 'MaxResults',
         'nextToken'                => 'NextToken',
         'policy'                   => 'Policy',
+        'protocol'                 => 'Protocol',
         'regionId'                 => 'RegionId',
         'type'                     => 'Type',
     ];
@@ -95,6 +107,9 @@ class ListGroupAuthorizationRulesRequest extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+        if (null !== $this->destinationPort) {
+            $res['DestinationPort'] = $this->destinationPort;
+        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
@@ -109,6 +124,9 @@ class ListGroupAuthorizationRulesRequest extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -148,6 +166,11 @@ class ListGroupAuthorizationRulesRequest extends Model
                 $model->destination = $map['Destination'];
             }
         }
+        if (isset($map['DestinationPort'])) {
+            if (!empty($map['DestinationPort'])) {
+                $model->destinationPort = $map['DestinationPort'];
+            }
+        }
         if (isset($map['DestinationType'])) {
             if (!empty($map['DestinationType'])) {
                 $model->destinationType = $map['DestinationType'];
@@ -165,6 +188,11 @@ class ListGroupAuthorizationRulesRequest extends Model
         if (isset($map['Policy'])) {
             if (!empty($map['Policy'])) {
                 $model->policy = $map['Policy'];
+            }
+        }
+        if (isset($map['Protocol'])) {
+            if (!empty($map['Protocol'])) {
+                $model->protocol = $map['Protocol'];
             }
         }
         if (isset($map['RegionId'])) {

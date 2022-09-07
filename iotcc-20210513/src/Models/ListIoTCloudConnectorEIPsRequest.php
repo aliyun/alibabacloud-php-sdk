@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\IoTCC\V20210513\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAPNsRequest extends Model
+class ListIoTCloudConnectorEIPsRequest extends Model
 {
     /**
      * @var string
      */
-    public $APN;
-
-    /**
-     * @var string
-     */
-    public $ISP;
+    public $ioTCloudConnectorId;
 
     /**
      * @var int
@@ -32,18 +27,11 @@ class ListAPNsRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
-        'APN'        => 'APN',
-        'ISP'        => 'ISP',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'type'       => 'Type',
+        'ioTCloudConnectorId' => 'IoTCloudConnectorId',
+        'maxResults'          => 'MaxResults',
+        'nextToken'           => 'NextToken',
+        'regionId'            => 'RegionId',
     ];
 
     public function validate()
@@ -53,11 +41,8 @@ class ListAPNsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->APN) {
-            $res['APN'] = $this->APN;
-        }
-        if (null !== $this->ISP) {
-            $res['ISP'] = $this->ISP;
+        if (null !== $this->ioTCloudConnectorId) {
+            $res['IoTCloudConnectorId'] = $this->ioTCloudConnectorId;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -68,9 +53,6 @@ class ListAPNsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
 
         return $res;
     }
@@ -78,16 +60,13 @@ class ListAPNsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListAPNsRequest
+     * @return ListIoTCloudConnectorEIPsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['APN'])) {
-            $model->APN = $map['APN'];
-        }
-        if (isset($map['ISP'])) {
-            $model->ISP = $map['ISP'];
+        if (isset($map['IoTCloudConnectorId'])) {
+            $model->ioTCloudConnectorId = $map['IoTCloudConnectorId'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -97,9 +76,6 @@ class ListAPNsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

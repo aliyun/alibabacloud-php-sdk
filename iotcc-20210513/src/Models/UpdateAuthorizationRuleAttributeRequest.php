@@ -36,6 +36,11 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
     /**
      * @var string
      */
+    public $destinationPort;
+
+    /**
+     * @var string
+     */
     public $destinationType;
 
     /**
@@ -56,6 +61,11 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
     /**
      * @var string
      */
+    public $protocol;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -68,10 +78,12 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
         'authorizationRuleName'        => 'AuthorizationRuleName',
         'clientToken'                  => 'ClientToken',
         'destination'                  => 'Destination',
+        'destinationPort'              => 'DestinationPort',
         'destinationType'              => 'DestinationType',
         'dryRun'                       => 'DryRun',
         'ioTCloudConnectorId'          => 'IoTCloudConnectorId',
         'policy'                       => 'Policy',
+        'protocol'                     => 'Protocol',
         'regionId'                     => 'RegionId',
         'sourceCidrs'                  => 'SourceCidrs',
     ];
@@ -98,6 +110,9 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+        if (null !== $this->destinationPort) {
+            $res['DestinationPort'] = $this->destinationPort;
+        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
@@ -109,6 +124,9 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -143,6 +161,9 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+        if (isset($map['DestinationPort'])) {
+            $model->destinationPort = $map['DestinationPort'];
+        }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
@@ -154,6 +175,9 @@ class UpdateAuthorizationRuleAttributeRequest extends Model
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

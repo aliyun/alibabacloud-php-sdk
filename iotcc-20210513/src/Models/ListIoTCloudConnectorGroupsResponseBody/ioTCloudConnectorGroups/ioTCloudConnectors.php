@@ -42,6 +42,11 @@ class ioTCloudConnectors extends Model
      * @var string
      */
     public $ioTCloudConnectorStatus;
+
+    /**
+     * @var string
+     */
+    public $serviceType;
     protected $_name = [
         'APN'                          => 'APN',
         'createTime'                   => 'CreateTime',
@@ -50,6 +55,7 @@ class ioTCloudConnectors extends Model
         'ioTCloudConnectorId'          => 'IoTCloudConnectorId',
         'ioTCloudConnectorName'        => 'IoTCloudConnectorName',
         'ioTCloudConnectorStatus'      => 'IoTCloudConnectorStatus',
+        'serviceType'                  => 'ServiceType',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class ioTCloudConnectors extends Model
         }
         if (null !== $this->ioTCloudConnectorStatus) {
             $res['IoTCloudConnectorStatus'] = $this->ioTCloudConnectorStatus;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class ioTCloudConnectors extends Model
         }
         if (isset($map['IoTCloudConnectorStatus'])) {
             $model->ioTCloudConnectorStatus = $map['IoTCloudConnectorStatus'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
 
         return $model;

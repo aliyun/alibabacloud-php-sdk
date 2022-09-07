@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\IoTCC\V20210513\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetConnectionPoolIpOperationResultResponseBody extends Model
+class CreateIpMappingRuleResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $ipMappingRuleId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $resultFilePaths;
+    public $requestId;
     protected $_name = [
+        'ipMappingRuleId' => 'IpMappingRuleId',
         'requestId'       => 'RequestId',
-        'resultFilePaths' => 'ResultFilePaths',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipMappingRuleId) {
+            $res['IpMappingRuleId'] = $this->ipMappingRuleId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->resultFilePaths) {
-            $res['ResultFilePaths'] = $this->resultFilePaths;
         }
 
         return $res;
@@ -42,18 +42,16 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetConnectionPoolIpOperationResultResponseBody
+     * @return CreateIpMappingRuleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpMappingRuleId'])) {
+            $model->ipMappingRuleId = $map['IpMappingRuleId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ResultFilePaths'])) {
-            if (!empty($map['ResultFilePaths'])) {
-                $model->resultFilePaths = $map['ResultFilePaths'];
-            }
         }
 
         return $model;

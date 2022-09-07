@@ -21,6 +21,11 @@ class ioTCloudConnectors extends Model
     /**
      * @var string
      */
+    public $grantAliUid;
+
+    /**
+     * @var string
+     */
     public $ISP;
 
     /**
@@ -76,6 +81,11 @@ class ioTCloudConnectors extends Model
     /**
      * @var string
      */
+    public $serviceType;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -95,6 +105,7 @@ class ioTCloudConnectors extends Model
     protected $_name = [
         'APN'                             => 'APN',
         'createTime'                      => 'CreateTime',
+        'grantAliUid'                     => 'GrantAliUid',
         'ISP'                             => 'ISP',
         'ioTCloudConnectorBusinessStatus' => 'IoTCloudConnectorBusinessStatus',
         'ioTCloudConnectorDescription'    => 'IoTCloudConnectorDescription',
@@ -106,6 +117,7 @@ class ioTCloudConnectors extends Model
         'mode'                            => 'Mode',
         'modifyTime'                      => 'ModifyTime',
         'rateLimit'                       => 'RateLimit',
+        'serviceType'                     => 'ServiceType',
         'type'                            => 'Type',
         'vSwitchList'                     => 'VSwitchList',
         'vpcId'                           => 'VpcId',
@@ -124,6 +136,9 @@ class ioTCloudConnectors extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->grantAliUid) {
+            $res['GrantAliUid'] = $this->grantAliUid;
         }
         if (null !== $this->ISP) {
             $res['ISP'] = $this->ISP;
@@ -158,6 +173,9 @@ class ioTCloudConnectors extends Model
         if (null !== $this->rateLimit) {
             $res['RateLimit'] = $this->rateLimit;
         }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -187,6 +205,9 @@ class ioTCloudConnectors extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['GrantAliUid'])) {
+            $model->grantAliUid = $map['GrantAliUid'];
         }
         if (isset($map['ISP'])) {
             $model->ISP = $map['ISP'];
@@ -220,6 +241,9 @@ class ioTCloudConnectors extends Model
         }
         if (isset($map['RateLimit'])) {
             $model->rateLimit = $map['RateLimit'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

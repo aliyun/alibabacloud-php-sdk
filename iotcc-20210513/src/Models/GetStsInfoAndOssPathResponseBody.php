@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetStsInfoAndOssPathResponseBody extends Model
 {
     /**
-     * @description Sts info of accessKeyId
-     *
      * @var string
      */
     public $accessKeyId;
 
     /**
-     * @description Sts info of accessKeySecret
-     *
      * @var string
      */
     public $accessKeySecret;
 
     /**
-     * @description Sts info expiration time
-     *
      * @var string
      */
     public $expiration;
 
     /**
-     * @description OssPath
-     *
      * @var string
      */
     public $ossPath;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Sts info of securityToken
-     *
      * @var string
      */
     public $securityToken;

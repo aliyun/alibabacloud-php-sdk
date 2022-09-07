@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\IoTCC\V20210513\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetConnectionPoolIpOperationResultResponseBody extends Model
+class CreateAuthorizationRulesResponseBody extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $authorizationRuleIds;
+
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string[]
-     */
-    public $resultFilePaths;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'resultFilePaths' => 'ResultFilePaths',
+        'authorizationRuleIds' => 'AuthorizationRuleIds',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authorizationRuleIds) {
+            $res['AuthorizationRuleIds'] = $this->authorizationRuleIds;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->resultFilePaths) {
-            $res['ResultFilePaths'] = $this->resultFilePaths;
         }
 
         return $res;
@@ -42,18 +42,18 @@ class GetConnectionPoolIpOperationResultResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetConnectionPoolIpOperationResultResponseBody
+     * @return CreateAuthorizationRulesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthorizationRuleIds'])) {
+            if (!empty($map['AuthorizationRuleIds'])) {
+                $model->authorizationRuleIds = $map['AuthorizationRuleIds'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ResultFilePaths'])) {
-            if (!empty($map['ResultFilePaths'])) {
-                $model->resultFilePaths = $map['ResultFilePaths'];
-            }
         }
 
         return $model;
