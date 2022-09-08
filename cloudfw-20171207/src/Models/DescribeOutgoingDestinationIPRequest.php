@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPRequest extends Model
 {
     /**
-     * @description 当前页
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @description 目的IP
-     *
      * @var string
      */
     public $dstIP;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description 排序字段, 枚举值.
-     * 可选值: InBytes, OutBytes,TotalBytes,SessionCount
      * @var string
      */
     public $order;
 
     /**
-     * @description 每页大小
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description 端口号
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description 私网IP
-     *
      * @var string
      */
     public $privateIP;
 
     /**
-     * @description 公网IP
-     *
      * @var string
      */
     public $publicIP;
 
     /**
-     * @description 顺序, 枚举值, 可选:asc, desc
-     *
      * @var string
      */
     public $sort;
 
     /**
-     * @description 开始时间,Unix timestamp, 精确到秒
-     *
      * @var string
      */
     public $startTime;

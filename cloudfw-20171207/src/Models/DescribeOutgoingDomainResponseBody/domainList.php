@@ -10,120 +10,86 @@ use AlibabaCloud\Tea\Model;
 class domainList extends Model
 {
     /**
-     * @description ACL覆盖
-     *
      * @var string
      */
     public $aclCoverage;
 
     /**
-     * @description ACL推荐内容
-     *
      * @var string
      */
     public $aclRecommendDetail;
 
     /**
-     * @description ACL状态
-     *
      * @var string
      */
     public $aclStatus;
 
     /**
-     * @description 地址簿名称
-     *
      * @var string
      */
     public $addressGroupName;
 
     /**
-     * @description 地址簿UUID
-     *
      * @var string
      */
     public $addressGroupUUID;
 
     /**
-     * @description 分类ID
-     *
      * @var string
      */
     public $categoryId;
 
     /**
-     * @description 分类名称
-     *
      * @var string
      */
     public $categoryName;
 
     /**
-     * @description 域名
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 规则中的组名称
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 是否有ACL推荐规则
-     *
      * @var bool
      */
     public $hasAclRecommend;
 
     /**
-     * @description 入流量
-     *
      * @var int
      */
     public $inBytes;
 
     /**
-     * @description 是否正常
-     *
      * @var bool
      */
     public $isMarkNormal;
 
     /**
-     * @description 出流量
-     *
      * @var int
      */
     public $outBytes;
 
     /**
-     * @description ACL规则ID
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 规则名称
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 安全建议
-     *
      * @var string
      */
     public $securitySuggest;
 
     /**
-     * @description 会话数
-     *
      * @var int
      */
     public $sessionCount;

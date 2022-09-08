@@ -9,113 +9,81 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvadeEventListRequest extends Model
 {
     /**
-     * @description 资产IP
-     *
      * @var string
      */
     public $assetsIP;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $assetsInstanceId;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $assetsInstanceName;
 
     /**
-     * @description 当前页
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 事件key
-     *
      * @var string
      */
     public $eventKey;
 
     /**
-     * @description 事件名称
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description 事件UUID
-     *
      * @var string
      */
     public $eventUuid;
 
     /**
-     * @description 是否忽略
-     *
      * @var string
      */
     public $isIgnore;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description 成员账号UID
-     *
      * @var int
      */
     public $memberUid;
 
     /**
-     * @description 每页多少条
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description 处理状态列表
-     *
      * @var int[]
      */
     public $processStatusList;
 
     /**
-     * @description 风险等级
-     *
      * @var int[]
      */
     public $riskLevel;
 
     /**
-     * @description 源IP
-     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTime;

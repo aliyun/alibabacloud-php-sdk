@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAssetIPTrafficInfoResponseBody extends Model
 {
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
@@ -41,8 +39,6 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $outPps;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
@@ -53,8 +49,6 @@ class DescribeUserAssetIPTrafficInfoResponseBody extends Model
     public $sessionCount;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;

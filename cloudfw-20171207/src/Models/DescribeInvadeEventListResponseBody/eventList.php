@@ -9,113 +9,81 @@ use AlibabaCloud\Tea\Model;
 class eventList extends Model
 {
     /**
-     * @description 资产实例ID
-     *
      * @var string
      */
     public $assetsInstanceId;
 
     /**
-     * @description 资产名称
-     *
      * @var string
      */
     public $assetsInstanceName;
 
     /**
-     * @description 资产类型
-     *
      * @var string
      */
     public $assetsType;
 
     /**
-     * @description CVE编号
-     *
      * @var string
      */
     public $eventKey;
 
     /**
-     * @description 事件名称
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description 事件来源
-     *
      * @var string
      */
     public $eventSrc;
 
     /**
-     * @description 事件UUID
-     *
      * @var string
      */
     public $eventUuid;
 
     /**
-     * @description 首次出现时间
-     *
      * @var int
      */
     public $firstTime;
 
     /**
-     * @description 是否忽略
-     *
      * @var bool
      */
     public $isIgnore;
 
     /**
-     * @description 最近一次时间
-     *
      * @var int
      */
     public $lastTime;
 
     /**
-     * @description 成员账号UID
-     *
      * @var string
      */
     public $memberUid;
 
     /**
-     * @description 私网IP
-     *
      * @var string
      */
     public $privateIP;
 
     /**
-     * @description 处理状态
-     *
      * @var int
      */
     public $processStatus;
 
     /**
-     * @description 公网IP
-     *
      * @var string
      */
     public $publicIP;
 
     /**
-     * @description 公开类型
-     *
      * @var string
      */
     public $publicIpType;
 
     /**
-     * @description 风险等级
-     *
      * @var int
      */
     public $riskLevel;

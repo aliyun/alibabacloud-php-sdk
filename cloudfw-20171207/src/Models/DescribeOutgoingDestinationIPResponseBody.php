@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDestinationIPResponseBody extends Model
 {
     /**
-     * @description 外联IP列表
-     *
      * @var dstIPList[]
      */
     public $dstIPList;
@@ -22,8 +20,6 @@ class DescribeOutgoingDestinationIPResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 总数
-     *
      * @var int
      */
     public $totalCount;

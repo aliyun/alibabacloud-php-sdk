@@ -11,36 +11,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvadeEventListResponseBody extends Model
 {
     /**
-     * @description 事件列表
-     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
-     * @description 高风险等级比例
-     *
      * @var int
      */
     public $highLevelPercent;
 
     /**
-     * @description 低风险等级比例
-     *
      * @var int
      */
     public $lowLevelPercent;
 
     /**
-     * @description 中风险等级比例
-     *
      * @var int
      */
     public $middleLevelPercent;
 
     /**
-     * @description 分页信息
-     *
      * @var pageInfo
      */
     public $pageInfo;

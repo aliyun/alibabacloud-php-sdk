@@ -34,6 +34,11 @@ class policys extends Model
     public $applicationNameList;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $description;
@@ -111,6 +116,11 @@ class policys extends Model
     /**
      * @var int
      */
+    public $modifyTime;
+
+    /**
+     * @var int
+     */
     public $order;
 
     /**
@@ -142,12 +152,18 @@ class policys extends Model
      * @var string
      */
     public $sourceType;
+
+    /**
+     * @var int
+     */
+    public $spreadCnt;
     protected $_name = [
         'aclAction'             => 'AclAction',
         'aclUuid'               => 'AclUuid',
         'applicationId'         => 'ApplicationId',
         'applicationName'       => 'ApplicationName',
         'applicationNameList'   => 'ApplicationNameList',
+        'createTime'            => 'CreateTime',
         'description'           => 'Description',
         'destPort'              => 'DestPort',
         'destPortGroup'         => 'DestPortGroup',
@@ -163,6 +179,7 @@ class policys extends Model
         'hitLastTime'           => 'HitLastTime',
         'hitTimes'              => 'HitTimes',
         'ipVersion'             => 'IpVersion',
+        'modifyTime'            => 'ModifyTime',
         'order'                 => 'Order',
         'proto'                 => 'Proto',
         'release'               => 'Release',
@@ -170,6 +187,7 @@ class policys extends Model
         'sourceGroupCidrs'      => 'SourceGroupCidrs',
         'sourceGroupType'       => 'SourceGroupType',
         'sourceType'            => 'SourceType',
+        'spreadCnt'             => 'SpreadCnt',
     ];
 
     public function validate()
@@ -193,6 +211,9 @@ class policys extends Model
         }
         if (null !== $this->applicationNameList) {
             $res['ApplicationNameList'] = $this->applicationNameList;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -239,6 +260,9 @@ class policys extends Model
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -259,6 +283,9 @@ class policys extends Model
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->spreadCnt) {
+            $res['SpreadCnt'] = $this->spreadCnt;
         }
 
         return $res;
@@ -288,6 +315,9 @@ class policys extends Model
             if (!empty($map['ApplicationNameList'])) {
                 $model->applicationNameList = $map['ApplicationNameList'];
             }
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -338,6 +368,9 @@ class policys extends Model
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
@@ -360,6 +393,9 @@ class policys extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['SpreadCnt'])) {
+            $model->spreadCnt = $map['SpreadCnt'];
         }
 
         return $model;

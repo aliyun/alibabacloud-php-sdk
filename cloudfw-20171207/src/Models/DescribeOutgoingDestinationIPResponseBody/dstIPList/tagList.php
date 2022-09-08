@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
-     * @description 风险等级
-     *
      * @var int
      */
     public $riskLevel;
 
     /**
-     * @description 标签描述
-     *
      * @var string
      */
     public $tagDescribe;
 
     /**
-     * @description 标签ID
-     *
      * @var string
      */
     public $tagId;
 
     /**
-     * @description 标签名
-     *
      * @var string
      */
     public $tagName;

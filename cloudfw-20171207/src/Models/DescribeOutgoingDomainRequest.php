@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDomainRequest extends Model
 {
     /**
-     * @description 分类, 枚举值.
-     * NotAliYun (非云产品分类)
      * @var string
      */
     public $categoryId;
 
     /**
-     * @description 当前页
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @description 域名
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description 结束时间,Unix timestamp, 精确到秒
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 语言, 枚举值.
-     * 可选值: en
      * @var string
      */
     public $lang;
 
     /**
-     * @description 排序字段, 枚举值.
-     * 可选值: InBytes, OutBytes,TotalBytes,SessionCount
      * @var string
      */
     public $order;
 
     /**
-     * @description 每页条数, 不得超过100, 超过100会设置为100
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description 公网IP
-     *
      * @var string
      */
     public $publicIP;
 
     /**
-     * @description 顺序, 枚举值, 可选:asc, desc
-     *
      * @var string
      */
     public $sort;
 
     /**
-     * @description 开始时间,Unix timestamp, 精确到秒
-     *
      * @var string
      */
     public $startTime;

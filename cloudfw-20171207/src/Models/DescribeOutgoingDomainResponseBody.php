@@ -20,8 +20,6 @@ class DescribeOutgoingDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 总数
-     *
      * @var int
      */
     public $totalCount;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class applicationPortList extends Model
 {
     /**
-     * @description 应用名
-     *
      * @var string
      */
     public $applicationName;
 
     /**
-     * @description 端口
-     *
      * @var int
      */
     public $port;

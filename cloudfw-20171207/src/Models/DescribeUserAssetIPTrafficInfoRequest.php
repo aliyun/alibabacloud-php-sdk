@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAssetIPTrafficInfoRequest extends Model
 {
     /**
-     * @description 资产IP
-     *
      * @var string
      */
     public $assetIP;
 
     /**
-     * @description 语言
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description 时间
-     *
      * @var string
      */
     public $trafficTime;

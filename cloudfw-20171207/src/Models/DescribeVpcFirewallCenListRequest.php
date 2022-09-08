@@ -61,6 +61,11 @@ class DescribeVpcFirewallCenListRequest extends Model
     /**
      * @var string
      */
+    public $transitRouterType;
+
+    /**
+     * @var string
+     */
     public $vpcFirewallId;
 
     /**
@@ -78,6 +83,7 @@ class DescribeVpcFirewallCenListRequest extends Model
         'pageSize'             => 'PageSize',
         'regionNo'             => 'RegionNo',
         'routeMode'            => 'RouteMode',
+        'transitRouterType'    => 'TransitRouterType',
         'vpcFirewallId'        => 'VpcFirewallId',
         'vpcFirewallName'      => 'VpcFirewallName',
     ];
@@ -118,6 +124,9 @@ class DescribeVpcFirewallCenListRequest extends Model
         }
         if (null !== $this->routeMode) {
             $res['RouteMode'] = $this->routeMode;
+        }
+        if (null !== $this->transitRouterType) {
+            $res['TransitRouterType'] = $this->transitRouterType;
         }
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
@@ -166,6 +175,9 @@ class DescribeVpcFirewallCenListRequest extends Model
         }
         if (isset($map['RouteMode'])) {
             $model->routeMode = $map['RouteMode'];
+        }
+        if (isset($map['TransitRouterType'])) {
+            $model->transitRouterType = $map['TransitRouterType'];
         }
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];

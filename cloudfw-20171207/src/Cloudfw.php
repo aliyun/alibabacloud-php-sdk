@@ -1869,6 +1869,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->routeMode)) {
             $query['RouteMode'] = $request->routeMode;
         }
+        if (!Utils::isUnset($request->transitRouterType)) {
+            $query['TransitRouterType'] = $request->transitRouterType;
+        }
         if (!Utils::isUnset($request->vpcFirewallId)) {
             $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
