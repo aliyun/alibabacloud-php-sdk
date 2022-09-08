@@ -3462,6 +3462,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
         }
+        if (!Utils::isUnset($request->usePublicApiServer)) {
+            $body['UsePublicApiServer'] = $request->usePublicApiServer;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

@@ -37,13 +37,19 @@ class UpdateMeshCRAggregationRequest extends Model
      * @var string
      */
     public $serviceMeshId;
+
+    /**
+     * @var bool
+     */
+    public $usePublicApiServer;
     protected $_name = [
-        'CPULimit'          => 'CPULimit',
-        'CPURequirement'    => 'CPURequirement',
-        'enabled'           => 'Enabled',
-        'memoryLimit'       => 'MemoryLimit',
-        'memoryRequirement' => 'MemoryRequirement',
-        'serviceMeshId'     => 'ServiceMeshId',
+        'CPULimit'           => 'CPULimit',
+        'CPURequirement'     => 'CPURequirement',
+        'enabled'            => 'Enabled',
+        'memoryLimit'        => 'MemoryLimit',
+        'memoryRequirement'  => 'MemoryRequirement',
+        'serviceMeshId'      => 'ServiceMeshId',
+        'usePublicApiServer' => 'UsePublicApiServer',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class UpdateMeshCRAggregationRequest extends Model
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
+        }
+        if (null !== $this->usePublicApiServer) {
+            $res['UsePublicApiServer'] = $this->usePublicApiServer;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class UpdateMeshCRAggregationRequest extends Model
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
+        }
+        if (isset($map['UsePublicApiServer'])) {
+            $model->usePublicApiServer = $map['UsePublicApiServer'];
         }
 
         return $model;

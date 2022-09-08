@@ -41,6 +41,11 @@ class clusters extends Model
     /**
      * @var string
      */
+    public $forbiddenInfo;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -84,6 +89,7 @@ class clusters extends Model
         'creationTime'  => 'CreationTime',
         'errorMessage'  => 'ErrorMessage',
         'forbiddenFlag' => 'ForbiddenFlag',
+        'forbiddenInfo' => 'ForbiddenInfo',
         'name'          => 'Name',
         'regionId'      => 'RegionId',
         'serviceMeshId' => 'ServiceMeshId',
@@ -118,6 +124,9 @@ class clusters extends Model
         }
         if (null !== $this->forbiddenFlag) {
             $res['ForbiddenFlag'] = $this->forbiddenFlag;
+        }
+        if (null !== $this->forbiddenInfo) {
+            $res['ForbiddenInfo'] = $this->forbiddenInfo;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -172,6 +181,9 @@ class clusters extends Model
         }
         if (isset($map['ForbiddenFlag'])) {
             $model->forbiddenFlag = $map['ForbiddenFlag'];
+        }
+        if (isset($map['ForbiddenInfo'])) {
+            $model->forbiddenInfo = $map['ForbiddenInfo'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
