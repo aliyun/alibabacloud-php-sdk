@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class directory extends Model
 {
     /**
-     * @description 目录ID
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 目录名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 目录ID的路径，例如：aa/bb/cc/dd
-     *
      * @var string
      */
     public $pathId;
 
     /**
-     * @description 目录ID的路径名称，例如：一层目录/二层目录
-     *
      * @var string
      */
     public $pathName;

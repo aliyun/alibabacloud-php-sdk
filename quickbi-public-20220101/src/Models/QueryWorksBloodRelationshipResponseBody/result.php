@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 组件ID or  sheetId
-     *
      * @var string
      */
     public $componentId;
@@ -22,8 +20,6 @@ class result extends Model
     public $componentName;
 
     /**
-     * @description 组件类型
-     *
      * @var int
      */
     public $componentType;
@@ -34,15 +30,11 @@ class result extends Model
     public $componentTypeName;
 
     /**
-     * @description 数据集ID
-     *
      * @var string
      */
     public $datasetId;
 
     /**
-     * @description 查询参数引用的列信息
-     *
      * @var queryParams[]
      */
     public $queryParams;

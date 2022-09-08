@@ -10,106 +10,76 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 第三方嵌入状态
-     *
      * @var int
      */
     public $auth3rdFlag;
 
     /**
-     * @description 描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 所属空间目录信息
-     *
      * @var directory
      */
     public $directory;
 
     /**
-     * @description 创建时间d
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var string
      */
     public $gmtModify;
 
     /**
-     * @description 修改显示名称
-     *
      * @var string
      */
     public $modifyName;
 
     /**
-     * @description 所有者Id
-     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @description 所有者显示名称
-     *
      * @var string
      */
     public $ownerName;
 
     /**
-     * @description 安全策略：0 私有 1 协同编辑。 （
-     *
      * @var string
      */
     public $securityLevel;
 
     /**
-     * @description 报表发布状态 @PublishStatusEnum
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 作品名称
-     *
      * @var string
      */
     public $workName;
 
     /**
-     * @description 作品类型
-     *
      * @var string
      */
     public $workType;
 
     /**
-     * @description 作品ID
-     *
      * @var string
      */
     public $worksId;
 
     /**
-     * @description 所属工作空间
-     *
      * @var string
      */
     public $workspaceId;
 
     /**
-     * @description 所属空间名称
-     *
      * @var string
      */
     public $workspaceName;

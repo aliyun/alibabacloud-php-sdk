@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryWorksBloodRelationshipRequest extends Model
 {
     /**
-     * @description 报表ID
-     *
      * @var string
      */
     public $worksId;

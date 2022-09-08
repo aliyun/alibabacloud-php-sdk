@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddUserGroupMembersResponseBody extends Model
 {
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 接口执行结果。取值范围：true：请求成功false：请求失败
-     *
      * @var bool
      */
     public $result;
 
     /**
-     * @description 是否请求成功。取值范围：true：请求成功false：请求失败
-     *
      * @var bool
      */
     public $success;

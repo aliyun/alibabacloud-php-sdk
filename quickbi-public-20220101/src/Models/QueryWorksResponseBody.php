@@ -15,8 +15,6 @@ class QueryWorksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description QueryWorksModel
-     *
      * @var result
      */
     public $result;

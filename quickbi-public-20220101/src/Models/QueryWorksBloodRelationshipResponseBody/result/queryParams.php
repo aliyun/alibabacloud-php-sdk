@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class queryParams extends Model
 {
     /**
-     * @description 所属位置：
-     *
      * @var string
      */
     public $areaId;
@@ -21,36 +19,26 @@ class queryParams extends Model
     public $areaName;
 
     /**
-     * @description 字段显示名称
-     *
      * @var string
      */
     public $caption;
 
     /**
-     * @description 字段类型
-     *
      * @var string
      */
     public $dataType;
 
     /**
-     * @description 是否是度量
-     *
      * @var bool
      */
     public $isMeasure;
 
     /**
-     * @description 全局唯一的PathId。位于cube的level中pathId
-     *
      * @var string
      */
     public $pathId;
 
     /**
-     * @description 字段唯一ID。即cube中的name
-     *
      * @var string
      */
     public $uid;
