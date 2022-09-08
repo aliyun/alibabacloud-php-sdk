@@ -77,6 +77,9 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlbumDetailByIdResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlbumHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlbumRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAlbumResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAligenieUserInfoHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAligenieUserInfoRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetAligenieUserInfoResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetCodeEnhanceHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetCodeEnhanceRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\GetCodeEnhanceResponse;
@@ -226,6 +229,10 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScanCodeBindShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ScgSearchResponse;
@@ -242,6 +249,9 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\SetDeviceSettingShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindAligenieUserHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindAligenieUserRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindAligenieUserResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindDeviceHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindDeviceRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UnbindDeviceResponse;
@@ -1619,6 +1629,62 @@ class AliGenie extends OpenApiClient
         ]);
 
         return GetAlbumDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAligenieUserInfoRequest $request
+     *
+     * @return GetAligenieUserInfoResponse
+     */
+    public function getAligenieUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetAligenieUserInfoHeaders([]);
+
+        return $this->getAligenieUserInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetAligenieUserInfoRequest $request
+     * @param GetAligenieUserInfoHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAligenieUserInfoResponse
+     */
+    public function getAligenieUserInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->loginStateAccessToken)) {
+            $query['LoginStateAccessToken'] = $request->loginStateAccessToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAligenieUserInfo',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/getAligenieUserInfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAligenieUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4260,6 +4326,73 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * @param ScanCodeBindRequest $request
+     *
+     * @return ScanCodeBindResponse
+     */
+    public function scanCodeBind($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ScanCodeBindHeaders([]);
+
+        return $this->scanCodeBindWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ScanCodeBindRequest $tmpReq
+     * @param ScanCodeBindHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ScanCodeBindResponse
+     */
+    public function scanCodeBindWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ScanCodeBindShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bindReq)) {
+            $request->bindReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->bindReq), 'BindReq', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userInfo)) {
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bindReqShrink)) {
+            $body['BindReq'] = $request->bindReqShrink;
+        }
+        if (!Utils::isUnset($request->userInfoShrink)) {
+            $body['UserInfo'] = $request->userInfoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ScanCodeBind',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/scanCode',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ScanCodeBindResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param ScgSearchRequest $request
      *
      * @return ScgSearchResponse
@@ -4529,6 +4662,62 @@ class AliGenie extends OpenApiClient
         ]);
 
         return SetDeviceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindAligenieUserRequest $request
+     *
+     * @return UnbindAligenieUserResponse
+     */
+    public function unbindAligenieUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UnbindAligenieUserHeaders([]);
+
+        return $this->unbindAligenieUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UnbindAligenieUserRequest $request
+     * @param UnbindAligenieUserHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UnbindAligenieUserResponse
+     */
+    public function unbindAligenieUserWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->loginStateAccessToken)) {
+            $body['LoginStateAccessToken'] = $request->loginStateAccessToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindAligenieUser',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/unbindAligenieUser',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindAligenieUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

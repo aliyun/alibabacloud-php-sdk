@@ -48,16 +48,6 @@ class result extends Model
     /**
      * @var int
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $uuid;
-
-    /**
-     * @var int
-     */
     public $volume;
     protected $_name = [
         'alarmId'          => 'AlarmId',
@@ -67,8 +57,6 @@ class result extends Model
         'status'           => 'Status',
         'triggerDateDesc'  => 'TriggerDateDesc',
         'triggerTimeDesc'  => 'TriggerTimeDesc',
-        'userId'           => 'UserId',
-        'uuid'             => 'Uuid',
         'volume'           => 'Volume',
     ];
 
@@ -99,12 +87,6 @@ class result extends Model
         }
         if (null !== $this->triggerTimeDesc) {
             $res['TriggerTimeDesc'] = $this->triggerTimeDesc;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->uuid) {
-            $res['Uuid'] = $this->uuid;
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
@@ -141,12 +123,6 @@ class result extends Model
         }
         if (isset($map['TriggerTimeDesc'])) {
             $model->triggerTimeDesc = $map['TriggerTimeDesc'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Uuid'])) {
-            $model->uuid = $map['Uuid'];
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
