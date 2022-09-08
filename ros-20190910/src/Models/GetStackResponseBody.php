@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\log;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\operationInfo;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\parameters;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\resourceProgress;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\tags;
@@ -51,6 +52,11 @@ class GetStackResponseBody extends Model
      * @var string[]
      */
     public $notificationURLs;
+
+    /**
+     * @var operationInfo
+     */
+    public $operationInfo;
 
     /**
      * @var mixed[][]
@@ -185,6 +191,7 @@ class GetStackResponseBody extends Model
         'interface'           => 'Interface',
         'log'                 => 'Log',
         'notificationURLs'    => 'NotificationURLs',
+        'operationInfo'       => 'OperationInfo',
         'outputs'             => 'Outputs',
         'parameters'          => 'Parameters',
         'parentStackId'       => 'ParentStackId',
@@ -242,6 +249,9 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->notificationURLs) {
             $res['NotificationURLs'] = $this->notificationURLs;
+        }
+        if (null !== $this->operationInfo) {
+            $res['OperationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toMap() : null;
         }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
@@ -367,6 +377,9 @@ class GetStackResponseBody extends Model
             if (!empty($map['NotificationURLs'])) {
                 $model->notificationURLs = $map['NotificationURLs'];
             }
+        }
+        if (isset($map['OperationInfo'])) {
+            $model->operationInfo = operationInfo::fromMap($map['OperationInfo']);
         }
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {

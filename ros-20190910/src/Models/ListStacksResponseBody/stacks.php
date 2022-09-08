@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksResponseBody\stacks\operationInfo;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStacksResponseBody\stacks\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -23,6 +24,11 @@ class stacks extends Model
      * @var string
      */
     public $driftDetectionTime;
+
+    /**
+     * @var operationInfo
+     */
+    public $operationInfo;
 
     /**
      * @var string
@@ -97,6 +103,7 @@ class stacks extends Model
         'createTime'         => 'CreateTime',
         'disableRollback'    => 'DisableRollback',
         'driftDetectionTime' => 'DriftDetectionTime',
+        'operationInfo'      => 'OperationInfo',
         'parentStackId'      => 'ParentStackId',
         'regionId'           => 'RegionId',
         'resourceGroupId'    => 'ResourceGroupId',
@@ -128,6 +135,9 @@ class stacks extends Model
         }
         if (null !== $this->driftDetectionTime) {
             $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        }
+        if (null !== $this->operationInfo) {
+            $res['OperationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toMap() : null;
         }
         if (null !== $this->parentStackId) {
             $res['ParentStackId'] = $this->parentStackId;
@@ -197,6 +207,9 @@ class stacks extends Model
         }
         if (isset($map['DriftDetectionTime'])) {
             $model->driftDetectionTime = $map['DriftDetectionTime'];
+        }
+        if (isset($map['OperationInfo'])) {
+            $model->operationInfo = operationInfo::fromMap($map['OperationInfo']);
         }
         if (isset($map['ParentStackId'])) {
             $model->parentStackId = $map['ParentStackId'];
