@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AuthorizeMenuRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AuthorizeMenuResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CancelAuthorizationMenuRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CancelAuthorizationMenuResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CancelCollectionRequest;
@@ -696,6 +698,61 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeMenuWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchAddFeishuUsersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchAddFeishuUsersResponse
+     */
+    public function batchAddFeishuUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->feishuUsers)) {
+            $query['FeishuUsers'] = $request->feishuUsers;
+        }
+        if (!Utils::isUnset($request->isAdmin)) {
+            $query['IsAdmin'] = $request->isAdmin;
+        }
+        if (!Utils::isUnset($request->isAuthAdmin)) {
+            $query['IsAuthAdmin'] = $request->isAuthAdmin;
+        }
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $query['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddFeishuUsers',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchAddFeishuUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchAddFeishuUsersRequest $request
+     *
+     * @return BatchAddFeishuUsersResponse
+     */
+    public function batchAddFeishuUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchAddFeishuUsersWithOptions($request, $runtime);
     }
 
     /**
