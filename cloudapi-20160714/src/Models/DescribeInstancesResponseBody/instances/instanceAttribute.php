@@ -97,6 +97,11 @@ class instanceAttribute extends Model
     /**
      * @var string
      */
+    public $intranetSegments;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -171,6 +176,7 @@ class instanceAttribute extends Model
         'instanceSpecAttributes' => 'InstanceSpecAttributes',
         'instanceType'           => 'InstanceType',
         'internetEgressAddress'  => 'InternetEgressAddress',
+        'intranetSegments'       => 'IntranetSegments',
         'regionId'               => 'RegionId',
         'status'                 => 'Status',
         'supportIpv6'            => 'SupportIpv6',
@@ -242,6 +248,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->internetEgressAddress) {
             $res['InternetEgressAddress'] = $this->internetEgressAddress;
+        }
+        if (null !== $this->intranetSegments) {
+            $res['IntranetSegments'] = $this->intranetSegments;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -341,6 +350,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['InternetEgressAddress'])) {
             $model->internetEgressAddress = $map['InternetEgressAddress'];
+        }
+        if (isset($map['IntranetSegments'])) {
+            $model->intranetSegments = $map['IntranetSegments'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

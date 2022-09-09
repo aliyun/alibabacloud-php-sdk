@@ -27,11 +27,17 @@ class SetDomainWebSocketStatusRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $WSSEnable;
     protected $_name = [
         'actionValue'   => 'ActionValue',
         'domainName'    => 'DomainName',
         'groupId'       => 'GroupId',
         'securityToken' => 'SecurityToken',
+        'WSSEnable'     => 'WSSEnable',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class SetDomainWebSocketStatusRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->WSSEnable) {
+            $res['WSSEnable'] = $this->WSSEnable;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class SetDomainWebSocketStatusRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['WSSEnable'])) {
+            $model->WSSEnable = $map['WSSEnable'];
         }
 
         return $model;
