@@ -12,11 +12,6 @@ class domainDetail extends Model
     /**
      * @var string
      */
-    public $certName;
-
-    /**
-     * @var string
-     */
     public $cname;
 
     /**
@@ -69,7 +64,6 @@ class domainDetail extends Model
      */
     public $sources;
     protected $_name = [
-        'certName'        => 'CertName',
         'cname'           => 'Cname',
         'description'     => 'Description',
         'domainName'      => 'DomainName',
@@ -90,9 +84,6 @@ class domainDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certName) {
-            $res['CertName'] = $this->certName;
-        }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
@@ -138,9 +129,6 @@ class domainDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertName'])) {
-            $model->certName = $map['CertName'];
-        }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }

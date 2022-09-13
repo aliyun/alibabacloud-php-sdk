@@ -95,8 +95,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
@@ -203,8 +201,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsByDomainRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsByDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldRequest;
@@ -2780,49 +2776,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnDdosServiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnDdosSpecInfoRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDcdnDdosSpecInfoResponse
-     */
-    public function describeDcdnDdosSpecInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnDdosSpecInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnDdosSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnDdosSpecInfoRequest $request
-     *
-     * @return DescribeDcdnDdosSpecInfoResponse
-     */
-    public function describeDcdnDdosSpecInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnDdosSpecInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -5724,52 +5677,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnL2VipsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnL2VipsByDomainRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDcdnL2VipsByDomainResponse
-     */
-    public function describeDcdnL2VipsByDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnL2VipsByDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnL2VipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnL2VipsByDomainRequest $request
-     *
-     * @return DescribeDcdnL2VipsByDomainResponse
-     */
-    public function describeDcdnL2VipsByDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnL2VipsByDomainWithOptions($request, $runtime);
     }
 
     /**
