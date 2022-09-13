@@ -94,9 +94,7 @@ class RocketMQ extends OpenApiClient
     public function createConsumerGroupWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId      = OpenApiUtilClient::getEncodeParam($instanceId);
-        $consumerGroupId = OpenApiUtilClient::getEncodeParam($consumerGroupId);
-        $body            = [];
+        $body = [];
         if (!Utils::isUnset($request->consumeRetryPolicy)) {
             $body['consumeRetryPolicy'] = $request->consumeRetryPolicy;
         }
@@ -106,9 +104,6 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -117,7 +112,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'CreateConsumerGroup',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/consumerGroups/' . $consumerGroupId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/consumerGroups/' . OpenApiUtilClient::getEncodeParam($consumerGroupId) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -155,17 +150,12 @@ class RocketMQ extends OpenApiClient
     public function createTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $topicName  = OpenApiUtilClient::getEncodeParam($topicName);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->messageType)) {
             $body['messageType'] = $request->messageType;
         }
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -175,7 +165,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'CreateTopic',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/topics/' . $topicName . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/topics/' . OpenApiUtilClient::getEncodeParam($topicName) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -210,16 +200,14 @@ class RocketMQ extends OpenApiClient
      */
     public function deleteConsumerGroupWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
     {
-        $instanceId      = OpenApiUtilClient::getEncodeParam($instanceId);
-        $consumerGroupId = OpenApiUtilClient::getEncodeParam($consumerGroupId);
-        $req             = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteConsumerGroup',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/consumerGroups/' . $consumerGroupId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/consumerGroups/' . OpenApiUtilClient::getEncodeParam($consumerGroupId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -252,15 +240,14 @@ class RocketMQ extends OpenApiClient
      */
     public function deleteInstanceWithOptions($instanceId, $headers, $runtime)
     {
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -295,16 +282,14 @@ class RocketMQ extends OpenApiClient
      */
     public function deleteTopicWithOptions($instanceId, $topicName, $headers, $runtime)
     {
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $topicName  = OpenApiUtilClient::getEncodeParam($topicName);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteTopic',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/topics/' . $topicName . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/topics/' . OpenApiUtilClient::getEncodeParam($topicName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -339,16 +324,14 @@ class RocketMQ extends OpenApiClient
      */
     public function getConsumerGroupWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
     {
-        $instanceId      = OpenApiUtilClient::getEncodeParam($instanceId);
-        $consumerGroupId = OpenApiUtilClient::getEncodeParam($consumerGroupId);
-        $req             = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetConsumerGroup',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/consumerGroups/' . $consumerGroupId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/consumerGroups/' . OpenApiUtilClient::getEncodeParam($consumerGroupId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -381,15 +364,14 @@ class RocketMQ extends OpenApiClient
      */
     public function getInstanceWithOptions($instanceId, $headers, $runtime)
     {
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -424,16 +406,14 @@ class RocketMQ extends OpenApiClient
      */
     public function getTopicWithOptions($instanceId, $topicName, $headers, $runtime)
     {
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $topicName  = OpenApiUtilClient::getEncodeParam($topicName);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetTopic',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/topics/' . $topicName . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/topics/' . OpenApiUtilClient::getEncodeParam($topicName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -469,8 +449,7 @@ class RocketMQ extends OpenApiClient
     public function listConsumerGroupsWithOptions($instanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['filter'] = $request->filter;
         }
@@ -480,9 +459,6 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -491,7 +467,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'ListConsumerGroups',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/consumerGroups',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/consumerGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -534,9 +510,6 @@ class RocketMQ extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -582,8 +555,7 @@ class RocketMQ extends OpenApiClient
     public function listTopicsWithOptions($instanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['filter'] = $request->filter;
         }
@@ -593,9 +565,6 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -604,7 +573,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'ListTopics',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/topics',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/topics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -642,9 +611,7 @@ class RocketMQ extends OpenApiClient
     public function updateConsumerGroupWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId      = OpenApiUtilClient::getEncodeParam($instanceId);
-        $consumerGroupId = OpenApiUtilClient::getEncodeParam($consumerGroupId);
-        $body            = [];
+        $body = [];
         if (!Utils::isUnset($request->consumeRetryPolicy)) {
             $body['consumeRetryPolicy'] = $request->consumeRetryPolicy;
         }
@@ -654,9 +621,6 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -665,7 +629,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'UpdateConsumerGroup',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/consumerGroups/' . $consumerGroupId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/consumerGroups/' . OpenApiUtilClient::getEncodeParam($consumerGroupId) . '',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -701,8 +665,7 @@ class RocketMQ extends OpenApiClient
     public function updateInstanceWithOptions($instanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->extConfig)) {
             $body['extConfig'] = $request->extConfig;
         }
@@ -715,9 +678,6 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -726,7 +686,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'UpdateInstance',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -764,14 +724,9 @@ class RocketMQ extends OpenApiClient
     public function updateTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $topicName  = OpenApiUtilClient::getEncodeParam($topicName);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -781,7 +736,7 @@ class RocketMQ extends OpenApiClient
             'action'      => 'UpdateTopic',
             'version'     => '2022-08-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/instances/' . $instanceId . '/topics/' . $topicName . '',
+            'pathname'    => '/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/topics/' . OpenApiUtilClient::getEncodeParam($topicName) . '',
             'method'      => 'PATCH',
             'authType'    => 'AK',
             'style'       => 'ROA',

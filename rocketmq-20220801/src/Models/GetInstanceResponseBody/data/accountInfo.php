@@ -11,14 +11,8 @@ class accountInfo extends Model
     /**
      * @var string
      */
-    public $password;
-
-    /**
-     * @var string
-     */
     public $username;
     protected $_name = [
-        'password' => 'password',
         'username' => 'username',
     ];
 
@@ -29,9 +23,6 @@ class accountInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->password) {
-            $res['password'] = $this->password;
-        }
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -47,9 +38,6 @@ class accountInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['password'])) {
-            $model->password = $map['password'];
-        }
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

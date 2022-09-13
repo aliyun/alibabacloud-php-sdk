@@ -43,6 +43,11 @@ class data extends Model
     public $extConfig;
 
     /**
+     * @var int
+     */
+    public $groupCount;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -85,11 +90,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $seriesCode;
 
     /**
@@ -113,6 +113,11 @@ class data extends Model
     public $subSeriesCode;
 
     /**
+     * @var int
+     */
+    public $topicCount;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -122,28 +127,29 @@ class data extends Model
      */
     public $userId;
     protected $_name = [
-        'accountInfo'     => 'accountInfo',
-        'bid'             => 'bid',
-        'commodityCode'   => 'commodityCode',
-        'createTime'      => 'createTime',
-        'expireTime'      => 'expireTime',
-        'extConfig'       => 'extConfig',
-        'instanceId'      => 'instanceId',
-        'instanceName'    => 'instanceName',
-        'instanceQuotas'  => 'instanceQuotas',
-        'networkInfo'     => 'networkInfo',
-        'paymentType'     => 'paymentType',
-        'regionId'        => 'regionId',
-        'releaseTime'     => 'releaseTime',
-        'remark'          => 'remark',
-        'resourceGroupId' => 'resourceGroupId',
-        'seriesCode'      => 'seriesCode',
-        'serviceCode'     => 'serviceCode',
-        'startTime'       => 'startTime',
-        'status'          => 'status',
-        'subSeriesCode'   => 'subSeriesCode',
-        'updateTime'      => 'updateTime',
-        'userId'          => 'userId',
+        'accountInfo'    => 'accountInfo',
+        'bid'            => 'bid',
+        'commodityCode'  => 'commodityCode',
+        'createTime'     => 'createTime',
+        'expireTime'     => 'expireTime',
+        'extConfig'      => 'extConfig',
+        'groupCount'     => 'groupCount',
+        'instanceId'     => 'instanceId',
+        'instanceName'   => 'instanceName',
+        'instanceQuotas' => 'instanceQuotas',
+        'networkInfo'    => 'networkInfo',
+        'paymentType'    => 'paymentType',
+        'regionId'       => 'regionId',
+        'releaseTime'    => 'releaseTime',
+        'remark'         => 'remark',
+        'seriesCode'     => 'seriesCode',
+        'serviceCode'    => 'serviceCode',
+        'startTime'      => 'startTime',
+        'status'         => 'status',
+        'subSeriesCode'  => 'subSeriesCode',
+        'topicCount'     => 'topicCount',
+        'updateTime'     => 'updateTime',
+        'userId'         => 'userId',
     ];
 
     public function validate()
@@ -170,6 +176,9 @@ class data extends Model
         }
         if (null !== $this->extConfig) {
             $res['extConfig'] = null !== $this->extConfig ? $this->extConfig->toMap() : null;
+        }
+        if (null !== $this->groupCount) {
+            $res['groupCount'] = $this->groupCount;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -201,9 +210,6 @@ class data extends Model
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->seriesCode) {
             $res['seriesCode'] = $this->seriesCode;
         }
@@ -218,6 +224,9 @@ class data extends Model
         }
         if (null !== $this->subSeriesCode) {
             $res['subSeriesCode'] = $this->subSeriesCode;
+        }
+        if (null !== $this->topicCount) {
+            $res['topicCount'] = $this->topicCount;
         }
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
@@ -255,6 +264,9 @@ class data extends Model
         if (isset($map['extConfig'])) {
             $model->extConfig = extConfig::fromMap($map['extConfig']);
         }
+        if (isset($map['groupCount'])) {
+            $model->groupCount = $map['groupCount'];
+        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
@@ -285,9 +297,6 @@ class data extends Model
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
-        }
         if (isset($map['seriesCode'])) {
             $model->seriesCode = $map['seriesCode'];
         }
@@ -302,6 +311,9 @@ class data extends Model
         }
         if (isset($map['subSeriesCode'])) {
             $model->subSeriesCode = $map['subSeriesCode'];
+        }
+        if (isset($map['topicCount'])) {
+            $model->topicCount = $map['topicCount'];
         }
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];

@@ -36,11 +36,6 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
@@ -53,7 +48,6 @@ class list_ extends Model
         'instanceId'      => 'instanceId',
         'regionId'        => 'regionId',
         'remark'          => 'remark',
-        'resourceGroupId' => 'resourceGroupId',
         'status'          => 'status',
         'updateTime'      => 'updateTime',
     ];
@@ -79,9 +73,6 @@ class list_ extends Model
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -115,9 +106,6 @@ class list_ extends Model
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
-        }
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
