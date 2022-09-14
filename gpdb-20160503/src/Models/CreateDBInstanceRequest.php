@@ -14,6 +14,11 @@ class CreateDBInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $createSampleData;
+
+    /**
      * @var string
      */
     public $DBInstanceCategory;
@@ -139,6 +144,7 @@ class CreateDBInstanceRequest extends Model
     public $zoneId;
     protected $_name = [
         'clientToken'           => 'ClientToken',
+        'createSampleData'      => 'CreateSampleData',
         'DBInstanceCategory'    => 'DBInstanceCategory',
         'DBInstanceClass'       => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
@@ -175,6 +181,9 @@ class CreateDBInstanceRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->createSampleData) {
+            $res['CreateSampleData'] = $this->createSampleData;
         }
         if (null !== $this->DBInstanceCategory) {
             $res['DBInstanceCategory'] = $this->DBInstanceCategory;
@@ -265,6 +274,9 @@ class CreateDBInstanceRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CreateSampleData'])) {
+            $model->createSampleData = $map['CreateSampleData'];
         }
         if (isset($map['DBInstanceCategory'])) {
             $model->DBInstanceCategory = $map['DBInstanceCategory'];

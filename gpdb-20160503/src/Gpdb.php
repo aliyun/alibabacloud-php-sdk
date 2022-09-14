@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateECSDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateECSDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseRequest;
@@ -99,6 +101,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeResourceUsageRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeResourceUsageResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowSQLLogsRequest;
@@ -172,6 +176,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanRequest;
@@ -460,6 +466,9 @@ class Gpdb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->createSampleData)) {
+            $query['CreateSampleData'] = $request->createSampleData;
         }
         if (!Utils::isUnset($request->DBInstanceCategory)) {
             $query['DBInstanceCategory'] = $request->DBInstanceCategory;
@@ -752,6 +761,52 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createECSDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSampleDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSampleDataResponse
+     */
+    public function createSampleDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSampleData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSampleDataRequest $request
+     *
+     * @return CreateSampleDataResponse
+     */
+    public function createSampleData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSampleDataWithOptions($request, $runtime);
     }
 
     /**
@@ -3248,6 +3303,52 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeSampleDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSampleDataResponse
+     */
+    public function describeSampleDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSampleData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSampleDataRequest $request
+     *
+     * @return DescribeSampleDataResponse
+     */
+    public function describeSampleData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSampleDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSlowLogRecordsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4806,6 +4907,52 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnloadSampleDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UnloadSampleDataResponse
+     */
+    public function unloadSampleDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnloadSampleData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnloadSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnloadSampleDataRequest $request
+     *
+     * @return UnloadSampleDataResponse
+     */
+    public function unloadSampleData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unloadSampleDataWithOptions($request, $runtime);
     }
 
     /**
