@@ -59,7 +59,7 @@ class parameter extends Model
     public $shareType;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $tags;
 

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateSecretParameterRequest extends Model
+class CreateSecretParameterShrinkRequest extends Model
 {
     /**
      * @var string
@@ -44,9 +44,9 @@ class CreateSecretParameterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
 
     /**
      * @var string
@@ -65,7 +65,7 @@ class CreateSecretParameterRequest extends Model
         'name'            => 'Name',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
+        'tagsShrink'      => 'Tags',
         'type'            => 'Type',
         'value'           => 'Value',
     ];
@@ -98,8 +98,8 @@ class CreateSecretParameterRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -114,7 +114,7 @@ class CreateSecretParameterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateSecretParameterRequest
+     * @return CreateSecretParameterShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -141,7 +141,7 @@ class CreateSecretParameterRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            $model->tagsShrink = $map['Tags'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

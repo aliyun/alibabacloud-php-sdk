@@ -24,6 +24,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateStateConfigurationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateStateConfigurationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateStateConfigurationShrinkRequest;
@@ -622,14 +623,19 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreateSecretParameterRequest $request
+     * @param CreateSecretParameterRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return CreateSecretParameterResponse
      */
-    public function createSecretParameterWithOptions($request, $runtime)
+    public function createSecretParameterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateSecretParameterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -652,8 +658,8 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -845,6 +851,9 @@ class Oos extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -2128,8 +2137,17 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

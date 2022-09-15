@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $name;
@@ -18,6 +23,7 @@ class DeleteApplicationRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'force'    => 'Force',
         'name'     => 'Name',
         'regionId' => 'RegionId',
     ];
@@ -29,6 +35,9 @@ class DeleteApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,6 +56,9 @@ class DeleteApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

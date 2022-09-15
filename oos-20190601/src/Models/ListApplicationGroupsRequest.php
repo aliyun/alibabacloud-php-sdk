@@ -31,13 +31,31 @@ class ListApplicationGroupsRequest extends Model
     /**
      * @var string
      */
+    public $product;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'applicationName' => 'ApplicationName',
         'deployRegionId'  => 'DeployRegionId',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
+        'product'         => 'Product',
         'regionId'        => 'RegionId',
+        'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -59,8 +77,17 @@ class ListApplicationGroupsRequest extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->product) {
+            $res['Product'] = $this->product;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -86,8 +113,17 @@ class ListApplicationGroupsRequest extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['Product'])) {
+            $model->product = $map['Product'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;
