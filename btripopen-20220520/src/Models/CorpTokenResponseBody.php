@@ -12,11 +12,6 @@ class CorpTokenResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -32,12 +27,17 @@ class CorpTokenResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $traceId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'code'      => 'code',
         'data'      => 'data',
         'message'   => 'message',
+        'requestId' => 'requestId',
         'traceId'   => 'traceId',
     ];
 
@@ -48,9 +48,6 @@ class CorpTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
@@ -59,6 +56,9 @@ class CorpTokenResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->traceId) {
             $res['traceId'] = $this->traceId;
@@ -75,9 +75,6 @@ class CorpTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
@@ -86,6 +83,9 @@ class CorpTokenResponseBody extends Model
         }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['traceId'])) {
             $model->traceId = $map['traceId'];
