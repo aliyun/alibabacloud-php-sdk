@@ -385,6 +385,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
+        if (!Utils::isUnset($request->matchType)) {
+            $query['MatchType'] = $request->matchType;
+        }
         if (!Utils::isUnset($request->mseSessionId)) {
             $query['MseSessionId'] = $request->mseSessionId;
         }

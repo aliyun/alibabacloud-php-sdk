@@ -31,6 +31,11 @@ class AddAuthResourceRequest extends Model
     /**
      * @var string
      */
+    public $matchType;
+
+    /**
+     * @var string
+     */
     public $mseSessionId;
 
     /**
@@ -42,6 +47,7 @@ class AddAuthResourceRequest extends Model
         'authId'          => 'AuthId',
         'domainId'        => 'DomainId',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'matchType'       => 'MatchType',
         'mseSessionId'    => 'MseSessionId',
         'path'            => 'Path',
     ];
@@ -64,6 +70,9 @@ class AddAuthResourceRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->matchType) {
+            $res['MatchType'] = $this->matchType;
         }
         if (null !== $this->mseSessionId) {
             $res['MseSessionId'] = $this->mseSessionId;
@@ -94,6 +103,9 @@ class AddAuthResourceRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
         }
         if (isset($map['MseSessionId'])) {
             $model->mseSessionId = $map['MseSessionId'];
