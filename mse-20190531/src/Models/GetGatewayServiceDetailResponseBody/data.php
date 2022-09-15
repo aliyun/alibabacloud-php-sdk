@@ -43,6 +43,16 @@ class data extends Model
     public $groupName;
 
     /**
+     * @var string
+     */
+    public $healthCheck;
+
+    /**
+     * @var string
+     */
+    public $healthStatus;
+
+    /**
      * @var int
      */
     public $id;
@@ -78,6 +88,11 @@ class data extends Model
     public $serviceNameInRegistry;
 
     /**
+     * @var string
+     */
+    public $serviceProtocol;
+
+    /**
      * @var int
      */
     public $sourceId;
@@ -103,6 +118,8 @@ class data extends Model
         'gmtCreate'             => 'GmtCreate',
         'gmtModified'           => 'GmtModified',
         'groupName'             => 'GroupName',
+        'healthCheck'           => 'HealthCheck',
+        'healthStatus'          => 'HealthStatus',
         'id'                    => 'Id',
         'ips'                   => 'Ips',
         'labelDetails'          => 'LabelDetails',
@@ -110,6 +127,7 @@ class data extends Model
         'name'                  => 'Name',
         'namespace'             => 'Namespace',
         'serviceNameInRegistry' => 'ServiceNameInRegistry',
+        'serviceProtocol'       => 'ServiceProtocol',
         'sourceId'              => 'SourceId',
         'sourceType'            => 'SourceType',
         'versionDetails'        => 'VersionDetails',
@@ -141,6 +159,12 @@ class data extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->healthCheck) {
+            $res['HealthCheck'] = $this->healthCheck;
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -167,6 +191,9 @@ class data extends Model
         }
         if (null !== $this->serviceNameInRegistry) {
             $res['ServiceNameInRegistry'] = $this->serviceNameInRegistry;
+        }
+        if (null !== $this->serviceProtocol) {
+            $res['ServiceProtocol'] = $this->serviceProtocol;
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
@@ -222,6 +249,12 @@ class data extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['HealthCheck'])) {
+            $model->healthCheck = $map['HealthCheck'];
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -250,6 +283,9 @@ class data extends Model
         }
         if (isset($map['ServiceNameInRegistry'])) {
             $model->serviceNameInRegistry = $map['ServiceNameInRegistry'];
+        }
+        if (isset($map['ServiceProtocol'])) {
+            $model->serviceProtocol = $map['ServiceProtocol'];
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];

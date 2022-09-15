@@ -14,102 +14,96 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 应用集合。以 "," 分割应用 id
-     *
      * @var string
      */
     public $appIds;
 
     /**
-     * @description 是否开启。
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description 入口应用。格式 "来源系统:id"，比如 EDAS:UUID 或者 CSB:UUID
-     *
      * @var string
      */
     public $entryApp;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @description 主键ID。由SP生成(数据库自增主键)。
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description mse licenseKey
-     *
      * @var string
      */
     public $licenseKey;
 
     /**
-     * @description 名称
-     *
+     * @var string
+     */
+    public $messageQueueFilterSide;
+
+    /**
+     * @var bool
+     */
+    public $messageQueueGrayEnable;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var string
      */
     public $name;
 
     /**
-     * @description region
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description 来源。可选值为: EDAS。
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 0 未生效
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 阿里云账号。格式为数字，比如1362469756373809。
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'appIds'         => 'AppIds',
-        'enable'         => 'Enable',
-        'entryApp'       => 'EntryApp',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'id'             => 'Id',
-        'licenseKey'     => 'LicenseKey',
-        'name'           => 'Name',
-        'region'         => 'Region',
-        'source'         => 'Source',
-        'status'         => 'Status',
-        'userId'         => 'UserId',
+        'acceptLanguage'         => 'AcceptLanguage',
+        'appIds'                 => 'AppIds',
+        'enable'                 => 'Enable',
+        'entryApp'               => 'EntryApp',
+        'gmtCreate'              => 'GmtCreate',
+        'gmtModified'            => 'GmtModified',
+        'id'                     => 'Id',
+        'licenseKey'             => 'LicenseKey',
+        'messageQueueFilterSide' => 'MessageQueueFilterSide',
+        'messageQueueGrayEnable' => 'MessageQueueGrayEnable',
+        'mseSessionId'           => 'MseSessionId',
+        'name'                   => 'Name',
+        'region'                 => 'Region',
+        'source'                 => 'Source',
+        'status'                 => 'Status',
+        'userId'                 => 'UserId',
     ];
 
     public function validate()
@@ -142,6 +136,15 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
+        }
+        if (null !== $this->messageQueueFilterSide) {
+            $res['MessageQueueFilterSide'] = $this->messageQueueFilterSide;
+        }
+        if (null !== $this->messageQueueGrayEnable) {
+            $res['MessageQueueGrayEnable'] = $this->messageQueueGrayEnable;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -193,6 +196,15 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
+        }
+        if (isset($map['MessageQueueFilterSide'])) {
+            $model->messageQueueFilterSide = $map['MessageQueueFilterSide'];
+        }
+        if (isset($map['MessageQueueGrayEnable'])) {
+            $model->messageQueueGrayEnable = $map['MessageQueueGrayEnable'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -14,13 +14,17 @@ class GetImageRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 集群版本
-     *
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'mseSessionId'   => 'MseSessionId',
         'versionCode'    => 'VersionCode',
     ];
 
@@ -33,6 +37,9 @@ class GetImageRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
@@ -51,6 +58,9 @@ class GetImageRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];

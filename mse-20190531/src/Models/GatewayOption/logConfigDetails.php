@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class logConfigDetails extends Model
 {
     /**
-     * @description 是否开启日志投递
-     *
      * @var bool
      */
     public $logEnabled;
 
     /**
-     * @description 投递的目标logstore
-     *
      * @var string
      */
     public $logStoreName;
 
     /**
-     * @description 投递的目标project
-     *
      * @var string
      */
     public $projectName;

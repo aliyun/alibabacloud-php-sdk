@@ -44,8 +44,16 @@ class CreateClusterRequest extends Model
     public $instanceCount;
 
     /**
-     * @description 用于区分基础/专业版本
-     *
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var string
      */
     public $mseVersion;
@@ -83,6 +91,11 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -97,6 +110,8 @@ class CreateClusterRequest extends Model
         'connectionType'          => 'ConnectionType',
         'diskType'                => 'DiskType',
         'instanceCount'           => 'InstanceCount',
+        'instanceName'            => 'InstanceName',
+        'mseSessionId'            => 'MseSessionId',
         'mseVersion'              => 'MseVersion',
         'netType'                 => 'NetType',
         'privateSlbSpecification' => 'PrivateSlbSpecification',
@@ -104,6 +119,7 @@ class CreateClusterRequest extends Model
         'pubSlbSpecification'     => 'PubSlbSpecification',
         'region'                  => 'Region',
         'requestPars'             => 'RequestPars',
+        'resourceGroupId'         => 'ResourceGroupId',
         'vSwitchId'               => 'VSwitchId',
         'vpcId'                   => 'VpcId',
     ];
@@ -136,6 +152,12 @@ class CreateClusterRequest extends Model
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
+        }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
         }
@@ -156,6 +178,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -196,6 +221,12 @@ class CreateClusterRequest extends Model
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
+        }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];
         }
@@ -216,6 +247,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

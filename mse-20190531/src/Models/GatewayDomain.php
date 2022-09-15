@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GatewayDomain extends Model
 {
     /**
-     * @description 使用的证书Id
-     *
      * @var string
      */
     public $certIdentifier;
 
     /**
-     * @description 网关ID
-     *
      * @var int
      */
     public $gatewayId;
 
     /**
-     * @description 网关名称
-     *
      * @var string
      */
     public $gatewayName;
 
     /**
-     * @description 网关唯一标识
-     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @description Domain Id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 是否强制跳转
-     *
      * @var string
      */
     public $mustHttps;
 
     /**
-     * @description Domain Name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description domainn的协议
-     *
      * @var string
      */
     public $protocol;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\directResponseJSON;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\fallbackServices;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\predicates;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\redirectJSON;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\services;
@@ -38,6 +39,16 @@ class UpdateGatewayRouteRequest extends Model
     public $enableWaf;
 
     /**
+     * @var bool
+     */
+    public $fallback;
+
+    /**
+     * @var fallbackServices[]
+     */
+    public $fallbackServices;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -51,6 +62,11 @@ class UpdateGatewayRouteRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
 
     /**
      * @var string
@@ -82,9 +98,12 @@ class UpdateGatewayRouteRequest extends Model
         'directResponseJSON' => 'DirectResponseJSON',
         'domainIdListJSON'   => 'DomainIdListJSON',
         'enableWaf'          => 'EnableWaf',
+        'fallback'           => 'Fallback',
+        'fallbackServices'   => 'FallbackServices',
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'id'                 => 'Id',
+        'mseSessionId'       => 'MseSessionId',
         'name'               => 'Name',
         'predicates'         => 'Predicates',
         'redirectJSON'       => 'RedirectJSON',
@@ -114,6 +133,18 @@ class UpdateGatewayRouteRequest extends Model
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
         }
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
+        }
+        if (null !== $this->fallbackServices) {
+            $res['FallbackServices'] = [];
+            if (null !== $this->fallbackServices && \is_array($this->fallbackServices)) {
+                $n = 0;
+                foreach ($this->fallbackServices as $item) {
+                    $res['FallbackServices'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
@@ -122,6 +153,9 @@ class UpdateGatewayRouteRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -171,6 +205,18 @@ class UpdateGatewayRouteRequest extends Model
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];
         }
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
+        }
+        if (isset($map['FallbackServices'])) {
+            if (!empty($map['FallbackServices'])) {
+                $model->fallbackServices = [];
+                $n                       = 0;
+                foreach ($map['FallbackServices'] as $item) {
+                    $model->fallbackServices[$n++] = null !== $item ? fallbackServices::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
@@ -179,6 +225,9 @@ class UpdateGatewayRouteRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

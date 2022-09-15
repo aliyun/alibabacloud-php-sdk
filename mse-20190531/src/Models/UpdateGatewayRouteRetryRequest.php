@@ -30,6 +30,11 @@ class UpdateGatewayRouteRetryRequest extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var retryJSON
      */
     public $retryJSON;
@@ -38,6 +43,7 @@ class UpdateGatewayRouteRetryRequest extends Model
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
+        'mseSessionId'    => 'MseSessionId',
         'retryJSON'       => 'RetryJSON',
     ];
 
@@ -59,6 +65,9 @@ class UpdateGatewayRouteRetryRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->retryJSON) {
             $res['RetryJSON'] = null !== $this->retryJSON ? $this->retryJSON->toMap() : null;
@@ -86,6 +95,9 @@ class UpdateGatewayRouteRetryRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RetryJSON'])) {
             $model->retryJSON = retryJSON::fromMap($map['RetryJSON']);

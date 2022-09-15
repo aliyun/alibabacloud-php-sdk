@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class GatewayService extends Model
 {
     /**
-     * @description 服务的策略
-     *
      * @var TrafficPolicy
      */
     public $gatewayTrafficPolicy;
 
     /**
-     * @description 网关uniqueId
-     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
-     * @description 服务所属group
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 服务id
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 元信息
-     *
      * @var string
      */
     public $metaInfo;
 
     /**
-     * @description 服务名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 服务所属namesapce
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description 服务来源
-     *
      * @var string
      */
     public $sourceType;

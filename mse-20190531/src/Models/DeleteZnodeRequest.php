@@ -21,6 +21,11 @@ class DeleteZnodeRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $path;
 
     /**
@@ -30,6 +35,7 @@ class DeleteZnodeRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
+        'mseSessionId'   => 'MseSessionId',
         'path'           => 'Path',
         'requestPars'    => 'RequestPars',
     ];
@@ -46,6 +52,9 @@ class DeleteZnodeRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -70,6 +79,9 @@ class DeleteZnodeRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];

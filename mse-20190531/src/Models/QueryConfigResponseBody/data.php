@@ -74,18 +74,24 @@ class data extends Model
     public $maxClientCnxns;
 
     /**
-     * @description 最大超时时间
-     *
      * @var string
      */
     public $maxSessionTimeout;
 
     /**
-     * @description 最小超时时间
-     *
      * @var string
      */
     public $minSessionTimeout;
+
+    /**
+     * @var bool
+     */
+    public $namingAuthEnabled;
+
+    /**
+     * @var bool
+     */
+    public $namingAuthSupported;
 
     /**
      * @var bool
@@ -106,6 +112,11 @@ class data extends Model
      * @var bool
      */
     public $restartFlag;
+
+    /**
+     * @var string
+     */
+    public $snapshotCount;
 
     /**
      * @var string
@@ -137,10 +148,13 @@ class data extends Model
         'maxClientCnxns'               => 'MaxClientCnxns',
         'maxSessionTimeout'            => 'MaxSessionTimeout',
         'minSessionTimeout'            => 'MinSessionTimeout',
+        'namingAuthEnabled'            => 'NamingAuthEnabled',
+        'namingAuthSupported'          => 'NamingAuthSupported',
         'namingCreateServiceSupported' => 'NamingCreateServiceSupported',
         'openSuperAcl'                 => 'OpenSuperAcl',
         'passWord'                     => 'PassWord',
         'restartFlag'                  => 'RestartFlag',
+        'snapshotCount'                => 'SnapshotCount',
         'syncLimit'                    => 'SyncLimit',
         'tickTime'                     => 'TickTime',
         'userName'                     => 'UserName',
@@ -198,6 +212,12 @@ class data extends Model
         if (null !== $this->minSessionTimeout) {
             $res['MinSessionTimeout'] = $this->minSessionTimeout;
         }
+        if (null !== $this->namingAuthEnabled) {
+            $res['NamingAuthEnabled'] = $this->namingAuthEnabled;
+        }
+        if (null !== $this->namingAuthSupported) {
+            $res['NamingAuthSupported'] = $this->namingAuthSupported;
+        }
         if (null !== $this->namingCreateServiceSupported) {
             $res['NamingCreateServiceSupported'] = $this->namingCreateServiceSupported;
         }
@@ -209,6 +229,9 @@ class data extends Model
         }
         if (null !== $this->restartFlag) {
             $res['RestartFlag'] = $this->restartFlag;
+        }
+        if (null !== $this->snapshotCount) {
+            $res['SnapshotCount'] = $this->snapshotCount;
         }
         if (null !== $this->syncLimit) {
             $res['SyncLimit'] = $this->syncLimit;
@@ -276,6 +299,12 @@ class data extends Model
         if (isset($map['MinSessionTimeout'])) {
             $model->minSessionTimeout = $map['MinSessionTimeout'];
         }
+        if (isset($map['NamingAuthEnabled'])) {
+            $model->namingAuthEnabled = $map['NamingAuthEnabled'];
+        }
+        if (isset($map['NamingAuthSupported'])) {
+            $model->namingAuthSupported = $map['NamingAuthSupported'];
+        }
         if (isset($map['NamingCreateServiceSupported'])) {
             $model->namingCreateServiceSupported = $map['NamingCreateServiceSupported'];
         }
@@ -287,6 +316,9 @@ class data extends Model
         }
         if (isset($map['RestartFlag'])) {
             $model->restartFlag = $map['RestartFlag'];
+        }
+        if (isset($map['SnapshotCount'])) {
+            $model->snapshotCount = $map['SnapshotCount'];
         }
         if (isset($map['SyncLimit'])) {
             $model->syncLimit = $map['SyncLimit'];

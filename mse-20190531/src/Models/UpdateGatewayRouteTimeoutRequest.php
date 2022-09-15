@@ -30,6 +30,11 @@ class UpdateGatewayRouteTimeoutRequest extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var timeoutJSON
      */
     public $timeoutJSON;
@@ -38,6 +43,7 @@ class UpdateGatewayRouteTimeoutRequest extends Model
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
+        'mseSessionId'    => 'MseSessionId',
         'timeoutJSON'     => 'TimeoutJSON',
     ];
 
@@ -59,6 +65,9 @@ class UpdateGatewayRouteTimeoutRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->timeoutJSON) {
             $res['TimeoutJSON'] = null !== $this->timeoutJSON ? $this->timeoutJSON->toMap() : null;
@@ -86,6 +95,9 @@ class UpdateGatewayRouteTimeoutRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['TimeoutJSON'])) {
             $model->timeoutJSON = timeoutJSON::fromMap($map['TimeoutJSON']);

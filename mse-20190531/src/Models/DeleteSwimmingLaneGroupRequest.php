@@ -17,9 +17,15 @@ class DeleteSwimmingLaneGroupRequest extends Model
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'groupId'        => 'GroupId',
+        'mseSessionId'   => 'MseSessionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DeleteSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

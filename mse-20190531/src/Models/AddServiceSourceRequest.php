@@ -25,9 +25,19 @@ class AddServiceSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @var string[]
+     */
+    public $groupList;
+
+    /**
      * @var ingressOptionsRequest
      */
     public $ingressOptionsRequest;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
 
     /**
      * @var string
@@ -47,7 +57,9 @@ class AddServiceSourceRequest extends Model
         'acceptLanguage'        => 'AcceptLanguage',
         'address'               => 'Address',
         'gatewayUniqueId'       => 'GatewayUniqueId',
+        'groupList'             => 'GroupList',
         'ingressOptionsRequest' => 'IngressOptionsRequest',
+        'mseSessionId'          => 'MseSessionId',
         'name'                  => 'Name',
         'source'                => 'Source',
         'type'                  => 'Type',
@@ -69,8 +81,14 @@ class AddServiceSourceRequest extends Model
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+        if (null !== $this->groupList) {
+            $res['GroupList'] = $this->groupList;
+        }
         if (null !== $this->ingressOptionsRequest) {
             $res['IngressOptionsRequest'] = null !== $this->ingressOptionsRequest ? $this->ingressOptionsRequest->toMap() : null;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -102,8 +120,16 @@ class AddServiceSourceRequest extends Model
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+        if (isset($map['GroupList'])) {
+            if (!empty($map['GroupList'])) {
+                $model->groupList = $map['GroupList'];
+            }
+        }
         if (isset($map['IngressOptionsRequest'])) {
             $model->ingressOptionsRequest = ingressOptionsRequest::fromMap($map['IngressOptionsRequest']);
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

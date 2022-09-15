@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class consistentHashLBConfig extends Model
 {
     /**
-     * @description HEADER, COOKIE, SOURCE_IP, QUERY_PARAMETER
-     *
      * @var string
      */
     public $consistentHashLBType;
 
     /**
-     * @description 使用cookie时配置
-     *
      * @var httpCookie
      */
     public $httpCookie;
 
     /**
-     * @description 使用根据header和参数路由时生效
-     *
      * @var string
      */
     public $parameterName;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListClustersRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListClustersRequest extends Model
@@ -17,6 +18,11 @@ class ListClustersRequest extends Model
      * @var string
      */
     public $clusterAliasName;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
 
     /**
      * @var int
@@ -37,13 +43,26 @@ class ListClustersRequest extends Model
      * @var string
      */
     public $requestPars;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'acceptLanguage'   => 'AcceptLanguage',
         'clusterAliasName' => 'ClusterAliasName',
+        'mseSessionId'     => 'MseSessionId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
         'regionId'         => 'RegionId',
         'requestPars'      => 'RequestPars',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -59,6 +78,9 @@ class ListClustersRequest extends Model
         if (null !== $this->clusterAliasName) {
             $res['ClusterAliasName'] = $this->clusterAliasName;
         }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -70,6 +92,18 @@ class ListClustersRequest extends Model
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -89,6 +123,9 @@ class ListClustersRequest extends Model
         if (isset($map['ClusterAliasName'])) {
             $model->clusterAliasName = $map['ClusterAliasName'];
         }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -100,6 +137,18 @@ class ListClustersRequest extends Model
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

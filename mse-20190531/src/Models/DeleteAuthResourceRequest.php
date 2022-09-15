@@ -22,10 +22,16 @@ class DeleteAuthResourceRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
+        'mseSessionId'    => 'MseSessionId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DeleteAuthResourceRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DeleteAuthResourceRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

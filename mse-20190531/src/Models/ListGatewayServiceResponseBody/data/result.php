@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceResponseBody\data;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceResponseBody\data\result\gatewayTrafficPolicy;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceResponseBody\data\result\healthCheckInfo;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceResponseBody\data\result\versions;
 use AlibabaCloud\Tea\Model;
 
@@ -13,6 +15,11 @@ class result extends Model
      * @var int
      */
     public $gatewayId;
+
+    /**
+     * @var gatewayTrafficPolicy
+     */
+    public $gatewayTrafficPolicy;
 
     /**
      * @var string
@@ -38,6 +45,21 @@ class result extends Model
      * @var string
      */
     public $healehStatus;
+
+    /**
+     * @var bool
+     */
+    public $healthCheck;
+
+    /**
+     * @var healthCheckInfo
+     */
+    public $healthCheckInfo;
+
+    /**
+     * @var string
+     */
+    public $healthStatus;
 
     /**
      * @var int
@@ -90,16 +112,25 @@ class result extends Model
     public $sourceType;
 
     /**
+     * @var string[]
+     */
+    public $unhealthyEndpoints;
+
+    /**
      * @var versions[]
      */
     public $versions;
     protected $_name = [
         'gatewayId'             => 'GatewayId',
+        'gatewayTrafficPolicy'  => 'GatewayTrafficPolicy',
         'gatewayUniqueId'       => 'GatewayUniqueId',
         'gmtCreate'             => 'GmtCreate',
         'gmtModified'           => 'GmtModified',
         'groupName'             => 'GroupName',
         'healehStatus'          => 'HealehStatus',
+        'healthCheck'           => 'HealthCheck',
+        'healthCheckInfo'       => 'HealthCheckInfo',
+        'healthStatus'          => 'HealthStatus',
         'id'                    => 'Id',
         'ips'                   => 'Ips',
         'metaInfo'              => 'MetaInfo',
@@ -110,6 +141,7 @@ class result extends Model
         'serviceProtocol'       => 'ServiceProtocol',
         'sourceId'              => 'SourceId',
         'sourceType'            => 'SourceType',
+        'unhealthyEndpoints'    => 'UnhealthyEndpoints',
         'versions'              => 'Versions',
     ];
 
@@ -122,6 +154,9 @@ class result extends Model
         $res = [];
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
+        }
+        if (null !== $this->gatewayTrafficPolicy) {
+            $res['GatewayTrafficPolicy'] = null !== $this->gatewayTrafficPolicy ? $this->gatewayTrafficPolicy->toMap() : null;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
@@ -137,6 +172,15 @@ class result extends Model
         }
         if (null !== $this->healehStatus) {
             $res['HealehStatus'] = $this->healehStatus;
+        }
+        if (null !== $this->healthCheck) {
+            $res['HealthCheck'] = $this->healthCheck;
+        }
+        if (null !== $this->healthCheckInfo) {
+            $res['HealthCheckInfo'] = null !== $this->healthCheckInfo ? $this->healthCheckInfo->toMap() : null;
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -168,6 +212,9 @@ class result extends Model
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+        if (null !== $this->unhealthyEndpoints) {
+            $res['UnhealthyEndpoints'] = $this->unhealthyEndpoints;
+        }
         if (null !== $this->versions) {
             $res['Versions'] = [];
             if (null !== $this->versions && \is_array($this->versions)) {
@@ -192,6 +239,9 @@ class result extends Model
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
+        if (isset($map['GatewayTrafficPolicy'])) {
+            $model->gatewayTrafficPolicy = gatewayTrafficPolicy::fromMap($map['GatewayTrafficPolicy']);
+        }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
@@ -206,6 +256,15 @@ class result extends Model
         }
         if (isset($map['HealehStatus'])) {
             $model->healehStatus = $map['HealehStatus'];
+        }
+        if (isset($map['HealthCheck'])) {
+            $model->healthCheck = $map['HealthCheck'];
+        }
+        if (isset($map['HealthCheckInfo'])) {
+            $model->healthCheckInfo = healthCheckInfo::fromMap($map['HealthCheckInfo']);
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -238,6 +297,11 @@ class result extends Model
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['UnhealthyEndpoints'])) {
+            if (!empty($map['UnhealthyEndpoints'])) {
+                $model->unhealthyEndpoints = $map['UnhealthyEndpoints'];
+            }
         }
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {

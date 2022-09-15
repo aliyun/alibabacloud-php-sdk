@@ -31,6 +31,11 @@ class QueryMonitorRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $requestPars;
 
     /**
@@ -47,6 +52,7 @@ class QueryMonitorRequest extends Model
         'endTime'        => 'EndTime',
         'instanceId'     => 'InstanceId',
         'monitorType'    => 'MonitorType',
+        'mseSessionId'   => 'MseSessionId',
         'requestPars'    => 'RequestPars',
         'startTime'      => 'StartTime',
         'step'           => 'Step',
@@ -70,6 +76,9 @@ class QueryMonitorRequest extends Model
         }
         if (null !== $this->monitorType) {
             $res['MonitorType'] = $this->monitorType;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
@@ -103,6 +112,9 @@ class QueryMonitorRequest extends Model
         }
         if (isset($map['MonitorType'])) {
             $model->monitorType = $map['MonitorType'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];

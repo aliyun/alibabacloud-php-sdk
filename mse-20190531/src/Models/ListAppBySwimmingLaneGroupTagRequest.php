@@ -21,10 +21,16 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $tag;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'groupId'        => 'GroupId',
+        'mseSessionId'   => 'MseSessionId',
         'tag'            => 'Tag',
     ];
 
@@ -40,6 +46,9 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -61,6 +70,9 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

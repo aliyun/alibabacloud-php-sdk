@@ -26,6 +26,11 @@ class UpdateZnodeRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $path;
 
     /**
@@ -36,6 +41,7 @@ class UpdateZnodeRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'data'           => 'Data',
+        'mseSessionId'   => 'MseSessionId',
         'path'           => 'Path',
         'requestPars'    => 'RequestPars',
     ];
@@ -55,6 +61,9 @@ class UpdateZnodeRequest extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -82,6 +91,9 @@ class UpdateZnodeRequest extends Model
         }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];

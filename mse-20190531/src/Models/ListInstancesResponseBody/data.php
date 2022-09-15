@@ -34,7 +34,7 @@ class data extends Model
     public $dbUserName;
 
     /**
-     * @var int
+     * @var string
      */
     public $endDate;
 

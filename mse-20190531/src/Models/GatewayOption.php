@@ -11,36 +11,26 @@ use AlibabaCloud\Tea\Model;
 class GatewayOption extends Model
 {
     /**
-     * @description 是否禁用http
-     *
      * @var bool
      */
     public $disableHttp2Alpn;
 
     /**
-     * @description 是否开启硬件加速
-     *
      * @var bool
      */
     public $enableHardwareAcceleration;
 
     /**
-     * @description 是否开启waf
-     *
      * @var bool
      */
     public $enableWaf;
 
     /**
-     * @description 日志配置详情
-     *
      * @var logConfigDetails
      */
     public $logConfigDetails;
 
     /**
-     * @description xtrace config option
-     *
      * @var traceDetails
      */
     public $traceDetails;

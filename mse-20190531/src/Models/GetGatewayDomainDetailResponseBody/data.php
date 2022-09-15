@@ -69,6 +69,11 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $http2;
+
+    /**
      * @var int
      */
     public $id;
@@ -97,6 +102,16 @@ class data extends Model
      * @var string
      */
     public $sans;
+
+    /**
+     * @var string
+     */
+    public $tlsMax;
+
+    /**
+     * @var string
+     */
+    public $tlsMin;
     protected $_name = [
         'afterDate'       => 'AfterDate',
         'algorithm'       => 'Algorithm',
@@ -110,12 +125,15 @@ class data extends Model
         'gmtBefore'       => 'GmtBefore',
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
+        'http2'           => 'Http2',
         'id'              => 'Id',
         'issuer'          => 'Issuer',
         'mustHttps'       => 'MustHttps',
         'name'            => 'Name',
         'protocol'        => 'Protocol',
         'sans'            => 'Sans',
+        'tlsMax'          => 'TlsMax',
+        'tlsMin'          => 'TlsMin',
     ];
 
     public function validate()
@@ -161,6 +179,9 @@ class data extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->http2) {
+            $res['Http2'] = $this->http2;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -178,6 +199,12 @@ class data extends Model
         }
         if (null !== $this->sans) {
             $res['Sans'] = $this->sans;
+        }
+        if (null !== $this->tlsMax) {
+            $res['TlsMax'] = $this->tlsMax;
+        }
+        if (null !== $this->tlsMin) {
+            $res['TlsMin'] = $this->tlsMin;
         }
 
         return $res;
@@ -227,6 +254,9 @@ class data extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['Http2'])) {
+            $model->http2 = $map['Http2'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -244,6 +274,12 @@ class data extends Model
         }
         if (isset($map['Sans'])) {
             $model->sans = $map['Sans'];
+        }
+        if (isset($map['TlsMax'])) {
+            $model->tlsMax = $map['TlsMax'];
+        }
+        if (isset($map['TlsMin'])) {
+            $model->tlsMin = $map['TlsMin'];
         }
 
         return $model;

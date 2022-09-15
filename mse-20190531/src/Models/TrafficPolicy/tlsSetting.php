@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tlsSetting extends Model
 {
     /**
-     * @description ca证书内容
-     *
      * @var string
      */
     public $caCertContent;
 
     /**
-     * @description 使用的证书id，仅当为mutual时需要填写
-     *
      * @var string
      */
     public $certId;
 
     /**
-     * @description 到后端服务些带
-     *
      * @var string
      */
     public $sni;
 
     /**
-     * @description tls模式。为枚举类，可为NONE, SIMPLE, MUITUAL
-     *
      * @var string
      */
     public $tlsMode;

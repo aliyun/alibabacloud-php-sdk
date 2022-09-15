@@ -26,6 +26,11 @@ class CloneNacosConfigRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $originNamespaceId;
 
     /**
@@ -41,6 +46,7 @@ class CloneNacosConfigRequest extends Model
         'acceptLanguage'    => 'AcceptLanguage',
         'ids'               => 'Ids',
         'instanceId'        => 'InstanceId',
+        'mseSessionId'      => 'MseSessionId',
         'originNamespaceId' => 'OriginNamespaceId',
         'policy'            => 'Policy',
         'targetNamespaceId' => 'TargetNamespaceId',
@@ -61,6 +67,9 @@ class CloneNacosConfigRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->originNamespaceId) {
             $res['OriginNamespaceId'] = $this->originNamespaceId;
@@ -91,6 +100,9 @@ class CloneNacosConfigRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['OriginNamespaceId'])) {
             $model->originNamespaceId = $map['OriginNamespaceId'];

@@ -19,6 +19,11 @@ class ListEurekaServicesRequest extends Model
     public $clusterId;
 
     /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -40,6 +45,7 @@ class ListEurekaServicesRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
+        'mseSessionId'   => 'MseSessionId',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
         'regionId'       => 'RegionId',
@@ -58,6 +64,9 @@ class ListEurekaServicesRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -88,6 +97,9 @@ class ListEurekaServicesRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

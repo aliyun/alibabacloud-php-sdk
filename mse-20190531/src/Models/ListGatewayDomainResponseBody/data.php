@@ -40,6 +40,11 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $http2;
+
+    /**
      * @var int
      */
     public $id;
@@ -67,6 +72,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $tlsMax;
+
+    /**
+     * @var string
+     */
+    public $tlsMin;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'certBeforeDate' => 'CertBeforeDate',
@@ -75,11 +90,14 @@ class data extends Model
         'gatewayId'      => 'GatewayId',
         'gmtCreate'      => 'GmtCreate',
         'gmtModified'    => 'GmtModified',
+        'http2'          => 'Http2',
         'id'             => 'Id',
         'mustHttps'      => 'MustHttps',
         'name'           => 'Name',
         'protocol'       => 'Protocol',
         'status'         => 'Status',
+        'tlsMax'         => 'TlsMax',
+        'tlsMin'         => 'TlsMin',
         'type'           => 'Type',
     ];
 
@@ -108,6 +126,9 @@ class data extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->http2) {
+            $res['Http2'] = $this->http2;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -122,6 +143,12 @@ class data extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tlsMax) {
+            $res['TlsMax'] = $this->tlsMax;
+        }
+        if (null !== $this->tlsMin) {
+            $res['TlsMin'] = $this->tlsMin;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -156,6 +183,9 @@ class data extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['Http2'])) {
+            $model->http2 = $map['Http2'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -170,6 +200,12 @@ class data extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TlsMax'])) {
+            $model->tlsMax = $map['TlsMax'];
+        }
+        if (isset($map['TlsMin'])) {
+            $model->tlsMin = $map['TlsMin'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -31,12 +31,18 @@ class AddAuthResourceRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $path;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'authId'          => 'AuthId',
         'domainId'        => 'DomainId',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'mseSessionId'    => 'MseSessionId',
         'path'            => 'Path',
     ];
 
@@ -58,6 +64,9 @@ class AddAuthResourceRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -85,6 +94,9 @@ class AddAuthResourceRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];

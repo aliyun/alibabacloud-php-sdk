@@ -29,6 +29,11 @@ class GetApplicationListRequest extends Model
     public $language;
 
     /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -62,6 +67,7 @@ class GetApplicationListRequest extends Model
         'appId'          => 'AppId',
         'appName'        => 'AppName',
         'language'       => 'Language',
+        'mseSessionId'   => 'MseSessionId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'region'         => 'Region',
@@ -88,6 +94,9 @@ class GetApplicationListRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -130,6 +139,9 @@ class GetApplicationListRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

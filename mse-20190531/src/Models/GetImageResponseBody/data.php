@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 当前集群镜像版本的4位全名
-     *
      * @var string
      */
     public $currentVersionFullShowName;
 
     /**
-     * @description 可升级的最大版本变更日志url
-     *
      * @var string
      */
     public $maxVersionChangelogUrl;
 
     /**
-     * @description 可升级的增量版本Code
-     *
      * @var string
      */
     public $maxVersionCode;
 
     /**
-     * @description 可升级的增量版本全名
-     *
      * @var string
      */
     public $maxVersionFullShowName;

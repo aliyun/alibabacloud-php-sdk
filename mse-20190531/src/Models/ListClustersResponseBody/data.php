@@ -91,6 +91,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
     public $versionCode;
     protected $_name = [
         'appVersion'       => 'AppVersion',
@@ -109,6 +119,8 @@ class data extends Model
         'intranetAddress'  => 'IntranetAddress',
         'intranetDomain'   => 'IntranetDomain',
         'mseVersion'       => 'MseVersion',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'tags'             => 'Tags',
         'versionCode'      => 'VersionCode',
     ];
 
@@ -166,6 +178,12 @@ class data extends Model
         }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
@@ -229,6 +247,12 @@ class data extends Model
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];

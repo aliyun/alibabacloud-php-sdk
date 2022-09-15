@@ -31,6 +31,16 @@ class CreateMseServiceApplicationRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
+    public $mseVersion;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -52,6 +62,8 @@ class CreateMseServiceApplicationRequest extends Model
         'appName'        => 'AppName',
         'extraInfo'      => 'ExtraInfo',
         'language'       => 'Language',
+        'mseSessionId'   => 'MseSessionId',
+        'mseVersion'     => 'MseVersion',
         'region'         => 'Region',
         'sentinelEnable' => 'SentinelEnable',
         'source'         => 'Source',
@@ -76,6 +88,12 @@ class CreateMseServiceApplicationRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
+        }
+        if (null !== $this->mseVersion) {
+            $res['MseVersion'] = $this->mseVersion;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -112,6 +130,12 @@ class CreateMseServiceApplicationRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
+        }
+        if (isset($map['MseVersion'])) {
+            $model->mseVersion = $map['MseVersion'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

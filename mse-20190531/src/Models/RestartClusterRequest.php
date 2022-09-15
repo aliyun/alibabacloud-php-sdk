@@ -26,6 +26,11 @@ class RestartClusterRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $podNameList;
 
     /**
@@ -36,6 +41,7 @@ class RestartClusterRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'instanceId'     => 'InstanceId',
+        'mseSessionId'   => 'MseSessionId',
         'podNameList'    => 'PodNameList',
         'requestPars'    => 'RequestPars',
     ];
@@ -55,6 +61,9 @@ class RestartClusterRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->podNameList) {
             $res['PodNameList'] = $this->podNameList;
@@ -82,6 +91,9 @@ class RestartClusterRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PodNameList'])) {
             $model->podNameList = $map['PodNameList'];

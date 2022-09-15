@@ -17,9 +17,15 @@ class ListEngineNamespacesRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'instanceId'     => 'InstanceId',
+        'mseSessionId'   => 'MseSessionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ListEngineNamespacesRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ListEngineNamespacesRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

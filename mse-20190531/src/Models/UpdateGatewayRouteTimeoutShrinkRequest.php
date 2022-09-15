@@ -31,12 +31,18 @@ class UpdateGatewayRouteTimeoutShrinkRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $timeoutJSONShrink;
     protected $_name = [
         'acceptLanguage'    => 'AcceptLanguage',
         'gatewayId'         => 'GatewayId',
         'gatewayUniqueId'   => 'GatewayUniqueId',
         'id'                => 'Id',
+        'mseSessionId'      => 'MseSessionId',
         'timeoutJSONShrink' => 'TimeoutJSON',
     ];
 
@@ -58,6 +64,9 @@ class UpdateGatewayRouteTimeoutShrinkRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->timeoutJSONShrink) {
             $res['TimeoutJSON'] = $this->timeoutJSONShrink;
@@ -85,6 +94,9 @@ class UpdateGatewayRouteTimeoutShrinkRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['TimeoutJSON'])) {
             $model->timeoutJSONShrink = $map['TimeoutJSON'];

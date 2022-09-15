@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class traceDetails extends Model
 {
     /**
-     * @description trace 采样率
-     *
      * @var int
      */
     public $sample;
 
     /**
-     * @description trace是否开启
-     *
      * @var bool
      */
     public $traceEnabled;

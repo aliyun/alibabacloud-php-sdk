@@ -27,6 +27,11 @@ class ListGatewayServiceRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $orderItem;
 
     /**
@@ -42,6 +47,7 @@ class ListGatewayServiceRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'descSort'       => 'DescSort',
         'filterParams'   => 'FilterParams',
+        'mseSessionId'   => 'MseSessionId',
         'orderItem'      => 'OrderItem',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
@@ -62,6 +68,9 @@ class ListGatewayServiceRequest extends Model
         }
         if (null !== $this->filterParams) {
             $res['FilterParams'] = null !== $this->filterParams ? $this->filterParams->toMap() : null;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->orderItem) {
             $res['OrderItem'] = $this->orderItem;
@@ -92,6 +101,9 @@ class ListGatewayServiceRequest extends Model
         }
         if (isset($map['FilterParams'])) {
             $model->filterParams = filterParams::fromMap($map['FilterParams']);
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['OrderItem'])) {
             $model->orderItem = $map['OrderItem'];

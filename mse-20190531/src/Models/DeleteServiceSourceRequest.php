@@ -19,12 +19,18 @@ class DeleteServiceSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var int
      */
     public $sourceId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'mseSessionId'    => 'MseSessionId',
         'sourceId'        => 'SourceId',
     ];
 
@@ -40,6 +46,9 @@ class DeleteServiceSourceRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
@@ -61,6 +70,9 @@ class DeleteServiceSourceRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];

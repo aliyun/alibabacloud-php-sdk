@@ -21,10 +21,16 @@ class ListGatewayDomainRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'mseSessionId'    => 'MseSessionId',
         'type'            => 'Type',
     ];
 
@@ -40,6 +46,9 @@ class ListGatewayDomainRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -61,6 +70,9 @@ class ListGatewayDomainRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

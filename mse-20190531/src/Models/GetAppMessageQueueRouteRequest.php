@@ -21,10 +21,16 @@ class GetAppMessageQueueRouteRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $region;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
+        'mseSessionId'   => 'MseSessionId',
         'region'         => 'Region',
     ];
 
@@ -40,6 +46,9 @@ class GetAppMessageQueueRouteRequest extends Model
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -61,6 +70,9 @@ class GetAppMessageQueueRouteRequest extends Model
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

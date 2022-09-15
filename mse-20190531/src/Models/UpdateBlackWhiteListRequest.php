@@ -36,6 +36,11 @@ class UpdateBlackWhiteListRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -53,6 +58,7 @@ class UpdateBlackWhiteListRequest extends Model
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
         'isWhite'         => 'IsWhite',
+        'mseSessionId'    => 'MseSessionId',
         'resourceType'    => 'ResourceType',
         'status'          => 'Status',
         'type'            => 'Type',
@@ -79,6 +85,9 @@ class UpdateBlackWhiteListRequest extends Model
         }
         if (null !== $this->isWhite) {
             $res['IsWhite'] = $this->isWhite;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -115,6 +124,9 @@ class UpdateBlackWhiteListRequest extends Model
         }
         if (isset($map['IsWhite'])) {
             $model->isWhite = $map['IsWhite'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

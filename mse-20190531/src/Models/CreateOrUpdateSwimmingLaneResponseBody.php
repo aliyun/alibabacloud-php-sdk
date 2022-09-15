@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneResponseBody extends Model
 {
     /**
-     * @description code仅仅用来和success同步
-     *
      * @var int
      */
     public $code;
@@ -21,8 +19,6 @@ class CreateOrUpdateSwimmingLaneResponseBody extends Model
     public $data;
 
     /**
-     * @description 动态错误信息中的占位符
-     *
      * @var string
      */
     public $dynamicMessage;

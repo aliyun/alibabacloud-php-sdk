@@ -21,25 +21,29 @@ class ImportServicesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $serviceListShrink;
 
     /**
      * @var string
      */
-    public $sourceId;
+    public $sourceType;
 
     /**
-     * @description 服务来源
-     *
      * @var string
      */
-    public $sourceType;
+    public $tlsSetting;
     protected $_name = [
         'acceptLanguage'    => 'AcceptLanguage',
         'gatewayUniqueId'   => 'GatewayUniqueId',
+        'mseSessionId'      => 'MseSessionId',
         'serviceListShrink' => 'ServiceList',
-        'sourceId'          => 'SourceId',
         'sourceType'        => 'SourceType',
+        'tlsSetting'        => 'TlsSetting',
     ];
 
     public function validate()
@@ -55,14 +59,17 @@ class ImportServicesShrinkRequest extends Model
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
+        }
         if (null !== $this->serviceListShrink) {
             $res['ServiceList'] = $this->serviceListShrink;
         }
-        if (null !== $this->sourceId) {
-            $res['SourceId'] = $this->sourceId;
-        }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->tlsSetting) {
+            $res['TlsSetting'] = $this->tlsSetting;
         }
 
         return $res;
@@ -82,14 +89,17 @@ class ImportServicesShrinkRequest extends Model
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
+        }
         if (isset($map['ServiceList'])) {
             $model->serviceListShrink = $map['ServiceList'];
         }
-        if (isset($map['SourceId'])) {
-            $model->sourceId = $map['SourceId'];
-        }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['TlsSetting'])) {
+            $model->tlsSetting = $map['TlsSetting'];
         }
 
         return $model;

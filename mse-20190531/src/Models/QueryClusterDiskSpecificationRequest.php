@@ -17,9 +17,15 @@ class QueryClusterDiskSpecificationRequest extends Model
      * @var string
      */
     public $clusterType;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterType'    => 'ClusterType',
+        'mseSessionId'   => 'MseSessionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class QueryClusterDiskSpecificationRequest extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class QueryClusterDiskSpecificationRequest extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

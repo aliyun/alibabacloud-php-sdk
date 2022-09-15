@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class QueryGovernanceKubernetesClusterResponseBody extends Model
 {
     /**
-     * @description 后端状态码
-     *
      * @var int
      */
     public $code;
@@ -37,8 +35,6 @@ class QueryGovernanceKubernetesClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 是否成功
-     *
      * @var bool
      */
     public $success;

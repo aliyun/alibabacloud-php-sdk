@@ -26,6 +26,11 @@ class ImportNacosConfigRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
 
     /**
@@ -36,6 +41,7 @@ class ImportNacosConfigRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'fileUrl'        => 'FileUrl',
         'instanceId'     => 'InstanceId',
+        'mseSessionId'   => 'MseSessionId',
         'namespaceId'    => 'NamespaceId',
         'policy'         => 'Policy',
     ];
@@ -55,6 +61,9 @@ class ImportNacosConfigRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -82,6 +91,9 @@ class ImportNacosConfigRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

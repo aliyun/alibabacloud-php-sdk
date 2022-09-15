@@ -14,29 +14,26 @@ class QueryGovernanceKubernetesClusterRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Kubernetes集群Id
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Kubernetes集群名
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description 当前页码
-     *
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页元素数量
-     *
      * @var int
      */
     public $pageSize;
@@ -44,6 +41,7 @@ class QueryGovernanceKubernetesClusterRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'clusterName'    => 'ClusterName',
+        'mseSessionId'   => 'MseSessionId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
     ];
@@ -63,6 +61,9 @@ class QueryGovernanceKubernetesClusterRequest extends Model
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -90,6 +91,9 @@ class QueryGovernanceKubernetesClusterRequest extends Model
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

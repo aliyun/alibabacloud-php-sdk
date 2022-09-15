@@ -39,6 +39,16 @@ class AddGatewayRouteShrinkRequest extends Model
     public $enableWaf;
 
     /**
+     * @var bool
+     */
+    public $fallback;
+
+    /**
+     * @var string
+     */
+    public $fallbackServicesShrink;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -47,6 +57,11 @@ class AddGatewayRouteShrinkRequest extends Model
      * @var string
      */
     public $gatewayUniqueId;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
 
     /**
      * @var string
@@ -79,8 +94,11 @@ class AddGatewayRouteShrinkRequest extends Model
         'domainId'                 => 'DomainId',
         'domainIdListJSON'         => 'DomainIdListJSON',
         'enableWaf'                => 'EnableWaf',
+        'fallback'                 => 'Fallback',
+        'fallbackServicesShrink'   => 'FallbackServices',
         'gatewayId'                => 'GatewayId',
         'gatewayUniqueId'          => 'GatewayUniqueId',
+        'mseSessionId'             => 'MseSessionId',
         'name'                     => 'Name',
         'predicatesShrink'         => 'Predicates',
         'redirectJSONShrink'       => 'RedirectJSON',
@@ -113,11 +131,20 @@ class AddGatewayRouteShrinkRequest extends Model
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
         }
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
+        }
+        if (null !== $this->fallbackServicesShrink) {
+            $res['FallbackServices'] = $this->fallbackServicesShrink;
+        }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -164,11 +191,20 @@ class AddGatewayRouteShrinkRequest extends Model
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];
         }
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
+        }
+        if (isset($map['FallbackServices'])) {
+            $model->fallbackServicesShrink = $map['FallbackServices'];
+        }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -14,99 +14,76 @@ class AddGatewayRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 是否开启硬件加速
-     *
      * @var bool
      */
     public $enableHardwareAcceleration;
 
     /**
-     * @description 是否开启SLS日志投递
-     *
      * @var bool
      */
     public $enableSls;
 
     /**
-     * @description 是否开启xtrace
-     *
      * @var bool
      */
     public $enableXtrace;
 
     /**
-     * @description 是否企业安全组类型
-     *
      * @var bool
      */
     public $enterpriseSecurityGroup;
 
     /**
-     * @description 外网SLB规格
-     *
      * @var string
      */
     public $internetSlbSpec;
 
     /**
-     * @description 网关名称
-     *
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var string
      */
     public $name;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description 节点数量
-     *
      * @var int
      */
     public $replica;
 
     /**
-     * @description 内网SLB规格
-     *
      * @var string
      */
     public $slbSpec;
 
     /**
-     * @description 节点规格
-     *
      * @var string
      */
     public $spec;
 
     /**
-     * @description 主交换机ID
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description 备交换机ID
-     *
      * @var string
      */
     public $vSwitchId2;
 
     /**
-     * @description 专有网络ID
-     *
      * @var string
      */
     public $vpc;
 
     /**
-     * @description xtrace采样率，取值[0,100]
-     *
      * @var string
      */
     public $xtraceRatio;
@@ -117,6 +94,7 @@ class AddGatewayRequest extends Model
         'enableXtrace'               => 'EnableXtrace',
         'enterpriseSecurityGroup'    => 'EnterpriseSecurityGroup',
         'internetSlbSpec'            => 'InternetSlbSpec',
+        'mseSessionId'               => 'MseSessionId',
         'name'                       => 'Name',
         'region'                     => 'Region',
         'replica'                    => 'Replica',
@@ -152,6 +130,9 @@ class AddGatewayRequest extends Model
         }
         if (null !== $this->internetSlbSpec) {
             $res['InternetSlbSpec'] = $this->internetSlbSpec;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -209,6 +190,9 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['InternetSlbSpec'])) {
             $model->internetSlbSpec = $map['InternetSlbSpec'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

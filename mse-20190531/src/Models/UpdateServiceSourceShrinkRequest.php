@@ -41,6 +41,11 @@ class UpdateServiceSourceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -59,6 +64,7 @@ class UpdateServiceSourceShrinkRequest extends Model
         'gatewayUniqueId'             => 'GatewayUniqueId',
         'id'                          => 'Id',
         'ingressOptionsRequestShrink' => 'IngressOptionsRequest',
+        'mseSessionId'                => 'MseSessionId',
         'name'                        => 'Name',
         'source'                      => 'Source',
         'type'                        => 'Type',
@@ -88,6 +94,9 @@ class UpdateServiceSourceShrinkRequest extends Model
         }
         if (null !== $this->ingressOptionsRequestShrink) {
             $res['IngressOptionsRequest'] = $this->ingressOptionsRequestShrink;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -127,6 +136,9 @@ class UpdateServiceSourceShrinkRequest extends Model
         }
         if (isset($map['IngressOptionsRequest'])) {
             $model->ingressOptionsRequestShrink = $map['IngressOptionsRequest'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $editEnable;
+
+    /**
      * @var string
      */
     public $gatewayId;
@@ -29,9 +34,29 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @var int
+     */
+    public $httpPort;
+
+    /**
+     * @var int
+     */
+    public $httpsPort;
+
+    /**
+     * @var string
+     */
+    public $httpsVServerGroupId;
+
+    /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $serviceWeight;
 
     /**
      * @var string
@@ -57,17 +82,28 @@ class data extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $VServerGroupId;
     protected $_name = [
-        'gatewayId'        => 'GatewayId',
-        'gatewaySlbMode'   => 'GatewaySlbMode',
-        'gatewaySlbStatus' => 'GatewaySlbStatus',
-        'gmtCreate'        => 'GmtCreate',
-        'id'               => 'Id',
-        'slbId'            => 'SlbId',
-        'slbIp'            => 'SlbIp',
-        'slbPort'          => 'SlbPort',
-        'statusDesc'       => 'StatusDesc',
-        'type'             => 'Type',
+        'editEnable'          => 'EditEnable',
+        'gatewayId'           => 'GatewayId',
+        'gatewaySlbMode'      => 'GatewaySlbMode',
+        'gatewaySlbStatus'    => 'GatewaySlbStatus',
+        'gmtCreate'           => 'GmtCreate',
+        'httpPort'            => 'HttpPort',
+        'httpsPort'           => 'HttpsPort',
+        'httpsVServerGroupId' => 'HttpsVServerGroupId',
+        'id'                  => 'Id',
+        'serviceWeight'       => 'ServiceWeight',
+        'slbId'               => 'SlbId',
+        'slbIp'               => 'SlbIp',
+        'slbPort'             => 'SlbPort',
+        'statusDesc'          => 'StatusDesc',
+        'type'                => 'Type',
+        'VServerGroupId'      => 'VServerGroupId',
     ];
 
     public function validate()
@@ -77,6 +113,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->editEnable) {
+            $res['EditEnable'] = $this->editEnable;
+        }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
@@ -89,8 +128,20 @@ class data extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+        if (null !== $this->httpPort) {
+            $res['HttpPort'] = $this->httpPort;
+        }
+        if (null !== $this->httpsPort) {
+            $res['HttpsPort'] = $this->httpsPort;
+        }
+        if (null !== $this->httpsVServerGroupId) {
+            $res['HttpsVServerGroupId'] = $this->httpsVServerGroupId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->serviceWeight) {
+            $res['ServiceWeight'] = $this->serviceWeight;
         }
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
@@ -107,6 +158,9 @@ class data extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->VServerGroupId) {
+            $res['VServerGroupId'] = $this->VServerGroupId;
+        }
 
         return $res;
     }
@@ -119,6 +173,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EditEnable'])) {
+            $model->editEnable = $map['EditEnable'];
+        }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
@@ -131,8 +188,20 @@ class data extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+        if (isset($map['HttpPort'])) {
+            $model->httpPort = $map['HttpPort'];
+        }
+        if (isset($map['HttpsPort'])) {
+            $model->httpsPort = $map['HttpsPort'];
+        }
+        if (isset($map['HttpsVServerGroupId'])) {
+            $model->httpsVServerGroupId = $map['HttpsVServerGroupId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['ServiceWeight'])) {
+            $model->serviceWeight = $map['ServiceWeight'];
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
@@ -148,6 +217,9 @@ class data extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['VServerGroupId'])) {
+            $model->VServerGroupId = $map['VServerGroupId'];
         }
 
         return $model;

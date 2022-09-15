@@ -14,57 +14,46 @@ class UpdateNacosClusterRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 健康检查端口
-     *
      * @var int
      */
     public $checkPort;
 
     /**
-     * @description Nacos集群名
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description 分组名
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description 健康检查类型
-     *
      * @var string
      */
     public $healthChecker;
 
     /**
-     * @description 实例id
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 命名空间id
-     *
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description 服务名
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 是否使用实例端口进行健康检查
-     *
      * @var bool
      */
     public $useInstancePortForCheck;
@@ -75,6 +64,7 @@ class UpdateNacosClusterRequest extends Model
         'groupName'               => 'GroupName',
         'healthChecker'           => 'HealthChecker',
         'instanceId'              => 'InstanceId',
+        'mseSessionId'            => 'MseSessionId',
         'namespaceId'             => 'NamespaceId',
         'serviceName'             => 'ServiceName',
         'useInstancePortForCheck' => 'UseInstancePortForCheck',
@@ -104,6 +94,9 @@ class UpdateNacosClusterRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -143,6 +136,9 @@ class UpdateNacosClusterRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

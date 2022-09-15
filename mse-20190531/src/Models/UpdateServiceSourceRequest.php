@@ -42,6 +42,11 @@ class UpdateServiceSourceRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -60,6 +65,7 @@ class UpdateServiceSourceRequest extends Model
         'gatewayUniqueId'       => 'GatewayUniqueId',
         'id'                    => 'Id',
         'ingressOptionsRequest' => 'IngressOptionsRequest',
+        'mseSessionId'          => 'MseSessionId',
         'name'                  => 'Name',
         'source'                => 'Source',
         'type'                  => 'Type',
@@ -89,6 +95,9 @@ class UpdateServiceSourceRequest extends Model
         }
         if (null !== $this->ingressOptionsRequest) {
             $res['IngressOptionsRequest'] = null !== $this->ingressOptionsRequest ? $this->ingressOptionsRequest->toMap() : null;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -128,6 +137,9 @@ class UpdateServiceSourceRequest extends Model
         }
         if (isset($map['IngressOptionsRequest'])) {
             $model->ingressOptionsRequest = ingressOptionsRequest::fromMap($map['IngressOptionsRequest']);
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

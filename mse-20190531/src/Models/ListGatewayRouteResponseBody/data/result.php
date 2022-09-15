@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\dat
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\comment;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\directResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\fallbackServices;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\redirect;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\routePredicates;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteResponseBody\data\result\routeServices;
@@ -62,6 +63,16 @@ class result extends Model
      * @var string
      */
     public $enableWaf;
+
+    /**
+     * @var bool
+     */
+    public $fallback;
+
+    /**
+     * @var fallbackServices[]
+     */
+    public $fallbackServices;
 
     /**
      * @var int
@@ -143,6 +154,8 @@ class result extends Model
         'domainName'         => 'DomainName',
         'domainNameList'     => 'DomainNameList',
         'enableWaf'          => 'EnableWaf',
+        'fallback'           => 'Fallback',
+        'fallbackServices'   => 'FallbackServices',
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'gmtCreate'          => 'GmtCreate',
@@ -195,6 +208,18 @@ class result extends Model
         }
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
+        }
+        if (null !== $this->fallback) {
+            $res['Fallback'] = $this->fallback;
+        }
+        if (null !== $this->fallbackServices) {
+            $res['FallbackServices'] = [];
+            if (null !== $this->fallbackServices && \is_array($this->fallbackServices)) {
+                $n = 0;
+                foreach ($this->fallbackServices as $item) {
+                    $res['FallbackServices'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -289,6 +314,18 @@ class result extends Model
         }
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];
+        }
+        if (isset($map['Fallback'])) {
+            $model->fallback = $map['Fallback'];
+        }
+        if (isset($map['FallbackServices'])) {
+            if (!empty($map['FallbackServices'])) {
+                $model->fallbackServices = [];
+                $n                       = 0;
+                foreach ($map['FallbackServices'] as $item) {
+                    $model->fallbackServices[$n++] = null !== $item ? fallbackServices::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

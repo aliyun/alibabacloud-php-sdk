@@ -31,12 +31,18 @@ class filterParams extends Model
     /**
      * @var string
      */
+    public $serviceProtocol;
+
+    /**
+     * @var string
+     */
     public $sourceType;
     protected $_name = [
         'gatewayUniqueId' => 'GatewayUniqueId',
         'groupName'       => 'GroupName',
         'name'            => 'Name',
         'namespace'       => 'Namespace',
+        'serviceProtocol' => 'ServiceProtocol',
         'sourceType'      => 'SourceType',
     ];
 
@@ -58,6 +64,9 @@ class filterParams extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->serviceProtocol) {
+            $res['ServiceProtocol'] = $this->serviceProtocol;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -85,6 +94,9 @@ class filterParams extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['ServiceProtocol'])) {
+            $model->serviceProtocol = $map['ServiceProtocol'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

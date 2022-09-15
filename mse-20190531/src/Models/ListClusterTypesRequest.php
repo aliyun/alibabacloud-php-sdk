@@ -14,11 +14,14 @@ class ListClusterTypesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 网络连接类型
-     *
      * @var string
      */
     public $connectType;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
 
     /**
      * @var string
@@ -27,6 +30,7 @@ class ListClusterTypesRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'connectType'    => 'ConnectType',
+        'mseSessionId'   => 'MseSessionId',
         'regionId'       => 'RegionId',
     ];
 
@@ -42,6 +46,9 @@ class ListClusterTypesRequest extends Model
         }
         if (null !== $this->connectType) {
             $res['ConnectType'] = $this->connectType;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -63,6 +70,9 @@ class ListClusterTypesRequest extends Model
         }
         if (isset($map['ConnectType'])) {
             $model->connectType = $map['ConnectType'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

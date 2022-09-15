@@ -25,6 +25,11 @@ class entryRules extends Model
     public $path;
 
     /**
+     * @var string[]
+     */
+    public $paths;
+
+    /**
      * @var int
      */
     public $priority;
@@ -37,6 +42,7 @@ class entryRules extends Model
         'condition' => 'Condition',
         'enable'    => 'Enable',
         'path'      => 'Path',
+        'paths'     => 'Paths',
         'priority'  => 'Priority',
         'restItems' => 'RestItems',
     ];
@@ -56,6 +62,9 @@ class entryRules extends Model
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->paths) {
+            $res['Paths'] = $this->paths;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -89,6 +98,11 @@ class entryRules extends Model
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['Paths'])) {
+            if (!empty($map['Paths'])) {
+                $model->paths = $map['Paths'];
+            }
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

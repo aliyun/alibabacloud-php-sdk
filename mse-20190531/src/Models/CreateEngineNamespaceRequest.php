@@ -36,6 +36,11 @@ class CreateEngineNamespaceRequest extends Model
     /**
      * @var string
      */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -48,6 +53,7 @@ class CreateEngineNamespaceRequest extends Model
         'desc'           => 'Desc',
         'id'             => 'Id',
         'instanceId'     => 'InstanceId',
+        'mseSessionId'   => 'MseSessionId',
         'name'           => 'Name',
         'serviceCount'   => 'ServiceCount',
     ];
@@ -73,6 +79,9 @@ class CreateEngineNamespaceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -106,6 +115,9 @@ class CreateEngineNamespaceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

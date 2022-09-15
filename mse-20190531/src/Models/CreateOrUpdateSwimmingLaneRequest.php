@@ -15,8 +15,6 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 是否开启。
-     *
      * @var bool
      */
     public $enable;
@@ -27,92 +25,71 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $enableRules;
 
     /**
-     * @description json string
-     *
      * @var string
      */
     public $entryRule;
 
     /**
-     * @description SwimmingLane
-     *
      * @var entryRules[]
      */
     public $entryRules;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @description 所属泳道组
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description 主键ID。由SP生成(数据库自增主键)。
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 格式为UUID。比如48bd91e9-41d5-4dae-8a9a-439611742b45
-     *
      * @var string
      */
     public $licenseKey;
 
     /**
-     * @description 名称
-     *
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
      * @var string
      */
     public $name;
 
     /**
-     * @description region
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 来源。可选值为: EDAS。
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 0 未生效
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 标识
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description EDAS账号。格式为数字，比如1362469756373809。
-     *
      * @var string
      */
     public $userId;
@@ -127,6 +104,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         'groupId'        => 'GroupId',
         'id'             => 'Id',
         'licenseKey'     => 'LicenseKey',
+        'mseSessionId'   => 'MseSessionId',
         'name'           => 'Name',
         'regionId'       => 'RegionId',
         'source'         => 'Source',
@@ -177,6 +155,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -243,6 +224,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

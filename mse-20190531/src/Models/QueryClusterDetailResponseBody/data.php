@@ -177,6 +177,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -217,6 +227,8 @@ class data extends Model
         'payInfo'              => 'PayInfo',
         'pubNetworkFlow'       => 'PubNetworkFlow',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'tags'                 => 'Tags',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
     ];
@@ -332,6 +344,12 @@ class data extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -455,6 +473,12 @@ class data extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

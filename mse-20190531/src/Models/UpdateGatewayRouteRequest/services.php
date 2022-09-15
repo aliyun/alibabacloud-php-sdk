@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest\services\httpDubboTranscoder;
 use AlibabaCloud\Tea\Model;
 
 class services extends Model
@@ -11,7 +12,17 @@ class services extends Model
     /**
      * @var string
      */
+    public $agreementType;
+
+    /**
+     * @var string
+     */
     public $groupName;
+
+    /**
+     * @var httpDubboTranscoder
+     */
+    public $httpDubboTranscoder;
 
     /**
      * @var string
@@ -34,6 +45,11 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @var int
+     */
+    public $servicePort;
+
+    /**
      * @var string
      */
     public $sourceType;
@@ -43,13 +59,16 @@ class services extends Model
      */
     public $version;
     protected $_name = [
-        'groupName'  => 'GroupName',
-        'name'       => 'Name',
-        'namespace'  => 'Namespace',
-        'percent'    => 'Percent',
-        'serviceId'  => 'ServiceId',
-        'sourceType' => 'SourceType',
-        'version'    => 'Version',
+        'agreementType'       => 'AgreementType',
+        'groupName'           => 'GroupName',
+        'httpDubboTranscoder' => 'HttpDubboTranscoder',
+        'name'                => 'Name',
+        'namespace'           => 'Namespace',
+        'percent'             => 'Percent',
+        'serviceId'           => 'ServiceId',
+        'servicePort'         => 'ServicePort',
+        'sourceType'          => 'SourceType',
+        'version'             => 'Version',
     ];
 
     public function validate()
@@ -59,8 +78,14 @@ class services extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agreementType) {
+            $res['AgreementType'] = $this->agreementType;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->httpDubboTranscoder) {
+            $res['HttpDubboTranscoder'] = null !== $this->httpDubboTranscoder ? $this->httpDubboTranscoder->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -73,6 +98,9 @@ class services extends Model
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->servicePort) {
+            $res['ServicePort'] = $this->servicePort;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -92,8 +120,14 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgreementType'])) {
+            $model->agreementType = $map['AgreementType'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['HttpDubboTranscoder'])) {
+            $model->httpDubboTranscoder = httpDubboTranscoder::fromMap($map['HttpDubboTranscoder']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -106,6 +140,9 @@ class services extends Model
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServicePort'])) {
+            $model->servicePort = $map['ServicePort'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

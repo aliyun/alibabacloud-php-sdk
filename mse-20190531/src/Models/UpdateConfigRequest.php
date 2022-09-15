@@ -69,18 +69,24 @@ class UpdateConfigRequest extends Model
     public $maxClientCnxns;
 
     /**
-     * @description 最大超时时间
-     *
      * @var string
      */
     public $maxSessionTimeout;
 
     /**
-     * @description 最小超时时间
-     *
      * @var string
      */
     public $minSessionTimeout;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
+     * @var bool
+     */
+    public $namingAuthEnabled;
 
     /**
      * @var string
@@ -96,6 +102,11 @@ class UpdateConfigRequest extends Model
      * @var string
      */
     public $requestPars;
+
+    /**
+     * @var string
+     */
+    public $snapshotCount;
 
     /**
      * @var string
@@ -126,9 +137,12 @@ class UpdateConfigRequest extends Model
         'maxClientCnxns'           => 'MaxClientCnxns',
         'maxSessionTimeout'        => 'MaxSessionTimeout',
         'minSessionTimeout'        => 'MinSessionTimeout',
+        'mseSessionId'             => 'MseSessionId',
+        'namingAuthEnabled'        => 'NamingAuthEnabled',
         'openSuperAcl'             => 'OpenSuperAcl',
         'passWord'                 => 'PassWord',
         'requestPars'              => 'RequestPars',
+        'snapshotCount'            => 'SnapshotCount',
         'syncLimit'                => 'SyncLimit',
         'tickTime'                 => 'TickTime',
         'userName'                 => 'UserName',
@@ -183,6 +197,12 @@ class UpdateConfigRequest extends Model
         if (null !== $this->minSessionTimeout) {
             $res['MinSessionTimeout'] = $this->minSessionTimeout;
         }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
+        }
+        if (null !== $this->namingAuthEnabled) {
+            $res['NamingAuthEnabled'] = $this->namingAuthEnabled;
+        }
         if (null !== $this->openSuperAcl) {
             $res['OpenSuperAcl'] = $this->openSuperAcl;
         }
@@ -191,6 +211,9 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->snapshotCount) {
+            $res['SnapshotCount'] = $this->snapshotCount;
         }
         if (null !== $this->syncLimit) {
             $res['SyncLimit'] = $this->syncLimit;
@@ -255,6 +278,12 @@ class UpdateConfigRequest extends Model
         if (isset($map['MinSessionTimeout'])) {
             $model->minSessionTimeout = $map['MinSessionTimeout'];
         }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
+        }
+        if (isset($map['NamingAuthEnabled'])) {
+            $model->namingAuthEnabled = $map['NamingAuthEnabled'];
+        }
         if (isset($map['OpenSuperAcl'])) {
             $model->openSuperAcl = $map['OpenSuperAcl'];
         }
@@ -263,6 +292,9 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['SnapshotCount'])) {
+            $model->snapshotCount = $map['SnapshotCount'];
         }
         if (isset($map['SyncLimit'])) {
             $model->syncLimit = $map['SyncLimit'];

@@ -29,15 +29,11 @@ class serviceList extends Model
     public $namespace;
 
     /**
-     * @description 服务的端口
-     *
      * @var int
      */
     public $servicePort;
 
     /**
-     * @description 服务的协议版本
-     *
      * @var string
      */
     public $serviceProtocol;

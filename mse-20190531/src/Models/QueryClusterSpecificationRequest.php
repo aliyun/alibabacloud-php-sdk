@@ -14,14 +14,18 @@ class QueryClusterSpecificationRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description 网络连接类型
-     *
      * @var string
      */
     public $connectType;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'connectType'    => 'ConnectType',
+        'mseSessionId'   => 'MseSessionId',
     ];
 
     public function validate()
@@ -36,6 +40,9 @@ class QueryClusterSpecificationRequest extends Model
         }
         if (null !== $this->connectType) {
             $res['ConnectType'] = $this->connectType;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -54,6 +61,9 @@ class QueryClusterSpecificationRequest extends Model
         }
         if (isset($map['ConnectType'])) {
             $model->connectType = $map['ConnectType'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

@@ -24,9 +24,19 @@ class UpdateGatewayDomainRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @var string
+     */
+    public $http2;
+
+    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
 
     /**
      * @var bool
@@ -37,13 +47,27 @@ class UpdateGatewayDomainRequest extends Model
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var string
+     */
+    public $tlsMax;
+
+    /**
+     * @var string
+     */
+    public $tlsMin;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'certIdentifier'  => 'CertIdentifier',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'http2'           => 'Http2',
         'id'              => 'Id',
+        'mseSessionId'    => 'MseSessionId',
         'mustHttps'       => 'MustHttps',
         'protocol'        => 'Protocol',
+        'tlsMax'          => 'TlsMax',
+        'tlsMin'          => 'TlsMin',
     ];
 
     public function validate()
@@ -62,14 +86,26 @@ class UpdateGatewayDomainRequest extends Model
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+        if (null !== $this->http2) {
+            $res['Http2'] = $this->http2;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mustHttps) {
             $res['MustHttps'] = $this->mustHttps;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->tlsMax) {
+            $res['TlsMax'] = $this->tlsMax;
+        }
+        if (null !== $this->tlsMin) {
+            $res['TlsMin'] = $this->tlsMin;
         }
 
         return $res;
@@ -92,14 +128,26 @@ class UpdateGatewayDomainRequest extends Model
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+        if (isset($map['Http2'])) {
+            $model->http2 = $map['Http2'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MustHttps'])) {
             $model->mustHttps = $map['MustHttps'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['TlsMax'])) {
+            $model->tlsMax = $map['TlsMax'];
+        }
+        if (isset($map['TlsMin'])) {
+            $model->tlsMin = $map['TlsMin'];
         }
 
         return $model;

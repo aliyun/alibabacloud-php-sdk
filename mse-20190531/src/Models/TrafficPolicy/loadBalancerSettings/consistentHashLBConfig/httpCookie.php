@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class httpCookie extends Model
 {
     /**
-     * @description cookie名
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description cookie path
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description cookie生命周期
-     *
      * @var string
      */
     public $TTL;

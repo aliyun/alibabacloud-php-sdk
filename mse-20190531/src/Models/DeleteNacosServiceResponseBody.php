@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosServiceResponseBody extends Model
 {
     /**
-     * @description 响应码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 删除服务的结果
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description http状态码
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description 响应信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 成功标志
-     *
      * @var bool
      */
     public $success;

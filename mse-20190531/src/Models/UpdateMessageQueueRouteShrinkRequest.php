@@ -26,6 +26,16 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
     /**
      * @var string
      */
+    public $filterSide;
+
+    /**
+     * @var string
+     */
+    public $mseSessionId;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -36,6 +46,8 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'enable'         => 'Enable',
+        'filterSide'     => 'FilterSide',
+        'mseSessionId'   => 'MseSessionId',
         'region'         => 'Region',
         'tagsShrink'     => 'Tags',
     ];
@@ -55,6 +67,12 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->filterSide) {
+            $res['FilterSide'] = $this->filterSide;
+        }
+        if (null !== $this->mseSessionId) {
+            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -82,6 +100,12 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['FilterSide'])) {
+            $model->filterSide = $map['FilterSide'];
+        }
+        if (isset($map['MseSessionId'])) {
+            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
