@@ -11,21 +11,21 @@ class GetEtlMetaRequest extends Model
     /**
      * @var string
      */
-    public $elMetaName;
+    public $etlMetaKey;
 
     /**
      * @var string
      */
-    public $etlMetaKey;
+    public $etlMetaName;
 
     /**
      * @var string
      */
     public $etlMetaTag;
     protected $_name = [
-        'elMetaName' => 'elMetaName',
-        'etlMetaKey' => 'etlMetaKey',
-        'etlMetaTag' => 'etlMetaTag',
+        'etlMetaKey'  => 'etlMetaKey',
+        'etlMetaName' => 'etlMetaName',
+        'etlMetaTag'  => 'etlMetaTag',
     ];
 
     public function validate()
@@ -35,11 +35,11 @@ class GetEtlMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->elMetaName) {
-            $res['elMetaName'] = $this->elMetaName;
-        }
         if (null !== $this->etlMetaKey) {
             $res['etlMetaKey'] = $this->etlMetaKey;
+        }
+        if (null !== $this->etlMetaName) {
+            $res['etlMetaName'] = $this->etlMetaName;
         }
         if (null !== $this->etlMetaTag) {
             $res['etlMetaTag'] = $this->etlMetaTag;
@@ -56,11 +56,11 @@ class GetEtlMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['elMetaName'])) {
-            $model->elMetaName = $map['elMetaName'];
-        }
         if (isset($map['etlMetaKey'])) {
             $model->etlMetaKey = $map['etlMetaKey'];
+        }
+        if (isset($map['etlMetaName'])) {
+            $model->etlMetaName = $map['etlMetaName'];
         }
         if (isset($map['etlMetaTag'])) {
             $model->etlMetaTag = $map['etlMetaTag'];

@@ -54,6 +54,11 @@ class Logstore extends Model
     public $maxSplitShard;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $shardCount;
@@ -77,6 +82,7 @@ class Logstore extends Model
         'lastModifyTime' => 'lastModifyTime',
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
+        'mode'           => 'mode',
         'shardCount'     => 'shardCount',
         'telemetryType'  => 'telemetryType',
         'ttl'            => 'ttl',
@@ -115,6 +121,9 @@ class Logstore extends Model
         }
         if (null !== $this->maxSplitShard) {
             $res['maxSplitShard'] = $this->maxSplitShard;
+        }
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
@@ -163,6 +172,9 @@ class Logstore extends Model
         }
         if (isset($map['maxSplitShard'])) {
             $model->maxSplitShard = $map['maxSplitShard'];
+        }
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];

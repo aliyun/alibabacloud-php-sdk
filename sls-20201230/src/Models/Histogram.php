@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetHistogramsRequest extends Model
+class Histogram extends Model
 {
+    /**
+     * @var int
+     */
+    public $count;
+
     /**
      * @var int
      */
@@ -16,22 +21,17 @@ class GetHistogramsRequest extends Model
     /**
      * @var string
      */
-    public $query;
+    public $progress;
 
     /**
      * @var int
      */
     public $to;
-
-    /**
-     * @var string
-     */
-    public $topic;
     protected $_name = [
-        'from'  => 'from',
-        'query' => 'query',
-        'to'    => 'to',
-        'topic' => 'topic',
+        'count'    => 'count',
+        'from'     => 'from',
+        'progress' => 'progress',
+        'to'       => 'to',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetHistogramsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
+        }
         if (null !== $this->from) {
             $res['from'] = $this->from;
         }
-        if (null !== $this->query) {
-            $res['query'] = $this->query;
+        if (null !== $this->progress) {
+            $res['progress'] = $this->progress;
         }
         if (null !== $this->to) {
             $res['to'] = $this->to;
-        }
-        if (null !== $this->topic) {
-            $res['topic'] = $this->topic;
         }
 
         return $res;
@@ -60,22 +60,22 @@ class GetHistogramsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetHistogramsRequest
+     * @return Histogram
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
+        }
         if (isset($map['from'])) {
             $model->from = $map['from'];
         }
-        if (isset($map['query'])) {
-            $model->query = $map['query'];
+        if (isset($map['progress'])) {
+            $model->progress = $map['progress'];
         }
         if (isset($map['to'])) {
             $model->to = $map['to'];
-        }
-        if (isset($map['topic'])) {
-            $model->topic = $map['topic'];
         }
 
         return $model;

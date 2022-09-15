@@ -44,6 +44,11 @@ class UpdateLogStoreRequest extends Model
     public $maxSplitShard;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $shardCount;
@@ -65,6 +70,7 @@ class UpdateLogStoreRequest extends Model
         'hotTtl'         => 'hot_ttl',
         'logstoreName'   => 'logstoreName',
         'maxSplitShard'  => 'maxSplitShard',
+        'mode'           => 'mode',
         'shardCount'     => 'shardCount',
         'telemetryType'  => 'telemetryType',
         'ttl'            => 'ttl',
@@ -97,6 +103,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (null !== $this->maxSplitShard) {
             $res['maxSplitShard'] = $this->maxSplitShard;
+        }
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
@@ -139,6 +148,9 @@ class UpdateLogStoreRequest extends Model
         }
         if (isset($map['maxSplitShard'])) {
             $model->maxSplitShard = $map['maxSplitShard'];
+        }
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];

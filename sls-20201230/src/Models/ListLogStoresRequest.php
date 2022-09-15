@@ -14,6 +14,11 @@ class ListLogStoresRequest extends Model
     public $logstoreName;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $offset;
@@ -29,6 +34,7 @@ class ListLogStoresRequest extends Model
     public $telemetryType;
     protected $_name = [
         'logstoreName'  => 'logstoreName',
+        'mode'          => 'mode',
         'offset'        => 'offset',
         'size'          => 'size',
         'telemetryType' => 'telemetryType',
@@ -43,6 +49,9 @@ class ListLogStoresRequest extends Model
         $res = [];
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
+        }
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
         }
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
@@ -67,6 +76,9 @@ class ListLogStoresRequest extends Model
         $model = new self();
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];
+        }
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
         }
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];

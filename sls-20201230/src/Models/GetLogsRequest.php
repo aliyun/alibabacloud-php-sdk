@@ -47,11 +47,6 @@ class GetLogsRequest extends Model
      * @var string
      */
     public $topic;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'from'     => 'from',
         'line'     => 'line',
@@ -61,7 +56,6 @@ class GetLogsRequest extends Model
         'reverse'  => 'reverse',
         'to'       => 'to',
         'topic'    => 'topic',
-        'type'     => 'type',
     ];
 
     public function validate()
@@ -94,9 +88,6 @@ class GetLogsRequest extends Model
         }
         if (null !== $this->topic) {
             $res['topic'] = $this->topic;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
 
         return $res;
@@ -133,9 +124,6 @@ class GetLogsRequest extends Model
         }
         if (isset($map['topic'])) {
             $model->topic = $map['topic'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
 
         return $model;

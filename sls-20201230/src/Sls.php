@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
@@ -40,6 +42,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
@@ -60,6 +63,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
@@ -81,6 +85,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaNameRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaNameResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaRequest;
@@ -115,6 +121,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateCheckPointRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlJobRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlJobResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlMetaRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
@@ -184,8 +192,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
-        $configName         = OpenApiUtilClient::getEncodeParam($configName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -401,7 +407,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $body               = [];
         if (!Utils::isUnset($request->consumerGroup)) {
             $body['consumerGroup'] = $request->consumerGroup;
@@ -481,6 +486,75 @@ class Sls extends OpenApiClient
         ]);
 
         return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateEtlJobRequest $request
+     *
+     * @return CreateEtlJobResponse
+     */
+    public function createEtlJob($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEtlJobWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateEtlJobRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateEtlJobResponse
+     */
+    public function createEtlJobWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->etlJobName)) {
+            $body['etlJobName'] = $request->etlJobName;
+        }
+        if (!Utils::isUnset($request->functionConfig)) {
+            $body['functionConfig'] = $request->functionConfig;
+        }
+        if (!Utils::isUnset($request->functionParameter)) {
+            $body['functionParameter'] = $request->functionParameter;
+        }
+        if (!Utils::isUnset($request->logConfig)) {
+            $body['logConfig'] = $request->logConfig;
+        }
+        if (!Utils::isUnset($request->sourceConfig)) {
+            $body['sourceConfig'] = $request->sourceConfig;
+        }
+        if (!Utils::isUnset($request->triggerConfig)) {
+            $body['triggerConfig'] = $request->triggerConfig;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etljobs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -575,7 +649,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $body               = [];
         if (!Utils::isUnset($request->keys)) {
             $body['keys'] = $request->keys;
@@ -666,6 +739,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxSplitShard)) {
             $body['maxSplitShard'] = $request->maxSplitShard;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $body['mode'] = $request->mode;
         }
         if (!Utils::isUnset($request->shardCount)) {
             $body['shardCount'] = $request->shardCount;
@@ -842,7 +918,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $body               = [];
         if (!Utils::isUnset($request->shipperName)) {
             $body['shipperName'] = $request->shipperName;
@@ -959,7 +1034,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $body               = [];
         if (!Utils::isUnset($request->shipperName)) {
             $body['shipperName'] = $request->shipperName;
@@ -1187,8 +1261,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $consumerGroup      = OpenApiUtilClient::getEncodeParam($consumerGroup);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1234,7 +1306,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $domainName         = OpenApiUtilClient::getEncodeParam($domainName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1252,6 +1323,51 @@ class Sls extends OpenApiClient
         ]);
 
         return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlJobName
+     *
+     * @return DeleteEtlJobResponse
+     */
+    public function deleteEtlJob($project, $etlJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEtlJobWithOptions($project, $etlJobName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlJobName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteEtlJobResponse
+     */
+    public function deleteEtlJobWithOptions($project, $etlJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etljobs/' . $etlJobName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1337,7 +1453,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1383,7 +1498,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1429,7 +1543,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1518,7 +1631,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1607,7 +1719,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $savedsearchName    = OpenApiUtilClient::getEncodeParam($savedsearchName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1655,8 +1766,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1702,7 +1811,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1748,7 +1856,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $configName         = OpenApiUtilClient::getEncodeParam($configName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -1799,8 +1906,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $consumerGroup      = OpenApiUtilClient::getEncodeParam($consumerGroup);
         $query              = [];
         if (!Utils::isUnset($request->shard)) {
             $query['shard'] = $request->shard;
@@ -1854,7 +1959,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $query              = [];
         if (!Utils::isUnset($request->backLines)) {
             $query['back_lines'] = $request->backLines;
@@ -1922,8 +2026,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shardId            = OpenApiUtilClient::getEncodeParam($shardId);
         $query              = [];
         if (!Utils::isUnset($request->from)) {
             $query['from'] = $request->from;
@@ -1982,8 +2084,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shardId            = OpenApiUtilClient::getEncodeParam($shardId);
         $query              = [];
         if (!Utils::isUnset($request->cursor)) {
             $query['cursor'] = $request->cursor;
@@ -2009,6 +2109,51 @@ class Sls extends OpenApiClient
         ]);
 
         return GetCursorTimeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $etlJobName
+     *
+     * @return GetEtlJobResponse
+     */
+    public function getEtlJob($project, $etlJobName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEtlJobWithOptions($project, $etlJobName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $etlJobName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetEtlJobResponse
+     */
+    public function getEtlJobWithOptions($project, $etlJobName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etljobs/' . $etlJobName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2039,11 +2184,11 @@ class Sls extends OpenApiClient
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
-        if (!Utils::isUnset($request->elMetaName)) {
-            $query['elMetaName'] = $request->elMetaName;
-        }
         if (!Utils::isUnset($request->etlMetaKey)) {
             $query['etlMetaKey'] = $request->etlMetaKey;
+        }
+        if (!Utils::isUnset($request->etlMetaName)) {
+            $query['etlMetaName'] = $request->etlMetaName;
         }
         if (!Utils::isUnset($request->etlMetaTag)) {
             $query['etlMetaTag'] = $request->etlMetaTag;
@@ -2094,7 +2239,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2143,7 +2287,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $query              = [];
         if (!Utils::isUnset($request->from)) {
             $query['from'] = $request->from;
@@ -2157,9 +2300,6 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->topic)) {
             $query['topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2169,7 +2309,7 @@ class Sls extends OpenApiClient
             'action'      => 'GetHistograms',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index',
+            'pathname'    => '/logstores/' . $logstore . '/index?type=histogram',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2206,7 +2346,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2252,7 +2391,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2344,7 +2482,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $query              = [];
         if (!Utils::isUnset($request->from)) {
             $query['from'] = $request->from;
@@ -2370,9 +2507,6 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->topic)) {
             $query['topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2382,7 +2516,7 @@ class Sls extends OpenApiClient
             'action'      => 'GetLogs',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/index',
+            'pathname'    => '/logstores/' . $logstore . '?type=log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2419,7 +2553,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2562,7 +2695,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $savedsearchName    = OpenApiUtilClient::getEncodeParam($savedsearchName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2610,8 +2742,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2662,8 +2792,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
         $query              = [];
         if (!Utils::isUnset($request->from)) {
             $query['from'] = $request->from;
@@ -2726,7 +2854,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2801,6 +2928,60 @@ class Sls extends OpenApiClient
         ]);
 
         return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string            $project
+     * @param ListEtlJobRequest $request
+     *
+     * @return ListEtlJobResponse
+     */
+    public function listEtlJob($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEtlJobWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string            $project
+     * @param ListEtlJobRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListEtlJobResponse
+     */
+    public function listEtlJobWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etljobs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3008,6 +3189,9 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->logstoreName)) {
             $query['logstoreName'] = $request->logstoreName;
         }
+        if (!Utils::isUnset($request->mode)) {
+            $query['mode'] = $request->mode;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }
@@ -3123,7 +3307,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
         $query              = [];
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
@@ -3283,7 +3466,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -3329,7 +3511,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -3440,8 +3621,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shardID            = OpenApiUtilClient::getEncodeParam($shardID);
         $query              = [];
         if (!Utils::isUnset($request->action)) {
             $query['action'] = $request->action;
@@ -3494,8 +3673,6 @@ class Sls extends OpenApiClient
     {
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $machineGroup       = OpenApiUtilClient::getEncodeParam($machineGroup);
-        $configName         = OpenApiUtilClient::getEncodeParam($configName);
         $req                = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -3546,8 +3723,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shardID            = OpenApiUtilClient::getEncodeParam($shardID);
         $query              = [];
         if (!Utils::isUnset($request->action)) {
             $query['action'] = $request->action;
@@ -3716,8 +3891,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $consumerGroup      = OpenApiUtilClient::getEncodeParam($consumerGroup);
         $query              = [];
         if (!Utils::isUnset($request->consumer)) {
             $query['consumer'] = $request->consumer;
@@ -3787,8 +3960,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $consumerGroup      = OpenApiUtilClient::getEncodeParam($consumerGroup);
         $body               = [];
         if (!Utils::isUnset($request->order)) {
             $body['order'] = $request->order;
@@ -3814,6 +3985,77 @@ class Sls extends OpenApiClient
         ]);
 
         return UpdateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $etlJobName
+     * @param UpdateEtlJobRequest $request
+     *
+     * @return UpdateEtlJobResponse
+     */
+    public function updateEtlJob($project, $etlJobName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEtlJobWithOptions($project, $etlJobName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $etlJobName
+     * @param UpdateEtlJobRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateEtlJobResponse
+     */
+    public function updateEtlJobWithOptions($project, $etlJobName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->etlJobName)) {
+            $body['etlJobName'] = $request->etlJobName;
+        }
+        if (!Utils::isUnset($request->functionConfig)) {
+            $body['functionConfig'] = $request->functionConfig;
+        }
+        if (!Utils::isUnset($request->functionParameter)) {
+            $body['functionParameter'] = $request->functionParameter;
+        }
+        if (!Utils::isUnset($request->logConfig)) {
+            $body['logConfig'] = $request->logConfig;
+        }
+        if (!Utils::isUnset($request->sourceConfig)) {
+            $body['sourceConfig'] = $request->sourceConfig;
+        }
+        if (!Utils::isUnset($request->triggerConfig)) {
+            $body['triggerConfig'] = $request->triggerConfig;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEtlJob',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/etljobs/' . $etlJobName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3908,7 +4150,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $body               = [];
         if (!Utils::isUnset($request->keys)) {
             $body['keys'] = $request->keys;
@@ -3980,7 +4221,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
         $body               = [];
         if (!Utils::isUnset($request->appendMeta)) {
             $body['appendMeta'] = $request->appendMeta;
@@ -4002,6 +4242,9 @@ class Sls extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxSplitShard)) {
             $body['maxSplitShard'] = $request->maxSplitShard;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $body['mode'] = $request->mode;
         }
         if (!Utils::isUnset($request->shardCount)) {
             $body['shardCount'] = $request->shardCount;
@@ -4115,7 +4358,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $groupName          = OpenApiUtilClient::getEncodeParam($groupName);
         $body               = [];
         if (!Utils::isUnset($request->groupAttribute)) {
             $body['groupAttribute'] = $request->groupAttribute;
@@ -4183,8 +4425,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
         $body               = [];
         if (!Utils::isUnset($request->shipperName)) {
             $body['shipperName'] = $request->shipperName;
@@ -4244,7 +4484,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
         $body               = [];
         if (!Utils::isUnset($request->externalStoreName)) {
             $body['externalStoreName'] = $request->externalStoreName;
@@ -4306,8 +4545,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $logstore           = OpenApiUtilClient::getEncodeParam($logstore);
-        $shipperName        = OpenApiUtilClient::getEncodeParam($shipperName);
         $body               = [];
         if (!Utils::isUnset($request->shipperName)) {
             $body['shipperName'] = $request->shipperName;
@@ -4418,7 +4655,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $externalStoreName  = OpenApiUtilClient::getEncodeParam($externalStoreName);
         $body               = [];
         if (!Utils::isUnset($request->externalStoreName)) {
             $body['externalStoreName'] = $request->externalStoreName;
@@ -4478,7 +4714,6 @@ class Sls extends OpenApiClient
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
-        $savedsearchName    = OpenApiUtilClient::getEncodeParam($savedsearchName);
         $body               = [];
         if (!Utils::isUnset($request->displayName)) {
             $body['displayName'] = $request->displayName;
