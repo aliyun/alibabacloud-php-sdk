@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListUserCertificateOrderResponse extends Model
+class ListCertWarehouseResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListUserCertificateOrderResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListUserCertificateOrderResponseBody
+     * @var ListCertWarehouseResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListUserCertificateOrderResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListUserCertificateOrderResponse
+     * @return ListCertWarehouseResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListUserCertificateOrderResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListUserCertificateOrderResponseBody::fromMap($map['body']);
+            $model->body = ListCertWarehouseResponseBody::fromMap($map['body']);
         }
 
         return $model;

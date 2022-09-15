@@ -18,14 +18,26 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -426,6 +438,49 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param DeletePCACertRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeletePCACertResponse
+     */
+    public function deletePCACertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePCACert',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePCACertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePCACertRequest $request
+     *
+     * @return DeletePCACertResponse
+     */
+    public function deletePCACert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePCACertWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCertificateStateRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -509,6 +564,116 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePackageStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCertRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListCertResponse
+     */
+    public function listCertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->warehouseId)) {
+            $query['WarehouseId'] = $request->warehouseId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCert',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCertRequest $request
+     *
+     * @return ListCertResponse
+     */
+    public function listCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCertWarehouseRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCertWarehouseResponse
+     */
+    public function listCertWarehouseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCertWarehouse',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCertWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCertWarehouseRequest $request
+     *
+     * @return ListCertWarehouseResponse
+     */
+    public function listCertWarehouse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCertWarehouseWithOptions($request, $runtime);
     }
 
     /**
@@ -610,5 +775,164 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewCertificateOrderForPackageRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SignRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return SignResponse
+     */
+    public function signWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->signingAlgorithm)) {
+            $query['SigningAlgorithm'] = $request->signingAlgorithm;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Sign',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SignRequest $request
+     *
+     * @return SignResponse
+     */
+    public function sign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->signWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadPCACertRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UploadPCACertResponse
+     */
+    public function uploadPCACertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cert)) {
+            $query['Cert'] = $request->cert;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->privateKey)) {
+            $query['PrivateKey'] = $request->privateKey;
+        }
+        if (!Utils::isUnset($request->warehouseId)) {
+            $query['WarehouseId'] = $request->warehouseId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadPCACert',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadPCACertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadPCACertRequest $request
+     *
+     * @return UploadPCACertResponse
+     */
+    public function uploadPCACert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadPCACertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return VerifyResponse
+     */
+    public function verifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->signatureValue)) {
+            $query['SignatureValue'] = $request->signatureValue;
+        }
+        if (!Utils::isUnset($request->signingAlgorithm)) {
+            $query['SigningAlgorithm'] = $request->signingAlgorithm;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Verify',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyRequest $request
+     *
+     * @return VerifyResponse
+     */
+    public function verify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyWithOptions($request, $runtime);
     }
 }
