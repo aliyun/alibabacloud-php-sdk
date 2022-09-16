@@ -2063,6 +2063,9 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->SSLPub)) {
             $query['SSLPub'] = $request->SSLPub;
         }
+        if (!Utils::isUnset($request->SSLStatus)) {
+            $query['SSLStatus'] = $request->SSLStatus;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

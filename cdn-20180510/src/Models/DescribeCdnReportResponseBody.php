@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnReportResponseBody extends Model
 {
     /**
-     * @var string
+     * @var mixed[]
      */
     public $content;
 
