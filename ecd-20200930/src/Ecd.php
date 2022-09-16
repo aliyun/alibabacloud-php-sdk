@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ActivateOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ActivateOfficeSiteResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddUserToDesktopGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinatePrivilegeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinatePrivilegeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinationForMonitoringRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApplyCoordinationForMonitoringResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ApproveFotaUpdateRequest;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorDirectoryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorDirectoryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorOfficeSiteRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateADConnectorOfficeSiteResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateAndBindNasFileSystemRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateAndBindNasFileSystemResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBundleRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateBundleResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopGroupRequest;
@@ -94,6 +98,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCustomizedListHeadersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesRequest;
@@ -212,6 +218,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyBundleResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDrivePermissionRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCloudDrivePermissionResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCustomizedListHeadersRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCustomizedListHeadersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopChargeTypeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopGroupRequest;
@@ -270,6 +278,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetNASDefaultMountTargetRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetNASDefaultMountTargetResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ResetSnapshotResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RevokeCoordinatePrivilegeRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RevokeCoordinatePrivilegeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RollbackSuspEventQuaraFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RollbackSuspEventQuaraFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RunCommandRequest;
@@ -442,6 +452,61 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUserToDesktopGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ApplyCoordinatePrivilegeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ApplyCoordinatePrivilegeResponse
+     */
+    public function applyCoordinatePrivilegeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->coId)) {
+            $query['CoId'] = $request->coId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyCoordinatePrivilege',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyCoordinatePrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApplyCoordinatePrivilegeRequest $request
+     *
+     * @return ApplyCoordinatePrivilegeResponse
+     */
+    public function applyCoordinatePrivilege($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyCoordinatePrivilegeWithOptions($request, $runtime);
     }
 
     /**
@@ -1141,6 +1206,70 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param CreateAndBindNasFileSystemRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAndBindNasFileSystemResponse
+     */
+    public function createAndBindNasFileSystemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->desktopGroupId)) {
+            $query['DesktopGroupId'] = $request->desktopGroupId;
+        }
+        if (!Utils::isUnset($request->encryptType)) {
+            $query['EncryptType'] = $request->encryptType;
+        }
+        if (!Utils::isUnset($request->endUserIds)) {
+            $query['EndUserIds'] = $request->endUserIds;
+        }
+        if (!Utils::isUnset($request->fileSystemName)) {
+            $query['FileSystemName'] = $request->fileSystemName;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAndBindNasFileSystem',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAndBindNasFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAndBindNasFileSystemRequest $request
+     *
+     * @return CreateAndBindNasFileSystemResponse
+     */
+    public function createAndBindNasFileSystem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAndBindNasFileSystemWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBundleRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1265,6 +1394,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->endUserIds)) {
             $query['EndUserIds'] = $request->endUserIds;
         }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
         if (!Utils::isUnset($request->idleDisconnectDuration)) {
             $query['IdleDisconnectDuration'] = $request->idleDisconnectDuration;
         }
@@ -1294,6 +1426,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->policyGroupId)) {
             $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->profileFollowSwitch)) {
+            $query['ProfileFollowSwitch'] = $request->profileFollowSwitch;
         }
         if (!Utils::isUnset($request->ratioThreshold)) {
             $query['RatioThreshold'] = $request->ratioThreshold;
@@ -1853,6 +1988,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remoteCoordinate)) {
+            $query['RemoteCoordinate'] = $request->remoteCoordinate;
         }
         if (!Utils::isUnset($request->usbRedirect)) {
             $query['UsbRedirect'] = $request->usbRedirect;
@@ -2915,6 +3053,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->eventType)) {
             $query['EventType'] = $request->eventType;
         }
+        if (!Utils::isUnset($request->eventTypes)) {
+            $query['EventTypes'] = $request->eventTypes;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -3007,6 +3148,55 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudDrivePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomizedListHeadersRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeCustomizedListHeadersResponse
+     */
+    public function describeCustomizedListHeadersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->langType)) {
+            $query['LangType'] = $request->langType;
+        }
+        if (!Utils::isUnset($request->listType)) {
+            $query['ListType'] = $request->listType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomizedListHeaders',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomizedListHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomizedListHeadersRequest $request
+     *
+     * @return DescribeCustomizedListHeadersResponse
+     */
+    public function describeCustomizedListHeaders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomizedListHeadersWithOptions($request, $runtime);
     }
 
     /**
@@ -4838,6 +5028,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->orgId)) {
+            $query['OrgId'] = $request->orgId;
+        }
         if (!Utils::isUnset($request->queryUserDetail)) {
             $query['QueryUserDetail'] = $request->queryUserDetail;
         }
@@ -5354,6 +5547,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->eventType)) {
             $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->eventTypes)) {
+            $query['EventTypes'] = $request->eventTypes;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -6405,6 +6601,55 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param ModifyCustomizedListHeadersRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyCustomizedListHeadersResponse
+     */
+    public function modifyCustomizedListHeadersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->headers)) {
+            $query['Headers'] = $request->headers;
+        }
+        if (!Utils::isUnset($request->listType)) {
+            $query['ListType'] = $request->listType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCustomizedListHeaders',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCustomizedListHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCustomizedListHeadersRequest $request
+     *
+     * @return ModifyCustomizedListHeadersResponse
+     */
+    public function modifyCustomizedListHeaders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomizedListHeadersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDesktopChargeTypeRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -6502,6 +6747,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->disableSessionConfig)) {
             $query['DisableSessionConfig'] = $request->disableSessionConfig;
         }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
         if (!Utils::isUnset($request->idleDisconnectDuration)) {
             $query['IdleDisconnectDuration'] = $request->idleDisconnectDuration;
         }
@@ -6525,6 +6773,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->policyGroupId)) {
             $query['PolicyGroupId'] = $request->policyGroupId;
+        }
+        if (!Utils::isUnset($request->profileFollowSwitch)) {
+            $query['ProfileFollowSwitch'] = $request->profileFollowSwitch;
         }
         if (!Utils::isUnset($request->ratioThreshold)) {
             $query['RatioThreshold'] = $request->ratioThreshold;
@@ -7442,6 +7693,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->remoteCoordinate)) {
+            $query['RemoteCoordinate'] = $request->remoteCoordinate;
+        }
         if (!Utils::isUnset($request->revokeAccessPolicyRule)) {
             $query['RevokeAccessPolicyRule'] = $request->revokeAccessPolicyRule;
         }
@@ -8072,6 +8326,61 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevokeCoordinatePrivilegeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RevokeCoordinatePrivilegeResponse
+     */
+    public function revokeCoordinatePrivilegeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->coId)) {
+            $query['CoId'] = $request->coId;
+        }
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeCoordinatePrivilege',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeCoordinatePrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevokeCoordinatePrivilegeRequest $request
+     *
+     * @return RevokeCoordinatePrivilegeResponse
+     */
+    public function revokeCoordinatePrivilege($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeCoordinatePrivilegeWithOptions($request, $runtime);
     }
 
     /**

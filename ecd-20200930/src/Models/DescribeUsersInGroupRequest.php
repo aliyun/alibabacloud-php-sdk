@@ -39,6 +39,11 @@ class DescribeUsersInGroupRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $orgId;
+
+    /**
      * @var bool
      */
     public $queryUserDetail;
@@ -54,6 +59,7 @@ class DescribeUsersInGroupRequest extends Model
         'filter'          => 'Filter',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
+        'orgId'           => 'OrgId',
         'queryUserDetail' => 'QueryUserDetail',
         'regionId'        => 'RegionId',
     ];
@@ -82,6 +88,9 @@ class DescribeUsersInGroupRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
         if (null !== $this->queryUserDetail) {
             $res['QueryUserDetail'] = $this->queryUserDetail;
@@ -118,6 +127,9 @@ class DescribeUsersInGroupRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
         if (isset($map['QueryUserDetail'])) {
             $model->queryUserDetail = $map['QueryUserDetail'];

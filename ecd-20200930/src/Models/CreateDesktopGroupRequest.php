@@ -84,6 +84,11 @@ class CreateDesktopGroupRequest extends Model
     public $endUserIds;
 
     /**
+     * @var string
+     */
+    public $fileSystemId;
+
+    /**
      * @var int
      */
     public $idleDisconnectDuration;
@@ -132,6 +137,11 @@ class CreateDesktopGroupRequest extends Model
      * @var string
      */
     public $policyGroupId;
+
+    /**
+     * @var bool
+     */
+    public $profileFollowSwitch;
 
     /**
      * @var float
@@ -188,6 +198,7 @@ class CreateDesktopGroupRequest extends Model
         'desktopGroupName'        => 'DesktopGroupName',
         'directoryId'             => 'DirectoryId',
         'endUserIds'              => 'EndUserIds',
+        'fileSystemId'            => 'FileSystemId',
         'idleDisconnectDuration'  => 'IdleDisconnectDuration',
         'keepDuration'            => 'KeepDuration',
         'loadPolicy'              => 'LoadPolicy',
@@ -198,6 +209,7 @@ class CreateDesktopGroupRequest extends Model
         'period'                  => 'Period',
         'periodUnit'              => 'PeriodUnit',
         'policyGroupId'           => 'PolicyGroupId',
+        'profileFollowSwitch'     => 'ProfileFollowSwitch',
         'ratioThreshold'          => 'RatioThreshold',
         'regionId'                => 'RegionId',
         'resetType'               => 'ResetType',
@@ -260,6 +272,9 @@ class CreateDesktopGroupRequest extends Model
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
         }
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
+        }
         if (null !== $this->idleDisconnectDuration) {
             $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
         }
@@ -289,6 +304,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->profileFollowSwitch) {
+            $res['ProfileFollowSwitch'] = $this->profileFollowSwitch;
         }
         if (null !== $this->ratioThreshold) {
             $res['RatioThreshold'] = $this->ratioThreshold;
@@ -373,6 +391,9 @@ class CreateDesktopGroupRequest extends Model
                 $model->endUserIds = $map['EndUserIds'];
             }
         }
+        if (isset($map['FileSystemId'])) {
+            $model->fileSystemId = $map['FileSystemId'];
+        }
         if (isset($map['IdleDisconnectDuration'])) {
             $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
         }
@@ -402,6 +423,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['ProfileFollowSwitch'])) {
+            $model->profileFollowSwitch = $map['ProfileFollowSwitch'];
         }
         if (isset($map['RatioThreshold'])) {
             $model->ratioThreshold = $map['RatioThreshold'];

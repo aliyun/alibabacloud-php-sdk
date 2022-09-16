@@ -140,6 +140,11 @@ class ModifyPolicyGroupRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $remoteCoordinate;
+
+    /**
      * @var revokeAccessPolicyRule[]
      */
     public $revokeAccessPolicyRule;
@@ -204,6 +209,7 @@ class ModifyPolicyGroupRequest extends Model
         'recordingFps'                => 'RecordingFps',
         'recordingStartTime'          => 'RecordingStartTime',
         'regionId'                    => 'RegionId',
+        'remoteCoordinate'            => 'RemoteCoordinate',
         'revokeAccessPolicyRule'      => 'RevokeAccessPolicyRule',
         'revokeSecurityPolicyRule'    => 'RevokeSecurityPolicyRule',
         'usbRedirect'                 => 'UsbRedirect',
@@ -313,6 +319,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remoteCoordinate) {
+            $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
         if (null !== $this->revokeAccessPolicyRule) {
             $res['RevokeAccessPolicyRule'] = [];
@@ -462,6 +471,9 @@ class ModifyPolicyGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemoteCoordinate'])) {
+            $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
         if (isset($map['RevokeAccessPolicyRule'])) {
             if (!empty($map['RevokeAccessPolicyRule'])) {

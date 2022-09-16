@@ -127,6 +127,16 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $nasFileSystemID;
+
+    /**
+     * @var string
+     */
+    public $nasFileSystemName;
+
+    /**
+     * @var string
+     */
     public $officeSiteId;
 
     /**
@@ -168,6 +178,11 @@ class desktops extends Model
      * @var string
      */
     public $policyGroupName;
+
+    /**
+     * @var bool
+     */
+    public $profileFollowSwitch;
 
     /**
      * @var float
@@ -237,6 +252,8 @@ class desktops extends Model
         'maxDesktopsCount'       => 'MaxDesktopsCount',
         'memory'                 => 'Memory',
         'minDesktopsCount'       => 'MinDesktopsCount',
+        'nasFileSystemID'        => 'NasFileSystemID',
+        'nasFileSystemName'      => 'NasFileSystemName',
         'officeSiteId'           => 'OfficeSiteId',
         'officeSiteName'         => 'OfficeSiteName',
         'officeSiteType'         => 'OfficeSiteType',
@@ -246,6 +263,7 @@ class desktops extends Model
         'payType'                => 'PayType',
         'policyGroupId'          => 'PolicyGroupId',
         'policyGroupName'        => 'PolicyGroupName',
+        'profileFollowSwitch'    => 'ProfileFollowSwitch',
         'ratioThreshold'         => 'RatioThreshold',
         'resType'                => 'ResType',
         'resetType'              => 'ResetType',
@@ -333,6 +351,12 @@ class desktops extends Model
         if (null !== $this->minDesktopsCount) {
             $res['MinDesktopsCount'] = $this->minDesktopsCount;
         }
+        if (null !== $this->nasFileSystemID) {
+            $res['NasFileSystemID'] = $this->nasFileSystemID;
+        }
+        if (null !== $this->nasFileSystemName) {
+            $res['NasFileSystemName'] = $this->nasFileSystemName;
+        }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
@@ -359,6 +383,9 @@ class desktops extends Model
         }
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
+        }
+        if (null !== $this->profileFollowSwitch) {
+            $res['ProfileFollowSwitch'] = $this->profileFollowSwitch;
         }
         if (null !== $this->ratioThreshold) {
             $res['RatioThreshold'] = $this->ratioThreshold;
@@ -474,6 +501,12 @@ class desktops extends Model
         if (isset($map['MinDesktopsCount'])) {
             $model->minDesktopsCount = $map['MinDesktopsCount'];
         }
+        if (isset($map['NasFileSystemID'])) {
+            $model->nasFileSystemID = $map['NasFileSystemID'];
+        }
+        if (isset($map['NasFileSystemName'])) {
+            $model->nasFileSystemName = $map['NasFileSystemName'];
+        }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
@@ -500,6 +533,9 @@ class desktops extends Model
         }
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+        if (isset($map['ProfileFollowSwitch'])) {
+            $model->profileFollowSwitch = $map['ProfileFollowSwitch'];
         }
         if (isset($map['RatioThreshold'])) {
             $model->ratioThreshold = $map['RatioThreshold'];

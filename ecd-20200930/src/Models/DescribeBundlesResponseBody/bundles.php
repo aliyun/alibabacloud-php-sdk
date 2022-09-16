@@ -78,6 +78,11 @@ class bundles extends Model
     /**
      * @var string
      */
+    public $platform;
+
+    /**
+     * @var string
+     */
     public $protocolType;
 
     /**
@@ -113,6 +118,7 @@ class bundles extends Model
         'imageName'               => 'ImageName',
         'language'                => 'Language',
         'osType'                  => 'OsType',
+        'platform'                => 'Platform',
         'protocolType'            => 'ProtocolType',
         'sessionType'             => 'SessionType',
         'stockState'              => 'StockState',
@@ -171,6 +177,9 @@ class bundles extends Model
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
@@ -243,6 +252,9 @@ class bundles extends Model
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];

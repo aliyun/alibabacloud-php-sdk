@@ -34,6 +34,11 @@ class ExportClientEventsRequest extends Model
     public $eventType;
 
     /**
+     * @var string[]
+     */
+    public $eventTypes;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -63,6 +68,7 @@ class ExportClientEventsRequest extends Model
         'endTime'        => 'EndTime',
         'endUserId'      => 'EndUserId',
         'eventType'      => 'EventType',
+        'eventTypes'     => 'EventTypes',
         'maxResults'     => 'MaxResults',
         'officeSiteId'   => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -91,6 +97,9 @@ class ExportClientEventsRequest extends Model
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->eventTypes) {
+            $res['EventTypes'] = $this->eventTypes;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -133,6 +142,11 @@ class ExportClientEventsRequest extends Model
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
+        }
+        if (isset($map['EventTypes'])) {
+            if (!empty($map['EventTypes'])) {
+                $model->eventTypes = $map['EventTypes'];
+            }
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

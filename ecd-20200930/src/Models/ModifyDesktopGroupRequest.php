@@ -54,6 +54,11 @@ class ModifyDesktopGroupRequest extends Model
     public $disableSessionConfig;
 
     /**
+     * @var string
+     */
+    public $fileSystemId;
+
+    /**
      * @var int
      */
     public $idleDisconnectDuration;
@@ -94,6 +99,11 @@ class ModifyDesktopGroupRequest extends Model
     public $policyGroupId;
 
     /**
+     * @var bool
+     */
+    public $profileFollowSwitch;
+
+    /**
      * @var float
      */
     public $ratioThreshold;
@@ -127,6 +137,7 @@ class ModifyDesktopGroupRequest extends Model
         'desktopGroupId'         => 'DesktopGroupId',
         'desktopGroupName'       => 'DesktopGroupName',
         'disableSessionConfig'   => 'DisableSessionConfig',
+        'fileSystemId'           => 'FileSystemId',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
         'imageId'                => 'ImageId',
         'keepDuration'           => 'KeepDuration',
@@ -135,6 +146,7 @@ class ModifyDesktopGroupRequest extends Model
         'minDesktopsCount'       => 'MinDesktopsCount',
         'ownBundleId'            => 'OwnBundleId',
         'policyGroupId'          => 'PolicyGroupId',
+        'profileFollowSwitch'    => 'ProfileFollowSwitch',
         'ratioThreshold'         => 'RatioThreshold',
         'regionId'               => 'RegionId',
         'resetType'              => 'ResetType',
@@ -176,6 +188,9 @@ class ModifyDesktopGroupRequest extends Model
         if (null !== $this->disableSessionConfig) {
             $res['DisableSessionConfig'] = $this->disableSessionConfig;
         }
+        if (null !== $this->fileSystemId) {
+            $res['FileSystemId'] = $this->fileSystemId;
+        }
         if (null !== $this->idleDisconnectDuration) {
             $res['IdleDisconnectDuration'] = $this->idleDisconnectDuration;
         }
@@ -199,6 +214,9 @@ class ModifyDesktopGroupRequest extends Model
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->profileFollowSwitch) {
+            $res['ProfileFollowSwitch'] = $this->profileFollowSwitch;
         }
         if (null !== $this->ratioThreshold) {
             $res['RatioThreshold'] = $this->ratioThreshold;
@@ -254,6 +272,9 @@ class ModifyDesktopGroupRequest extends Model
         if (isset($map['DisableSessionConfig'])) {
             $model->disableSessionConfig = $map['DisableSessionConfig'];
         }
+        if (isset($map['FileSystemId'])) {
+            $model->fileSystemId = $map['FileSystemId'];
+        }
         if (isset($map['IdleDisconnectDuration'])) {
             $model->idleDisconnectDuration = $map['IdleDisconnectDuration'];
         }
@@ -277,6 +298,9 @@ class ModifyDesktopGroupRequest extends Model
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['ProfileFollowSwitch'])) {
+            $model->profileFollowSwitch = $map['ProfileFollowSwitch'];
         }
         if (isset($map['RatioThreshold'])) {
             $model->ratioThreshold = $map['RatioThreshold'];

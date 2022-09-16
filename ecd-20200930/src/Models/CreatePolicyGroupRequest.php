@@ -135,6 +135,11 @@ class CreatePolicyGroupRequest extends Model
     /**
      * @var string
      */
+    public $remoteCoordinate;
+
+    /**
+     * @var string
+     */
     public $usbRedirect;
 
     /**
@@ -186,6 +191,7 @@ class CreatePolicyGroupRequest extends Model
         'recordingFps'                => 'RecordingFps',
         'recordingStartTime'          => 'RecordingStartTime',
         'regionId'                    => 'RegionId',
+        'remoteCoordinate'            => 'RemoteCoordinate',
         'usbRedirect'                 => 'UsbRedirect',
         'usbSupplyRedirectRule'       => 'UsbSupplyRedirectRule',
         'visualQuality'               => 'VisualQuality',
@@ -290,6 +296,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remoteCoordinate) {
+            $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
         if (null !== $this->usbRedirect) {
             $res['UsbRedirect'] = $this->usbRedirect;
@@ -418,6 +427,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemoteCoordinate'])) {
+            $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
         if (isset($map['UsbRedirect'])) {
             $model->usbRedirect = $map['UsbRedirect'];
