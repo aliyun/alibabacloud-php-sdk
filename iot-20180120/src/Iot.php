@@ -115,6 +115,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ConfirmOTATaskResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CopyThingModelResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CountSpeechBroadcastHourRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CountSpeechBroadcastHourResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateConsumerGroupSubscribeRelationRequest;
@@ -437,6 +439,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\PackageSoundCodeLabelBatchAudioRequest
 use AlibabaCloud\SDK\Iot\V20180120\Models\PackageSoundCodeLabelBatchAudioResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PageQuerySharedSpeechOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PageQuerySharedSpeechOpenResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PageQuerySpeechBroadcastHourRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\PageQuerySpeechBroadcastHourResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PrintByTemplateRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PrintByTemplateResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PubBroadcastRequest;
@@ -3595,6 +3599,57 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->copyThingModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CountSpeechBroadcastHourRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CountSpeechBroadcastHourResponse
+     */
+    public function countSpeechBroadcastHourWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryDateTimeHour)) {
+            $query['QueryDateTimeHour'] = $request->queryDateTimeHour;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->shareTaskCode)) {
+            $body['ShareTaskCode'] = $request->shareTaskCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CountSpeechBroadcastHour',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CountSpeechBroadcastHourResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CountSpeechBroadcastHourRequest $request
+     *
+     * @return CountSpeechBroadcastHourResponse
+     */
+    public function countSpeechBroadcastHour($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->countSpeechBroadcastHourWithOptions($request, $runtime);
     }
 
     /**
@@ -11995,6 +12050,63 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pageQuerySharedSpeechOpenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PageQuerySpeechBroadcastHourRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return PageQuerySpeechBroadcastHourResponse
+     */
+    public function pageQuerySpeechBroadcastHourWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryDateTimeHour)) {
+            $query['QueryDateTimeHour'] = $request->queryDateTimeHour;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $body['PageToken'] = $request->pageToken;
+        }
+        if (!Utils::isUnset($request->shareTaskCode)) {
+            $body['ShareTaskCode'] = $request->shareTaskCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PageQuerySpeechBroadcastHour',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PageQuerySpeechBroadcastHourResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PageQuerySpeechBroadcastHourRequest $request
+     *
+     * @return PageQuerySpeechBroadcastHourResponse
+     */
+    public function pageQuerySpeechBroadcastHour($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pageQuerySpeechBroadcastHourWithOptions($request, $runtime);
     }
 
     /**

@@ -31,6 +31,11 @@ class destination extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -42,6 +47,7 @@ class destination extends Model
         'destinationId' => 'DestinationId',
         'isFailover'    => 'IsFailover',
         'name'          => 'Name',
+        'status'        => 'Status',
         'type'          => 'Type',
         'utcCreated'    => 'UtcCreated',
     ];
@@ -64,6 +70,9 @@ class destination extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -94,6 +103,9 @@ class destination extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

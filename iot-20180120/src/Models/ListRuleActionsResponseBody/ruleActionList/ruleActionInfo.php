@@ -31,12 +31,18 @@ class ruleActionInfo extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'configuration'   => 'Configuration',
         'errorActionFlag' => 'ErrorActionFlag',
         'id'              => 'Id',
         'ruleId'          => 'RuleId',
+        'status'          => 'Status',
         'type'            => 'Type',
     ];
 
@@ -58,6 +64,9 @@ class ruleActionInfo extends Model
         }
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -85,6 +94,9 @@ class ruleActionInfo extends Model
         }
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
