@@ -17,9 +17,15 @@ class DescribeDcdnDomainByCertificateRequest extends Model
      * @var string
      */
     public $SSLPub;
+
+    /**
+     * @var bool
+     */
+    public $SSLStatus;
     protected $_name = [
-        'ownerId' => 'OwnerId',
-        'SSLPub'  => 'SSLPub',
+        'ownerId'   => 'OwnerId',
+        'SSLPub'    => 'SSLPub',
+        'SSLStatus' => 'SSLStatus',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeDcdnDomainByCertificateRequest extends Model
         }
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
+        }
+        if (null !== $this->SSLStatus) {
+            $res['SSLStatus'] = $this->SSLStatus;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeDcdnDomainByCertificateRequest extends Model
         }
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
+        }
+        if (isset($map['SSLStatus'])) {
+            $model->SSLStatus = $map['SSLStatus'];
         }
 
         return $model;
