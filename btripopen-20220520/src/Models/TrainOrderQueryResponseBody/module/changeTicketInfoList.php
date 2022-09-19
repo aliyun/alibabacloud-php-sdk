@@ -41,6 +41,11 @@ class changeTicketInfoList extends Model
     /**
      * @var string
      */
+    public $changeTrainNo;
+
+    /**
+     * @var string
+     */
     public $changeTrainTypeName;
 
     /**
@@ -57,6 +62,11 @@ class changeTicketInfoList extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $fromStationName;
 
     /**
      * @var string
@@ -87,6 +97,11 @@ class changeTicketInfoList extends Model
      * @var string
      */
     public $ticketNo;
+
+    /**
+     * @var string
+     */
+    public $toStationName;
     protected $_name = [
         'changeCoachNo'       => 'change_coach_no',
         'changeGapFee'        => 'change_gap_fee',
@@ -94,16 +109,19 @@ class changeTicketInfoList extends Model
         'changeSeatNo'        => 'change_seat_no',
         'changeSeatTypeName'  => 'change_seat_type_name',
         'changeServiceFee'    => 'change_service_fee',
+        'changeTrainNo'       => 'change_train_no',
         'changeTrainTypeName' => 'change_train_type_name',
         'checkInTime'         => 'check_in_time',
         'checkOutTime'        => 'check_out_time',
         'endTime'             => 'end_time',
+        'fromStationName'     => 'from_station_name',
         'gmtCreate'           => 'gmt_create',
         'gmtModify'           => 'gmt_modify',
         'originTicketNo'      => 'origin_ticket_no',
         'outTicketStatus'     => 'out_ticket_status',
         'startTime'           => 'start_time',
         'ticketNo'            => 'ticket_no',
+        'toStationName'       => 'to_station_name',
     ];
 
     public function validate()
@@ -131,6 +149,9 @@ class changeTicketInfoList extends Model
         if (null !== $this->changeServiceFee) {
             $res['change_service_fee'] = $this->changeServiceFee;
         }
+        if (null !== $this->changeTrainNo) {
+            $res['change_train_no'] = $this->changeTrainNo;
+        }
         if (null !== $this->changeTrainTypeName) {
             $res['change_train_type_name'] = $this->changeTrainTypeName;
         }
@@ -142,6 +163,9 @@ class changeTicketInfoList extends Model
         }
         if (null !== $this->endTime) {
             $res['end_time'] = $this->endTime;
+        }
+        if (null !== $this->fromStationName) {
+            $res['from_station_name'] = $this->fromStationName;
         }
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
@@ -160,6 +184,9 @@ class changeTicketInfoList extends Model
         }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
+        }
+        if (null !== $this->toStationName) {
+            $res['to_station_name'] = $this->toStationName;
         }
 
         return $res;
@@ -191,6 +218,9 @@ class changeTicketInfoList extends Model
         if (isset($map['change_service_fee'])) {
             $model->changeServiceFee = $map['change_service_fee'];
         }
+        if (isset($map['change_train_no'])) {
+            $model->changeTrainNo = $map['change_train_no'];
+        }
         if (isset($map['change_train_type_name'])) {
             $model->changeTrainTypeName = $map['change_train_type_name'];
         }
@@ -202,6 +232,9 @@ class changeTicketInfoList extends Model
         }
         if (isset($map['end_time'])) {
             $model->endTime = $map['end_time'];
+        }
+        if (isset($map['from_station_name'])) {
+            $model->fromStationName = $map['from_station_name'];
         }
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
@@ -220,6 +253,9 @@ class changeTicketInfoList extends Model
         }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];
+        }
+        if (isset($map['to_station_name'])) {
+            $model->toStationName = $map['to_station_name'];
         }
 
         return $model;
