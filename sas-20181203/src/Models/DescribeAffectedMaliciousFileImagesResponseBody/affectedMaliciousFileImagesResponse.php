@@ -11,6 +11,21 @@ class affectedMaliciousFileImagesResponse extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
     public $digest;
 
     /**
@@ -32,6 +47,11 @@ class affectedMaliciousFileImagesResponse extends Model
      * @var string
      */
     public $highLight;
+
+    /**
+     * @var string
+     */
+    public $image;
 
     /**
      * @var string
@@ -66,7 +86,17 @@ class affectedMaliciousFileImagesResponse extends Model
     /**
      * @var string
      */
+    public $maliciousSource;
+
+    /**
+     * @var string
+     */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $pod;
 
     /**
      * @var string
@@ -98,18 +128,24 @@ class affectedMaliciousFileImagesResponse extends Model
      */
     public $tag;
     protected $_name = [
+        'clusterId'             => 'ClusterId',
+        'clusterName'           => 'ClusterName',
+        'containerId'           => 'ContainerId',
         'digest'                => 'Digest',
         'downloadUrl'           => 'DownloadUrl',
         'filePath'              => 'FilePath',
         'firstScanTimestamp'    => 'FirstScanTimestamp',
         'highLight'             => 'HighLight',
+        'image'                 => 'Image',
         'imageUuid'             => 'ImageUuid',
         'latestScanTimestamp'   => 'LatestScanTimestamp',
         'latestVerifyTimestamp' => 'LatestVerifyTimestamp',
         'layer'                 => 'Layer',
         'level'                 => 'Level',
         'maliciousMd5'          => 'MaliciousMd5',
+        'maliciousSource'       => 'MaliciousSource',
         'namespace'             => 'Namespace',
+        'pod'                   => 'Pod',
         'repoId'                => 'RepoId',
         'repoInstanceId'        => 'RepoInstanceId',
         'repoName'              => 'RepoName',
@@ -125,6 +161,15 @@ class affectedMaliciousFileImagesResponse extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
         }
@@ -139,6 +184,9 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (null !== $this->highLight) {
             $res['HighLight'] = $this->highLight;
+        }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
         }
         if (null !== $this->imageUuid) {
             $res['ImageUuid'] = $this->imageUuid;
@@ -158,8 +206,14 @@ class affectedMaliciousFileImagesResponse extends Model
         if (null !== $this->maliciousMd5) {
             $res['MaliciousMd5'] = $this->maliciousMd5;
         }
+        if (null !== $this->maliciousSource) {
+            $res['MaliciousSource'] = $this->maliciousSource;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->pod) {
+            $res['Pod'] = $this->pod;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -191,6 +245,15 @@ class affectedMaliciousFileImagesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
@@ -205,6 +268,9 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (isset($map['HighLight'])) {
             $model->highLight = $map['HighLight'];
+        }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
         }
         if (isset($map['ImageUuid'])) {
             $model->imageUuid = $map['ImageUuid'];
@@ -224,8 +290,14 @@ class affectedMaliciousFileImagesResponse extends Model
         if (isset($map['MaliciousMd5'])) {
             $model->maliciousMd5 = $map['MaliciousMd5'];
         }
+        if (isset($map['MaliciousSource'])) {
+            $model->maliciousSource = $map['MaliciousSource'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Pod'])) {
+            $model->pod = $map['Pod'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

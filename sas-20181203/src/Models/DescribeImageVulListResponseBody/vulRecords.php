@@ -25,6 +25,21 @@ class vulRecords extends Model
     public $canUpdate;
 
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
      * @var extendContentJson
      */
     public $extendContentJson;
@@ -33,6 +48,11 @@ class vulRecords extends Model
      * @var int
      */
     public $firstTs;
+
+    /**
+     * @var string
+     */
+    public $image;
 
     /**
      * @var string
@@ -62,7 +82,17 @@ class vulRecords extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
     public $necessity;
+
+    /**
+     * @var string
+     */
+    public $pod;
 
     /**
      * @var int
@@ -107,14 +137,20 @@ class vulRecords extends Model
         'aliasName'         => 'AliasName',
         'canFix'            => 'CanFix',
         'canUpdate'         => 'CanUpdate',
+        'clusterId'         => 'ClusterId',
+        'clusterName'       => 'ClusterName',
+        'containerId'       => 'ContainerId',
         'extendContentJson' => 'ExtendContentJson',
         'firstTs'           => 'FirstTs',
+        'image'             => 'Image',
         'imageDigest'       => 'ImageDigest',
         'lastTs'            => 'LastTs',
         'layers'            => 'Layers',
         'modifyTs'          => 'ModifyTs',
         'name'              => 'Name',
+        'namespace'         => 'Namespace',
         'necessity'         => 'Necessity',
+        'pod'               => 'Pod',
         'primaryId'         => 'PrimaryId',
         'related'           => 'Related',
         'repoName'          => 'RepoName',
@@ -141,11 +177,23 @@ class vulRecords extends Model
         if (null !== $this->canUpdate) {
             $res['CanUpdate'] = $this->canUpdate;
         }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
         if (null !== $this->extendContentJson) {
             $res['ExtendContentJson'] = null !== $this->extendContentJson ? $this->extendContentJson->toMap() : null;
         }
         if (null !== $this->firstTs) {
             $res['FirstTs'] = $this->firstTs;
+        }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
         }
         if (null !== $this->imageDigest) {
             $res['ImageDigest'] = $this->imageDigest;
@@ -162,8 +210,14 @@ class vulRecords extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
         if (null !== $this->necessity) {
             $res['Necessity'] = $this->necessity;
+        }
+        if (null !== $this->pod) {
+            $res['Pod'] = $this->pod;
         }
         if (null !== $this->primaryId) {
             $res['PrimaryId'] = $this->primaryId;
@@ -210,11 +264,23 @@ class vulRecords extends Model
         if (isset($map['CanUpdate'])) {
             $model->canUpdate = $map['CanUpdate'];
         }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
         if (isset($map['ExtendContentJson'])) {
             $model->extendContentJson = extendContentJson::fromMap($map['ExtendContentJson']);
         }
         if (isset($map['FirstTs'])) {
             $model->firstTs = $map['FirstTs'];
+        }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
         }
         if (isset($map['ImageDigest'])) {
             $model->imageDigest = $map['ImageDigest'];
@@ -233,8 +299,14 @@ class vulRecords extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
         if (isset($map['Necessity'])) {
             $model->necessity = $map['Necessity'];
+        }
+        if (isset($map['Pod'])) {
+            $model->pod = $map['Pod'];
         }
         if (isset($map['PrimaryId'])) {
             $model->primaryId = $map['PrimaryId'];

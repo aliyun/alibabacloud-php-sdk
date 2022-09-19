@@ -104,6 +104,11 @@ class DescribeImageGroupedVulListRequest extends Model
     public $repoRegionId;
 
     /**
+     * @var string[]
+     */
+    public $scanRange;
+
+    /**
      * @var string
      */
     public $type;
@@ -132,6 +137,7 @@ class DescribeImageGroupedVulListRequest extends Model
         'repoName'       => 'RepoName',
         'repoNamespace'  => 'RepoNamespace',
         'repoRegionId'   => 'RepoRegionId',
+        'scanRange'      => 'ScanRange',
         'type'           => 'Type',
         'uuids'          => 'Uuids',
     ];
@@ -199,6 +205,9 @@ class DescribeImageGroupedVulListRequest extends Model
         }
         if (null !== $this->repoRegionId) {
             $res['RepoRegionId'] = $this->repoRegionId;
+        }
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -274,6 +283,11 @@ class DescribeImageGroupedVulListRequest extends Model
         }
         if (isset($map['RepoRegionId'])) {
             $model->repoRegionId = $map['RepoRegionId'];
+        }
+        if (isset($map['ScanRange'])) {
+            if (!empty($map['ScanRange'])) {
+                $model->scanRange = $map['ScanRange'];
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

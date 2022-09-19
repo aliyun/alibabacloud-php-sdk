@@ -11,12 +11,37 @@ class imageInfos extends Model
     /**
      * @var string
      */
+    public $baselineType;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
     public $digest;
 
     /**
      * @var int
      */
     public $highRiskImage;
+
+    /**
+     * @var string
+     */
+    public $image;
 
     /**
      * @var int
@@ -54,9 +79,19 @@ class imageInfos extends Model
     public $middleRiskImage;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $noRiskImage;
+
+    /**
+     * @var string
+     */
+    public $pod;
 
     /**
      * @var string
@@ -103,8 +138,13 @@ class imageInfos extends Model
      */
     public $uuid;
     protected $_name = [
+        'baselineType'    => 'BaselineType',
+        'clusterId'       => 'ClusterId',
+        'clusterName'     => 'ClusterName',
+        'containerId'     => 'ContainerId',
         'digest'          => 'Digest',
         'highRiskImage'   => 'HighRiskImage',
+        'image'           => 'Image',
         'imageCreate'     => 'ImageCreate',
         'imageId'         => 'ImageId',
         'imageSize'       => 'ImageSize',
@@ -112,7 +152,9 @@ class imageInfos extends Model
         'instanceId'      => 'InstanceId',
         'lowRiskImage'    => 'LowRiskImage',
         'middleRiskImage' => 'MiddleRiskImage',
+        'namespace'       => 'Namespace',
         'noRiskImage'     => 'NoRiskImage',
+        'pod'             => 'Pod',
         'regionId'        => 'RegionId',
         'repoId'          => 'RepoId',
         'repoName'        => 'RepoName',
@@ -131,11 +173,26 @@ class imageInfos extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baselineType) {
+            $res['BaselineType'] = $this->baselineType;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
         }
         if (null !== $this->highRiskImage) {
             $res['HighRiskImage'] = $this->highRiskImage;
+        }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
         }
         if (null !== $this->imageCreate) {
             $res['ImageCreate'] = $this->imageCreate;
@@ -158,8 +215,14 @@ class imageInfos extends Model
         if (null !== $this->middleRiskImage) {
             $res['MiddleRiskImage'] = $this->middleRiskImage;
         }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
         if (null !== $this->noRiskImage) {
             $res['NoRiskImage'] = $this->noRiskImage;
+        }
+        if (null !== $this->pod) {
+            $res['Pod'] = $this->pod;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -200,11 +263,26 @@ class imageInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaselineType'])) {
+            $model->baselineType = $map['BaselineType'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
         }
         if (isset($map['HighRiskImage'])) {
             $model->highRiskImage = $map['HighRiskImage'];
+        }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
         }
         if (isset($map['ImageCreate'])) {
             $model->imageCreate = $map['ImageCreate'];
@@ -227,8 +305,14 @@ class imageInfos extends Model
         if (isset($map['MiddleRiskImage'])) {
             $model->middleRiskImage = $map['MiddleRiskImage'];
         }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
         if (isset($map['NoRiskImage'])) {
             $model->noRiskImage = $map['NoRiskImage'];
+        }
+        if (isset($map['Pod'])) {
+            $model->pod = $map['Pod'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

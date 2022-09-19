@@ -11,8 +11,14 @@ class DescribeAssetDetailByUuidsRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $uuids;
     protected $_name = [
+        'lang'  => 'Lang',
         'uuids' => 'Uuids',
     ];
 
@@ -23,6 +29,9 @@ class DescribeAssetDetailByUuidsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
@@ -38,6 +47,9 @@ class DescribeAssetDetailByUuidsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }

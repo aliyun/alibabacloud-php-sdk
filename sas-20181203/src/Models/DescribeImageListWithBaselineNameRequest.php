@@ -21,6 +21,16 @@ class DescribeImageListWithBaselineNameRequest extends Model
     /**
      * @var string
      */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
     public $criteria;
 
     /**
@@ -36,6 +46,11 @@ class DescribeImageListWithBaselineNameRequest extends Model
     /**
      * @var string
      */
+    public $image;
+
+    /**
+     * @var string
+     */
     public $imageDigest;
 
     /**
@@ -44,9 +59,19 @@ class DescribeImageListWithBaselineNameRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pod;
 
     /**
      * @var string
@@ -62,18 +87,29 @@ class DescribeImageListWithBaselineNameRequest extends Model
      * @var string
      */
     public $repoNamespace;
+
+    /**
+     * @var string[]
+     */
+    public $scanRange;
     protected $_name = [
         'baselineNameKey' => 'BaselineNameKey',
         'clusterId'       => 'ClusterId',
+        'clusterName'     => 'ClusterName',
+        'containerId'     => 'ContainerId',
         'criteria'        => 'Criteria',
         'criteriaType'    => 'CriteriaType',
         'currentPage'     => 'CurrentPage',
+        'image'           => 'Image',
         'imageDigest'     => 'ImageDigest',
         'lang'            => 'Lang',
+        'namespace'       => 'Namespace',
         'pageSize'        => 'PageSize',
+        'pod'             => 'Pod',
         'repoInstanceId'  => 'RepoInstanceId',
         'repoName'        => 'RepoName',
         'repoNamespace'   => 'RepoNamespace',
+        'scanRange'       => 'ScanRange',
     ];
 
     public function validate()
@@ -89,6 +125,12 @@ class DescribeImageListWithBaselineNameRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
         if (null !== $this->criteria) {
             $res['Criteria'] = $this->criteria;
         }
@@ -98,14 +140,23 @@ class DescribeImageListWithBaselineNameRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
+        }
         if (null !== $this->imageDigest) {
             $res['ImageDigest'] = $this->imageDigest;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->pod) {
+            $res['Pod'] = $this->pod;
         }
         if (null !== $this->repoInstanceId) {
             $res['RepoInstanceId'] = $this->repoInstanceId;
@@ -115,6 +166,9 @@ class DescribeImageListWithBaselineNameRequest extends Model
         }
         if (null !== $this->repoNamespace) {
             $res['RepoNamespace'] = $this->repoNamespace;
+        }
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
 
         return $res;
@@ -134,6 +188,12 @@ class DescribeImageListWithBaselineNameRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
         if (isset($map['Criteria'])) {
             $model->criteria = $map['Criteria'];
         }
@@ -143,14 +203,23 @@ class DescribeImageListWithBaselineNameRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
+        }
         if (isset($map['ImageDigest'])) {
             $model->imageDigest = $map['ImageDigest'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Pod'])) {
+            $model->pod = $map['Pod'];
         }
         if (isset($map['RepoInstanceId'])) {
             $model->repoInstanceId = $map['RepoInstanceId'];
@@ -160,6 +229,11 @@ class DescribeImageListWithBaselineNameRequest extends Model
         }
         if (isset($map['RepoNamespace'])) {
             $model->repoNamespace = $map['RepoNamespace'];
+        }
+        if (isset($map['ScanRange'])) {
+            if (!empty($map['ScanRange'])) {
+                $model->scanRange = $map['ScanRange'];
+            }
         }
 
         return $model;

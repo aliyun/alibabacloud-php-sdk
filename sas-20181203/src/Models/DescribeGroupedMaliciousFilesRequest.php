@@ -77,6 +77,11 @@ class DescribeGroupedMaliciousFilesRequest extends Model
      * @var string
      */
     public $repoRegionId;
+
+    /**
+     * @var string[]
+     */
+    public $scanRange;
     protected $_name = [
         'clusterId'          => 'ClusterId',
         'currentPage'        => 'CurrentPage',
@@ -92,6 +97,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         'repoName'           => 'RepoName',
         'repoNamespace'      => 'RepoNamespace',
         'repoRegionId'       => 'RepoRegionId',
+        'scanRange'          => 'ScanRange',
     ];
 
     public function validate()
@@ -142,6 +148,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         }
         if (null !== $this->repoRegionId) {
             $res['RepoRegionId'] = $this->repoRegionId;
+        }
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
 
         return $res;
@@ -196,6 +205,11 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         }
         if (isset($map['RepoRegionId'])) {
             $model->repoRegionId = $map['RepoRegionId'];
+        }
+        if (isset($map['ScanRange'])) {
+            if (!empty($map['ScanRange'])) {
+                $model->scanRange = $map['ScanRange'];
+            }
         }
 
         return $model;

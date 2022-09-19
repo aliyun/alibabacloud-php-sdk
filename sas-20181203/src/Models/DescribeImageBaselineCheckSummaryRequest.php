@@ -42,6 +42,11 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
      * @var string
      */
     public $riskLevel;
+
+    /**
+     * @var string[]
+     */
+    public $scanRange;
     protected $_name = [
         'clusterId'    => 'ClusterId',
         'criteria'     => 'Criteria',
@@ -50,6 +55,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
         'lang'         => 'Lang',
         'pageSize'     => 'PageSize',
         'riskLevel'    => 'RiskLevel',
+        'scanRange'    => 'ScanRange',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
 
         return $res;
@@ -112,6 +121,11 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['ScanRange'])) {
+            if (!empty($map['ScanRange'])) {
+                $model->scanRange = $map['ScanRange'];
+            }
         }
 
         return $model;

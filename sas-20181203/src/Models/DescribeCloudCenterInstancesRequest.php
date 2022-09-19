@@ -26,6 +26,11 @@ class DescribeCloudCenterInstancesRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $logicalExp;
 
     /**
@@ -51,6 +56,7 @@ class DescribeCloudCenterInstancesRequest extends Model
         'criteria'     => 'Criteria',
         'currentPage'  => 'CurrentPage',
         'importance'   => 'Importance',
+        'lang'         => 'Lang',
         'logicalExp'   => 'LogicalExp',
         'machineTypes' => 'MachineTypes',
         'noGroupTrace' => 'NoGroupTrace',
@@ -73,6 +79,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->logicalExp) {
             $res['LogicalExp'] = $this->logicalExp;
@@ -109,6 +118,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['LogicalExp'])) {
             $model->logicalExp = $map['LogicalExp'];

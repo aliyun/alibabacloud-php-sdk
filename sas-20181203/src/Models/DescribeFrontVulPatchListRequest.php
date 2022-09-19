@@ -16,6 +16,11 @@ class DescribeFrontVulPatchListRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $operateType;
 
     /**
@@ -24,6 +29,7 @@ class DescribeFrontVulPatchListRequest extends Model
     public $type;
     protected $_name = [
         'info'        => 'Info',
+        'lang'        => 'Lang',
         'operateType' => 'OperateType',
         'type'        => 'Type',
     ];
@@ -37,6 +43,9 @@ class DescribeFrontVulPatchListRequest extends Model
         $res = [];
         if (null !== $this->info) {
             $res['Info'] = $this->info;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
@@ -58,6 +67,9 @@ class DescribeFrontVulPatchListRequest extends Model
         $model = new self();
         if (isset($map['Info'])) {
             $model->info = $map['Info'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];

@@ -54,11 +54,6 @@ class honeypotNodeList extends Model
     public $nodeName;
 
     /**
-     * @var string
-     */
-    public $nodeVersion;
-
-    /**
      * @var int
      */
     public $probeTotalCount;
@@ -87,7 +82,6 @@ class honeypotNodeList extends Model
         'nodeId'                      => 'NodeId',
         'nodeIp'                      => 'NodeIp',
         'nodeName'                    => 'NodeName',
-        'nodeVersion'                 => 'NodeVersion',
         'probeTotalCount'             => 'ProbeTotalCount',
         'probeUsedCount'              => 'ProbeUsedCount',
         'securityGroupProbeIpList'    => 'SecurityGroupProbeIpList',
@@ -127,9 +121,6 @@ class honeypotNodeList extends Model
         }
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
-        }
-        if (null !== $this->nodeVersion) {
-            $res['NodeVersion'] = $this->nodeVersion;
         }
         if (null !== $this->probeTotalCount) {
             $res['ProbeTotalCount'] = $this->probeTotalCount;
@@ -181,9 +172,6 @@ class honeypotNodeList extends Model
         }
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
-        }
-        if (isset($map['NodeVersion'])) {
-            $model->nodeVersion = $map['NodeVersion'];
         }
         if (isset($map['ProbeTotalCount'])) {
             $model->probeTotalCount = $map['ProbeTotalCount'];

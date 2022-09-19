@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddInstallCodeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BindAuthToMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\BindAuthToMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckSecurityEventIdRequest;
@@ -271,6 +273,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulFixStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulWhitelistRequest;
@@ -312,6 +315,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallBackupClientResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckResultRequest;
@@ -623,6 +628,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addVpcHoneyPotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BindAuthToMachineRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BindAuthToMachineResponse
+     */
+    public function bindAuthToMachineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authVersion)) {
+            $query['AuthVersion'] = $request->authVersion;
+        }
+        if (!Utils::isUnset($request->autoBind)) {
+            $query['AutoBind'] = $request->autoBind;
+        }
+        if (!Utils::isUnset($request->bind)) {
+            $query['Bind'] = $request->bind;
+        }
+        if (!Utils::isUnset($request->bindAll)) {
+            $query['BindAll'] = $request->bindAll;
+        }
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->logicalExp)) {
+            $query['LogicalExp'] = $request->logicalExp;
+        }
+        if (!Utils::isUnset($request->unBind)) {
+            $query['UnBind'] = $request->unBind;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindAuthToMachine',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindAuthToMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindAuthToMachineRequest $request
+     *
+     * @return BindAuthToMachineResponse
+     */
+    public function bindAuthToMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindAuthToMachineWithOptions($request, $runtime);
     }
 
     /**
@@ -1842,8 +1908,17 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->containerId)) {
+            $query['ContainerId'] = $request->containerId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
         }
         if (!Utils::isUnset($request->imageDigest)) {
             $query['ImageDigest'] = $request->imageDigest;
@@ -1857,11 +1932,20 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->levels)) {
+            $query['Levels'] = $request->levels;
+        }
         if (!Utils::isUnset($request->maliciousMd5)) {
             $query['MaliciousMd5'] = $request->maliciousMd5;
         }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pod)) {
+            $query['Pod'] = $request->pod;
         }
         if (!Utils::isUnset($request->repoId)) {
             $query['RepoId'] = $request->repoId;
@@ -1877,6 +1961,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoRegionId)) {
             $query['RepoRegionId'] = $request->repoRegionId;
+        }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2296,6 +2383,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->uuids)) {
             $query['Uuids'] = $request->uuids;
         }
@@ -2950,6 +3040,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->importance)) {
             $query['Importance'] = $request->importance;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->logicalExp)) {
             $query['LogicalExp'] = $request->logicalExp;
@@ -3810,6 +3903,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->info)) {
             $query['Info'] = $request->info;
         }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->operateType)) {
             $query['OperateType'] = $request->operateType;
         }
@@ -4016,6 +4112,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoRegionId)) {
             $query['RepoRegionId'] = $request->repoRegionId;
+        }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4276,6 +4375,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->riskLevel)) {
             $query['RiskLevel'] = $request->riskLevel;
         }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4428,6 +4530,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->repoRegionId)) {
             $query['RepoRegionId'] = $request->repoRegionId;
         }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -4480,6 +4585,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->containerId)) {
+            $query['ContainerId'] = $request->containerId;
+        }
         if (!Utils::isUnset($request->criteria)) {
             $query['Criteria'] = $request->criteria;
         }
@@ -4489,14 +4600,23 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
+        }
         if (!Utils::isUnset($request->imageDigest)) {
             $query['ImageDigest'] = $request->imageDigest;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pod)) {
+            $query['Pod'] = $request->pod;
         }
         if (!Utils::isUnset($request->repoInstanceId)) {
             $query['RepoInstanceId'] = $request->repoInstanceId;
@@ -4506,6 +4626,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoNamespace)) {
             $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4619,6 +4742,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->containerId)) {
+            $query['ContainerId'] = $request->containerId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -4627,6 +4756,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->digest)) {
             $query['Digest'] = $request->digest;
+        }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -4637,11 +4769,17 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
         if (!Utils::isUnset($request->necessity)) {
             $query['Necessity'] = $request->necessity;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pod)) {
+            $query['Pod'] = $request->pod;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -4666,6 +4804,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoRegionId)) {
             $query['RepoRegionId'] = $request->repoRegionId;
+        }
+        if (!Utils::isUnset($request->scanRange)) {
+            $query['ScanRange'] = $request->scanRange;
         }
         if (!Utils::isUnset($request->statusList)) {
             $query['StatusList'] = $request->statusList;
@@ -4801,6 +4942,12 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -7897,6 +8044,39 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeVulFixStatisticsResponse
+     */
+    public function describeVulFixStatisticsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeVulFixStatistics',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVulFixStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeVulFixStatisticsResponse
+     */
+    public function describeVulFixStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulFixStatisticsWithOptions($runtime);
+    }
+
+    /**
      * @param DescribeVulListRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -9069,6 +9249,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installCloudMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAvailableHoneypotRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAvailableHoneypotResponse
+     */
+    public function listAvailableHoneypotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvailableHoneypot',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAvailableHoneypotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAvailableHoneypotRequest $request
+     *
+     * @return ListAvailableHoneypotResponse
+     */
+    public function listAvailableHoneypot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAvailableHoneypotWithOptions($request, $runtime);
     }
 
     /**
@@ -11740,6 +11963,12 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->assetType)) {
             $query['AssetType'] = $request->assetType;
+        }
+        if (!Utils::isUnset($request->cloudAssetSubType)) {
+            $query['CloudAssetSubType'] = $request->cloudAssetSubType;
+        }
+        if (!Utils::isUnset($request->cloudAssetType)) {
+            $query['CloudAssetType'] = $request->cloudAssetType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

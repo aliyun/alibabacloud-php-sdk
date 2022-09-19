@@ -12,8 +12,20 @@ class RefreshAssetsRequest extends Model
      * @var string
      */
     public $assetType;
+
+    /**
+     * @var int
+     */
+    public $cloudAssetSubType;
+
+    /**
+     * @var int
+     */
+    public $cloudAssetType;
     protected $_name = [
-        'assetType' => 'AssetType',
+        'assetType'         => 'AssetType',
+        'cloudAssetSubType' => 'CloudAssetSubType',
+        'cloudAssetType'    => 'CloudAssetType',
     ];
 
     public function validate()
@@ -25,6 +37,12 @@ class RefreshAssetsRequest extends Model
         $res = [];
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->cloudAssetSubType) {
+            $res['CloudAssetSubType'] = $this->cloudAssetSubType;
+        }
+        if (null !== $this->cloudAssetType) {
+            $res['CloudAssetType'] = $this->cloudAssetType;
         }
 
         return $res;
@@ -40,6 +58,12 @@ class RefreshAssetsRequest extends Model
         $model = new self();
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['CloudAssetSubType'])) {
+            $model->cloudAssetSubType = $map['CloudAssetSubType'];
+        }
+        if (isset($map['CloudAssetType'])) {
+            $model->cloudAssetType = $map['CloudAssetType'];
         }
 
         return $model;
