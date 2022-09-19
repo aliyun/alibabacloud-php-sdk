@@ -31,7 +31,12 @@ class CreateDedicatedHostRequest extends Model
     /**
      * @var string
      */
-    public $hostName;
+    public $hostStorage;
+
+    /**
+     * @var string
+     */
+    public $hostStorageType;
 
     /**
      * @var string
@@ -92,7 +97,8 @@ class CreateDedicatedHostRequest extends Model
         'clientToken'          => 'ClientToken',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
         'hostClass'            => 'HostClass',
-        'hostName'             => 'HostName',
+        'hostStorage'          => 'HostStorage',
+        'hostStorageType'      => 'HostStorageType',
         'imageCategory'        => 'ImageCategory',
         'osPassword'           => 'OsPassword',
         'ownerId'              => 'OwnerId',
@@ -125,8 +131,11 @@ class CreateDedicatedHostRequest extends Model
         if (null !== $this->hostClass) {
             $res['HostClass'] = $this->hostClass;
         }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
+        if (null !== $this->hostStorage) {
+            $res['HostStorage'] = $this->hostStorage;
+        }
+        if (null !== $this->hostStorageType) {
+            $res['HostStorageType'] = $this->hostStorageType;
         }
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
@@ -185,8 +194,11 @@ class CreateDedicatedHostRequest extends Model
         if (isset($map['HostClass'])) {
             $model->hostClass = $map['HostClass'];
         }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
+        if (isset($map['HostStorage'])) {
+            $model->hostStorage = $map['HostStorage'];
+        }
+        if (isset($map['HostStorageType'])) {
+            $model->hostStorageType = $map['HostStorageType'];
         }
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];

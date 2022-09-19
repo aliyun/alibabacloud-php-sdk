@@ -12,6 +12,9 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateMyBaseShrinkRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostGroupRequest;
@@ -26,10 +29,18 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostSecurityGroupAttributeRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseHostOverViewRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseHostOverViewResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseInstanceOverViewRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseInstanceOverViewResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostAccountRequest;
@@ -50,10 +61,14 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\ReplaceDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ReplaceDedicatedHostResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\RestartDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\RestartDedicatedHostResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\TagRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -102,24 +117,59 @@ class Cddc extends OpenApiClient
     public function createDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AutoRenew']            = $request->autoRenew;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['HostClass']            = $request->hostClass;
-        $query['HostName']             = $request->hostName;
-        $query['ImageCategory']        = $request->imageCategory;
-        $query['OsPassword']           = $request->osPassword;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PayType']              = $request->payType;
-        $query['Period']               = $request->period;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['UsedTime']             = $request->usedTime;
-        $query['VSwitchId']            = $request->vSwitchId;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->hostClass)) {
+            $query['HostClass'] = $request->hostClass;
+        }
+        if (!Utils::isUnset($request->hostStorage)) {
+            $query['HostStorage'] = $request->hostStorage;
+        }
+        if (!Utils::isUnset($request->hostStorageType)) {
+            $query['HostStorageType'] = $request->hostStorageType;
+        }
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
+        if (!Utils::isUnset($request->osPassword)) {
+            $query['OsPassword'] = $request->osPassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -158,18 +208,38 @@ class Cddc extends OpenApiClient
     public function createDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['AccountType']          = $request->accountType;
-        $query['BastionInstanceId']    = $request->bastionInstanceId;
-        $query['ClientToken']          = $request->clientToken;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->bastionInstanceId)) {
+            $query['BastionInstanceId'] = $request->bastionInstanceId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -208,22 +278,50 @@ class Cddc extends OpenApiClient
     public function createDedicatedHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['AllocationPolicy']       = $request->allocationPolicy;
-        $query['ClientToken']            = $request->clientToken;
-        $query['CpuAllocationRatio']     = $request->cpuAllocationRatio;
-        $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
-        $query['DiskAllocationRatio']    = $request->diskAllocationRatio;
-        $query['Engine']                 = $request->engine;
-        $query['HostReplacePolicy']      = $request->hostReplacePolicy;
-        $query['MemAllocationRatio']     = $request->memAllocationRatio;
-        $query['OpenPermission']         = $request->openPermission;
-        $query['OwnerId']                = $request->ownerId;
-        $query['RegionId']               = $request->regionId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $query['VPCId']                  = $request->VPCId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allocationPolicy)) {
+            $query['AllocationPolicy'] = $request->allocationPolicy;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->cpuAllocationRatio)) {
+            $query['CpuAllocationRatio'] = $request->cpuAllocationRatio;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupDesc)) {
+            $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
+        }
+        if (!Utils::isUnset($request->diskAllocationRatio)) {
+            $query['DiskAllocationRatio'] = $request->diskAllocationRatio;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->hostReplacePolicy)) {
+            $query['HostReplacePolicy'] = $request->hostReplacePolicy;
+        }
+        if (!Utils::isUnset($request->memAllocationRatio)) {
+            $query['MemAllocationRatio'] = $request->memAllocationRatio;
+        }
+        if (!Utils::isUnset($request->openPermission)) {
+            $query['OpenPermission'] = $request->openPermission;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -254,6 +352,105 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * @param CreateMyBaseRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMyBaseResponse
+     */
+    public function createMyBaseWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateMyBaseShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ECSClassList)) {
+            $request->ECSClassListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ECSClassList, 'ECSClassList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupDescription)) {
+            $query['DedicatedHostGroupDescription'] = $request->dedicatedHostGroupDescription;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->ECSClassListShrink)) {
+            $query['ECSClassList'] = $request->ECSClassListShrink;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->osPassword)) {
+            $query['OsPassword'] = $request->osPassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodType)) {
+            $query['PeriodType'] = $request->periodType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMyBase',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMyBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMyBaseRequest $request
+     *
+     * @return CreateMyBaseResponse
+     */
+    public function createMyBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMyBaseWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDedicatedHostAccountRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -262,14 +459,26 @@ class Cddc extends OpenApiClient
     public function deleteDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AccountName']          = $request->accountName;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -308,13 +517,23 @@ class Cddc extends OpenApiClient
     public function deleteDedicatedHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -353,14 +572,26 @@ class Cddc extends OpenApiClient
     public function describeDedicatedHostAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -399,13 +630,23 @@ class Cddc extends OpenApiClient
     public function describeDedicatedHostDisksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -444,15 +685,29 @@ class Cddc extends OpenApiClient
     public function describeDedicatedHostGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['Engine']               = $request->engine;
-        $query['ImageCategory']        = $request->imageCategory;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -491,22 +746,50 @@ class Cddc extends OpenApiClient
     public function describeDedicatedHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AllocationStatus']     = $request->allocationStatus;
-        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['HostStatus']           = $request->hostStatus;
-        $query['HostType']             = $request->hostType;
-        $query['OrderId']              = $request->orderId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['PageNumbers']          = $request->pageNumbers;
-        $query['PageSize']             = $request->pageSize;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['Tags']                 = $request->tags;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allocationStatus)) {
+            $query['AllocationStatus'] = $request->allocationStatus;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->hostStatus)) {
+            $query['HostStatus'] = $request->hostStatus;
+        }
+        if (!Utils::isUnset($request->hostType)) {
+            $query['HostType'] = $request->hostType;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $query['PageNumbers'] = $request->pageNumbers;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -545,16 +828,38 @@ class Cddc extends OpenApiClient
     public function describeHostEcsLevelInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DbType']               = $request->dbType;
-        $query['ImageCategory']        = $request->imageCategory;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['StorageType']          = $request->storageType;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -585,6 +890,61 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * @param DescribeHostSecurityGroupAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeHostSecurityGroupAttributeResponse
+     */
+    public function describeHostSecurityGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHostSecurityGroupAttribute',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHostSecurityGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHostSecurityGroupAttributeRequest $request
+     *
+     * @return DescribeHostSecurityGroupAttributeResponse
+     */
+    public function describeHostSecurityGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHostSecurityGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeHostWebShellRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -593,14 +953,26 @@ class Cddc extends OpenApiClient
     public function describeHostWebShellWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ZoneId']               = $request->zoneId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -631,6 +1003,116 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * @param DescribeMyBaseHostOverViewRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMyBaseHostOverViewResponse
+     */
+    public function describeMyBaseHostOverViewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMyBaseHostOverView',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMyBaseHostOverViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMyBaseHostOverViewRequest $request
+     *
+     * @return DescribeMyBaseHostOverViewResponse
+     */
+    public function describeMyBaseHostOverView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMyBaseHostOverViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMyBaseInstanceOverViewRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeMyBaseInstanceOverViewResponse
+     */
+    public function describeMyBaseInstanceOverViewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMyBaseInstanceOverView',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMyBaseInstanceOverViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMyBaseInstanceOverViewRequest $request
+     *
+     * @return DescribeMyBaseInstanceOverViewResponse
+     */
+    public function describeMyBaseInstanceOverView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMyBaseInstanceOverViewWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -639,9 +1121,11 @@ class Cddc extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -680,15 +1164,29 @@ class Cddc extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceId']           = $request->resourceId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -727,15 +1225,29 @@ class Cddc extends OpenApiClient
     public function modifyDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AccountName']          = $request->accountName;
-        $query['AccountPassword']      = $request->accountPassword;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
+        }
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -774,15 +1286,29 @@ class Cddc extends OpenApiClient
     public function modifyDedicatedHostAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['AllocationStatus']     = $request->allocationStatus;
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['HostName']             = $request->hostName;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allocationStatus)) {
+            $query['AllocationStatus'] = $request->allocationStatus;
+        }
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -821,16 +1347,32 @@ class Cddc extends OpenApiClient
     public function modifyDedicatedHostClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['SwitchTime']           = $request->switchTime;
-        $query['SwitchTimeMode']       = $request->switchTimeMode;
-        $query['TargetClassCode']      = $request->targetClassCode;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
+        if (!Utils::isUnset($request->targetClassCode)) {
+            $query['TargetClassCode'] = $request->targetClassCode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -869,20 +1411,44 @@ class Cddc extends OpenApiClient
     public function modifyDedicatedHostGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                           = [];
-        $query['AllocationPolicy']       = $request->allocationPolicy;
-        $query['CpuAllocationRatio']     = $request->cpuAllocationRatio;
-        $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
-        $query['DedicatedHostGroupId']   = $request->dedicatedHostGroupId;
-        $query['DiskAllocationRatio']    = $request->diskAllocationRatio;
-        $query['HostReplacePolicy']      = $request->hostReplacePolicy;
-        $query['MemAllocationRatio']     = $request->memAllocationRatio;
-        $query['OpenPermission']         = $request->openPermission;
-        $query['OwnerId']                = $request->ownerId;
-        $query['RegionId']               = $request->regionId;
-        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']        = $request->resourceOwnerId;
-        $req                             = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->allocationPolicy)) {
+            $query['AllocationPolicy'] = $request->allocationPolicy;
+        }
+        if (!Utils::isUnset($request->cpuAllocationRatio)) {
+            $query['CpuAllocationRatio'] = $request->cpuAllocationRatio;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupDesc)) {
+            $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
+        }
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->diskAllocationRatio)) {
+            $query['DiskAllocationRatio'] = $request->diskAllocationRatio;
+        }
+        if (!Utils::isUnset($request->hostReplacePolicy)) {
+            $query['HostReplacePolicy'] = $request->hostReplacePolicy;
+        }
+        if (!Utils::isUnset($request->memAllocationRatio)) {
+            $query['MemAllocationRatio'] = $request->memAllocationRatio;
+        }
+        if (!Utils::isUnset($request->openPermission)) {
+            $query['OpenPermission'] = $request->openPermission;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -921,14 +1487,26 @@ class Cddc extends OpenApiClient
     public function modifyDedicatedHostPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['NewPassword']          = $request->newPassword;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->newPassword)) {
+            $query['NewPassword'] = $request->newPassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -967,13 +1545,23 @@ class Cddc extends OpenApiClient
     public function queryHostBaseInfoByInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DBInstanceId']         = $request->DBInstanceId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1012,13 +1600,23 @@ class Cddc extends OpenApiClient
     public function queryHostInstanceConsoleInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1057,14 +1655,26 @@ class Cddc extends OpenApiClient
     public function replaceDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['FailoverMode']         = $request->failoverMode;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->failoverMode)) {
+            $query['FailoverMode'] = $request->failoverMode;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1103,15 +1713,29 @@ class Cddc extends OpenApiClient
     public function restartDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['DedicatedHostId']      = $request->dedicatedHostId;
-        $query['FailoverMode']         = $request->failoverMode;
-        $query['ForceStop']            = $request->forceStop;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
+        }
+        if (!Utils::isUnset($request->failoverMode)) {
+            $query['FailoverMode'] = $request->failoverMode;
+        }
+        if (!Utils::isUnset($request->forceStop)) {
+            $query['ForceStop'] = $request->forceStop;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1150,15 +1774,29 @@ class Cddc extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceId']           = $request->resourceId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['Tag']                  = $request->tag;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1197,16 +1835,32 @@ class Cddc extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                         = [];
-        $query['All']                  = $request->all;
-        $query['OwnerId']              = $request->ownerId;
-        $query['RegionId']             = $request->regionId;
-        $query['ResourceId']           = $request->resourceId;
-        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        $query['ResourceOwnerId']      = $request->resourceOwnerId;
-        $query['ResourceType']         = $request->resourceType;
-        $query['TagKey']               = $request->tagKey;
-        $req                           = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1234,5 +1888,221 @@ class Cddc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListResponse
+     */
+    public function listWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->keys)) {
+            $query['Keys'] = $request->keys;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->values)) {
+            $query['Values'] = $request->values;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'list',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRequest $request
+     *
+     * @return ListResponse
+     */
+    public function list_($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagRequest     $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return TagResponse
+     */
+    public function tagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->keys)) {
+            $query['Keys'] = $request->keys;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->values)) {
+            $query['Values'] = $request->values;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'tag',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagRequest $request
+     *
+     * @return TagResponse
+     */
+    public function tag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return UntagResponse
+     */
+    public function untagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->bid)) {
+            $query['Bid'] = $request->bid;
+        }
+        if (!Utils::isUnset($request->keys)) {
+            $query['Keys'] = $request->keys;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->values)) {
+            $query['Values'] = $request->values;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'untag',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagRequest $request
+     *
+     * @return UntagResponse
+     */
+    public function untag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagWithOptions($request, $runtime);
     }
 }

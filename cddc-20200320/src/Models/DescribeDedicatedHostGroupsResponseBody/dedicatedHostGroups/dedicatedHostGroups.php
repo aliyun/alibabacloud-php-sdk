@@ -20,6 +20,11 @@ class dedicatedHostGroups extends Model
     public $bastionInstanceId;
 
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var float
      */
     public $cpuAllocateRation;
@@ -151,6 +156,7 @@ class dedicatedHostGroups extends Model
     protected $_name = [
         'allocationPolicy'                  => 'AllocationPolicy',
         'bastionInstanceId'                 => 'BastionInstanceId',
+        'category'                          => 'Category',
         'cpuAllocateRation'                 => 'CpuAllocateRation',
         'cpuAllocatedAmount'                => 'CpuAllocatedAmount',
         'cpuAllocationRatio'                => 'CpuAllocationRatio',
@@ -191,6 +197,9 @@ class dedicatedHostGroups extends Model
         }
         if (null !== $this->bastionInstanceId) {
             $res['BastionInstanceId'] = $this->bastionInstanceId;
+        }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->cpuAllocateRation) {
             $res['CpuAllocateRation'] = $this->cpuAllocateRation;
@@ -287,6 +296,9 @@ class dedicatedHostGroups extends Model
         }
         if (isset($map['BastionInstanceId'])) {
             $model->bastionInstanceId = $map['BastionInstanceId'];
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['CpuAllocateRation'])) {
             $model->cpuAllocateRation = $map['CpuAllocateRation'];

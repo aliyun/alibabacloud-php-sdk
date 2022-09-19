@@ -61,6 +61,11 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $distributionTag;
+
+    /**
+     * @var string
+     */
     public $ecsClassCode;
 
     /**
@@ -193,6 +198,7 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
         'dedicatedHostGroupId'   => 'DedicatedHostGroupId',
         'dedicatedHostId'        => 'DedicatedHostId',
         'diskAllocationRatio'    => 'DiskAllocationRatio',
+        'distributionTag'        => 'DistributionTag',
         'ecsClassCode'           => 'EcsClassCode',
         'expiredTime'            => 'ExpiredTime',
         'hostCPU'                => 'HostCPU',
@@ -256,6 +262,9 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
         }
         if (null !== $this->diskAllocationRatio) {
             $res['DiskAllocationRatio'] = $this->diskAllocationRatio;
+        }
+        if (null !== $this->distributionTag) {
+            $res['DistributionTag'] = $this->distributionTag;
         }
         if (null !== $this->ecsClassCode) {
             $res['EcsClassCode'] = $this->ecsClassCode;
@@ -373,6 +382,9 @@ class DescribeDedicatedHostAttributeResponseBody extends Model
         }
         if (isset($map['DiskAllocationRatio'])) {
             $model->diskAllocationRatio = $map['DiskAllocationRatio'];
+        }
+        if (isset($map['DistributionTag'])) {
+            $model->distributionTag = $map['DistributionTag'];
         }
         if (isset($map['EcsClassCode'])) {
             $model->ecsClassCode = $map['EcsClassCode'];

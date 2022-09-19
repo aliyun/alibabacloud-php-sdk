@@ -16,6 +16,11 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
+    public $accountType;
+
+    /**
+     * @var string
+     */
     public $allocationStatus;
 
     /**
@@ -27,6 +32,16 @@ class dedicatedHosts extends Model
      * @var string
      */
     public $CPUAllocationRatio;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $chargeType;
 
     /**
      * @var string
@@ -51,12 +66,12 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
-    public $deployType;
+    public $diskAllocationRatio;
 
     /**
      * @var string
      */
-    public $diskAllocationRatio;
+    public $diskInfo;
 
     /**
      * @var string
@@ -66,7 +81,17 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
+    public $distributionTag;
+
+    /**
+     * @var string
+     */
     public $ecsClassCode;
+
+    /**
+     * @var string
+     */
+    public $ecsId;
 
     /**
      * @var string
@@ -141,6 +166,11 @@ class dedicatedHosts extends Model
     /**
      * @var string
      */
+    public $mssqlSupportVersion;
+
+    /**
+     * @var string
+     */
     public $openPermission;
 
     /**
@@ -164,17 +194,22 @@ class dedicatedHosts extends Model
     public $zoneId;
     protected $_name = [
         'accountName'          => 'AccountName',
+        'accountType'          => 'AccountType',
         'allocationStatus'     => 'AllocationStatus',
         'bastionInstanceId'    => 'BastionInstanceId',
         'CPUAllocationRatio'   => 'CPUAllocationRatio',
+        'category'             => 'Category',
+        'chargeType'           => 'ChargeType',
         'cpuUsed'              => 'CpuUsed',
         'createdTime'          => 'CreatedTime',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
         'dedicatedHostId'      => 'DedicatedHostId',
-        'deployType'           => 'DeployType',
         'diskAllocationRatio'  => 'DiskAllocationRatio',
+        'diskInfo'             => 'DiskInfo',
         'distributionSymbol'   => 'DistributionSymbol',
+        'distributionTag'      => 'DistributionTag',
         'ecsClassCode'         => 'EcsClassCode',
+        'ecsId'                => 'EcsId',
         'endTime'              => 'EndTime',
         'engine'               => 'Engine',
         'hostCPU'              => 'HostCPU',
@@ -189,6 +224,7 @@ class dedicatedHosts extends Model
         'instanceNumber'       => 'InstanceNumber',
         'memAllocationRatio'   => 'MemAllocationRatio',
         'memoryUsed'           => 'MemoryUsed',
+        'mssqlSupportVersion'  => 'MssqlSupportVersion',
         'openPermission'       => 'OpenPermission',
         'storageUsed'          => 'StorageUsed',
         'VPCId'                => 'VPCId',
@@ -206,6 +242,9 @@ class dedicatedHosts extends Model
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
         if (null !== $this->allocationStatus) {
             $res['AllocationStatus'] = $this->allocationStatus;
         }
@@ -214,6 +253,12 @@ class dedicatedHosts extends Model
         }
         if (null !== $this->CPUAllocationRatio) {
             $res['CPUAllocationRatio'] = $this->CPUAllocationRatio;
+        }
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->cpuUsed) {
             $res['CpuUsed'] = $this->cpuUsed;
@@ -227,17 +272,23 @@ class dedicatedHosts extends Model
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
-        if (null !== $this->deployType) {
-            $res['DeployType'] = $this->deployType;
-        }
         if (null !== $this->diskAllocationRatio) {
             $res['DiskAllocationRatio'] = $this->diskAllocationRatio;
+        }
+        if (null !== $this->diskInfo) {
+            $res['DiskInfo'] = $this->diskInfo;
         }
         if (null !== $this->distributionSymbol) {
             $res['DistributionSymbol'] = $this->distributionSymbol;
         }
+        if (null !== $this->distributionTag) {
+            $res['DistributionTag'] = $this->distributionTag;
+        }
         if (null !== $this->ecsClassCode) {
             $res['EcsClassCode'] = $this->ecsClassCode;
+        }
+        if (null !== $this->ecsId) {
+            $res['EcsId'] = $this->ecsId;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -281,6 +332,9 @@ class dedicatedHosts extends Model
         if (null !== $this->memoryUsed) {
             $res['MemoryUsed'] = $this->memoryUsed;
         }
+        if (null !== $this->mssqlSupportVersion) {
+            $res['MssqlSupportVersion'] = $this->mssqlSupportVersion;
+        }
         if (null !== $this->openPermission) {
             $res['OpenPermission'] = $this->openPermission;
         }
@@ -311,6 +365,9 @@ class dedicatedHosts extends Model
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
         if (isset($map['AllocationStatus'])) {
             $model->allocationStatus = $map['AllocationStatus'];
         }
@@ -319,6 +376,12 @@ class dedicatedHosts extends Model
         }
         if (isset($map['CPUAllocationRatio'])) {
             $model->CPUAllocationRatio = $map['CPUAllocationRatio'];
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['CpuUsed'])) {
             $model->cpuUsed = $map['CpuUsed'];
@@ -332,17 +395,23 @@ class dedicatedHosts extends Model
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
         }
-        if (isset($map['DeployType'])) {
-            $model->deployType = $map['DeployType'];
-        }
         if (isset($map['DiskAllocationRatio'])) {
             $model->diskAllocationRatio = $map['DiskAllocationRatio'];
+        }
+        if (isset($map['DiskInfo'])) {
+            $model->diskInfo = $map['DiskInfo'];
         }
         if (isset($map['DistributionSymbol'])) {
             $model->distributionSymbol = $map['DistributionSymbol'];
         }
+        if (isset($map['DistributionTag'])) {
+            $model->distributionTag = $map['DistributionTag'];
+        }
         if (isset($map['EcsClassCode'])) {
             $model->ecsClassCode = $map['EcsClassCode'];
+        }
+        if (isset($map['EcsId'])) {
+            $model->ecsId = $map['EcsId'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -385,6 +454,9 @@ class dedicatedHosts extends Model
         }
         if (isset($map['MemoryUsed'])) {
             $model->memoryUsed = $map['MemoryUsed'];
+        }
+        if (isset($map['MssqlSupportVersion'])) {
+            $model->mssqlSupportVersion = $map['MssqlSupportVersion'];
         }
         if (isset($map['OpenPermission'])) {
             $model->openPermission = $map['OpenPermission'];
