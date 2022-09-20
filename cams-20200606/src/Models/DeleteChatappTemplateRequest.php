@@ -16,9 +16,15 @@ class DeleteChatappTemplateRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $templateCode;
     protected $_name = [
         'custWabaId'   => 'CustWabaId',
+        'isvCode'      => 'IsvCode',
         'templateCode' => 'TemplateCode',
     ];
 
@@ -31,6 +37,9 @@ class DeleteChatappTemplateRequest extends Model
         $res = [];
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -49,6 +58,9 @@ class DeleteChatappTemplateRequest extends Model
         $model = new self();
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

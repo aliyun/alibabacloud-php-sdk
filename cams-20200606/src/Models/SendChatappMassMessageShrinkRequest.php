@@ -36,6 +36,11 @@ class SendChatappMassMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -58,6 +63,7 @@ class SendChatappMassMessageShrinkRequest extends Model
         'fallBackContent'  => 'FallBackContent',
         'fallBackId'       => 'FallBackId',
         'from'             => 'From',
+        'isvCode'          => 'IsvCode',
         'language'         => 'Language',
         'senderListShrink' => 'SenderList',
         'taskId'           => 'TaskId',
@@ -85,6 +91,9 @@ class SendChatappMassMessageShrinkRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -124,6 +133,9 @@ class SendChatappMassMessageShrinkRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

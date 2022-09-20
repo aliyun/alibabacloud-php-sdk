@@ -32,6 +32,11 @@ class CreateChatappTemplateRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -48,6 +53,7 @@ class CreateChatappTemplateRequest extends Model
         'components'   => 'Components',
         'custWabaId'   => 'CustWabaId',
         'example'      => 'Example',
+        'isvCode'      => 'IsvCode',
         'language'     => 'Language',
         'name'         => 'Name',
         'templateType' => 'TemplateType',
@@ -77,6 +83,9 @@ class CreateChatappTemplateRequest extends Model
         }
         if (null !== $this->example) {
             $res['Example'] = $this->example;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -116,6 +125,9 @@ class CreateChatappTemplateRequest extends Model
         }
         if (isset($map['Example'])) {
             $model->example = $map['Example'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

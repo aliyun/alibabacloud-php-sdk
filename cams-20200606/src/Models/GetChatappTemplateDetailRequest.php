@@ -16,6 +16,11 @@ class GetChatappTemplateDetailRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -24,6 +29,7 @@ class GetChatappTemplateDetailRequest extends Model
     public $templateCode;
     protected $_name = [
         'custWabaId'   => 'CustWabaId',
+        'isvCode'      => 'IsvCode',
         'language'     => 'Language',
         'templateCode' => 'TemplateCode',
     ];
@@ -37,6 +43,9 @@ class GetChatappTemplateDetailRequest extends Model
         $res = [];
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -58,6 +67,9 @@ class GetChatappTemplateDetailRequest extends Model
         $model = new self();
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

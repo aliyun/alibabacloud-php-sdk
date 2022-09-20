@@ -37,6 +37,11 @@ class SendChatappMassMessageRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -59,6 +64,7 @@ class SendChatappMassMessageRequest extends Model
         'fallBackContent' => 'FallBackContent',
         'fallBackId'      => 'FallBackId',
         'from'            => 'From',
+        'isvCode'         => 'IsvCode',
         'language'        => 'Language',
         'senderList'      => 'SenderList',
         'taskId'          => 'TaskId',
@@ -86,6 +92,9 @@ class SendChatappMassMessageRequest extends Model
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -131,6 +140,9 @@ class SendChatappMassMessageRequest extends Model
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

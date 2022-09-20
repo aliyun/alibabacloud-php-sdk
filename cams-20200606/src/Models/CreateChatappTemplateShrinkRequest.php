@@ -31,6 +31,11 @@ class CreateChatappTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -47,6 +52,7 @@ class CreateChatappTemplateShrinkRequest extends Model
         'componentsShrink' => 'Components',
         'custWabaId'       => 'CustWabaId',
         'exampleShrink'    => 'Example',
+        'isvCode'          => 'IsvCode',
         'language'         => 'Language',
         'name'             => 'Name',
         'templateType'     => 'TemplateType',
@@ -70,6 +76,9 @@ class CreateChatappTemplateShrinkRequest extends Model
         }
         if (null !== $this->exampleShrink) {
             $res['Example'] = $this->exampleShrink;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -103,6 +112,9 @@ class CreateChatappTemplateShrinkRequest extends Model
         }
         if (isset($map['Example'])) {
             $model->exampleShrink = $map['Example'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];

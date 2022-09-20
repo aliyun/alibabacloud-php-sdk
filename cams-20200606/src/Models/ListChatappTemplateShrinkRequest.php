@@ -21,6 +21,11 @@ class ListChatappTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $isvCode;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -35,6 +40,7 @@ class ListChatappTemplateShrinkRequest extends Model
     protected $_name = [
         'auditStatus' => 'AuditStatus',
         'custWabaId'  => 'CustWabaId',
+        'isvCode'     => 'IsvCode',
         'language'    => 'Language',
         'name'        => 'Name',
         'pageShrink'  => 'Page',
@@ -52,6 +58,9 @@ class ListChatappTemplateShrinkRequest extends Model
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
+        }
+        if (null !== $this->isvCode) {
+            $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
@@ -79,6 +88,9 @@ class ListChatappTemplateShrinkRequest extends Model
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
+        }
+        if (isset($map['IsvCode'])) {
+            $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
