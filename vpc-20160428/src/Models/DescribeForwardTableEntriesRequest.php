@@ -51,6 +51,11 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @var string
      */
+    public $natGatewayId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -91,6 +96,7 @@ class DescribeForwardTableEntriesRequest extends Model
         'internalIp'           => 'InternalIp',
         'internalPort'         => 'InternalPort',
         'ipProtocol'           => 'IpProtocol',
+        'natGatewayId'         => 'NatGatewayId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -130,6 +136,9 @@ class DescribeForwardTableEntriesRequest extends Model
         }
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
+        }
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -187,6 +196,9 @@ class DescribeForwardTableEntriesRequest extends Model
         }
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
+        }
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

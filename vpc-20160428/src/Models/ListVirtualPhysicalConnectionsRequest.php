@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVirtualPhysicalConnectionsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListVirtualPhysicalConnectionsRequest extends Model
@@ -32,6 +33,11 @@ class ListVirtualPhysicalConnectionsRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string[]
@@ -63,6 +69,7 @@ class ListVirtualPhysicalConnectionsRequest extends Model
         'nextToken'                               => 'NextToken',
         'physicalConnectionId'                    => 'PhysicalConnectionId',
         'regionId'                                => 'RegionId',
+        'tags'                                    => 'Tags',
         'virtualPhysicalConnectionAliUids'        => 'VirtualPhysicalConnectionAliUids',
         'virtualPhysicalConnectionBusinessStatus' => 'VirtualPhysicalConnectionBusinessStatus',
         'virtualPhysicalConnectionIds'            => 'VirtualPhysicalConnectionIds',
@@ -91,6 +98,15 @@ class ListVirtualPhysicalConnectionsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->virtualPhysicalConnectionAliUids) {
             $res['VirtualPhysicalConnectionAliUids'] = $this->virtualPhysicalConnectionAliUids;
@@ -133,6 +149,15 @@ class ListVirtualPhysicalConnectionsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VirtualPhysicalConnectionAliUids'])) {
             if (!empty($map['VirtualPhysicalConnectionAliUids'])) {

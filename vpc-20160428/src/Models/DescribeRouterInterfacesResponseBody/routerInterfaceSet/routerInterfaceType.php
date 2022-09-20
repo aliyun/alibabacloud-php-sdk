@@ -54,6 +54,11 @@ class routerInterfaceType extends Model
     public $endTime;
 
     /**
+     * @var bool
+     */
+    public $fastLinkMode;
+
+    /**
      * @var string
      */
     public $hasReservationData;
@@ -207,6 +212,7 @@ class routerInterfaceType extends Model
         'crossBorder'                     => 'CrossBorder',
         'description'                     => 'Description',
         'endTime'                         => 'EndTime',
+        'fastLinkMode'                    => 'FastLinkMode',
         'hasReservationData'              => 'HasReservationData',
         'hcRate'                          => 'HcRate',
         'hcThreshold'                     => 'HcThreshold',
@@ -271,6 +277,9 @@ class routerInterfaceType extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->fastLinkMode) {
+            $res['FastLinkMode'] = $this->fastLinkMode;
         }
         if (null !== $this->hasReservationData) {
             $res['HasReservationData'] = $this->hasReservationData;
@@ -397,6 +406,9 @@ class routerInterfaceType extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['FastLinkMode'])) {
+            $model->fastLinkMode = $map['FastLinkMode'];
         }
         if (isset($map['HasReservationData'])) {
             $model->hasReservationData = $map['HasReservationData'];

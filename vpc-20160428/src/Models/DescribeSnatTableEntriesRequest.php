@@ -11,6 +11,11 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @var string
      */
+    public $natGatewayId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -73,6 +78,7 @@ class DescribeSnatTableEntriesRequest extends Model
      */
     public $sourceVSwitchId;
     protected $_name = [
+        'natGatewayId'         => 'NatGatewayId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -95,6 +101,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -146,6 +155,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

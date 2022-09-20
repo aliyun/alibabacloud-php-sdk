@@ -464,6 +464,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolCidrBlocksReque
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolCidrBlocksResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListPublicIpAddressPoolsResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesForExpressConnectRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesForExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ListTrafficMirrorFiltersRequest;
@@ -606,6 +608,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\RetryVpcPrefixListAssociationRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RetryVpcPrefixListAssociationResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RevokeInstanceFromCenRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\RevokeInstanceFromCenResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesForExpressConnectRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesForExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TerminatePhysicalConnectionRequest;
@@ -626,6 +630,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateRouteTableRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateRouteTableResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateVpcCidrBlockRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateVpcCidrBlockResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UntagResourcesForExpressConnectRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UntagResourcesForExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateDhcpOptionsSetAttributeRequest;
@@ -11141,6 +11147,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->ipProtocol)) {
             $query['IpProtocol'] = $request->ipProtocol;
         }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -12424,6 +12433,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -13012,6 +13024,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -16056,6 +16071,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
         if (!Utils::isUnset($request->networkInterfaceIds)) {
             $query['NetworkInterfaceIds'] = $request->networkInterfaceIds;
         }
@@ -16762,6 +16780,76 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesForExpressConnectRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListTagResourcesForExpressConnectResponse
+     */
+    public function listTagResourcesForExpressConnectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResourcesForExpressConnect',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesForExpressConnectRequest $request
+     *
+     * @return ListTagResourcesForExpressConnectResponse
+     */
+    public function listTagResourcesForExpressConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesForExpressConnectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTrafficMirrorFiltersRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -16937,6 +17025,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->virtualPhysicalConnectionAliUids)) {
             $query['VirtualPhysicalConnectionAliUids'] = $request->virtualPhysicalConnectionAliUids;
@@ -21732,6 +21823,70 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesForExpressConnectRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return TagResourcesForExpressConnectResponse
+     */
+    public function tagResourcesForExpressConnectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResourcesForExpressConnect',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesForExpressConnectRequest $request
+     *
+     * @return TagResourcesForExpressConnectResponse
+     */
+    public function tagResourcesForExpressConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesForExpressConnectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param TerminatePhysicalConnectionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -22381,6 +22536,73 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unassociateVpcCidrBlockWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesForExpressConnectRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UntagResourcesForExpressConnectResponse
+     */
+    public function untagResourcesForExpressConnectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResourcesForExpressConnect',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesForExpressConnectRequest $request
+     *
+     * @return UntagResourcesForExpressConnectResponse
+     */
+    public function untagResourcesForExpressConnect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesForExpressConnectWithOptions($request, $runtime);
     }
 
     /**

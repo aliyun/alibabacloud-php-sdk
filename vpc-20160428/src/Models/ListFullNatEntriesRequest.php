@@ -39,6 +39,11 @@ class ListFullNatEntriesRequest extends Model
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $natGatewayId;
+
+    /**
      * @var string[]
      */
     public $networkInterfaceIds;
@@ -79,6 +84,7 @@ class ListFullNatEntriesRequest extends Model
         'fullNatTableId'       => 'FullNatTableId',
         'ipProtocol'           => 'IpProtocol',
         'maxResults'           => 'MaxResults',
+        'natGatewayId'         => 'NatGatewayId',
         'networkInterfaceIds'  => 'NetworkInterfaceIds',
         'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
@@ -112,6 +118,9 @@ class ListFullNatEntriesRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
         }
         if (null !== $this->networkInterfaceIds) {
             $res['NetworkInterfaceIds'] = $this->networkInterfaceIds;
@@ -165,6 +174,9 @@ class ListFullNatEntriesRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
         }
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
