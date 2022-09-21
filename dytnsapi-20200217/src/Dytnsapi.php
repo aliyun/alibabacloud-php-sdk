@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneTwiceTelVerifyResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PhoneNumberEncryptRequest;
@@ -472,6 +474,67 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhoneNumberStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePhoneTwiceTelVerifyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePhoneTwiceTelVerifyResponse
+     */
+    public function describePhoneTwiceTelVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->inputNumber)) {
+            $query['InputNumber'] = $request->inputNumber;
+        }
+        if (!Utils::isUnset($request->mask)) {
+            $query['Mask'] = $request->mask;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneTwiceTelVerify',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePhoneTwiceTelVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePhoneTwiceTelVerifyRequest $request
+     *
+     * @return DescribePhoneTwiceTelVerifyResponse
+     */
+    public function describePhoneTwiceTelVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePhoneTwiceTelVerifyWithOptions($request, $runtime);
     }
 
     /**
