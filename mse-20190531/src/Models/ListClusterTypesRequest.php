@@ -26,11 +26,17 @@ class ListClusterTypesRequest extends Model
     /**
      * @var string
      */
+    public $mseVersion;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'connectType'    => 'ConnectType',
         'mseSessionId'   => 'MseSessionId',
+        'mseVersion'     => 'MseVersion',
         'regionId'       => 'RegionId',
     ];
 
@@ -49,6 +55,9 @@ class ListClusterTypesRequest extends Model
         }
         if (null !== $this->mseSessionId) {
             $res['MseSessionId'] = $this->mseSessionId;
+        }
+        if (null !== $this->mseVersion) {
+            $res['MseVersion'] = $this->mseVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -73,6 +82,9 @@ class ListClusterTypesRequest extends Model
         }
         if (isset($map['MseSessionId'])) {
             $model->mseSessionId = $map['MseSessionId'];
+        }
+        if (isset($map['MseVersion'])) {
+            $model->mseVersion = $map['MseVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

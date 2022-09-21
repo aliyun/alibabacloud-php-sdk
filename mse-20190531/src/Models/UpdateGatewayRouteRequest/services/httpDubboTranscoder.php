@@ -12,6 +12,11 @@ class httpDubboTranscoder extends Model
     /**
      * @var string
      */
+    public $dubboServiceGroup;
+
+    /**
+     * @var string
+     */
     public $dubboServiceName;
 
     /**
@@ -24,6 +29,7 @@ class httpDubboTranscoder extends Model
      */
     public $mothedMapList;
     protected $_name = [
+        'dubboServiceGroup'   => 'DubboServiceGroup',
         'dubboServiceName'    => 'DubboServiceName',
         'dubboServiceVersion' => 'DubboServiceVersion',
         'mothedMapList'       => 'MothedMapList',
@@ -36,6 +42,9 @@ class httpDubboTranscoder extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dubboServiceGroup) {
+            $res['DubboServiceGroup'] = $this->dubboServiceGroup;
+        }
         if (null !== $this->dubboServiceName) {
             $res['DubboServiceName'] = $this->dubboServiceName;
         }
@@ -63,6 +72,9 @@ class httpDubboTranscoder extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DubboServiceGroup'])) {
+            $model->dubboServiceGroup = $map['DubboServiceGroup'];
+        }
         if (isset($map['DubboServiceName'])) {
             $model->dubboServiceName = $map['DubboServiceName'];
         }

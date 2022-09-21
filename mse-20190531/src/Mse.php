@@ -4787,6 +4787,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->mseSessionId)) {
             $query['MseSessionId'] = $request->mseSessionId;
         }
+        if (!Utils::isUnset($request->mseVersion)) {
+            $query['MseVersion'] = $request->mseVersion;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -4838,6 +4841,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->mseSessionId)) {
             $query['MseSessionId'] = $request->mseSessionId;
+        }
+        if (!Utils::isUnset($request->mseVersion)) {
+            $query['MseVersion'] = $request->mseVersion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

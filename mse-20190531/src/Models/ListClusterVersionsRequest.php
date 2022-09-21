@@ -22,10 +22,16 @@ class ListClusterVersionsRequest extends Model
      * @var string
      */
     public $mseSessionId;
+
+    /**
+     * @var string
+     */
+    public $mseVersion;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterType'    => 'ClusterType',
         'mseSessionId'   => 'MseSessionId',
+        'mseVersion'     => 'MseVersion',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ListClusterVersionsRequest extends Model
         }
         if (null !== $this->mseSessionId) {
             $res['MseSessionId'] = $this->mseSessionId;
+        }
+        if (null !== $this->mseVersion) {
+            $res['MseVersion'] = $this->mseVersion;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ListClusterVersionsRequest extends Model
         }
         if (isset($map['MseSessionId'])) {
             $model->mseSessionId = $map['MseSessionId'];
+        }
+        if (isset($map['MseVersion'])) {
+            $model->mseVersion = $map['MseVersion'];
         }
 
         return $model;
