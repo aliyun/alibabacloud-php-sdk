@@ -139,6 +139,9 @@ use AlibabaCloud\SDK\CS\V20151215\Models\PauseComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\PauseTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveClusterNodesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RemoveNodePoolNodesRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\RemoveNodePoolNodesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\RemoveNodePoolNodesShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RemoveWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolResponse;
@@ -265,8 +268,7 @@ class CS extends OpenApiClient
     public function attachInstancesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->cpuPolicy)) {
             $body['cpu_policy'] = $request->cpuPolicy;
         }
@@ -314,7 +316,7 @@ class CS extends OpenApiClient
             'action'      => 'AttachInstances',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/attach',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/attach',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -347,15 +349,14 @@ class CS extends OpenApiClient
      */
     public function cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CancelClusterUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/cancel',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/cancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -390,16 +391,14 @@ class CS extends OpenApiClient
      */
     public function cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime)
     {
-        $clusterId   = OpenApiUtilClient::getEncodeParam($clusterId);
-        $componentId = OpenApiUtilClient::getEncodeParam($componentId);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CancelComponentUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/components/' . $componentId . '/cancel',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($componentId) . '/cancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -432,15 +431,14 @@ class CS extends OpenApiClient
      */
     public function cancelTaskWithOptions($taskId, $headers, $runtime)
     {
-        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
-        $req    = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CancelTask',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/tasks/' . $taskId . '/cancel',
+            'pathname'    => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/cancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -476,8 +474,7 @@ class CS extends OpenApiClient
     public function cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $workflowName = OpenApiUtilClient::getEncodeParam($workflowName);
-        $body         = [];
+        $body = [];
         if (!Utils::isUnset($request->action)) {
             $body['action'] = $request->action;
         }
@@ -489,7 +486,7 @@ class CS extends OpenApiClient
             'action'      => 'CancelWorkflow',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow/' . $workflowName . '',
+            'pathname'    => '/gs/workflow/' . OpenApiUtilClient::getEncodeParam($workflowName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -525,8 +522,7 @@ class CS extends OpenApiClient
     public function createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->coolDownDuration)) {
             $body['cool_down_duration'] = $request->coolDownDuration;
         }
@@ -556,7 +552,7 @@ class CS extends OpenApiClient
             'action'      => 'CreateAutoscalingConfig',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/cluster/' . $ClusterId . '/autoscale/config/',
+            'pathname'    => '/cluster/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/autoscale/config/',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -896,8 +892,7 @@ class CS extends OpenApiClient
     public function createClusterNodePoolWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->autoScaling)) {
             $body['auto_scaling'] = $request->autoScaling;
         }
@@ -936,7 +931,7 @@ class CS extends OpenApiClient
             'action'      => 'CreateClusterNodePool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1137,8 +1132,7 @@ class CS extends OpenApiClient
     public function createTriggerWithOptions($clusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->action)) {
             $body['action'] = $request->action;
         }
@@ -1159,7 +1153,7 @@ class CS extends OpenApiClient
             'action'      => 'CreateTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/triggers',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/triggers',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1269,8 +1263,7 @@ class CS extends OpenApiClient
     public function deleteClusterWithOptions($ClusterId, $tmpReq, $headers, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $request   = new DeleteClusterShrinkRequest([]);
+        $request = new DeleteClusterShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->retainResources)) {
             $request->retainResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainResources, 'retain_resources', 'json');
@@ -1293,7 +1286,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1331,9 +1324,7 @@ class CS extends OpenApiClient
     public function deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->force)) {
             $query['force'] = $request->force;
         }
@@ -1345,7 +1336,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteClusterNodepool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1381,8 +1372,7 @@ class CS extends OpenApiClient
     public function deleteClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->drainNode)) {
             $body['drain_node'] = $request->drainNode;
         }
@@ -1400,7 +1390,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteClusterNodes',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodes',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1436,8 +1426,7 @@ class CS extends OpenApiClient
     public function deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $edgeMachineid = OpenApiUtilClient::getEncodeParam($edgeMachineid);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->force)) {
             $query['force'] = $request->force;
         }
@@ -1449,7 +1438,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteEdgeMachine',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/edge_machines/[edge_machineid]',
+            'pathname'    => '/edge_machines/%5Bedge_machineid%5D',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1482,7 +1471,6 @@ class CS extends OpenApiClient
      */
     public function deleteKubernetesTriggerWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1490,7 +1478,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteKubernetesTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/triggers/revoke/' . $Id . '',
+            'pathname'    => '/triggers/revoke/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1528,9 +1516,7 @@ class CS extends OpenApiClient
     public function deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
-        $policyName = OpenApiUtilClient::getEncodeParam($policyName);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->instanceName)) {
             $query['instance_name'] = $request->instanceName;
         }
@@ -1542,7 +1528,7 @@ class CS extends OpenApiClient
             'action'      => 'DeletePolicyInstance',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/' . $policyName . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1575,15 +1561,14 @@ class CS extends OpenApiClient
      */
     public function deleteTemplateWithOptions($TemplateId, $headers, $runtime)
     {
-        $TemplateId = OpenApiUtilClient::getEncodeParam($TemplateId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplate',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/templates/' . $TemplateId . '',
+            'pathname'    => '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1618,16 +1603,14 @@ class CS extends OpenApiClient
      */
     public function deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime)
     {
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $Id        = OpenApiUtilClient::getEncodeParam($Id);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/[cluster_id]/triggers/[Id]',
+            'pathname'    => '/clusters/%5Bcluster_id%5D/triggers/%5BId%5D',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1665,9 +1648,7 @@ class CS extends OpenApiClient
     public function deployPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
-        $policyName = OpenApiUtilClient::getEncodeParam($policyName);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->action)) {
             $body['action'] = $request->action;
         }
@@ -1685,7 +1666,7 @@ class CS extends OpenApiClient
             'action'      => 'DeployPolicyInstance',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/' . $policyName . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1718,15 +1699,14 @@ class CS extends OpenApiClient
      */
     public function descirbeWorkflowWithOptions($workflowName, $headers, $runtime)
     {
-        $workflowName = OpenApiUtilClient::getEncodeParam($workflowName);
-        $req          = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescirbeWorkflow',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow/' . $workflowName . '',
+            'pathname'    => '/gs/workflow/' . OpenApiUtilClient::getEncodeParam($workflowName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1812,17 +1792,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterAddonMetadataWithOptions($clusterId, $componentId, $version, $headers, $runtime)
     {
-        $clusterId   = OpenApiUtilClient::getEncodeParam($clusterId);
-        $componentId = OpenApiUtilClient::getEncodeParam($componentId);
-        $version     = OpenApiUtilClient::getEncodeParam($version);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterAddonMetadata',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/components/' . $componentId . '/metadata',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($componentId) . '/metadata',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1857,16 +1834,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ComponentId = OpenApiUtilClient::getEncodeParam($ComponentId);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterAddonUpgradeStatus',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/' . $ComponentId . '/upgradestatus',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($ComponentId) . '/upgradestatus',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1902,8 +1877,7 @@ class CS extends OpenApiClient
     public function describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $tmpReq, $headers, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $request   = new DescribeClusterAddonsUpgradeStatusShrinkRequest([]);
+        $request = new DescribeClusterAddonsUpgradeStatusShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->componentIds)) {
             $request->componentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->componentIds, 'componentIds', 'json');
@@ -1920,7 +1894,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterAddonsUpgradeStatus',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/upgradestatus',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/upgradestatus',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1953,15 +1927,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterAddonsVersion',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/version',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/version',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1997,8 +1970,7 @@ class CS extends OpenApiClient
     public function describeClusterAttachScriptsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->arch)) {
             $body['arch'] = $request->arch;
         }
@@ -2025,7 +1997,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterAttachScripts',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/attachscript',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/attachscript',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2058,15 +2030,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterDetailWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterDetail',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2102,8 +2073,7 @@ class CS extends OpenApiClient
     public function describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['page_number'] = $request->pageNumber;
         }
@@ -2121,7 +2091,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterEvents',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/events',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/events',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2154,15 +2124,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterLogsWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterLogs',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/logs',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/logs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2197,16 +2166,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterNodePoolDetailWithOptions($ClusterId, $NodepoolId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterNodePoolDetail',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2239,15 +2206,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterNodePoolsWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterNodePools',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2283,8 +2249,7 @@ class CS extends OpenApiClient
     public function describeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->instanceIds)) {
             $query['instanceIds'] = $request->instanceIds;
         }
@@ -2308,7 +2273,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterNodes',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodes',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodes',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2341,15 +2306,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterResourcesWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterResources',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/resources',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/resources',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2382,15 +2346,14 @@ class CS extends OpenApiClient
      */
     public function describeClusterTasksWithOptions($clusterId, $headers, $runtime)
     {
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeClusterTasks',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/tasks',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/tasks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2426,8 +2389,7 @@ class CS extends OpenApiClient
     public function describeClusterUserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
@@ -2442,7 +2404,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterUserKubeconfig',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/k8s/' . $ClusterId . '/user_config',
+            'pathname'    => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user_config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2478,8 +2440,7 @@ class CS extends OpenApiClient
     public function describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
@@ -2491,7 +2452,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterV2UserKubeconfig',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/k8s/' . $ClusterId . '/user_config',
+            'pathname'    => '/api/v2/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user_config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2637,15 +2598,14 @@ class CS extends OpenApiClient
      */
     public function describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime)
     {
-        $edgeMachineid = OpenApiUtilClient::getEncodeParam($edgeMachineid);
-        $req           = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeEdgeMachineActiveProcess',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/edge_machines/[edge_machineid]/activeprocess',
+            'pathname'    => '/edge_machines/%5Bedge_machineid%5D/activeprocess',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2715,15 +2675,14 @@ class CS extends OpenApiClient
      */
     public function describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime)
     {
-        $edgeMachineid = OpenApiUtilClient::getEncodeParam($edgeMachineid);
-        $req           = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeEdgeMachineTunnelConfigDetail',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/edge_machines/[edge_machineid]/tunnelconfig',
+            'pathname'    => '/edge_machines/%5Bedge_machineid%5D/tunnelconfig',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2875,8 +2834,7 @@ class CS extends OpenApiClient
     public function describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
@@ -2888,7 +2846,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeExternalAgent',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/k8s/' . $ClusterId . '/external/agent/deployment',
+            'pathname'    => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/external/agent/deployment',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2981,16 +2939,14 @@ class CS extends OpenApiClient
      */
     public function describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $headers, $runtime)
     {
-        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
-        $nodepoolId = OpenApiUtilClient::getEncodeParam($nodepoolId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeNodePoolVuls',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/nodepools/' . $nodepoolId . '/vuls',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($nodepoolId) . '/vuls',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3060,15 +3016,14 @@ class CS extends OpenApiClient
      */
     public function describePolicyDetailsWithOptions($policyName, $headers, $runtime)
     {
-        $policyName = OpenApiUtilClient::getEncodeParam($policyName);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribePolicyDetails',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/policies/' . $policyName . '',
+            'pathname'    => '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3101,15 +3056,14 @@ class CS extends OpenApiClient
      */
     public function describePolicyGovernanceInClusterWithOptions($clusterId, $headers, $runtime)
     {
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribePolicyGovernanceInCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policygovernance',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policygovernance',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3145,8 +3099,7 @@ class CS extends OpenApiClient
     public function describePolicyInstancesWithOptions($clusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->instanceName)) {
             $query['instance_name'] = $request->instanceName;
         }
@@ -3161,7 +3114,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribePolicyInstances',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3194,15 +3147,14 @@ class CS extends OpenApiClient
      */
     public function describePolicyInstancesStatusWithOptions($clusterId, $headers, $runtime)
     {
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribePolicyInstancesStatus',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/status',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/status',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3235,15 +3187,14 @@ class CS extends OpenApiClient
      */
     public function describeTaskInfoWithOptions($taskId, $headers, $runtime)
     {
-        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
-        $req    = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeTaskInfo',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/tasks/' . $taskId . '',
+            'pathname'    => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3279,8 +3230,7 @@ class CS extends OpenApiClient
     public function describeTemplateAttributeWithOptions($TemplateId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $TemplateId = OpenApiUtilClient::getEncodeParam($TemplateId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->templateType)) {
             $query['template_type'] = $request->templateType;
         }
@@ -3292,7 +3242,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeTemplateAttribute',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/templates/' . $TemplateId . '',
+            'pathname'    => '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3380,8 +3330,7 @@ class CS extends OpenApiClient
     public function describeTriggerWithOptions($clusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -3402,7 +3351,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/[cluster_id]/triggers',
+            'pathname'    => '/clusters/%5Bcluster_id%5D/triggers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3435,7 +3384,6 @@ class CS extends OpenApiClient
      */
     public function describeUserPermissionWithOptions($uid, $headers, $runtime)
     {
-        $uid = OpenApiUtilClient::getEncodeParam($uid);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3443,7 +3391,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeUserPermission',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/permissions/users/' . $uid . '',
+            'pathname'    => '/permissions/users/' . OpenApiUtilClient::getEncodeParam($uid) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3555,9 +3503,7 @@ class CS extends OpenApiClient
     public function edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterid     = OpenApiUtilClient::getEncodeParam($clusterid);
-        $edgeMachineid = OpenApiUtilClient::getEncodeParam($edgeMachineid);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->expired)) {
             $body['expired'] = $request->expired;
         }
@@ -3575,7 +3521,7 @@ class CS extends OpenApiClient
             'action'      => 'EdgeClusterAddEdgeMachine',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/[clusterid]/attachedgemachine/[edge_machineid]',
+            'pathname'    => '/clusters/%5Bclusterid%5D/attachedgemachine/%5Bedge_machineid%5D',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3613,9 +3559,7 @@ class CS extends OpenApiClient
     public function fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
-        $nodepoolId = OpenApiUtilClient::getEncodeParam($nodepoolId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->nodes)) {
             $body['nodes'] = $request->nodes;
         }
@@ -3633,7 +3577,7 @@ class CS extends OpenApiClient
             'action'      => 'FixNodePoolVuls',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/nodepools/' . $nodepoolId . '/vuls/fix',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($nodepoolId) . '/vuls/fix',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3669,8 +3613,7 @@ class CS extends OpenApiClient
     public function getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -3691,7 +3634,7 @@ class CS extends OpenApiClient
             'action'      => 'GetKubernetesTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/triggers/' . $ClusterId . '',
+            'pathname'    => '/triggers/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3724,15 +3667,14 @@ class CS extends OpenApiClient
      */
     public function getUpgradeStatusWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetUpgradeStatus',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/status',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/status',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3768,7 +3710,6 @@ class CS extends OpenApiClient
     public function grantPermissionsWithOptions($uid, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $uid = OpenApiUtilClient::getEncodeParam($uid);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
@@ -3777,7 +3718,7 @@ class CS extends OpenApiClient
             'action'      => 'GrantPermissions',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/permissions/users/' . $uid . '',
+            'pathname'    => '/permissions/users/' . OpenApiUtilClient::getEncodeParam($uid) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3813,8 +3754,7 @@ class CS extends OpenApiClient
     public function installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
@@ -3822,7 +3762,7 @@ class CS extends OpenApiClient
             'action'      => 'InstallClusterAddons',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/install',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/install',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3924,8 +3864,7 @@ class CS extends OpenApiClient
     public function migrateClusterWithOptions($clusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->ossBucketEndpoint)) {
             $body['oss_bucket_endpoint'] = $request->ossBucketEndpoint;
         }
@@ -3940,7 +3879,7 @@ class CS extends OpenApiClient
             'action'      => 'MigrateCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/migrate',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/migrate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3976,8 +3915,7 @@ class CS extends OpenApiClient
     public function modifyClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->apiServerEip)) {
             $body['api_server_eip'] = $request->apiServerEip;
         }
@@ -4013,7 +3951,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4051,9 +3989,7 @@ class CS extends OpenApiClient
     public function modifyClusterAddonWithOptions($clusterId, $componentId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId   = OpenApiUtilClient::getEncodeParam($clusterId);
-        $componentId = OpenApiUtilClient::getEncodeParam($componentId);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->config)) {
             $body['config'] = $request->config;
         }
@@ -4065,7 +4001,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyClusterAddon',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/components/' . $componentId . '/config',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/components/' . OpenApiUtilClient::getEncodeParam($componentId) . '/config',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4101,8 +4037,7 @@ class CS extends OpenApiClient
     public function modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->customizeConfig)) {
             $body['customize_config'] = $request->customizeConfig;
         }
@@ -4114,7 +4049,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyClusterConfiguration',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/configuration',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/configuration',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4152,9 +4087,7 @@ class CS extends OpenApiClient
     public function modifyClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->autoScaling)) {
             $body['auto_scaling'] = $request->autoScaling;
         }
@@ -4184,7 +4117,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyClusterNodePool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4220,8 +4153,7 @@ class CS extends OpenApiClient
     public function modifyClusterTagsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
@@ -4229,7 +4161,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyClusterTags',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/tags',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/tags',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4267,9 +4199,7 @@ class CS extends OpenApiClient
     public function modifyNodePoolNodeConfigWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->kubeletConfig)) {
             $body['kubelet_config'] = $request->kubeletConfig;
         }
@@ -4284,7 +4214,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyNodePoolNodeConfig',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '/node_config',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/node_config',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4322,9 +4252,7 @@ class CS extends OpenApiClient
     public function modifyPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
-        $policyName = OpenApiUtilClient::getEncodeParam($policyName);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->action)) {
             $body['action'] = $request->action;
         }
@@ -4345,7 +4273,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyPolicyInstance',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/' . $policyName . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/policies/' . OpenApiUtilClient::getEncodeParam($policyName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4424,15 +4352,14 @@ class CS extends OpenApiClient
      */
     public function pauseClusterUpgradeWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'PauseClusterUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/pause',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/pause',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4467,16 +4394,14 @@ class CS extends OpenApiClient
      */
     public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
-        $clusterid   = OpenApiUtilClient::getEncodeParam($clusterid);
-        $componentid = OpenApiUtilClient::getEncodeParam($componentid);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'PauseComponentUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterid . '/components/' . $componentid . '/pause',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/components/' . OpenApiUtilClient::getEncodeParam($componentid) . '/pause',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4509,15 +4434,14 @@ class CS extends OpenApiClient
      */
     public function pauseTaskWithOptions($taskId, $headers, $runtime)
     {
-        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
-        $req    = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'PauseTask',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/tasks/' . $taskId . '/pause',
+            'pathname'    => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/pause',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4553,8 +4477,7 @@ class CS extends OpenApiClient
     public function removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->drainNode)) {
             $body['drain_node'] = $request->drainNode;
         }
@@ -4572,7 +4495,7 @@ class CS extends OpenApiClient
             'action'      => 'RemoveClusterNodes',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/nodes/remove',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodes/remove',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4581,6 +4504,67 @@ class CS extends OpenApiClient
         ]);
 
         return RemoveClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $ClusterId
+     * @param string                     $NodepoolId
+     * @param RemoveNodePoolNodesRequest $request
+     *
+     * @return RemoveNodePoolNodesResponse
+     */
+    public function removeNodePoolNodes($ClusterId, $NodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeNodePoolNodesWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $ClusterId
+     * @param string                     $NodepoolId
+     * @param RemoveNodePoolNodesRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveNodePoolNodesResponse
+     */
+    public function removeNodePoolNodesWithOptions($ClusterId, $NodepoolId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveNodePoolNodesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodes)) {
+            $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'nodes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->drainNode)) {
+            $query['drain_node'] = $request->drainNode;
+        }
+        if (!Utils::isUnset($request->nodesShrink)) {
+            $query['nodes'] = $request->nodesShrink;
+        }
+        if (!Utils::isUnset($request->releaseNode)) {
+            $query['release_node'] = $request->releaseNode;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveNodePoolNodes',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/nodes',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveNodePoolNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4605,15 +4589,14 @@ class CS extends OpenApiClient
      */
     public function removeWorkflowWithOptions($workflowName, $headers, $runtime)
     {
-        $workflowName = OpenApiUtilClient::getEncodeParam($workflowName);
-        $req          = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveWorkflow',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/gs/workflow/' . $workflowName . '',
+            'pathname'    => '/gs/workflow/' . OpenApiUtilClient::getEncodeParam($workflowName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4651,9 +4634,7 @@ class CS extends OpenApiClient
     public function repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
-        $nodepoolId = OpenApiUtilClient::getEncodeParam($nodepoolId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->nodes)) {
             $body['nodes'] = $request->nodes;
         }
@@ -4665,7 +4646,7 @@ class CS extends OpenApiClient
             'action'      => 'RepairClusterNodePool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/nodepools/' . $nodepoolId . '/repair',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($nodepoolId) . '/repair',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4700,16 +4681,14 @@ class CS extends OpenApiClient
      */
     public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
-        $clusterid   = OpenApiUtilClient::getEncodeParam($clusterid);
-        $componentid = OpenApiUtilClient::getEncodeParam($componentid);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ResumeComponentUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterid . '/components/' . $componentid . '/resume',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterid) . '/components/' . OpenApiUtilClient::getEncodeParam($componentid) . '/resume',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4742,15 +4721,14 @@ class CS extends OpenApiClient
      */
     public function resumeTaskWithOptions($taskId, $headers, $runtime)
     {
-        $taskId = OpenApiUtilClient::getEncodeParam($taskId);
-        $req    = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ResumeTask',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/tasks/' . $taskId . '/resume',
+            'pathname'    => '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/resume',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4783,15 +4761,14 @@ class CS extends OpenApiClient
      */
     public function resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ResumeUpgradeCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/resume',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade/resume',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4827,8 +4804,7 @@ class CS extends OpenApiClient
     public function scaleClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->cloudMonitorFlags)) {
             $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
@@ -4894,7 +4870,7 @@ class CS extends OpenApiClient
             'action'      => 'ScaleCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4932,9 +4908,7 @@ class CS extends OpenApiClient
     public function scaleClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->count)) {
             $body['count'] = $request->count;
         }
@@ -4946,7 +4920,7 @@ class CS extends OpenApiClient
             'action'      => 'ScaleClusterNodePool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4982,8 +4956,7 @@ class CS extends OpenApiClient
     public function scaleOutClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->cloudMonitorFlags)) {
             $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
@@ -5055,7 +5028,7 @@ class CS extends OpenApiClient
             'action'      => 'ScaleOutCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5246,8 +5219,7 @@ class CS extends OpenApiClient
     public function unInstallClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => Utils::toArray($request->addons),
         ]);
@@ -5255,7 +5227,7 @@ class CS extends OpenApiClient
             'action'      => 'UnInstallClusterAddons',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/uninstall',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/uninstall',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5346,15 +5318,14 @@ class CS extends OpenApiClient
      */
     public function updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateContactGroupForAlert',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/contact_groups',
+            'pathname'    => '/alert/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/alert_rule/contact_groups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5390,8 +5361,7 @@ class CS extends OpenApiClient
     public function updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->expireHour)) {
             $body['expire_hour'] = $request->expireHour;
         }
@@ -5406,7 +5376,7 @@ class CS extends OpenApiClient
             'action'      => 'UpdateK8sClusterUserConfigExpire',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/k8s/' . $ClusterId . '/user_config/expire',
+            'pathname'    => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/user_config/expire',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5442,8 +5412,7 @@ class CS extends OpenApiClient
     public function updateTemplateWithOptions($TemplateId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $TemplateId = OpenApiUtilClient::getEncodeParam($TemplateId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -5467,7 +5436,7 @@ class CS extends OpenApiClient
             'action'      => 'UpdateTemplate',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/templates/' . $TemplateId . '',
+            'pathname'    => '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5503,8 +5472,7 @@ class CS extends OpenApiClient
     public function upgradeClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->componentName)) {
             $body['component_name'] = $request->componentName;
         }
@@ -5522,7 +5490,7 @@ class CS extends OpenApiClient
             'action'      => 'UpgradeCluster',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade',
+            'pathname'    => '/api/v2/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/upgrade',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5558,8 +5526,7 @@ class CS extends OpenApiClient
     public function upgradeClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
@@ -5567,7 +5534,7 @@ class CS extends OpenApiClient
             'action'      => 'UpgradeClusterAddons',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/upgrade',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/components/upgrade',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
