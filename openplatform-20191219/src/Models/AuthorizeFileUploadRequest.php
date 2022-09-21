@@ -24,7 +24,6 @@ class AuthorizeFileUploadRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('product', $this->product, true);
     }
 
     public function toMap()

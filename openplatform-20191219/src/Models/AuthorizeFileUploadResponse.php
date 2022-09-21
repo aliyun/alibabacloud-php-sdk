@@ -9,93 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeFileUploadResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $accessKeyId;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bucket;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var AuthorizeFileUploadResponseBody
      */
-    public $encodedPolicy;
-
-    /**
-     * @var string
-     */
-    public $endpoint;
-
-    /**
-     * @var string
-     */
-    public $objectKey;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $signature;
-
-    /**
-     * @var bool
-     */
-    public $useAccelerate;
+    public $body;
     protected $_name = [
-        'accessKeyId'   => 'AccessKeyId',
-        'bucket'        => 'Bucket',
-        'encodedPolicy' => 'EncodedPolicy',
-        'endpoint'      => 'Endpoint',
-        'objectKey'     => 'ObjectKey',
-        'requestId'     => 'RequestId',
-        'signature'     => 'Signature',
-        'useAccelerate' => 'UseAccelerate',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('accessKeyId', $this->accessKeyId, true);
-        Model::validateRequired('bucket', $this->bucket, true);
-        Model::validateRequired('encodedPolicy', $this->encodedPolicy, true);
-        Model::validateRequired('endpoint', $this->endpoint, true);
-        Model::validateRequired('objectKey', $this->objectKey, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('signature', $this->signature, true);
-        Model::validateRequired('useAccelerate', $this->useAccelerate, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessKeyId) {
-            $res['AccessKeyId'] = $this->accessKeyId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->encodedPolicy) {
-            $res['EncodedPolicy'] = $this->encodedPolicy;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
-        if (null !== $this->objectKey) {
-            $res['ObjectKey'] = $this->objectKey;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
-        }
-        if (null !== $this->useAccelerate) {
-            $res['UseAccelerate'] = $this->useAccelerate;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -109,29 +59,14 @@ class AuthorizeFileUploadResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessKeyId'])) {
-            $model->accessKeyId = $map['AccessKeyId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['EncodedPolicy'])) {
-            $model->encodedPolicy = $map['EncodedPolicy'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
-        if (isset($map['ObjectKey'])) {
-            $model->objectKey = $map['ObjectKey'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
-        }
-        if (isset($map['UseAccelerate'])) {
-            $model->useAccelerate = $map['UseAccelerate'];
+        if (isset($map['body'])) {
+            $model->body = AuthorizeFileUploadResponseBody::fromMap($map['body']);
         }
 
         return $model;
