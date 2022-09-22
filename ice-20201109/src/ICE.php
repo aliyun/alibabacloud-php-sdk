@@ -12,14 +12,26 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelUrlUploadJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelUrlUploadJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ConvertToFEEditingProjectRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ConvertToFEEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLiveRecordTemplateRequest;
@@ -40,6 +52,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNADBRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNADBResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNAFilesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNAFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectsRequest;
@@ -59,6 +75,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaMarksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaProducingJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaProducingJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeletePlayInfoRequest;
@@ -69,6 +89,18 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeFilterConfigsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeFilterConfigsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLivePubExperienceMetricDataRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLivePubExperienceMetricDataResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLivePubListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLivePubListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLivePubMetricDataRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLivePubMetricDataResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLiveSubExperienceMetricDataRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLiveSubExperienceMetricDataResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLiveSubListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLiveSubListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLiveSubMetricDataRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeLiveSubMetricDataResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceEditUsageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceEditUsageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterIceLiveMediaConvertUsageRequest;
@@ -115,6 +147,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DownloadResourceByResourceIdsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DownloadResourceByResourceIdsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateRequest;
@@ -143,12 +177,20 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaAuditResultDetailRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaAuditResultDetailResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaAuditResultRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaAuditResultResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPackageJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPackageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPlayInfoRequest;
@@ -175,6 +217,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNADBRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNADBResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNAFilesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNAFilesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDynamicImageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLiveRecordFilesRequest;
@@ -197,6 +243,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaBasicInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaInfoJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaMarksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListPackageJobsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListPublicMediaBasicInfosRequest;
@@ -211,8 +261,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\NotifyPreOssUploadCompleteRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\NotifyPreOssUploadCompleteResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCensorJobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCensorJobListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryMediaCensorJobDetailRequest;
@@ -245,6 +299,11 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitBatchMediaProducingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitBatchMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicImageJobRequest;
@@ -272,6 +331,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaInfoJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobShrinkRequest;
@@ -305,6 +367,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaMarksResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateSmartJobRequest;
@@ -553,6 +617,52 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param AddMediaMarksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddMediaMarksResponse
+     */
+    public function addMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarks)) {
+            $query['MediaMarks'] = $request->mediaMarks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddMediaMarksRequest $request
+     *
+     * @return AddMediaMarksResponse
+     */
+    public function addMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addMediaMarksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddTemplateRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -573,9 +683,6 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->previewMedia)) {
             $query['PreviewMedia'] = $request->previewMedia;
-        }
-        if (!Utils::isUnset($request->relatedMediaids)) {
-            $query['RelatedMediaids'] = $request->relatedMediaids;
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
@@ -663,6 +770,61 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param CancelDNAJobRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CancelDNAJobResponse
+     */
+    public function cancelDNAJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelDNAJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelDNAJobRequest $request
+     *
+     * @return CancelDNAJobResponse
+     */
+    public function cancelDNAJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelDNAJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CancelFavoritePublicMediaRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -703,6 +865,141 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelFavoritePublicMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CancelUrlUploadJobsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelUrlUploadJobsResponse
+     */
+    public function cancelUrlUploadJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->uploadUrls)) {
+            $query['UploadUrls'] = $request->uploadUrls;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelUrlUploadJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelUrlUploadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelUrlUploadJobsRequest $request
+     *
+     * @return CancelUrlUploadJobsResponse
+     */
+    public function cancelUrlUploadJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelUrlUploadJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConvertToFEEditingProjectRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ConvertToFEEditingProjectResponse
+     */
+    public function convertToFEEditingProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConvertToFEEditingProject',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConvertToFEEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConvertToFEEditingProjectRequest $request
+     *
+     * @return ConvertToFEEditingProjectResponse
+     */
+    public function convertToFEEditingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->convertToFEEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAuditRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAuditResponse
+     */
+    public function createAuditWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->auditContent)) {
+            $query['AuditContent'] = $request->auditContent;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAudit',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAuditRequest $request
+     *
+     * @return CreateAuditResponse
+     */
+    public function createAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAuditWithOptions($request, $runtime);
     }
 
     /**
@@ -755,6 +1052,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDNADBRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDNADBResponse
+     */
+    public function createDNADBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDNADB',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDNADBRequest $request
+     *
+     * @return CreateDNADBResponse
+     */
+    public function createDNADB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDNADBWithOptions($request, $runtime);
     }
 
     /**
@@ -1233,6 +1591,119 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DeleteDNADBRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDNADBResponse
+     */
+    public function deleteDNADBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDNADB',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDNADBRequest $request
+     *
+     * @return DeleteDNADBResponse
+     */
+    public function deleteDNADB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDNADBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDNAFilesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDNAFilesResponse
+     */
+    public function deleteDNAFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->primaryKeys)) {
+            $query['PrimaryKeys'] = $request->primaryKeys;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDNAFiles',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDNAFilesRequest $request
+     *
+     * @return DeleteDNAFilesResponse
+     */
+    public function deleteDNAFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDNAFilesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEditingProjectMaterialsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -1646,6 +2117,95 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DeleteMediaMarksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMediaMarksResponse
+     */
+    public function deleteMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarkIds)) {
+            $query['MediaMarkIds'] = $request->mediaMarkIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMediaMarksRequest $request
+     *
+     * @return DeleteMediaMarksResponse
+     */
+    public function deleteMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaMarksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMediaProducingJobsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteMediaProducingJobsResponse
+     */
+    public function deleteMediaProducingJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $body['JobIds'] = $request->jobIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaProducingJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMediaProducingJobsRequest $request
+     *
+     * @return DeleteMediaProducingJobsResponse
+     */
+    public function deleteMediaProducingJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaProducingJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeletePipelineRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1861,6 +2421,429 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFilterConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLivePubExperienceMetricDataRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeLivePubExperienceMetricDataResponse
+     */
+    public function describeLivePubExperienceMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTs)) {
+            $query['BeginTs'] = $request->beginTs;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->pubProtocol)) {
+            $query['PubProtocol'] = $request->pubProtocol;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLivePubExperienceMetricData',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLivePubExperienceMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLivePubExperienceMetricDataRequest $request
+     *
+     * @return DescribeLivePubExperienceMetricDataResponse
+     */
+    public function describeLivePubExperienceMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLivePubExperienceMetricDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLivePubListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeLivePubListResponse
+     */
+    public function describeLivePubListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTs)) {
+            $query['BeginTs'] = $request->beginTs;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->pubProtocol)) {
+            $query['PubProtocol'] = $request->pubProtocol;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLivePubList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLivePubListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLivePubListRequest $request
+     *
+     * @return DescribeLivePubListResponse
+     */
+    public function describeLivePubList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLivePubListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLivePubMetricDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeLivePubMetricDataResponse
+     */
+    public function describeLivePubMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTs)) {
+            $query['BeginTs'] = $request->beginTs;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->experienceLevel)) {
+            $query['ExperienceLevel'] = $request->experienceLevel;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->pubProtocol)) {
+            $query['PubProtocol'] = $request->pubProtocol;
+        }
+        if (!Utils::isUnset($request->sdkVersion)) {
+            $query['SdkVersion'] = $request->sdkVersion;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLivePubMetricData',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLivePubMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLivePubMetricDataRequest $request
+     *
+     * @return DescribeLivePubMetricDataResponse
+     */
+    public function describeLivePubMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLivePubMetricDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLiveSubExperienceMetricDataRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeLiveSubExperienceMetricDataResponse
+     */
+    public function describeLiveSubExperienceMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->beginTs)) {
+            $query['BeginTs'] = $request->beginTs;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->experienceLevel)) {
+            $query['ExperienceLevel'] = $request->experienceLevel;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->subProtocol)) {
+            $query['SubProtocol'] = $request->subProtocol;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLiveSubExperienceMetricData',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLiveSubExperienceMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveSubExperienceMetricDataRequest $request
+     *
+     * @return DescribeLiveSubExperienceMetricDataResponse
+     */
+    public function describeLiveSubExperienceMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveSubExperienceMetricDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLiveSubListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeLiveSubListResponse
+     */
+    public function describeLiveSubListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->beginTs)) {
+            $query['BeginTs'] = $request->beginTs;
+        }
+        if (!Utils::isUnset($request->definition)) {
+            $query['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->experienceLevel)) {
+            $query['ExperienceLevel'] = $request->experienceLevel;
+        }
+        if (!Utils::isUnset($request->itemConfigs)) {
+            $query['ItemConfigs'] = $request->itemConfigs;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->network)) {
+            $query['Network'] = $request->network;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        if (!Utils::isUnset($request->subProtocol)) {
+            $query['SubProtocol'] = $request->subProtocol;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLiveSubList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLiveSubListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveSubListRequest $request
+     *
+     * @return DescribeLiveSubListResponse
+     */
+    public function describeLiveSubList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveSubListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLiveSubMetricDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeLiveSubMetricDataResponse
+     */
+    public function describeLiveSubMetricDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->beginTs)) {
+            $query['BeginTs'] = $request->beginTs;
+        }
+        if (!Utils::isUnset($request->definition)) {
+            $query['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->experienceLevel)) {
+            $query['ExperienceLevel'] = $request->experienceLevel;
+        }
+        if (!Utils::isUnset($request->itemConfigs)) {
+            $query['ItemConfigs'] = $request->itemConfigs;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->network)) {
+            $query['Network'] = $request->network;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->sdkVersion)) {
+            $query['SdkVersion'] = $request->sdkVersion;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        if (!Utils::isUnset($request->subProtocol)) {
+            $query['SubProtocol'] = $request->subProtocol;
+        }
+        if (!Utils::isUnset($request->terminalType)) {
+            $query['TerminalType'] = $request->terminalType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLiveSubMetricData',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLiveSubMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveSubMetricDataRequest $request
+     *
+     * @return DescribeLiveSubMetricDataResponse
+     */
+    public function describeLiveSubMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveSubMetricDataWithOptions($request, $runtime);
     }
 
     /**
@@ -2598,6 +3581,9 @@ class ICE extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->playTs)) {
+            $query['PlayTs'] = $request->playTs;
+        }
         if (!Utils::isUnset($request->sessionId)) {
             $query['SessionId'] = $request->sessionId;
         }
@@ -2646,6 +3632,9 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->playTs)) {
+            $query['PlayTs'] = $request->playTs;
         }
         if (!Utils::isUnset($request->sessionId)) {
             $query['SessionId'] = $request->sessionId;
@@ -3081,6 +4070,49 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DownloadResourceByResourceIdsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DownloadResourceByResourceIdsResponse
+     */
+    public function downloadResourceByResourceIdsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadResourceByResourceIds',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadResourceByResourceIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadResourceByResourceIdsRequest $request
+     *
+     * @return DownloadResourceByResourceIdsResponse
+     */
+    public function downloadResourceByResourceIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadResourceByResourceIdsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCategoriesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3272,6 +4304,9 @@ class ICE extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->requestSource)) {
+            $query['RequestSource'] = $request->requestSource;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3709,6 +4744,98 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetMediaAuditResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMediaAuditResultResponse
+     */
+    public function getMediaAuditResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaAuditResult',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaAuditResultRequest $request
+     *
+     * @return GetMediaAuditResultResponse
+     */
+    public function getMediaAuditResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMediaAuditResultDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetMediaAuditResultDetailResponse
+     */
+    public function getMediaAuditResultDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaAuditResultDetail',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaAuditResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaAuditResultDetailRequest $request
+     *
+     * @return GetMediaAuditResultDetailResponse
+     */
+    public function getMediaAuditResultDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaAuditResultDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMediaInfoRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3801,6 +4928,52 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetMediaMarksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMediaMarksResponse
+     */
+    public function getMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarkIds)) {
+            $query['MediaMarkIds'] = $request->mediaMarkIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMediaMarksRequest $request
+     *
+     * @return GetMediaMarksResponse
+     */
+    public function getMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaMarksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMediaProducingJobRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3838,6 +5011,49 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMediaProducingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPackageJobRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPackageJobResponse
+     */
+    public function getPackageJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPackageJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPackageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPackageJobRequest $request
+     *
+     * @return GetPackageJobResponse
+     */
+    public function getPackageJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPackageJobWithOptions($request, $runtime);
     }
 
     /**
@@ -4159,8 +5375,14 @@ class ICE extends OpenApiClient
     public function getTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->relatedMediaidFlag)) {
+            $query['RelatedMediaidFlag'] = $request->relatedMediaidFlag;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4168,7 +5390,7 @@ class ICE extends OpenApiClient
             'version'     => '2020-11-09',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4199,8 +5421,14 @@ class ICE extends OpenApiClient
     public function getTemplateMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->fileList)) {
+            $query['FileList'] = $request->fileList;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -4208,7 +5436,7 @@ class ICE extends OpenApiClient
             'version'     => '2020-11-09',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -4424,6 +5652,122 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDNADBRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDNADBResponse
+     */
+    public function listDNADBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBIds)) {
+            $query['DBIds'] = $request->DBIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDNADB',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDNADBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDNADBRequest $request
+     *
+     * @return ListDNADBResponse
+     */
+    public function listDNADB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDNADBWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDNAFilesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDNAFilesResponse
+     */
+    public function listDNAFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDNAFiles',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDNAFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDNAFilesRequest $request
+     *
+     * @return ListDNAFilesResponse
+     */
+    public function listDNAFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDNAFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -4984,6 +6328,113 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param ListMediaMarksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMediaMarksResponse
+     */
+    public function listMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarkIds)) {
+            $query['MediaMarkIds'] = $request->mediaMarkIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMediaMarksRequest $request
+     *
+     * @return ListMediaMarksResponse
+     */
+    public function listMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaMarksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPackageJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPackageJobsResponse
+     */
+    public function listPackageJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endOfCreateTime)) {
+            $query['EndOfCreateTime'] = $request->endOfCreateTime;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startOfCreateTime)) {
+            $query['StartOfCreateTime'] = $request->startOfCreateTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPackageJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPackageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPackageJobsRequest $request
+     *
+     * @return ListPackageJobsResponse
+     */
+    public function listPackageJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPackageJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListPipelinesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -5369,6 +6820,49 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param NotifyPreOssUploadCompleteRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return NotifyPreOssUploadCompleteResponse
+     */
+    public function notifyPreOssUploadCompleteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'NotifyPreOssUploadComplete',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return NotifyPreOssUploadCompleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param NotifyPreOssUploadCompleteRequest $request
+     *
+     * @return NotifyPreOssUploadCompleteResponse
+     */
+    public function notifyPreOssUploadComplete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->notifyPreOssUploadCompleteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryCensorJobListRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -5421,6 +6915,61 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryCensorJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDNAJobListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryDNAJobListResponse
+     */
+    public function queryDNAJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDNAJobList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDNAJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDNAJobListRequest $request
+     *
+     * @return QueryDNAJobListResponse
+     */
+    public function queryDNAJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDNAJobListWithOptions($request, $runtime);
     }
 
     /**
@@ -5655,6 +7204,9 @@ class ICE extends OpenApiClient
         }
         if (!Utils::isUnset($request->overwrite)) {
             $query['Overwrite'] = $request->overwrite;
+        }
+        if (!Utils::isUnset($request->referenceId)) {
+            $query['ReferenceId'] = $request->referenceId;
         }
         if (!Utils::isUnset($request->registerConfig)) {
             $query['RegisterConfig'] = $request->registerConfig;
@@ -6292,6 +7844,160 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAudioProduceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitBatchMediaProducingJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitBatchMediaProducingJobResponse
+     */
+    public function submitBatchMediaProducingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clipsParam)) {
+            $query['ClipsParam'] = $request->clipsParam;
+        }
+        if (!Utils::isUnset($request->editingProduceConfig)) {
+            $query['EditingProduceConfig'] = $request->editingProduceConfig;
+        }
+        if (!Utils::isUnset($request->jobTitle)) {
+            $query['JobTitle'] = $request->jobTitle;
+        }
+        if (!Utils::isUnset($request->outputMediaConfig)) {
+            $query['OutputMediaConfig'] = $request->outputMediaConfig;
+        }
+        if (!Utils::isUnset($request->outputMediaTarget)) {
+            $query['OutputMediaTarget'] = $request->outputMediaTarget;
+        }
+        if (!Utils::isUnset($request->outputNum)) {
+            $query['OutputNum'] = $request->outputNum;
+        }
+        if (!Utils::isUnset($request->projectMetadata)) {
+            $query['ProjectMetadata'] = $request->projectMetadata;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->submitBy)) {
+            $query['SubmitBy'] = $request->submitBy;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitBatchMediaProducingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitBatchMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitBatchMediaProducingJobRequest $request
+     *
+     * @return SubmitBatchMediaProducingJobResponse
+     */
+    public function submitBatchMediaProducingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitBatchMediaProducingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDNAJobRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitDNAJobResponse
+     */
+    public function submitDNAJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitDNAJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->input), 'Input', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->DBId)) {
+            $query['DBId'] = $request->DBId;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->primaryKey)) {
+            $query['PrimaryKey'] = $request->primaryKey;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDNAJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDNAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDNAJobRequest $request
+     *
+     * @return SubmitDNAJobResponse
+     */
+    public function submitDNAJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDNAJobWithOptions($request, $runtime);
     }
 
     /**
@@ -6985,6 +8691,72 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitMediaProducingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitPackageJobRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitPackageJobResponse
+     */
+    public function submitPackageJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitPackageJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->inputs)) {
+            $request->inputsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputs, 'Inputs', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->output)) {
+            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->output), 'Output', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->scheduleConfig)) {
+            $request->scheduleConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->scheduleConfig), 'ScheduleConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->inputsShrink)) {
+            $query['Inputs'] = $request->inputsShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->outputShrink)) {
+            $query['Output'] = $request->outputShrink;
+        }
+        if (!Utils::isUnset($request->scheduleConfigShrink)) {
+            $query['ScheduleConfig'] = $request->scheduleConfigShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitPackageJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitPackageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitPackageJobRequest $request
+     *
+     * @return SubmitPackageJobResponse
+     */
+    public function submitPackageJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitPackageJobWithOptions($request, $runtime);
     }
 
     /**
@@ -7752,6 +9524,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->mediaTags)) {
             $query['MediaTags'] = $request->mediaTags;
         }
+        if (!Utils::isUnset($request->referenceId)) {
+            $query['ReferenceId'] = $request->referenceId;
+        }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
         }
@@ -7786,6 +9561,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMediaMarksRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMediaMarksResponse
+     */
+    public function updateMediaMarksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->mediaMarks)) {
+            $query['MediaMarks'] = $request->mediaMarks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaMarks',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMediaMarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMediaMarksRequest $request
+     *
+     * @return UpdateMediaMarksResponse
+     */
+    public function updateMediaMarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaMarksWithOptions($request, $runtime);
     }
 
     /**

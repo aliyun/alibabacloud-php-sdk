@@ -56,6 +56,11 @@ class RegisterMediaInfoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $registerConfig;
 
     /**
@@ -82,6 +87,7 @@ class RegisterMediaInfoRequest extends Model
         'mediaTags'      => 'MediaTags',
         'mediaType'      => 'MediaType',
         'overwrite'      => 'Overwrite',
+        'referenceId'    => 'ReferenceId',
         'registerConfig' => 'RegisterConfig',
         'title'          => 'Title',
         'userData'       => 'UserData',
@@ -121,6 +127,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
         if (null !== $this->registerConfig) {
             $res['RegisterConfig'] = $this->registerConfig;
@@ -172,6 +181,9 @@ class RegisterMediaInfoRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
         if (isset($map['RegisterConfig'])) {
             $model->registerConfig = $map['RegisterConfig'];

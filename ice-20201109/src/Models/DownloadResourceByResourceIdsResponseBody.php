@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DownloadResourceByResourceIdsResponseBody extends Model
 {
     /**
-     * @description 过期时间
-     *
      * @var int
      */
     public $expireTime;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 资源地址
-     *
      * @var string
      */
     public $resourcePackageUrl;

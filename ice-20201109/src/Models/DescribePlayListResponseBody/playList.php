@@ -21,6 +21,11 @@ class playList extends Model
     /**
      * @var string
      */
+    public $playTs;
+
+    /**
+     * @var string
+     */
     public $playType;
 
     /**
@@ -55,6 +60,7 @@ class playList extends Model
     protected $_name = [
         'firstFrameDuration' => 'FirstFrameDuration',
         'playDuration'       => 'PlayDuration',
+        'playTs'             => 'PlayTs',
         'playType'           => 'PlayType',
         'sessionId'          => 'SessionId',
         'status'             => 'Status',
@@ -76,6 +82,9 @@ class playList extends Model
         }
         if (null !== $this->playDuration) {
             $res['PlayDuration'] = $this->playDuration;
+        }
+        if (null !== $this->playTs) {
+            $res['PlayTs'] = $this->playTs;
         }
         if (null !== $this->playType) {
             $res['PlayType'] = $this->playType;
@@ -115,6 +124,9 @@ class playList extends Model
         }
         if (isset($map['PlayDuration'])) {
             $model->playDuration = $map['PlayDuration'];
+        }
+        if (isset($map['PlayTs'])) {
+            $model->playTs = $map['PlayTs'];
         }
         if (isset($map['PlayType'])) {
             $model->playType = $map['PlayType'];

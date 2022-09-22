@@ -15,8 +15,6 @@ class GetMediaAuditResultDetailResponseBody extends Model
     public $auditResultDetails;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

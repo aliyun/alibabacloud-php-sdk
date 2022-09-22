@@ -25,8 +25,6 @@ class DescribeLivePubListResponseBody extends Model
     public $pubInfoList;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

@@ -20,8 +20,6 @@ class DescribeLiveSubListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

@@ -14,8 +14,6 @@ class DeleteMediaProducingJobsResponseBody extends Model
     public $ignoreList;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

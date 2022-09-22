@@ -12,8 +12,14 @@ class GetEditingProjectRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $requestSource;
     protected $_name = [
-        'projectId' => 'ProjectId',
+        'projectId'     => 'ProjectId',
+        'requestSource' => 'RequestSource',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class GetEditingProjectRequest extends Model
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->requestSource) {
+            $res['RequestSource'] = $this->requestSource;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class GetEditingProjectRequest extends Model
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RequestSource'])) {
+            $model->requestSource = $map['RequestSource'];
         }
 
         return $model;

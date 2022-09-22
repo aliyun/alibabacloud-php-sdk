@@ -56,6 +56,11 @@ class UpdateMediaInfoRequest extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -72,6 +77,7 @@ class UpdateMediaInfoRequest extends Model
         'inputURL'     => 'InputURL',
         'mediaId'      => 'MediaId',
         'mediaTags'    => 'MediaTags',
+        'referenceId'  => 'ReferenceId',
         'title'        => 'Title',
         'userData'     => 'UserData',
     ];
@@ -109,6 +115,9 @@ class UpdateMediaInfoRequest extends Model
         }
         if (null !== $this->mediaTags) {
             $res['MediaTags'] = $this->mediaTags;
+        }
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -154,6 +163,9 @@ class UpdateMediaInfoRequest extends Model
         }
         if (isset($map['MediaTags'])) {
             $model->mediaTags = $map['MediaTags'];
+        }
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitBatchMediaProducingJobResponseBody extends Model
 {
     /**
-     * @description 批量混剪任务jobId
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

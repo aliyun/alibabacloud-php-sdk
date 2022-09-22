@@ -15,8 +15,6 @@ class DescribeLivePubMetricDataResponseBody extends Model
     public $nodes;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

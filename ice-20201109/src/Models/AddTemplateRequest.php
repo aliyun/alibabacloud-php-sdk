@@ -31,11 +31,6 @@ class AddTemplateRequest extends Model
     /**
      * @var string
      */
-    public $relatedMediaids;
-
-    /**
-     * @var string
-     */
     public $source;
 
     /**
@@ -48,14 +43,13 @@ class AddTemplateRequest extends Model
      */
     public $type;
     protected $_name = [
-        'config'          => 'Config',
-        'coverUrl'        => 'CoverUrl',
-        'name'            => 'Name',
-        'previewMedia'    => 'PreviewMedia',
-        'relatedMediaids' => 'RelatedMediaids',
-        'source'          => 'Source',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'config'       => 'Config',
+        'coverUrl'     => 'CoverUrl',
+        'name'         => 'Name',
+        'previewMedia' => 'PreviewMedia',
+        'source'       => 'Source',
+        'status'       => 'Status',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class AddTemplateRequest extends Model
         }
         if (null !== $this->previewMedia) {
             $res['PreviewMedia'] = $this->previewMedia;
-        }
-        if (null !== $this->relatedMediaids) {
-            $res['RelatedMediaids'] = $this->relatedMediaids;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -112,9 +103,6 @@ class AddTemplateRequest extends Model
         }
         if (isset($map['PreviewMedia'])) {
             $model->previewMedia = $map['PreviewMedia'];
-        }
-        if (isset($map['RelatedMediaids'])) {
-            $model->relatedMediaids = $map['RelatedMediaids'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

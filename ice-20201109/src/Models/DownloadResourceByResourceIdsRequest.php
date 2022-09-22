@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DownloadResourceByResourceIdsRequest extends Model
 {
     /**
-     * @description 资源id号
-     *
      * @var string
      */
     public $resourceIds;

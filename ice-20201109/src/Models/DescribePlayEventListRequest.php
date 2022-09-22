@@ -21,10 +21,16 @@ class DescribePlayEventListRequest extends Model
     /**
      * @var string
      */
+    public $playTs;
+
+    /**
+     * @var string
+     */
     public $sessionId;
     protected $_name = [
         'pageNo'    => 'PageNo',
         'pageSize'  => 'PageSize',
+        'playTs'    => 'PlayTs',
         'sessionId' => 'SessionId',
     ];
 
@@ -40,6 +46,9 @@ class DescribePlayEventListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->playTs) {
+            $res['PlayTs'] = $this->playTs;
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
@@ -61,6 +70,9 @@ class DescribePlayEventListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PlayTs'])) {
+            $model->playTs = $map['PlayTs'];
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];

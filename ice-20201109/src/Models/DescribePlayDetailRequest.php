@@ -11,8 +11,14 @@ class DescribePlayDetailRequest extends Model
     /**
      * @var string
      */
+    public $playTs;
+
+    /**
+     * @var string
+     */
     public $sessionId;
     protected $_name = [
+        'playTs'    => 'PlayTs',
         'sessionId' => 'SessionId',
     ];
 
@@ -23,6 +29,9 @@ class DescribePlayDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->playTs) {
+            $res['PlayTs'] = $this->playTs;
+        }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -38,6 +47,9 @@ class DescribePlayDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PlayTs'])) {
+            $model->playTs = $map['PlayTs'];
+        }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

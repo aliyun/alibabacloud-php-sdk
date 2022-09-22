@@ -15,8 +15,6 @@ class DescribeLiveSubExperienceMetricDataResponseBody extends Model
     public $metricList;
 
     /**
-     * @description Id
-     *
      * @var string
      */
     public $requestId;

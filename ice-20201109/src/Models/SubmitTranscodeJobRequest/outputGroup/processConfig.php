@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig\combineConfigs;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig\encryption;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig\imageWatermarks;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig\subtitles;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest\outputGroup\processConfig\textWatermarks;
@@ -12,6 +14,16 @@ use AlibabaCloud\Tea\Model;
 
 class processConfig extends Model
 {
+    /**
+     * @var combineConfigs[]
+     */
+    public $combineConfigs;
+
+    /**
+     * @var encryption
+     */
+    public $encryption;
+
     /**
      * @var imageWatermarks[]
      */
@@ -32,6 +44,8 @@ class processConfig extends Model
      */
     public $transcode;
     protected $_name = [
+        'combineConfigs'  => 'CombineConfigs',
+        'encryption'      => 'Encryption',
         'imageWatermarks' => 'ImageWatermarks',
         'subtitles'       => 'Subtitles',
         'textWatermarks'  => 'TextWatermarks',
@@ -45,6 +59,18 @@ class processConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->combineConfigs) {
+            $res['CombineConfigs'] = [];
+            if (null !== $this->combineConfigs && \is_array($this->combineConfigs)) {
+                $n = 0;
+                foreach ($this->combineConfigs as $item) {
+                    $res['CombineConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->encryption) {
+            $res['Encryption'] = null !== $this->encryption ? $this->encryption->toMap() : null;
+        }
         if (null !== $this->imageWatermarks) {
             $res['ImageWatermarks'] = [];
             if (null !== $this->imageWatermarks && \is_array($this->imageWatermarks)) {
@@ -87,6 +113,18 @@ class processConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CombineConfigs'])) {
+            if (!empty($map['CombineConfigs'])) {
+                $model->combineConfigs = [];
+                $n                     = 0;
+                foreach ($map['CombineConfigs'] as $item) {
+                    $model->combineConfigs[$n++] = null !== $item ? combineConfigs::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Encryption'])) {
+            $model->encryption = encryption::fromMap($map['Encryption']);
+        }
         if (isset($map['ImageWatermarks'])) {
             if (!empty($map['ImageWatermarks'])) {
                 $model->imageWatermarks = [];

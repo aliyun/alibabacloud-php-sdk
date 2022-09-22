@@ -76,6 +76,11 @@ class mediaBasicInfo extends Model
     /**
      * @var string
      */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
     public $snapshots;
 
     /**
@@ -126,6 +131,7 @@ class mediaBasicInfo extends Model
         'mediaTags'       => 'MediaTags',
         'mediaType'       => 'MediaType',
         'modifiedTime'    => 'ModifiedTime',
+        'referenceId'     => 'ReferenceId',
         'snapshots'       => 'Snapshots',
         'source'          => 'Source',
         'spriteImages'    => 'SpriteImages',
@@ -181,6 +187,9 @@ class mediaBasicInfo extends Model
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
         }
         if (null !== $this->snapshots) {
             $res['Snapshots'] = $this->snapshots;
@@ -256,6 +265,9 @@ class mediaBasicInfo extends Model
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
         }
         if (isset($map['Snapshots'])) {
             $model->snapshots = $map['Snapshots'];

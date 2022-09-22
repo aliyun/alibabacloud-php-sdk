@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class SubmitBatchMediaProducingJobRequest extends Model
 {
     /**
-     * @description 调用方保证请求幂等性Client Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 批量混剪ClipsParam
-     *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description 剪辑合成配置
-     *
      * @var string
      */
     public $editingProduceConfig;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $jobTitle;
 
     /**
-     * @description 用户合成输出配置
-     *
      * @var string
      */
     public $outputMediaConfig;
 
     /**
-     * @description 用户合成输出目标
-     *
      * @var string
      */
     public $outputMediaTarget;
 
     /**
-     * @description 批量混剪下合成成片的个数
-     *
      * @var int
      */
     public $outputNum;
 
     /**
-     * @description 剪辑任务工程信息
-     *
      * @var string
      */
     public $projectMetadata;
 
     /**
-     * @description 任务来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 提交任务类型
-     *
      * @var string
      */
     public $submitBy;
 
     /**
-     * @description 批量混剪模版id
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 用户配置UserData
-     *
      * @var string
      */
     public $userData;

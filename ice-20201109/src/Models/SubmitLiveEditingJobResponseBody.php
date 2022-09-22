@@ -32,12 +32,18 @@ class SubmitLiveEditingJobResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $vodMediaId;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'mediaId'   => 'MediaId',
-        'mediaURL'  => 'MediaURL',
-        'projectId' => 'ProjectId',
-        'requestId' => 'RequestId',
+        'jobId'      => 'JobId',
+        'mediaId'    => 'MediaId',
+        'mediaURL'   => 'MediaURL',
+        'projectId'  => 'ProjectId',
+        'requestId'  => 'RequestId',
+        'vodMediaId' => 'VodMediaId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class SubmitLiveEditingJobResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vodMediaId) {
+            $res['VodMediaId'] = $this->vodMediaId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class SubmitLiveEditingJobResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VodMediaId'])) {
+            $model->vodMediaId = $map['VodMediaId'];
         }
 
         return $model;
