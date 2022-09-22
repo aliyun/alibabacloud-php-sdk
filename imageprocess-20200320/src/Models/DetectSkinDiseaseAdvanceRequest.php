@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class DetectSkinDiseaseAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $urlObject;
-
-    /**
      * @var string
      */
     public $orgId;
@@ -23,28 +18,32 @@ class DetectSkinDiseaseAdvanceRequest extends Model
      * @var string
      */
     public $orgName;
+
+    /**
+     * @var Stream
+     */
+    public $urlObject;
     protected $_name = [
-        'urlObject' => 'UrlObject',
         'orgId'     => 'OrgId',
         'orgName'   => 'OrgName',
+        'urlObject' => 'Url',
     ];
 
     public function validate()
     {
-        Model::validateRequired('urlObject', $this->urlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->urlObject) {
-            $res['UrlObject'] = $this->urlObject;
-        }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
+        }
+        if (null !== $this->urlObject) {
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -58,14 +57,14 @@ class DetectSkinDiseaseAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UrlObject'])) {
-            $model->urlObject = $map['UrlObject'];
-        }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
+        }
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;

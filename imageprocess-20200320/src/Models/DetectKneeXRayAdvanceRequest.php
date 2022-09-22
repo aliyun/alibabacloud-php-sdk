@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class DetectKneeXRayAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $urlObject;
-
-    /**
      * @var string
      */
     public $dataFormat;
@@ -28,24 +23,25 @@ class DetectKneeXRayAdvanceRequest extends Model
      * @var string
      */
     public $orgName;
+
+    /**
+     * @var Stream
+     */
+    public $urlObject;
     protected $_name = [
-        'urlObject'  => 'UrlObject',
         'dataFormat' => 'DataFormat',
         'orgId'      => 'OrgId',
         'orgName'    => 'OrgName',
+        'urlObject'  => 'Url',
     ];
 
     public function validate()
     {
-        Model::validateRequired('urlObject', $this->urlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->urlObject) {
-            $res['UrlObject'] = $this->urlObject;
-        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
@@ -54,6 +50,9 @@ class DetectKneeXRayAdvanceRequest extends Model
         }
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
+        }
+        if (null !== $this->urlObject) {
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -67,9 +66,6 @@ class DetectKneeXRayAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UrlObject'])) {
-            $model->urlObject = $map['UrlObject'];
-        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
@@ -78,6 +74,9 @@ class DetectKneeXRayAdvanceRequest extends Model
         }
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
+        }
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;

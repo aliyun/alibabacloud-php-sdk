@@ -10,14 +10,14 @@ use GuzzleHttp\Psr7\Stream;
 class DetectHipKeypointXRayAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageUrlObject;
-
-    /**
      * @var string
      */
     public $dataFormat;
+
+    /**
+     * @var Stream
+     */
+    public $imageUrlObject;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class DetectHipKeypointXRayAdvanceRequest extends Model
      */
     public $tracerId;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrlObject',
         'dataFormat'     => 'DataFormat',
+        'imageUrlObject' => 'ImageUrl',
         'orgId'          => 'OrgId',
         'orgName'        => 'OrgName',
         'tracerId'       => 'TracerId',
@@ -43,17 +43,16 @@ class DetectHipKeypointXRayAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
-        }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
+        }
+        if (null !== $this->imageUrlObject) {
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
@@ -76,11 +75,11 @@ class DetectHipKeypointXRayAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
-        }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
