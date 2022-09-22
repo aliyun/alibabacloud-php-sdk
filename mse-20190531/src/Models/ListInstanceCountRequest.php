@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryClusterSpecificationRequest extends Model
+class ListInstanceCountRequest extends Model
 {
     /**
      * @var string
@@ -16,7 +16,7 @@ class QueryClusterSpecificationRequest extends Model
     /**
      * @var string
      */
-    public $connectType;
+    public $clusterType;
 
     /**
      * @var string
@@ -27,11 +27,23 @@ class QueryClusterSpecificationRequest extends Model
      * @var string
      */
     public $mseVersion;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'connectType'    => 'ConnectType',
+        'clusterType'    => 'ClusterType',
         'mseSessionId'   => 'MseSessionId',
         'mseVersion'     => 'MseVersion',
+        'regionId'       => 'RegionId',
+        'requestPars'    => 'RequestPars',
     ];
 
     public function validate()
@@ -44,14 +56,20 @@ class QueryClusterSpecificationRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-        if (null !== $this->connectType) {
-            $res['ConnectType'] = $this->connectType;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
         if (null !== $this->mseSessionId) {
             $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -60,7 +78,7 @@ class QueryClusterSpecificationRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryClusterSpecificationRequest
+     * @return ListInstanceCountRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +86,20 @@ class QueryClusterSpecificationRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-        if (isset($map['ConnectType'])) {
-            $model->connectType = $map['ConnectType'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
         if (isset($map['MseSessionId'])) {
             $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

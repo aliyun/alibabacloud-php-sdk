@@ -182,6 +182,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstanceCountRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstanceCountResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
@@ -5335,6 +5337,64 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ListInstanceCountRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListInstanceCountResponse
+     */
+    public function listInstanceCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->mseSessionId)) {
+            $query['MseSessionId'] = $request->mseSessionId;
+        }
+        if (!Utils::isUnset($request->mseVersion)) {
+            $query['MseVersion'] = $request->mseVersion;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceCount',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceCountRequest $request
+     *
+     * @return ListInstanceCountResponse
+     */
+    public function listInstanceCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListInstancesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6514,6 +6574,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->mseSessionId)) {
             $query['MseSessionId'] = $request->mseSessionId;
+        }
+        if (!Utils::isUnset($request->mseVersion)) {
+            $query['MseVersion'] = $request->mseVersion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
