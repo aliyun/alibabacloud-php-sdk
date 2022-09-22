@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Tdsr\V20200101\Models;
 
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneResponseBody\captures;
+use AlibabaCloud\SDK\Tdsr\V20200101\Models\DetailSceneResponseBody\floorPlans;
 use AlibabaCloud\Tea\Model;
 
 class DetailSceneResponseBody extends Model
@@ -23,6 +24,11 @@ class DetailSceneResponseBody extends Model
      * @var string
      */
     public $coverUrl;
+
+    /**
+     * @var floorPlans[]
+     */
+    public $floorPlans;
 
     /**
      * @var int
@@ -97,6 +103,7 @@ class DetailSceneResponseBody extends Model
         'captures'     => 'Captures',
         'code'         => 'Code',
         'coverUrl'     => 'CoverUrl',
+        'floorPlans'   => 'FloorPlans',
         'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
         'id'           => 'Id',
@@ -134,6 +141,15 @@ class DetailSceneResponseBody extends Model
         }
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
+        }
+        if (null !== $this->floorPlans) {
+            $res['FloorPlans'] = [];
+            if (null !== $this->floorPlans && \is_array($this->floorPlans)) {
+                $n = 0;
+                foreach ($this->floorPlans as $item) {
+                    $res['FloorPlans'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -203,6 +219,15 @@ class DetailSceneResponseBody extends Model
         }
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
+        }
+        if (isset($map['FloorPlans'])) {
+            if (!empty($map['FloorPlans'])) {
+                $model->floorPlans = [];
+                $n                 = 0;
+                foreach ($map['FloorPlans'] as $item) {
+                    $model->floorPlans[$n++] = null !== $item ? floorPlans::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
