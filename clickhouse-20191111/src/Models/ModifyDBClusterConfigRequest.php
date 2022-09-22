@@ -26,6 +26,11 @@ class ModifyDBClusterConfigRequest extends Model
     /**
      * @var string
      */
+    public $reason;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -46,6 +51,7 @@ class ModifyDBClusterConfigRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'reason'               => 'Reason',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -67,6 +73,9 @@ class ModifyDBClusterConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -100,6 +109,9 @@ class ModifyDBClusterConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

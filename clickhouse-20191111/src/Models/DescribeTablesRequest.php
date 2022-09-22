@@ -37,11 +37,6 @@ class DescribeTablesRequest extends Model
      * @var string
      */
     public $schemaName;
-
-    /**
-     * @var string
-     */
-    public $tableName;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
@@ -49,7 +44,6 @@ class DescribeTablesRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'schemaName'           => 'SchemaName',
-        'tableName'            => 'TableName',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeTablesRequest extends Model
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
-        }
-        if (null !== $this->tableName) {
-            $res['TableName'] = $this->tableName;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeTablesRequest extends Model
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
-        }
-        if (isset($map['TableName'])) {
-            $model->tableName = $map['TableName'];
         }
 
         return $model;

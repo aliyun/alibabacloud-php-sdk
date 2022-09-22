@@ -103,6 +103,16 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $engineLatestMinorVersion;
+
+    /**
+     * @var string
+     */
+    public $engineMinorVersion;
+
+    /**
+     * @var string
+     */
     public $engineVersion;
 
     /**
@@ -124,6 +134,11 @@ class DBCluster extends Model
      * @var string
      */
     public $lockReason;
+
+    /**
+     * @var bool
+     */
+    public $maintainAutoType;
 
     /**
      * @var string
@@ -186,6 +201,11 @@ class DBCluster extends Model
     public $supportMysqlPort;
 
     /**
+     * @var int
+     */
+    public $supportOss;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -215,47 +235,51 @@ class DBCluster extends Model
      */
     public $zoneId;
     protected $_name = [
-        'aliUid'                 => 'AliUid',
-        'bid'                    => 'Bid',
-        'category'               => 'Category',
-        'commodityCode'          => 'CommodityCode',
-        'connectionString'       => 'ConnectionString',
-        'controlVersion'         => 'ControlVersion',
-        'createTime'             => 'CreateTime',
-        'DBClusterDescription'   => 'DBClusterDescription',
-        'DBClusterId'            => 'DBClusterId',
-        'DBClusterNetworkType'   => 'DBClusterNetworkType',
-        'DBClusterStatus'        => 'DBClusterStatus',
-        'DBClusterType'          => 'DBClusterType',
-        'DBNodeClass'            => 'DBNodeClass',
-        'DBNodeCount'            => 'DBNodeCount',
-        'DBNodeStorage'          => 'DBNodeStorage',
-        'encryptionKey'          => 'EncryptionKey',
-        'encryptionType'         => 'EncryptionType',
-        'engine'                 => 'Engine',
-        'engineVersion'          => 'EngineVersion',
-        'expireTime'             => 'ExpireTime',
-        'isExpired'              => 'IsExpired',
-        'lockMode'               => 'LockMode',
-        'lockReason'             => 'LockReason',
-        'maintainTime'           => 'MaintainTime',
-        'payType'                => 'PayType',
-        'port'                   => 'Port',
-        'publicConnectionString' => 'PublicConnectionString',
-        'publicIpAddr'           => 'PublicIpAddr',
-        'publicPort'             => 'PublicPort',
-        'regionId'               => 'RegionId',
-        'scaleOutStatus'         => 'ScaleOutStatus',
-        'storageType'            => 'StorageType',
-        'supportBackup'          => 'SupportBackup',
-        'supportHttpsPort'       => 'SupportHttpsPort',
-        'supportMysqlPort'       => 'SupportMysqlPort',
-        'tags'                   => 'Tags',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcCloudInstanceId'     => 'VpcCloudInstanceId',
-        'vpcId'                  => 'VpcId',
-        'vpcIpAddr'              => 'VpcIpAddr',
-        'zoneId'                 => 'ZoneId',
+        'aliUid'                   => 'AliUid',
+        'bid'                      => 'Bid',
+        'category'                 => 'Category',
+        'commodityCode'            => 'CommodityCode',
+        'connectionString'         => 'ConnectionString',
+        'controlVersion'           => 'ControlVersion',
+        'createTime'               => 'CreateTime',
+        'DBClusterDescription'     => 'DBClusterDescription',
+        'DBClusterId'              => 'DBClusterId',
+        'DBClusterNetworkType'     => 'DBClusterNetworkType',
+        'DBClusterStatus'          => 'DBClusterStatus',
+        'DBClusterType'            => 'DBClusterType',
+        'DBNodeClass'              => 'DBNodeClass',
+        'DBNodeCount'              => 'DBNodeCount',
+        'DBNodeStorage'            => 'DBNodeStorage',
+        'encryptionKey'            => 'EncryptionKey',
+        'encryptionType'           => 'EncryptionType',
+        'engine'                   => 'Engine',
+        'engineLatestMinorVersion' => 'EngineLatestMinorVersion',
+        'engineMinorVersion'       => 'EngineMinorVersion',
+        'engineVersion'            => 'EngineVersion',
+        'expireTime'               => 'ExpireTime',
+        'isExpired'                => 'IsExpired',
+        'lockMode'                 => 'LockMode',
+        'lockReason'               => 'LockReason',
+        'maintainAutoType'         => 'MaintainAutoType',
+        'maintainTime'             => 'MaintainTime',
+        'payType'                  => 'PayType',
+        'port'                     => 'Port',
+        'publicConnectionString'   => 'PublicConnectionString',
+        'publicIpAddr'             => 'PublicIpAddr',
+        'publicPort'               => 'PublicPort',
+        'regionId'                 => 'RegionId',
+        'scaleOutStatus'           => 'ScaleOutStatus',
+        'storageType'              => 'StorageType',
+        'supportBackup'            => 'SupportBackup',
+        'supportHttpsPort'         => 'SupportHttpsPort',
+        'supportMysqlPort'         => 'SupportMysqlPort',
+        'supportOss'               => 'SupportOss',
+        'tags'                     => 'Tags',
+        'vSwitchId'                => 'VSwitchId',
+        'vpcCloudInstanceId'       => 'VpcCloudInstanceId',
+        'vpcId'                    => 'VpcId',
+        'vpcIpAddr'                => 'VpcIpAddr',
+        'zoneId'                   => 'ZoneId',
     ];
 
     public function validate()
@@ -319,6 +343,12 @@ class DBCluster extends Model
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+        if (null !== $this->engineLatestMinorVersion) {
+            $res['EngineLatestMinorVersion'] = $this->engineLatestMinorVersion;
+        }
+        if (null !== $this->engineMinorVersion) {
+            $res['EngineMinorVersion'] = $this->engineMinorVersion;
+        }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
@@ -333,6 +363,9 @@ class DBCluster extends Model
         }
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->maintainAutoType) {
+            $res['MaintainAutoType'] = $this->maintainAutoType;
         }
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
@@ -369,6 +402,9 @@ class DBCluster extends Model
         }
         if (null !== $this->supportMysqlPort) {
             $res['SupportMysqlPort'] = $this->supportMysqlPort;
+        }
+        if (null !== $this->supportOss) {
+            $res['SupportOss'] = $this->supportOss;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -454,6 +490,12 @@ class DBCluster extends Model
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+        if (isset($map['EngineLatestMinorVersion'])) {
+            $model->engineLatestMinorVersion = $map['EngineLatestMinorVersion'];
+        }
+        if (isset($map['EngineMinorVersion'])) {
+            $model->engineMinorVersion = $map['EngineMinorVersion'];
+        }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
@@ -468,6 +510,9 @@ class DBCluster extends Model
         }
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['MaintainAutoType'])) {
+            $model->maintainAutoType = $map['MaintainAutoType'];
         }
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
@@ -504,6 +549,9 @@ class DBCluster extends Model
         }
         if (isset($map['SupportMysqlPort'])) {
             $model->supportMysqlPort = $map['SupportMysqlPort'];
+        }
+        if (isset($map['SupportOss'])) {
+            $model->supportOss = $map['SupportOss'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

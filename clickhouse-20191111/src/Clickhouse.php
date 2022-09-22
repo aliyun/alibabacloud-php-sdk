@@ -10,16 +10,14 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnection
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\AllocateClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckClickhouseToRDSResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckHealthRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckHealthResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckModifyConfigNeedRestartRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckModifyConfigNeedRestartResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckMonitorAlertRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckMonitorAlertResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckScaleOutBalancedRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckScaleOutBalancedResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckServiceLinkedRoleResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckVersionTransferRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CheckVersionTransferResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateAccountAndAuthorityRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateAccountAndAuthorityResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\CreateAccountRequest;
@@ -42,8 +40,6 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteDBClusterResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteLorneTaskRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteLorneTaskResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteSyndbRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DeleteSyndbResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAccountAuthorityRequest;
@@ -54,18 +50,22 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourcesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAllDataSourcesResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAvailableResourceRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeBackupsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeColumnsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeColumnsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeConfigHistoryRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeConfigHistoryResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeConfigVersionDifferenceRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeConfigVersionDifferenceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAccessWhiteListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAccessWhiteListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterAttributeResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterConfigInXMLRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterConfigInXMLResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClusterNetInfoItemsRequest;
@@ -76,42 +76,16 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBClustersResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeDBConfigResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLogHubAttributeRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLogHubAttributeResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLoghubDetailRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLoghubDetailResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLogStoreKeysRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLogStoreKeysResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneLogRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneLogResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneTasksMCountRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneTasksMCountResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneTasksMetricsRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneTasksMetricsResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneTasksRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeLorneTasksResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeOSSStorageRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeOSSStorageResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeProcessListResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSschemasRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSschemasResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSTablesRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSTablesResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSVpcRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRDSVpcResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVpcsRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVpcsResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVSwitchsRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRdsVSwitchsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSchemasResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogRecordsResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogTrendRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSlowLogTrendResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSynDbsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSynDbsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\DescribeSynDbTablesRequest;
@@ -128,10 +102,10 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionRequest
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyBackupPolicyResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyClickHouseClusterServerGRPCRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyClickHouseClusterServerGRPCResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterAccessWhiteListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterAccessWhiteListResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterConfigInXMLRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterConfigInXMLResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterDescriptionRequest;
@@ -142,22 +116,20 @@ use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBClusterResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyDBConfigResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyMinorVersionGreadeTypeRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyMinorVersionGreadeTypeResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyRDSToClickhouseDbRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ModifyRDSToClickhouseDbResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\OperateLogHubRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\OperateLogHubResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\OperateLorneTaskStatusRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\OperateLorneTaskStatusResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ReleaseClusterPublicConnectionResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\RestartInstanceResponse;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\SearchRDSTablesRequest;
-use AlibabaCloud\SDK\Clickhouse\V20191111\Models\SearchRDSTablesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TransferVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20191111\Models\TransferVersionResponse;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UpgradeMinorVersionRequest;
+use AlibabaCloud\SDK\Clickhouse\V20191111\Models\UpgradeMinorVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -384,35 +356,26 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckHealthRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param CheckModifyConfigNeedRestartRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return CheckHealthResponse
+     * @return CheckModifyConfigNeedRestartResponse
      */
-    public function checkHealthWithOptions($request, $runtime)
+    public function checkModifyConfigNeedRestartWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckHealth',
+            'action'      => 'CheckModifyConfigNeedRestart',
             'version'     => '2019-11-11',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -423,19 +386,19 @@ class Clickhouse extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CheckHealthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckModifyConfigNeedRestartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckHealthRequest $request
+     * @param CheckModifyConfigNeedRestartRequest $request
      *
-     * @return CheckHealthResponse
+     * @return CheckModifyConfigNeedRestartResponse
      */
-    public function checkHealth($request)
+    public function checkModifyConfigNeedRestart($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->checkHealthWithOptions($request, $runtime);
+        return $this->checkModifyConfigNeedRestartWithOptions($request, $runtime);
     }
 
     /**
@@ -610,88 +573,6 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkServiceLinkedRoleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CheckVersionTransferRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CheckVersionTransferResponse
-     */
-    public function checkVersionTransferWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->checkAccount)) {
-            $query['CheckAccount'] = $request->checkAccount;
-        }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sourceAccount)) {
-            $query['SourceAccount'] = $request->sourceAccount;
-        }
-        if (!Utils::isUnset($request->sourcePassword)) {
-            $query['SourcePassword'] = $request->sourcePassword;
-        }
-        if (!Utils::isUnset($request->targetAccount)) {
-            $query['TargetAccount'] = $request->targetAccount;
-        }
-        if (!Utils::isUnset($request->targetDbClusterId)) {
-            $query['TargetDbClusterId'] = $request->targetDbClusterId;
-        }
-        if (!Utils::isUnset($request->targetPassword)) {
-            $query['TargetPassword'] = $request->targetPassword;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckVersionTransfer',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CheckVersionTransferResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CheckVersionTransferRequest $request
-     *
-     * @return CheckVersionTransferResponse
-     */
-    public function checkVersionTransfer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->checkVersionTransferWithOptions($request, $runtime);
     }
 
     /**
@@ -871,6 +752,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->preferredBackupTime)) {
             $query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -917,6 +801,9 @@ class Clickhouse extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backupSetID)) {
+            $query['BackupSetID'] = $request->backupSetID;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -950,9 +837,6 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->encryptionType)) {
             $query['EncryptionType'] = $request->encryptionType;
         }
-        if (!Utils::isUnset($request->openMonitor)) {
-            $query['OpenMonitor'] = $request->openMonitor;
-        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -973,6 +857,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceDBClusterId)) {
+            $query['SourceDBClusterId'] = $request->sourceDBClusterId;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
@@ -1450,67 +1337,6 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DeleteLorneTaskRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteLorneTaskResponse
-     */
-    public function deleteLorneTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteLorneTask',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteLorneTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteLorneTaskRequest $request
-     *
-     * @return DeleteLorneTaskResponse
-     */
-    public function deleteLorneTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteLorneTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteSyndbRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1816,70 +1642,6 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAvailableResource',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableResourceRequest $request
-     *
-     * @return DescribeAvailableResourceResponse
-     */
-    public function describeAvailableResource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableResourceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeBackupPolicyRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2066,6 +1828,86 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @param DescribeConfigHistoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeConfigHistoryResponse
+     */
+    public function describeConfigHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigHistory',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeConfigHistoryRequest $request
+     *
+     * @return DescribeConfigHistoryResponse
+     */
+    public function describeConfigHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConfigHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeConfigVersionDifferenceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeConfigVersionDifferenceResponse
+     */
+    public function describeConfigVersionDifferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigVersionDifference',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeConfigVersionDifferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeConfigVersionDifferenceRequest $request
+     *
+     * @return DescribeConfigVersionDifferenceResponse
+     */
+    public function describeConfigVersionDifference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConfigVersionDifferenceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBClusterAccessWhiteListRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -2234,6 +2076,52 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBClusterConfigInXMLRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDBClusterConfigInXMLResponse
+     */
+    public function describeDBClusterConfigInXMLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterConfigInXML',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterConfigInXMLRequest $request
+     *
+     * @return DescribeDBClusterConfigInXMLResponse
+     */
+    public function describeDBClusterConfigInXML($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterConfigInXMLWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBClusterNetInfoItemsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2362,9 +2250,6 @@ class Clickhouse extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->controlVersion)) {
-            $query['ControlVersion'] = $request->controlVersion;
-        }
         if (!Utils::isUnset($request->DBClusterDescription)) {
             $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
@@ -2484,475 +2369,6 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLogHubAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeLogHubAttributeResponse
-     */
-    public function describeLogHubAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->deliverName)) {
-            $query['DeliverName'] = $request->deliverName;
-        }
-        if (!Utils::isUnset($request->logStoreName)) {
-            $query['LogStoreName'] = $request->logStoreName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLogHubAttribute',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLogHubAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLogHubAttributeRequest $request
-     *
-     * @return DescribeLogHubAttributeResponse
-     */
-    public function describeLogHubAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLogHubAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLogStoreKeysRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeLogStoreKeysResponse
-     */
-    public function describeLogStoreKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->logStoreName)) {
-            $query['LogStoreName'] = $request->logStoreName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLogStoreKeys',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLogStoreKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLogStoreKeysRequest $request
-     *
-     * @return DescribeLogStoreKeysResponse
-     */
-    public function describeLogStoreKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLogStoreKeysWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLoghubDetailRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeLoghubDetailResponse
-     */
-    public function describeLoghubDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->exportName)) {
-            $query['ExportName'] = $request->exportName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLoghubDetail',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLoghubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLoghubDetailRequest $request
-     *
-     * @return DescribeLoghubDetailResponse
-     */
-    public function describeLoghubDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLoghubDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLorneLogRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeLorneLogResponse
-     */
-    public function describeLorneLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLorneLog',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLorneLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLorneLogRequest $request
-     *
-     * @return DescribeLorneLogResponse
-     */
-    public function describeLorneLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLorneLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLorneTasksRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeLorneTasksResponse
-     */
-    public function describeLorneTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLorneTasks',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLorneTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLorneTasksRequest $request
-     *
-     * @return DescribeLorneTasksResponse
-     */
-    public function describeLorneTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLorneTasksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLorneTasksMCountRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeLorneTasksMCountResponse
-     */
-    public function describeLorneTasksMCountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLorneTasksMCount',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLorneTasksMCountResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLorneTasksMCountRequest $request
-     *
-     * @return DescribeLorneTasksMCountResponse
-     */
-    public function describeLorneTasksMCount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLorneTasksMCountWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeLorneTasksMetricsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeLorneTasksMetricsResponse
-     */
-    public function describeLorneTasksMetricsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeLorneTasksMetrics',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeLorneTasksMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeLorneTasksMetricsRequest $request
-     *
-     * @return DescribeLorneTasksMetricsResponse
-     */
-    public function describeLorneTasksMetrics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeLorneTasksMetricsWithOptions($request, $runtime);
     }
 
     /**
@@ -3093,335 +2509,6 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeRDSTablesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeRDSTablesResponse
-     */
-    public function describeRDSTablesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
-        }
-        if (!Utils::isUnset($request->rdsPassword)) {
-            $query['RdsPassword'] = $request->rdsPassword;
-        }
-        if (!Utils::isUnset($request->rdsPort)) {
-            $query['RdsPort'] = $request->rdsPort;
-        }
-        if (!Utils::isUnset($request->rdsUserName)) {
-            $query['RdsUserName'] = $request->rdsUserName;
-        }
-        if (!Utils::isUnset($request->rdsVpcUrl)) {
-            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->schema)) {
-            $query['Schema'] = $request->schema;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRDSTables',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRDSTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRDSTablesRequest $request
-     *
-     * @return DescribeRDSTablesResponse
-     */
-    public function describeRDSTables($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRDSTablesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRDSVpcRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeRDSVpcResponse
-     */
-    public function describeRDSVpcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRDSVpc',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRDSVpcResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRDSVpcRequest $request
-     *
-     * @return DescribeRDSVpcResponse
-     */
-    public function describeRDSVpc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRDSVpcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRDSschemasRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeRDSschemasResponse
-     */
-    public function describeRDSschemasWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
-        }
-        if (!Utils::isUnset($request->rdsPassword)) {
-            $query['RdsPassword'] = $request->rdsPassword;
-        }
-        if (!Utils::isUnset($request->rdsPort)) {
-            $query['RdsPort'] = $request->rdsPort;
-        }
-        if (!Utils::isUnset($request->rdsUserName)) {
-            $query['RdsUserName'] = $request->rdsUserName;
-        }
-        if (!Utils::isUnset($request->rdsVpcUrl)) {
-            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRDSschemas',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRDSschemasResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRDSschemasRequest $request
-     *
-     * @return DescribeRDSschemasResponse
-     */
-    public function describeRDSschemas($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRDSschemasWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRdsVSwitchsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRdsVSwitchsResponse
-     */
-    public function describeRdsVSwitchsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRdsVSwitchs',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRdsVSwitchsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRdsVSwitchsRequest $request
-     *
-     * @return DescribeRdsVSwitchsResponse
-     */
-    public function describeRdsVSwitchs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRdsVSwitchsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRdsVpcsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRdsVpcsResponse
-     */
-    public function describeRdsVpcsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRdsVpcs',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRdsVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRdsVpcsRequest $request
-     *
-     * @return DescribeRdsVpcsResponse
-     */
-    public function describeRdsVpcs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRdsVpcsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3497,12 +2584,6 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3605,73 +2686,6 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowLogRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSlowLogTrendRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeSlowLogTrendResponse
-     */
-    public function describeSlowLogTrendWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->queryDurationMs)) {
-            $query['QueryDurationMs'] = $request->queryDurationMs;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSlowLogTrend',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSlowLogTrendResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSlowLogTrendRequest $request
-     *
-     * @return DescribeSlowLogTrendResponse
-     */
-    public function describeSlowLogTrend($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSlowLogTrendWithOptions($request, $runtime);
     }
 
     /**
@@ -3814,9 +2828,6 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->schemaName)) {
             $query['SchemaName'] = $request->schemaName;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4169,70 +3180,6 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyClickHouseClusterServerGRPCRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyClickHouseClusterServerGRPCResponse
-     */
-    public function modifyClickHouseClusterServerGRPCWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
-        }
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyClickHouseClusterServerGRPC',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyClickHouseClusterServerGRPCResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyClickHouseClusterServerGRPCRequest $request
-     *
-     * @return ModifyClickHouseClusterServerGRPCResponse
-     */
-    public function modifyClickHouseClusterServerGRPC($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyClickHouseClusterServerGRPCWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyDBClusterRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4385,6 +3332,9 @@ class Clickhouse extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -4425,6 +3375,58 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBClusterConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBClusterConfigInXMLRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDBClusterConfigInXMLResponse
+     */
+    public function modifyDBClusterConfigInXMLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->config)) {
+            $query['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterConfigInXML',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterConfigInXMLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBClusterConfigInXMLRequest $request
+     *
+     * @return ModifyDBClusterConfigInXMLResponse
+     */
+    public function modifyDBClusterConfigInXML($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterConfigInXMLWithOptions($request, $runtime);
     }
 
     /**
@@ -4605,6 +3607,64 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * @param ModifyMinorVersionGreadeTypeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyMinorVersionGreadeTypeResponse
+     */
+    public function modifyMinorVersionGreadeTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->maintainAutoType)) {
+            $query['MaintainAutoType'] = $request->maintainAutoType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMinorVersionGreadeType',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMinorVersionGreadeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMinorVersionGreadeTypeRequest $request
+     *
+     * @return ModifyMinorVersionGreadeTypeResponse
+     */
+    public function modifyMinorVersionGreadeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMinorVersionGreadeTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyRDSToClickhouseDbRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4693,173 +3753,6 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyRDSToClickhouseDbWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OperateLogHubRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return OperateLogHubResponse
-     */
-    public function operateLogHubWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->accessKey)) {
-            $query['AccessKey'] = $request->accessKey;
-        }
-        if (!Utils::isUnset($request->accessSecret)) {
-            $query['AccessSecret'] = $request->accessSecret;
-        }
-        if (!Utils::isUnset($request->create)) {
-            $query['Create'] = $request->create;
-        }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->deliverName)) {
-            $query['DeliverName'] = $request->deliverName;
-        }
-        if (!Utils::isUnset($request->deliverTime)) {
-            $query['DeliverTime'] = $request->deliverTime;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->domainUrl)) {
-            $query['DomainUrl'] = $request->domainUrl;
-        }
-        if (!Utils::isUnset($request->filterDirtyData)) {
-            $query['FilterDirtyData'] = $request->filterDirtyData;
-        }
-        if (!Utils::isUnset($request->logHubStores)) {
-            $query['LogHubStores'] = $request->logHubStores;
-        }
-        if (!Utils::isUnset($request->logStoreName)) {
-            $query['LogStoreName'] = $request->logStoreName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->useLorne)) {
-            $query['UseLorne'] = $request->useLorne;
-        }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OperateLogHub',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OperateLogHubResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param OperateLogHubRequest $request
-     *
-     * @return OperateLogHubResponse
-     */
-    public function operateLogHub($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->operateLogHubWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OperateLorneTaskStatusRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return OperateLorneTaskStatusResponse
-     */
-    public function operateLorneTaskStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->lorneStatus)) {
-            $query['LorneStatus'] = $request->lorneStatus;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OperateLorneTaskStatus',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OperateLorneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param OperateLorneTaskStatusRequest $request
-     *
-     * @return OperateLorneTaskStatusResponse
-     */
-    public function operateLorneTaskStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->operateLorneTaskStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -5043,79 +3936,6 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param SearchRDSTablesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SearchRDSTablesResponse
-     */
-    public function searchRDSTablesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dbClusterId)) {
-            $query['DbClusterId'] = $request->dbClusterId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->rdsId)) {
-            $query['RdsId'] = $request->rdsId;
-        }
-        if (!Utils::isUnset($request->rdsPassword)) {
-            $query['RdsPassword'] = $request->rdsPassword;
-        }
-        if (!Utils::isUnset($request->rdsPort)) {
-            $query['RdsPort'] = $request->rdsPort;
-        }
-        if (!Utils::isUnset($request->rdsUserName)) {
-            $query['RdsUserName'] = $request->rdsUserName;
-        }
-        if (!Utils::isUnset($request->rdsVpcUrl)) {
-            $query['RdsVpcUrl'] = $request->rdsVpcUrl;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SearchRDSTables',
-            'version'     => '2019-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SearchRDSTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SearchRDSTablesRequest $request
-     *
-     * @return SearchRDSTablesResponse
-     */
-    public function searchRDSTables($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchRDSTablesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param TransferVersionRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5192,5 +4012,69 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->transferVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeMinorVersionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpgradeMinorVersionResponse
+     */
+    public function upgradeMinorVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->upgradeImmediately)) {
+            $query['UpgradeImmediately'] = $request->upgradeImmediately;
+        }
+        if (!Utils::isUnset($request->upgradeTime)) {
+            $query['UpgradeTime'] = $request->upgradeTime;
+        }
+        if (!Utils::isUnset($request->upgradeVersion)) {
+            $query['UpgradeVersion'] = $request->upgradeVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeMinorVersion',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeMinorVersionRequest $request
+     *
+     * @return UpgradeMinorVersionResponse
+     */
+    public function upgradeMinorVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeMinorVersionWithOptions($request, $runtime);
     }
 }

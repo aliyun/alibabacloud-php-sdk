@@ -16,6 +16,11 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var string
      */
+    public $backupSize;
+
+    /**
+     * @var string
+     */
     public $preferredBackupPeriod;
 
     /**
@@ -34,6 +39,7 @@ class DescribeBackupPolicyResponseBody extends Model
     public $switch;
     protected $_name = [
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'backupSize'            => 'BackupSize',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
         'preferredBackupTime'   => 'PreferredBackupTime',
         'requestId'             => 'RequestId',
@@ -49,6 +55,9 @@ class DescribeBackupPolicyResponseBody extends Model
         $res = [];
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
+        if (null !== $this->backupSize) {
+            $res['BackupSize'] = $this->backupSize;
         }
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
@@ -76,6 +85,9 @@ class DescribeBackupPolicyResponseBody extends Model
         $model = new self();
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
+        if (isset($map['BackupSize'])) {
+            $model->backupSize = $map['BackupSize'];
         }
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];

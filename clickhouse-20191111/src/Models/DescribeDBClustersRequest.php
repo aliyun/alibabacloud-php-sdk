@@ -12,11 +12,6 @@ class DescribeDBClustersRequest extends Model
     /**
      * @var string
      */
-    public $controlVersion;
-
-    /**
-     * @var string
-     */
     public $DBClusterDescription;
 
     /**
@@ -69,7 +64,6 @@ class DescribeDBClustersRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'controlVersion'       => 'ControlVersion',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterIds'         => 'DBClusterIds',
         'DBClusterStatus'      => 'DBClusterStatus',
@@ -90,9 +84,6 @@ class DescribeDBClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->controlVersion) {
-            $res['ControlVersion'] = $this->controlVersion;
-        }
         if (null !== $this->DBClusterDescription) {
             $res['DBClusterDescription'] = $this->DBClusterDescription;
         }
@@ -144,9 +135,6 @@ class DescribeDBClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ControlVersion'])) {
-            $model->controlVersion = $map['ControlVersion'];
-        }
         if (isset($map['DBClusterDescription'])) {
             $model->DBClusterDescription = $map['DBClusterDescription'];
         }

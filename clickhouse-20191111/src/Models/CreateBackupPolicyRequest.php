@@ -41,6 +41,11 @@ class CreateBackupPolicyRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -54,6 +59,7 @@ class CreateBackupPolicyRequest extends Model
         'ownerId'               => 'OwnerId',
         'preferredBackupPeriod' => 'PreferredBackupPeriod',
         'preferredBackupTime'   => 'PreferredBackupTime',
+        'regionId'              => 'RegionId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
     ];
@@ -82,6 +88,9 @@ class CreateBackupPolicyRequest extends Model
         }
         if (null !== $this->preferredBackupTime) {
             $res['PreferredBackupTime'] = $this->preferredBackupTime;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -118,6 +127,9 @@ class CreateBackupPolicyRequest extends Model
         }
         if (isset($map['PreferredBackupTime'])) {
             $model->preferredBackupTime = $map['PreferredBackupTime'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

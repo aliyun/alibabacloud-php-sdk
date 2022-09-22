@@ -11,6 +11,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $backupSetID;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -64,11 +69,6 @@ class CreateDBInstanceRequest extends Model
     public $encryptionType;
 
     /**
-     * @var bool
-     */
-    public $openMonitor;
-
-    /**
      * @var string
      */
     public $ownerAccount;
@@ -106,6 +106,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $sourceDBClusterId;
+
+    /**
+     * @var string
+     */
     public $usedTime;
 
     /**
@@ -123,6 +128,7 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'backupSetID'          => 'BackupSetID',
         'clientToken'          => 'ClientToken',
         'DBClusterCategory'    => 'DBClusterCategory',
         'DBClusterClass'       => 'DBClusterClass',
@@ -134,7 +140,6 @@ class CreateDBInstanceRequest extends Model
         'dbNodeStorageType'    => 'DbNodeStorageType',
         'encryptionKey'        => 'EncryptionKey',
         'encryptionType'       => 'EncryptionType',
-        'openMonitor'          => 'OpenMonitor',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
@@ -142,6 +147,7 @@ class CreateDBInstanceRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'sourceDBClusterId'    => 'SourceDBClusterId',
         'usedTime'             => 'UsedTime',
         'VPCId'                => 'VPCId',
         'vSwitchId'            => 'VSwitchId',
@@ -155,6 +161,9 @@ class CreateDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupSetID) {
+            $res['BackupSetID'] = $this->backupSetID;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -188,9 +197,6 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->encryptionType) {
             $res['EncryptionType'] = $this->encryptionType;
         }
-        if (null !== $this->openMonitor) {
-            $res['OpenMonitor'] = $this->openMonitor;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -211,6 +217,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->sourceDBClusterId) {
+            $res['SourceDBClusterId'] = $this->sourceDBClusterId;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -236,6 +245,9 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupSetID'])) {
+            $model->backupSetID = $map['BackupSetID'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -269,9 +281,6 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['EncryptionType'])) {
             $model->encryptionType = $map['EncryptionType'];
         }
-        if (isset($map['OpenMonitor'])) {
-            $model->openMonitor = $map['OpenMonitor'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -292,6 +301,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SourceDBClusterId'])) {
+            $model->sourceDBClusterId = $map['SourceDBClusterId'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

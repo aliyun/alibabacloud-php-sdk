@@ -52,6 +52,11 @@ class items extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $expireDate;
     protected $_name = [
         'backupEndTime'   => 'BackupEndTime',
         'backupId'        => 'BackupId',
@@ -62,6 +67,7 @@ class items extends Model
         'backupStatus'    => 'BackupStatus',
         'backupType'      => 'BackupType',
         'DBClusterId'     => 'DBClusterId',
+        'expireDate'      => 'ExpireDate',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class items extends Model
         }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->expireDate) {
+            $res['ExpireDate'] = $this->expireDate;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class items extends Model
         }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['ExpireDate'])) {
+            $model->expireDate = $map['ExpireDate'];
         }
 
         return $model;

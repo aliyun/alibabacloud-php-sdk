@@ -1,3 +1,6 @@
+2022-09-22 Version: 4.0.0
+- Initial php sdk.
+
 2022-03-03 Version: 3.1.1
 - Clickhouse modify return parameter for describeAttributed.
 
