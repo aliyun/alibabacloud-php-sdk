@@ -1,0 +1,107 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Ecs\V20160314\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class ModifyOrderAutoRebootTimeRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $autoRebootTime;
+
+    /**
+     * @var int
+     */
+    public $orderId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+    protected $_name = [
+        'autoRebootTime'       => 'AutoRebootTime',
+        'orderId'              => 'OrderId',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->autoRebootTime) {
+            $res['AutoRebootTime'] = $this->autoRebootTime;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return ModifyOrderAutoRebootTimeRequest
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AutoRebootTime'])) {
+            $model->autoRebootTime = $map['AutoRebootTime'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        return $model;
+    }
+}

@@ -1,0 +1,131 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Ecs\V20160314\Models\DescribeReservationDemandsResponseBody\data\demandOrders\recommendResource;
+
+use AlibabaCloud\Tea\Model;
+
+class capacityReservations extends Model
+{
+    /**
+     * @var int
+     */
+    public $instanceAmount;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $matchCriteria;
+
+    /**
+     * @var string
+     */
+    public $planId;
+
+    /**
+     * @var string
+     */
+    public $privatePoolOptionsId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
+    protected $_name = [
+        'instanceAmount'       => 'InstanceAmount',
+        'instanceType'         => 'InstanceType',
+        'matchCriteria'        => 'MatchCriteria',
+        'planId'               => 'PlanId',
+        'privatePoolOptionsId' => 'PrivatePoolOptionsId',
+        'startTime'            => 'StartTime',
+        'status'               => 'Status',
+        'zoneId'               => 'ZoneId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->instanceAmount) {
+            $res['InstanceAmount'] = $this->instanceAmount;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->matchCriteria) {
+            $res['MatchCriteria'] = $this->matchCriteria;
+        }
+        if (null !== $this->planId) {
+            $res['PlanId'] = $this->planId;
+        }
+        if (null !== $this->privatePoolOptionsId) {
+            $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return capacityReservations
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['InstanceAmount'])) {
+            $model->instanceAmount = $map['InstanceAmount'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['MatchCriteria'])) {
+            $model->matchCriteria = $map['MatchCriteria'];
+        }
+        if (isset($map['PlanId'])) {
+            $model->planId = $map['PlanId'];
+        }
+        if (isset($map['PrivatePoolOptionsId'])) {
+            $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
+        }
+
+        return $model;
+    }
+}

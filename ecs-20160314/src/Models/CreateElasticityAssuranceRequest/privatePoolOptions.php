@@ -1,0 +1,59 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Ecs\V20160314\Models\CreateElasticityAssuranceRequest;
+
+use AlibabaCloud\Tea\Model;
+
+class privatePoolOptions extends Model
+{
+    /**
+     * @var string
+     */
+    public $matchCriteria;
+
+    /**
+     * @var string
+     */
+    public $name;
+    protected $_name = [
+        'matchCriteria' => 'MatchCriteria',
+        'name'          => 'Name',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->matchCriteria) {
+            $res['MatchCriteria'] = $this->matchCriteria;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['MatchCriteria'])) {
+            $model->matchCriteria = $map['MatchCriteria'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        return $model;
+    }
+}
