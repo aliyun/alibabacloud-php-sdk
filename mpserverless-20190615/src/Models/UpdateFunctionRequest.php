@@ -52,16 +52,22 @@ class UpdateFunctionRequest extends Model
      * @var string
      */
     public $timingTriggerConfig;
+
+    /**
+     * @var string
+     */
+    public $timingTriggerUserPayload;
     protected $_name = [
-        'desc'                => 'Desc',
-        'httpTriggerPath'     => 'HttpTriggerPath',
-        'instanceConcurrency' => 'InstanceConcurrency',
-        'memory'              => 'Memory',
-        'name'                => 'Name',
-        'runtime'             => 'Runtime',
-        'spaceId'             => 'SpaceId',
-        'timeout'             => 'Timeout',
-        'timingTriggerConfig' => 'TimingTriggerConfig',
+        'desc'                     => 'Desc',
+        'httpTriggerPath'          => 'HttpTriggerPath',
+        'instanceConcurrency'      => 'InstanceConcurrency',
+        'memory'                   => 'Memory',
+        'name'                     => 'Name',
+        'runtime'                  => 'Runtime',
+        'spaceId'                  => 'SpaceId',
+        'timeout'                  => 'Timeout',
+        'timingTriggerConfig'      => 'TimingTriggerConfig',
+        'timingTriggerUserPayload' => 'TimingTriggerUserPayload',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class UpdateFunctionRequest extends Model
         }
         if (null !== $this->timingTriggerConfig) {
             $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
+        }
+        if (null !== $this->timingTriggerUserPayload) {
+            $res['TimingTriggerUserPayload'] = $this->timingTriggerUserPayload;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class UpdateFunctionRequest extends Model
         }
         if (isset($map['TimingTriggerConfig'])) {
             $model->timingTriggerConfig = $map['TimingTriggerConfig'];
+        }
+        if (isset($map['TimingTriggerUserPayload'])) {
+            $model->timingTriggerUserPayload = $map['TimingTriggerUserPayload'];
         }
 
         return $model;

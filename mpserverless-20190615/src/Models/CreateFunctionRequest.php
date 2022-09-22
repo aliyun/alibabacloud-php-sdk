@@ -14,6 +14,11 @@ class CreateFunctionRequest extends Model
     public $desc;
 
     /**
+     * @var int
+     */
+    public $memory;
+
+    /**
      * @var string
      */
     public $name;
@@ -27,11 +32,18 @@ class CreateFunctionRequest extends Model
      * @var string
      */
     public $spaceId;
+
+    /**
+     * @var int
+     */
+    public $timeout;
     protected $_name = [
         'desc'    => 'Desc',
+        'memory'  => 'Memory',
         'name'    => 'Name',
         'runtime' => 'Runtime',
         'spaceId' => 'SpaceId',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -44,6 +56,9 @@ class CreateFunctionRequest extends Model
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -52,6 +67,9 @@ class CreateFunctionRequest extends Model
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -68,6 +86,9 @@ class CreateFunctionRequest extends Model
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -76,6 +97,9 @@ class CreateFunctionRequest extends Model
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

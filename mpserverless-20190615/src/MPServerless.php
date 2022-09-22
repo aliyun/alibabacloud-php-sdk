@@ -67,6 +67,9 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeServicePolicyRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeServicePolicyResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpaceClientConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpaceClientConfigResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpacesRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpacesResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeSpacesShrinkRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeWebHostingFileRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeWebHostingFileResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\EnableExtensionRequest;
@@ -124,6 +127,14 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\QueryDBRestoreTaskStatusReque
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\QueryDBRestoreTaskStatusResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\QueryServiceStatusRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\QueryServiceStatusResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\QuerySpaceConsumptionRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\QuerySpaceConsumptionResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\QuerySpaceSpecDetailRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\QuerySpaceSpecDetailResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\QuerySpaceUsageRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\QuerySpaceUsageResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\RefreshWebHostingCustomDomainCacheRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\RefreshWebHostingCustomDomainCacheResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RegisterFileRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RegisterFileResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\RenameDBCollectionRequest;
@@ -654,6 +665,9 @@ class MPServerless extends OpenApiClient
         if (!Utils::isUnset($request->desc)) {
             $body['Desc'] = $request->desc;
         }
+        if (!Utils::isUnset($request->memory)) {
+            $body['Memory'] = $request->memory;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
@@ -662,6 +676,9 @@ class MPServerless extends OpenApiClient
         }
         if (!Utils::isUnset($request->spaceId)) {
             $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $body['Timeout'] = $request->timeout;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1665,6 +1682,69 @@ class MPServerless extends OpenApiClient
     }
 
     /**
+     * @param DescribeSpacesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeSpacesResponse
+     */
+    public function describeSpacesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeSpacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->spaceIds)) {
+            $request->spaceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->spaceIds, 'SpaceIds', 'simple');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->emasWorkspaceId)) {
+            $body['EmasWorkspaceId'] = $request->emasWorkspaceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->spaceIdsShrink)) {
+            $body['SpaceIds'] = $request->spaceIdsShrink;
+        }
+        if (!Utils::isUnset($request->specCode)) {
+            $body['SpecCode'] = $request->specCode;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSpaces',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSpacesRequest $request
+     *
+     * @return DescribeSpacesResponse
+     */
+    public function describeSpaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSpacesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeWebHostingFileRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2164,15 +2244,16 @@ class MPServerless extends OpenApiClient
     public function listFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
         $body = [];
         if (!Utils::isUnset($request->fileId)) {
             $body['FileId'] = $request->fileId;
         }
         if (!Utils::isUnset($request->keyword)) {
             $body['Keyword'] = $request->keyword;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
@@ -2181,7 +2262,8 @@ class MPServerless extends OpenApiClient
             $body['SpaceId'] = $request->spaceId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListFile',
@@ -2442,6 +2524,9 @@ class MPServerless extends OpenApiClient
             $request->spaceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->spaceIds, 'SpaceIds', 'simple');
         }
         $body = [];
+        if (!Utils::isUnset($request->emasWorkspaceId)) {
+            $body['EmasWorkspaceId'] = $request->emasWorkspaceId;
+        }
         if (!Utils::isUnset($request->pageNum)) {
             $body['PageNum'] = $request->pageNum;
         }
@@ -2991,6 +3076,187 @@ class MPServerless extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryServiceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpaceConsumptionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QuerySpaceConsumptionResponse
+     */
+    public function querySpaceConsumptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpaceConsumption',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpaceConsumptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpaceConsumptionRequest $request
+     *
+     * @return QuerySpaceConsumptionResponse
+     */
+    public function querySpaceConsumption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpaceConsumptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpaceSpecDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QuerySpaceSpecDetailResponse
+     */
+    public function querySpaceSpecDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->specCode)) {
+            $body['SpecCode'] = $request->specCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpaceSpecDetail',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpaceSpecDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpaceSpecDetailRequest $request
+     *
+     * @return QuerySpaceSpecDetailResponse
+     */
+    public function querySpaceSpecDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpaceSpecDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySpaceUsageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QuerySpaceUsageResponse
+     */
+    public function querySpaceUsageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySpaceUsage',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySpaceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySpaceUsageRequest $request
+     *
+     * @return QuerySpaceUsageResponse
+     */
+    public function querySpaceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySpaceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefreshWebHostingCustomDomainCacheRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RefreshWebHostingCustomDomainCacheResponse
+     */
+    public function refreshWebHostingCustomDomainCacheWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshWebHostingCustomDomainCache',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshWebHostingCustomDomainCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefreshWebHostingCustomDomainCacheRequest $request
+     *
+     * @return RefreshWebHostingCustomDomainCacheResponse
+     */
+    public function refreshWebHostingCustomDomainCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshWebHostingCustomDomainCacheWithOptions($request, $runtime);
     }
 
     /**
@@ -3620,6 +3886,9 @@ class MPServerless extends OpenApiClient
         }
         if (!Utils::isUnset($request->timingTriggerConfig)) {
             $body['TimingTriggerConfig'] = $request->timingTriggerConfig;
+        }
+        if (!Utils::isUnset($request->timingTriggerUserPayload)) {
+            $body['TimingTriggerUserPayload'] = $request->timingTriggerUserPayload;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

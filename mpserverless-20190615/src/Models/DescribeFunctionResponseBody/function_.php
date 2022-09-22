@@ -43,14 +43,20 @@ class function_ extends Model
      * @var string
      */
     public $timingTriggerConfig;
+
+    /**
+     * @var string
+     */
+    public $timingTriggerUserPayload;
     protected $_name = [
-        'createdAt'           => 'CreatedAt',
-        'desc'                => 'Desc',
-        'httpTriggerPath'     => 'HttpTriggerPath',
-        'modifiedAt'          => 'ModifiedAt',
-        'name'                => 'Name',
-        'spec'                => 'Spec',
-        'timingTriggerConfig' => 'TimingTriggerConfig',
+        'createdAt'                => 'CreatedAt',
+        'desc'                     => 'Desc',
+        'httpTriggerPath'          => 'HttpTriggerPath',
+        'modifiedAt'               => 'ModifiedAt',
+        'name'                     => 'Name',
+        'spec'                     => 'Spec',
+        'timingTriggerConfig'      => 'TimingTriggerConfig',
+        'timingTriggerUserPayload' => 'TimingTriggerUserPayload',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class function_ extends Model
         }
         if (null !== $this->timingTriggerConfig) {
             $res['TimingTriggerConfig'] = $this->timingTriggerConfig;
+        }
+        if (null !== $this->timingTriggerUserPayload) {
+            $res['TimingTriggerUserPayload'] = $this->timingTriggerUserPayload;
         }
 
         return $res;
@@ -113,6 +122,9 @@ class function_ extends Model
         }
         if (isset($map['TimingTriggerConfig'])) {
             $model->timingTriggerConfig = $map['TimingTriggerConfig'];
+        }
+        if (isset($map['TimingTriggerUserPayload'])) {
+            $model->timingTriggerUserPayload = $map['TimingTriggerUserPayload'];
         }
 
         return $model;

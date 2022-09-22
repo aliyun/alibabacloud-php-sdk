@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListSpaceShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $emasWorkspaceId;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -23,9 +28,10 @@ class ListSpaceShrinkRequest extends Model
      */
     public $spaceIdsShrink;
     protected $_name = [
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'spaceIdsShrink' => 'SpaceIds',
+        'emasWorkspaceId' => 'EmasWorkspaceId',
+        'pageNum'         => 'PageNum',
+        'pageSize'        => 'PageSize',
+        'spaceIdsShrink'  => 'SpaceIds',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class ListSpaceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->emasWorkspaceId) {
+            $res['EmasWorkspaceId'] = $this->emasWorkspaceId;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -56,6 +65,9 @@ class ListSpaceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EmasWorkspaceId'])) {
+            $model->emasWorkspaceId = $map['EmasWorkspaceId'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }

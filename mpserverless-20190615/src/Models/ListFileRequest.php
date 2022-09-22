@@ -19,9 +19,9 @@ class ListFileRequest extends Model
     public $keyword;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
+    public $nextToken;
 
     /**
      * @var int
@@ -33,11 +33,11 @@ class ListFileRequest extends Model
      */
     public $spaceId;
     protected $_name = [
-        'fileId'   => 'FileId',
-        'keyword'  => 'Keyword',
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
-        'spaceId'  => 'SpaceId',
+        'fileId'    => 'FileId',
+        'keyword'   => 'Keyword',
+        'nextToken' => 'NextToken',
+        'pageSize'  => 'PageSize',
+        'spaceId'   => 'SpaceId',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class ListFileRequest extends Model
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -80,8 +80,8 @@ class ListFileRequest extends Model
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
