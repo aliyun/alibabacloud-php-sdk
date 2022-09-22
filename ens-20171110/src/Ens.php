@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Ens\V20171110;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AccosicateNetworkAclRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AccosicateNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddBackendServersRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddBackendServersResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddBackendServersShrinkRequest;
@@ -41,6 +43,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateFileSystemShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageRequest;
@@ -59,8 +64,14 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerTCPListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerTCPListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerUDPListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateLoadBalancerUDPListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateMountTargetRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateMountTargetResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNatGatewayRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNatGatewayResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSecurityGroupRequest;
@@ -77,6 +88,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteFileSystemRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteFileSystemResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteImageRequest;
@@ -85,8 +98,14 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteKeyPairsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteLoadBalancerListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteMountTargetRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteMountTargetResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNatGatewayRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNatGatewayResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupRequest;
@@ -102,7 +121,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeARMServerInstancesShrinkRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAvailableResourceResponse;
@@ -198,8 +216,12 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerUDPListenerAttribu
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeLoadBalancerUDPListenerAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMeasurementDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMeasurementDataResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMountTargetsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeMountTargetsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAclsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAclsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesRequest;
@@ -219,6 +241,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesRequest;
@@ -257,6 +281,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyFileSystemRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyFileSystemResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyImageAttributeRequest;
@@ -318,6 +344,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupEgressRequest;
@@ -360,6 +388,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageShrinkRequest;
@@ -403,6 +433,52 @@ class Ens extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AccosicateNetworkAclRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AccosicateNetworkAclResponse
+     */
+    public function accosicateNetworkAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkAclId)) {
+            $query['NetworkAclId'] = $request->networkAclId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AccosicateNetworkAcl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AccosicateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AccosicateNetworkAclRequest $request
+     *
+     * @return AccosicateNetworkAclResponse
+     */
+    public function accosicateNetworkAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->accosicateNetworkAclWithOptions($request, $runtime);
     }
 
     /**
@@ -1310,6 +1386,51 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CreateFileSystemRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateFileSystemResponse
+     */
+    public function createFileSystemWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateFileSystemShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->orderDetails)) {
+            $request->orderDetailsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderDetails, 'OrderDetails', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFileSystem',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFileSystemRequest $request
+     *
+     * @return CreateFileSystemResponse
+     */
+    public function createFileSystem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileSystemWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateForwardEntryRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2012,6 +2133,58 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param CreateMountTargetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMountTargetResponse
+     */
+    public function createMountTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->mountTargetName)) {
+            $query['MountTargetName'] = $request->mountTargetName;
+        }
+        if (!Utils::isUnset($request->netWorkId)) {
+            $query['NetWorkId'] = $request->netWorkId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMountTarget',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMountTargetRequest $request
+     *
+     * @return CreateMountTargetResponse
+     */
+    public function createMountTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMountTargetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateNatGatewayRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2116,6 +2289,119 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNetworkAclRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateNetworkAclResponse
+     */
+    public function createNetworkAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->networkAclName)) {
+            $query['NetworkAclName'] = $request->networkAclName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkAcl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNetworkAclRequest $request
+     *
+     * @return CreateNetworkAclResponse
+     */
+    public function createNetworkAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNetworkAclEntryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateNetworkAclEntryResponse
+     */
+    public function createNetworkAclEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cidrBlock)) {
+            $query['CidrBlock'] = $request->cidrBlock;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->networkAclEntryName)) {
+            $query['NetworkAclEntryName'] = $request->networkAclEntryName;
+        }
+        if (!Utils::isUnset($request->networkAclId)) {
+            $query['NetworkAclId'] = $request->networkAclId;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->portRange)) {
+            $query['PortRange'] = $request->portRange;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkAclEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNetworkAclEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNetworkAclEntryRequest $request
+     *
+     * @return CreateNetworkAclEntryResponse
+     */
+    public function createNetworkAclEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkAclEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -2453,6 +2739,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteFileSystemResponse
+     */
+    public function deleteFileSystemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFileSystem',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFileSystemRequest $request
+     *
+     * @return DeleteFileSystemResponse
+     */
+    public function deleteFileSystem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileSystemWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteForwardEntryRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2634,6 +2960,55 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteMountTargetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMountTargetResponse
+     */
+    public function deleteMountTargetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->mountTargetName)) {
+            $query['MountTargetName'] = $request->mountTargetName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMountTarget',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMountTargetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMountTargetRequest $request
+     *
+     * @return DeleteMountTargetResponse
+     */
+    public function deleteMountTarget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMountTargetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteNatGatewayRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2717,6 +3092,92 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNetworkAclRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteNetworkAclResponse
+     */
+    public function deleteNetworkAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkAclId)) {
+            $query['NetworkAclId'] = $request->networkAclId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkAcl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNetworkAclRequest $request
+     *
+     * @return DeleteNetworkAclResponse
+     */
+    public function deleteNetworkAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNetworkAclEntryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteNetworkAclEntryResponse
+     */
+    public function deleteNetworkAclEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkAclEntryId)) {
+            $query['NetworkAclEntryId'] = $request->networkAclEntryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkAclEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNetworkAclEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNetworkAclEntryRequest $request
+     *
+     * @return DeleteNetworkAclEntryResponse
+     */
+    public function deleteNetworkAclEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkAclEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -3044,21 +3505,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceInfoRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeAvailableResourceInfoResponse
      */
-    public function describeAvailableResourceInfoWithOptions($request, $runtime)
+    public function describeAvailableResourceInfoWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
+        $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'DescribeAvailableResourceInfo',
             'version'     => '2017-11-10',
@@ -3075,15 +3528,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourceInfoRequest $request
-     *
      * @return DescribeAvailableResourceInfoResponse
      */
-    public function describeAvailableResourceInfo($request)
+    public function describeAvailableResourceInfo()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeAvailableResourceInfoWithOptions($request, $runtime);
+        return $this->describeAvailableResourceInfoWithOptions($runtime);
     }
 
     /**
@@ -5451,6 +5902,61 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeMountTargetsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeMountTargetsResponse
+     */
+    public function describeMountTargetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        if (!Utils::isUnset($request->mountTargetName)) {
+            $query['MountTargetName'] = $request->mountTargetName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMountTargets',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMountTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMountTargetsRequest $request
+     *
+     * @return DescribeMountTargetsResponse
+     */
+    public function describeMountTargets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMountTargetsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeNatGatewaysRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5488,6 +5994,46 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNatGatewaysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNetworkAclsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeNetworkAclsResponse
+     */
+    public function describeNetworkAclsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNetworkAcls',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNetworkAclsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNetworkAclsRequest $request
+     *
+     * @return DescribeNetworkAclsResponse
+     */
+    public function describeNetworkAcls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkAclsWithOptions($request, $runtime);
     }
 
     /**
@@ -5952,6 +6498,58 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSecurityGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSelfImagesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSelfImagesResponse
+     */
+    public function describeSelfImagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSelfImages',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSelfImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSelfImagesRequest $request
+     *
+     * @return DescribeSelfImagesResponse
+     */
+    public function describeSelfImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSelfImagesWithOptions($request, $runtime);
     }
 
     /**
@@ -6892,6 +7490,55 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyEpnInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyFileSystemRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFileSystemResponse
+     */
+    public function modifyFileSystemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->fileSystemId)) {
+            $query['FileSystemId'] = $request->fileSystemId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFileSystem',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyFileSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyFileSystemRequest $request
+     *
+     * @return ModifyFileSystemResponse
+     */
+    public function modifyFileSystem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyFileSystemWithOptions($request, $runtime);
     }
 
     /**
@@ -8363,6 +9010,52 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param ResizeDiskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ResizeDiskResponse
+     */
+    public function resizeDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->newSize)) {
+            $query['NewSize'] = $request->newSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeDisk',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResizeDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResizeDiskRequest $request
+     *
+     * @return ResizeDiskResponse
+     */
+    public function resizeDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resizeDiskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RestartDeviceInstanceRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -9584,6 +10277,52 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unassignPrivateIpAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnassociateNetworkAclRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UnassociateNetworkAclResponse
+     */
+    public function unassociateNetworkAclWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->networkAclId)) {
+            $query['NetworkAclId'] = $request->networkAclId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnassociateNetworkAcl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnassociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnassociateNetworkAclRequest $request
+     *
+     * @return UnassociateNetworkAclResponse
+     */
+    public function unassociateNetworkAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassociateNetworkAclWithOptions($request, $runtime);
     }
 
     /**

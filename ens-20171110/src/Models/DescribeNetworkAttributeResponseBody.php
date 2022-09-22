@@ -38,6 +38,11 @@ class DescribeNetworkAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $networkAclId;
+
+    /**
+     * @var string
+     */
     public $networkId;
 
     /**
@@ -70,6 +75,7 @@ class DescribeNetworkAttributeResponseBody extends Model
         'createdTime'    => 'CreatedTime',
         'description'    => 'Description',
         'ensRegionId'    => 'EnsRegionId',
+        'networkAclId'   => 'NetworkAclId',
         'networkId'      => 'NetworkId',
         'networkName'    => 'NetworkName',
         'requestId'      => 'RequestId',
@@ -99,6 +105,9 @@ class DescribeNetworkAttributeResponseBody extends Model
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->networkAclId) {
+            $res['NetworkAclId'] = $this->networkAclId;
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
@@ -144,6 +153,9 @@ class DescribeNetworkAttributeResponseBody extends Model
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['NetworkAclId'])) {
+            $model->networkAclId = $map['NetworkAclId'];
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];

@@ -77,6 +77,11 @@ class instance extends Model
     public $instanceResourceType;
 
     /**
+     * @var string
+     */
+    public $instanceTypeFamily;
+
+    /**
      * @var int
      */
     public $internetMaxBandwidthIn;
@@ -148,6 +153,7 @@ class instance extends Model
         'instanceId'              => 'InstanceId',
         'instanceName'            => 'InstanceName',
         'instanceResourceType'    => 'InstanceResourceType',
+        'instanceTypeFamily'      => 'InstanceTypeFamily',
         'internetMaxBandwidthIn'  => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'memory'                  => 'Memory',
@@ -204,6 +210,9 @@ class instance extends Model
         }
         if (null !== $this->instanceResourceType) {
             $res['InstanceResourceType'] = $this->instanceResourceType;
+        }
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
         if (null !== $this->internetMaxBandwidthIn) {
             $res['InternetMaxBandwidthIn'] = $this->internetMaxBandwidthIn;
@@ -288,6 +297,9 @@ class instance extends Model
         }
         if (isset($map['InstanceResourceType'])) {
             $model->instanceResourceType = $map['InstanceResourceType'];
+        }
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
         if (isset($map['InternetMaxBandwidthIn'])) {
             $model->internetMaxBandwidthIn = $map['InternetMaxBandwidthIn'];
