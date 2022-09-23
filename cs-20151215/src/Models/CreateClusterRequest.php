@@ -125,6 +125,11 @@ class CreateClusterRequest extends Model
     public $instances;
 
     /**
+     * @var string
+     */
+    public $ipStack;
+
+    /**
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
@@ -467,6 +472,7 @@ class CreateClusterRequest extends Model
         'imageId'                          => 'image_id',
         'imageType'                        => 'image_type',
         'instances'                        => 'instances',
+        'ipStack'                          => 'ip_stack',
         'isEnterpriseSecurityGroup'        => 'is_enterprise_security_group',
         'keepInstanceName'                 => 'keep_instance_name',
         'keyPair'                          => 'key_pair',
@@ -614,6 +620,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->instances) {
             $res['instances'] = $this->instances;
+        }
+        if (null !== $this->ipStack) {
+            $res['ip_stack'] = $this->ipStack;
         }
         if (null !== $this->isEnterpriseSecurityGroup) {
             $res['is_enterprise_security_group'] = $this->isEnterpriseSecurityGroup;
@@ -915,6 +924,9 @@ class CreateClusterRequest extends Model
             if (!empty($map['instances'])) {
                 $model->instances = $map['instances'];
             }
+        }
+        if (isset($map['ip_stack'])) {
+            $model->ipStack = $map['ip_stack'];
         }
         if (isset($map['is_enterprise_security_group'])) {
             $model->isEnterpriseSecurityGroup = $map['is_enterprise_security_group'];

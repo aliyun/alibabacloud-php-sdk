@@ -656,6 +656,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->instances)) {
             $body['instances'] = $request->instances;
         }
+        if (!Utils::isUnset($request->ipStack)) {
+            $body['ip_stack'] = $request->ipStack;
+        }
         if (!Utils::isUnset($request->isEnterpriseSecurityGroup)) {
             $body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
         }
