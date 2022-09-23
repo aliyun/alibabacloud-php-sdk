@@ -891,8 +891,8 @@ class Cas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
         }
         if (!Utils::isUnset($request->message)) {
             $query['Message'] = $request->message;

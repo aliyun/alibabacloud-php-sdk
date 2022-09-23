@@ -11,7 +11,7 @@ class VerifyRequest extends Model
     /**
      * @var string
      */
-    public $identifier;
+    public $certIdentifier;
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class VerifyRequest extends Model
      */
     public $signingAlgorithm;
     protected $_name = [
-        'identifier'       => 'Identifier',
+        'certIdentifier'   => 'CertIdentifier',
         'message'          => 'Message',
         'messageType'      => 'MessageType',
         'signatureValue'   => 'SignatureValue',
@@ -47,8 +47,8 @@ class VerifyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->identifier) {
-            $res['Identifier'] = $this->identifier;
+        if (null !== $this->certIdentifier) {
+            $res['CertIdentifier'] = $this->certIdentifier;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -74,8 +74,8 @@ class VerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Identifier'])) {
-            $model->identifier = $map['Identifier'];
+        if (isset($map['CertIdentifier'])) {
+            $model->certIdentifier = $map['CertIdentifier'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
