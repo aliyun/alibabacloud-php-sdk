@@ -16,22 +16,10 @@ class regions extends Model
     /**
      * @var string
      */
-    public $regionEndpoint;
-
-    /**
-     * @var string
-     */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $regionVpcEndpoint;
     protected $_name = [
-        'localName'         => 'LocalName',
-        'regionEndpoint'    => 'RegionEndpoint',
-        'regionId'          => 'RegionId',
-        'regionVpcEndpoint' => 'RegionVpcEndpoint',
+        'localName' => 'LocalName',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -44,14 +32,8 @@ class regions extends Model
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
-        if (null !== $this->regionEndpoint) {
-            $res['RegionEndpoint'] = $this->regionEndpoint;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->regionVpcEndpoint) {
-            $res['RegionVpcEndpoint'] = $this->regionVpcEndpoint;
         }
 
         return $res;
@@ -68,14 +50,8 @@ class regions extends Model
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
-        if (isset($map['RegionEndpoint'])) {
-            $model->regionEndpoint = $map['RegionEndpoint'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RegionVpcEndpoint'])) {
-            $model->regionVpcEndpoint = $map['RegionVpcEndpoint'];
         }
 
         return $model;

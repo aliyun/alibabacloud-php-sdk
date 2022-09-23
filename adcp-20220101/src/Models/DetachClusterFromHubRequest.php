@@ -17,9 +17,15 @@ class DetachClusterFromHubRequest extends Model
      * @var string
      */
     public $clusterIds;
+
+    /**
+     * @var bool
+     */
+    public $detachFromMesh;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'clusterIds' => 'ClusterIds',
+        'clusterId'      => 'ClusterId',
+        'clusterIds'     => 'ClusterIds',
+        'detachFromMesh' => 'DetachFromMesh',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DetachClusterFromHubRequest extends Model
         }
         if (null !== $this->clusterIds) {
             $res['ClusterIds'] = $this->clusterIds;
+        }
+        if (null !== $this->detachFromMesh) {
+            $res['DetachFromMesh'] = $this->detachFromMesh;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DetachClusterFromHubRequest extends Model
         }
         if (isset($map['ClusterIds'])) {
             $model->clusterIds = $map['ClusterIds'];
+        }
+        if (isset($map['DetachFromMesh'])) {
+            $model->detachFromMesh = $map['DetachFromMesh'];
         }
 
         return $model;

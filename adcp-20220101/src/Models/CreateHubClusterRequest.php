@@ -19,43 +19,19 @@ class CreateHubClusterRequest extends Model
     public $auditLogEnabled;
 
     /**
-     * @var string
-     */
-    public $auditLogProject;
-
-    /**
-     * @var string
-     */
-    public $auditLogStoreTTL;
-
-    /**
-     * @var bool
-     */
-    public $controlPlaneLogEnabled;
-
-    /**
-     * @var string
-     */
-    public $controlPlaneLogProject;
-
-    /**
-     * @var string
-     */
-    public $controlPlaneLogTTL;
-
-    /**
-     * @description 是否企业安全组
-     *
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
 
     /**
-     * @description 集群名称
-     *
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $profile;
 
     /**
      * @var string
@@ -74,13 +50,9 @@ class CreateHubClusterRequest extends Model
     protected $_name = [
         'apiServerPublicEip'        => 'ApiServerPublicEip',
         'auditLogEnabled'           => 'AuditLogEnabled',
-        'auditLogProject'           => 'AuditLogProject',
-        'auditLogStoreTTL'          => 'AuditLogStoreTTL',
-        'controlPlaneLogEnabled'    => 'ControlPlaneLogEnabled',
-        'controlPlaneLogProject'    => 'ControlPlaneLogProject',
-        'controlPlaneLogTTL'        => 'ControlPlaneLogTTL',
         'isEnterpriseSecurityGroup' => 'IsEnterpriseSecurityGroup',
         'name'                      => 'Name',
+        'profile'                   => 'Profile',
         'regionId'                  => 'RegionId',
         'vSwitches'                 => 'VSwitches',
         'vpcId'                     => 'VpcId',
@@ -99,26 +71,14 @@ class CreateHubClusterRequest extends Model
         if (null !== $this->auditLogEnabled) {
             $res['AuditLogEnabled'] = $this->auditLogEnabled;
         }
-        if (null !== $this->auditLogProject) {
-            $res['AuditLogProject'] = $this->auditLogProject;
-        }
-        if (null !== $this->auditLogStoreTTL) {
-            $res['AuditLogStoreTTL'] = $this->auditLogStoreTTL;
-        }
-        if (null !== $this->controlPlaneLogEnabled) {
-            $res['ControlPlaneLogEnabled'] = $this->controlPlaneLogEnabled;
-        }
-        if (null !== $this->controlPlaneLogProject) {
-            $res['ControlPlaneLogProject'] = $this->controlPlaneLogProject;
-        }
-        if (null !== $this->controlPlaneLogTTL) {
-            $res['ControlPlaneLogTTL'] = $this->controlPlaneLogTTL;
-        }
         if (null !== $this->isEnterpriseSecurityGroup) {
             $res['IsEnterpriseSecurityGroup'] = $this->isEnterpriseSecurityGroup;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->profile) {
+            $res['Profile'] = $this->profile;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -147,26 +107,14 @@ class CreateHubClusterRequest extends Model
         if (isset($map['AuditLogEnabled'])) {
             $model->auditLogEnabled = $map['AuditLogEnabled'];
         }
-        if (isset($map['AuditLogProject'])) {
-            $model->auditLogProject = $map['AuditLogProject'];
-        }
-        if (isset($map['AuditLogStoreTTL'])) {
-            $model->auditLogStoreTTL = $map['AuditLogStoreTTL'];
-        }
-        if (isset($map['ControlPlaneLogEnabled'])) {
-            $model->controlPlaneLogEnabled = $map['ControlPlaneLogEnabled'];
-        }
-        if (isset($map['ControlPlaneLogProject'])) {
-            $model->controlPlaneLogProject = $map['ControlPlaneLogProject'];
-        }
-        if (isset($map['ControlPlaneLogTTL'])) {
-            $model->controlPlaneLogTTL = $map['ControlPlaneLogTTL'];
-        }
         if (isset($map['IsEnterpriseSecurityGroup'])) {
             $model->isEnterpriseSecurityGroup = $map['IsEnterpriseSecurityGroup'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Profile'])) {
+            $model->profile = $map['Profile'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

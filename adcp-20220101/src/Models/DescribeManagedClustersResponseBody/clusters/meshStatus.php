@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
+namespace AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponseBody\clusters;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeManagedClustersRequest extends Model
+class meshStatus extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $clusterId;
+    public $inMesh;
     protected $_name = [
-        'clusterId' => 'ClusterId',
+        'inMesh' => 'InMesh',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DescribeManagedClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->inMesh) {
+            $res['InMesh'] = $this->inMesh;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DescribeManagedClustersRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeManagedClustersRequest
+     * @return meshStatus
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['InMesh'])) {
+            $model->inMesh = $map['InMesh'];
         }
 
         return $model;

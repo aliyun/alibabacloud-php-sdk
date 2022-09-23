@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AttachClusterToHubRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $attachToMesh;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -18,8 +23,9 @@ class AttachClusterToHubRequest extends Model
      */
     public $clusterIds;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'clusterIds' => 'ClusterIds',
+        'attachToMesh' => 'AttachToMesh',
+        'clusterId'    => 'ClusterId',
+        'clusterIds'   => 'ClusterIds',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class AttachClusterToHubRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachToMesh) {
+            $res['AttachToMesh'] = $this->attachToMesh;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -47,6 +56,9 @@ class AttachClusterToHubRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachToMesh'])) {
+            $model->attachToMesh = $map['AttachToMesh'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

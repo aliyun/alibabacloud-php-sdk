@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponseBody;
 
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponseBody\clusters\cluster;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponseBody\clusters\meshStatus;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponseBody\clusters\status;
 use AlibabaCloud\Tea\Model;
 
@@ -16,12 +17,18 @@ class clusters extends Model
     public $cluster;
 
     /**
+     * @var meshStatus
+     */
+    public $meshStatus;
+
+    /**
      * @var status
      */
     public $status;
     protected $_name = [
-        'cluster' => 'Cluster',
-        'status'  => 'Status',
+        'cluster'    => 'Cluster',
+        'meshStatus' => 'MeshStatus',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -33,6 +40,9 @@ class clusters extends Model
         $res = [];
         if (null !== $this->cluster) {
             $res['Cluster'] = null !== $this->cluster ? $this->cluster->toMap() : null;
+        }
+        if (null !== $this->meshStatus) {
+            $res['MeshStatus'] = null !== $this->meshStatus ? $this->meshStatus->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = null !== $this->status ? $this->status->toMap() : null;
@@ -51,6 +61,9 @@ class clusters extends Model
         $model = new self();
         if (isset($map['Cluster'])) {
             $model->cluster = cluster::fromMap($map['Cluster']);
+        }
+        if (isset($map['MeshStatus'])) {
+            $model->meshStatus = meshStatus::fromMap($map['MeshStatus']);
         }
         if (isset($map['Status'])) {
             $model->status = status::fromMap($map['Status']);

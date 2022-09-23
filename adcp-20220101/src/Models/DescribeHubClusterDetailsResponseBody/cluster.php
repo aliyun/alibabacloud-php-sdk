@@ -6,7 +6,10 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsRespon
 
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\apiServer;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\clusterInfo;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\conditions;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\endpoints;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\logConfig;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\meshConfig;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterDetailsResponseBody\cluster\network;
 use AlibabaCloud\Tea\Model;
 
@@ -23,9 +26,24 @@ class cluster extends Model
     public $clusterInfo;
 
     /**
+     * @var conditions[]
+     */
+    public $conditions;
+
+    /**
      * @var endpoints
      */
     public $endpoints;
+
+    /**
+     * @var logConfig
+     */
+    public $logConfig;
+
+    /**
+     * @var meshConfig
+     */
+    public $meshConfig;
 
     /**
      * @var network
@@ -34,7 +52,10 @@ class cluster extends Model
     protected $_name = [
         'apiServer'   => 'ApiServer',
         'clusterInfo' => 'ClusterInfo',
+        'conditions'  => 'Conditions',
         'endpoints'   => 'Endpoints',
+        'logConfig'   => 'LogConfig',
+        'meshConfig'  => 'MeshConfig',
         'network'     => 'Network',
     ];
 
@@ -51,8 +72,23 @@ class cluster extends Model
         if (null !== $this->clusterInfo) {
             $res['ClusterInfo'] = null !== $this->clusterInfo ? $this->clusterInfo->toMap() : null;
         }
+        if (null !== $this->conditions) {
+            $res['Conditions'] = [];
+            if (null !== $this->conditions && \is_array($this->conditions)) {
+                $n = 0;
+                foreach ($this->conditions as $item) {
+                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = null !== $this->endpoints ? $this->endpoints->toMap() : null;
+        }
+        if (null !== $this->logConfig) {
+            $res['LogConfig'] = null !== $this->logConfig ? $this->logConfig->toMap() : null;
+        }
+        if (null !== $this->meshConfig) {
+            $res['MeshConfig'] = null !== $this->meshConfig ? $this->meshConfig->toMap() : null;
         }
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
@@ -75,8 +111,23 @@ class cluster extends Model
         if (isset($map['ClusterInfo'])) {
             $model->clusterInfo = clusterInfo::fromMap($map['ClusterInfo']);
         }
+        if (isset($map['Conditions'])) {
+            if (!empty($map['Conditions'])) {
+                $model->conditions = [];
+                $n                 = 0;
+                foreach ($map['Conditions'] as $item) {
+                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Endpoints'])) {
             $model->endpoints = endpoints::fromMap($map['Endpoints']);
+        }
+        if (isset($map['LogConfig'])) {
+            $model->logConfig = logConfig::fromMap($map['LogConfig']);
+        }
+        if (isset($map['MeshConfig'])) {
+            $model->meshConfig = meshConfig::fromMap($map['MeshConfig']);
         }
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);

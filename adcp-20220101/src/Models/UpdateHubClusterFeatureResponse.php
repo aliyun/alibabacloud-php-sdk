@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeManagedClustersResponse extends Model
+class UpdateHubClusterFeatureResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeManagedClustersResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeManagedClustersResponseBody
+     * @var UpdateHubClusterFeatureResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeManagedClustersResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeManagedClustersResponse
+     * @return UpdateHubClusterFeatureResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeManagedClustersResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeManagedClustersResponseBody::fromMap($map['body']);
+            $model->body = UpdateHubClusterFeatureResponseBody::fromMap($map['body']);
         }
 
         return $model;

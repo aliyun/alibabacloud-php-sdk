@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClusterLogsRequest extends Model
 {
     /**
-     * @description 集群ID
-     *
      * @var string
      */
     public $clusterId;

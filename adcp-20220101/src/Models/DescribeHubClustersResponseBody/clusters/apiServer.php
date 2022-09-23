@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class apiServer extends Model
 {
     /**
+     * @var string
+     */
+    public $apiServerEipId;
+
+    /**
      * @var bool
      */
     public $enabledPublic;
@@ -18,6 +23,7 @@ class apiServer extends Model
      */
     public $loadBalancerId;
     protected $_name = [
+        'apiServerEipId' => 'ApiServerEipId',
         'enabledPublic'  => 'EnabledPublic',
         'loadBalancerId' => 'LoadBalancerId',
     ];
@@ -29,6 +35,9 @@ class apiServer extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiServerEipId) {
+            $res['ApiServerEipId'] = $this->apiServerEipId;
+        }
         if (null !== $this->enabledPublic) {
             $res['EnabledPublic'] = $this->enabledPublic;
         }
@@ -47,6 +56,9 @@ class apiServer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiServerEipId'])) {
+            $model->apiServerEipId = $map['ApiServerEipId'];
+        }
         if (isset($map['EnabledPublic'])) {
             $model->enabledPublic = $map['EnabledPublic'];
         }

@@ -18,12 +18,16 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterKubeconfigRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterKubeconfigResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterLogsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterLogsResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DetachClusterFromHubResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\UpdateHubClusterFeatureResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -35,7 +39,33 @@ class Adcp extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'central';
+        $this->_endpointMap        = [
+            'cn-beijing'            => 'adcp.cn-beijing.aliyuncs.com',
+            'cn-zhangjiakou'        => 'adcp.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou'           => 'adcp.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai'           => 'adcp.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen'           => 'adcp.cn-shenzhen.aliyuncs.com',
+            'cn-heyuan'             => 'adcp.cn-heyuan.aliyuncs.com',
+            'cn-hongkong'           => 'adcp.cn-hongkong.aliyuncs.com',
+            'ap-northeast-1'        => 'adcp.ap-northeast-1.aliyuncs.com',
+            'ap-southeast-1'        => 'adcp.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5'        => 'adcp.ap-southeast-5.aliyuncs.com',
+            'ap-south-1'            => 'adcp.ap-south-1.aliyuncs.com',
+            'ap-southeast-2'        => 'adcp.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-3'        => 'adcp.ap-southeast-3.aliyuncs.com',
+            'cn-chengdu'            => 'adcp-vpc.cn-chengdu.aliyuncs.com',
+            'cn-huhehaote'          => 'adcp.cn-huhehaote.aliyuncs.com',
+            'cn-qingdao'            => 'adcp.cn-qingdao.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'adcp-vpc.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-wulanchabu'         => 'adcp.cn-wulanchabu.aliyuncs.com',
+            'eu-central-1'          => 'adcp.eu-central-1.aliyuncs.com',
+            'eu-west-1'             => 'adcp-vpc.eu-west-1.aliyuncs.com',
+            'me-east-1'             => 'adcp.me-east-1.aliyuncs.com',
+            'us-east-1'             => 'adcp.us-east-1.aliyuncs.com',
+            'us-west-1'             => 'adcp.us-west-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('adcp', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -73,6 +103,9 @@ class Adcp extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->attachToMesh)) {
+            $query['AttachToMesh'] = $request->attachToMesh;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
@@ -127,26 +160,14 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->auditLogEnabled)) {
             $body['AuditLogEnabled'] = $request->auditLogEnabled;
         }
-        if (!Utils::isUnset($request->auditLogProject)) {
-            $body['AuditLogProject'] = $request->auditLogProject;
-        }
-        if (!Utils::isUnset($request->auditLogStoreTTL)) {
-            $body['AuditLogStoreTTL'] = $request->auditLogStoreTTL;
-        }
-        if (!Utils::isUnset($request->controlPlaneLogEnabled)) {
-            $body['ControlPlaneLogEnabled'] = $request->controlPlaneLogEnabled;
-        }
-        if (!Utils::isUnset($request->controlPlaneLogProject)) {
-            $body['ControlPlaneLogProject'] = $request->controlPlaneLogProject;
-        }
-        if (!Utils::isUnset($request->controlPlaneLogTTL)) {
-            $body['ControlPlaneLogTTL'] = $request->controlPlaneLogTTL;
-        }
         if (!Utils::isUnset($request->isEnterpriseSecurityGroup)) {
             $body['IsEnterpriseSecurityGroup'] = $request->isEnterpriseSecurityGroup;
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->profile)) {
+            $body['Profile'] = $request->profile;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
@@ -366,13 +387,21 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeHubClustersRequest $request
+     * @param RuntimeOptions             $runtime
      *
      * @return DescribeHubClustersResponse
      */
-    public function describeHubClustersWithOptions($runtime)
+    public function describeHubClustersWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->profile)) {
+            $query['Profile'] = $request->profile;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeHubClusters',
             'version'     => '2022-01-01',
@@ -389,13 +418,15 @@ class Adcp extends OpenApiClient
     }
 
     /**
+     * @param DescribeHubClustersRequest $request
+     *
      * @return DescribeHubClustersResponse
      */
-    public function describeHubClusters()
+    public function describeHubClusters($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeHubClustersWithOptions($runtime);
+        return $this->describeHubClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -442,13 +473,18 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
      *
      * @return DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($runtime)
+    public function describeRegionsWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
             'version'     => '2022-01-01',
@@ -465,13 +501,15 @@ class Adcp extends OpenApiClient
     }
 
     /**
+     * @param DescribeRegionsRequest $request
+     *
      * @return DescribeRegionsResponse
      */
-    public function describeRegions()
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($runtime);
+        return $this->describeRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -486,6 +524,9 @@ class Adcp extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->detachFromMesh)) {
+            $query['DetachFromMesh'] = $request->detachFromMesh;
         }
         $body = [];
         if (!Utils::isUnset($request->clusterIds)) {
@@ -520,5 +561,69 @@ class Adcp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachClusterFromHubWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateHubClusterFeatureRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateHubClusterFeatureResponse
+     */
+    public function updateHubClusterFeatureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiServerEipId)) {
+            $query['ApiServerEipId'] = $request->apiServerEipId;
+        }
+        if (!Utils::isUnset($request->auditLogEnabled)) {
+            $query['AuditLogEnabled'] = $request->auditLogEnabled;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
+        }
+        if (!Utils::isUnset($request->enableArgoCD)) {
+            $query['EnableArgoCD'] = $request->enableArgoCD;
+        }
+        if (!Utils::isUnset($request->enableMesh)) {
+            $query['EnableMesh'] = $request->enableMesh;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->publicApiServerEnabled)) {
+            $query['PublicApiServerEnabled'] = $request->publicApiServerEnabled;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateHubClusterFeature',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateHubClusterFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateHubClusterFeatureRequest $request
+     *
+     * @return UpdateHubClusterFeatureResponse
+     */
+    public function updateHubClusterFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateHubClusterFeatureWithOptions($request, $runtime);
     }
 }

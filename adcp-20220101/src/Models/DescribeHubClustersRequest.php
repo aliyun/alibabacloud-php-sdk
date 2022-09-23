@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeManagedClustersRequest extends Model
+class DescribeHubClustersRequest extends Model
 {
     /**
      * @var string
      */
-    public $clusterId;
+    public $profile;
     protected $_name = [
-        'clusterId' => 'ClusterId',
+        'profile' => 'Profile',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class DescribeManagedClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->profile) {
+            $res['Profile'] = $this->profile;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class DescribeManagedClustersRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeManagedClustersRequest
+     * @return DescribeHubClustersRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Profile'])) {
+            $model->profile = $map['Profile'];
         }
 
         return $model;

@@ -15,8 +15,6 @@ class DescribeHubClusterLogsResponseBody extends Model
     public $logs;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
