@@ -26,12 +26,18 @@ class DescribeDataSharePerformanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'key'       => 'Key',
-        'regionId'  => 'RegionId',
-        'startTime' => 'StartTime',
+        'endTime'         => 'EndTime',
+        'key'             => 'Key',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class DescribeDataSharePerformanceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -73,6 +82,9 @@ class DescribeDataSharePerformanceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

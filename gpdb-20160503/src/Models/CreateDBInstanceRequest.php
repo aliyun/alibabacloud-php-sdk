@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDBInstanceRequest extends Model
@@ -124,6 +125,11 @@ class CreateDBInstanceRequest extends Model
     public $storageType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $usedTime;
@@ -166,6 +172,7 @@ class CreateDBInstanceRequest extends Model
         'segStorageType'        => 'SegStorageType',
         'storageSize'           => 'StorageSize',
         'storageType'           => 'StorageType',
+        'tag'                   => 'Tag',
         'usedTime'              => 'UsedTime',
         'VPCId'                 => 'VPCId',
         'vSwitchId'             => 'VSwitchId',
@@ -247,6 +254,15 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -340,6 +356,15 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

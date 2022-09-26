@@ -123,6 +123,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Request;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Response;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListRequest;
@@ -532,6 +534,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->storageType)) {
             $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
@@ -2108,6 +2113,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->searchValue)) {
             $query['SearchValue'] = $request->searchValue;
         }
@@ -2159,6 +2167,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3303,6 +3314,97 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param DescribeSQLLogsV2Request $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSQLLogsV2Response
+     */
+    public function describeSQLLogsV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
+        }
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
+        }
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
+        }
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
+        }
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSQLLogsV2',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSQLLogsV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSQLLogsV2Request $request
+     *
+     * @return DescribeSQLLogsV2Response
+     */
+    public function describeSQLLogsV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLLogsV2WithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSampleDataRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3564,6 +3666,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

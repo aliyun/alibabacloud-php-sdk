@@ -31,13 +31,19 @@ class DescribeDataShareInstancesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $searchValue;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'searchValue' => 'SearchValue',
+        'ownerId'         => 'OwnerId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'searchValue'     => 'SearchValue',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class DescribeDataShareInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->searchValue) {
             $res['SearchValue'] = $this->searchValue;
@@ -85,6 +94,9 @@ class DescribeDataShareInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SearchValue'])) {
             $model->searchValue = $map['SearchValue'];
