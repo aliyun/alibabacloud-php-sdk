@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class SubmitCopyrightJobRequest extends Model
 {
     /**
-     * @description 任务结果回调url
-     *
      * @var string
      */
     public $callBack;
 
     /**
-     * @description 水印信息描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 输入的视频，oss三元组
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description 水印强度，取值1，2，3
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 水印信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 输出的视频，oss三元组
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 水印起始时间(单位是秒)，不填写默认为0
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 水印结束时间(单位是秒)，不填默认为60000
-     *
      * @var int
      */
     public $totalTime;
 
     /**
-     * @description 外部url链接(Input和url二选一)
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 用户自定义数据
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description 可见水印(必须是英文字符)
-     *
      * @var string
      */
     public $visibleMessage;

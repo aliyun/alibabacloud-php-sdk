@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitTracemuRequest extends Model
 {
     /**
-     * @description 密钥服务器uri
-     *
      * @var string
      */
     public $keyUri;
 
     /**
-     * @description ab流处理后的媒体id
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description m3u8文件输出oss地址
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 溯源水印信息
-     *
      * @var string
      */
     public $trace;

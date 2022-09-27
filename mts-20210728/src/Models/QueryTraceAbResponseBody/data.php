@@ -9,85 +9,61 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 任务结果回调
-     *
      * @var string
      */
     public $callback;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description 最后修改时间
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description 输入oss地址
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description 任务id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 水印强度
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 媒体id
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description 输出地址
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 任务结果
-     *
      * @var string
      */
     public $result;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description uid
-     *
      * @var int
      */
     public $userId;

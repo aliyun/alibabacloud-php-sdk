@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class SubmitTraceAbRequest extends Model
 {
     /**
-     * @description 任务结果回调
-     *
      * @var string
      */
     public $callBack;
 
     /**
-     * @description 密钥base64串
-     *
      * @var string
      */
     public $cipherBase64ed;
 
     /**
-     * @description 溯源水印ab流处理视频输入
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description 水印强度
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 溯源水印ab流处理输出
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 嵌入水印开始时间
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 嵌入水印总时长
-     *
      * @var int
      */
     public $totalTime;
 
     /**
-     * @description 外部url链接(Input和url二选一)
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 用户自定义数据，最大长度1024个字节
-     *
      * @var string
      */
     public $userData;

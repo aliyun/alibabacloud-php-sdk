@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 生成m3u8文件的code
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description 任务id
-     *
      * @var string
      */
     public $jobId;

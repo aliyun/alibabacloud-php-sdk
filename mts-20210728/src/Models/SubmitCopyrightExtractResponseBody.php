@@ -15,8 +15,6 @@ class SubmitCopyrightExtractResponseBody extends Model
     public $data;
 
     /**
-     * @description 返回消息
-     *
      * @var string
      */
     public $message;
@@ -27,8 +25,6 @@ class SubmitCopyrightExtractResponseBody extends Model
     public $requestID;
 
     /**
-     * @description 状态码
-     *
      * @var int
      */
     public $statusCode;

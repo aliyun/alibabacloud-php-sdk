@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitTraceExtractRequest extends Model
 {
     /**
-     * @description 任务完成回调
-     *
      * @var string
      */
     public $callBack;
 
     /**
-     * @description 输入文件oss地址
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description url链接
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description 用户数据
-     *
      * @var string
      */
     public $userData;

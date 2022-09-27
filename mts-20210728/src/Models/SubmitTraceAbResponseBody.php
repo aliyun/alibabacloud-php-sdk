@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class SubmitTraceAbResponseBody extends Model
 {
     /**
-     * @description 返回数据
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 返回信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestID;
 
     /**
-     * @description 状态码
-     *
      * @var int
      */
     public $statusCode;

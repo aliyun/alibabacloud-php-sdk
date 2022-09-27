@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryTraceMuRequest extends Model
 {
     /**
-     * @description 创建时间起始
-     *
      * @var int
      */
     public $createTimeEnd;
 
     /**
-     * @description 创建时间截止
-     *
      * @var int
      */
     public $createTimeStart;
 
     /**
-     * @description 任务id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 水印强度
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 水印信息id
-     *
      * @var int
      */
     public $messageId;
 
     /**
-     * @description 页偏移
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页数量
-     *
      * @var int
      */
     public $pageSize;

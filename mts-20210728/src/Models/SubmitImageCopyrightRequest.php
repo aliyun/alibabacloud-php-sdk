@@ -9,36 +9,31 @@ use AlibabaCloud\Tea\Model;
 class SubmitImageCopyrightRequest extends Model
 {
     /**
-     * @description 需要加水印的图片oss地址(Input和url二选一)
-     *
      * @var string
      */
     public $input;
 
     /**
-     * @description 水印强度
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description 水印信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description 水印图片输出oss地址
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 外部url链接(Input和url二选一)
-     *
+     * @var string
+     */
+    public $params;
+
+    /**
      * @var string
      */
     public $url;
@@ -47,6 +42,7 @@ class SubmitImageCopyrightRequest extends Model
         'level'   => 'Level',
         'message' => 'Message',
         'output'  => 'Output',
+        'params'  => 'Params',
         'url'     => 'Url',
     ];
 
@@ -68,6 +64,9 @@ class SubmitImageCopyrightRequest extends Model
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -95,6 +94,9 @@ class SubmitImageCopyrightRequest extends Model
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

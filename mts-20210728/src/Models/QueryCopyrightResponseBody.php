@@ -20,8 +20,6 @@ class QueryCopyrightResponseBody extends Model
     public $requestID;
 
     /**
-     * @description 状态码
-     *
      * @var int
      */
     public $statusCode;

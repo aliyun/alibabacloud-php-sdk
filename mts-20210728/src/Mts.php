@@ -544,6 +544,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->output)) {
             $body['Output'] = $request->output;
         }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
         if (!Utils::isUnset($request->url)) {
             $body['Url'] = $request->url;
         }

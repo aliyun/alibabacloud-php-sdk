@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 溯源水印信息
-     *
      * @var string
      */
     public $trace;

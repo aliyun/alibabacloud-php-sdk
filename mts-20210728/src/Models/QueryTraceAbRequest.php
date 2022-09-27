@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryTraceAbRequest extends Model
 {
     /**
-     * @description 任务id
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 媒体id
-     *
      * @var string
      */
     public $mediaId;

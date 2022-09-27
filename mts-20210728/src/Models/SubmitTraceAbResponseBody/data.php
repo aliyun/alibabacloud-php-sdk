@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 媒体id
-     *
      * @var string
      */
     public $mediaId;
