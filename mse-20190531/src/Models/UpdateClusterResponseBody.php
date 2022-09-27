@@ -16,6 +16,11 @@ class UpdateClusterResponseBody extends Model
     /**
      * @var string
      */
+    public $httpStatusCode;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -28,10 +33,11 @@ class UpdateClusterResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode' => 'ErrorCode',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'errorCode'      => 'ErrorCode',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class UpdateClusterResponseBody extends Model
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -67,6 +76,9 @@ class UpdateClusterResponseBody extends Model
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
