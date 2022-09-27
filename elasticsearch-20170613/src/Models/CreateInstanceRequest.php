@@ -9,17 +9,95 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @var ClientNodeConfiguration
+     */
+    public $clientNodeConfiguration;
+
+    /**
+     * @var ElasticDataNodeConfiguration
+     */
+    public $elasticDataNodeConfiguration;
+
+    /**
      * @var string
      */
-    public $body;
+    public $esAdminPassword;
+
+    /**
+     * @var string
+     */
+    public $esVersion;
+
+    /**
+     * @var string
+     */
+    public $instanceCategory;
+
+    /**
+     * @var KibanaNodeConfiguration
+     */
+    public $kibanaConfiguration;
+
+    /**
+     * @var MasterNodeConfiguration
+     */
+    public $masterConfiguration;
+
+    /**
+     * @var NetworkConfig
+     */
+    public $networkConfig;
+
+    /**
+     * @var int
+     */
+    public $nodeAmount;
+
+    /**
+     * @var NodeSpec
+     */
+    public $nodeSpec;
+
+    /**
+     * @var PaymentInfo
+     */
+    public $paymentInfo;
+
+    /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
+     * @var WarmNodeConfiguration
+     */
+    public $warmNodeConfiguration;
+
+    /**
+     * @var int
+     */
+    public $zoneCount;
 
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'body'        => 'body',
-        'clientToken' => 'clientToken',
+        'clientNodeConfiguration'      => 'clientNodeConfiguration',
+        'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
+        'esAdminPassword'              => 'esAdminPassword',
+        'esVersion'                    => 'esVersion',
+        'instanceCategory'             => 'instanceCategory',
+        'kibanaConfiguration'          => 'kibanaConfiguration',
+        'masterConfiguration'          => 'masterConfiguration',
+        'networkConfig'                => 'networkConfig',
+        'nodeAmount'                   => 'nodeAmount',
+        'nodeSpec'                     => 'nodeSpec',
+        'paymentInfo'                  => 'paymentInfo',
+        'paymentType'                  => 'paymentType',
+        'warmNodeConfiguration'        => 'warmNodeConfiguration',
+        'zoneCount'                    => 'zoneCount',
+        'clientToken'                  => 'clientToken',
     ];
 
     public function validate()
@@ -29,8 +107,47 @@ class CreateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->clientNodeConfiguration) {
+            $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->elasticDataNodeConfiguration) {
+            $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->esAdminPassword) {
+            $res['esAdminPassword'] = $this->esAdminPassword;
+        }
+        if (null !== $this->esVersion) {
+            $res['esVersion'] = $this->esVersion;
+        }
+        if (null !== $this->instanceCategory) {
+            $res['instanceCategory'] = $this->instanceCategory;
+        }
+        if (null !== $this->kibanaConfiguration) {
+            $res['kibanaConfiguration'] = null !== $this->kibanaConfiguration ? $this->kibanaConfiguration->toMap() : null;
+        }
+        if (null !== $this->masterConfiguration) {
+            $res['masterConfiguration'] = null !== $this->masterConfiguration ? $this->masterConfiguration->toMap() : null;
+        }
+        if (null !== $this->networkConfig) {
+            $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
+        }
+        if (null !== $this->nodeAmount) {
+            $res['nodeAmount'] = $this->nodeAmount;
+        }
+        if (null !== $this->nodeSpec) {
+            $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toMap() : null;
+        }
+        if (null !== $this->paymentInfo) {
+            $res['paymentInfo'] = null !== $this->paymentInfo ? $this->paymentInfo->toMap() : null;
+        }
+        if (null !== $this->paymentType) {
+            $res['paymentType'] = $this->paymentType;
+        }
+        if (null !== $this->warmNodeConfiguration) {
+            $res['warmNodeConfiguration'] = null !== $this->warmNodeConfiguration ? $this->warmNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->zoneCount) {
+            $res['zoneCount'] = $this->zoneCount;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
@@ -47,8 +164,47 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['clientNodeConfiguration'])) {
+            $model->clientNodeConfiguration = ClientNodeConfiguration::fromMap($map['clientNodeConfiguration']);
+        }
+        if (isset($map['elasticDataNodeConfiguration'])) {
+            $model->elasticDataNodeConfiguration = ElasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
+        }
+        if (isset($map['esAdminPassword'])) {
+            $model->esAdminPassword = $map['esAdminPassword'];
+        }
+        if (isset($map['esVersion'])) {
+            $model->esVersion = $map['esVersion'];
+        }
+        if (isset($map['instanceCategory'])) {
+            $model->instanceCategory = $map['instanceCategory'];
+        }
+        if (isset($map['kibanaConfiguration'])) {
+            $model->kibanaConfiguration = KibanaNodeConfiguration::fromMap($map['kibanaConfiguration']);
+        }
+        if (isset($map['masterConfiguration'])) {
+            $model->masterConfiguration = MasterNodeConfiguration::fromMap($map['masterConfiguration']);
+        }
+        if (isset($map['networkConfig'])) {
+            $model->networkConfig = NetworkConfig::fromMap($map['networkConfig']);
+        }
+        if (isset($map['nodeAmount'])) {
+            $model->nodeAmount = $map['nodeAmount'];
+        }
+        if (isset($map['nodeSpec'])) {
+            $model->nodeSpec = NodeSpec::fromMap($map['nodeSpec']);
+        }
+        if (isset($map['paymentInfo'])) {
+            $model->paymentInfo = PaymentInfo::fromMap($map['paymentInfo']);
+        }
+        if (isset($map['paymentType'])) {
+            $model->paymentType = $map['paymentType'];
+        }
+        if (isset($map['warmNodeConfiguration'])) {
+            $model->warmNodeConfiguration = WarmNodeConfiguration::fromMap($map['warmNodeConfiguration']);
+        }
+        if (isset($map['zoneCount'])) {
+            $model->zoneCount = $map['zoneCount'];
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];

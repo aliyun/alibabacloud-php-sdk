@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceResponseBody;
 
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceResponseBody\result\diagnoseItems;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -13,11 +12,6 @@ class result extends Model
      * @var int
      */
     public $createTime;
-
-    /**
-     * @var diagnoseItems[]
-     */
-    public $diagnoseItems;
 
     /**
      * @var string
@@ -34,11 +28,10 @@ class result extends Model
      */
     public $state;
     protected $_name = [
-        'createTime'    => 'createTime',
-        'diagnoseItems' => 'diagnoseItems',
-        'instanceId'    => 'instanceId',
-        'reportId'      => 'reportId',
-        'state'         => 'state',
+        'createTime' => 'createTime',
+        'instanceId' => 'instanceId',
+        'reportId'   => 'reportId',
+        'state'      => 'state',
     ];
 
     public function validate()
@@ -50,15 +43,6 @@ class result extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
-        }
-        if (null !== $this->diagnoseItems) {
-            $res['diagnoseItems'] = [];
-            if (null !== $this->diagnoseItems && \is_array($this->diagnoseItems)) {
-                $n = 0;
-                foreach ($this->diagnoseItems as $item) {
-                    $res['diagnoseItems'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -83,15 +67,6 @@ class result extends Model
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
-        }
-        if (isset($map['diagnoseItems'])) {
-            if (!empty($map['diagnoseItems'])) {
-                $model->diagnoseItems = [];
-                $n                    = 0;
-                foreach ($map['diagnoseItems'] as $item) {
-                    $model->diagnoseItems[$n++] = null !== $item ? diagnoseItems::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];

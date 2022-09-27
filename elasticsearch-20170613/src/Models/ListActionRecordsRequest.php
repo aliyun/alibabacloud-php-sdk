@@ -14,11 +14,6 @@ class ListActionRecordsRequest extends Model
     public $actionNames;
 
     /**
-     * @var string
-     */
-    public $body;
-
-    /**
      * @var int
      */
     public $endTime;
@@ -54,7 +49,6 @@ class ListActionRecordsRequest extends Model
     public $userId;
     protected $_name = [
         'actionNames' => 'actionNames',
-        'body'        => 'body',
         'endTime'     => 'endTime',
         'filter'      => 'filter',
         'page'        => 'page',
@@ -73,9 +67,6 @@ class ListActionRecordsRequest extends Model
         $res = [];
         if (null !== $this->actionNames) {
             $res['actionNames'] = $this->actionNames;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
@@ -112,9 +103,6 @@ class ListActionRecordsRequest extends Model
         $model = new self();
         if (isset($map['actionNames'])) {
             $model->actionNames = $map['actionNames'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];

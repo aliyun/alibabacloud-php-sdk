@@ -12,14 +12,8 @@ class RolloverDataStreamRequest extends Model
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $body;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'body'        => 'body',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class RolloverDataStreamRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class RolloverDataStreamRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;

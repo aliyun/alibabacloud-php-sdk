@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class zoneInfos extends Model
 {
     /**
-     * @description Status
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description ZoneId
-     *
      * @var string
      */
     public $zoneId;

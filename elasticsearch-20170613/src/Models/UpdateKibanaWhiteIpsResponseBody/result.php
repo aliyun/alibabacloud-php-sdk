@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaWhiteIpsResponseBody;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaWhiteIpsResponseBody\result\networkConfig;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -17,9 +18,15 @@ class result extends Model
      * @var string[]
      */
     public $kibanaPrivateIPWhitelist;
+
+    /**
+     * @var networkConfig
+     */
+    public $networkConfig;
     protected $_name = [
         'kibanaIPWhitelist'        => 'kibanaIPWhitelist',
         'kibanaPrivateIPWhitelist' => 'kibanaPrivateIPWhitelist',
+        'networkConfig'            => 'networkConfig',
     ];
 
     public function validate()
@@ -34,6 +41,9 @@ class result extends Model
         }
         if (null !== $this->kibanaPrivateIPWhitelist) {
             $res['kibanaPrivateIPWhitelist'] = $this->kibanaPrivateIPWhitelist;
+        }
+        if (null !== $this->networkConfig) {
+            $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
         }
 
         return $res;
@@ -56,6 +66,9 @@ class result extends Model
             if (!empty($map['kibanaPrivateIPWhitelist'])) {
                 $model->kibanaPrivateIPWhitelist = $map['kibanaPrivateIPWhitelist'];
             }
+        }
+        if (isset($map['networkConfig'])) {
+            $model->networkConfig = networkConfig::fromMap($map['networkConfig']);
         }
 
         return $model;

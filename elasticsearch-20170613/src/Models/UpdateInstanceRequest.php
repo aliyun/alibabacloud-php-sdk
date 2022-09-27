@@ -9,9 +9,44 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
+     * @var ClientNodeConfiguration
+     */
+    public $clientNodeConfiguration;
+
+    /**
+     * @var ElasticDataNodeConfiguration
+     */
+    public $elasticDataNodeConfiguration;
+
+    /**
      * @var string
      */
-    public $body;
+    public $instanceCategory;
+
+    /**
+     * @var KibanaNodeConfiguration
+     */
+    public $kibanaConfiguration;
+
+    /**
+     * @var MasterNodeConfiguration
+     */
+    public $masterConfiguration;
+
+    /**
+     * @var int
+     */
+    public $nodeAmount;
+
+    /**
+     * @var NodeSpec
+     */
+    public $nodeSpec;
+
+    /**
+     * @var WarmNodeConfiguration
+     */
+    public $warmNodeConfiguration;
 
     /**
      * @var string
@@ -19,13 +54,26 @@ class UpdateInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $orderActionType;
     protected $_name = [
-        'body'            => 'body',
-        'clientToken'     => 'clientToken',
-        'orderActionType' => 'orderActionType',
+        'clientNodeConfiguration'      => 'clientNodeConfiguration',
+        'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
+        'instanceCategory'             => 'instanceCategory',
+        'kibanaConfiguration'          => 'kibanaConfiguration',
+        'masterConfiguration'          => 'masterConfiguration',
+        'nodeAmount'                   => 'nodeAmount',
+        'nodeSpec'                     => 'nodeSpec',
+        'warmNodeConfiguration'        => 'warmNodeConfiguration',
+        'clientToken'                  => 'clientToken',
+        'force'                        => 'force',
+        'orderActionType'              => 'orderActionType',
     ];
 
     public function validate()
@@ -35,11 +83,35 @@ class UpdateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->clientNodeConfiguration) {
+            $res['clientNodeConfiguration'] = null !== $this->clientNodeConfiguration ? $this->clientNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->elasticDataNodeConfiguration) {
+            $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
+        }
+        if (null !== $this->instanceCategory) {
+            $res['instanceCategory'] = $this->instanceCategory;
+        }
+        if (null !== $this->kibanaConfiguration) {
+            $res['kibanaConfiguration'] = null !== $this->kibanaConfiguration ? $this->kibanaConfiguration->toMap() : null;
+        }
+        if (null !== $this->masterConfiguration) {
+            $res['masterConfiguration'] = null !== $this->masterConfiguration ? $this->masterConfiguration->toMap() : null;
+        }
+        if (null !== $this->nodeAmount) {
+            $res['nodeAmount'] = $this->nodeAmount;
+        }
+        if (null !== $this->nodeSpec) {
+            $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toMap() : null;
+        }
+        if (null !== $this->warmNodeConfiguration) {
+            $res['warmNodeConfiguration'] = null !== $this->warmNodeConfiguration ? $this->warmNodeConfiguration->toMap() : null;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->force) {
+            $res['force'] = $this->force;
         }
         if (null !== $this->orderActionType) {
             $res['orderActionType'] = $this->orderActionType;
@@ -56,11 +128,35 @@ class UpdateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['clientNodeConfiguration'])) {
+            $model->clientNodeConfiguration = ClientNodeConfiguration::fromMap($map['clientNodeConfiguration']);
+        }
+        if (isset($map['elasticDataNodeConfiguration'])) {
+            $model->elasticDataNodeConfiguration = ElasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
+        }
+        if (isset($map['instanceCategory'])) {
+            $model->instanceCategory = $map['instanceCategory'];
+        }
+        if (isset($map['kibanaConfiguration'])) {
+            $model->kibanaConfiguration = KibanaNodeConfiguration::fromMap($map['kibanaConfiguration']);
+        }
+        if (isset($map['masterConfiguration'])) {
+            $model->masterConfiguration = MasterNodeConfiguration::fromMap($map['masterConfiguration']);
+        }
+        if (isset($map['nodeAmount'])) {
+            $model->nodeAmount = $map['nodeAmount'];
+        }
+        if (isset($map['nodeSpec'])) {
+            $model->nodeSpec = NodeSpec::fromMap($map['nodeSpec']);
+        }
+        if (isset($map['warmNodeConfiguration'])) {
+            $model->warmNodeConfiguration = WarmNodeConfiguration::fromMap($map['warmNodeConfiguration']);
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['force'])) {
+            $model->force = $map['force'];
         }
         if (isset($map['orderActionType'])) {
             $model->orderActionType = $map['orderActionType'];

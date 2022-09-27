@@ -10,37 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyWhiteIpsRequest extends Model
 {
     /**
-     * @description 修改方式，取值含义如下：
-     *
-     * Delete：Delete：在原IP白名单中删除ips参数中输入的IP地址，至少需要保留一个IP地址。
      * @var string
      */
     public $modifyMode;
 
     /**
-     * @description 网络类型。可选值：PRIVATE（私网）、PUBLIC（公网）。如果选填了whiteIpList参数，则该参数必填。
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @description 节点类型。可选值：WORKER（Elasticsearch集群）、KIBANA（Kibana集群）。如果选填了whiteIpList参数，则该参数必填。
-     *
      * @var string
      */
     public $nodeType;
 
     /**
-     * @description 以白名单组whiteIpGroup传参方式，更新实例白名单安全配置。仅支持更新一个白名单组。
-     *
      * @var whiteIpGroup
      */
     public $whiteIpGroup;
 
     /**
-     * @description 白名单列表。whiteIpGroup为空时可用，更改默认分组白名单
-     *
      * @var string[]
      */
     public $whiteIpList;

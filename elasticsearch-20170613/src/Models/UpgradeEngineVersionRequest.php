@@ -11,27 +11,27 @@ class UpgradeEngineVersionRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
-     * @var string
-     */
     public $type;
 
     /**
      * @var string
      */
     public $version;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
-        'clientToken' => 'clientToken',
-        'dryRun'      => 'dryRun',
         'type'        => 'type',
         'version'     => 'version',
+        'clientToken' => 'clientToken',
+        'dryRun'      => 'dryRun',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpgradeEngineVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
-        if (null !== $this->dryRun) {
-            $res['dryRun'] = $this->dryRun;
-        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpgradeEngineVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
-        if (isset($map['dryRun'])) {
-            $model->dryRun = $map['dryRun'];
-        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class ListInstanceRequest extends Model
     /**
      * @var string
      */
-    public $body;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -68,7 +63,6 @@ class ListInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'body'             => 'body',
         'description'      => 'description',
         'esVersion'        => 'esVersion',
         'instanceCategory' => 'instanceCategory',
@@ -89,9 +83,6 @@ class ListInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -137,9 +128,6 @@ class ListInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }

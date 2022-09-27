@@ -14,11 +14,6 @@ class ListInstanceIndicesRequest extends Model
     public $all;
 
     /**
-     * @var string
-     */
-    public $body;
-
-    /**
      * @var bool
      */
     public $isManaged;
@@ -44,7 +39,6 @@ class ListInstanceIndicesRequest extends Model
     public $size;
     protected $_name = [
         'all'         => 'all',
-        'body'        => 'body',
         'isManaged'   => 'isManaged',
         'isOpenstore' => 'isOpenstore',
         'name'        => 'name',
@@ -61,9 +55,6 @@ class ListInstanceIndicesRequest extends Model
         $res = [];
         if (null !== $this->all) {
             $res['all'] = $this->all;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
         if (null !== $this->isManaged) {
             $res['isManaged'] = $this->isManaged;
@@ -94,9 +85,6 @@ class ListInstanceIndicesRequest extends Model
         $model = new self();
         if (isset($map['all'])) {
             $model->all = $map['all'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
         if (isset($map['isManaged'])) {
             $model->isManaged = $map['isManaged'];

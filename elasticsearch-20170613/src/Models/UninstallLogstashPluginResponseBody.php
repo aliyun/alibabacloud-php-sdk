@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UninstallLogstashPluginResponseBody extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $headers;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,6 +23,7 @@ class UninstallLogstashPluginResponseBody extends Model
      */
     public $result;
     protected $_name = [
+        'headers'   => 'Headers',
         'requestId' => 'RequestId',
         'result'    => 'Result',
     ];
@@ -29,6 +35,9 @@ class UninstallLogstashPluginResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->headers) {
+            $res['Headers'] = $this->headers;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,6 +56,9 @@ class UninstallLogstashPluginResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Headers'])) {
+            $model->headers = $map['Headers'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

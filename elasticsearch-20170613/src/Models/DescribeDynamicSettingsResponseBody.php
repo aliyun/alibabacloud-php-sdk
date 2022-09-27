@@ -14,8 +14,6 @@ class DescribeDynamicSettingsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $result;

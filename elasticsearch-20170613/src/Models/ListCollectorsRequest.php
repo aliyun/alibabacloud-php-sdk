@@ -11,11 +11,6 @@ class ListCollectorsRequest extends Model
     /**
      * @var string
      */
-    public $body;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -43,7 +38,6 @@ class ListCollectorsRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'body'       => 'body',
         'instanceId' => 'instanceId',
         'name'       => 'name',
         'page'       => 'page',
@@ -59,9 +53,6 @@ class ListCollectorsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
@@ -92,9 +83,6 @@ class ListCollectorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
-        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }

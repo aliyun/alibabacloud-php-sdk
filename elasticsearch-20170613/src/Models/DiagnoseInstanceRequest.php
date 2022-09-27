@@ -14,18 +14,30 @@ class DiagnoseInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var string[]
+     */
+    public $diagnoseItems;
+
+    /**
+     * @var string[]
+     */
+    public $indices;
+
+    /**
      * @var string
      */
-    public $body;
+    public $type;
 
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'body'        => 'body',
-        'lang'        => 'lang',
+        'clientToken'   => 'ClientToken',
+        'diagnoseItems' => 'diagnoseItems',
+        'indices'       => 'indices',
+        'type'          => 'type',
+        'lang'          => 'lang',
     ];
 
     public function validate()
@@ -38,8 +50,14 @@ class DiagnoseInstanceRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->diagnoseItems) {
+            $res['diagnoseItems'] = $this->diagnoseItems;
+        }
+        if (null !== $this->indices) {
+            $res['indices'] = $this->indices;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
@@ -59,8 +77,18 @@ class DiagnoseInstanceRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['diagnoseItems'])) {
+            if (!empty($map['diagnoseItems'])) {
+                $model->diagnoseItems = $map['diagnoseItems'];
+            }
+        }
+        if (isset($map['indices'])) {
+            if (!empty($map['indices'])) {
+                $model->indices = $map['indices'];
+            }
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];

@@ -20,6 +20,11 @@ class ShrinkNodeRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var bool
      */
     public $ignoreStatus;
@@ -31,6 +36,7 @@ class ShrinkNodeRequest extends Model
     protected $_name = [
         'body'         => 'body',
         'clientToken'  => 'clientToken',
+        'count'        => 'count',
         'ignoreStatus' => 'ignoreStatus',
         'nodeType'     => 'nodeType',
     ];
@@ -53,6 +59,9 @@ class ShrinkNodeRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
         }
         if (null !== $this->ignoreStatus) {
             $res['ignoreStatus'] = $this->ignoreStatus;
@@ -83,6 +92,9 @@ class ShrinkNodeRequest extends Model
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
         }
         if (isset($map['ignoreStatus'])) {
             $model->ignoreStatus = $map['ignoreStatus'];

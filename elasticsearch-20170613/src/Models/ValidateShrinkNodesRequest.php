@@ -15,6 +15,11 @@ class ValidateShrinkNodesRequest extends Model
     public $body;
 
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var bool
      */
     public $ignoreStatus;
@@ -25,6 +30,7 @@ class ValidateShrinkNodesRequest extends Model
     public $nodeType;
     protected $_name = [
         'body'         => 'body',
+        'count'        => 'count',
         'ignoreStatus' => 'ignoreStatus',
         'nodeType'     => 'nodeType',
     ];
@@ -44,6 +50,9 @@ class ValidateShrinkNodesRequest extends Model
                     $res['body'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
         }
         if (null !== $this->ignoreStatus) {
             $res['ignoreStatus'] = $this->ignoreStatus;
@@ -71,6 +80,9 @@ class ValidateShrinkNodesRequest extends Model
                     $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
         }
         if (isset($map['ignoreStatus'])) {
             $model->ignoreStatus = $map['ignoreStatus'];

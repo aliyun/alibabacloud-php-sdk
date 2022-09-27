@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateApmRequest extends Model
 {
     /**
-     * @description apm实例名
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description es实例id
-     *
      * @var string
      */
     public $outputES;
 
     /**
-     * @description es实例密码
-     *
      * @var string
      */
     public $outputESPassword;
 
     /**
-     * @description es实例用户名
-     *
      * @var string
      */
     public $outputESUserName;
 
     /**
-     * @description apm server密码
-     *
      * @var string
      */
     public $token;

@@ -12,14 +12,8 @@ class ListAlternativeSnapshotReposRequest extends Model
      * @var bool
      */
     public $alreadySetItems;
-
-    /**
-     * @var string
-     */
-    public $body;
     protected $_name = [
         'alreadySetItems' => 'alreadySetItems',
-        'body'            => 'body',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class ListAlternativeSnapshotReposRequest extends Model
         $res = [];
         if (null !== $this->alreadySetItems) {
             $res['alreadySetItems'] = $this->alreadySetItems;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class ListAlternativeSnapshotReposRequest extends Model
         $model = new self();
         if (isset($map['alreadySetItems'])) {
             $model->alreadySetItems = $map['alreadySetItems'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
 
         return $model;

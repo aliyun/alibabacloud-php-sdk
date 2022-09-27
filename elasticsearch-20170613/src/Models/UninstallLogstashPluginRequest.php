@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UninstallLogstashPluginRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
     public $body;
 
@@ -48,7 +48,9 @@ class UninstallLogstashPluginRequest extends Model
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            if (!empty($map['body'])) {
+                $model->body = $map['body'];
+            }
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];

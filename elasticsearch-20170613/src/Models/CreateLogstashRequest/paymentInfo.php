@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class paymentInfo extends Model
 {
     /**
-     * @description 自动续费包月周期
-     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
-     * @description 包月周期
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 是否自动续费
-     *
      * @var bool
      */
     public $isAutoRenew;
 
     /**
-     * @description 日期单位
-     *
      * @var string
      */
     public $pricingCycle;

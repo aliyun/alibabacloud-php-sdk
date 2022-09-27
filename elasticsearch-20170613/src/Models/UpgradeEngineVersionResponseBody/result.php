@@ -15,7 +15,7 @@ class result extends Model
     public $status;
 
     /**
-     * @var validateResult
+     * @var validateResult[]
      */
     public $validateResult;
 
@@ -40,7 +40,13 @@ class result extends Model
             $res['status'] = $this->status;
         }
         if (null !== $this->validateResult) {
-            $res['validateResult'] = null !== $this->validateResult ? $this->validateResult->toMap() : null;
+            $res['validateResult'] = [];
+            if (null !== $this->validateResult && \is_array($this->validateResult)) {
+                $n = 0;
+                foreach ($this->validateResult as $item) {
+                    $res['validateResult'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->validateType) {
             $res['validateType'] = $this->validateType;
@@ -61,7 +67,13 @@ class result extends Model
             $model->status = $map['status'];
         }
         if (isset($map['validateResult'])) {
-            $model->validateResult = validateResult::fromMap($map['validateResult']);
+            if (!empty($map['validateResult'])) {
+                $model->validateResult = [];
+                $n                     = 0;
+                foreach ($map['validateResult'] as $item) {
+                    $model->validateResult[$n++] = null !== $item ? validateResult::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['validateType'])) {
             $model->validateType = $map['validateType'];

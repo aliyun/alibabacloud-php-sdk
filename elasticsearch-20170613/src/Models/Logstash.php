@@ -14,134 +14,96 @@ use AlibabaCloud\Tea\Model;
 class Logstash extends Model
 {
     /**
-     * @description Config
-     *
      * @var string[]
      */
     public $config;
 
     /**
-     * @description CreatedAt
-     *
      * @var string
      */
     public $createdAt;
 
     /**
-     * @description DataNode
-     *
      * @var bool
      */
     public $dataNode;
 
     /**
-     * @description Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description EndTime
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description EndpointList
-     *
      * @var endpointList[]
      */
     public $endpointList;
 
     /**
-     * @description InstanceId
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description NetworkConfig
-     *
      * @var networkConfig
      */
     public $networkConfig;
 
     /**
-     * @description NodeAmount
-     *
      * @var int
      */
     public $nodeAmount;
 
     /**
-     * @description NodeSpec
-     *
      * @var nodeSpec
      */
     public $nodeSpec;
 
     /**
-     * @description PaymentType
-     *
      * @var string
      */
     public $paymentType;
 
     /**
-     * @description Protocol
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description ResourceGroupId
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description Status
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description Tags
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description UpdatedAt
-     *
      * @var string
      */
     public $updatedAt;
 
     /**
-     * @description Version
-     *
      * @var string
      */
     public $version;
 
     /**
-     * @description ZoneCount
-     *
      * @var int
      */
     public $zoneCount;
 
     /**
-     * @description ZoneInfos
-     *
      * @var zoneInfos[]
      */
     public $zoneInfos;

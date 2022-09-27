@@ -14,15 +14,11 @@ class CreateVpcEndpointRequest extends Model
     public $clientToken;
 
     /**
-     * @description 终端节点服务ID
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description 可用区ID
-     *
      * @var string
      */
     public $zoneId;

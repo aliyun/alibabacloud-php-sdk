@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListDiagnoseReportRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $body;
-
-    /**
      * @var bool
      */
     public $detail;
@@ -48,7 +43,6 @@ class ListDiagnoseReportRequest extends Model
      */
     public $trigger;
     protected $_name = [
-        'body'      => 'body',
         'detail'    => 'detail',
         'endTime'   => 'endTime',
         'lang'      => 'lang',
@@ -65,9 +59,6 @@ class ListDiagnoseReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
         if (null !== $this->detail) {
             $res['detail'] = $this->detail;
         }
@@ -101,9 +92,6 @@ class ListDiagnoseReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
-        }
         if (isset($map['detail'])) {
             $model->detail = $map['detail'];
         }

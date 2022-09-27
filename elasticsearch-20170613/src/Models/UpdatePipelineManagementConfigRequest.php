@@ -9,17 +9,41 @@ use AlibabaCloud\Tea\Model;
 class UpdatePipelineManagementConfigRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $endpoints;
+
+    /**
      * @var string
      */
-    public $body;
+    public $password;
+
+    /**
+     * @var string[]
+     */
+    public $pipelineIds;
+
+    /**
+     * @var string
+     */
+    public $pipelineManagementType;
+
+    /**
+     * @var string
+     */
+    public $userName;
 
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'body'        => 'body',
-        'clientToken' => 'clientToken',
+        'endpoints'              => 'endpoints',
+        'password'               => 'password',
+        'pipelineIds'            => 'pipelineIds',
+        'pipelineManagementType' => 'pipelineManagementType',
+        'userName'               => 'userName',
+        'clientToken'            => 'clientToken',
     ];
 
     public function validate()
@@ -29,8 +53,20 @@ class UpdatePipelineManagementConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->endpoints) {
+            $res['endpoints'] = $this->endpoints;
+        }
+        if (null !== $this->password) {
+            $res['password'] = $this->password;
+        }
+        if (null !== $this->pipelineIds) {
+            $res['pipelineIds'] = $this->pipelineIds;
+        }
+        if (null !== $this->pipelineManagementType) {
+            $res['pipelineManagementType'] = $this->pipelineManagementType;
+        }
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
@@ -47,8 +83,24 @@ class UpdatePipelineManagementConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['endpoints'])) {
+            if (!empty($map['endpoints'])) {
+                $model->endpoints = $map['endpoints'];
+            }
+        }
+        if (isset($map['password'])) {
+            $model->password = $map['password'];
+        }
+        if (isset($map['pipelineIds'])) {
+            if (!empty($map['pipelineIds'])) {
+                $model->pipelineIds = $map['pipelineIds'];
+            }
+        }
+        if (isset($map['pipelineManagementType'])) {
+            $model->pipelineManagementType = $map['pipelineManagementType'];
+        }
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];

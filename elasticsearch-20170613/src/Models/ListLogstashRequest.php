@@ -11,11 +11,6 @@ class ListLogstashRequest extends Model
     /**
      * @var string
      */
-    public $body;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -46,15 +41,20 @@ class ListLogstashRequest extends Model
     /**
      * @var string
      */
+    public $tags;
+
+    /**
+     * @var string
+     */
     public $version;
     protected $_name = [
-        'body'            => 'body',
         'description'     => 'description',
         'instanceId'      => 'instanceId',
         'ownerId'         => 'ownerId',
         'page'            => 'page',
         'resourceGroupId' => 'resourceGroupId',
         'size'            => 'size',
+        'tags'            => 'tags',
         'version'         => 'version',
     ];
 
@@ -65,9 +65,6 @@ class ListLogstashRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -86,6 +83,9 @@ class ListLogstashRequest extends Model
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+        if (null !== $this->tags) {
+            $res['tags'] = $this->tags;
+        }
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -101,9 +101,6 @@ class ListLogstashRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -121,6 +118,9 @@ class ListLogstashRequest extends Model
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+        if (isset($map['tags'])) {
+            $model->tags = $map['tags'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

@@ -14,6 +14,16 @@ class body extends Model
     public $host;
 
     /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @var int
      */
     public $port;
@@ -23,9 +33,11 @@ class body extends Model
      */
     public $zoneId;
     protected $_name = [
-        'host'   => 'host',
-        'port'   => 'port',
-        'zoneId' => 'zoneId',
+        'host'     => 'host',
+        'hostName' => 'hostName',
+        'nodeType' => 'nodeType',
+        'port'     => 'port',
+        'zoneId'   => 'zoneId',
     ];
 
     public function validate()
@@ -37,6 +49,12 @@ class body extends Model
         $res = [];
         if (null !== $this->host) {
             $res['host'] = $this->host;
+        }
+        if (null !== $this->hostName) {
+            $res['hostName'] = $this->hostName;
+        }
+        if (null !== $this->nodeType) {
+            $res['nodeType'] = $this->nodeType;
         }
         if (null !== $this->port) {
             $res['port'] = $this->port;
@@ -58,6 +76,12 @@ class body extends Model
         $model = new self();
         if (isset($map['host'])) {
             $model->host = $map['host'];
+        }
+        if (isset($map['hostName'])) {
+            $model->hostName = $map['hostName'];
+        }
+        if (isset($map['nodeType'])) {
+            $model->nodeType = $map['nodeType'];
         }
         if (isset($map['port'])) {
             $model->port = $map['port'];

@@ -16,15 +16,9 @@ class DeletePipelinesRequest extends Model
     /**
      * @var string
      */
-    public $body;
-
-    /**
-     * @var string
-     */
     public $pipelineIds;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'body'        => 'body',
         'pipelineIds' => 'pipelineIds',
     ];
 
@@ -37,9 +31,6 @@ class DeletePipelinesRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
         if (null !== $this->pipelineIds) {
             $res['pipelineIds'] = $this->pipelineIds;
@@ -58,9 +49,6 @@ class DeletePipelinesRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
         if (isset($map['pipelineIds'])) {
             $model->pipelineIds = $map['pipelineIds'];

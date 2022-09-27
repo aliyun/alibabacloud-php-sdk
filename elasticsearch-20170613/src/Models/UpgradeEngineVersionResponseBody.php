@@ -15,7 +15,7 @@ class UpgradeEngineVersionResponseBody extends Model
     public $requestId;
 
     /**
-     * @var result
+     * @var result[]
      */
     public $result;
     protected $_name = [
@@ -34,7 +34,13 @@ class UpgradeEngineVersionResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                $n = 0;
+                foreach ($this->result as $item) {
+                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -52,7 +58,13 @@ class UpgradeEngineVersionResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
-            $model->result = result::fromMap($map['Result']);
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                $n             = 0;
+                foreach ($map['Result'] as $item) {
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

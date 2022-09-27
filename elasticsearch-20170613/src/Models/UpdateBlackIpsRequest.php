@@ -11,21 +11,9 @@ class UpdateBlackIpsRequest extends Model
     /**
      * @var string
      */
-    public $body;
-
-    /**
-     * @var string
-     */
     public $clientToken;
-
-    /**
-     * @var string[]
-     */
-    public $esIPBlacklist;
     protected $_name = [
-        'body'          => 'body',
-        'clientToken'   => 'clientToken',
-        'esIPBlacklist' => 'esIPBlacklist',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -35,14 +23,8 @@ class UpdateBlackIpsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
-        }
-        if (null !== $this->esIPBlacklist) {
-            $res['esIPBlacklist'] = $this->esIPBlacklist;
         }
 
         return $res;
@@ -56,16 +38,8 @@ class UpdateBlackIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
-        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
-        }
-        if (isset($map['esIPBlacklist'])) {
-            if (!empty($map['esIPBlacklist'])) {
-                $model->esIPBlacklist = $map['esIPBlacklist'];
-            }
         }
 
         return $model;

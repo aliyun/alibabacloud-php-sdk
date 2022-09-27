@@ -16,15 +16,9 @@ class ValidateSlrPermissionRequest extends Model
     /**
      * @var string
      */
-    public $body;
-
-    /**
-     * @var string
-     */
     public $rolename;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'body'        => 'body',
         'rolename'    => 'rolename',
     ];
 
@@ -37,9 +31,6 @@ class ValidateSlrPermissionRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
         }
         if (null !== $this->rolename) {
             $res['rolename'] = $this->rolename;
@@ -58,9 +49,6 @@ class ValidateSlrPermissionRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
         }
         if (isset($map['rolename'])) {
             $model->rolename = $map['rolename'];

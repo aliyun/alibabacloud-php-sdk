@@ -9,16 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListAllNodeRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $body;
-
-    /**
      * @var bool
      */
     public $extended;
     protected $_name = [
-        'body'     => 'body',
         'extended' => 'extended',
     ];
 
@@ -29,9 +23,6 @@ class ListAllNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
-        }
         if (null !== $this->extended) {
             $res['extended'] = $this->extended;
         }
@@ -47,9 +38,6 @@ class ListAllNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
-        }
         if (isset($map['extended'])) {
             $model->extended = $map['extended'];
         }

@@ -4,14 +4,20 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaWhiteIpsRequest\whiteIpGroup;
 use AlibabaCloud\Tea\Model;
 
 class UpdateKibanaWhiteIpsRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $body;
+    public $kibanaIPWhitelist;
+
+    /**
+     * @var whiteIpGroup
+     */
+    public $whiteIpGroup;
 
     /**
      * @var string
@@ -23,9 +29,10 @@ class UpdateKibanaWhiteIpsRequest extends Model
      */
     public $modifyMode;
     protected $_name = [
-        'body'        => 'body',
-        'clientToken' => 'clientToken',
-        'modifyMode'  => 'modifyMode',
+        'kibanaIPWhitelist' => 'kibanaIPWhitelist',
+        'whiteIpGroup'      => 'whiteIpGroup',
+        'clientToken'       => 'clientToken',
+        'modifyMode'        => 'modifyMode',
     ];
 
     public function validate()
@@ -35,8 +42,11 @@ class UpdateKibanaWhiteIpsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->kibanaIPWhitelist) {
+            $res['kibanaIPWhitelist'] = $this->kibanaIPWhitelist;
+        }
+        if (null !== $this->whiteIpGroup) {
+            $res['whiteIpGroup'] = null !== $this->whiteIpGroup ? $this->whiteIpGroup->toMap() : null;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
@@ -56,8 +66,13 @@ class UpdateKibanaWhiteIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['kibanaIPWhitelist'])) {
+            if (!empty($map['kibanaIPWhitelist'])) {
+                $model->kibanaIPWhitelist = $map['kibanaIPWhitelist'];
+            }
+        }
+        if (isset($map['whiteIpGroup'])) {
+            $model->whiteIpGroup = whiteIpGroup::fromMap($map['whiteIpGroup']);
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];

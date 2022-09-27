@@ -52,7 +52,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeactivateZonesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeactivateZonesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteCollectorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteComponentIndexRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteConnectedClusterRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteConnectedClusterResponse;
@@ -60,11 +59,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataStreamRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataStreamResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataTaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataTaskResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDeprecatedTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDeprecatedTemplateResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteILMPolicyRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteILMPolicyResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteIndexTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteIndexTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteInstanceResponse;
@@ -76,47 +72,30 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteSnapshotRepoRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteSnapshotRepoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeComponentIndexRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDeprecatedTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDeprecatedTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnoseReportRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnoseReportResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnosisSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnosisSettingsResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDynamicSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDynamicSettingsResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeElasticsearchHealthRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeElasticsearchHealthResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeILMPolicyRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeILMPolicyResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeIndexTemplateRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeIndexTemplateResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeKibanaSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeKibanaSettingsResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeLogstashRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeLogstashResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineManagementConfigRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineManagementConfigResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribePipelineResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeSnapshotSettingRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeSnapshotSettingResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeTemplatesResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeXpackMonitorConfigRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeXpackMonitorConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DiagnoseInstanceResponse;
@@ -126,7 +105,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedRestartTimeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedRestartTimeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetElastictaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetElastictaskResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaAlertsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaAlertsResponse;
@@ -134,7 +112,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsRequ
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonMonitorDataRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonMonitorDataResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetOpenStoreUsageRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetOpenStoreUsageResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponse;
@@ -170,17 +147,14 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotRepos
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsResponse;
@@ -198,12 +172,14 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListExtendfilesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListExtendfilesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListIndexTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListIndexTemplatesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsShrinkRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceIndicesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceIndicesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceRequest;
@@ -228,7 +204,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSearchLogRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSearchLogResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListShardRecoveriesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListShardRecoveriesResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSnapshotReposByInstanceIdRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSnapshotReposByInstanceIdResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesResponse;
@@ -258,7 +233,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemoveApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemoveApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceResponse;
@@ -280,11 +254,9 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopApmRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorResponse;
@@ -453,8 +425,7 @@ class Elasticsearch extends OpenApiClient
     public function activateZonesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -467,7 +438,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ActivateZones',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/recover-zones',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/recover-zones',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -503,8 +474,7 @@ class Elasticsearch extends OpenApiClient
     public function addConnectableClusterWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -517,7 +487,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'AddConnectableCluster',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/connected-clusters',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/connected-clusters',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -553,8 +523,7 @@ class Elasticsearch extends OpenApiClient
     public function addSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -562,7 +531,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'AddSnapshotRepo',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-repos',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshot-repos',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -598,21 +567,19 @@ class Elasticsearch extends OpenApiClient
     public function cancelDeletionWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CancelDeletion',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/cancel-deletion',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/cancel-deletion',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -648,21 +615,19 @@ class Elasticsearch extends OpenApiClient
     public function cancelLogstashDeletionWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CancelLogstashDeletion',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/cancel-deletion',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/cancel-deletion',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -698,8 +663,7 @@ class Elasticsearch extends OpenApiClient
     public function cancelTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -709,13 +673,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CancelTask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/cancel-task',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/cancel-task',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -806,8 +769,7 @@ class Elasticsearch extends OpenApiClient
     public function closeDiagnosisWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -817,13 +779,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CloseDiagnosis',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/actions/close-diagnosis',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/close-diagnosis',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -859,21 +820,19 @@ class Elasticsearch extends OpenApiClient
     public function closeHttpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CloseHttps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/close-https',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/close-https',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -911,22 +870,19 @@ class Elasticsearch extends OpenApiClient
     public function closeManagedIndexWithOptions($InstanceId, $Index, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $Index      = OpenApiUtilClient::getEncodeParam($Index);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'CloseManagedIndex',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/indices/' . $Index . '/close-managed',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/indices/' . OpenApiUtilClient::getEncodeParam($Index) . '/close-managed',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1011,9 +967,7 @@ class Elasticsearch extends OpenApiClient
     public function createComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $name       = OpenApiUtilClient::getEncodeParam($name);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->meta)) {
             $body['_meta'] = $request->meta;
         }
@@ -1028,7 +982,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateComponentIndex',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/component-index/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1064,8 +1018,7 @@ class Elasticsearch extends OpenApiClient
     public function createDataStreamWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1078,7 +1031,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateDataStream',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-streams',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1114,8 +1067,7 @@ class Elasticsearch extends OpenApiClient
     public function createDataTasksWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1128,7 +1080,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateDataTasks',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-task',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-task',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1164,8 +1116,7 @@ class Elasticsearch extends OpenApiClient
     public function createILMPolicyWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1178,7 +1129,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateILMPolicy',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/ilm-policies',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1214,8 +1165,7 @@ class Elasticsearch extends OpenApiClient
     public function createIndexTemplateWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1228,7 +1178,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateIndexTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/index-templates',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1333,8 +1283,7 @@ class Elasticsearch extends OpenApiClient
     public function createPipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1350,7 +1299,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreatePipelines',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1386,8 +1335,7 @@ class Elasticsearch extends OpenApiClient
     public function createSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1400,7 +1348,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateSnapshot',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshots',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshots',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1436,8 +1384,7 @@ class Elasticsearch extends OpenApiClient
     public function createVpcEndpointWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1460,7 +1407,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'CreateVpcEndpoint',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/vpc-endpoints',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/vpc-endpoints',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1496,8 +1443,7 @@ class Elasticsearch extends OpenApiClient
     public function deactivateZonesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -1510,7 +1456,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'DeactivateZones',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/down-zones',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/down-zones',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1546,7 +1492,6 @@ class Elasticsearch extends OpenApiClient
     public function deleteCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -1554,13 +1499,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1572,43 +1516,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param string                      $name
-     * @param DeleteComponentIndexRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
      * @return DeleteComponentIndexResponse
      */
-    public function deleteComponentIndex($InstanceId, $name, $request)
+    public function deleteComponentIndex($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
+        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param string                      $name
-     * @param DeleteComponentIndexRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteComponentIndexResponse
      */
-    public function deleteComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
+    public function deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $name       = OpenApiUtilClient::getEncodeParam($name);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteComponentIndex',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/component-index/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1644,8 +1582,7 @@ class Elasticsearch extends OpenApiClient
     public function deleteConnectedClusterWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -1655,13 +1592,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteConnectedCluster',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/connected-clusters',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/connected-clusters',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1699,22 +1635,19 @@ class Elasticsearch extends OpenApiClient
     public function deleteDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $DataStream = OpenApiUtilClient::getEncodeParam($DataStream);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteDataStream',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams/' . $DataStream . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-streams/' . OpenApiUtilClient::getEncodeParam($DataStream) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1750,8 +1683,7 @@ class Elasticsearch extends OpenApiClient
     public function deleteDataTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1761,13 +1693,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteDataTask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-task',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-task',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1779,43 +1710,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                          $InstanceId
-     * @param string                          $name
-     * @param DeleteDeprecatedTemplateRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
      * @return DeleteDeprecatedTemplateResponse
      */
-    public function deleteDeprecatedTemplate($InstanceId, $name, $request)
+    public function deleteDeprecatedTemplate($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime);
+        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
-     * @param string                          $InstanceId
-     * @param string                          $name
-     * @param DeleteDeprecatedTemplateRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteDeprecatedTemplateResponse
      */
-    public function deleteDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime)
+    public function deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $name       = OpenApiUtilClient::getEncodeParam($name);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteDeprecatedTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/deprecated-templates/' . $name . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/deprecated-templates/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1827,43 +1752,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param string                 $PolicyName
-     * @param DeleteILMPolicyRequest $request
+     * @param string $InstanceId
+     * @param string $PolicyName
      *
      * @return DeleteILMPolicyResponse
      */
-    public function deleteILMPolicy($InstanceId, $PolicyName, $request)
+    public function deleteILMPolicy($InstanceId, $PolicyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime);
+        return $this->deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param string                 $PolicyName
-     * @param DeleteILMPolicyRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string         $InstanceId
+     * @param string         $PolicyName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteILMPolicyResponse
      */
-    public function deleteILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime)
+    public function deleteILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $PolicyName = OpenApiUtilClient::getEncodeParam($PolicyName);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteILMPolicy',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/ilm-policies/' . OpenApiUtilClient::getEncodeParam($PolicyName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1875,43 +1794,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param string                     $IndexTemplate
-     * @param DeleteIndexTemplateRequest $request
+     * @param string $InstanceId
+     * @param string $IndexTemplate
      *
      * @return DeleteIndexTemplateResponse
      */
-    public function deleteIndexTemplate($InstanceId, $IndexTemplate, $request)
+    public function deleteIndexTemplate($InstanceId, $IndexTemplate)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime);
+        return $this->deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
     }
 
     /**
-     * @param string                     $InstanceId
-     * @param string                     $IndexTemplate
-     * @param DeleteIndexTemplateRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param string         $InstanceId
+     * @param string         $IndexTemplate
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteIndexTemplateResponse
      */
-    public function deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime)
+    public function deleteIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId    = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $IndexTemplate = OpenApiUtilClient::getEncodeParam($IndexTemplate);
-        $req           = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteIndexTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/index-templates/' . OpenApiUtilClient::getEncodeParam($IndexTemplate) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1947,8 +1860,7 @@ class Elasticsearch extends OpenApiClient
     public function deleteInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -1958,13 +1870,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2000,8 +1911,7 @@ class Elasticsearch extends OpenApiClient
     public function deleteLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -2011,13 +1921,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteLogstash',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2053,8 +1962,7 @@ class Elasticsearch extends OpenApiClient
     public function deletePipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -2064,13 +1972,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeletePipelines',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2106,8 +2013,7 @@ class Elasticsearch extends OpenApiClient
     public function deleteSnapshotRepoWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -2117,13 +2023,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshotRepo',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-repos',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshot-repos',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2161,22 +2066,19 @@ class Elasticsearch extends OpenApiClient
     public function deleteVpcEndpointWithOptions($InstanceId, $EndpointId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $EndpointId = OpenApiUtilClient::getEncodeParam($EndpointId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DeleteVpcEndpoint',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/vpc-endpoints/' . $EndpointId . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/vpc-endpoints/' . OpenApiUtilClient::getEncodeParam($EndpointId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2188,40 +2090,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param DescribeAckOperatorRequest $request
+     * @param string $ClusterId
      *
      * @return DescribeAckOperatorResponse
      */
-    public function describeAckOperator($ClusterId, $request)
+    public function describeAckOperator($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeAckOperatorWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeAckOperatorWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param DescribeAckOperatorRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeAckOperatorResponse
      */
-    public function describeAckOperatorWithOptions($ClusterId, $request, $headers, $runtime)
+    public function describeAckOperatorWithOptions($ClusterId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeAckOperator',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ack-clusters/' . $ClusterId . '/operator',
+            'pathname'    => '/openapi/ack-clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/operator',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2233,40 +2130,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string             $instanceId
-     * @param DescribeApmRequest $request
+     * @param string $instanceId
      *
      * @return DescribeApmResponse
      */
-    public function describeApm($instanceId, $request)
+    public function describeApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeApmWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->describeApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
-     * @param string             $instanceId
-     * @param DescribeApmRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeApmResponse
      */
-    public function describeApmWithOptions($instanceId, $request, $headers, $runtime)
+    public function describeApmWithOptions($instanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeApm',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/apm/' . $instanceId . '',
+            'pathname'    => '/openapi/apm/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2278,40 +2170,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $ResId
-     * @param DescribeCollectorRequest $request
+     * @param string $ResId
      *
      * @return DescribeCollectorResponse
      */
-    public function describeCollector($ResId, $request)
+    public function describeCollector($ResId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeCollectorWithOptions($ResId, $request, $headers, $runtime);
+        return $this->describeCollectorWithOptions($ResId, $headers, $runtime);
     }
 
     /**
-     * @param string                   $ResId
-     * @param DescribeCollectorRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param string         $ResId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeCollectorResponse
      */
-    public function describeCollectorWithOptions($ResId, $request, $headers, $runtime)
+    public function describeCollectorWithOptions($ResId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2323,43 +2210,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param string                        $name
-     * @param DescribeComponentIndexRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
      * @return DescribeComponentIndexResponse
      */
-    public function describeComponentIndex($InstanceId, $name, $request)
+    public function describeComponentIndex($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
+        return $this->describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param string                        $name
-     * @param DescribeComponentIndexRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeComponentIndexResponse
      */
-    public function describeComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
+    public function describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $name       = OpenApiUtilClient::getEncodeParam($name);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeComponentIndex',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/component-index/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2395,21 +2276,19 @@ class Elasticsearch extends OpenApiClient
     public function describeConnectableClustersWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->alreadySetItems)) {
             $query['alreadySetItems'] = $request->alreadySetItems;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeConnectableClusters',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/connectable-clusters',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/connectable-clusters',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2421,43 +2300,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param string                            $name
-     * @param DescribeDeprecatedTemplateRequest $request
+     * @param string $InstanceId
+     * @param string $name
      *
      * @return DescribeDeprecatedTemplateResponse
      */
-    public function describeDeprecatedTemplate($InstanceId, $name, $request)
+    public function describeDeprecatedTemplate($InstanceId, $name)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime);
+        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param string                            $name
-     * @param DescribeDeprecatedTemplateRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeDeprecatedTemplateResponse
      */
-    public function describeDeprecatedTemplateWithOptions($InstanceId, $name, $request, $headers, $runtime)
+    public function describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $name       = OpenApiUtilClient::getEncodeParam($name);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDeprecatedTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/deprecated-templates/' . $name . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/deprecated-templates/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2495,22 +2368,19 @@ class Elasticsearch extends OpenApiClient
     public function describeDiagnoseReportWithOptions($InstanceId, $ReportId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $ReportId   = OpenApiUtilClient::getEncodeParam($ReportId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['lang'] = $request->lang;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDiagnoseReport',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/reports/' . $ReportId . '',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/reports/' . OpenApiUtilClient::getEncodeParam($ReportId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2546,21 +2416,19 @@ class Elasticsearch extends OpenApiClient
     public function describeDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['lang'] = $request->lang;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDiagnosisSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/settings',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/settings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2572,40 +2440,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param DescribeDynamicSettingsRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeDynamicSettingsResponse
      */
-    public function describeDynamicSettings($InstanceId, $request)
+    public function describeDynamicSettings($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeDynamicSettingsWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param DescribeDynamicSettingsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeDynamicSettingsResponse
      */
-    public function describeDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeDynamicSettingsWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeDynamicSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/dynamic-settings',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/dynamic-settings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2617,40 +2480,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                             $InstanceId
-     * @param DescribeElasticsearchHealthRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeElasticsearchHealthResponse
      */
-    public function describeElasticsearchHealth($InstanceId, $request)
+    public function describeElasticsearchHealth($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeElasticsearchHealthWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                             $InstanceId
-     * @param DescribeElasticsearchHealthRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeElasticsearchHealthResponse
      */
-    public function describeElasticsearchHealthWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeElasticsearchHealthWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeElasticsearchHealth',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/elasticsearch-health',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/elasticsearch-health',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2662,43 +2520,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param string                   $PolicyName
-     * @param DescribeILMPolicyRequest $request
+     * @param string $InstanceId
+     * @param string $PolicyName
      *
      * @return DescribeILMPolicyResponse
      */
-    public function describeILMPolicy($InstanceId, $PolicyName, $request)
+    public function describeILMPolicy($InstanceId, $PolicyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime);
+        return $this->describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime);
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param string                   $PolicyName
-     * @param DescribeILMPolicyRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param string         $InstanceId
+     * @param string         $PolicyName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeILMPolicyResponse
      */
-    public function describeILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime)
+    public function describeILMPolicyWithOptions($InstanceId, $PolicyName, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $PolicyName = OpenApiUtilClient::getEncodeParam($PolicyName);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeILMPolicy',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/ilm-policies/' . OpenApiUtilClient::getEncodeParam($PolicyName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2710,43 +2562,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param string                       $IndexTemplate
-     * @param DescribeIndexTemplateRequest $request
+     * @param string $InstanceId
+     * @param string $IndexTemplate
      *
      * @return DescribeIndexTemplateResponse
      */
-    public function describeIndexTemplate($InstanceId, $IndexTemplate, $request)
+    public function describeIndexTemplate($InstanceId, $IndexTemplate)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime);
+        return $this->describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime);
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param string                       $IndexTemplate
-     * @param DescribeIndexTemplateRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param string         $InstanceId
+     * @param string         $IndexTemplate
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeIndexTemplateResponse
      */
-    public function describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime)
+    public function describeIndexTemplateWithOptions($InstanceId, $IndexTemplate, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId    = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $IndexTemplate = OpenApiUtilClient::getEncodeParam($IndexTemplate);
-        $req           = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeIndexTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/index-templates/' . OpenApiUtilClient::getEncodeParam($IndexTemplate) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2758,40 +2604,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param DescribeInstanceRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeInstanceResponse
      */
-    public function describeInstance($InstanceId, $request)
+    public function describeInstance($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeInstanceWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeInstanceWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param DescribeInstanceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeInstanceResponse
      */
-    public function describeInstanceWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeInstanceWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeInstance',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2803,40 +2644,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param DescribeKibanaSettingsRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeKibanaSettingsResponse
      */
-    public function describeKibanaSettings($InstanceId, $request)
+    public function describeKibanaSettings($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param DescribeKibanaSettingsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeKibanaSettingsResponse
      */
-    public function describeKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeKibanaSettingsWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeKibanaSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-settings',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/kibana-settings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2848,40 +2684,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param DescribeLogstashRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeLogstashResponse
      */
-    public function describeLogstash($InstanceId, $request)
+    public function describeLogstash($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeLogstashWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeLogstashWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param DescribeLogstashRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeLogstashResponse
      */
-    public function describeLogstashWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeLogstashWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeLogstash',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2893,43 +2724,37 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param string                  $PipelineId
-     * @param DescribePipelineRequest $request
+     * @param string $InstanceId
+     * @param string $PipelineId
      *
      * @return DescribePipelineResponse
      */
-    public function describePipeline($InstanceId, $PipelineId, $request)
+    public function describePipeline($InstanceId, $PipelineId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePipelineWithOptions($InstanceId, $PipelineId, $request, $headers, $runtime);
+        return $this->describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime);
     }
 
     /**
-     * @param string                  $InstanceId
-     * @param string                  $PipelineId
-     * @param DescribePipelineRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $InstanceId
+     * @param string         $PipelineId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribePipelineResponse
      */
-    public function describePipelineWithOptions($InstanceId, $PipelineId, $request, $headers, $runtime)
+    public function describePipelineWithOptions($InstanceId, $PipelineId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $PipelineId = OpenApiUtilClient::getEncodeParam($PipelineId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribePipeline',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines/' . $PipelineId . '',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($PipelineId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2965,21 +2790,19 @@ class Elasticsearch extends OpenApiClient
     public function describePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribePipelineManagementConfig',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipeline-management-config',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipeline-management-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2991,31 +2814,26 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     *
      * @return DescribeRegionsResponse
      */
-    public function describeRegions($request)
+    public function describeRegions()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRegionsWithOptions($request, $headers, $runtime);
+        return $this->describeRegionsWithOptions($headers, $runtime);
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($request, $headers, $runtime)
+    public function describeRegionsWithOptions($headers, $runtime)
     {
-        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -3033,40 +2851,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param DescribeSnapshotSettingRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeSnapshotSettingResponse
      */
-    public function describeSnapshotSetting($InstanceId, $request)
+    public function describeSnapshotSetting($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                         $InstanceId
-     * @param DescribeSnapshotSettingRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeSnapshotSettingResponse
      */
-    public function describeSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeSnapshotSettingWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeSnapshotSetting',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-setting',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshot-setting',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3078,40 +2891,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param DescribeTemplatesRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeTemplatesResponse
      */
-    public function describeTemplates($InstanceId, $request)
+    public function describeTemplates($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeTemplatesWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param DescribeTemplatesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeTemplatesResponse
      */
-    public function describeTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeTemplatesWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeTemplates',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/templates',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/templates',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3123,40 +2931,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param DescribeXpackMonitorConfigRequest $request
+     * @param string $InstanceId
      *
      * @return DescribeXpackMonitorConfigResponse
      */
-    public function describeXpackMonitorConfig($InstanceId, $request)
+    public function describeXpackMonitorConfig($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param DescribeXpackMonitorConfigRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeXpackMonitorConfigResponse
      */
-    public function describeXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime)
+    public function describeXpackMonitorConfigWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'DescribeXpackMonitorConfig',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/xpack-monitor-config',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/xpack-monitor-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3192,24 +2995,33 @@ class Elasticsearch extends OpenApiClient
     public function diagnoseInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['lang'] = $request->lang;
         }
+        $body = [];
+        if (!Utils::isUnset($request->diagnoseItems)) {
+            $body['diagnoseItems'] = $request->diagnoseItems;
+        }
+        if (!Utils::isUnset($request->indices)) {
+            $body['indices'] = $request->indices;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DiagnoseInstance',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/actions/diagnose',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/diagnose',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3245,8 +3057,7 @@ class Elasticsearch extends OpenApiClient
     public function estimatedLogstashRestartTimeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->force)) {
             $query['force'] = $request->force;
         }
@@ -3259,7 +3070,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'EstimatedLogstashRestartTime',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/estimated-time/restart-time',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/estimated-time/restart-time',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3295,8 +3106,7 @@ class Elasticsearch extends OpenApiClient
     public function estimatedRestartTimeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->force)) {
             $query['force'] = $request->force;
         }
@@ -3309,7 +3119,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'EstimatedRestartTime',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/estimated-time/restart-time',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/estimated-time/restart-time',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3363,40 +3173,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                $InstanceId
-     * @param GetElastictaskRequest $request
+     * @param string $InstanceId
      *
      * @return GetElastictaskResponse
      */
-    public function getElastictask($InstanceId, $request)
+    public function getElastictask($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getElastictaskWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->getElastictaskWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                $InstanceId
-     * @param GetElastictaskRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetElastictaskResponse
      */
-    public function getElastictaskWithOptions($InstanceId, $request, $headers, $runtime)
+    public function getElastictaskWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetElastictask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/elastic-task',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/elastic-task',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3432,8 +3237,7 @@ class Elasticsearch extends OpenApiClient
     public function getEmonGrafanaAlertsWithOptions($ProjectId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ProjectId = OpenApiUtilClient::getEncodeParam($ProjectId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -3441,7 +3245,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'GetEmonGrafanaAlerts',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/grafana/proxy/api/alerts',
+            'pathname'    => '/openapi/emon/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/grafana/proxy/api/alerts',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3477,8 +3281,7 @@ class Elasticsearch extends OpenApiClient
     public function getEmonGrafanaDashboardsWithOptions($ProjectId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ProjectId = OpenApiUtilClient::getEncodeParam($ProjectId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -3486,7 +3289,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'GetEmonGrafanaDashboards',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/grafana/proxy/api/search',
+            'pathname'    => '/openapi/emon/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/grafana/proxy/api/search',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3522,8 +3325,7 @@ class Elasticsearch extends OpenApiClient
     public function getEmonMonitorDataWithOptions($ProjectId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ProjectId = OpenApiUtilClient::getEncodeParam($ProjectId);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -3531,7 +3333,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'GetEmonMonitorData',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/metrics/query',
+            'pathname'    => '/openapi/emon/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/metrics/query',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3543,40 +3345,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param GetOpenStoreUsageRequest $request
+     * @param string $InstanceId
      *
      * @return GetOpenStoreUsageResponse
      */
-    public function getOpenStoreUsage($InstanceId, $request)
+    public function getOpenStoreUsage($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getOpenStoreUsageWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                   $InstanceId
-     * @param GetOpenStoreUsageRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetOpenStoreUsageResponse
      */
-    public function getOpenStoreUsageWithOptions($InstanceId, $request, $headers, $runtime)
+    public function getOpenStoreUsageWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetOpenStoreUsage',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/openstore/usage',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/openstore/usage',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3617,7 +3414,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetRegionConfiguration',
@@ -3659,8 +3455,7 @@ class Elasticsearch extends OpenApiClient
     public function getSuggestShrinkableNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->count)) {
             $query['count'] = $request->count;
         }
@@ -3673,13 +3468,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetSuggestShrinkableNodes',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/suggest-shrinkable-nodes',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/suggest-shrinkable-nodes',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3715,8 +3509,7 @@ class Elasticsearch extends OpenApiClient
     public function getTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->count)) {
             $query['count'] = $request->count;
         }
@@ -3726,13 +3519,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'GetTransferableNodes',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/transferable-nodes',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/transferable-nodes',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3815,8 +3607,7 @@ class Elasticsearch extends OpenApiClient
     public function installAckOperatorWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -3829,7 +3620,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'InstallAckOperator',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ack-clusters/' . $ClusterId . '/operator',
+            'pathname'    => '/openapi/ack-clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/operator',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3865,8 +3656,7 @@ class Elasticsearch extends OpenApiClient
     public function installKibanaSystemPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -3879,7 +3669,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'InstallKibanaSystemPlugin',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-plugins/system/actions/install',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/kibana-plugins/system/actions/install',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3915,8 +3705,7 @@ class Elasticsearch extends OpenApiClient
     public function installLogstashSystemPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -3929,7 +3718,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'InstallLogstashSystemPlugin',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/plugins/system/actions/install',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins/system/actions/install',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3965,8 +3754,7 @@ class Elasticsearch extends OpenApiClient
     public function installSystemPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -3979,7 +3767,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'InstallSystemPlugin',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins/system/actions/install',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins/system/actions/install',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4015,8 +3803,7 @@ class Elasticsearch extends OpenApiClient
     public function installUserPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -4024,7 +3811,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'InstallUserPlugins',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins/user/actions/install',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins/user/actions/install',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4060,21 +3847,19 @@ class Elasticsearch extends OpenApiClient
     public function interruptElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InterruptElasticsearchTask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/interrupt',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/interrupt',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4110,21 +3895,19 @@ class Elasticsearch extends OpenApiClient
     public function interruptLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'InterruptLogstashTask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/interrupt',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/interrupt',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4171,7 +3954,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAckClusters',
@@ -4213,8 +3995,7 @@ class Elasticsearch extends OpenApiClient
     public function listAckNamespacesWithOptions($ClusterId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->page)) {
             $query['page'] = $request->page;
         }
@@ -4224,13 +4005,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAckNamespaces',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ack-clusters/' . $ClusterId . '/namespaces',
+            'pathname'    => '/openapi/ack-clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/namespaces',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4266,8 +4046,7 @@ class Elasticsearch extends OpenApiClient
     public function listActionRecordsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->actionNames)) {
             $query['actionNames'] = $request->actionNames;
         }
@@ -4295,13 +4074,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListActionRecords',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/action-records',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/action-records',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4337,21 +4115,19 @@ class Elasticsearch extends OpenApiClient
     public function listAllNodeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->extended)) {
             $query['extended'] = $request->extended;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAllNode',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/nodes',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/nodes',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4387,21 +4163,19 @@ class Elasticsearch extends OpenApiClient
     public function listAlternativeSnapshotReposWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->alreadySetItems)) {
             $query['alreadySetItems'] = $request->alreadySetItems;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAlternativeSnapshotRepos',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/alternative-snapshot-repos',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/alternative-snapshot-repos',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4454,7 +4228,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListApm',
@@ -4472,40 +4245,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param ListAvailableEsInstanceIdsRequest $request
+     * @param string $InstanceId
      *
      * @return ListAvailableEsInstanceIdsResponse
      */
-    public function listAvailableEsInstanceIds($InstanceId, $request)
+    public function listAvailableEsInstanceIds($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAvailableEsInstanceIdsWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                            $InstanceId
-     * @param ListAvailableEsInstanceIdsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ListAvailableEsInstanceIdsResponse
      */
-    public function listAvailableEsInstanceIdsWithOptions($InstanceId, $request, $headers, $runtime)
+    public function listAvailableEsInstanceIdsWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListAvailableEsInstanceIds',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/available-elasticsearch-for-centralized-management',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/available-elasticsearch-for-centralized-management',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4561,7 +4329,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListCollectors',
@@ -4603,8 +4370,7 @@ class Elasticsearch extends OpenApiClient
     public function listComponentIndicesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -4617,13 +4383,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListComponentIndices',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/component-index',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4635,40 +4400,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param ListConnectedClustersRequest $request
+     * @param string $InstanceId
      *
      * @return ListConnectedClustersResponse
      */
-    public function listConnectedClusters($InstanceId, $request)
+    public function listConnectedClusters($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listConnectedClustersWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listConnectedClustersWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                       $InstanceId
-     * @param ListConnectedClustersRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ListConnectedClustersResponse
      */
-    public function listConnectedClustersWithOptions($InstanceId, $request, $headers, $runtime)
+    public function listConnectedClustersWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListConnectedClusters',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/connected-clusters',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/connected-clusters',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4704,8 +4464,7 @@ class Elasticsearch extends OpenApiClient
     public function listDataStreamsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->isManaged)) {
             $query['isManaged'] = $request->isManaged;
         }
@@ -4715,13 +4474,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDataStreams',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-streams',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4733,40 +4491,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string               $InstanceId
-     * @param ListDataTasksRequest $request
+     * @param string $InstanceId
      *
      * @return ListDataTasksResponse
      */
-    public function listDataTasks($InstanceId, $request)
+    public function listDataTasks($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDataTasksWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listDataTasksWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string               $InstanceId
-     * @param ListDataTasksRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ListDataTasksResponse
      */
-    public function listDataTasksWithOptions($InstanceId, $request, $headers, $runtime)
+    public function listDataTasksWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDataTasks',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-task',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-task',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4813,7 +4566,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDefaultCollectorConfigurations',
@@ -4855,8 +4607,7 @@ class Elasticsearch extends OpenApiClient
     public function listDeprecatedTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -4869,13 +4620,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDeprecatedTemplates',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/deprecated-templates',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/deprecated-templates',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4911,21 +4661,19 @@ class Elasticsearch extends OpenApiClient
     public function listDiagnoseIndicesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['lang'] = $request->lang;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDiagnoseIndices',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/indices',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/indices',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4961,8 +4709,7 @@ class Elasticsearch extends OpenApiClient
     public function listDiagnoseReportWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->detail)) {
             $query['detail'] = $request->detail;
         }
@@ -4987,13 +4734,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDiagnoseReport',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/reports',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/reports',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5029,8 +4775,7 @@ class Elasticsearch extends OpenApiClient
     public function listDiagnoseReportIdsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
         }
@@ -5052,13 +4797,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDiagnoseReportIds',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/report-ids',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/report-ids',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5094,8 +4838,7 @@ class Elasticsearch extends OpenApiClient
     public function listDictInformationWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->analyzerType)) {
             $query['analyzerType'] = $request->analyzerType;
         }
@@ -5108,13 +4851,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDictInformation',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/dict/_info',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/dict/_info',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5150,8 +4892,7 @@ class Elasticsearch extends OpenApiClient
     public function listDictsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->analyzerType)) {
             $query['analyzerType'] = $request->analyzerType;
         }
@@ -5161,13 +4902,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListDicts',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/dicts',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/dicts',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5223,7 +4963,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListEcsInstances',
@@ -5241,40 +4980,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param ListExtendfilesRequest $request
+     * @param string $InstanceId
      *
      * @return ListExtendfilesResponse
      */
-    public function listExtendfiles($InstanceId, $request)
+    public function listExtendfiles($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listExtendfilesWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listExtendfilesWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                 $InstanceId
-     * @param ListExtendfilesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ListExtendfilesResponse
      */
-    public function listExtendfilesWithOptions($InstanceId, $request, $headers, $runtime)
+    public function listExtendfilesWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListExtendfiles',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/extendfiles',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/extendfiles',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5310,21 +5044,19 @@ class Elasticsearch extends OpenApiClient
     public function listILMPoliciesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->policyName)) {
             $query['policyName'] = $request->policyName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListILMPolicies',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/ilm-policies',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5360,8 +5092,7 @@ class Elasticsearch extends OpenApiClient
     public function listIndexTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->indexTemplate)) {
             $query['indexTemplate'] = $request->indexTemplate;
         }
@@ -5374,13 +5105,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListIndexTemplates',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/index-templates',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5451,7 +5181,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListInstance',
@@ -5466,6 +5195,99 @@ class Elasticsearch extends OpenApiClient
         ]);
 
         return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstanceHistoryEventsRequest $request
+     *
+     * @return ListInstanceHistoryEventsResponse
+     */
+    public function listInstanceHistoryEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceHistoryEventsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListInstanceHistoryEventsRequest $tmpReq
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListInstanceHistoryEventsResponse
+     */
+    public function listInstanceHistoryEventsWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListInstanceHistoryEventsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->eventCycleStatus)) {
+            $request->eventCycleStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventCycleStatus, 'eventCycleStatus', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->eventLevel)) {
+            $request->eventLevelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventLevel, 'eventLevel', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->eventType)) {
+            $request->eventTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventType, 'eventType', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->eventCreateEndTime)) {
+            $query['eventCreateEndTime'] = $request->eventCreateEndTime;
+        }
+        if (!Utils::isUnset($request->eventCreateStartTime)) {
+            $query['eventCreateStartTime'] = $request->eventCreateStartTime;
+        }
+        if (!Utils::isUnset($request->eventCycleStatusShrink)) {
+            $query['eventCycleStatus'] = $request->eventCycleStatusShrink;
+        }
+        if (!Utils::isUnset($request->eventExecuteEndTime)) {
+            $query['eventExecuteEndTime'] = $request->eventExecuteEndTime;
+        }
+        if (!Utils::isUnset($request->eventExecuteStartTime)) {
+            $query['eventExecuteStartTime'] = $request->eventExecuteStartTime;
+        }
+        if (!Utils::isUnset($request->eventFinashEndTime)) {
+            $query['eventFinashEndTime'] = $request->eventFinashEndTime;
+        }
+        if (!Utils::isUnset($request->eventFinashStartTime)) {
+            $query['eventFinashStartTime'] = $request->eventFinashStartTime;
+        }
+        if (!Utils::isUnset($request->eventLevelShrink)) {
+            $query['eventLevel'] = $request->eventLevelShrink;
+        }
+        if (!Utils::isUnset($request->eventTypeShrink)) {
+            $query['eventType'] = $request->eventTypeShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['instanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeIP)) {
+            $query['nodeIP'] = $request->nodeIP;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceHistoryEvents',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/events',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceHistoryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5493,8 +5315,7 @@ class Elasticsearch extends OpenApiClient
     public function listInstanceIndicesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->all)) {
             $query['all'] = $request->all;
         }
@@ -5516,13 +5337,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListInstanceIndices',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/indices',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/indices',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5558,8 +5378,7 @@ class Elasticsearch extends OpenApiClient
     public function listKibanaPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->page)) {
             $query['page'] = $request->page;
         }
@@ -5569,13 +5388,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListKibanaPlugins',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-plugins',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/kibana-plugins',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5628,13 +5446,15 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->size)) {
             $query['size'] = $request->size;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->version)) {
             $query['version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListLogstash',
@@ -5676,8 +5496,7 @@ class Elasticsearch extends OpenApiClient
     public function listLogstashLogWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->beginTime)) {
             $query['beginTime'] = $request->beginTime;
         }
@@ -5699,13 +5518,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListLogstashLog',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/search-log',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/search-log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5741,8 +5559,7 @@ class Elasticsearch extends OpenApiClient
     public function listLogstashPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -5758,13 +5575,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListLogstashPlugins',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/plugins',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5800,7 +5616,6 @@ class Elasticsearch extends OpenApiClient
     public function listNodesWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->ecsInstanceIds)) {
             $query['ecsInstanceIds'] = $request->ecsInstanceIds;
@@ -5820,13 +5635,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListNodes',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/nodes',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/nodes',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5862,8 +5676,7 @@ class Elasticsearch extends OpenApiClient
     public function listPipelineWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->page)) {
             $query['page'] = $request->page;
         }
@@ -5876,13 +5689,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListPipeline',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5918,8 +5730,7 @@ class Elasticsearch extends OpenApiClient
     public function listPipelineIdsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -5927,7 +5738,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ListPipelineIds',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/pipeline-ids',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipeline-ids',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5963,8 +5774,7 @@ class Elasticsearch extends OpenApiClient
     public function listPluginsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -5980,13 +5790,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListPlugins',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6022,8 +5831,7 @@ class Elasticsearch extends OpenApiClient
     public function listSearchLogWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->beginTime)) {
             $query['beginTime'] = $request->beginTime;
         }
@@ -6045,13 +5853,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListSearchLog',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/search-log',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/search-log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6087,21 +5894,19 @@ class Elasticsearch extends OpenApiClient
     public function listShardRecoveriesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->activeOnly)) {
             $query['activeOnly'] = $request->activeOnly;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListShardRecoveries',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/cat-recovery',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/cat-recovery',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6113,40 +5918,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string                               $InstanceId
-     * @param ListSnapshotReposByInstanceIdRequest $request
+     * @param string $InstanceId
      *
      * @return ListSnapshotReposByInstanceIdResponse
      */
-    public function listSnapshotReposByInstanceId($InstanceId, $request)
+    public function listSnapshotReposByInstanceId($InstanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSnapshotReposByInstanceIdWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime);
     }
 
     /**
-     * @param string                               $InstanceId
-     * @param ListSnapshotReposByInstanceIdRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ListSnapshotReposByInstanceIdResponse
      */
-    public function listSnapshotReposByInstanceIdWithOptions($InstanceId, $request, $headers, $runtime)
+    public function listSnapshotReposByInstanceIdWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListSnapshotReposByInstanceId',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-repos',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshot-repos',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6202,7 +6002,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -6252,7 +6051,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListTags',
@@ -6294,8 +6092,7 @@ class Elasticsearch extends OpenApiClient
     public function listVpcEndpointsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->page)) {
             $query['page'] = $request->page;
         }
@@ -6305,13 +6102,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ListVpcEndpoints',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/vpc-endpoints',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/vpc-endpoints',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6347,8 +6143,7 @@ class Elasticsearch extends OpenApiClient
     public function migrateToOtherZoneWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -6361,7 +6156,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'MigrateToOtherZone',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/migrate-zones',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/migrate-zones',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6397,7 +6192,6 @@ class Elasticsearch extends OpenApiClient
     public function modifyDeployMachineWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -6411,7 +6205,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ModifyDeployMachine',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/modify-deploy-machines',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/actions/modify-deploy-machines',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6447,8 +6241,7 @@ class Elasticsearch extends OpenApiClient
     public function modifyElastictaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -6456,7 +6249,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ModifyElastictask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/elastic-task',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/elastic-task',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6492,8 +6285,7 @@ class Elasticsearch extends OpenApiClient
     public function modifyInstanceMaintainTimeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -6506,7 +6298,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ModifyInstanceMaintainTime',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/modify-maintaintime',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/modify-maintaintime',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6542,8 +6334,7 @@ class Elasticsearch extends OpenApiClient
     public function modifyWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -6572,7 +6363,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ModifyWhiteIps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/modify-white-ips',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/modify-white-ips',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6608,8 +6399,7 @@ class Elasticsearch extends OpenApiClient
     public function moveResourceGroupWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -6622,7 +6412,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'MoveResourceGroup',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/resourcegroup',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/resourcegroup',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6658,8 +6448,7 @@ class Elasticsearch extends OpenApiClient
     public function openDiagnosisWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -6669,13 +6458,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'OpenDiagnosis',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/actions/open-diagnosis',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/open-diagnosis',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6711,21 +6499,19 @@ class Elasticsearch extends OpenApiClient
     public function openHttpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'OpenHttps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/open-https',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/open-https',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6763,9 +6549,7 @@ class Elasticsearch extends OpenApiClient
     public function postEmonTryAlarmRuleWithOptions($ProjectId, $AlarmGroupId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ProjectId    = OpenApiUtilClient::getEncodeParam($ProjectId);
-        $AlarmGroupId = OpenApiUtilClient::getEncodeParam($AlarmGroupId);
-        $req          = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -6773,7 +6557,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'PostEmonTryAlarmRule',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/alarm-groups/' . $AlarmGroupId . '/alarm-rules/_test',
+            'pathname'    => '/openapi/emon/projects/' . OpenApiUtilClient::getEncodeParam($ProjectId) . '/alarm-groups/' . OpenApiUtilClient::getEncodeParam($AlarmGroupId) . '/alarm-rules/_test',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6809,21 +6593,19 @@ class Elasticsearch extends OpenApiClient
     public function recommendTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->usageScenario)) {
             $query['usageScenario'] = $request->usageScenario;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RecommendTemplates',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/recommended-templates',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/recommended-templates',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6859,7 +6641,6 @@ class Elasticsearch extends OpenApiClient
     public function reinstallCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -6873,7 +6654,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ReinstallCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/reinstall',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/actions/reinstall',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6885,40 +6666,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string           $instanceId
-     * @param RemoveApmRequest $request
+     * @param string $instanceId
      *
      * @return RemoveApmResponse
      */
-    public function removeApm($instanceId, $request)
+    public function removeApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeApmWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->removeApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
-     * @param string           $instanceId
-     * @param RemoveApmRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return RemoveApmResponse
      */
-    public function removeApmWithOptions($instanceId, $request, $headers, $runtime)
+    public function removeApmWithOptions($instanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RemoveApm',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/apm/' . $instanceId . '',
+            'pathname'    => '/openapi/apm/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6954,8 +6730,7 @@ class Elasticsearch extends OpenApiClient
     public function renewInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -6968,7 +6743,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'RenewInstance',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/renew',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/renew',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7004,8 +6779,7 @@ class Elasticsearch extends OpenApiClient
     public function renewLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7018,7 +6792,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'RenewLogstash',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/renew',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/renew',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7054,7 +6828,6 @@ class Elasticsearch extends OpenApiClient
     public function restartCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -7062,13 +6835,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RestartCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/restart',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/actions/restart',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7104,8 +6876,7 @@ class Elasticsearch extends OpenApiClient
     public function restartInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7121,7 +6892,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'RestartInstance',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/restart',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/restart',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7157,24 +6928,39 @@ class Elasticsearch extends OpenApiClient
     public function restartLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->force)) {
             $query['force'] = $request->force;
         }
+        $body = [];
+        if (!Utils::isUnset($request->batchCount)) {
+            $body['batchCount'] = $request->batchCount;
+        }
+        if (!Utils::isUnset($request->blueGreenDep)) {
+            $body['blueGreenDep'] = $request->blueGreenDep;
+        }
+        if (!Utils::isUnset($request->nodeTypes)) {
+            $body['nodeTypes'] = $request->nodeTypes;
+        }
+        if (!Utils::isUnset($request->nodes)) {
+            $body['nodes'] = $request->nodes;
+        }
+        if (!Utils::isUnset($request->restartType)) {
+            $body['restartType'] = $request->restartType;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RestartLogstash',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/restart',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/restart',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7210,21 +6996,19 @@ class Elasticsearch extends OpenApiClient
     public function resumeElasticsearchTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ResumeElasticsearchTask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/resume',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/resume',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7260,21 +7044,19 @@ class Elasticsearch extends OpenApiClient
     public function resumeLogstashTaskWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ResumeLogstashTask',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/resume',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/resume',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7312,22 +7094,19 @@ class Elasticsearch extends OpenApiClient
     public function rolloverDataStreamWithOptions($InstanceId, $DataStream, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $DataStream = OpenApiUtilClient::getEncodeParam($DataStream);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'RolloverDataStream',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams/' . $DataStream . '/rollover',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/data-streams/' . OpenApiUtilClient::getEncodeParam($DataStream) . '/rollover',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7363,8 +7142,7 @@ class Elasticsearch extends OpenApiClient
     public function runPipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -7377,7 +7155,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'RunPipelines',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines/action/run',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines/action/run',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7413,10 +7191,12 @@ class Elasticsearch extends OpenApiClient
     public function shrinkNodeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $query['count'] = $request->count;
         }
         if (!Utils::isUnset($request->ignoreStatus)) {
             $query['ignoreStatus'] = $request->ignoreStatus;
@@ -7433,7 +7213,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ShrinkNode',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/shrink',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/shrink',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7445,40 +7225,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string          $instanceId
-     * @param StartApmRequest $request
+     * @param string $instanceId
      *
      * @return StartApmResponse
      */
-    public function startApm($instanceId, $request)
+    public function startApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startApmWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->startApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
-     * @param string          $instanceId
-     * @param StartApmRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return StartApmResponse
      */
-    public function startApmWithOptions($instanceId, $request, $headers, $runtime)
+    public function startApmWithOptions($instanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StartApm',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/apm/' . $instanceId . '/actions/start',
+            'pathname'    => '/openapi/apm/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/start',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7514,7 +7289,6 @@ class Elasticsearch extends OpenApiClient
     public function startCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -7522,13 +7296,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StartCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/start',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/actions/start',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7540,40 +7313,35 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * @param string         $instanceId
-     * @param StopApmRequest $request
+     * @param string $instanceId
      *
      * @return StopApmResponse
      */
-    public function stopApm($instanceId, $request)
+    public function stopApm($instanceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopApmWithOptions($instanceId, $request, $headers, $runtime);
+        return $this->stopApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
      * @param string         $instanceId
-     * @param StopApmRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return StopApmResponse
      */
-    public function stopApmWithOptions($instanceId, $request, $headers, $runtime)
+    public function stopApmWithOptions($instanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StopApm',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/apm/' . $instanceId . '/actions/stop',
+            'pathname'    => '/openapi/apm/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/stop',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7609,7 +7377,6 @@ class Elasticsearch extends OpenApiClient
     public function stopCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -7617,13 +7384,12 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'StopCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/stop',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/actions/stop',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7659,8 +7425,7 @@ class Elasticsearch extends OpenApiClient
     public function stopPipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -7673,7 +7438,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'StopPipelines',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines/action/stop',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines/action/stop',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7707,9 +7472,19 @@ class Elasticsearch extends OpenApiClient
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resourceIds)) {
+            $body['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -7751,8 +7526,7 @@ class Elasticsearch extends OpenApiClient
     public function transferNodeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7768,7 +7542,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'TransferNode',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/transfer',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/transfer',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7804,8 +7578,7 @@ class Elasticsearch extends OpenApiClient
     public function triggerNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7828,7 +7601,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'TriggerNetwork',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/network-trigger',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/network-trigger',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7864,8 +7637,7 @@ class Elasticsearch extends OpenApiClient
     public function uninstallKibanaPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7878,7 +7650,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UninstallKibanaPlugin',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-plugins/actions/uninstall',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/kibana-plugins/actions/uninstall',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7914,8 +7686,7 @@ class Elasticsearch extends OpenApiClient
     public function uninstallLogstashPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7928,7 +7699,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UninstallLogstashPlugin',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/plugins/actions/uninstall',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins/actions/uninstall',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -7964,8 +7735,7 @@ class Elasticsearch extends OpenApiClient
     public function uninstallPluginWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -7978,7 +7748,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UninstallPlugin',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins/actions/uninstall',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/plugins/actions/uninstall',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8070,8 +7840,7 @@ class Elasticsearch extends OpenApiClient
     public function updateAdminPasswordWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -8084,7 +7853,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateAdminPassword',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/admin-pwd',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/admin-pwd',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8120,8 +7889,7 @@ class Elasticsearch extends OpenApiClient
     public function updateAdvancedSettingWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -8134,7 +7902,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateAdvancedSetting',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/update-advanced-setting',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/update-advanced-setting',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8170,8 +7938,7 @@ class Elasticsearch extends OpenApiClient
     public function updateAliwsDictWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -8184,7 +7951,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateAliwsDict',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/aliws-dict',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/aliws-dict',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8220,8 +7987,7 @@ class Elasticsearch extends OpenApiClient
     public function updateApmWithOptions($instanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -8245,7 +8011,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateApm',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/apm/' . $instanceId . '',
+            'pathname'    => '/openapi/apm/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8281,29 +8047,23 @@ class Elasticsearch extends OpenApiClient
     public function updateBlackIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->esIPBlacklist)) {
-            $body['esIPBlacklist'] = $request->esIPBlacklist;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateBlackIps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/black-ips',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/black-ips',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
@@ -8335,7 +8095,6 @@ class Elasticsearch extends OpenApiClient
     public function updateCollectorWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -8349,7 +8108,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateCollector',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8385,7 +8144,6 @@ class Elasticsearch extends OpenApiClient
     public function updateCollectorNameWithOptions($ResId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ResId = OpenApiUtilClient::getEncodeParam($ResId);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -8399,7 +8157,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateCollectorName',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/rename',
+            'pathname'    => '/openapi/collectors/' . OpenApiUtilClient::getEncodeParam($ResId) . '/actions/rename',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8437,9 +8195,7 @@ class Elasticsearch extends OpenApiClient
     public function updateComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $name       = OpenApiUtilClient::getEncodeParam($name);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->meta)) {
             $body['_meta'] = $request->meta;
         }
@@ -8454,7 +8210,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateComponentIndex',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/component-index/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8490,8 +8246,7 @@ class Elasticsearch extends OpenApiClient
     public function updateDescriptionWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -8508,7 +8263,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateDescription',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/description',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/description',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8544,8 +8299,7 @@ class Elasticsearch extends OpenApiClient
     public function updateDiagnosisSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -8561,7 +8315,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateDiagnosisSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/settings',
+            'pathname'    => '/openapi/diagnosis/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/settings',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8597,8 +8351,7 @@ class Elasticsearch extends OpenApiClient
     public function updateDictWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -8611,7 +8364,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateDict',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/dict',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/dict',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8647,8 +8400,7 @@ class Elasticsearch extends OpenApiClient
     public function updateDynamicSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -8667,7 +8419,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateDynamicSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/dynamic-settings',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/dynamic-settings',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8703,8 +8455,7 @@ class Elasticsearch extends OpenApiClient
     public function updateExtendConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -8717,7 +8468,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateExtendConfig',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/extend-configs/actions/update',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/extend-configs/actions/update',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8753,8 +8504,7 @@ class Elasticsearch extends OpenApiClient
     public function updateExtendfilesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -8767,7 +8517,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateExtendfiles',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/extendfiles',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/extendfiles',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8803,8 +8553,7 @@ class Elasticsearch extends OpenApiClient
     public function updateHotIkDictsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -8817,7 +8566,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateHotIkDicts',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/ik-hot-dict',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/ik-hot-dict',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8855,9 +8604,7 @@ class Elasticsearch extends OpenApiClient
     public function updateILMPolicyWithOptions($InstanceId, $PolicyName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $PolicyName = OpenApiUtilClient::getEncodeParam($PolicyName);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -8870,7 +8617,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateILMPolicy',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/ilm-policies/' . OpenApiUtilClient::getEncodeParam($PolicyName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8908,9 +8655,7 @@ class Elasticsearch extends OpenApiClient
     public function updateIndexTemplateWithOptions($InstanceId, $IndexTemplate, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId    = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $IndexTemplate = OpenApiUtilClient::getEncodeParam($IndexTemplate);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -8923,7 +8668,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateIndexTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/index-templates/' . OpenApiUtilClient::getEncodeParam($IndexTemplate) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -8959,24 +8704,51 @@ class Elasticsearch extends OpenApiClient
     public function updateInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
         }
         if (!Utils::isUnset($request->orderActionType)) {
             $query['orderActionType'] = $request->orderActionType;
         }
+        $body = [];
+        if (!Utils::isUnset($request->clientNodeConfiguration)) {
+            $body['clientNodeConfiguration'] = $request->clientNodeConfiguration;
+        }
+        if (!Utils::isUnset($request->elasticDataNodeConfiguration)) {
+            $body['elasticDataNodeConfiguration'] = $request->elasticDataNodeConfiguration;
+        }
+        if (!Utils::isUnset($request->instanceCategory)) {
+            $body['instanceCategory'] = $request->instanceCategory;
+        }
+        if (!Utils::isUnset($request->kibanaConfiguration)) {
+            $body['kibanaConfiguration'] = $request->kibanaConfiguration;
+        }
+        if (!Utils::isUnset($request->masterConfiguration)) {
+            $body['masterConfiguration'] = $request->masterConfiguration;
+        }
+        if (!Utils::isUnset($request->nodeAmount)) {
+            $body['nodeAmount'] = $request->nodeAmount;
+        }
+        if (!Utils::isUnset($request->nodeSpec)) {
+            $body['nodeSpec'] = $request->nodeSpec;
+        }
+        if (!Utils::isUnset($request->warmNodeConfiguration)) {
+            $body['warmNodeConfiguration'] = $request->warmNodeConfiguration;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstance',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9012,8 +8784,7 @@ class Elasticsearch extends OpenApiClient
     public function updateInstanceChargeTypeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9026,7 +8797,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateInstanceChargeType',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/convert-pay-type',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/convert-pay-type',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9062,8 +8833,7 @@ class Elasticsearch extends OpenApiClient
     public function updateInstanceSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9076,7 +8846,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateInstanceSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/instance-settings',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/instance-settings',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9112,8 +8882,7 @@ class Elasticsearch extends OpenApiClient
     public function updateKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9126,7 +8895,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateKibanaSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/update-kibana-settings',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/update-kibana-settings',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9162,24 +8931,30 @@ class Elasticsearch extends OpenApiClient
     public function updateKibanaWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->modifyMode)) {
             $query['modifyMode'] = $request->modifyMode;
         }
+        $body = [];
+        if (!Utils::isUnset($request->kibanaIPWhitelist)) {
+            $body['kibanaIPWhitelist'] = $request->kibanaIPWhitelist;
+        }
+        if (!Utils::isUnset($request->whiteIpGroup)) {
+            $body['whiteIpGroup'] = $request->whiteIpGroup;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateKibanaWhiteIps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-white-ips',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/kibana-white-ips',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9215,21 +8990,27 @@ class Elasticsearch extends OpenApiClient
     public function updateLogstashWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->nodeAmount)) {
+            $body['nodeAmount'] = $request->nodeAmount;
+        }
+        if (!Utils::isUnset($request->nodeSpec)) {
+            $body['nodeSpec'] = $request->nodeSpec;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLogstash',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9265,8 +9046,7 @@ class Elasticsearch extends OpenApiClient
     public function updateLogstashChargeTypeWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9279,7 +9059,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateLogstashChargeType',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/convert-pay-type',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/convert-pay-type',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9315,8 +9095,7 @@ class Elasticsearch extends OpenApiClient
     public function updateLogstashDescriptionWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9329,7 +9108,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateLogstashDescription',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/description',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/description',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9365,8 +9144,7 @@ class Elasticsearch extends OpenApiClient
     public function updateLogstashSettingsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9379,7 +9157,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateLogstashSettings',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/instance-settings',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/instance-settings',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9415,21 +9193,36 @@ class Elasticsearch extends OpenApiClient
     public function updatePipelineManagementConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endpoints)) {
+            $body['endpoints'] = $request->endpoints;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->pipelineIds)) {
+            $body['pipelineIds'] = $request->pipelineIds;
+        }
+        if (!Utils::isUnset($request->pipelineManagementType)) {
+            $body['pipelineManagementType'] = $request->pipelineManagementType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['userName'] = $request->userName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePipelineManagementConfig',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipeline-management-config',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipeline-management-config',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9465,8 +9258,7 @@ class Elasticsearch extends OpenApiClient
     public function updatePipelinesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9482,7 +9274,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdatePipelines',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/pipelines',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9518,8 +9310,7 @@ class Elasticsearch extends OpenApiClient
     public function updatePrivateNetworkWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9535,7 +9326,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdatePrivateNetworkWhiteIps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/private-network-white-ips',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/private-network-white-ips',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9571,8 +9362,7 @@ class Elasticsearch extends OpenApiClient
     public function updatePublicNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9585,7 +9375,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdatePublicNetwork',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/public-network',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/public-network',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9621,8 +9411,7 @@ class Elasticsearch extends OpenApiClient
     public function updatePublicWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9638,7 +9427,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdatePublicWhiteIps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/public-white-ips',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/public-white-ips',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9674,8 +9463,7 @@ class Elasticsearch extends OpenApiClient
     public function updateReadWritePolicyWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -9688,7 +9476,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateReadWritePolicy',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/update-read-write-policy',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/update-read-write-policy',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9724,8 +9512,7 @@ class Elasticsearch extends OpenApiClient
     public function updateSnapshotSettingWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -9733,7 +9520,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateSnapshotSetting',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-setting',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshot-setting',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9769,8 +9556,7 @@ class Elasticsearch extends OpenApiClient
     public function updateSynonymsDictsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9783,7 +9569,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateSynonymsDicts',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/synonymsDict',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/synonymsDict',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9821,9 +9607,7 @@ class Elasticsearch extends OpenApiClient
     public function updateTemplateWithOptions($InstanceId, $TemplateName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId   = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $TemplateName = OpenApiUtilClient::getEncodeParam($TemplateName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -9836,7 +9620,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateTemplate',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/templates/' . $TemplateName . '',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateName) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9872,8 +9656,7 @@ class Elasticsearch extends OpenApiClient
     public function updateWhiteIpsWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -9896,7 +9679,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpdateWhiteIps',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/white-ips',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/white-ips',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9932,21 +9715,33 @@ class Elasticsearch extends OpenApiClient
     public function updateXpackMonitorConfigWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->enable)) {
+            $body['enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->endpoints)) {
+            $body['endpoints'] = $request->endpoints;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['userName'] = $request->userName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateXpackMonitorConfig',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/xpack-monitor-config',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/xpack-monitor-config',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -9982,8 +9777,7 @@ class Elasticsearch extends OpenApiClient
     public function upgradeEngineVersionWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
@@ -10006,11 +9800,11 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'UpgradeEngineVersion',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/upgrade-version',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/actions/upgrade-version',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
@@ -10042,8 +9836,7 @@ class Elasticsearch extends OpenApiClient
     public function validateConnectionWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -10056,7 +9849,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ValidateConnection',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/validate-connection',
+            'pathname'    => '/openapi/logstashes/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/validate-connection',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -10092,8 +9885,10 @@ class Elasticsearch extends OpenApiClient
     public function validateShrinkNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
+        if (!Utils::isUnset($request->count)) {
+            $query['count'] = $request->count;
+        }
         if (!Utils::isUnset($request->ignoreStatus)) {
             $query['ignoreStatus'] = $request->ignoreStatus;
         }
@@ -10109,7 +9904,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ValidateShrinkNodes',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/validate-shrink-nodes',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/validate-shrink-nodes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -10153,7 +9948,6 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
         ]);
         $params = new Params([
             'action'      => 'ValidateSlrPermission',
@@ -10195,8 +9989,7 @@ class Elasticsearch extends OpenApiClient
     public function validateTransferableNodesWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->nodeType)) {
             $query['nodeType'] = $request->nodeType;
         }
@@ -10209,7 +10002,7 @@ class Elasticsearch extends OpenApiClient
             'action'      => 'ValidateTransferableNodes',
             'version'     => '2017-06-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/instances/' . $InstanceId . '/validate-transfer-nodes',
+            'pathname'    => '/openapi/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/validate-transfer-nodes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -10247,10 +10040,53 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
+        $body = [];
+        if (!Utils::isUnset($request->clientNodeConfiguration)) {
+            $body['clientNodeConfiguration'] = $request->clientNodeConfiguration;
+        }
+        if (!Utils::isUnset($request->elasticDataNodeConfiguration)) {
+            $body['elasticDataNodeConfiguration'] = $request->elasticDataNodeConfiguration;
+        }
+        if (!Utils::isUnset($request->esAdminPassword)) {
+            $body['esAdminPassword'] = $request->esAdminPassword;
+        }
+        if (!Utils::isUnset($request->esVersion)) {
+            $body['esVersion'] = $request->esVersion;
+        }
+        if (!Utils::isUnset($request->instanceCategory)) {
+            $body['instanceCategory'] = $request->instanceCategory;
+        }
+        if (!Utils::isUnset($request->kibanaConfiguration)) {
+            $body['kibanaConfiguration'] = $request->kibanaConfiguration;
+        }
+        if (!Utils::isUnset($request->masterConfiguration)) {
+            $body['masterConfiguration'] = $request->masterConfiguration;
+        }
+        if (!Utils::isUnset($request->networkConfig)) {
+            $body['networkConfig'] = $request->networkConfig;
+        }
+        if (!Utils::isUnset($request->nodeAmount)) {
+            $body['nodeAmount'] = $request->nodeAmount;
+        }
+        if (!Utils::isUnset($request->nodeSpec)) {
+            $body['nodeSpec'] = $request->nodeSpec;
+        }
+        if (!Utils::isUnset($request->paymentInfo)) {
+            $body['paymentInfo'] = $request->paymentInfo;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $body['paymentType'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->warmNodeConfiguration)) {
+            $body['warmNodeConfiguration'] = $request->warmNodeConfiguration;
+        }
+        if (!Utils::isUnset($request->zoneCount)) {
+            $body['zoneCount'] = $request->zoneCount;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'createInstance',
