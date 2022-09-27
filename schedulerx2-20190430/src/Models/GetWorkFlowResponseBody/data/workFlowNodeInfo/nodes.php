@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description 任务状态
-     *
      * @var int
      */
     public $status;

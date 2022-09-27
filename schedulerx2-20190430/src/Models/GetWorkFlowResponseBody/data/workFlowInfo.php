@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class workFlowInfo extends Model
 {
     /**
-     * @description 工作流描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 工作流名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 工作流状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 工作流时间表达式
-     *
      * @var string
      */
     public $timeExpression;
 
     /**
-     * @description 工作流时间类型
-     *
      * @var string
      */
     public $timeType;
 
     /**
-     * @description 工作流ID
-     *
      * @var int
      */
     public $workflowId;

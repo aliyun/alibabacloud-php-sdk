@@ -427,6 +427,9 @@ class Schedulerx2 extends OpenApiClient
         if (!Utils::isUnset($request->timeoutKillEnable)) {
             $body['TimeoutKillEnable'] = $request->timeoutKillEnable;
         }
+        if (!Utils::isUnset($request->XAttrs)) {
+            $body['XAttrs'] = $request->XAttrs;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
             'body'  => OpenApiUtilClient::parseToMap($body),

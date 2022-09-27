@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DesignateWorkersResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 是否成功
-     *
      * @var bool
      */
     public $success;

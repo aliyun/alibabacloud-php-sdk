@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class workFlowNodeInfo extends Model
 {
     /**
-     * @description 工作流边列表
-     *
      * @var edges[]
      */
     public $edges;
 
     /**
-     * @description 工作流节点列表
-     *
      * @var nodes[]
      */
     public $nodes;

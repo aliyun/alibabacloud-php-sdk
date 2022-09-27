@@ -14,8 +14,6 @@ class ExecuteJobRequest extends Model
     public $checkJobStatus;
 
     /**
-     * @description 指定机器类型：1.workerAddr; 2. label
-     *
      * @var int
      */
     public $designateType;
@@ -36,8 +34,6 @@ class ExecuteJobRequest extends Model
     public $jobId;
 
     /**
-     * @description 指定机器的标签
-     *
      * @var string
      */
     public $label;
@@ -58,8 +54,6 @@ class ExecuteJobRequest extends Model
     public $regionId;
 
     /**
-     * @description 指定机器的workerAddr
-     *
      * @var string
      */
     public $worker;

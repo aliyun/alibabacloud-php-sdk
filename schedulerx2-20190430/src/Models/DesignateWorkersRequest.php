@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DesignateWorkersRequest extends Model
 {
     /**
-     * @description 指定机器的类型
-     *
      * @var int
      */
     public $designateType;
 
     /**
-     * @description 应用分组ID
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 任务ID
-     *
      * @var int
      */
     public $jobId;
 
     /**
-     * @description 指定label列表json格式
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description 命名空间UID
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description 命名空间来源
-     *
      * @var string
      */
     public $namespaceSource;
@@ -56,15 +44,11 @@ class DesignateWorkersRequest extends Model
     public $regionId;
 
     /**
-     * @description 是否故障转移
-     *
      * @var bool
      */
     public $transferable;
 
     /**
-     * @description 指定机器列表json格式
-     *
      * @var string
      */
     public $workers;

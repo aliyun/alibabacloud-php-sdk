@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetWorkFlowResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 工作流的数据
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 会否成功
-     *
      * @var bool
      */
     public $success;

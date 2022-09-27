@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 工作流基本信息
-     *
      * @var workFlowInfo
      */
     public $workFlowInfo;
 
     /**
-     * @description 工作流节点信息
-     *
      * @var workFlowNodeInfo
      */
     public $workFlowNodeInfo;

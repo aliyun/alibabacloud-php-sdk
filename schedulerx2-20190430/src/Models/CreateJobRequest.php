@@ -173,6 +173,11 @@ class CreateJobRequest extends Model
      * @var bool
      */
     public $timeoutKillEnable;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'attemptInterval'     => 'AttemptInterval',
         'calendar'            => 'Calendar',
@@ -207,6 +212,7 @@ class CreateJobRequest extends Model
         'timeout'             => 'Timeout',
         'timeoutEnable'       => 'TimeoutEnable',
         'timeoutKillEnable'   => 'TimeoutKillEnable',
+        'XAttrs'              => 'XAttrs',
     ];
 
     public function validate()
@@ -320,6 +326,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->timeoutKillEnable) {
             $res['TimeoutKillEnable'] = $this->timeoutKillEnable;
+        }
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
         }
 
         return $res;
@@ -437,6 +446,9 @@ class CreateJobRequest extends Model
         }
         if (isset($map['TimeoutKillEnable'])) {
             $model->timeoutKillEnable = $map['TimeoutKillEnable'];
+        }
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
-     * @description 起始任务ID
-     *
      * @var int
      */
     public $source;
 
     /**
-     * @description 目的任务ID
-     *
      * @var int
      */
     public $target;

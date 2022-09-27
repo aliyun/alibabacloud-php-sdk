@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetWorkFlowRequest extends Model
 {
     /**
-     * @description 应用分组ID
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 命名空间uid
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description 命名空间来源
-     *
      * @var string
      */
     public $namespaceSource;
@@ -35,8 +29,6 @@ class GetWorkFlowRequest extends Model
     public $regionId;
 
     /**
-     * @description 工作流ID
-     *
      * @var int
      */
     public $workflowId;

@@ -19,6 +19,11 @@ class CreateAppGroupRequest extends Model
     public $appName;
 
     /**
+     * @var int
+     */
+    public $appType;
+
+    /**
      * @var string
      */
     public $description;
@@ -70,6 +75,7 @@ class CreateAppGroupRequest extends Model
     protected $_name = [
         'appKey'              => 'AppKey',
         'appName'             => 'AppName',
+        'appType'             => 'AppType',
         'description'         => 'Description',
         'groupId'             => 'GroupId',
         'maxJobs'             => 'MaxJobs',
@@ -94,6 +100,9 @@ class CreateAppGroupRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -142,6 +151,9 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
