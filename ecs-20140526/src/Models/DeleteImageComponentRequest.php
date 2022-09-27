@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteImageComponentRequest\templateTag;
 use AlibabaCloud\Tea\Model;
 
 class DeleteImageComponentRequest extends Model
@@ -38,11 +37,6 @@ class DeleteImageComponentRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var templateTag[]
-     */
-    public $templateTag;
     protected $_name = [
         'imageComponentId'     => 'ImageComponentId',
         'ownerAccount'         => 'OwnerAccount',
@@ -50,7 +44,6 @@ class DeleteImageComponentRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateTag'          => 'TemplateTag',
     ];
 
     public function validate()
@@ -77,15 +70,6 @@ class DeleteImageComponentRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->templateTag) {
-            $res['TemplateTag'] = [];
-            if (null !== $this->templateTag && \is_array($this->templateTag)) {
-                $n = 0;
-                foreach ($this->templateTag as $item) {
-                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -116,15 +100,6 @@ class DeleteImageComponentRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['TemplateTag'])) {
-            if (!empty($map['TemplateTag'])) {
-                $model->templateTag = [];
-                $n                  = 0;
-                foreach ($map['TemplateTag'] as $item) {
-                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

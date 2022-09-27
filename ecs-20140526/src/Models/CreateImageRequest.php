@@ -18,6 +18,11 @@ class CreateImageRequest extends Model
     /**
      * @var string
      */
+    public $bootMode;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -96,6 +101,7 @@ class CreateImageRequest extends Model
     public $tag;
     protected $_name = [
         'architecture'         => 'Architecture',
+        'bootMode'             => 'BootMode',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'diskDeviceMapping'    => 'DiskDeviceMapping',
@@ -123,6 +129,9 @@ class CreateImageRequest extends Model
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+        if (null !== $this->bootMode) {
+            $res['BootMode'] = $this->bootMode;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -198,6 +207,9 @@ class CreateImageRequest extends Model
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['BootMode'])) {
+            $model->bootMode = $map['BootMode'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

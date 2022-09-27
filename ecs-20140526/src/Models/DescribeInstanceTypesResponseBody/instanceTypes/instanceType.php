@@ -14,9 +14,24 @@ class instanceType extends Model
     public $baselineCredit;
 
     /**
+     * @var string
+     */
+    public $cpuArchitecture;
+
+    /**
      * @var int
      */
     public $cpuCoreCount;
+
+    /**
+     * @var float
+     */
+    public $cpuSpeedFrequency;
+
+    /**
+     * @var float
+     */
+    public $cpuTurboFrequency;
 
     /**
      * @var int
@@ -81,6 +96,11 @@ class instanceType extends Model
     /**
      * @var string
      */
+    public $instanceCategory;
+
+    /**
+     * @var string
+     */
     public $instanceFamilyLevel;
 
     /**
@@ -129,9 +149,19 @@ class instanceType extends Model
     public $memorySize;
 
     /**
+     * @var bool
+     */
+    public $networkEncryptionSupport;
+
+    /**
      * @var string
      */
     public $nvmeSupport;
+
+    /**
+     * @var string
+     */
+    public $physicalProcessorModel;
 
     /**
      * @var int
@@ -154,7 +184,10 @@ class instanceType extends Model
     public $totalEniQueueQuantity;
     protected $_name = [
         'baselineCredit'              => 'BaselineCredit',
+        'cpuArchitecture'             => 'CpuArchitecture',
         'cpuCoreCount'                => 'CpuCoreCount',
+        'cpuSpeedFrequency'           => 'CpuSpeedFrequency',
+        'cpuTurboFrequency'           => 'CpuTurboFrequency',
         'diskQuantity'                => 'DiskQuantity',
         'eniIpv6AddressQuantity'      => 'EniIpv6AddressQuantity',
         'eniPrivateIpAddressQuantity' => 'EniPrivateIpAddressQuantity',
@@ -167,6 +200,7 @@ class instanceType extends Model
         'initialCredit'               => 'InitialCredit',
         'instanceBandwidthRx'         => 'InstanceBandwidthRx',
         'instanceBandwidthTx'         => 'InstanceBandwidthTx',
+        'instanceCategory'            => 'InstanceCategory',
         'instanceFamilyLevel'         => 'InstanceFamilyLevel',
         'instancePpsRx'               => 'InstancePpsRx',
         'instancePpsTx'               => 'InstancePpsTx',
@@ -177,7 +211,9 @@ class instanceType extends Model
         'localStorageCategory'        => 'LocalStorageCategory',
         'maximumQueueNumberPerEni'    => 'MaximumQueueNumberPerEni',
         'memorySize'                  => 'MemorySize',
+        'networkEncryptionSupport'    => 'NetworkEncryptionSupport',
         'nvmeSupport'                 => 'NvmeSupport',
+        'physicalProcessorModel'      => 'PhysicalProcessorModel',
         'primaryEniQueueNumber'       => 'PrimaryEniQueueNumber',
         'queuePairNumber'             => 'QueuePairNumber',
         'secondaryEniQueueNumber'     => 'SecondaryEniQueueNumber',
@@ -194,8 +230,17 @@ class instanceType extends Model
         if (null !== $this->baselineCredit) {
             $res['BaselineCredit'] = $this->baselineCredit;
         }
+        if (null !== $this->cpuArchitecture) {
+            $res['CpuArchitecture'] = $this->cpuArchitecture;
+        }
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
+        }
+        if (null !== $this->cpuSpeedFrequency) {
+            $res['CpuSpeedFrequency'] = $this->cpuSpeedFrequency;
+        }
+        if (null !== $this->cpuTurboFrequency) {
+            $res['CpuTurboFrequency'] = $this->cpuTurboFrequency;
         }
         if (null !== $this->diskQuantity) {
             $res['DiskQuantity'] = $this->diskQuantity;
@@ -233,6 +278,9 @@ class instanceType extends Model
         if (null !== $this->instanceBandwidthTx) {
             $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
         }
+        if (null !== $this->instanceCategory) {
+            $res['InstanceCategory'] = $this->instanceCategory;
+        }
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
         }
@@ -263,8 +311,14 @@ class instanceType extends Model
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
+        if (null !== $this->networkEncryptionSupport) {
+            $res['NetworkEncryptionSupport'] = $this->networkEncryptionSupport;
+        }
         if (null !== $this->nvmeSupport) {
             $res['NvmeSupport'] = $this->nvmeSupport;
+        }
+        if (null !== $this->physicalProcessorModel) {
+            $res['PhysicalProcessorModel'] = $this->physicalProcessorModel;
         }
         if (null !== $this->primaryEniQueueNumber) {
             $res['PrimaryEniQueueNumber'] = $this->primaryEniQueueNumber;
@@ -293,8 +347,17 @@ class instanceType extends Model
         if (isset($map['BaselineCredit'])) {
             $model->baselineCredit = $map['BaselineCredit'];
         }
+        if (isset($map['CpuArchitecture'])) {
+            $model->cpuArchitecture = $map['CpuArchitecture'];
+        }
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
+        }
+        if (isset($map['CpuSpeedFrequency'])) {
+            $model->cpuSpeedFrequency = $map['CpuSpeedFrequency'];
+        }
+        if (isset($map['CpuTurboFrequency'])) {
+            $model->cpuTurboFrequency = $map['CpuTurboFrequency'];
         }
         if (isset($map['DiskQuantity'])) {
             $model->diskQuantity = $map['DiskQuantity'];
@@ -332,6 +395,9 @@ class instanceType extends Model
         if (isset($map['InstanceBandwidthTx'])) {
             $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
         }
+        if (isset($map['InstanceCategory'])) {
+            $model->instanceCategory = $map['InstanceCategory'];
+        }
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];
         }
@@ -362,8 +428,14 @@ class instanceType extends Model
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }
+        if (isset($map['NetworkEncryptionSupport'])) {
+            $model->networkEncryptionSupport = $map['NetworkEncryptionSupport'];
+        }
         if (isset($map['NvmeSupport'])) {
             $model->nvmeSupport = $map['NvmeSupport'];
+        }
+        if (isset($map['PhysicalProcessorModel'])) {
+            $model->physicalProcessorModel = $map['PhysicalProcessorModel'];
         }
         if (isset($map['PrimaryEniQueueNumber'])) {
             $model->primaryEniQueueNumber = $map['PrimaryEniQueueNumber'];

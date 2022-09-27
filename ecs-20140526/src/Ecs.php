@@ -82,6 +82,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDemandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDemandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDeploymentSetRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDeploymentSetResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticMetricSetRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticMetricSetResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticReportRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticReportResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateElasticityAssuranceRequest;
@@ -154,6 +158,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDemandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDemandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDeploymentSetRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDeploymentSetResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiagnosticMetricSetsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiagnosticMetricSetsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiagnosticReportsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiagnosticReportsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteForwardEntryRequest;
@@ -256,6 +264,12 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetSupportedInstanceTypeFamilyRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetSupportedInstanceTypeFamilyResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticMetricSetsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticMetricSetsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticMetricsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticMetricsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticReportsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusRequest;
@@ -471,6 +485,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\JoinSecurityGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\JoinSecurityGroupResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\LeaveSecurityGroupRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\LeaveSecurityGroupResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ListPluginStatusResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyAutoProvisioningGroupRequest;
@@ -499,6 +515,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDemandRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDemandResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDeploymentSetAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDeploymentSetAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiagnosticMetricSetRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiagnosticMetricSetResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskChargeTypeRequest;
@@ -625,6 +643,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewDedicatedHostsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewDedicatedHostsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewInstanceResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewReservedInstancesRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RenewReservedInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReplaceSystemDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReplaceSystemDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ReportInstancesStatusRequest;
@@ -2855,6 +2875,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->excessCapacityTerminationPolicy)) {
             $query['ExcessCapacityTerminationPolicy'] = $request->excessCapacityTerminationPolicy;
         }
+        if (!Utils::isUnset($request->hibernationOptionsConfigured)) {
+            $query['HibernationOptionsConfigured'] = $request->hibernationOptionsConfigured;
+        }
         if (!Utils::isUnset($request->launchTemplateConfig)) {
             $query['LaunchTemplateConfig'] = $request->launchTemplateConfig;
         }
@@ -3535,6 +3558,116 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param CreateDiagnosticMetricSetRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateDiagnosticMetricSetResponse
+     */
+    public function createDiagnosticMetricSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->metricIds)) {
+            $query['MetricIds'] = $request->metricIds;
+        }
+        if (!Utils::isUnset($request->metricSetName)) {
+            $query['MetricSetName'] = $request->metricSetName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDiagnosticMetricSet',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDiagnosticMetricSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDiagnosticMetricSetRequest $request
+     *
+     * @return CreateDiagnosticMetricSetResponse
+     */
+    public function createDiagnosticMetricSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiagnosticMetricSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDiagnosticReportRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDiagnosticReportResponse
+     */
+    public function createDiagnosticReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->metricSetId)) {
+            $query['MetricSetId'] = $request->metricSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDiagnosticReport',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDiagnosticReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDiagnosticReportRequest $request
+     *
+     * @return CreateDiagnosticReportResponse
+     */
+    public function createDiagnosticReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiagnosticReportWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateDiskRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3968,6 +4101,9 @@ class Ecs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->architecture)) {
             $query['Architecture'] = $request->architecture;
+        }
+        if (!Utils::isUnset($request->bootMode)) {
+            $query['BootMode'] = $request->bootMode;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -6640,6 +6776,98 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param DeleteDiagnosticMetricSetsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteDiagnosticMetricSetsResponse
+     */
+    public function deleteDiagnosticMetricSetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->metricSetIds)) {
+            $query['MetricSetIds'] = $request->metricSetIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDiagnosticMetricSets',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDiagnosticMetricSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDiagnosticMetricSetsRequest $request
+     *
+     * @return DeleteDiagnosticMetricSetsResponse
+     */
+    public function deleteDiagnosticMetricSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiagnosticMetricSetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDiagnosticReportsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteDiagnosticReportsResponse
+     */
+    public function deleteDiagnosticReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reportIds)) {
+            $query['ReportIds'] = $request->reportIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDiagnosticReports',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDiagnosticReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDiagnosticReportsRequest $request
+     *
+     * @return DeleteDiagnosticReportsResponse
+     */
+    public function deleteDiagnosticReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDiagnosticReportsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDiskRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -6972,9 +7200,6 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->templateTag)) {
-            $query['TemplateTag'] = $request->templateTag;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7035,9 +7260,6 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->templateTag)) {
-            $query['TemplateTag'] = $request->templateTag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9388,6 +9610,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -10006,6 +10231,180 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDeploymentSetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosticMetricSetsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDiagnosticMetricSetsResponse
+     */
+    public function describeDiagnosticMetricSetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->metricSetIds)) {
+            $query['MetricSetIds'] = $request->metricSetIds;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosticMetricSets',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosticMetricSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosticMetricSetsRequest $request
+     *
+     * @return DescribeDiagnosticMetricSetsResponse
+     */
+    public function describeDiagnosticMetricSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosticMetricSetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosticMetricsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDiagnosticMetricsResponse
+     */
+    public function describeDiagnosticMetricsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->metricIds)) {
+            $query['MetricIds'] = $request->metricIds;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosticMetrics',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosticMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosticMetricsRequest $request
+     *
+     * @return DescribeDiagnosticMetricsResponse
+     */
+    public function describeDiagnosticMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosticMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDiagnosticReportsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDiagnosticReportsResponse
+     */
+    public function describeDiagnosticReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reportIds)) {
+            $query['ReportIds'] = $request->reportIds;
+        }
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $query['Severity'] = $request->severity;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosticReports',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiagnosticReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiagnosticReportsRequest $request
+     *
+     * @return DescribeDiagnosticReportsResponse
+     */
+    public function describeDiagnosticReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnosticReportsWithOptions($request, $runtime);
     }
 
     /**
@@ -12159,23 +12558,122 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cpuArchitecture)) {
+            $query['CpuArchitecture'] = $request->cpuArchitecture;
+        }
+        if (!Utils::isUnset($request->GPUSpec)) {
+            $query['GPUSpec'] = $request->GPUSpec;
+        }
+        if (!Utils::isUnset($request->instanceCategory)) {
+            $query['InstanceCategory'] = $request->instanceCategory;
+        }
+        if (!Utils::isUnset($request->instanceFamilyLevel)) {
+            $query['InstanceFamilyLevel'] = $request->instanceFamilyLevel;
+        }
         if (!Utils::isUnset($request->instanceTypeFamily)) {
             $query['InstanceTypeFamily'] = $request->instanceTypeFamily;
         }
         if (!Utils::isUnset($request->instanceTypes)) {
             $query['InstanceTypes'] = $request->instanceTypes;
         }
+        if (!Utils::isUnset($request->localStorageCategory)) {
+            $query['LocalStorageCategory'] = $request->localStorageCategory;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
+        if (!Utils::isUnset($request->maximumCpuCoreCount)) {
+            $query['MaximumCpuCoreCount'] = $request->maximumCpuCoreCount;
+        }
+        if (!Utils::isUnset($request->maximumCpuSpeedFrequency)) {
+            $query['MaximumCpuSpeedFrequency'] = $request->maximumCpuSpeedFrequency;
+        }
+        if (!Utils::isUnset($request->maximumCpuTurboFrequency)) {
+            $query['MaximumCpuTurboFrequency'] = $request->maximumCpuTurboFrequency;
+        }
+        if (!Utils::isUnset($request->maximumGPUAmount)) {
+            $query['MaximumGPUAmount'] = $request->maximumGPUAmount;
+        }
+        if (!Utils::isUnset($request->maximumMemorySize)) {
+            $query['MaximumMemorySize'] = $request->maximumMemorySize;
+        }
+        if (!Utils::isUnset($request->minimumBaselineCredit)) {
+            $query['MinimumBaselineCredit'] = $request->minimumBaselineCredit;
+        }
+        if (!Utils::isUnset($request->minimumCpuCoreCount)) {
+            $query['MinimumCpuCoreCount'] = $request->minimumCpuCoreCount;
+        }
+        if (!Utils::isUnset($request->minimumCpuSpeedFrequency)) {
+            $query['MinimumCpuSpeedFrequency'] = $request->minimumCpuSpeedFrequency;
+        }
+        if (!Utils::isUnset($request->minimumCpuTurboFrequency)) {
+            $query['MinimumCpuTurboFrequency'] = $request->minimumCpuTurboFrequency;
+        }
+        if (!Utils::isUnset($request->minimumDiskQuantity)) {
+            $query['MinimumDiskQuantity'] = $request->minimumDiskQuantity;
+        }
+        if (!Utils::isUnset($request->minimumEniIpv6AddressQuantity)) {
+            $query['MinimumEniIpv6AddressQuantity'] = $request->minimumEniIpv6AddressQuantity;
+        }
+        if (!Utils::isUnset($request->minimumEniPrivateIpAddressQuantity)) {
+            $query['MinimumEniPrivateIpAddressQuantity'] = $request->minimumEniPrivateIpAddressQuantity;
+        }
+        if (!Utils::isUnset($request->minimumEniQuantity)) {
+            $query['MinimumEniQuantity'] = $request->minimumEniQuantity;
+        }
+        if (!Utils::isUnset($request->minimumEriQuantity)) {
+            $query['MinimumEriQuantity'] = $request->minimumEriQuantity;
+        }
+        if (!Utils::isUnset($request->minimumGPUAmount)) {
+            $query['MinimumGPUAmount'] = $request->minimumGPUAmount;
+        }
+        if (!Utils::isUnset($request->minimumInitialCredit)) {
+            $query['MinimumInitialCredit'] = $request->minimumInitialCredit;
+        }
+        if (!Utils::isUnset($request->minimumInstanceBandwidthRx)) {
+            $query['MinimumInstanceBandwidthRx'] = $request->minimumInstanceBandwidthRx;
+        }
+        if (!Utils::isUnset($request->minimumInstanceBandwidthTx)) {
+            $query['MinimumInstanceBandwidthTx'] = $request->minimumInstanceBandwidthTx;
+        }
+        if (!Utils::isUnset($request->minimumInstancePpsRx)) {
+            $query['MinimumInstancePpsRx'] = $request->minimumInstancePpsRx;
+        }
+        if (!Utils::isUnset($request->minimumInstancePpsTx)) {
+            $query['MinimumInstancePpsTx'] = $request->minimumInstancePpsTx;
+        }
+        if (!Utils::isUnset($request->minimumLocalStorageAmount)) {
+            $query['MinimumLocalStorageAmount'] = $request->minimumLocalStorageAmount;
+        }
+        if (!Utils::isUnset($request->minimumLocalStorageCapacity)) {
+            $query['MinimumLocalStorageCapacity'] = $request->minimumLocalStorageCapacity;
+        }
+        if (!Utils::isUnset($request->minimumMemorySize)) {
+            $query['MinimumMemorySize'] = $request->minimumMemorySize;
+        }
+        if (!Utils::isUnset($request->minimumPrimaryEniQueueNumber)) {
+            $query['MinimumPrimaryEniQueueNumber'] = $request->minimumPrimaryEniQueueNumber;
+        }
+        if (!Utils::isUnset($request->minimumQueuePairNumber)) {
+            $query['MinimumQueuePairNumber'] = $request->minimumQueuePairNumber;
+        }
+        if (!Utils::isUnset($request->minimumSecondaryEniQueueNumber)) {
+            $query['MinimumSecondaryEniQueueNumber'] = $request->minimumSecondaryEniQueueNumber;
+        }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->nvmeSupport)) {
+            $query['NvmeSupport'] = $request->nvmeSupport;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->physicalProcessorModel)) {
+            $query['PhysicalProcessorModel'] = $request->physicalProcessorModel;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -12635,6 +13133,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -12725,6 +13226,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->timed)) {
             $query['Timed'] = $request->timed;
@@ -14342,6 +14846,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -17524,6 +18031,12 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->commandId)) {
             $query['CommandId'] = $request->commandId;
         }
+        if (!Utils::isUnset($request->containerId)) {
+            $query['ContainerId'] = $request->containerId;
+        }
+        if (!Utils::isUnset($request->containerName)) {
+            $query['ContainerName'] = $request->containerName;
+        }
         if (!Utils::isUnset($request->frequency)) {
             $query['Frequency'] = $request->frequency;
         }
@@ -17783,6 +18296,76 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->leaveSecurityGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPluginStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPluginStatusResponse
+     */
+    public function listPluginStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPluginStatus',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPluginStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPluginStatusRequest $request
+     *
+     * @return ListPluginStatusResponse
+     */
+    public function listPluginStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPluginStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -18817,6 +19400,64 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDeploymentSetAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDiagnosticMetricSetRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyDiagnosticMetricSetResponse
+     */
+    public function modifyDiagnosticMetricSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->metricIds)) {
+            $query['MetricIds'] = $request->metricIds;
+        }
+        if (!Utils::isUnset($request->metricSetId)) {
+            $query['MetricSetId'] = $request->metricSetId;
+        }
+        if (!Utils::isUnset($request->metricSetName)) {
+            $query['MetricSetName'] = $request->metricSetName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDiagnosticMetricSet',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDiagnosticMetricSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDiagnosticMetricSetRequest $request
+     *
+     * @return ModifyDiagnosticMetricSetResponse
+     */
+    public function modifyDiagnosticMetricSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDiagnosticMetricSetWithOptions($request, $runtime);
     }
 
     /**
@@ -23227,6 +23868,73 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @param RenewReservedInstancesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RenewReservedInstancesResponse
+     */
+    public function renewReservedInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->reservedInstanceId)) {
+            $query['ReservedInstanceId'] = $request->reservedInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewReservedInstances',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewReservedInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewReservedInstancesRequest $request
+     *
+     * @return RenewReservedInstancesResponse
+     */
+    public function renewReservedInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewReservedInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReplaceSystemDiskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -23839,6 +24547,12 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->commandContent)) {
             $query['CommandContent'] = $request->commandContent;
         }
+        if (!Utils::isUnset($request->containerId)) {
+            $query['ContainerId'] = $request->containerId;
+        }
+        if (!Utils::isUnset($request->containerName)) {
+            $query['ContainerName'] = $request->containerName;
+        }
         if (!Utils::isUnset($request->contentEncoding)) {
             $query['ContentEncoding'] = $request->contentEncoding;
         }
@@ -23883,6 +24597,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->timed)) {
             $query['Timed'] = $request->timed;

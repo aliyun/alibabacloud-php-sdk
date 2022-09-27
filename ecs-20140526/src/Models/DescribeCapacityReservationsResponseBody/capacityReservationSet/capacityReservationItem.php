@@ -63,7 +63,17 @@ class capacityReservationItem extends Model
     /**
      * @var string
      */
+    public $reservedInstanceId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $savingPlanId;
 
     /**
      * @var string
@@ -100,7 +110,9 @@ class capacityReservationItem extends Model
         'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
         'privatePoolOptionsName'          => 'PrivatePoolOptionsName',
         'regionId'                        => 'RegionId',
+        'reservedInstanceId'              => 'ReservedInstanceId',
         'resourceGroupId'                 => 'ResourceGroupId',
+        'savingPlanId'                    => 'SavingPlanId',
         'startTime'                       => 'StartTime',
         'startTimeType'                   => 'StartTimeType',
         'status'                          => 'Status',
@@ -145,8 +157,14 @@ class capacityReservationItem extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->reservedInstanceId) {
+            $res['ReservedInstanceId'] = $this->reservedInstanceId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->savingPlanId) {
+            $res['SavingPlanId'] = $this->savingPlanId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -205,8 +223,14 @@ class capacityReservationItem extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ReservedInstanceId'])) {
+            $model->reservedInstanceId = $map['ReservedInstanceId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SavingPlanId'])) {
+            $model->savingPlanId = $map['SavingPlanId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

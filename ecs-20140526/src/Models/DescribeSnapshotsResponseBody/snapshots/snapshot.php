@@ -110,15 +110,11 @@ class snapshot extends Model
     public $sourceDiskType;
 
     /**
-     * @description 源快照地域
-     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
-     * @description 源快照
-     *
      * @var string
      */
     public $sourceSnapshotId;

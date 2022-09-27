@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationResultsResponseBody\invocation\invocationResults;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationResultsResponseBody\invocation\invocationResults\invocationResult\tags;
 use AlibabaCloud\Tea\Model;
 
 class invocationResult extends Model
@@ -12,6 +13,16 @@ class invocationResult extends Model
      * @var string
      */
     public $commandId;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
+    public $containerName;
 
     /**
      * @var int
@@ -79,11 +90,18 @@ class invocationResult extends Model
     public $stopTime;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $username;
     protected $_name = [
         'commandId'          => 'CommandId',
+        'containerId'        => 'ContainerId',
+        'containerName'      => 'ContainerName',
         'dropped'            => 'Dropped',
         'errorCode'          => 'ErrorCode',
         'errorInfo'          => 'ErrorInfo',
@@ -97,6 +115,7 @@ class invocationResult extends Model
         'repeats'            => 'Repeats',
         'startTime'          => 'StartTime',
         'stopTime'           => 'StopTime',
+        'tags'               => 'Tags',
         'username'           => 'Username',
     ];
 
@@ -109,6 +128,12 @@ class invocationResult extends Model
         $res = [];
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->dropped) {
             $res['Dropped'] = $this->dropped;
@@ -149,6 +174,9 @@ class invocationResult extends Model
         if (null !== $this->stopTime) {
             $res['StopTime'] = $this->stopTime;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -166,6 +194,12 @@ class invocationResult extends Model
         $model = new self();
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['Dropped'])) {
             $model->dropped = $map['Dropped'];
@@ -205,6 +239,9 @@ class invocationResult extends Model
         }
         if (isset($map['StopTime'])) {
             $model->stopTime = $map['StopTime'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

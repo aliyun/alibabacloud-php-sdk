@@ -16,6 +16,16 @@ class InvokeCommandShrinkRequest extends Model
     /**
      * @var string
      */
+    public $containerId;
+
+    /**
+     * @var string
+     */
+    public $containerName;
+
+    /**
+     * @var string
+     */
     public $frequency;
 
     /**
@@ -74,6 +84,8 @@ class InvokeCommandShrinkRequest extends Model
     public $windowsPasswordName;
     protected $_name = [
         'commandId'            => 'CommandId',
+        'containerId'          => 'ContainerId',
+        'containerName'        => 'ContainerName',
         'frequency'            => 'Frequency',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
@@ -97,6 +109,12 @@ class InvokeCommandShrinkRequest extends Model
         $res = [];
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
@@ -148,6 +166,12 @@ class InvokeCommandShrinkRequest extends Model
         $model = new self();
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];

@@ -53,6 +53,11 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $excessCapacityTerminationPolicy;
 
     /**
+     * @var bool
+     */
+    public $hibernationOptionsConfigured;
+
+    /**
      * @var launchTemplateConfig[]
      */
     public $launchTemplateConfig;
@@ -175,6 +180,7 @@ class CreateAutoProvisioningGroupRequest extends Model
         'defaultTargetCapacityType'        => 'DefaultTargetCapacityType',
         'description'                      => 'Description',
         'excessCapacityTerminationPolicy'  => 'ExcessCapacityTerminationPolicy',
+        'hibernationOptionsConfigured'     => 'HibernationOptionsConfigured',
         'launchTemplateConfig'             => 'LaunchTemplateConfig',
         'launchTemplateId'                 => 'LaunchTemplateId',
         'launchTemplateVersion'            => 'LaunchTemplateVersion',
@@ -236,6 +242,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (null !== $this->excessCapacityTerminationPolicy) {
             $res['ExcessCapacityTerminationPolicy'] = $this->excessCapacityTerminationPolicy;
+        }
+        if (null !== $this->hibernationOptionsConfigured) {
+            $res['HibernationOptionsConfigured'] = $this->hibernationOptionsConfigured;
         }
         if (null !== $this->launchTemplateConfig) {
             $res['LaunchTemplateConfig'] = [];
@@ -359,6 +368,9 @@ class CreateAutoProvisioningGroupRequest extends Model
         }
         if (isset($map['ExcessCapacityTerminationPolicy'])) {
             $model->excessCapacityTerminationPolicy = $map['ExcessCapacityTerminationPolicy'];
+        }
+        if (isset($map['HibernationOptionsConfigured'])) {
+            $model->hibernationOptionsConfigured = $map['HibernationOptionsConfigured'];
         }
         if (isset($map['LaunchTemplateConfig'])) {
             if (!empty($map['LaunchTemplateConfig'])) {

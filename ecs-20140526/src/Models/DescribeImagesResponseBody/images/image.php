@@ -20,6 +20,11 @@ class image extends Model
     /**
      * @var string
      */
+    public $bootMode;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -168,6 +173,7 @@ class image extends Model
     public $usage;
     protected $_name = [
         'architecture'            => 'Architecture',
+        'bootMode'                => 'BootMode',
         'creationTime'            => 'CreationTime',
         'description'             => 'Description',
         'detectionOptions'        => 'DetectionOptions',
@@ -209,6 +215,9 @@ class image extends Model
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+        if (null !== $this->bootMode) {
+            $res['BootMode'] = $this->bootMode;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -314,6 +323,9 @@ class image extends Model
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['BootMode'])) {
+            $model->bootMode = $map['BootMode'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];

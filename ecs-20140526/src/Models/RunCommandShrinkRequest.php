@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\RunCommandShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class RunCommandShrinkRequest extends Model
@@ -12,6 +13,16 @@ class RunCommandShrinkRequest extends Model
      * @var string
      */
     public $commandContent;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
+    public $containerName;
 
     /**
      * @var string
@@ -84,6 +95,11 @@ class RunCommandShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var bool
      */
     public $timed;
@@ -114,6 +130,8 @@ class RunCommandShrinkRequest extends Model
     public $workingDir;
     protected $_name = [
         'commandContent'       => 'CommandContent',
+        'containerId'          => 'ContainerId',
+        'containerName'        => 'ContainerName',
         'contentEncoding'      => 'ContentEncoding',
         'description'          => 'Description',
         'enableParameter'      => 'EnableParameter',
@@ -128,6 +146,7 @@ class RunCommandShrinkRequest extends Model
         'repeatMode'           => 'RepeatMode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
         'timed'                => 'Timed',
         'timeout'              => 'Timeout',
         'type'                 => 'Type',
@@ -145,6 +164,12 @@ class RunCommandShrinkRequest extends Model
         $res = [];
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
+        }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
@@ -188,6 +213,15 @@ class RunCommandShrinkRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
         }
@@ -220,6 +254,12 @@ class RunCommandShrinkRequest extends Model
         $model = new self();
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
+        }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['ContentEncoding'])) {
             $model->contentEncoding = $map['ContentEncoding'];
@@ -264,6 +304,15 @@ class RunCommandShrinkRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];

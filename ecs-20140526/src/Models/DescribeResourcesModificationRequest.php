@@ -67,6 +67,11 @@ class DescribeResourcesModificationRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'cores'                => 'Cores',
         'destinationResource'  => 'DestinationResource',
@@ -80,6 +85,7 @@ class DescribeResourcesModificationRequest extends Model
         'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class DescribeResourcesModificationRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class DescribeResourcesModificationRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

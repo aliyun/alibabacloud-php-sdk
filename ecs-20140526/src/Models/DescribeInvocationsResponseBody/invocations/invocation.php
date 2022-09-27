@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationsResponseBody\invocations;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationsResponseBody\invocations\invocation\invokeInstances;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationsResponseBody\invocations\invocation\tags;
 use AlibabaCloud\Tea\Model;
 
 class invocation extends Model
@@ -33,6 +34,16 @@ class invocation extends Model
      * @var string
      */
     public $commandType;
+
+    /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
+     * @var string
+     */
+    public $containerName;
 
     /**
      * @var string
@@ -75,6 +86,11 @@ class invocation extends Model
     public $repeatMode;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var bool
      */
     public $timed;
@@ -99,6 +115,8 @@ class invocation extends Model
         'commandId'          => 'CommandId',
         'commandName'        => 'CommandName',
         'commandType'        => 'CommandType',
+        'containerId'        => 'ContainerId',
+        'containerName'      => 'ContainerName',
         'creationTime'       => 'CreationTime',
         'frequency'          => 'Frequency',
         'invocationStatus'   => 'InvocationStatus',
@@ -107,6 +125,7 @@ class invocation extends Model
         'invokeStatus'       => 'InvokeStatus',
         'parameters'         => 'Parameters',
         'repeatMode'         => 'RepeatMode',
+        'tags'               => 'Tags',
         'timed'              => 'Timed',
         'timeout'            => 'Timeout',
         'username'           => 'Username',
@@ -135,6 +154,12 @@ class invocation extends Model
         if (null !== $this->commandType) {
             $res['CommandType'] = $this->commandType;
         }
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -158,6 +183,9 @@ class invocation extends Model
         }
         if (null !== $this->repeatMode) {
             $res['RepeatMode'] = $this->repeatMode;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
@@ -198,6 +226,12 @@ class invocation extends Model
         if (isset($map['CommandType'])) {
             $model->commandType = $map['CommandType'];
         }
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
@@ -221,6 +255,9 @@ class invocation extends Model
         }
         if (isset($map['RepeatMode'])) {
             $model->repeatMode = $map['RepeatMode'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];

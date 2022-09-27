@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\com
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command\parameterDefinitions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command\parameterNames;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command\tags;
 use AlibabaCloud\Tea\Model;
 
 class command extends Model
@@ -71,6 +72,11 @@ class command extends Model
     public $provider;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $timeout;
@@ -102,6 +108,7 @@ class command extends Model
         'parameterDefinitions' => 'ParameterDefinitions',
         'parameterNames'       => 'ParameterNames',
         'provider'             => 'Provider',
+        'tags'                 => 'Tags',
         'timeout'              => 'Timeout',
         'type'                 => 'Type',
         'version'              => 'Version',
@@ -150,6 +157,9 @@ class command extends Model
         }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
@@ -210,6 +220,9 @@ class command extends Model
         }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];

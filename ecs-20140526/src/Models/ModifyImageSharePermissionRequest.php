@@ -19,8 +19,6 @@ class ModifyImageSharePermissionRequest extends Model
     public $imageId;
 
     /**
-     * @description 发布为社区镜像
-     *
      * @var bool
      */
     public $isPublic;
