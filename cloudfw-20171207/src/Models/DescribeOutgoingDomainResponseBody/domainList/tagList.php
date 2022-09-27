@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
+     * @var string
+     */
+    public $classId;
+
+    /**
      * @var int
      */
     public $riskLevel;
@@ -28,6 +33,7 @@ class tagList extends Model
      */
     public $tagName;
     protected $_name = [
+        'classId'     => 'ClassId',
         'riskLevel'   => 'RiskLevel',
         'tagDescribe' => 'TagDescribe',
         'tagId'       => 'TagId',
@@ -41,6 +47,9 @@ class tagList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->classId) {
+            $res['ClassId'] = $this->classId;
+        }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -65,6 +74,9 @@ class tagList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClassId'])) {
+            $model->classId = $map['ClassId'];
+        }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

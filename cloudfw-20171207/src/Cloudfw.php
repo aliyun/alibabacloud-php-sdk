@@ -1409,9 +1409,6 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
-        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -1619,6 +1616,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->noLocation)) {
             $query['NoLocation'] = $request->noLocation;
         }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -1627,6 +1627,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->ruleSource)) {
             $query['RuleSource'] = $request->ruleSource;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
         if (!Utils::isUnset($request->srcIP)) {
             $query['SrcIP'] = $request->srcIP;

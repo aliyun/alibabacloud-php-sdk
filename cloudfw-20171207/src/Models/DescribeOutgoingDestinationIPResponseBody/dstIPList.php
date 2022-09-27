@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponseBody;
 
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponseBody\dstIPList\addressGroupList;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponseBody\dstIPList\applicationPortList;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponseBody\dstIPList\tagList;
 use AlibabaCloud\Tea\Model;
@@ -26,19 +27,19 @@ class dstIPList extends Model
     public $aclStatus;
 
     /**
-     * @var string
+     * @var addressGroupList[]
      */
-    public $addressGroupName;
-
-    /**
-     * @var string
-     */
-    public $addressGroupUUID;
+    public $addressGroupList;
 
     /**
      * @var applicationPortList[]
      */
     public $applicationPortList;
+
+    /**
+     * @var string
+     */
+    public $categoryClassId;
 
     /**
      * @var string
@@ -59,6 +60,11 @@ class dstIPList extends Model
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $hasAcl;
 
     /**
      * @var bool
@@ -93,6 +99,11 @@ class dstIPList extends Model
     /**
      * @var string
      */
+    public $securityReason;
+
+    /**
+     * @var string
+     */
     public $securitySuggest;
 
     /**
@@ -104,26 +115,34 @@ class dstIPList extends Model
      * @var tagList[]
      */
     public $tagList;
+
+    /**
+     * @var string
+     */
+    public $totalBytes;
     protected $_name = [
         'aclCoverage'         => 'AclCoverage',
         'aclRecommendDetail'  => 'AclRecommendDetail',
         'aclStatus'           => 'AclStatus',
-        'addressGroupName'    => 'AddressGroupName',
-        'addressGroupUUID'    => 'AddressGroupUUID',
+        'addressGroupList'    => 'AddressGroupList',
         'applicationPortList' => 'ApplicationPortList',
+        'categoryClassId'     => 'CategoryClassId',
         'categoryId'          => 'CategoryId',
         'categoryName'        => 'CategoryName',
         'dstIP'               => 'DstIP',
         'groupName'           => 'GroupName',
+        'hasAcl'              => 'HasAcl',
         'hasAclRecommend'     => 'HasAclRecommend',
         'inBytes'             => 'InBytes',
         'isMarkNormal'        => 'IsMarkNormal',
         'outBytes'            => 'OutBytes',
         'ruleId'              => 'RuleId',
         'ruleName'            => 'RuleName',
+        'securityReason'      => 'SecurityReason',
         'securitySuggest'     => 'SecuritySuggest',
         'sessionCount'        => 'SessionCount',
         'tagList'             => 'TagList',
+        'totalBytes'          => 'TotalBytes',
     ];
 
     public function validate()
@@ -142,11 +161,14 @@ class dstIPList extends Model
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
         }
-        if (null !== $this->addressGroupName) {
-            $res['AddressGroupName'] = $this->addressGroupName;
-        }
-        if (null !== $this->addressGroupUUID) {
-            $res['AddressGroupUUID'] = $this->addressGroupUUID;
+        if (null !== $this->addressGroupList) {
+            $res['AddressGroupList'] = [];
+            if (null !== $this->addressGroupList && \is_array($this->addressGroupList)) {
+                $n = 0;
+                foreach ($this->addressGroupList as $item) {
+                    $res['AddressGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->applicationPortList) {
             $res['ApplicationPortList'] = [];
@@ -156,6 +178,9 @@ class dstIPList extends Model
                     $res['ApplicationPortList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->categoryClassId) {
+            $res['CategoryClassId'] = $this->categoryClassId;
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
@@ -168,6 +193,9 @@ class dstIPList extends Model
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->hasAcl) {
+            $res['HasAcl'] = $this->hasAcl;
         }
         if (null !== $this->hasAclRecommend) {
             $res['HasAclRecommend'] = $this->hasAclRecommend;
@@ -187,6 +215,9 @@ class dstIPList extends Model
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+        if (null !== $this->securityReason) {
+            $res['SecurityReason'] = $this->securityReason;
+        }
         if (null !== $this->securitySuggest) {
             $res['SecuritySuggest'] = $this->securitySuggest;
         }
@@ -201,6 +232,9 @@ class dstIPList extends Model
                     $res['TagList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalBytes) {
+            $res['TotalBytes'] = $this->totalBytes;
         }
 
         return $res;
@@ -223,11 +257,14 @@ class dstIPList extends Model
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
         }
-        if (isset($map['AddressGroupName'])) {
-            $model->addressGroupName = $map['AddressGroupName'];
-        }
-        if (isset($map['AddressGroupUUID'])) {
-            $model->addressGroupUUID = $map['AddressGroupUUID'];
+        if (isset($map['AddressGroupList'])) {
+            if (!empty($map['AddressGroupList'])) {
+                $model->addressGroupList = [];
+                $n                       = 0;
+                foreach ($map['AddressGroupList'] as $item) {
+                    $model->addressGroupList[$n++] = null !== $item ? addressGroupList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ApplicationPortList'])) {
             if (!empty($map['ApplicationPortList'])) {
@@ -237,6 +274,9 @@ class dstIPList extends Model
                     $model->applicationPortList[$n++] = null !== $item ? applicationPortList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CategoryClassId'])) {
+            $model->categoryClassId = $map['CategoryClassId'];
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
@@ -249,6 +289,9 @@ class dstIPList extends Model
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['HasAcl'])) {
+            $model->hasAcl = $map['HasAcl'];
         }
         if (isset($map['HasAclRecommend'])) {
             $model->hasAclRecommend = $map['HasAclRecommend'];
@@ -268,6 +311,9 @@ class dstIPList extends Model
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+        if (isset($map['SecurityReason'])) {
+            $model->securityReason = $map['SecurityReason'];
+        }
         if (isset($map['SecuritySuggest'])) {
             $model->securitySuggest = $map['SecuritySuggest'];
         }
@@ -282,6 +328,9 @@ class dstIPList extends Model
                     $model->tagList[$n++] = null !== $item ? tagList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalBytes'])) {
+            $model->totalBytes = $map['TotalBytes'];
         }
 
         return $model;

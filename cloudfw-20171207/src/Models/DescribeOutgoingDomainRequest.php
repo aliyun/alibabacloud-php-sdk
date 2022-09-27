@@ -11,11 +11,6 @@ class DescribeOutgoingDomainRequest extends Model
     /**
      * @var string
      */
-    public $categoryId;
-
-    /**
-     * @var string
-     */
     public $currentPage;
 
     /**
@@ -58,7 +53,6 @@ class DescribeOutgoingDomainRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'categoryId'  => 'CategoryId',
         'currentPage' => 'CurrentPage',
         'domain'      => 'Domain',
         'endTime'     => 'EndTime',
@@ -77,9 +71,6 @@ class DescribeOutgoingDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -119,9 +110,6 @@ class DescribeOutgoingDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

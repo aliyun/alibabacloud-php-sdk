@@ -71,6 +71,11 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @var string
      */
+    public $order;
+
+    /**
+     * @var string
+     */
     public $pageSize;
 
     /**
@@ -82,6 +87,11 @@ class DescribeRiskEventGroupRequest extends Model
      * @var string
      */
     public $ruleSource;
+
+    /**
+     * @var string
+     */
+    public $sort;
 
     /**
      * @var string
@@ -115,9 +125,11 @@ class DescribeRiskEventGroupRequest extends Model
         'firewallType'         => 'FirewallType',
         'lang'                 => 'Lang',
         'noLocation'           => 'NoLocation',
+        'order'                => 'Order',
         'pageSize'             => 'PageSize',
         'ruleResult'           => 'RuleResult',
         'ruleSource'           => 'RuleSource',
+        'sort'                 => 'Sort',
         'srcIP'                => 'SrcIP',
         'srcNetworkInstanceId' => 'SrcNetworkInstanceId',
         'startTime'            => 'StartTime',
@@ -167,6 +179,9 @@ class DescribeRiskEventGroupRequest extends Model
         if (null !== $this->noLocation) {
             $res['NoLocation'] = $this->noLocation;
         }
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -175,6 +190,9 @@ class DescribeRiskEventGroupRequest extends Model
         }
         if (null !== $this->ruleSource) {
             $res['RuleSource'] = $this->ruleSource;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
         if (null !== $this->srcIP) {
             $res['SrcIP'] = $this->srcIP;
@@ -238,6 +256,9 @@ class DescribeRiskEventGroupRequest extends Model
         if (isset($map['NoLocation'])) {
             $model->noLocation = $map['NoLocation'];
         }
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -246,6 +267,9 @@ class DescribeRiskEventGroupRequest extends Model
         }
         if (isset($map['RuleSource'])) {
             $model->ruleSource = $map['RuleSource'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
         if (isset($map['SrcIP'])) {
             $model->srcIP = $map['SrcIP'];

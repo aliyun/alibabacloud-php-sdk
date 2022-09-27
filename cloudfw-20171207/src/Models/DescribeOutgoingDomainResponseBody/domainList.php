@@ -37,6 +37,16 @@ class domainList extends Model
     /**
      * @var string
      */
+    public $business;
+
+    /**
+     * @var string
+     */
+    public $categoryClassId;
+
+    /**
+     * @var string
+     */
     public $categoryId;
 
     /**
@@ -55,6 +65,11 @@ class domainList extends Model
     public $groupName;
 
     /**
+     * @var string
+     */
+    public $hasAcl;
+
+    /**
      * @var bool
      */
     public $hasAclRecommend;
@@ -68,6 +83,11 @@ class domainList extends Model
      * @var bool
      */
     public $isMarkNormal;
+
+    /**
+     * @var string
+     */
+    public $organization;
 
     /**
      * @var int
@@ -87,6 +107,11 @@ class domainList extends Model
     /**
      * @var string
      */
+    public $securityReason;
+
+    /**
+     * @var string
+     */
     public $securitySuggest;
 
     /**
@@ -98,25 +123,36 @@ class domainList extends Model
      * @var tagList[]
      */
     public $tagList;
+
+    /**
+     * @var string
+     */
+    public $totalBytes;
     protected $_name = [
         'aclCoverage'        => 'AclCoverage',
         'aclRecommendDetail' => 'AclRecommendDetail',
         'aclStatus'          => 'AclStatus',
         'addressGroupName'   => 'AddressGroupName',
         'addressGroupUUID'   => 'AddressGroupUUID',
+        'business'           => 'Business',
+        'categoryClassId'    => 'CategoryClassId',
         'categoryId'         => 'CategoryId',
         'categoryName'       => 'CategoryName',
         'domain'             => 'Domain',
         'groupName'          => 'GroupName',
+        'hasAcl'             => 'HasAcl',
         'hasAclRecommend'    => 'HasAclRecommend',
         'inBytes'            => 'InBytes',
         'isMarkNormal'       => 'IsMarkNormal',
+        'organization'       => 'Organization',
         'outBytes'           => 'OutBytes',
         'ruleId'             => 'RuleId',
         'ruleName'           => 'RuleName',
+        'securityReason'     => 'SecurityReason',
         'securitySuggest'    => 'SecuritySuggest',
         'sessionCount'       => 'SessionCount',
         'tagList'            => 'TagList',
+        'totalBytes'         => 'TotalBytes',
     ];
 
     public function validate()
@@ -141,6 +177,12 @@ class domainList extends Model
         if (null !== $this->addressGroupUUID) {
             $res['AddressGroupUUID'] = $this->addressGroupUUID;
         }
+        if (null !== $this->business) {
+            $res['Business'] = $this->business;
+        }
+        if (null !== $this->categoryClassId) {
+            $res['CategoryClassId'] = $this->categoryClassId;
+        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -153,6 +195,9 @@ class domainList extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->hasAcl) {
+            $res['HasAcl'] = $this->hasAcl;
+        }
         if (null !== $this->hasAclRecommend) {
             $res['HasAclRecommend'] = $this->hasAclRecommend;
         }
@@ -162,6 +207,9 @@ class domainList extends Model
         if (null !== $this->isMarkNormal) {
             $res['IsMarkNormal'] = $this->isMarkNormal;
         }
+        if (null !== $this->organization) {
+            $res['Organization'] = $this->organization;
+        }
         if (null !== $this->outBytes) {
             $res['OutBytes'] = $this->outBytes;
         }
@@ -170,6 +218,9 @@ class domainList extends Model
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->securityReason) {
+            $res['SecurityReason'] = $this->securityReason;
         }
         if (null !== $this->securitySuggest) {
             $res['SecuritySuggest'] = $this->securitySuggest;
@@ -185,6 +236,9 @@ class domainList extends Model
                     $res['TagList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalBytes) {
+            $res['TotalBytes'] = $this->totalBytes;
         }
 
         return $res;
@@ -213,6 +267,12 @@ class domainList extends Model
         if (isset($map['AddressGroupUUID'])) {
             $model->addressGroupUUID = $map['AddressGroupUUID'];
         }
+        if (isset($map['Business'])) {
+            $model->business = $map['Business'];
+        }
+        if (isset($map['CategoryClassId'])) {
+            $model->categoryClassId = $map['CategoryClassId'];
+        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
@@ -225,6 +285,9 @@ class domainList extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['HasAcl'])) {
+            $model->hasAcl = $map['HasAcl'];
+        }
         if (isset($map['HasAclRecommend'])) {
             $model->hasAclRecommend = $map['HasAclRecommend'];
         }
@@ -234,6 +297,9 @@ class domainList extends Model
         if (isset($map['IsMarkNormal'])) {
             $model->isMarkNormal = $map['IsMarkNormal'];
         }
+        if (isset($map['Organization'])) {
+            $model->organization = $map['Organization'];
+        }
         if (isset($map['OutBytes'])) {
             $model->outBytes = $map['OutBytes'];
         }
@@ -242,6 +308,9 @@ class domainList extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['SecurityReason'])) {
+            $model->securityReason = $map['SecurityReason'];
         }
         if (isset($map['SecuritySuggest'])) {
             $model->securitySuggest = $map['SecuritySuggest'];
@@ -257,6 +326,9 @@ class domainList extends Model
                     $model->tagList[$n++] = null !== $item ? tagList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalBytes'])) {
+            $model->totalBytes = $map['TotalBytes'];
         }
 
         return $model;
