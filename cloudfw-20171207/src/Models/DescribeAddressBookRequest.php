@@ -37,11 +37,6 @@ class DescribeAddressBookRequest extends Model
      * @var string
      */
     public $query;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'containPort' => 'ContainPort',
         'currentPage' => 'CurrentPage',
@@ -49,7 +44,6 @@ class DescribeAddressBookRequest extends Model
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
         'query'       => 'Query',
-        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeAddressBookRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeAddressBookRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

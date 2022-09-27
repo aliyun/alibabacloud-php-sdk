@@ -56,11 +56,6 @@ class DescribeAssetListRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
@@ -82,7 +77,6 @@ class DescribeAssetListRequest extends Model
         'resourceType' => 'ResourceType',
         'searchItem'   => 'SearchItem',
         'sgStatus'     => 'SgStatus',
-        'sourceIp'     => 'SourceIp',
         'status'       => 'Status',
         'type'         => 'Type',
         'userType'     => 'UserType',
@@ -121,9 +115,6 @@ class DescribeAssetListRequest extends Model
         }
         if (null !== $this->sgStatus) {
             $res['SgStatus'] = $this->sgStatus;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -172,9 +163,6 @@ class DescribeAssetListRequest extends Model
         }
         if (isset($map['SgStatus'])) {
             $model->sgStatus = $map['SgStatus'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -67,11 +67,6 @@ class DescribeControlPolicyRequest extends Model
      * @var string
      */
     public $source;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'aclAction'   => 'AclAction',
         'aclUuid'     => 'AclUuid',
@@ -85,7 +80,6 @@ class DescribeControlPolicyRequest extends Model
         'proto'       => 'Proto',
         'release'     => 'Release',
         'source'      => 'Source',
-        'sourceIp'    => 'SourceIp',
     ];
 
     public function validate()
@@ -130,9 +124,6 @@ class DescribeControlPolicyRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
-        }
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -181,9 +172,6 @@ class DescribeControlPolicyRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
-        }
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

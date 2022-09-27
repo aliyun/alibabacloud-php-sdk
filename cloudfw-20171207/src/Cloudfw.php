@@ -943,9 +943,6 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->query)) {
             $query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1012,9 +1009,6 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->sgStatus)) {
             $query['SgStatus'] = $request->sgStatus;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
@@ -1103,9 +1097,6 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
