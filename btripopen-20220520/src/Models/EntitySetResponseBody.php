@@ -15,6 +15,16 @@ class EntitySetResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var module
      */
     public $module;
@@ -23,16 +33,6 @@ class EntitySetResponseBody extends Model
      * @var bool
      */
     public $morePage;
-
-    /**
-     * @var int
-     */
-    public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
 
     /**
      * @var bool
@@ -44,13 +44,13 @@ class EntitySetResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'module'     => 'module',
-        'morePage'   => 'more_page',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'success'    => 'success',
-        'traceId'    => 'traceId',
+        'requestId' => 'RequestId',
+        'code'      => 'code',
+        'message'   => 'message',
+        'module'    => 'module',
+        'morePage'  => 'more_page',
+        'success'   => 'success',
+        'traceId'   => 'traceId',
     ];
 
     public function validate()
@@ -63,17 +63,17 @@ class EntitySetResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
         }
         if (null !== $this->morePage) {
             $res['more_page'] = $this->morePage;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -96,17 +96,17 @@ class EntitySetResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
         if (isset($map['more_page'])) {
             $model->morePage = $map['more_page'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

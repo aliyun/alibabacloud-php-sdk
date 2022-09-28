@@ -15,19 +15,19 @@ class ApplyListQueryResponseBody extends Model
     public $requestId;
 
     /**
-     * @var moduleList[]
-     */
-    public $moduleList;
-
-    /**
      * @var int
      */
-    public $resultCode;
+    public $code;
 
     /**
      * @var string
      */
-    public $resultMsg;
+    public $message;
+
+    /**
+     * @var moduleList[]
+     */
+    public $moduleList;
 
     /**
      * @var bool
@@ -40,9 +40,9 @@ class ApplyListQueryResponseBody extends Model
     public $traceId;
     protected $_name = [
         'requestId'  => 'RequestId',
+        'code'       => 'code',
+        'message'    => 'message',
         'moduleList' => 'module_list',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
         'success'    => 'success',
         'traceId'    => 'traceId',
     ];
@@ -57,6 +57,12 @@ class ApplyListQueryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->moduleList) {
             $res['module_list'] = [];
             if (null !== $this->moduleList && \is_array($this->moduleList)) {
@@ -65,12 +71,6 @@ class ApplyListQueryResponseBody extends Model
                     $res['module_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -93,6 +93,12 @@ class ApplyListQueryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module_list'])) {
             if (!empty($map['module_list'])) {
                 $model->moduleList = [];
@@ -101,12 +107,6 @@ class ApplyListQueryResponseBody extends Model
                     $model->moduleList[$n++] = null !== $item ? moduleList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

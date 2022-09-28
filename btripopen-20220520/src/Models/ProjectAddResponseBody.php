@@ -16,22 +16,22 @@ class ProjectAddResponseBody extends Model
     /**
      * @var int
      */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var int
+     */
     public $module;
 
     /**
      * @var bool
      */
     public $morePage;
-
-    /**
-     * @var int
-     */
-    public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
 
     /**
      * @var bool
@@ -43,13 +43,13 @@ class ProjectAddResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'module'     => 'module',
-        'morePage'   => 'more_page',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'success'    => 'success',
-        'traceId'    => 'traceId',
+        'requestId' => 'RequestId',
+        'code'      => 'code',
+        'message'   => 'message',
+        'module'    => 'module',
+        'morePage'  => 'more_page',
+        'success'   => 'success',
+        'traceId'   => 'traceId',
     ];
 
     public function validate()
@@ -62,17 +62,17 @@ class ProjectAddResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = $this->module;
         }
         if (null !== $this->morePage) {
             $res['more_page'] = $this->morePage;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -95,17 +95,17 @@ class ProjectAddResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             $model->module = $map['module'];
         }
         if (isset($map['more_page'])) {
             $model->morePage = $map['more_page'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

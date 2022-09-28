@@ -16,12 +16,12 @@ class CarApplyAddResponseBody extends Model
     /**
      * @var int
      */
-    public $errCode;
+    public $code;
 
     /**
      * @var string
      */
-    public $errMsg;
+    public $message;
 
     /**
      * @var int
@@ -39,8 +39,8 @@ class CarApplyAddResponseBody extends Model
     public $traceId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'errCode'   => 'err_code',
-        'errMsg'    => 'err_msg',
+        'code'      => 'code',
+        'message'   => 'message',
         'module'    => 'module',
         'success'   => 'success',
         'traceId'   => 'traceId',
@@ -56,11 +56,11 @@ class CarApplyAddResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->errCode) {
-            $res['err_code'] = $this->errCode;
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
         }
-        if (null !== $this->errMsg) {
-            $res['err_msg'] = $this->errMsg;
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
         if (null !== $this->module) {
             $res['module'] = $this->module;
@@ -86,11 +86,11 @@ class CarApplyAddResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['err_code'])) {
-            $model->errCode = $map['err_code'];
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
         }
-        if (isset($map['err_msg'])) {
-            $model->errMsg = $map['err_msg'];
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
         if (isset($map['module'])) {
             $model->module = $map['module'];

@@ -15,6 +15,11 @@ class TrainBillSettlementQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var module
      */
     public $module;
@@ -23,11 +28,6 @@ class TrainBillSettlementQueryResponseBody extends Model
      * @var int
      */
     public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
 
     /**
      * @var bool
@@ -40,9 +40,9 @@ class TrainBillSettlementQueryResponseBody extends Model
     public $traceId;
     protected $_name = [
         'requestId'  => 'RequestId',
+        'message'    => 'message',
         'module'     => 'module',
         'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
         'success'    => 'success',
         'traceId'    => 'traceId',
     ];
@@ -57,14 +57,14 @@ class TrainBillSettlementQueryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
         }
         if (null !== $this->resultCode) {
             $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -87,14 +87,14 @@ class TrainBillSettlementQueryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
         if (isset($map['result_code'])) {
             $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

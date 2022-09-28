@@ -16,6 +16,16 @@ class HotelOrderListQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var module[]
      */
     public $module;
@@ -24,16 +34,6 @@ class HotelOrderListQueryResponseBody extends Model
      * @var pageInfo
      */
     public $pageInfo;
-
-    /**
-     * @var int
-     */
-    public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
 
     /**
      * @var bool
@@ -45,13 +45,13 @@ class HotelOrderListQueryResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'module'     => 'module',
-        'pageInfo'   => 'page_info',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'success'    => 'success',
-        'traceId'    => 'traceId',
+        'requestId' => 'RequestId',
+        'code'      => 'code',
+        'message'   => 'message',
+        'module'    => 'module',
+        'pageInfo'  => 'page_info',
+        'success'   => 'success',
+        'traceId'   => 'traceId',
     ];
 
     public function validate()
@@ -64,6 +64,12 @@ class HotelOrderListQueryResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = [];
             if (null !== $this->module && \is_array($this->module)) {
@@ -75,12 +81,6 @@ class HotelOrderListQueryResponseBody extends Model
         }
         if (null !== $this->pageInfo) {
             $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -103,6 +103,12 @@ class HotelOrderListQueryResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             if (!empty($map['module'])) {
                 $model->module = [];
@@ -114,12 +120,6 @@ class HotelOrderListQueryResponseBody extends Model
         }
         if (isset($map['page_info'])) {
             $model->pageInfo = pageInfo::fromMap($map['page_info']);
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

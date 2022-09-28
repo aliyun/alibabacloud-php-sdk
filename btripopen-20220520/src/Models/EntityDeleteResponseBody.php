@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class EntityDeleteResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var module
      */
     public $module;
@@ -25,16 +35,6 @@ class EntityDeleteResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $resultCode;
-
-    /**
-     * @var string
-     */
-    public $resultMsg;
-
-    /**
      * @var bool
      */
     public $success;
@@ -44,13 +44,13 @@ class EntityDeleteResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'module'     => 'module',
-        'morePage'   => 'more_page',
-        'requestId'  => 'requestId',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'success'    => 'success',
-        'traceId'    => 'traceId',
+        'code'      => 'code',
+        'message'   => 'message',
+        'module'    => 'module',
+        'morePage'  => 'more_page',
+        'requestId' => 'requestId',
+        'success'   => 'success',
+        'traceId'   => 'traceId',
     ];
 
     public function validate()
@@ -60,6 +60,12 @@ class EntityDeleteResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
         }
@@ -68,12 +74,6 @@ class EntityDeleteResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -93,6 +93,12 @@ class EntityDeleteResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
@@ -101,12 +107,6 @@ class EntityDeleteResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

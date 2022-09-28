@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class IeFlightBillSettlementQueryResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var module
      */
     public $module;
@@ -30,11 +35,6 @@ class IeFlightBillSettlementQueryResponseBody extends Model
     public $resultCode;
 
     /**
-     * @var string
-     */
-    public $resultMsg;
-
-    /**
      * @var bool
      */
     public $success;
@@ -44,11 +44,11 @@ class IeFlightBillSettlementQueryResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
+        'message'    => 'message',
         'module'     => 'module',
         'morePage'   => 'more_page',
         'requestId'  => 'requestId',
         'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
         'success'    => 'success',
         'traceId'    => 'traceId',
     ];
@@ -60,6 +60,9 @@ class IeFlightBillSettlementQueryResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
         }
@@ -71,9 +74,6 @@ class IeFlightBillSettlementQueryResponseBody extends Model
         }
         if (null !== $this->resultCode) {
             $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -93,6 +93,9 @@ class IeFlightBillSettlementQueryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
@@ -104,9 +107,6 @@ class IeFlightBillSettlementQueryResponseBody extends Model
         }
         if (isset($map['result_code'])) {
             $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

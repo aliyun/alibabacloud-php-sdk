@@ -15,19 +15,19 @@ class InvoiceSearchResponseBody extends Model
     public $requestId;
 
     /**
-     * @var module[]
-     */
-    public $module;
-
-    /**
      * @var int
      */
-    public $resultCode;
+    public $code;
 
     /**
      * @var string
      */
-    public $resultMsg;
+    public $message;
+
+    /**
+     * @var module[]
+     */
+    public $module;
 
     /**
      * @var bool
@@ -39,12 +39,12 @@ class InvoiceSearchResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'module'     => 'module',
-        'resultCode' => 'result_code',
-        'resultMsg'  => 'result_msg',
-        'success'    => 'success',
-        'traceId'    => 'traceId',
+        'requestId' => 'RequestId',
+        'code'      => 'code',
+        'message'   => 'message',
+        'module'    => 'module',
+        'success'   => 'success',
+        'traceId'   => 'traceId',
     ];
 
     public function validate()
@@ -57,6 +57,12 @@ class InvoiceSearchResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
+        }
         if (null !== $this->module) {
             $res['module'] = [];
             if (null !== $this->module && \is_array($this->module)) {
@@ -65,12 +71,6 @@ class InvoiceSearchResponseBody extends Model
                     $res['module'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -93,6 +93,12 @@ class InvoiceSearchResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
+        }
         if (isset($map['module'])) {
             if (!empty($map['module'])) {
                 $model->module = [];
@@ -101,12 +107,6 @@ class InvoiceSearchResponseBody extends Model
                     $model->module[$n++] = null !== $item ? module::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
