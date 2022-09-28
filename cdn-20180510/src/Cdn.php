@@ -411,6 +411,9 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->sources)) {
             $query['Sources'] = $request->sources;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->topLevelDomain)) {
             $query['TopLevelDomain'] = $request->topLevelDomain;
         }
