@@ -16,16 +16,10 @@ class DescribeSummaryInfoRequest extends Model
     /**
      * @var string
      */
-    public $resourceDirectoryAccountId;
-
-    /**
-     * @var string
-     */
     public $sourceIp;
     protected $_name = [
-        'lang'                       => 'Lang',
-        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
-        'sourceIp'                   => 'SourceIp',
+        'lang'     => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
@@ -37,9 +31,6 @@ class DescribeSummaryInfoRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->resourceDirectoryAccountId) {
-            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -58,9 +49,6 @@ class DescribeSummaryInfoRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['ResourceDirectoryAccountId'])) {
-            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

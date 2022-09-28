@@ -11,11 +11,6 @@ class imageInfos extends Model
     /**
      * @var string
      */
-    public $baselineType;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -138,7 +133,6 @@ class imageInfos extends Model
      */
     public $uuid;
     protected $_name = [
-        'baselineType'    => 'BaselineType',
         'clusterId'       => 'ClusterId',
         'clusterName'     => 'ClusterName',
         'containerId'     => 'ContainerId',
@@ -173,9 +167,6 @@ class imageInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->baselineType) {
-            $res['BaselineType'] = $this->baselineType;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -263,9 +254,6 @@ class imageInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BaselineType'])) {
-            $model->baselineType = $map['BaselineType'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

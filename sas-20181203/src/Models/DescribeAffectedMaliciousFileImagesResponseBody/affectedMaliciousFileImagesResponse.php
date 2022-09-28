@@ -86,11 +86,6 @@ class affectedMaliciousFileImagesResponse extends Model
     /**
      * @var string
      */
-    public $maliciousSource;
-
-    /**
-     * @var string
-     */
     public $namespace;
 
     /**
@@ -143,7 +138,6 @@ class affectedMaliciousFileImagesResponse extends Model
         'layer'                 => 'Layer',
         'level'                 => 'Level',
         'maliciousMd5'          => 'MaliciousMd5',
-        'maliciousSource'       => 'MaliciousSource',
         'namespace'             => 'Namespace',
         'pod'                   => 'Pod',
         'repoId'                => 'RepoId',
@@ -205,9 +199,6 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (null !== $this->maliciousMd5) {
             $res['MaliciousMd5'] = $this->maliciousMd5;
-        }
-        if (null !== $this->maliciousSource) {
-            $res['MaliciousSource'] = $this->maliciousSource;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -289,9 +280,6 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (isset($map['MaliciousMd5'])) {
             $model->maliciousMd5 = $map['MaliciousMd5'];
-        }
-        if (isset($map['MaliciousSource'])) {
-            $model->maliciousSource = $map['MaliciousSource'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulFixStatisticsResponseBody\fixStat;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulFixStatisticsResponseBody\fixTotal;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVulFixStatisticsResponseBody extends Model
@@ -15,11 +16,17 @@ class DescribeVulFixStatisticsResponseBody extends Model
     public $fixStat;
 
     /**
+     * @var fixTotal
+     */
+    public $fixTotal;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'fixStat'   => 'FixStat',
+        'fixTotal'  => 'FixTotal',
         'requestId' => 'RequestId',
     ];
 
@@ -38,6 +45,9 @@ class DescribeVulFixStatisticsResponseBody extends Model
                     $res['FixStat'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->fixTotal) {
+            $res['FixTotal'] = null !== $this->fixTotal ? $this->fixTotal->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -62,6 +72,9 @@ class DescribeVulFixStatisticsResponseBody extends Model
                     $model->fixStat[$n++] = null !== $item ? fixStat::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FixTotal'])) {
+            $model->fixTotal = fixTotal::fromMap($map['FixTotal']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -7129,9 +7129,6 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
-            $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
-        }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
         }
