@@ -11,6 +11,11 @@ class DescribeOutgoingDestinationIPRequest extends Model
     /**
      * @var string
      */
+    public $applicationName;
+
+    /**
+     * @var string
+     */
     public $currentPage;
 
     /**
@@ -63,17 +68,18 @@ class DescribeOutgoingDestinationIPRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'dstIP'       => 'DstIP',
-        'endTime'     => 'EndTime',
-        'lang'        => 'Lang',
-        'order'       => 'Order',
-        'pageSize'    => 'PageSize',
-        'port'        => 'Port',
-        'privateIP'   => 'PrivateIP',
-        'publicIP'    => 'PublicIP',
-        'sort'        => 'Sort',
-        'startTime'   => 'StartTime',
+        'applicationName' => 'ApplicationName',
+        'currentPage'     => 'CurrentPage',
+        'dstIP'           => 'DstIP',
+        'endTime'         => 'EndTime',
+        'lang'            => 'Lang',
+        'order'           => 'Order',
+        'pageSize'        => 'PageSize',
+        'port'            => 'Port',
+        'privateIP'       => 'PrivateIP',
+        'publicIP'        => 'PublicIP',
+        'sort'            => 'Sort',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -128,6 +137,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
