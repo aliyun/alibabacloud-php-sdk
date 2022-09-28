@@ -44,6 +44,11 @@ class policy extends Model
     public $policyType;
 
     /**
+     * @var string
+     */
+    public $ruleConfigs;
+
+    /**
      * @var int
      */
     public $ruleCount;
@@ -55,6 +60,7 @@ class policy extends Model
         'policyName'   => 'PolicyName',
         'policyStatus' => 'PolicyStatus',
         'policyType'   => 'PolicyType',
+        'ruleConfigs'  => 'RuleConfigs',
         'ruleCount'    => 'RuleCount',
     ];
 
@@ -85,6 +91,9 @@ class policy extends Model
         }
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+        if (null !== $this->ruleConfigs) {
+            $res['RuleConfigs'] = $this->ruleConfigs;
         }
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
@@ -121,6 +130,9 @@ class policy extends Model
         }
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+        if (isset($map['RuleConfigs'])) {
+            $model->ruleConfigs = $map['RuleConfigs'];
         }
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];

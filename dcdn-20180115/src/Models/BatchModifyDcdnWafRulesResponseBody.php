@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchCreateDcdnWafRulesResponseBody\ruleIds;
 use AlibabaCloud\Tea\Model;
 
-class BatchCreateDcdnWafRulesResponseBody extends Model
+class BatchModifyDcdnWafRulesResponseBody extends Model
 {
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var ruleIds
-     */
-    public $ruleIds;
     protected $_name = [
         'requestId' => 'RequestId',
-        'ruleIds'   => 'RuleIds',
     ];
 
     public function validate()
@@ -33,9 +26,6 @@ class BatchCreateDcdnWafRulesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->ruleIds) {
-            $res['RuleIds'] = null !== $this->ruleIds ? $this->ruleIds->toMap() : null;
-        }
 
         return $res;
     }
@@ -43,16 +33,13 @@ class BatchCreateDcdnWafRulesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BatchCreateDcdnWafRulesResponseBody
+     * @return BatchModifyDcdnWafRulesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RuleIds'])) {
-            $model->ruleIds = ruleIds::fromMap($map['RuleIds']);
         }
 
         return $model;

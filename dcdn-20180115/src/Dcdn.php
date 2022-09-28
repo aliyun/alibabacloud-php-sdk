@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnWafRulesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchDeleteDcdnWafRulesResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchModifyDcdnWafRulesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchModifyDcdnWafRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnDomainConfigsRequest;
@@ -93,8 +95,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
@@ -193,8 +193,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainDetailResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainMultiUsageDataRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainMultiUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsRequest;
@@ -519,6 +517,9 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->sources)) {
             $query['Sources'] = $request->sources;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->topLevelDomain)) {
             $query['TopLevelDomain'] = $request->topLevelDomain;
         }
@@ -841,6 +842,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchDeleteDcdnWafRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchModifyDcdnWafRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchModifyDcdnWafRulesResponse
+     */
+    public function batchModifyDcdnWafRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->ruleConfigs)) {
+            $body['RuleConfigs'] = $request->ruleConfigs;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchModifyDcdnWafRules',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchModifyDcdnWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchModifyDcdnWafRulesRequest $request
+     *
+     * @return BatchModifyDcdnWafRulesResponse
+     */
+    public function batchModifyDcdnWafRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchModifyDcdnWafRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -2730,52 +2777,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnCertificateListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnDdosServiceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDcdnDdosServiceResponse
-     */
-    public function describeDcdnDdosServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnDdosService',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnDdosServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnDdosServiceRequest $request
-     *
-     * @return DescribeDcdnDdosServiceResponse
-     */
-    public function describeDcdnDdosService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnDdosServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -5463,58 +5464,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnIpaDomainDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnIpaDomainMultiUsageDataRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeDcdnIpaDomainMultiUsageDataResponse
-     */
-    public function describeDcdnIpaDomainMultiUsageDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDcdnIpaDomainMultiUsageData',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDcdnIpaDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnIpaDomainMultiUsageDataRequest $request
-     *
-     * @return DescribeDcdnIpaDomainMultiUsageDataResponse
-     */
-    public function describeDcdnIpaDomainMultiUsageData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnIpaDomainMultiUsageDataWithOptions($request, $runtime);
     }
 
     /**

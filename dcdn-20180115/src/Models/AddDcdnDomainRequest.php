@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\AddDcdnDomainRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class AddDcdnDomainRequest extends Model
@@ -49,6 +50,11 @@ class AddDcdnDomainRequest extends Model
     public $sources;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $topLevelDomain;
@@ -61,6 +67,7 @@ class AddDcdnDomainRequest extends Model
         'scope'           => 'Scope',
         'securityToken'   => 'SecurityToken',
         'sources'         => 'Sources',
+        'tag'             => 'Tag',
         'topLevelDomain'  => 'TopLevelDomain',
     ];
 
@@ -94,6 +101,15 @@ class AddDcdnDomainRequest extends Model
         }
         if (null !== $this->sources) {
             $res['Sources'] = $this->sources;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topLevelDomain) {
             $res['TopLevelDomain'] = $this->topLevelDomain;
@@ -133,6 +149,15 @@ class AddDcdnDomainRequest extends Model
         }
         if (isset($map['Sources'])) {
             $model->sources = $map['Sources'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TopLevelDomain'])) {
             $model->topLevelDomain = $map['TopLevelDomain'];
