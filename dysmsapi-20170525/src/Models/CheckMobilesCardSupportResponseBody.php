@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class CheckMobilesCardSupportResponseBody extends Model
@@ -14,7 +15,7 @@ class CheckMobilesCardSupportResponseBody extends Model
     public $code;
 
     /**
-     * @var mixed[][]
+     * @var data
      */
     public $data;
 
@@ -45,7 +46,7 @@ class CheckMobilesCardSupportResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -69,9 +70,7 @@ class CheckMobilesCardSupportResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
-            }
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
