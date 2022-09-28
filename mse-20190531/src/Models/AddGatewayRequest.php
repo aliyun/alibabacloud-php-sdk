@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class AddGatewayRequest extends Model
@@ -69,6 +70,11 @@ class AddGatewayRequest extends Model
     public $spec;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -100,6 +106,7 @@ class AddGatewayRequest extends Model
         'replica'                    => 'Replica',
         'slbSpec'                    => 'SlbSpec',
         'spec'                       => 'Spec',
+        'tag'                        => 'Tag',
         'vSwitchId'                  => 'VSwitchId',
         'vSwitchId2'                 => 'VSwitchId2',
         'vpc'                        => 'Vpc',
@@ -148,6 +155,15 @@ class AddGatewayRequest extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -208,6 +224,15 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

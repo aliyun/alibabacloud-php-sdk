@@ -87,6 +87,11 @@ class result extends Model
     public $namespace;
 
     /**
+     * @var int[]
+     */
+    public $ports;
+
+    /**
      * @var string
      */
     public $serviceNameInRegistry;
@@ -136,6 +141,7 @@ class result extends Model
         'metaInfo'              => 'MetaInfo',
         'name'                  => 'Name',
         'namespace'             => 'Namespace',
+        'ports'                 => 'Ports',
         'serviceNameInRegistry' => 'ServiceNameInRegistry',
         'servicePort'           => 'ServicePort',
         'serviceProtocol'       => 'ServiceProtocol',
@@ -196,6 +202,9 @@ class result extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->ports) {
+            $res['Ports'] = $this->ports;
         }
         if (null !== $this->serviceNameInRegistry) {
             $res['ServiceNameInRegistry'] = $this->serviceNameInRegistry;
@@ -282,6 +291,11 @@ class result extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['Ports'])) {
+            if (!empty($map['Ports'])) {
+                $model->ports = $map['Ports'];
+            }
         }
         if (isset($map['ServiceNameInRegistry'])) {
             $model->serviceNameInRegistry = $map['ServiceNameInRegistry'];

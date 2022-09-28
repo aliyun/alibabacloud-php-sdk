@@ -451,6 +451,15 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->mseSessionId)) {
             $query['MseSessionId'] = $request->mseSessionId;
         }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->resourceIdJsonList)) {
+            $query['ResourceIdJsonList'] = $request->resourceIdJsonList;
+        }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
@@ -535,6 +544,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->spec)) {
             $query['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -7315,6 +7327,15 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->mseSessionId)) {
             $query['MseSessionId'] = $request->mseSessionId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
+        if (!Utils::isUnset($request->resourceIdJsonList)) {
+            $query['ResourceIdJsonList'] = $request->resourceIdJsonList;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;

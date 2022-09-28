@@ -53,6 +53,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $mseTag;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -118,6 +123,7 @@ class data extends Model
         'id'               => 'Id',
         'instanceId'       => 'InstanceId',
         'logConfigDetails' => 'LogConfigDetails',
+        'mseTag'           => 'MseTag',
         'name'             => 'Name',
         'primaryUser'      => 'PrimaryUser',
         'region'           => 'Region',
@@ -162,6 +168,9 @@ class data extends Model
         }
         if (null !== $this->logConfigDetails) {
             $res['LogConfigDetails'] = null !== $this->logConfigDetails ? $this->logConfigDetails->toMap() : null;
+        }
+        if (null !== $this->mseTag) {
+            $res['MseTag'] = $this->mseTag;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -234,6 +243,9 @@ class data extends Model
         }
         if (isset($map['LogConfigDetails'])) {
             $model->logConfigDetails = logConfigDetails::fromMap($map['LogConfigDetails']);
+        }
+        if (isset($map['MseTag'])) {
+            $model->mseTag = $map['MseTag'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -26,6 +26,11 @@ class filterParams extends Model
     /**
      * @var string
      */
+    public $mseTag;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -36,6 +41,7 @@ class filterParams extends Model
         'gatewayType'     => 'GatewayType',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'instanceId'      => 'InstanceId',
+        'mseTag'          => 'MseTag',
         'name'            => 'Name',
         'vpc'             => 'Vpc',
     ];
@@ -55,6 +61,9 @@ class filterParams extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mseTag) {
+            $res['MseTag'] = $this->mseTag;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -82,6 +91,9 @@ class filterParams extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MseTag'])) {
+            $model->mseTag = $map['MseTag'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

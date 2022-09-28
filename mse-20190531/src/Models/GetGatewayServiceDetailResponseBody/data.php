@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponseBody;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponseBody\data\labelDetails;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponseBody\data\portTrafficPolicyList;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponseBody\data\versionDetails;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponseBody\data\versions;
 use AlibabaCloud\SDK\Mse\V20190531\Models\TrafficPolicy;
@@ -83,6 +84,16 @@ class data extends Model
     public $namespace;
 
     /**
+     * @var portTrafficPolicyList[]
+     */
+    public $portTrafficPolicyList;
+
+    /**
+     * @var int[]
+     */
+    public $ports;
+
+    /**
      * @var string
      */
     public $serviceNameInRegistry;
@@ -126,6 +137,8 @@ class data extends Model
         'metaInfo'              => 'MetaInfo',
         'name'                  => 'Name',
         'namespace'             => 'Namespace',
+        'portTrafficPolicyList' => 'PortTrafficPolicyList',
+        'ports'                 => 'Ports',
         'serviceNameInRegistry' => 'ServiceNameInRegistry',
         'serviceProtocol'       => 'ServiceProtocol',
         'sourceId'              => 'SourceId',
@@ -188,6 +201,18 @@ class data extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->portTrafficPolicyList) {
+            $res['PortTrafficPolicyList'] = [];
+            if (null !== $this->portTrafficPolicyList && \is_array($this->portTrafficPolicyList)) {
+                $n = 0;
+                foreach ($this->portTrafficPolicyList as $item) {
+                    $res['PortTrafficPolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->ports) {
+            $res['Ports'] = $this->ports;
         }
         if (null !== $this->serviceNameInRegistry) {
             $res['ServiceNameInRegistry'] = $this->serviceNameInRegistry;
@@ -280,6 +305,20 @@ class data extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PortTrafficPolicyList'])) {
+            if (!empty($map['PortTrafficPolicyList'])) {
+                $model->portTrafficPolicyList = [];
+                $n                            = 0;
+                foreach ($map['PortTrafficPolicyList'] as $item) {
+                    $model->portTrafficPolicyList[$n++] = null !== $item ? portTrafficPolicyList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Ports'])) {
+            if (!empty($map['Ports'])) {
+                $model->ports = $map['Ports'];
+            }
         }
         if (isset($map['ServiceNameInRegistry'])) {
             $model->serviceNameInRegistry = $map['ServiceNameInRegistry'];

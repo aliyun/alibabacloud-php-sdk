@@ -92,6 +92,11 @@ class result extends Model
     public $latestVersion;
 
     /**
+     * @var string
+     */
+    public $mseTag;
+
+    /**
      * @var bool
      */
     public $mustUpgrade;
@@ -177,6 +182,7 @@ class result extends Model
         'instanceId'      => 'InstanceId',
         'internetSlb'     => 'InternetSlb',
         'latestVersion'   => 'LatestVersion',
+        'mseTag'          => 'MseTag',
         'mustUpgrade'     => 'MustUpgrade',
         'name'            => 'Name',
         'primaryUser'     => 'PrimaryUser',
@@ -253,6 +259,9 @@ class result extends Model
         }
         if (null !== $this->latestVersion) {
             $res['LatestVersion'] = $this->latestVersion;
+        }
+        if (null !== $this->mseTag) {
+            $res['MseTag'] = $this->mseTag;
         }
         if (null !== $this->mustUpgrade) {
             $res['MustUpgrade'] = $this->mustUpgrade;
@@ -367,6 +376,9 @@ class result extends Model
         }
         if (isset($map['LatestVersion'])) {
             $model->latestVersion = $map['LatestVersion'];
+        }
+        if (isset($map['MseTag'])) {
+            $model->mseTag = $map['MseTag'];
         }
         if (isset($map['MustUpgrade'])) {
             $model->mustUpgrade = $map['MustUpgrade'];

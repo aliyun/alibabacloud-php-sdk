@@ -36,6 +36,21 @@ class AddBlackWhiteListRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $note;
+
+    /**
+     * @var string
+     */
+    public $resourceIdJsonList;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -48,14 +63,17 @@ class AddBlackWhiteListRequest extends Model
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'content'         => 'Content',
-        'gatewayUniqueId' => 'GatewayUniqueId',
-        'isWhite'         => 'IsWhite',
-        'mseSessionId'    => 'MseSessionId',
-        'resourceType'    => 'ResourceType',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'acceptLanguage'     => 'AcceptLanguage',
+        'content'            => 'Content',
+        'gatewayUniqueId'    => 'GatewayUniqueId',
+        'isWhite'            => 'IsWhite',
+        'mseSessionId'       => 'MseSessionId',
+        'name'               => 'Name',
+        'note'               => 'Note',
+        'resourceIdJsonList' => 'ResourceIdJsonList',
+        'resourceType'       => 'ResourceType',
+        'status'             => 'Status',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -79,6 +97,15 @@ class AddBlackWhiteListRequest extends Model
         }
         if (null !== $this->mseSessionId) {
             $res['MseSessionId'] = $this->mseSessionId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
+        }
+        if (null !== $this->resourceIdJsonList) {
+            $res['ResourceIdJsonList'] = $this->resourceIdJsonList;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -115,6 +142,15 @@ class AddBlackWhiteListRequest extends Model
         }
         if (isset($map['MseSessionId'])) {
             $model->mseSessionId = $map['MseSessionId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
+        }
+        if (isset($map['ResourceIdJsonList'])) {
+            $model->resourceIdJsonList = $map['ResourceIdJsonList'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

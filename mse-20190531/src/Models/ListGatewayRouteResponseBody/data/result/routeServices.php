@@ -50,6 +50,11 @@ class routeServices extends Model
     public $serviceName;
 
     /**
+     * @var int
+     */
+    public $servicePort;
+
+    /**
      * @var string
      */
     public $sourceType;
@@ -67,6 +72,7 @@ class routeServices extends Model
         'percent'             => 'Percent',
         'serviceId'           => 'ServiceId',
         'serviceName'         => 'ServiceName',
+        'servicePort'         => 'ServicePort',
         'sourceType'          => 'SourceType',
         'version'             => 'Version',
     ];
@@ -101,6 +107,9 @@ class routeServices extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->servicePort) {
+            $res['ServicePort'] = $this->servicePort;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -143,6 +152,9 @@ class routeServices extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServicePort'])) {
+            $model->servicePort = $map['ServicePort'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
