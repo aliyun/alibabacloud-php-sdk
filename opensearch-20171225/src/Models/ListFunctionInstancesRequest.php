@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionInstancesRequest extends Model
 {
     /**
-     * @description 功能类型
-     *
      * @var string
      */
     public $functionType;
 
     /**
-     * @description 模型类型
-     *
      * @var string
      */
     public $modelType;
 
     /**
-     * @description 返回信息的丰富度
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页大小
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 实例来源
-     *
      * @var string
      */
     public $source;

@@ -22,7 +22,6 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionTaskResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateInterventionDictionaryResponse;
-use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateModelRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateModelResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateQueryProcessorRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateQueryProcessorResponse;
@@ -143,6 +142,9 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListStatisticLogsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListStatisticLogsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListStatisticReportRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListStatisticReportResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListUserAnalyzerEntriesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListUserAnalyzerEntriesResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListUserAnalyzersRequest;
@@ -173,13 +175,19 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveScheduledTaskResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveSearchStrategyResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveSecondRankResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveUserAnalyzerResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RenewAppGroupRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RenewAppGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ReplaceAppGroupCommodityCodeResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\SaveSortScriptFileResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\StartSlowQueryAnalyzerResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\TrainModelResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UnbindEsInstanceResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UnbindESUserAnalyzerResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestExperimentResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestFixedFlowDividersResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestGroupResponse;
@@ -258,16 +266,14 @@ class OpenSearch extends OpenApiClient
      */
     public function bindESUserAnalyzerWithOptions($appGroupIdentity, $esInstanceId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $esInstanceId     = OpenApiUtilClient::getEncodeParam($esInstanceId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'BindESUserAnalyzer',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/es/' . $esInstanceId . '/actions/bind-analyzer',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/es/' . OpenApiUtilClient::getEncodeParam($esInstanceId) . '/actions/bind-analyzer',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -300,15 +306,14 @@ class OpenSearch extends OpenApiClient
      */
     public function bindEsInstanceWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'BindEsInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/actions/bind-es-instance',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/bind-es-instance',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -345,17 +350,14 @@ class OpenSearch extends OpenApiClient
      */
     public function compileSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CompileSortScript',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '/actions/compiling',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/actions/compiling',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -392,17 +394,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateABTestExperiment',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -437,16 +436,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createABTestGroupWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateABTestGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -479,15 +476,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createABTestSceneWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateABTestScene',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -523,8 +519,7 @@ class OpenSearch extends OpenApiClient
     public function createAppWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -536,7 +531,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'CreateApp',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -606,15 +601,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createDataCollectionWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateDataCollection',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/data-collections',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -652,9 +646,7 @@ class OpenSearch extends OpenApiClient
     public function createFirstRankWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -666,7 +658,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'CreateFirstRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/first-ranks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -704,9 +696,7 @@ class OpenSearch extends OpenApiClient
     public function createFunctionInstanceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $body             = [];
+        $body = [];
         if (!Utils::isUnset($request->createParameters)) {
             $body['createParameters'] = $request->createParameters;
         }
@@ -736,7 +726,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'CreateFunctionInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -773,17 +763,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateFunctionTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '/tasks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -832,44 +819,35 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string             $appGroupIdentity
-     * @param CreateModelRequest $request
+     * @param string $appGroupIdentity
      *
      * @return CreateModelResponse
      */
-    public function createModel($appGroupIdentity, $request)
+    public function createModel($appGroupIdentity)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createModelWithOptions($appGroupIdentity, $request, $headers, $runtime);
+        return $this->createModelWithOptions($appGroupIdentity, $headers, $runtime);
     }
 
     /**
-     * @param string             $appGroupIdentity
-     * @param CreateModelRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param string         $appGroupIdentity
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return CreateModelResponse
      */
-    public function createModelWithOptions($appGroupIdentity, $request, $headers, $runtime)
+    public function createModelWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $body             = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateModel',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -907,9 +885,7 @@ class OpenSearch extends OpenApiClient
     public function createQueryProcessorWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -921,7 +897,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'CreateQueryProcessor',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/query-processors',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -954,15 +930,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createScheduledTaskWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateScheduledTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scheduled-tasks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -997,16 +972,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createSearchStrategyWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateSearchStrategy',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/search-strategies',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1044,9 +1017,7 @@ class OpenSearch extends OpenApiClient
     public function createSecondRankWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -1058,7 +1029,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'CreateSecondRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/second-ranks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1093,16 +1064,14 @@ class OpenSearch extends OpenApiClient
      */
     public function createSortScriptWithOptions($appGroupIdentity, $appVersionId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateSortScript',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1178,18 +1147,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $experimentId     = OpenApiUtilClient::getEncodeParam($experimentId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteABTestExperiment',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments/' . $experimentId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1226,17 +1191,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteABTestGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1271,16 +1233,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteABTestScene',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1317,17 +1277,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteFunctionInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1366,18 +1323,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $generation       = OpenApiUtilClient::getEncodeParam($generation);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteFunctionTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '/tasks/' . $generation . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks/' . OpenApiUtilClient::getEncodeParam($generation) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1412,16 +1365,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteModelWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteModel',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1458,17 +1409,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteSortScript',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1507,18 +1455,14 @@ class OpenSearch extends OpenApiClient
      */
     public function deleteSortScriptFileWithOptions($appGroupIdentity, $appVersionId, $scriptName, $fileName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $fileName         = OpenApiUtilClient::getEncodeParam($fileName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteSortScriptFile',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '/files/src/' . $fileName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/files/src/' . OpenApiUtilClient::getEncodeParam($fileName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1557,18 +1501,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $experimentId     = OpenApiUtilClient::getEncodeParam($experimentId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeABTestExperiment',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments/' . $experimentId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1605,17 +1545,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeABTestGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1650,16 +1587,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeABTestScene',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1694,16 +1629,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeAppWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeApp',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1736,15 +1669,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeAppGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1780,8 +1712,7 @@ class OpenSearch extends OpenApiClient
     public function describeAppGroupDataReportWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
         }
@@ -1796,7 +1727,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'DescribeAppGroupDataReport',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/data-report',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-report',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1829,15 +1760,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeAppGroupStatisticsWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeAppGroupStatistics',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/statistics',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/statistics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1872,16 +1802,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeAppStatisticsWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeAppStatistics',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/statistics',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/statistics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1914,15 +1842,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeAppsWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeApps',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1957,16 +1884,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeDataCollctionWithOptions($appGroupIdentity, $dataCollectionIdentity, $headers, $runtime)
     {
-        $appGroupIdentity       = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $dataCollectionIdentity = OpenApiUtilClient::getEncodeParam($dataCollectionIdentity);
-        $req                    = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeDataCollction',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/data-collections/' . $dataCollectionIdentity . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections/' . OpenApiUtilClient::getEncodeParam($dataCollectionIdentity) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2003,17 +1928,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeFirstRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeFirstRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/first-ranks/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2046,15 +1968,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeInterventionDictionaryWithOptions($name, $headers, $runtime)
     {
-        $name = OpenApiUtilClient::getEncodeParam($name);
-        $req  = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeInterventionDictionary',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . $name . '',
+            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2089,16 +2010,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeModelWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeModel',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2135,17 +2054,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeQueryProcessor',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/query-processors/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2254,16 +2170,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $taskId           = OpenApiUtilClient::getEncodeParam($taskId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeScheduledTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scheduled-tasks/' . $taskId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2300,17 +2214,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeSecondRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeSecondRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/second-ranks/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2343,15 +2254,14 @@ class OpenSearch extends OpenApiClient
      */
     public function describeSlowQueryStatusWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeSlowQueryStatus',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/optimizers/slow-query',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2387,7 +2297,6 @@ class OpenSearch extends OpenApiClient
     public function describeUserAnalyzerWithOptions($name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $name  = OpenApiUtilClient::getEncodeParam($name);
         $query = [];
         if (!Utils::isUnset($request->with)) {
             $query['with'] = $request->with;
@@ -2400,7 +2309,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'DescribeUserAnalyzer',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . $name . '',
+            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2433,15 +2342,14 @@ class OpenSearch extends OpenApiClient
      */
     public function disableSlowQueryWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DisableSlowQuery',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/optimizers/slow-query/actions/disable',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/actions/disable',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2474,15 +2382,14 @@ class OpenSearch extends OpenApiClient
      */
     public function enableSlowQueryWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'EnableSlowQuery',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/optimizers/slow-query/actions/enable',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/actions/enable',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2564,8 +2471,7 @@ class OpenSearch extends OpenApiClient
     public function getDomainWithOptions($domainName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $domainName = OpenApiUtilClient::getEncodeParam($domainName);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->appGroupIdentity)) {
             $query['appGroupIdentity'] = $request->appGroupIdentity;
         }
@@ -2577,7 +2483,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'GetDomain',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/domains/' . $domainName . '',
+            'pathname'    => '/v4/openapi/domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2613,8 +2519,7 @@ class OpenSearch extends OpenApiClient
     public function getFunctionCurrentVersionWithOptions($functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -2635,7 +2540,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'GetFunctionCurrentVersion',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/functions/' . $functionName . '/current-version',
+            'pathname'    => '/v4/openapi/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/current-version',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2670,16 +2575,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getFunctionDefaultInstanceWithOptions($appGroupIdentity, $functionName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetFunctionDefaultInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/default-instance',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/default-instance',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2719,10 +2622,7 @@ class OpenSearch extends OpenApiClient
     public function getFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->output)) {
             $query['output'] = $request->output;
         }
@@ -2734,7 +2634,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'GetFunctionInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2773,18 +2673,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getFunctionTaskWithOptions($appGroupIdentity, $functionName, $instanceName, $generation, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $generation       = OpenApiUtilClient::getEncodeParam($generation);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetFunctionTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '/tasks/' . $generation . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks/' . OpenApiUtilClient::getEncodeParam($generation) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2819,16 +2715,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
     {
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $versionId    = OpenApiUtilClient::getEncodeParam($versionId);
-        $req          = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetFunctionVersion',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/functions/' . $functionName . '/versions/' . $versionId . '',
+            'pathname'    => '/v4/openapi/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2863,16 +2757,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getModelProgressWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetModelProgress',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '/progress',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/progress',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2907,16 +2799,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getModelReportWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetModelReport',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '/report',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/report',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2953,17 +2843,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getScriptFileNamesWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetScriptFileNames',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '/file-names',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/file-names',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3000,17 +2887,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $strategyName     = OpenApiUtilClient::getEncodeParam($strategyName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetSearchStrategy',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/search-strategies/' . $strategyName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies/' . OpenApiUtilClient::getEncodeParam($strategyName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3047,17 +2931,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetSortScript',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3096,18 +2977,14 @@ class OpenSearch extends OpenApiClient
      */
     public function getSortScriptFileWithOptions($appGroupIdentity, $scriptName, $appVersionId, $fileName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $fileName         = OpenApiUtilClient::getEncodeParam($fileName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetSortScriptFile',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '/files/src/' . $fileName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/files/src/' . OpenApiUtilClient::getEncodeParam($fileName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3143,8 +3020,7 @@ class OpenSearch extends OpenApiClient
     public function getValidationErrorWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->errorCode)) {
             $query['errorCode'] = $request->errorCode;
         }
@@ -3156,7 +3032,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'GetValidationError',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/data/validation-error',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/data/validation-error',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3192,8 +3068,7 @@ class OpenSearch extends OpenApiClient
     public function getValidationReportWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
@@ -3205,7 +3080,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'GetValidationReport',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/data/validation-report',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/data/validation-report',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3242,17 +3117,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listABTestExperimentsWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListABTestExperiments',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3291,18 +3163,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listABTestFixedFlowDividersWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $experimentId     = OpenApiUtilClient::getEncodeParam($experimentId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListABTestFixedFlowDividers',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments/' . $experimentId . '/fixed-flow-dividers',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '/fixed-flow-dividers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3337,16 +3205,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listABTestGroupsWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListABTestGroups',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3383,17 +3249,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listABTestMetricsWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListABTestMetrics',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/metrics',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/metrics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3426,15 +3289,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listABTestScenesWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListABTestScenes',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3470,8 +3332,7 @@ class OpenSearch extends OpenApiClient
     public function listAppGroupErrorsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['appId'] = $request->appId;
         }
@@ -3495,7 +3356,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListAppGroupErrors',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/errors',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/errors',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3531,8 +3392,7 @@ class OpenSearch extends OpenApiClient
     public function listAppGroupMetricsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
         }
@@ -3553,7 +3413,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListAppGroupMetrics',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/metrics',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/metrics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3705,8 +3565,7 @@ class OpenSearch extends OpenApiClient
     public function listDataCollectionsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -3721,7 +3580,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListDataCollections',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/data-collections',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3757,8 +3616,7 @@ class OpenSearch extends OpenApiClient
     public function listDataSourceTableFieldsWithOptions($dataSourceType, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $dataSourceType = OpenApiUtilClient::getEncodeParam($dataSourceType);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->params)) {
             $query['params'] = $request->params;
         }
@@ -3770,7 +3628,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListDataSourceTableFields',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/assist/data-sources/' . $dataSourceType . '/fields',
+            'pathname'    => '/v4/openapi/assist/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceType) . '/fields',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3806,8 +3664,7 @@ class OpenSearch extends OpenApiClient
     public function listDataSourceTablesWithOptions($dataSourceType, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $dataSourceType = OpenApiUtilClient::getEncodeParam($dataSourceType);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->params)) {
             $query['params'] = $request->params;
         }
@@ -3819,7 +3676,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListDataSourceTables',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/assist/data-sources/' . $dataSourceType . '/tables',
+            'pathname'    => '/v4/openapi/assist/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceType) . '/tables',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3855,8 +3712,7 @@ class OpenSearch extends OpenApiClient
     public function listDeployedAlgorithmModelsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->algorithmType)) {
             $query['algorithmType'] = $request->algorithmType;
         }
@@ -3871,7 +3727,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListDeployedAlgorithmModels',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/deployed-algorithm-models',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/deployed-algorithm-models',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3906,16 +3762,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listFirstRanksWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListFirstRanks',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/first-ranks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3953,9 +3807,7 @@ class OpenSearch extends OpenApiClient
     public function listFunctionInstancesWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->functionType)) {
             $query['functionType'] = $request->functionType;
         }
@@ -3982,7 +3834,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListFunctionInstances',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4022,10 +3874,7 @@ class OpenSearch extends OpenApiClient
     public function listFunctionTasksWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
         }
@@ -4049,7 +3898,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListFunctionTasks',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '/tasks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '/tasks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4137,7 +3986,6 @@ class OpenSearch extends OpenApiClient
     public function listInterventionDictionaryEntriesWithOptions($name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $name  = OpenApiUtilClient::getEncodeParam($name);
         $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
@@ -4156,7 +4004,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListInterventionDictionaryEntries',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . $name . '/entries',
+            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/entries',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4192,7 +4040,6 @@ class OpenSearch extends OpenApiClient
     public function listInterventionDictionaryNerResultsWithOptions($name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $name  = OpenApiUtilClient::getEncodeParam($name);
         $query = [];
         if (!Utils::isUnset($request->query)) {
             $query['query'] = $request->query;
@@ -4205,7 +4052,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListInterventionDictionaryNerResults',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . $name . '/ner-results',
+            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/ner-results',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4238,15 +4085,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listInterventionDictionaryRelatedEntitiesWithOptions($name, $headers, $runtime)
     {
-        $name = OpenApiUtilClient::getEncodeParam($name);
-        $req  = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListInterventionDictionaryRelatedEntities',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . $name . '/related',
+            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/related',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4282,8 +4128,7 @@ class OpenSearch extends OpenApiClient
     public function listModelsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -4301,7 +4146,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListModels',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4337,8 +4182,7 @@ class OpenSearch extends OpenApiClient
     public function listProceedingsWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->filterFinished)) {
             $query['filterFinished'] = $request->filterFinished;
         }
@@ -4350,7 +4194,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListProceedings',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/proceedings',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/proceedings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4390,10 +4234,7 @@ class OpenSearch extends OpenApiClient
     public function listQueryProcessorAnalyzerResultsWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->text)) {
             $query['text'] = $request->text;
         }
@@ -4405,7 +4246,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListQueryProcessorAnalyzerResults',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/query-processors/' . $name . '/analyze',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '/analyze',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4489,9 +4330,7 @@ class OpenSearch extends OpenApiClient
     public function listQueryProcessorsWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->isActive)) {
             $query['isActive'] = $request->isActive;
         }
@@ -4503,7 +4342,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListQueryProcessors',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/query-processors',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4539,8 +4378,7 @@ class OpenSearch extends OpenApiClient
     public function listQuotaReviewTasksWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -4555,7 +4393,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListQuotaReviewTasks',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/quota-review-tasks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/quota-review-tasks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4628,8 +4466,7 @@ class OpenSearch extends OpenApiClient
     public function listScheduledTasksWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -4647,7 +4484,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListScheduledTasks',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scheduled-tasks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4682,16 +4519,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listSearchStrategiesWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListSearchStrategies',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/search-strategies',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4726,16 +4561,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listSecondRanksWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListSecondRanks',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/second-ranks',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4768,15 +4601,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listSlowQueryCategoriesWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListSlowQueryCategories',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/optimizers/slow-query/categories',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/categories',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4811,16 +4643,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listSlowQueryQueriesWithOptions($appGroupIdentity, $categoryIndex, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $categoryIndex    = OpenApiUtilClient::getEncodeParam($categoryIndex);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListSlowQueryQueries',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/optimizers/slow-query/categories/' . $categoryIndex . '/queries',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/categories/' . OpenApiUtilClient::getEncodeParam($categoryIndex) . '/queries',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4855,16 +4685,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listSortExpressionsWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListSortExpressions',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/sort-expressions',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/sort-expressions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4899,16 +4727,14 @@ class OpenSearch extends OpenApiClient
      */
     public function listSortScriptsWithOptions($appGroupIdentity, $appVersionId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListSortScripts',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4946,9 +4772,7 @@ class OpenSearch extends OpenApiClient
     public function listStatisticLogsWithOptions($appGroupIdentity, $moduleName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $moduleName       = OpenApiUtilClient::getEncodeParam($moduleName);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->columns)) {
             $query['columns'] = $request->columns;
         }
@@ -4981,7 +4805,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListStatisticLogs',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/statistic-logs/' . $moduleName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/statistic-logs/' . OpenApiUtilClient::getEncodeParam($moduleName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5019,9 +4843,7 @@ class OpenSearch extends OpenApiClient
     public function listStatisticReportWithOptions($appGroupIdentity, $moduleName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $moduleName       = OpenApiUtilClient::getEncodeParam($moduleName);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->columns)) {
             $query['columns'] = $request->columns;
         }
@@ -5048,7 +4870,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListStatisticReport',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/statistic-report/' . $moduleName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/statistic-report/' . OpenApiUtilClient::getEncodeParam($moduleName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5057,6 +4879,69 @@ class OpenSearch extends OpenApiClient
         ]);
 
         return ListStatisticReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTagResourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceId)) {
+            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceIdShrink)) {
+            $query['resourceId'] = $request->resourceIdShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['tag'] = $request->tagShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2017-12-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v4/openapi/resource-tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5084,7 +4969,6 @@ class OpenSearch extends OpenApiClient
     public function listUserAnalyzerEntriesWithOptions($name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $name  = OpenApiUtilClient::getEncodeParam($name);
         $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
@@ -5103,7 +4987,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ListUserAnalyzerEntries',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . $name . '/entries',
+            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '/entries',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5185,15 +5069,14 @@ class OpenSearch extends OpenApiClient
      */
     public function modifyAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ModifyAppGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5226,15 +5109,14 @@ class OpenSearch extends OpenApiClient
      */
     public function modifyAppGroupQuotaWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ModifyAppGroupQuota',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/quota',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/quota',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5274,10 +5156,7 @@ class OpenSearch extends OpenApiClient
     public function modifyFirstRankWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -5289,7 +5168,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ModifyFirstRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/first-ranks/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5324,16 +5203,14 @@ class OpenSearch extends OpenApiClient
      */
     public function modifyModelWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ModifyModel',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5373,10 +5250,7 @@ class OpenSearch extends OpenApiClient
     public function modifyQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -5388,7 +5262,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ModifyQueryProcessor',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/query-processors/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5423,16 +5297,14 @@ class OpenSearch extends OpenApiClient
      */
     public function modifyScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $taskId           = OpenApiUtilClient::getEncodeParam($taskId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ModifyScheduledTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scheduled-tasks/' . $taskId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5472,10 +5344,7 @@ class OpenSearch extends OpenApiClient
     public function modifySecondRankWithOptions($appGroupIdentity, $appId, $name, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -5487,7 +5356,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'ModifySecondRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/second-ranks/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5525,9 +5394,7 @@ class OpenSearch extends OpenApiClient
     public function previewModelWithOptions($appGroupIdentity, $modelName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->query)) {
             $query['query'] = $request->query;
         }
@@ -5539,7 +5406,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'PreviewModel',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '/actions/preview',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/actions/preview',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5572,15 +5439,14 @@ class OpenSearch extends OpenApiClient
      */
     public function pushInterventionDictionaryEntriesWithOptions($name, $headers, $runtime)
     {
-        $name = OpenApiUtilClient::getEncodeParam($name);
-        $req  = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'PushInterventionDictionaryEntries',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . $name . '/entries/actions/bulk',
+            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '/entries/actions/bulk',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5613,15 +5479,14 @@ class OpenSearch extends OpenApiClient
      */
     public function pushUserAnalyzerEntriesWithOptions($name, $headers, $runtime)
     {
-        $name = OpenApiUtilClient::getEncodeParam($name);
-        $req  = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'PushUserAnalyzerEntries',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . $name . '/entries/actions/bulk',
+            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '/entries/actions/bulk',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5656,16 +5521,14 @@ class OpenSearch extends OpenApiClient
      */
     public function rankPreviewQueryWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RankPreviewQuery',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '/actions/query-rank',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/actions/query-rank',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5702,17 +5565,14 @@ class OpenSearch extends OpenApiClient
      */
     public function releaseSortScriptWithOptions($appGroupIdentity, $scriptName, $appVersionId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ReleaseSortScript',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '/actions/release',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/actions/release',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5747,16 +5607,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeAppWithOptions($appGroupIdentity, $appId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveApp',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5789,15 +5647,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveAppGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5832,16 +5689,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeDataCollectionWithOptions($appGroupIdentity, $dataCollectionIdentity, $headers, $runtime)
     {
-        $appGroupIdentity       = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $dataCollectionIdentity = OpenApiUtilClient::getEncodeParam($dataCollectionIdentity);
-        $req                    = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveDataCollection',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/data-collections/' . $dataCollectionIdentity . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/data-collections/' . OpenApiUtilClient::getEncodeParam($dataCollectionIdentity) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5878,17 +5733,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeFirstRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveFirstRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/first-ranks/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/first-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5921,15 +5773,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeInterventionDictionaryWithOptions($name, $headers, $runtime)
     {
-        $name = OpenApiUtilClient::getEncodeParam($name);
-        $req  = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveInterventionDictionary',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/intervention-dictionaries/' . $name . '',
+            'pathname'    => '/v4/openapi/intervention-dictionaries/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5966,17 +5817,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeQueryProcessorWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveQueryProcessor',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/query-processors/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/query-processors/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6011,16 +5859,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeScheduledTaskWithOptions($appGroupIdentity, $taskId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $taskId           = OpenApiUtilClient::getEncodeParam($taskId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveScheduledTask',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scheduled-tasks/' . $taskId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scheduled-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6057,17 +5903,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $strategyName     = OpenApiUtilClient::getEncodeParam($strategyName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveSearchStrategy',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/search-strategies/' . $strategyName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies/' . OpenApiUtilClient::getEncodeParam($strategyName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6104,17 +5947,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeSecondRankWithOptions($appGroupIdentity, $appId, $name, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $name             = OpenApiUtilClient::getEncodeParam($name);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveSecondRank',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/second-ranks/' . $name . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/second-ranks/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6147,15 +5987,14 @@ class OpenSearch extends OpenApiClient
      */
     public function removeUserAnalyzerWithOptions($name, $headers, $runtime)
     {
-        $name = OpenApiUtilClient::getEncodeParam($name);
-        $req  = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RemoveUserAnalyzer',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/user-analyzers/' . $name . '',
+            'pathname'    => '/v4/openapi/user-analyzers/' . OpenApiUtilClient::getEncodeParam($name) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6167,36 +6006,43 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param string $appGroupIdentity
+     * @param string               $appGroupIdentity
+     * @param RenewAppGroupRequest $request
      *
      * @return RenewAppGroupResponse
      */
-    public function renewAppGroup($appGroupIdentity)
+    public function renewAppGroup($appGroupIdentity, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->renewAppGroupWithOptions($appGroupIdentity, $headers, $runtime);
+        return $this->renewAppGroupWithOptions($appGroupIdentity, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $appGroupIdentity
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $appGroupIdentity
+     * @param RenewAppGroupRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return RenewAppGroupResponse
      */
-    public function renewAppGroupWithOptions($appGroupIdentity, $headers, $runtime)
+    public function renewAppGroupWithOptions($appGroupIdentity, $request, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['clientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'RenewAppGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/actions/renew',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/renew',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6229,15 +6075,14 @@ class OpenSearch extends OpenApiClient
      */
     public function replaceAppGroupCommodityCodeWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ReplaceAppGroupCommodityCode',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/actions/to-instance-typed',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/to-instance-typed',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6276,18 +6121,14 @@ class OpenSearch extends OpenApiClient
      */
     public function saveSortScriptFileWithOptions($appGroupIdentity, $scriptName, $appVersionId, $fileName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $fileName         = OpenApiUtilClient::getEncodeParam($fileName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'SaveSortScriptFile',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '/files/src/' . $fileName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '/files/src/' . OpenApiUtilClient::getEncodeParam($fileName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6320,15 +6161,14 @@ class OpenSearch extends OpenApiClient
      */
     public function startSlowQueryAnalyzerWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StartSlowQueryAnalyzer',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/optimizers/slow-query/actions/run',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/optimizers/slow-query/actions/run',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6337,6 +6177,58 @@ class OpenSearch extends OpenApiClient
         ]);
 
         return StartSlowQueryAnalyzerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $body['resourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['resourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $body['tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2017-12-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v4/openapi/resource-tags',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6363,16 +6255,14 @@ class OpenSearch extends OpenApiClient
      */
     public function trainModelWithOptions($appGroupIdentity, $modelName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $modelName        = OpenApiUtilClient::getEncodeParam($modelName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'TrainModel',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/algorithm/models/' . $modelName . '/actions/train',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/algorithm/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/actions/train',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6407,16 +6297,14 @@ class OpenSearch extends OpenApiClient
      */
     public function unbindESUserAnalyzerWithOptions($appGroupIdentity, $esInstanceId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $esInstanceId     = OpenApiUtilClient::getEncodeParam($esInstanceId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UnbindESUserAnalyzer',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/es/' . $esInstanceId . '/actions/unbind-analyzer',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/es/' . OpenApiUtilClient::getEncodeParam($esInstanceId) . '/actions/unbind-analyzer',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6449,15 +6337,14 @@ class OpenSearch extends OpenApiClient
      */
     public function unbindEsInstanceWithOptions($appGroupIdentity, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UnbindEsInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/actions/unbind-es-instance',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/actions/unbind-es-instance',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6466,6 +6353,69 @@ class OpenSearch extends OpenApiClient
         ]);
 
         return UnbindEsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UntagResourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceId)) {
+            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tagKey)) {
+            $request->tagKeyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['all'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceIdShrink)) {
+            $query['resourceId'] = $request->resourceIdShrink;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['resourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKeyShrink)) {
+            $query['tagKey'] = $request->tagKeyShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2017-12-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v4/openapi/resource-tags',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6496,18 +6446,14 @@ class OpenSearch extends OpenApiClient
      */
     public function updateABTestExperimentWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $experimentId     = OpenApiUtilClient::getEncodeParam($experimentId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateABTestExperiment',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments/' . $experimentId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6546,18 +6492,14 @@ class OpenSearch extends OpenApiClient
      */
     public function updateABTestFixedFlowDividersWithOptions($appGroupIdentity, $sceneId, $groupId, $experimentId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $experimentId     = OpenApiUtilClient::getEncodeParam($experimentId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateABTestFixedFlowDividers',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '/experiments/' . $experimentId . '/fixed-flow-dividers',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/experiments/' . OpenApiUtilClient::getEncodeParam($experimentId) . '/fixed-flow-dividers',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6594,17 +6536,14 @@ class OpenSearch extends OpenApiClient
      */
     public function updateABTestGroupWithOptions($appGroupIdentity, $sceneId, $groupId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $groupId          = OpenApiUtilClient::getEncodeParam($groupId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateABTestGroup',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '/groups/' . $groupId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6639,16 +6578,14 @@ class OpenSearch extends OpenApiClient
      */
     public function updateABTestSceneWithOptions($appGroupIdentity, $sceneId, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $sceneId          = OpenApiUtilClient::getEncodeParam($sceneId);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateABTestScene',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/scenes/' . $sceneId . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/scenes/' . OpenApiUtilClient::getEncodeParam($sceneId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6686,9 +6623,7 @@ class OpenSearch extends OpenApiClient
     public function updateFetchFieldsWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -6700,7 +6635,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'UpdateFetchFields',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/fetch-fields',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/fetch-fields',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6738,9 +6673,7 @@ class OpenSearch extends OpenApiClient
     public function updateFunctionDefaultInstanceWithOptions($appGroupIdentity, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $body             = [];
+        $body = [];
         if (!Utils::isUnset($request->instanceName)) {
             $body['instanceName'] = $request->instanceName;
         }
@@ -6752,7 +6685,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'UpdateFunctionDefaultInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/default-instance',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/default-instance',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6792,10 +6725,7 @@ class OpenSearch extends OpenApiClient
     public function updateFunctionInstanceWithOptions($appGroupIdentity, $functionName, $instanceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $functionName     = OpenApiUtilClient::getEncodeParam($functionName);
-        $instanceName     = OpenApiUtilClient::getEncodeParam($instanceName);
-        $body             = [];
+        $body = [];
         if (!Utils::isUnset($request->createParameters)) {
             $body['createParameters'] = $request->createParameters;
         }
@@ -6816,7 +6746,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'UpdateFunctionInstance',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/functions/' . $functionName . '/instances/' . $instanceName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances/' . OpenApiUtilClient::getEncodeParam($instanceName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6853,17 +6783,14 @@ class OpenSearch extends OpenApiClient
      */
     public function updateSearchStrategyWithOptions($appGroupIdentity, $appId, $strategyName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $strategyName     = OpenApiUtilClient::getEncodeParam($strategyName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateSearchStrategy',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/search-strategies/' . $strategyName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/search-strategies/' . OpenApiUtilClient::getEncodeParam($strategyName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6900,17 +6827,14 @@ class OpenSearch extends OpenApiClient
      */
     public function updateSortScriptWithOptions($appGroupIdentity, $appVersionId, $scriptName, $headers, $runtime)
     {
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appVersionId     = OpenApiUtilClient::getEncodeParam($appVersionId);
-        $scriptName       = OpenApiUtilClient::getEncodeParam($scriptName);
-        $req              = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'UpdateSortScript',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appVersionId . '/sort-scripts/' . $scriptName . '',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appVersionId) . '/sort-scripts/' . OpenApiUtilClient::getEncodeParam($scriptName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6948,9 +6872,7 @@ class OpenSearch extends OpenApiClient
     public function updateSummariesWithOptions($appGroupIdentity, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $appGroupIdentity = OpenApiUtilClient::getEncodeParam($appGroupIdentity);
-        $appId            = OpenApiUtilClient::getEncodeParam($appId);
-        $query            = [];
+        $query = [];
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
@@ -6962,7 +6884,7 @@ class OpenSearch extends OpenApiClient
             'action'      => 'UpdateSummaries',
             'version'     => '2017-12-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v4/openapi/app-groups/' . $appGroupIdentity . '/apps/' . $appId . '/summaries',
+            'pathname'    => '/v4/openapi/app-groups/' . OpenApiUtilClient::getEncodeParam($appGroupIdentity) . '/apps/' . OpenApiUtilClient::getEncodeParam($appId) . '/summaries',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',

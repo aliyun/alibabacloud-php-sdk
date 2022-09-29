@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppGroupResponseBody;
 
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppGroupResponseBody\result\quota;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppGroupResponseBody\result\tags;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -125,6 +126,11 @@ class result extends Model
     public $switchedTime;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $type;
@@ -157,6 +163,7 @@ class result extends Model
         'secondRankAlgoDeploymentId'        => 'secondRankAlgoDeploymentId',
         'status'                            => 'status',
         'switchedTime'                      => 'switchedTime',
+        'tags'                              => 'tags',
         'type'                              => 'type',
         'updated'                           => 'updated',
     ];
@@ -236,6 +243,15 @@ class result extends Model
         }
         if (null !== $this->switchedTime) {
             $res['switchedTime'] = $this->switchedTime;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -323,6 +339,15 @@ class result extends Model
         }
         if (isset($map['switchedTime'])) {
             $model->switchedTime = $map['switchedTime'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

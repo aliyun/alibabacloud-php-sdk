@@ -11,50 +11,36 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionInstanceRequest extends Model
 {
     /**
-     * @description 创建参数
-     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
-     * @description 周期训练
-     *
      * @var string
      */
     public $cron;
 
     /**
-     * @description 实例描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 功能类型
-     *
      * @var string
      */
     public $functionType;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description 模型类型
-     *
      * @var string
      */
     public $modelType;
 
     /**
-     * @description 使用参数
-     *
      * @var usageParameters[]
      */
     public $usageParameters;

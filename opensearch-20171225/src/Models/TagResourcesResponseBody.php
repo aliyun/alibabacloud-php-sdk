@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateFunctionDefaultInstanceRequest extends Model
+class TagResourcesResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $instanceName;
+    public $requestId;
     protected $_name = [
-        'instanceName' => 'instanceName',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class UpdateFunctionDefaultInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['instanceName'] = $this->instanceName;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class UpdateFunctionDefaultInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateFunctionDefaultInstanceRequest
+     * @return TagResourcesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['instanceName'])) {
-            $model->instanceName = $map['instanceName'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

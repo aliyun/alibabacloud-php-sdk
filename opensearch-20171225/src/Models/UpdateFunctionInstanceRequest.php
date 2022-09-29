@@ -11,29 +11,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionInstanceRequest extends Model
 {
     /**
-     * @description 创建参数
-     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
-     * @description 周期训练
-     *
      * @var string
      */
     public $cron;
 
     /**
-     * @description 实例描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 使用参数
-     *
      * @var usageParameters[]
      */
     public $usageParameters;

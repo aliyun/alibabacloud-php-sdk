@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionInstanceResponseBody extends Model
 {
     /**
-     * @description 错误码
-     *
      * @var string
      */
     public $code;
@@ -21,15 +19,11 @@ class UpdateFunctionInstanceResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description 耗时
-     *
      * @var int
      */
     public $latency;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $message;

@@ -15,8 +15,6 @@ class GetFunctionDefaultInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description 功能名称
-     *
      * @var string
      */
     public $functionName;
@@ -27,8 +25,6 @@ class GetFunctionDefaultInstanceResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description 实例名称
-     *
      * @var string
      */
     public $instanceName;

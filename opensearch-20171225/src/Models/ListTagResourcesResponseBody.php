@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ValidateDataSourcesResponseBody\result;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListTagResourcesResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class ValidateDataSourcesResponseBody extends Model
+class ListTagResourcesResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $nextToken;
+
     /**
      * @var string
      */
@@ -19,6 +24,7 @@ class ValidateDataSourcesResponseBody extends Model
      */
     public $result;
     protected $_name = [
+        'nextToken' => 'nextToken',
         'requestId' => 'requestId',
         'result'    => 'result',
     ];
@@ -30,6 +36,9 @@ class ValidateDataSourcesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
+        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -49,11 +58,14 @@ class ValidateDataSourcesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValidateDataSourcesResponseBody
+     * @return ListTagResourcesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
+        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
