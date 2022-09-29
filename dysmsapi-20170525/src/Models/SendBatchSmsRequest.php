@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendBatchSmsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $outId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -48,6 +53,7 @@ class SendBatchSmsRequest extends Model
      */
     public $templateParamJson;
     protected $_name = [
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'phoneNumberJson'      => 'PhoneNumberJson',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -65,6 +71,9 @@ class SendBatchSmsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -101,6 +110,9 @@ class SendBatchSmsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
