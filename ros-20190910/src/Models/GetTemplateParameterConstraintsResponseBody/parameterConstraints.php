@@ -29,6 +29,16 @@ class parameterConstraints extends Model
     public $behaviorReason;
 
     /**
+     * @var mixed[]
+     */
+    public $illegalValueByParameterConstraints;
+
+    /**
+     * @var mixed[]
+     */
+    public $illegalValueByRules;
+
+    /**
      * @var string
      */
     public $parameterKey;
@@ -38,12 +48,14 @@ class parameterConstraints extends Model
      */
     public $type;
     protected $_name = [
-        'allowedValues'             => 'AllowedValues',
-        'associationParameterNames' => 'AssociationParameterNames',
-        'behavior'                  => 'Behavior',
-        'behaviorReason'            => 'BehaviorReason',
-        'parameterKey'              => 'ParameterKey',
-        'type'                      => 'Type',
+        'allowedValues'                      => 'AllowedValues',
+        'associationParameterNames'          => 'AssociationParameterNames',
+        'behavior'                           => 'Behavior',
+        'behaviorReason'                     => 'BehaviorReason',
+        'illegalValueByParameterConstraints' => 'IllegalValueByParameterConstraints',
+        'illegalValueByRules'                => 'IllegalValueByRules',
+        'parameterKey'                       => 'ParameterKey',
+        'type'                               => 'Type',
     ];
 
     public function validate()
@@ -64,6 +76,12 @@ class parameterConstraints extends Model
         }
         if (null !== $this->behaviorReason) {
             $res['BehaviorReason'] = $this->behaviorReason;
+        }
+        if (null !== $this->illegalValueByParameterConstraints) {
+            $res['IllegalValueByParameterConstraints'] = $this->illegalValueByParameterConstraints;
+        }
+        if (null !== $this->illegalValueByRules) {
+            $res['IllegalValueByRules'] = $this->illegalValueByRules;
         }
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
@@ -98,6 +116,16 @@ class parameterConstraints extends Model
         }
         if (isset($map['BehaviorReason'])) {
             $model->behaviorReason = $map['BehaviorReason'];
+        }
+        if (isset($map['IllegalValueByParameterConstraints'])) {
+            if (!empty($map['IllegalValueByParameterConstraints'])) {
+                $model->illegalValueByParameterConstraints = $map['IllegalValueByParameterConstraints'];
+            }
+        }
+        if (isset($map['IllegalValueByRules'])) {
+            if (!empty($map['IllegalValueByRules'])) {
+                $model->illegalValueByRules = $map['IllegalValueByRules'];
+            }
         }
         if (isset($map['ParameterKey'])) {
             $model->parameterKey = $map['ParameterKey'];

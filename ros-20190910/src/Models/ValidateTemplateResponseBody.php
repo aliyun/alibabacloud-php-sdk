@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\outputs;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resourceTypes;
 use AlibabaCloud\Tea\Model;
 
@@ -34,12 +35,18 @@ class ValidateTemplateResponseBody extends Model
      * @var resourceTypes
      */
     public $resourceTypes;
+
+    /**
+     * @var resources[]
+     */
+    public $resources;
     protected $_name = [
         'description'   => 'Description',
         'outputs'       => 'Outputs',
         'parameters'    => 'Parameters',
         'requestId'     => 'RequestId',
         'resourceTypes' => 'ResourceTypes',
+        'resources'     => 'Resources',
     ];
 
     public function validate()
@@ -69,6 +76,15 @@ class ValidateTemplateResponseBody extends Model
         }
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = null !== $this->resourceTypes ? $this->resourceTypes->toMap() : null;
+        }
+        if (null !== $this->resources) {
+            $res['Resources'] = [];
+            if (null !== $this->resources && \is_array($this->resources)) {
+                $n = 0;
+                foreach ($this->resources as $item) {
+                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -104,6 +120,15 @@ class ValidateTemplateResponseBody extends Model
         }
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = resourceTypes::fromMap($map['ResourceTypes']);
+        }
+        if (isset($map['Resources'])) {
+            if (!empty($map['Resources'])) {
+                $model->resources = [];
+                $n                = 0;
+                foreach ($map['Resources'] as $item) {
+                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
