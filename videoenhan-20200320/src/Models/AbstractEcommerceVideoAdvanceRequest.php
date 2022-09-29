@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class AbstractEcommerceVideoAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var float
      */
     public $duration;
@@ -25,32 +20,36 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     public $height;
 
     /**
+     * @var Stream
+     */
+    public $videoUrlObject;
+
+    /**
      * @var int
      */
     public $width;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
         'duration'       => 'Duration',
         'height'         => 'Height',
+        'videoUrlObject' => 'VideoUrl',
         'width'          => 'Width',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
@@ -67,14 +66,14 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];

@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class EraseVideoSubtitlesAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var float
      */
     public $BH;
@@ -33,25 +28,26 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
      * @var float
      */
     public $BY;
+
+    /**
+     * @var Stream
+     */
+    public $videoUrlObject;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
         'BH'             => 'BH',
         'BW'             => 'BW',
         'BX'             => 'BX',
         'BY'             => 'BY',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->BH) {
             $res['BH'] = $this->BH;
         }
@@ -63,6 +59,9 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
         }
         if (null !== $this->BY) {
             $res['BY'] = $this->BY;
+        }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -76,9 +75,6 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['BH'])) {
             $model->BH = $map['BH'];
         }
@@ -90,6 +86,9 @@ class EraseVideoSubtitlesAdvanceRequest extends Model
         }
         if (isset($map['BY'])) {
             $model->BY = $map['BY'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;

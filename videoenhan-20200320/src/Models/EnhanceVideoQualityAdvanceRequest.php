@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class EnhanceVideoQualityAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoURLObject;
-
-    /**
      * @var int
      */
     public $bitrate;
@@ -43,27 +38,28 @@ class EnhanceVideoQualityAdvanceRequest extends Model
      * @var int
      */
     public $outPutWidth;
+
+    /**
+     * @var Stream
+     */
+    public $videoURLObject;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
         'bitrate'        => 'Bitrate',
         'frameRate'      => 'FrameRate',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
         'outPutHeight'   => 'OutPutHeight',
         'outPutWidth'    => 'OutPutWidth',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
@@ -82,6 +78,9 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         if (null !== $this->outPutWidth) {
             $res['OutPutWidth'] = $this->outPutWidth;
         }
+        if (null !== $this->videoURLObject) {
+            $res['VideoURL'] = $this->videoURLObject;
+        }
 
         return $res;
     }
@@ -94,9 +93,6 @@ class EnhanceVideoQualityAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
@@ -114,6 +110,9 @@ class EnhanceVideoQualityAdvanceRequest extends Model
         }
         if (isset($map['OutPutWidth'])) {
             $model->outPutWidth = $map['OutPutWidth'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

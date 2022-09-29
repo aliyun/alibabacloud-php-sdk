@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class SuperResolveVideoAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var int
      */
     public $bitRate;
+
+    /**
+     * @var Stream
+     */
+    public $videoUrlObject;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
         'bitRate'        => 'BitRate',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->bitRate) {
             $res['BitRate'] = $this->bitRate;
+        }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class SuperResolveVideoAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['BitRate'])) {
             $model->bitRate = $map['BitRate'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;

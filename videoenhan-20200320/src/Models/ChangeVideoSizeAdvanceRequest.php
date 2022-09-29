@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class ChangeVideoSizeAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var int
      */
     public $b;
@@ -50,11 +45,15 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $tightness;
 
     /**
+     * @var Stream
+     */
+    public $videoUrlObject;
+
+    /**
      * @var int
      */
     public $width;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
         'b'              => 'B',
         'cropType'       => 'CropType',
         'fillType'       => 'FillType',
@@ -62,20 +61,17 @@ class ChangeVideoSizeAdvanceRequest extends Model
         'height'         => 'Height',
         'r'              => 'R',
         'tightness'      => 'Tightness',
+        'videoUrlObject' => 'VideoUrl',
         'width'          => 'Width',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->b) {
             $res['B'] = $this->b;
         }
@@ -97,6 +93,9 @@ class ChangeVideoSizeAdvanceRequest extends Model
         if (null !== $this->tightness) {
             $res['Tightness'] = $this->tightness;
         }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
+        }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -112,9 +111,6 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['B'])) {
             $model->b = $map['B'];
         }
@@ -135,6 +131,9 @@ class ChangeVideoSizeAdvanceRequest extends Model
         }
         if (isset($map['Tightness'])) {
             $model->tightness = $map['Tightness'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];

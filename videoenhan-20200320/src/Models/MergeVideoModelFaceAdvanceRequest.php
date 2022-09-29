@@ -20,27 +20,24 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public $templateId;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'faceImageURLObject' => 'FaceImageURLObject',
+        'faceImageURLObject' => 'FaceImageURL',
         'templateId'         => 'TemplateId',
         'userId'             => 'UserId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('faceImageURLObject', $this->faceImageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->faceImageURLObject) {
-            $res['FaceImageURLObject'] = $this->faceImageURLObject;
+            $res['FaceImageURL'] = $this->faceImageURLObject;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -60,8 +57,8 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceImageURLObject'])) {
-            $model->faceImageURLObject = $map['FaceImageURLObject'];
+        if (isset($map['FaceImageURL'])) {
+            $model->faceImageURLObject = $map['FaceImageURL'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

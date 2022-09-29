@@ -15,8 +15,6 @@ class AddFaceVideoTemplateResponseBody extends Model
     public $date;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

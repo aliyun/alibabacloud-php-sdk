@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class InterpolateVideoFrameAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoURLObject;
-
-    /**
      * @var int
      */
     public $bitrate;
@@ -23,28 +18,32 @@ class InterpolateVideoFrameAdvanceRequest extends Model
      * @var int
      */
     public $frameRate;
+
+    /**
+     * @var Stream
+     */
+    public $videoURLObject;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
         'bitrate'        => 'Bitrate',
         'frameRate'      => 'FrameRate',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->frameRate) {
             $res['FrameRate'] = $this->frameRate;
+        }
+        if (null !== $this->videoURLObject) {
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -58,14 +57,14 @@ class InterpolateVideoFrameAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['FrameRate'])) {
             $model->frameRate = $map['FrameRate'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

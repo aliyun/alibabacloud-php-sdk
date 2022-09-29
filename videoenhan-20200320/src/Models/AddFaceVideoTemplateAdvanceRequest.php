@@ -10,34 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class AddFaceVideoTemplateAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoURLObject;
-
-    /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $userId;
+
+    /**
+     * @var Stream
+     */
+    public $videoURLObject;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
         'userId'         => 'UserId',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->videoURLObject) {
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -51,11 +48,11 @@ class AddFaceVideoTemplateAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

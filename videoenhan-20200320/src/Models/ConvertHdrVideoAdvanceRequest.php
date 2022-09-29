@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class ConvertHdrVideoAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoURLObject;
-
-    /**
      * @var int
      */
     public $bitrate;
@@ -28,24 +23,25 @@ class ConvertHdrVideoAdvanceRequest extends Model
      * @var int
      */
     public $maxIlluminance;
+
+    /**
+     * @var Stream
+     */
+    public $videoURLObject;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
         'bitrate'        => 'Bitrate',
         'HDRFormat'      => 'HDRFormat',
         'maxIlluminance' => 'MaxIlluminance',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
         }
@@ -54,6 +50,9 @@ class ConvertHdrVideoAdvanceRequest extends Model
         }
         if (null !== $this->maxIlluminance) {
             $res['MaxIlluminance'] = $this->maxIlluminance;
+        }
+        if (null !== $this->videoURLObject) {
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -67,9 +66,6 @@ class ConvertHdrVideoAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
         }
@@ -78,6 +74,9 @@ class ConvertHdrVideoAdvanceRequest extends Model
         }
         if (isset($map['MaxIlluminance'])) {
             $model->maxIlluminance = $map['MaxIlluminance'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

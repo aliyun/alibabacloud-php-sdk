@@ -12,39 +12,38 @@ class MergeVideoFaceAdvanceRequest extends Model
     /**
      * @var Stream
      */
+    public $postURLObject;
+
+    /**
+     * @var Stream
+     */
+    public $referenceURLObject;
+
+    /**
+     * @var Stream
+     */
     public $videoURLObject;
-
-    /**
-     * @var string
-     */
-    public $postURL;
-
-    /**
-     * @var string
-     */
-    public $referenceURL;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
-        'postURL'        => 'PostURL',
-        'referenceURL'   => 'ReferenceURL',
+        'postURLObject'      => 'PostURL',
+        'referenceURLObject' => 'ReferenceURL',
+        'videoURLObject'     => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->postURLObject) {
+            $res['PostURL'] = $this->postURLObject;
+        }
+        if (null !== $this->referenceURLObject) {
+            $res['ReferenceURL'] = $this->referenceURLObject;
+        }
         if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
-        if (null !== $this->postURL) {
-            $res['PostURL'] = $this->postURL;
-        }
-        if (null !== $this->referenceURL) {
-            $res['ReferenceURL'] = $this->referenceURL;
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -58,14 +57,14 @@ class MergeVideoFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
         if (isset($map['PostURL'])) {
-            $model->postURL = $map['PostURL'];
+            $model->postURLObject = $map['PostURL'];
         }
         if (isset($map['ReferenceURL'])) {
-            $model->referenceURL = $map['ReferenceURL'];
+            $model->referenceURLObject = $map['ReferenceURL'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;
