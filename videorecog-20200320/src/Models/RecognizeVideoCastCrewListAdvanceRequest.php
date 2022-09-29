@@ -11,36 +11,32 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeVideoCastCrewListAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var params[]
      */
     public $params;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $registerUrl;
+    public $registerUrlObject;
+
+    /**
+     * @var Stream
+     */
+    public $videoUrlObject;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
-        'params'         => 'Params',
-        'registerUrl'    => 'RegisterUrl',
+        'params'            => 'Params',
+        'registerUrlObject' => 'RegisterUrl',
+        'videoUrlObject'    => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->params) {
             $res['Params'] = [];
             if (null !== $this->params && \is_array($this->params)) {
@@ -50,8 +46,11 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
                 }
             }
         }
-        if (null !== $this->registerUrl) {
-            $res['RegisterUrl'] = $this->registerUrl;
+        if (null !== $this->registerUrlObject) {
+            $res['RegisterUrl'] = $this->registerUrlObject;
+        }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -65,9 +64,6 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
@@ -78,7 +74,10 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
             }
         }
         if (isset($map['RegisterUrl'])) {
-            $model->registerUrl = $map['RegisterUrl'];
+            $model->registerUrlObject = $map['RegisterUrl'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;

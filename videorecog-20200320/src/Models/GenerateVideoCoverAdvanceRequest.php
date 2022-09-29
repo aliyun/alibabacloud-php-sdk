@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class GenerateVideoCoverAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var bool
      */
     public $isGif;
+
+    /**
+     * @var Stream
+     */
+    public $videoUrlObject;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
         'isGif'          => 'IsGif',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->isGif) {
             $res['IsGif'] = $this->isGif;
+        }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class GenerateVideoCoverAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['IsGif'])) {
             $model->isGif = $map['IsGif'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;
