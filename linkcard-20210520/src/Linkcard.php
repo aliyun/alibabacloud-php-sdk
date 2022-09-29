@@ -13,7 +13,6 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressResponse;
-use AlibabaCloud\SDK\Linkcard\V20210520\Models\CardStatisticsResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ForceActivationRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ForceActivationResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardDetailRequest;
@@ -249,39 +248,6 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchAddDirectionalAddressWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return CardStatisticsResponse
-     */
-    public function cardStatisticsWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'CardStatistics',
-            'version'     => '2021-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CardStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return CardStatisticsResponse
-     */
-    public function cardStatistics()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cardStatisticsWithOptions($runtime);
     }
 
     /**
@@ -531,6 +497,9 @@ class Linkcard extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxFlow)) {
             $query['MaxFlow'] = $request->maxFlow;
+        }
+        if (!Utils::isUnset($request->maxRestFlowPercentage)) {
+            $query['MaxRestFlowPercentage'] = $request->maxRestFlowPercentage;
         }
         if (!Utils::isUnset($request->minFlow)) {
             $query['MinFlow'] = $request->minFlow;

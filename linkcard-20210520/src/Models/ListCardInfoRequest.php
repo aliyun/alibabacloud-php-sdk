@@ -89,6 +89,11 @@ class ListCardInfoRequest extends Model
     public $maxFlow;
 
     /**
+     * @var float
+     */
+    public $maxRestFlowPercentage;
+
+    /**
      * @var string
      */
     public $minFlow;
@@ -148,34 +153,35 @@ class ListCardInfoRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'activeTimeEnd'      => 'ActiveTimeEnd',
-        'activeTimeStart'    => 'ActiveTimeStart',
-        'aliFee'             => 'AliFee',
-        'aliyunOrderId'      => 'AliyunOrderId',
-        'apnName'            => 'ApnName',
-        'certifyType'        => 'CertifyType',
-        'credentialNo'       => 'CredentialNo',
-        'dataLevel'          => 'DataLevel',
-        'dataType'           => 'DataType',
-        'directionalGroupId' => 'DirectionalGroupId',
-        'expireTimeEnd'      => 'ExpireTimeEnd',
-        'expireTimeStart'    => 'ExpireTimeStart',
-        'iccid'              => 'Iccid',
-        'imsi'               => 'Imsi',
-        'isAutoRecharge'     => 'IsAutoRecharge',
-        'maxFlow'            => 'MaxFlow',
-        'minFlow'            => 'MinFlow',
-        'msisdn'             => 'Msisdn',
-        'notifyId'           => 'NotifyId',
-        'osStatus'           => 'OsStatus',
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
-        'period'             => 'Period',
-        'poolId'             => 'PoolId',
-        'simType'            => 'SimType',
-        'status'             => 'Status',
-        'tagName'            => 'TagName',
-        'vendor'             => 'Vendor',
+        'activeTimeEnd'         => 'ActiveTimeEnd',
+        'activeTimeStart'       => 'ActiveTimeStart',
+        'aliFee'                => 'AliFee',
+        'aliyunOrderId'         => 'AliyunOrderId',
+        'apnName'               => 'ApnName',
+        'certifyType'           => 'CertifyType',
+        'credentialNo'          => 'CredentialNo',
+        'dataLevel'             => 'DataLevel',
+        'dataType'              => 'DataType',
+        'directionalGroupId'    => 'DirectionalGroupId',
+        'expireTimeEnd'         => 'ExpireTimeEnd',
+        'expireTimeStart'       => 'ExpireTimeStart',
+        'iccid'                 => 'Iccid',
+        'imsi'                  => 'Imsi',
+        'isAutoRecharge'        => 'IsAutoRecharge',
+        'maxFlow'               => 'MaxFlow',
+        'maxRestFlowPercentage' => 'MaxRestFlowPercentage',
+        'minFlow'               => 'MinFlow',
+        'msisdn'                => 'Msisdn',
+        'notifyId'              => 'NotifyId',
+        'osStatus'              => 'OsStatus',
+        'pageNo'                => 'PageNo',
+        'pageSize'              => 'PageSize',
+        'period'                => 'Period',
+        'poolId'                => 'PoolId',
+        'simType'               => 'SimType',
+        'status'                => 'Status',
+        'tagName'               => 'TagName',
+        'vendor'                => 'Vendor',
     ];
 
     public function validate()
@@ -232,6 +238,9 @@ class ListCardInfoRequest extends Model
         }
         if (null !== $this->maxFlow) {
             $res['MaxFlow'] = $this->maxFlow;
+        }
+        if (null !== $this->maxRestFlowPercentage) {
+            $res['MaxRestFlowPercentage'] = $this->maxRestFlowPercentage;
         }
         if (null !== $this->minFlow) {
             $res['MinFlow'] = $this->minFlow;
@@ -328,6 +337,9 @@ class ListCardInfoRequest extends Model
         }
         if (isset($map['MaxFlow'])) {
             $model->maxFlow = $map['MaxFlow'];
+        }
+        if (isset($map['MaxRestFlowPercentage'])) {
+            $model->maxRestFlowPercentage = $map['MaxRestFlowPercentage'];
         }
         if (isset($map['MinFlow'])) {
             $model->minFlow = $map['MinFlow'];
