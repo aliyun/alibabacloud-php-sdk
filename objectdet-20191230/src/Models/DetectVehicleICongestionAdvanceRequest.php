@@ -4,16 +4,17 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionRequest\preRegionIntersectFeatures;
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionRequest\roadRegions;
+use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionAdvanceRequest\preRegionIntersectFeatures;
+use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleICongestionAdvanceRequest\roadRegions;
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class DetectVehicleICongestionRequest extends Model
+class DetectVehicleICongestionAdvanceRequest extends Model
 {
     /**
-     * @var string
+     * @var Stream
      */
-    public $imageURL;
+    public $imageURLObject;
 
     /**
      * @var preRegionIntersectFeatures[]
@@ -25,7 +26,7 @@ class DetectVehicleICongestionRequest extends Model
      */
     public $roadRegions;
     protected $_name = [
-        'imageURL'                   => 'ImageURL',
+        'imageURLObject'             => 'ImageURL',
         'preRegionIntersectFeatures' => 'PreRegionIntersectFeatures',
         'roadRegions'                => 'RoadRegions',
     ];
@@ -37,8 +38,8 @@ class DetectVehicleICongestionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->preRegionIntersectFeatures) {
             $res['PreRegionIntersectFeatures'] = [];
@@ -65,13 +66,13 @@ class DetectVehicleICongestionRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectVehicleICongestionRequest
+     * @return DetectVehicleICongestionAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['PreRegionIntersectFeatures'])) {
             if (!empty($map['PreRegionIntersectFeatures'])) {

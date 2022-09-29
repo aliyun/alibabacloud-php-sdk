@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DetectVideoIPCObjectRequest extends Model
 {
     /**
-     * @description 是否只有检测到物体才回调
-     *
      * @var bool
      */
     public $callbackOnlyHasObject;
 
     /**
-     * @description 视频的开始时间戳(秒)，即UTC时间，默认为0
-     *
      * @var int
      */
     public $startTimestamp;
 
     /**
-     * @description 视频文件URL地址
-     *
      * @var string
      */
     public $videoURL;

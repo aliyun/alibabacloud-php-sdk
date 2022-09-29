@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 视频帧的集合，未检测到目标的帧不列出
-     *
      * @var frames[]
      */
     public $frames;
 
     /**
-     * @description 视频文件的分辨率(像素)
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description 输入文件信息
-     *
      * @var string
      */
     public $inputFile;
 
     /**
-     * @description 视频文件的分辨率(像素)
-     *
      * @var int
      */
     public $width;

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DetectVideoFrameShrinkRequest extends Model
 {
     /**
-     * @description 图片创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description AI每个功能具体配置描述，每个AI算法配置都不一样
-     *
      * @var string
      */
     public $featureConfig;
 
     /**
-     * @description AI功能名称列表
-     *
      * @var string
      */
     public $featuresShrink;
 
     /**
-     * @description 图像高度
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description 图片URL地址
-     *
      * @var string
      */
     public $imageURL;
 
     /**
-     * @description 自用拥有者pk
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description 流资源唯一描述
-     *
      * @var string
      */
     public $streamArn;
 
     /**
-     * @description 图像宽度
-     *
      * @var int
      */
     public $width;

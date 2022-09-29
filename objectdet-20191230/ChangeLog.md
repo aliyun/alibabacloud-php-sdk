@@ -1,3 +1,6 @@
+2022-09-29 Version: 1.0.7
+- Update DetectVehicleICongestion DetectVehicleIllegalParking.
+
 2021-11-15 Version: 1.0.6
 - Update DetectVehicleICongestion DetectVehicleIllegalParking.
 

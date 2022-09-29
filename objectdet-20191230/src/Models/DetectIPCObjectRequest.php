@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCObjectRequest extends Model
 {
     /**
-     * @description 图片URL地址
-     *
      * @var string
      */
     public $imageURL;

@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class DetectTransparentImageAdvanceRequest extends Model
+class DetectIPCObjectAdvanceRequest extends Model
 {
     /**
      * @var Stream
@@ -34,7 +34,7 @@ class DetectTransparentImageAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectTransparentImageAdvanceRequest
+     * @return DetectIPCObjectAdvanceRequest
      */
     public static function fromMap($map = [])
     {

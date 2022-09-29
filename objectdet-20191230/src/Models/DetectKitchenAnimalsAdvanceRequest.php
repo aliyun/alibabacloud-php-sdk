@@ -15,27 +15,26 @@ class DetectKitchenAnimalsAdvanceRequest extends Model
     public $imageURLAObject;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $imageURLB;
+    public $imageURLBObject;
     protected $_name = [
-        'imageURLAObject' => 'ImageURLAObject',
-        'imageURLB'       => 'ImageURLB',
+        'imageURLAObject' => 'ImageURLA',
+        'imageURLBObject' => 'ImageURLB',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLAObject', $this->imageURLAObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLAObject) {
-            $res['ImageURLAObject'] = $this->imageURLAObject;
+            $res['ImageURLA'] = $this->imageURLAObject;
         }
-        if (null !== $this->imageURLB) {
-            $res['ImageURLB'] = $this->imageURLB;
+        if (null !== $this->imageURLBObject) {
+            $res['ImageURLB'] = $this->imageURLBObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class DetectKitchenAnimalsAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLAObject'])) {
-            $model->imageURLAObject = $map['ImageURLAObject'];
+        if (isset($map['ImageURLA'])) {
+            $model->imageURLAObject = $map['ImageURLA'];
         }
         if (isset($map['ImageURLB'])) {
-            $model->imageURLB = $map['ImageURLB'];
+            $model->imageURLBObject = $map['ImageURLB'];
         }
 
         return $model;

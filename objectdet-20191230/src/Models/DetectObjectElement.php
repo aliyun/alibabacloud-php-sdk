@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DetectObjectElement extends Model
 {
     /**
-     * @description 目标高度(像素)
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description 目标置信度，范围为[0.0, 1.0]
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @description 目标类型：PERSON, VEHICLE, PET
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description 目标宽度(像素)
-     *
      * @var int
      */
     public $width;
 
     /**
-     * @description 左上角x坐标(像素)
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @description 左上角y坐标(像素)
-     *
      * @var int
      */
     public $y;

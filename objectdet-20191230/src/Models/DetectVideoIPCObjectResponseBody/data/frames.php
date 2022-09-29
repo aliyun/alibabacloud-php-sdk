@@ -15,8 +15,6 @@ class frames extends Model
     public $elements;
 
     /**
-     * @description 视频帧时间，startTimestamp+视频帧的相对时间的值，单位毫秒，如果startTimestamp为空，则是相对时间
-     *
      * @var int
      */
     public $time;

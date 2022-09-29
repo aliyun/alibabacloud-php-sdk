@@ -15,8 +15,6 @@ class DetectVideoIPCObjectResponseBody extends Model
     public $data;
 
     /**
-     * @description JobId
-     *
      * @var string
      */
     public $requestId;

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetectObjectFrame extends Model
 {
     /**
-     * @description 结果集
-     *
      * @var DetectObjectElement[]
      */
     public $elements;
 
     /**
-     * @description 时间
-     *
      * @var int
      */
     public $time;

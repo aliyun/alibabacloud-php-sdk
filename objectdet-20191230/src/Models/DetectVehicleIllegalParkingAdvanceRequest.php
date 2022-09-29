@@ -4,23 +4,24 @@
 
 namespace AlibabaCloud\SDK\Objectdet\V20191230\Models;
 
-use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingRequest\roadRegions;
+use AlibabaCloud\SDK\Objectdet\V20191230\Models\DetectVehicleIllegalParkingAdvanceRequest\roadRegions;
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class DetectVehicleIllegalParkingRequest extends Model
+class DetectVehicleIllegalParkingAdvanceRequest extends Model
 {
     /**
-     * @var string
+     * @var Stream
      */
-    public $imageURL;
+    public $imageURLObject;
 
     /**
      * @var roadRegions[]
      */
     public $roadRegions;
     protected $_name = [
-        'imageURL'    => 'ImageURL',
-        'roadRegions' => 'RoadRegions',
+        'imageURLObject' => 'ImageURL',
+        'roadRegions'    => 'RoadRegions',
     ];
 
     public function validate()
@@ -30,8 +31,8 @@ class DetectVehicleIllegalParkingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->roadRegions) {
             $res['RoadRegions'] = [];
@@ -49,13 +50,13 @@ class DetectVehicleIllegalParkingRequest extends Model
     /**
      * @param array $map
      *
-     * @return DetectVehicleIllegalParkingRequest
+     * @return DetectVehicleIllegalParkingAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['RoadRegions'])) {
             if (!empty($map['RoadRegions'])) {
