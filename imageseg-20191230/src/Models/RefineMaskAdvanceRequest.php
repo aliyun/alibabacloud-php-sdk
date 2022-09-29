@@ -15,27 +15,26 @@ class RefineMaskAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $maskImageURL;
+    public $maskImageURLObject;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
-        'maskImageURL'   => 'MaskImageURL',
+        'imageURLObject'     => 'ImageURL',
+        'maskImageURLObject' => 'MaskImageURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
-        if (null !== $this->maskImageURL) {
-            $res['MaskImageURL'] = $this->maskImageURL;
+        if (null !== $this->maskImageURLObject) {
+            $res['MaskImageURL'] = $this->maskImageURLObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class RefineMaskAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['MaskImageURL'])) {
-            $model->maskImageURL = $map['MaskImageURL'];
+            $model->maskImageURLObject = $map['MaskImageURL'];
         }
 
         return $model;

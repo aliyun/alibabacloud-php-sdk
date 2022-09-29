@@ -14,19 +14,18 @@ class SegmentSkinAdvanceRequest extends Model
      */
     public $URLObject;
     protected $_name = [
-        'URLObject' => 'URLObject',
+        'URLObject' => 'URL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('URLObject', $this->URLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->URLObject) {
-            $res['URLObject'] = $this->URLObject;
+            $res['URL'] = $this->URLObject;
         }
 
         return $res;
@@ -40,8 +39,8 @@ class SegmentSkinAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['URLObject'])) {
-            $model->URLObject = $map['URLObject'];
+        if (isset($map['URL'])) {
+            $model->URLObject = $map['URL'];
         }
 
         return $model;

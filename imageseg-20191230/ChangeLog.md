@@ -1,3 +1,6 @@
+2022-09-29 Version: 2.0.0
+- Update RefineMask.
+
 2022-03-14 Version: 1.0.1
 - AMP version.
 
