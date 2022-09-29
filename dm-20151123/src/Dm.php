@@ -80,8 +80,6 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionResponse;
-use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateMailAddressMsgCallBackUrlRequest;
-use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateMailAddressMsgCallBackUrlResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2283,60 +2281,5 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIpProtectionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMailAddressMsgCallBackUrlRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return UpdateMailAddressMsgCallBackUrlResponse
-     */
-    public function updateMailAddressMsgCallBackUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->mailFrom)) {
-            $query['MailFrom'] = $request->mailFrom;
-        }
-        if (!Utils::isUnset($request->notifyUrl)) {
-            $query['NotifyUrl'] = $request->notifyUrl;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateMailAddressMsgCallBackUrl',
-            'version'     => '2015-11-23',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateMailAddressMsgCallBackUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateMailAddressMsgCallBackUrlRequest $request
-     *
-     * @return UpdateMailAddressMsgCallBackUrlResponse
-     */
-    public function updateMailAddressMsgCallBackUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMailAddressMsgCallBackUrlWithOptions($request, $runtime);
     }
 }

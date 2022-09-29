@@ -11,9 +11,15 @@ class AddIpfilterResponseBody extends Model
     /**
      * @var string
      */
+    public $ipFilterId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'ipFilterId' => 'IpFilterId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class AddIpfilterResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipFilterId) {
+            $res['IpFilterId'] = $this->ipFilterId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +47,9 @@ class AddIpfilterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpFilterId'])) {
+            $model->ipFilterId = $map['IpFilterId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
