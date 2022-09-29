@@ -9,129 +9,107 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 关联算法，人群来源为算法。
-     *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description 人群数量。
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 手机号列名，人群来源为CSV文件，MaxCompute，并且包含手机号时需指定。
-     *
+     * @var string
+     */
+    public $campaignId;
+
+    /**
      * @var string
      */
     public $column;
 
     /**
-     * @description 创建时间 (UTC+8)。
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 过滤条件，人群来源为MaxCompute时可指定。
-     *
      * @var string
      */
     public $filter;
 
     /**
-     * @description 人群Id。
-     *
+     * @var string
+     */
+    public $history;
+
+    /**
      * @var string
      */
     public $id;
 
     /**
-     * @description 预测任务Id，人群来源为算法。
-     *
      * @var string
      */
     public $inferenceJobId;
 
     /**
-     * @description 人群名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否包含手机号，包含手机号的人群可用于触达计划。
-     *
      * @var bool
      */
     public $phoneNumber;
 
     /**
-     * @description MaxCompute(ODPS)项目名，人群来源为MaxCompute时需指定。
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @description 人群备注。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 人群来源。
-     * - 4: 算法。
      * @var int
      */
     public $source;
 
     /**
-     * @description 人群状态。
-     * - 2: 未通过。
      * @var int
      */
     public $status;
 
     /**
-     * @description MaxCompute(ODPS)表名，人群来源为MaxCompute时需指定。
-     *
      * @var string
      */
     public $table;
 
     /**
-     * @description 文本，人群来源为文本时需指定。
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description 更新时间 (UTC+8)。
-     *
      * @var string
      */
     public $updatedTime;
 
     /**
-     * @description 文件地址，人群来源为文本文件，CSV文件，MaxCompute时需指定。
-     *
      * @var string
      */
     public $uri;
     protected $_name = [
         'algorithm'      => 'Algorithm',
         'amount'         => 'Amount',
+        'campaignId'     => 'CampaignId',
         'column'         => 'Column',
         'createdTime'    => 'CreatedTime',
         'filter'         => 'Filter',
+        'history'        => 'History',
         'id'             => 'Id',
         'inferenceJobId' => 'InferenceJobId',
         'name'           => 'Name',
@@ -159,6 +137,9 @@ class data extends Model
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+        if (null !== $this->campaignId) {
+            $res['CampaignId'] = $this->campaignId;
+        }
         if (null !== $this->column) {
             $res['Column'] = $this->column;
         }
@@ -167,6 +148,9 @@ class data extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->history) {
+            $res['History'] = $this->history;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -222,6 +206,9 @@ class data extends Model
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+        if (isset($map['CampaignId'])) {
+            $model->campaignId = $map['CampaignId'];
+        }
         if (isset($map['Column'])) {
             $model->column = $map['Column'];
         }
@@ -230,6 +217,9 @@ class data extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['History'])) {
+            $model->history = $map['History'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
-     * @description 发送内容。
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 上行短信扩展号码，系统后台自动生成，不支持自定义传入。
-     *
      * @var string
      */
     public $destCode;
 
     /**
-     * @description 手机号码。
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 发送时间。
-     *
      * @var string
      */
     public $sendTime;
 
     /**
-     * @description 序列号。
-     *
      * @var int
      */
     public $sequenceId;
 
     /**
-     * @description 签名信息。
-     *
      * @var string
      */
     public $signName;

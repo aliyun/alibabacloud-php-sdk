@@ -9,53 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ListTrainingJobsRequest extends Model
 {
     /**
-     * @description 归属运营活动过滤。
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description 训练任务名称过滤。
-     *
+     * @var string
+     */
+    public $campaignName;
+
+    /**
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 训练任务备注过滤。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 训练任务状态过滤。
-     * - 4: 失败。
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $trainingScheduleId;
     protected $_name = [
-        'campaignId' => 'CampaignId',
-        'name'       => 'Name',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'remark'     => 'Remark',
-        'status'     => 'Status',
+        'campaignId'         => 'CampaignId',
+        'campaignName'       => 'CampaignName',
+        'name'               => 'Name',
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
+        'remark'             => 'Remark',
+        'status'             => 'Status',
+        'trainingScheduleId' => 'TrainingScheduleId',
     ];
 
     public function validate()
@@ -67,6 +67,9 @@ class ListTrainingJobsRequest extends Model
         $res = [];
         if (null !== $this->campaignId) {
             $res['CampaignId'] = $this->campaignId;
+        }
+        if (null !== $this->campaignName) {
+            $res['CampaignName'] = $this->campaignName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -83,6 +86,9 @@ class ListTrainingJobsRequest extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->trainingScheduleId) {
+            $res['TrainingScheduleId'] = $this->trainingScheduleId;
+        }
 
         return $res;
     }
@@ -98,6 +104,9 @@ class ListTrainingJobsRequest extends Model
         if (isset($map['CampaignId'])) {
             $model->campaignId = $map['CampaignId'];
         }
+        if (isset($map['CampaignName'])) {
+            $model->campaignName = $map['CampaignName'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -112,6 +121,9 @@ class ListTrainingJobsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TrainingScheduleId'])) {
+            $model->trainingScheduleId = $map['TrainingScheduleId'];
         }
 
         return $model;

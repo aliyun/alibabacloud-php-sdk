@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
-     * @description 模板内容过滤。
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 模板名称过滤。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 审核状态过滤。
-     * - 2 : 审核不通过。
      * @var int
      */
     public $status;
 
     /**
-     * @description 模板类型过滤。
-     * - 2 : 推广短信。
      * @var int
      */
     public $type;

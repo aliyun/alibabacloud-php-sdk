@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 创建时间 (UTC+8)。
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 运营活动Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 运营活动名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 备注。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 更新时间 (UTC+8)。
-     *
      * @var string
      */
     public $updatedTime;

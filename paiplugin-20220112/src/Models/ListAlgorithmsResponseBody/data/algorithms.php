@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class algorithms extends Model
 {
     /**
-     * @description 算法Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 算法名称。
-     *
      * @var string
      */
     public $name;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 算法说明。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 算法Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 预测所需参数名与对应的参数说明。
-     *
      * @var string
      */
     public $inferUserConfigMap;
 
     /**
-     * @description 算法名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 训练所需参数名与对应的参数说明。
-     *
      * @var string
      */
     public $trainUserConfigMap;

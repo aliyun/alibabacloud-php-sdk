@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCampaignRequest extends Model
 {
     /**
-     * @description 运营活动名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 备注。
-     *
      * @var string
      */
     public $remark;

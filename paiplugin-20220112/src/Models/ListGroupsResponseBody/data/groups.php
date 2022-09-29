@@ -9,120 +9,86 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
-     * @description 关联算法，人群来源为算法。
-     *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description 人群数量。
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description 手机号列名，人群来源为CSV文件，MaxCompute，并且包含手机号时需指定。
-     *
      * @var string
      */
     public $column;
 
     /**
-     * @description 创建时间 (UTC+8)。
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 过滤条件，人群来源为MaxCompute时可指定。
-     *
      * @var string
      */
     public $filter;
 
     /**
-     * @description 人群Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 预测任务Id，人群来源为算法。
-     *
      * @var string
      */
     public $inferenceJobId;
 
     /**
-     * @description 人群名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 是否包含手机号，包含手机号的人群可用于触达计划。
-     *
      * @var bool
      */
     public $phoneNumber;
 
     /**
-     * @description MaxCompute(ODPS)项目名，人群来源为MaxCompute时需指定。
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @description 人群备注。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 人群来源。
-     * - 4: 算法。
      * @var int
      */
     public $source;
 
     /**
-     * @description 人群状态。
-     * - 2: 未通过。
      * @var int
      */
     public $status;
 
     /**
-     * @description MaxCompute(ODPS)表名，人群来源为MaxCompute时需指定。
-     *
      * @var string
      */
     public $table;
 
     /**
-     * @description 文本，人群来源为文本时需指定。
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @description 更新时间 (UTC+8)。
-     *
      * @var string
      */
     public $updatedTime;
 
     /**
-     * @description 文件地址，人群来源为文本文件，CSV文件，MaxCompute时需指定。
-     *
      * @var string
      */
     public $uri;

@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetUserResponseBody extends Model
 {
     /**
-     * @description 返回数据。
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description 错误码。
-     *
      * @var int
      */
     public $errorCode;
 
     /**
-     * @description 错误信息。
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 请求ID。
-     *
      * @var string
      */
     public $requestId;

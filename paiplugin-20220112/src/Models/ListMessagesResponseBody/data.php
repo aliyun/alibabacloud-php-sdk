@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 短信列表。
-     *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 短信数量。
-     *
      * @var int
      */
     public $totalCount;

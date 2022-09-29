@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateTrainingJobRequest extends Model
 {
     /**
-     * @description 关联算法Id。
-     *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description 关联运营活动Id。
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description 训练数据路径。
-     *
      * @var string
      */
     public $dataPath;
 
     /**
-     * @description 训练任务名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 备注。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 用户配置。
-     *
      * @var string
      */
     public $userConfig;

@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 分页返回的签名列表。
-     *
      * @var signatures[]
      */
     public $signatures;
 
     /**
-     * @description 账号下全部签名注册记录数量。
-     *
      * @var int
      */
     public $totalCount;

@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 人群列表。
-     *
      * @var groups[]
      */
     public $groups;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 总人群数量。
-     *
      * @var int
      */
     public $totalCount;

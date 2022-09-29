@@ -588,7 +588,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteCampaignWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -596,7 +595,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteCampaign',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/campaigns/' . $Id . '',
+            'pathname'    => '/api/v2/campaigns/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -631,7 +630,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteGroupWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -639,7 +637,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteGroup',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . $Id . '',
+            'pathname'    => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -674,7 +672,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteInferenceJobWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -682,7 +679,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteInferenceJob',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/inference/jobs/' . $Id . '',
+            'pathname'    => '/api/v2/inference/jobs/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -717,7 +714,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteScheduleWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -725,7 +721,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteSchedule',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/schedules/' . $Id . '',
+            'pathname'    => '/api/v2/schedules/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -760,7 +756,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteSignatureWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -768,7 +763,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteSignature',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/signatures/' . $Id . '',
+            'pathname'    => '/api/v2/signatures/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -803,7 +798,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteTemplateWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -811,7 +805,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteTemplate',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/templates/' . $Id . '',
+            'pathname'    => '/api/v2/templates/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -846,7 +840,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function deleteTrainingJobWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -854,7 +847,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'DeleteTrainingJob',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/training/jobs/' . $Id . '',
+            'pathname'    => '/api/v2/training/jobs/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -889,7 +882,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getAlgorithmWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -897,7 +889,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetAlgorithm',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/algorithms/' . $Id . '',
+            'pathname'    => '/api/v2/algorithms/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -932,7 +924,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getCampaignWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -940,7 +931,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetCampaign',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/campaigns/' . $Id . '',
+            'pathname'    => '/api/v2/campaigns/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -975,7 +966,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getGroupWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -983,7 +973,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetGroup',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . $Id . '',
+            'pathname'    => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1018,7 +1008,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getInferenceJobWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1026,7 +1015,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetInferenceJob',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/inference/jobs/' . $Id . '',
+            'pathname'    => '/api/v2/inference/jobs/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1100,7 +1089,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getScheduleWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1108,7 +1096,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetSchedule',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/schedules/' . $Id . '',
+            'pathname'    => '/api/v2/schedules/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1143,7 +1131,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getSignatureWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1151,7 +1138,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetSignature',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/signatures/' . $Id . '',
+            'pathname'    => '/api/v2/signatures/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1186,7 +1173,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getTemplateWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1194,7 +1180,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetTemplate',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/templates/' . $Id . '',
+            'pathname'    => '/api/v2/templates/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1229,7 +1215,6 @@ class PaiPlugin extends OpenApiClient
      */
     public function getTrainingJobWithOptions($Id, $headers, $runtime)
     {
-        $Id  = OpenApiUtilClient::getEncodeParam($Id);
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1237,7 +1222,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'GetTrainingJob',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/training/jobs/' . $Id . '',
+            'pathname'    => '/api/v2/training/jobs/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1468,8 +1453,6 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取预测任务列表。
-     *
      * @param ListInferenceJobsRequest $request
      *
      * @return ListInferenceJobsResponse
@@ -1496,6 +1479,9 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->campaignId)) {
             $query['CampaignId'] = $request->campaignId;
         }
+        if (!Utils::isUnset($request->campaignName)) {
+            $query['CampaignName'] = $request->campaignName;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -1510,6 +1496,9 @@ class PaiPlugin extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->trainingJobName)) {
+            $query['TrainingJobName'] = $request->trainingJobName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1878,8 +1867,6 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取训练任务列表。
-     *
      * @param ListTrainingJobsRequest $request
      *
      * @return ListTrainingJobsResponse
@@ -1906,6 +1893,9 @@ class PaiPlugin extends OpenApiClient
         if (!Utils::isUnset($request->campaignId)) {
             $query['CampaignId'] = $request->campaignId;
         }
+        if (!Utils::isUnset($request->campaignName)) {
+            $query['CampaignName'] = $request->campaignName;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -1920,6 +1910,9 @@ class PaiPlugin extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->trainingScheduleId)) {
+            $query['TrainingScheduleId'] = $request->trainingScheduleId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1941,8 +1934,6 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 发送短信。
-     *
      * @param SendMessageRequest $request
      *
      * @return SendMessageResponse
@@ -2130,7 +2121,6 @@ class PaiPlugin extends OpenApiClient
     public function updateCampaignWithOptions($Id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $Id   = OpenApiUtilClient::getEncodeParam($Id);
         $body = [];
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
@@ -2146,7 +2136,7 @@ class PaiPlugin extends OpenApiClient
             'action'      => 'UpdateCampaign',
             'version'     => '2022-01-12',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/campaigns/' . $Id . '',
+            'pathname'    => '/api/v2/campaigns/' . OpenApiUtilClient::getEncodeParam($Id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',

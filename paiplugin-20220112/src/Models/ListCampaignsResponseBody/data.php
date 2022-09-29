@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 运营活动列表。
-     *
      * @var campaigns[]
      */
     public $campaigns;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 总运营活动数量。
-     *
      * @var int
      */
     public $totalCount;

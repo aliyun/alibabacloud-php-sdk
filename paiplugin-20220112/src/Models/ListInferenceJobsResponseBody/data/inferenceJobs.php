@@ -9,99 +9,76 @@ use AlibabaCloud\Tea\Model;
 class inferenceJobs extends Model
 {
     /**
-     * @description 关联算法。
-     *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description 关联运营活动Id。
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description 创建时间 (UTC+8)。
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 预测数据路径。
-     *
      * @var string
      */
     public $dataPath;
 
     /**
-     * @description 关联人群Id，如果任务失败则人群无效。
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 预测任务日志。
-     *
      * @var string
      */
     public $history;
 
     /**
-     * @description 预测任务Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 预测任务名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 备注。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 预测任务状态。
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 输出数据路径，需要为空目录。
-     *
+     * @var string
+     */
+    public $targetGroupId;
+
+    /**
      * @var string
      */
     public $targetPath;
 
     /**
-     * @description 关联训练任务。
-     *
      * @var string
      */
     public $trainingJobId;
 
     /**
-     * @description 更新时间 (UTC+8)。
-     *
      * @var string
      */
     public $updatedTime;
 
     /**
-     * @description 用户配置。
-     *
      * @var string
      */
     public $userConfig;
@@ -116,6 +93,7 @@ class inferenceJobs extends Model
         'name'          => 'Name',
         'remark'        => 'Remark',
         'status'        => 'Status',
+        'targetGroupId' => 'TargetGroupId',
         'targetPath'    => 'TargetPath',
         'trainingJobId' => 'TrainingJobId',
         'updatedTime'   => 'UpdatedTime',
@@ -158,6 +136,9 @@ class inferenceJobs extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->targetGroupId) {
+            $res['TargetGroupId'] = $this->targetGroupId;
         }
         if (null !== $this->targetPath) {
             $res['TargetPath'] = $this->targetPath;
@@ -212,6 +193,9 @@ class inferenceJobs extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TargetGroupId'])) {
+            $model->targetGroupId = $map['TargetGroupId'];
         }
         if (isset($map['TargetPath'])) {
             $model->targetPath = $map['TargetPath'];

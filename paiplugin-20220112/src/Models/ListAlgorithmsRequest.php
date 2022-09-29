@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListAlgorithmsRequest extends Model
 {
     /**
-     * @description 算法Id过滤。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 算法名称过滤。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;

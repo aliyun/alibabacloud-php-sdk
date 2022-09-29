@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 模板内容。
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 创建时间 (UTC+8)。
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 申请说明。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 模板Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 签名名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 审核意见。
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description 签名Id。
-     *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description 审核状态。
-     * - 2 : 审核不通过。
      * @var int
      */
     public $status;
 
     /**
-     * @description 模板Code。
-     *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板类型。
-     * - 2 : 推广短信。
      * @var int
      */
     public $type;
 
     /**
-     * @description 更新时间 (UTC+8)。
-     *
      * @var string
      */
     public $updatedTime;

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListSchedulesRequest extends Model
 {
     /**
-     * @description 触达计划名称过滤。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 发送状态过滤。
-     *
      * @var int
      */
     public $status;

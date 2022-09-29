@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListMessageMetricsRequest extends Model
 {
     /**
-     * @description 结束日期，格式20220102。
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description 关联人群Id。
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 分页数，从1开始，默认为1。
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小，默认为10。
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 关联触达计划Id。
-     *
      * @var string
      */
     public $scheduleId;
 
     /**
-     * @description 签名名称。
-     *
      * @var string
      */
     public $signature;
 
     /**
-     * @description 签名Id，同时只能指定签名名称或签名Id其中之一。
-     *
      * @var string
      */
     public $signatureId;
 
     /**
-     * @description 开始日期，格式20220102。
-     *
      * @var string
      */
     public $startDate;
 
     /**
-     * @description 模板号。
-     *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板Id，同时只能指定模板Code或模板Id其中之一。
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description 模板类型。
-     * - 2 : 推广短信。
      * @var int
      */
     public $templateType;

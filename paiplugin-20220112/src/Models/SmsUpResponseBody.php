@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SmsUpResponseBody extends Model
 {
     /**
-     * @description 应答编码。
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description 描述信息。
-     *
      * @var string
      */
     public $msg;

@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
-     * @description 短信错误码。
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 关联人群Id，未关联则为空。
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description 短信序列号。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 外部拓展字段。
-     *
      * @var string
      */
     public $outId;
 
     /**
-     * @description 手机号码。
-     *
      * @var string
      */
     public $phoneNumber;
 
     /**
-     * @description 关联触达计划Id，未关联则为空。
-     *
      * @var string
      */
     public $scheduleId;
 
     /**
-     * @description 签名名称。
-     *
      * @var string
      */
     public $signature;
 
     /**
-     * @description 短信发送状态。
-     * - 2 : 发送失败。
      * @var int
      */
     public $status;
 
     /**
-     * @description 模板号。
-     *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description 模板参数。
-     *
      * @var string
      */
     public $templateParams;
 
     /**
-     * @description 模板类型。
-     * - 2 : 推广短信。
      * @var int
      */
     public $templateType;

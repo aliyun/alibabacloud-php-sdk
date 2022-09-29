@@ -9,93 +9,77 @@ use AlibabaCloud\Tea\Model;
 class trainingJobs extends Model
 {
     /**
-     * @description 关联算法Id。
-     *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description 关联运营活动Id。
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description 创建时间 (UTC+8)。
-     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 训练数据路径。
-     *
      * @var string
      */
     public $dataPath;
 
     /**
-     * @description 训练任务日志。
-     *
      * @var string
      */
     public $history;
 
     /**
-     * @description 训练任务Id。
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description 训练任务名称。
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 备注。
-     *
      * @var string
      */
     public $remark;
 
     /**
-     * @description 训练任务状态。
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description 更新时间 (UTC+8)。
-     *
+     * @var string
+     */
+    public $trainingScheduleId;
+
+    /**
      * @var string
      */
     public $updatedTime;
 
     /**
-     * @description 用户配置。
-     *
      * @var string
      */
     public $userConfig;
     protected $_name = [
-        'algorithm'   => 'Algorithm',
-        'campaignId'  => 'CampaignId',
-        'createdTime' => 'CreatedTime',
-        'dataPath'    => 'DataPath',
-        'history'     => 'History',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'remark'      => 'Remark',
-        'status'      => 'Status',
-        'updatedTime' => 'UpdatedTime',
-        'userConfig'  => 'UserConfig',
+        'algorithm'          => 'Algorithm',
+        'campaignId'         => 'CampaignId',
+        'createdTime'        => 'CreatedTime',
+        'dataPath'           => 'DataPath',
+        'history'            => 'History',
+        'id'                 => 'Id',
+        'name'               => 'Name',
+        'remark'             => 'Remark',
+        'status'             => 'Status',
+        'trainingScheduleId' => 'TrainingScheduleId',
+        'updatedTime'        => 'UpdatedTime',
+        'userConfig'         => 'UserConfig',
     ];
 
     public function validate()
@@ -131,6 +115,9 @@ class trainingJobs extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->trainingScheduleId) {
+            $res['TrainingScheduleId'] = $this->trainingScheduleId;
         }
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
@@ -176,6 +163,9 @@ class trainingJobs extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TrainingScheduleId'])) {
+            $model->trainingScheduleId = $map['TrainingScheduleId'];
         }
         if (isset($map['UpdatedTime'])) {
             $model->updatedTime = $map['UpdatedTime'];
