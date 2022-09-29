@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListBodyDbsRequest extends Model
 {
     /**
-     * @description 分页数量
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description 起始位置(不含)
-     *
      * @var int
      */
     public $offset;

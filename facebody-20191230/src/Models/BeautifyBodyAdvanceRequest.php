@@ -14,11 +14,6 @@ use GuzzleHttp\Psr7\Stream;
 class BeautifyBodyAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageURLObject;
-
-    /**
      * @var ageRange
      */
     public $ageRange;
@@ -42,6 +37,11 @@ class BeautifyBodyAdvanceRequest extends Model
      * @var float
      */
     public $femaleLiquifyDegree;
+
+    /**
+     * @var Stream
+     */
+    public $imageURLObject;
 
     /**
      * @var bool
@@ -73,12 +73,12 @@ class BeautifyBodyAdvanceRequest extends Model
      */
     public $poseList;
     protected $_name = [
-        'imageURLObject'      => 'ImageURLObject',
         'ageRange'            => 'AgeRange',
         'bodyBoxes'           => 'BodyBoxes',
         'custom'              => 'Custom',
         'faceList'            => 'FaceList',
         'femaleLiquifyDegree' => 'FemaleLiquifyDegree',
+        'imageURLObject'      => 'ImageURL',
         'isPregnant'          => 'IsPregnant',
         'lengthenDegree'      => 'LengthenDegree',
         'maleLiquifyDegree'   => 'MaleLiquifyDegree',
@@ -89,15 +89,11 @@ class BeautifyBodyAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
-        }
         if (null !== $this->ageRange) {
             $res['AgeRange'] = null !== $this->ageRange ? $this->ageRange->toMap() : null;
         }
@@ -124,6 +120,9 @@ class BeautifyBodyAdvanceRequest extends Model
         }
         if (null !== $this->femaleLiquifyDegree) {
             $res['FemaleLiquifyDegree'] = $this->femaleLiquifyDegree;
+        }
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->isPregnant) {
             $res['IsPregnant'] = $this->isPregnant;
@@ -161,9 +160,6 @@ class BeautifyBodyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
-        }
         if (isset($map['AgeRange'])) {
             $model->ageRange = ageRange::fromMap($map['AgeRange']);
         }
@@ -190,6 +186,9 @@ class BeautifyBodyAdvanceRequest extends Model
         }
         if (isset($map['FemaleLiquifyDegree'])) {
             $model->femaleLiquifyDegree = $map['FemaleLiquifyDegree'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['IsPregnant'])) {
             $model->isPregnant = $map['IsPregnant'];

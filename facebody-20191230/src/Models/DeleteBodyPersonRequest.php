@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteBodyPersonRequest extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description 人员ID
-     *
      * @var int
      */
     public $personId;

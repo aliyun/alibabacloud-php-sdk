@@ -14,8 +14,6 @@ class DeleteFaceImageTemplateRequest extends Model
     public $templateId;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $userId;

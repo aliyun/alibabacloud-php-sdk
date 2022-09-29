@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class SearchBodyTraceShrinkRequest extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description Trace图片信息列表
-     *
      * @var string
      */
     public $imagesShrink;
 
     /**
-     * @description 结果Trace数量上限，默认10，取值范围[1, 100]
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description score阈值，只返回大于等于该score的数据，取值范围[-1.0, 1.0]，默认为空
-     *
      * @var float
      */
     public $minScore;

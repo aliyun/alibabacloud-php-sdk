@@ -14,22 +14,16 @@ class data extends Model
     public $confidence;
 
     /**
-     * @description 信息提示信息，纯文字描述，目前支持质量分的提示信息
-     *
      * @var string
      */
     public $messageTips;
 
     /**
-     * @description 输入图像A的质量分
-     *
      * @var float
      */
     public $qualityScoreA;
 
     /**
-     * @description 输入图像A的质量分
-     *
      * @var float
      */
     public $qualityScoreB;

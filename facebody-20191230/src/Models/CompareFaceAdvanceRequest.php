@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class CompareFaceRequest extends Model
+class CompareFaceAdvanceRequest extends Model
 {
     /**
      * @var int[]
@@ -19,14 +20,14 @@ class CompareFaceRequest extends Model
     public $imageDataB;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $imageURLA;
+    public $imageURLAObject;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $imageURLB;
+    public $imageURLBObject;
 
     /**
      * @var float
@@ -35,8 +36,8 @@ class CompareFaceRequest extends Model
     protected $_name = [
         'imageDataA'            => 'ImageDataA',
         'imageDataB'            => 'ImageDataB',
-        'imageURLA'             => 'ImageURLA',
-        'imageURLB'             => 'ImageURLB',
+        'imageURLAObject'       => 'ImageURLA',
+        'imageURLBObject'       => 'ImageURLB',
         'qualityScoreThreshold' => 'QualityScoreThreshold',
     ];
 
@@ -53,11 +54,11 @@ class CompareFaceRequest extends Model
         if (null !== $this->imageDataB) {
             $res['ImageDataB'] = $this->imageDataB;
         }
-        if (null !== $this->imageURLA) {
-            $res['ImageURLA'] = $this->imageURLA;
+        if (null !== $this->imageURLAObject) {
+            $res['ImageURLA'] = $this->imageURLAObject;
         }
-        if (null !== $this->imageURLB) {
-            $res['ImageURLB'] = $this->imageURLB;
+        if (null !== $this->imageURLBObject) {
+            $res['ImageURLB'] = $this->imageURLBObject;
         }
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
@@ -69,7 +70,7 @@ class CompareFaceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CompareFaceRequest
+     * @return CompareFaceAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -81,10 +82,10 @@ class CompareFaceRequest extends Model
             $model->imageDataB = $map['ImageDataB'];
         }
         if (isset($map['ImageURLA'])) {
-            $model->imageURLA = $map['ImageURLA'];
+            $model->imageURLAObject = $map['ImageURLA'];
         }
         if (isset($map['ImageURLB'])) {
-            $model->imageURLB = $map['ImageURLB'];
+            $model->imageURLBObject = $map['ImageURLB'];
         }
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];

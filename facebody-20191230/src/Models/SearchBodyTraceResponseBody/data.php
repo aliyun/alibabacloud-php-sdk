@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 匹配的Trace列表
-     *
      * @var matchList[]
      */
     public $matchList;

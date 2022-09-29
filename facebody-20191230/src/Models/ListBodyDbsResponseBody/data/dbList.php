@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dbList extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 数据库名称
-     *
      * @var string
      */
     public $name;

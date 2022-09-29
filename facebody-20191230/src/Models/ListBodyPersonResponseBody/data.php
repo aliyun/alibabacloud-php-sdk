@@ -15,8 +15,6 @@ class data extends Model
     public $personList;
 
     /**
-     * @description 数据总量
-     *
      * @var int
      */
     public $total;

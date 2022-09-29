@@ -20,27 +20,24 @@ class MergeImageFaceAdvanceRequest extends Model
     public $templateId;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'templateId'     => 'TemplateId',
         'userId'         => 'UserId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -60,8 +57,8 @@ class MergeImageFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

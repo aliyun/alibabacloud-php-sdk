@@ -14,8 +14,6 @@ class images extends Model
     public $imageData;
 
     /**
-     * @description Trace图片URL
-     *
      * @var string
      */
     public $imageURL;

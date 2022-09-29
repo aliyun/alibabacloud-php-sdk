@@ -7,7 +7,7 @@ namespace AlibabaCloud\SDK\Facebody\V20191230\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class ExtractFingerPrintAdvanceRequest extends Model
+class VerifyFaceMaskAdvanceRequest extends Model
 {
     /**
      * @var int[]
@@ -18,9 +18,21 @@ class ExtractFingerPrintAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
+
+    /**
+     * @var int[]
+     */
+    public $refData;
+
+    /**
+     * @var Stream
+     */
+    public $refUrlObject;
     protected $_name = [
         'imageData'      => 'ImageData',
         'imageURLObject' => 'ImageURL',
+        'refData'        => 'RefData',
+        'refUrlObject'   => 'RefUrl',
     ];
 
     public function validate()
@@ -36,6 +48,12 @@ class ExtractFingerPrintAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
+        if (null !== $this->refData) {
+            $res['RefData'] = $this->refData;
+        }
+        if (null !== $this->refUrlObject) {
+            $res['RefUrl'] = $this->refUrlObject;
+        }
 
         return $res;
     }
@@ -43,7 +61,7 @@ class ExtractFingerPrintAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ExtractFingerPrintAdvanceRequest
+     * @return VerifyFaceMaskAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -53,6 +71,12 @@ class ExtractFingerPrintAdvanceRequest extends Model
         }
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
+        }
+        if (isset($map['RefData'])) {
+            $model->refData = $map['RefData'];
+        }
+        if (isset($map['RefUrl'])) {
+            $model->refUrlObject = $map['RefUrl'];
         }
 
         return $model;

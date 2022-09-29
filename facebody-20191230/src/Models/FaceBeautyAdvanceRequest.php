@@ -29,7 +29,7 @@ class FaceBeautyAdvanceRequest extends Model
      */
     public $white;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'sharp'          => 'Sharp',
         'smooth'         => 'Smooth',
         'white'          => 'White',
@@ -37,14 +37,13 @@ class FaceBeautyAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->sharp) {
             $res['Sharp'] = $this->sharp;
@@ -67,8 +66,8 @@ class FaceBeautyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['Sharp'])) {
             $model->sharp = $map['Sharp'];

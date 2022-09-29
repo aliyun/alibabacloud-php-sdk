@@ -24,21 +24,20 @@ class FaceTidyupAdvanceRequest extends Model
      */
     public $strength;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'shapeType'      => 'ShapeType',
         'strength'       => 'Strength',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->shapeType) {
             $res['ShapeType'] = $this->shapeType;
@@ -58,8 +57,8 @@ class FaceTidyupAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['ShapeType'])) {
             $model->shapeType = $map['ShapeType'];

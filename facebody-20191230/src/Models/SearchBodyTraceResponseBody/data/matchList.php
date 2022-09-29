@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class matchList extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description 自定义数据信息
-     *
      * @var string
      */
     public $extraData;
 
     /**
-     * @description 人员ID
-     *
      * @var int
      */
     public $personId;
 
     /**
-     * @description 匹配度分值，越大越相似，取值范围[-1.0, 1.0]
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @description TraceId
-     *
      * @var int
      */
     public $traceId;

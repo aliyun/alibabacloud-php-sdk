@@ -29,7 +29,7 @@ class FaceMakeupAdvanceRequest extends Model
      */
     public $strength;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'makeupType'     => 'MakeupType',
         'resourceType'   => 'ResourceType',
         'strength'       => 'Strength',
@@ -37,14 +37,13 @@ class FaceMakeupAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->makeupType) {
             $res['MakeupType'] = $this->makeupType;
@@ -67,8 +66,8 @@ class FaceMakeupAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['MakeupType'])) {
             $model->makeupType = $map['MakeupType'];

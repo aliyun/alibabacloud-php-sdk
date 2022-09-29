@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class AddFaceAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageUrlObject;
-
-    /**
      * @var string
      */
     public $dbName;
@@ -28,6 +23,11 @@ class AddFaceAdvanceRequest extends Model
      * @var string
      */
     public $extraData;
+
+    /**
+     * @var Stream
+     */
+    public $imageUrlObject;
 
     /**
      * @var float
@@ -44,10 +44,10 @@ class AddFaceAdvanceRequest extends Model
      */
     public $similarityScoreThresholdInEntity;
     protected $_name = [
-        'imageUrlObject'                        => 'ImageUrlObject',
         'dbName'                                => 'DbName',
         'entityId'                              => 'EntityId',
         'extraData'                             => 'ExtraData',
+        'imageUrlObject'                        => 'ImageUrl',
         'qualityScoreThreshold'                 => 'QualityScoreThreshold',
         'similarityScoreThresholdBetweenEntity' => 'SimilarityScoreThresholdBetweenEntity',
         'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
@@ -55,15 +55,11 @@ class AddFaceAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
@@ -72,6 +68,9 @@ class AddFaceAdvanceRequest extends Model
         }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
+        }
+        if (null !== $this->imageUrlObject) {
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
@@ -94,9 +93,6 @@ class AddFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
@@ -105,6 +101,9 @@ class AddFaceAdvanceRequest extends Model
         }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];

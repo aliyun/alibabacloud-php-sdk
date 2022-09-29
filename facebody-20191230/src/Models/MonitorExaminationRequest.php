@@ -14,8 +14,6 @@ class MonitorExaminationRequest extends Model
     public $imageURL;
 
     /**
-     * @description A short description of struct
-     *
      * @var int
      */
     public $type;

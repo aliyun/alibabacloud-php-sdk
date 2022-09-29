@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class traceList extends Model
 {
     /**
-     * @description 自定义Trace信息
-     *
      * @var string
      */
     public $extraData;
 
     /**
-     * @description TraceId
-     *
      * @var int
      */
     public $id;

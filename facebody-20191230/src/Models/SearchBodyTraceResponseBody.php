@@ -15,8 +15,6 @@ class SearchBodyTraceResponseBody extends Model
     public $data;
 
     /**
-     * @description RequestId
-     *
      * @var string
      */
     public $requestId;

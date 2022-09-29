@@ -10,36 +10,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description 人员ID
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description 人员名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Trace数量
-     *
      * @var int
      */
     public $traceCount;
 
     /**
-     * @description Trace列表
-     *
      * @var traceList[]
      */
     public $traceList;

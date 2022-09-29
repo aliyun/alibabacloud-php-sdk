@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class SearchFaceAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageUrlObject;
-
-    /**
      * @var string
      */
     public $dbName;
@@ -23,6 +18,11 @@ class SearchFaceAdvanceRequest extends Model
      * @var string
      */
     public $dbNames;
+
+    /**
+     * @var Stream
+     */
+    public $imageUrlObject;
 
     /**
      * @var int
@@ -39,9 +39,9 @@ class SearchFaceAdvanceRequest extends Model
      */
     public $qualityScoreThreshold;
     protected $_name = [
-        'imageUrlObject'        => 'ImageUrlObject',
         'dbName'                => 'DbName',
         'dbNames'               => 'DbNames',
+        'imageUrlObject'        => 'ImageUrl',
         'limit'                 => 'Limit',
         'maxFaceNum'            => 'MaxFaceNum',
         'qualityScoreThreshold' => 'QualityScoreThreshold',
@@ -49,20 +49,19 @@ class SearchFaceAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
-        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
         if (null !== $this->dbNames) {
             $res['DbNames'] = $this->dbNames;
+        }
+        if (null !== $this->imageUrlObject) {
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
@@ -85,14 +84,14 @@ class SearchFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
-        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
         if (isset($map['DbNames'])) {
             $model->dbNames = $map['DbNames'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];

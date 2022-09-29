@@ -15,8 +15,6 @@ class data extends Model
     public $dbList;
 
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $total;

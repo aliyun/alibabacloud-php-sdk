@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListBodyPersonRequest extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description 分页数量
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description 起始位置(不含)
-     *
      * @var int
      */
     public $offset;

@@ -10,13 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeHandGestureAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageURLObject;
-
-    /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $appId;
@@ -25,28 +18,32 @@ class RecognizeHandGestureAdvanceRequest extends Model
      * @var string
      */
     public $gestureType;
+
+    /**
+     * @var Stream
+     */
+    public $imageURLObject;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
         'appId'          => 'AppId',
         'gestureType'    => 'GestureType',
+        'imageURLObject' => 'ImageURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
         if (null !== $this->gestureType) {
             $res['GestureType'] = $this->gestureType;
+        }
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
 
         return $res;
@@ -60,14 +57,14 @@ class RecognizeHandGestureAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
         if (isset($map['GestureType'])) {
             $model->gestureType = $map['GestureType'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
 
         return $model;

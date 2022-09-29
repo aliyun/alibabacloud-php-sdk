@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class AddBodyTraceShrinkRequest extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description 自定义信息。支持字母、数字、标点符号和汉字。不超过4096个字符。
-     *
      * @var string
      */
     public $extraData;
 
     /**
-     * @description Trace图片信息列表
-     *
      * @var string
      */
     public $imagesShrink;
 
     /**
-     * @description 实体ID，可以包含数字、字母和下划线，相同db下不可以重复，长度1-64。
-     *
      * @var int
      */
     public $personId;

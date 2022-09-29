@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteBodyDbRequest extends Model
 {
     /**
-     * @description 数据库ID
-     *
      * @var int
      */
     public $id;

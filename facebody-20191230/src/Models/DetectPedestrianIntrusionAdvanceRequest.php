@@ -11,36 +11,32 @@ use GuzzleHttp\Psr7\Stream;
 class DetectPedestrianIntrusionAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageURLObject;
-
-    /**
      * @var detectRegion[]
      */
     public $detectRegion;
+
+    /**
+     * @var Stream
+     */
+    public $imageURLObject;
 
     /**
      * @var string
      */
     public $regionType;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
         'detectRegion'   => 'DetectRegion',
+        'imageURLObject' => 'ImageURL',
         'regionType'     => 'RegionType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
-        }
         if (null !== $this->detectRegion) {
             $res['DetectRegion'] = [];
             if (null !== $this->detectRegion && \is_array($this->detectRegion)) {
@@ -49,6 +45,9 @@ class DetectPedestrianIntrusionAdvanceRequest extends Model
                     $res['DetectRegion'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->regionType) {
             $res['RegionType'] = $this->regionType;
@@ -65,9 +64,6 @@ class DetectPedestrianIntrusionAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
-        }
         if (isset($map['DetectRegion'])) {
             if (!empty($map['DetectRegion'])) {
                 $model->detectRegion = [];
@@ -76,6 +72,9 @@ class DetectPedestrianIntrusionAdvanceRequest extends Model
                     $model->detectRegion[$n++] = null !== $item ? detectRegion::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['RegionType'])) {
             $model->regionType = $map['RegionType'];

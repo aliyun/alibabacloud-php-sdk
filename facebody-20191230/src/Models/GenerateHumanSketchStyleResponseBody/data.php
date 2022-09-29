@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 出参图片地址
-     *
      * @var string
      */
     public $imageURL;

@@ -14,8 +14,6 @@ class AddFaceImageTemplateRequest extends Model
     public $imageURL;
 
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $userId;

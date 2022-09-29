@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateBodyDbRequest extends Model
 {
     /**
-     * @description 数据库名称
-     *
      * @var string
      */
     public $name;

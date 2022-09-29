@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
-     * @description 图片Base64数据
-     *
      * @var int[]
      */
     public $imageData;
 
     /**
-     * @description Trace图片URL
-     *
      * @var string
      */
     public $imageURL;

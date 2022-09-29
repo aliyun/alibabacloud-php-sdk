@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class GenerateHumanAnimeStyleAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageURLObject;
-
-    /**
      * @var string
      */
     public $algoType;
+
+    /**
+     * @var Stream
+     */
+    public $imageURLObject;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
         'algoType'       => 'AlgoType',
+        'imageURLObject' => 'ImageURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
-        }
         if (null !== $this->algoType) {
             $res['AlgoType'] = $this->algoType;
+        }
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class GenerateHumanAnimeStyleAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
-        }
         if (isset($map['AlgoType'])) {
             $model->algoType = $map['AlgoType'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
 
         return $model;
