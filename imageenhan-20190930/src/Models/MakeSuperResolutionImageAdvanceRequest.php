@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class MakeSuperResolutionImageAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $urlObject;
-
-    /**
      * @var string
      */
     public $mode;
@@ -33,25 +28,26 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
      * @var int
      */
     public $upscaleFactor;
+
+    /**
+     * @var Stream
+     */
+    public $urlObject;
     protected $_name = [
-        'urlObject'     => 'UrlObject',
         'mode'          => 'Mode',
         'outputFormat'  => 'OutputFormat',
         'outputQuality' => 'OutputQuality',
         'upscaleFactor' => 'UpscaleFactor',
+        'urlObject'     => 'Url',
     ];
 
     public function validate()
     {
-        Model::validateRequired('urlObject', $this->urlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->urlObject) {
-            $res['UrlObject'] = $this->urlObject;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -63,6 +59,9 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
         }
         if (null !== $this->upscaleFactor) {
             $res['UpscaleFactor'] = $this->upscaleFactor;
+        }
+        if (null !== $this->urlObject) {
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -76,9 +75,6 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UrlObject'])) {
-            $model->urlObject = $map['UrlObject'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
@@ -90,6 +86,9 @@ class MakeSuperResolutionImageAdvanceRequest extends Model
         }
         if (isset($map['UpscaleFactor'])) {
             $model->upscaleFactor = $map['UpscaleFactor'];
+        }
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;

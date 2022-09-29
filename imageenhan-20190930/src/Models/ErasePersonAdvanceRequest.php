@@ -19,20 +19,19 @@ class ErasePersonAdvanceRequest extends Model
      */
     public $userMask;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'userMask'       => 'UserMask',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->userMask) {
             $res['UserMask'] = $this->userMask;
@@ -49,8 +48,8 @@ class ErasePersonAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['UserMask'])) {
             $model->userMask = $map['UserMask'];

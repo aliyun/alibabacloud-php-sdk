@@ -24,21 +24,20 @@ class EnhanceImageColorAdvanceRequest extends Model
      */
     public $outputFormat;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'mode'           => 'Mode',
         'outputFormat'   => 'OutputFormat',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
@@ -58,8 +57,8 @@ class EnhanceImageColorAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];

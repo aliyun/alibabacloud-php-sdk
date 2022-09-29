@@ -10,14 +10,14 @@ use GuzzleHttp\Psr7\Stream;
 class ImageBlindCharacterWatermarkAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $originImageURLObject;
-
-    /**
      * @var string
      */
     public $functionType;
+
+    /**
+     * @var Stream
+     */
+    public $originImageURLObject;
 
     /**
      * @var string
@@ -35,31 +35,30 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
     public $text;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $watermarkImageURL;
+    public $watermarkImageURLObject;
     protected $_name = [
-        'originImageURLObject' => 'OriginImageURLObject',
-        'functionType'         => 'FunctionType',
-        'outputFileType'       => 'OutputFileType',
-        'qualityFactor'        => 'QualityFactor',
-        'text'                 => 'Text',
-        'watermarkImageURL'    => 'WatermarkImageURL',
+        'functionType'            => 'FunctionType',
+        'originImageURLObject'    => 'OriginImageURL',
+        'outputFileType'          => 'OutputFileType',
+        'qualityFactor'           => 'QualityFactor',
+        'text'                    => 'Text',
+        'watermarkImageURLObject' => 'WatermarkImageURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('originImageURLObject', $this->originImageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originImageURLObject) {
-            $res['OriginImageURLObject'] = $this->originImageURLObject;
-        }
         if (null !== $this->functionType) {
             $res['FunctionType'] = $this->functionType;
+        }
+        if (null !== $this->originImageURLObject) {
+            $res['OriginImageURL'] = $this->originImageURLObject;
         }
         if (null !== $this->outputFileType) {
             $res['OutputFileType'] = $this->outputFileType;
@@ -70,8 +69,8 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-        if (null !== $this->watermarkImageURL) {
-            $res['WatermarkImageURL'] = $this->watermarkImageURL;
+        if (null !== $this->watermarkImageURLObject) {
+            $res['WatermarkImageURL'] = $this->watermarkImageURLObject;
         }
 
         return $res;
@@ -85,11 +84,11 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginImageURLObject'])) {
-            $model->originImageURLObject = $map['OriginImageURLObject'];
-        }
         if (isset($map['FunctionType'])) {
             $model->functionType = $map['FunctionType'];
+        }
+        if (isset($map['OriginImageURL'])) {
+            $model->originImageURLObject = $map['OriginImageURL'];
         }
         if (isset($map['OutputFileType'])) {
             $model->outputFileType = $map['OutputFileType'];
@@ -101,7 +100,7 @@ class ImageBlindCharacterWatermarkAdvanceRequest extends Model
             $model->text = $map['Text'];
         }
         if (isset($map['WatermarkImageURL'])) {
-            $model->watermarkImageURL = $map['WatermarkImageURL'];
+            $model->watermarkImageURLObject = $map['WatermarkImageURL'];
         }
 
         return $model;

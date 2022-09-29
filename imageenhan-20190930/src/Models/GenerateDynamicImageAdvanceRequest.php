@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class GenerateDynamicImageAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $urlObject;
-
-    /**
      * @var string
      */
     public $operation;
+
+    /**
+     * @var Stream
+     */
+    public $urlObject;
     protected $_name = [
-        'urlObject' => 'UrlObject',
         'operation' => 'Operation',
+        'urlObject' => 'Url',
     ];
 
     public function validate()
     {
-        Model::validateRequired('urlObject', $this->urlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->urlObject) {
-            $res['UrlObject'] = $this->urlObject;
-        }
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
+        }
+        if (null !== $this->urlObject) {
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class GenerateDynamicImageAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UrlObject'])) {
-            $model->urlObject = $map['UrlObject'];
-        }
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
+        }
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;

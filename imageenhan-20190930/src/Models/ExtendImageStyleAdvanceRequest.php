@@ -7,20 +7,20 @@ namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class ImitatePhotoStyleAdvanceRequest extends Model
+class ExtendImageStyleAdvanceRequest extends Model
 {
     /**
      * @var Stream
      */
-    public $imageURLObject;
+    public $majorUrlObject;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $styleUrl;
+    public $styleUrlObject;
     protected $_name = [
-        'imageURLObject' => 'ImageURL',
-        'styleUrl'       => 'StyleUrl',
+        'majorUrlObject' => 'MajorUrl',
+        'styleUrlObject' => 'StyleUrl',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ImitatePhotoStyleAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURL'] = $this->imageURLObject;
+        if (null !== $this->majorUrlObject) {
+            $res['MajorUrl'] = $this->majorUrlObject;
         }
-        if (null !== $this->styleUrl) {
-            $res['StyleUrl'] = $this->styleUrl;
+        if (null !== $this->styleUrlObject) {
+            $res['StyleUrl'] = $this->styleUrlObject;
         }
 
         return $res;
@@ -43,16 +43,16 @@ class ImitatePhotoStyleAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return ImitatePhotoStyleAdvanceRequest
+     * @return ExtendImageStyleAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURLObject = $map['ImageURL'];
+        if (isset($map['MajorUrl'])) {
+            $model->majorUrlObject = $map['MajorUrl'];
         }
         if (isset($map['StyleUrl'])) {
-            $model->styleUrl = $map['StyleUrl'];
+            $model->styleUrlObject = $map['StyleUrl'];
         }
 
         return $model;

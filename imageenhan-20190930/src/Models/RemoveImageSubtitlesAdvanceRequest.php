@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class RemoveImageSubtitlesAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageURLObject;
-
-    /**
      * @var float
      */
     public $BH;
@@ -33,25 +28,26 @@ class RemoveImageSubtitlesAdvanceRequest extends Model
      * @var float
      */
     public $BY;
+
+    /**
+     * @var Stream
+     */
+    public $imageURLObject;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
         'BH'             => 'BH',
         'BW'             => 'BW',
         'BX'             => 'BX',
         'BY'             => 'BY',
+        'imageURLObject' => 'ImageURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
-        }
         if (null !== $this->BH) {
             $res['BH'] = $this->BH;
         }
@@ -63,6 +59,9 @@ class RemoveImageSubtitlesAdvanceRequest extends Model
         }
         if (null !== $this->BY) {
             $res['BY'] = $this->BY;
+        }
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
 
         return $res;
@@ -76,9 +75,6 @@ class RemoveImageSubtitlesAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
-        }
         if (isset($map['BH'])) {
             $model->BH = $map['BH'];
         }
@@ -90,6 +86,9 @@ class RemoveImageSubtitlesAdvanceRequest extends Model
         }
         if (isset($map['BY'])) {
             $model->BY = $map['BY'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
 
         return $model;

@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageenhan\V20190930\Models;
 
-use AlibabaCloud\SDK\Imageenhan\V20190930\Models\RecolorHDImageAdvanceRequest\colorTemplate;
+use AlibabaCloud\SDK\Imageenhan\V20190930\Models\RecolorImageAdvanceRequest\colorTemplate;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecolorHDImageAdvanceRequest extends Model
+class RecolorImageAdvanceRequest extends Model
 {
     /**
      * @var int
@@ -19,11 +19,6 @@ class RecolorHDImageAdvanceRequest extends Model
      * @var colorTemplate[]
      */
     public $colorTemplate;
-
-    /**
-     * @var string
-     */
-    public $degree;
 
     /**
      * @var string
@@ -42,7 +37,6 @@ class RecolorHDImageAdvanceRequest extends Model
     protected $_name = [
         'colorCount'    => 'ColorCount',
         'colorTemplate' => 'ColorTemplate',
-        'degree'        => 'Degree',
         'mode'          => 'Mode',
         'refUrlObject'  => 'RefUrl',
         'urlObject'     => 'Url',
@@ -67,9 +61,6 @@ class RecolorHDImageAdvanceRequest extends Model
                 }
             }
         }
-        if (null !== $this->degree) {
-            $res['Degree'] = $this->degree;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -86,7 +77,7 @@ class RecolorHDImageAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecolorHDImageAdvanceRequest
+     * @return RecolorImageAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -102,9 +93,6 @@ class RecolorHDImageAdvanceRequest extends Model
                     $model->colorTemplate[$n++] = null !== $item ? colorTemplate::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Degree'])) {
-            $model->degree = $map['Degree'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
