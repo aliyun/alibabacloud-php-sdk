@@ -1449,6 +1449,12 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->smsUpExtendCodeJson)) {
             $query['SmsUpExtendCodeJson'] = $request->smsUpExtendCodeJson;
         }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateParamJson)) {
+            $query['TemplateParamJson'] = $request->templateParamJson;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1587,6 +1593,12 @@ class Dysmsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->smsUpExtendCode)) {
             $query['SmsUpExtendCode'] = $request->smsUpExtendCode;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateParam)) {
+            $query['TemplateParam'] = $request->templateParam;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

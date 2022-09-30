@@ -62,6 +62,16 @@ class SendBatchCardSmsRequest extends Model
      * @var string
      */
     public $smsUpExtendCodeJson;
+
+    /**
+     * @var string
+     */
+    public $templateCode;
+
+    /**
+     * @var string
+     */
+    public $templateParamJson;
     protected $_name = [
         'cardTemplateCode'         => 'CardTemplateCode',
         'cardTemplateParamJson'    => 'CardTemplateParamJson',
@@ -74,6 +84,8 @@ class SendBatchCardSmsRequest extends Model
         'smsTemplateCode'          => 'SmsTemplateCode',
         'smsTemplateParamJson'     => 'SmsTemplateParamJson',
         'smsUpExtendCodeJson'      => 'SmsUpExtendCodeJson',
+        'templateCode'             => 'TemplateCode',
+        'templateParamJson'        => 'TemplateParamJson',
     ];
 
     public function validate()
@@ -115,6 +127,12 @@ class SendBatchCardSmsRequest extends Model
         }
         if (null !== $this->smsUpExtendCodeJson) {
             $res['SmsUpExtendCodeJson'] = $this->smsUpExtendCodeJson;
+        }
+        if (null !== $this->templateCode) {
+            $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateParamJson) {
+            $res['TemplateParamJson'] = $this->templateParamJson;
         }
 
         return $res;
@@ -160,6 +178,12 @@ class SendBatchCardSmsRequest extends Model
         }
         if (isset($map['SmsUpExtendCodeJson'])) {
             $model->smsUpExtendCodeJson = $map['SmsUpExtendCodeJson'];
+        }
+        if (isset($map['TemplateCode'])) {
+            $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateParamJson'])) {
+            $model->templateParamJson = $map['TemplateParamJson'];
         }
 
         return $model;

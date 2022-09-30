@@ -58,6 +58,16 @@ class SendCardSmsRequest extends Model
      * @var string
      */
     public $smsUpExtendCode;
+
+    /**
+     * @var string
+     */
+    public $templateCode;
+
+    /**
+     * @var string
+     */
+    public $templateParam;
     protected $_name = [
         'cardObjects'          => 'CardObjects',
         'cardTemplateCode'     => 'CardTemplateCode',
@@ -69,6 +79,8 @@ class SendCardSmsRequest extends Model
         'smsTemplateCode'      => 'SmsTemplateCode',
         'smsTemplateParam'     => 'SmsTemplateParam',
         'smsUpExtendCode'      => 'SmsUpExtendCode',
+        'templateCode'         => 'TemplateCode',
+        'templateParam'        => 'TemplateParam',
     ];
 
     public function validate()
@@ -113,6 +125,12 @@ class SendCardSmsRequest extends Model
         }
         if (null !== $this->smsUpExtendCode) {
             $res['SmsUpExtendCode'] = $this->smsUpExtendCode;
+        }
+        if (null !== $this->templateCode) {
+            $res['TemplateCode'] = $this->templateCode;
+        }
+        if (null !== $this->templateParam) {
+            $res['TemplateParam'] = $this->templateParam;
         }
 
         return $res;
@@ -161,6 +179,12 @@ class SendCardSmsRequest extends Model
         }
         if (isset($map['SmsUpExtendCode'])) {
             $model->smsUpExtendCode = $map['SmsUpExtendCode'];
+        }
+        if (isset($map['TemplateCode'])) {
+            $model->templateCode = $map['TemplateCode'];
+        }
+        if (isset($map['TemplateParam'])) {
+            $model->templateParam = $map['TemplateParam'];
         }
 
         return $model;
