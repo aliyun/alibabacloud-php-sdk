@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeIdcardRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeIdcardResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInternationalIdcardRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInternationalIdcardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeJanpaneseRequest;
@@ -1961,6 +1963,54 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeIdcardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeInternationalIdcardRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeInternationalIdcardResponse
+     */
+    public function recognizeInternationalIdcardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeInternationalIdcard',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeInternationalIdcardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeInternationalIdcardRequest $request
+     *
+     * @return RecognizeInternationalIdcardResponse
+     */
+    public function recognizeInternationalIdcard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeInternationalIdcardWithOptions($request, $runtime);
     }
 
     /**
