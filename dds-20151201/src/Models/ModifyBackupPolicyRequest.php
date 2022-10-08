@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupInterval;
+
+    /**
      * @var int
      */
     public $backupRetentionPeriod;
@@ -62,7 +67,13 @@ class ModifyBackupPolicyRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $snapshotBackupType;
     protected $_name = [
+        'backupInterval'           => 'BackupInterval',
         'backupRetentionPeriod'    => 'BackupRetentionPeriod',
         'DBInstanceId'             => 'DBInstanceId',
         'enableBackupLog'          => 'EnableBackupLog',
@@ -74,6 +85,7 @@ class ModifyBackupPolicyRequest extends Model
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
         'securityToken'            => 'SecurityToken',
+        'snapshotBackupType'       => 'SnapshotBackupType',
     ];
 
     public function validate()
@@ -83,6 +95,9 @@ class ModifyBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupInterval) {
+            $res['BackupInterval'] = $this->backupInterval;
+        }
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
@@ -116,6 +131,9 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+        if (null !== $this->snapshotBackupType) {
+            $res['SnapshotBackupType'] = $this->snapshotBackupType;
+        }
 
         return $res;
     }
@@ -128,6 +146,9 @@ class ModifyBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupInterval'])) {
+            $model->backupInterval = $map['BackupInterval'];
+        }
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
@@ -160,6 +181,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SnapshotBackupType'])) {
+            $model->snapshotBackupType = $map['SnapshotBackupType'];
         }
 
         return $model;

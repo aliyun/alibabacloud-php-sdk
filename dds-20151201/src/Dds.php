@@ -596,6 +596,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
         }
+        if (!Utils::isUnset($request->hiddenZoneId)) {
+            $query['HiddenZoneId'] = $request->hiddenZoneId;
+        }
         if (!Utils::isUnset($request->networkType)) {
             $query['NetworkType'] = $request->networkType;
         }
@@ -628,6 +631,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->restoreTime)) {
             $query['RestoreTime'] = $request->restoreTime;
+        }
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
@@ -4318,6 +4324,9 @@ class Dds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backupInterval)) {
+            $query['BackupInterval'] = $request->backupInterval;
+        }
         if (!Utils::isUnset($request->backupRetentionPeriod)) {
             $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
@@ -4350,6 +4359,9 @@ class Dds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->snapshotBackupType)) {
+            $query['SnapshotBackupType'] = $request->snapshotBackupType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4786,9 +4798,6 @@ class Dds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->disableTlsProtocol)) {
-            $query['DisableTlsProtocol'] = $request->disableTlsProtocol;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

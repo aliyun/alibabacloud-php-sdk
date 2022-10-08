@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $backupInterval;
+
+    /**
      * @var string
      */
     public $backupRetentionPeriod;
@@ -37,13 +42,20 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $snapshotBackupType;
     protected $_name = [
+        'backupInterval'           => 'BackupInterval',
         'backupRetentionPeriod'    => 'BackupRetentionPeriod',
         'enableBackupLog'          => 'EnableBackupLog',
         'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
         'preferredBackupPeriod'    => 'PreferredBackupPeriod',
         'preferredBackupTime'      => 'PreferredBackupTime',
         'requestId'                => 'RequestId',
+        'snapshotBackupType'       => 'SnapshotBackupType',
     ];
 
     public function validate()
@@ -53,6 +65,9 @@ class DescribeBackupPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupInterval) {
+            $res['BackupInterval'] = $this->backupInterval;
+        }
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
@@ -71,6 +86,9 @@ class DescribeBackupPolicyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->snapshotBackupType) {
+            $res['SnapshotBackupType'] = $this->snapshotBackupType;
+        }
 
         return $res;
     }
@@ -83,6 +101,9 @@ class DescribeBackupPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupInterval'])) {
+            $model->backupInterval = $map['BackupInterval'];
+        }
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
@@ -100,6 +121,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotBackupType'])) {
+            $model->snapshotBackupType = $map['SnapshotBackupType'];
         }
 
         return $model;
