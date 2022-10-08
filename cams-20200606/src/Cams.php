@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\Cams\V20200606;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
@@ -16,6 +22,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
@@ -60,6 +69,147 @@ class Cams extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param BeeBotAssociateRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return BeeBotAssociateResponse
+     */
+    public function beeBotAssociateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BeeBotAssociateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->perspective)) {
+            $request->perspectiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->chatBotInstnaceId)) {
+            $body['ChatBotInstnaceId'] = $request->chatBotInstnaceId;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->perspectiveShrink)) {
+            $body['Perspective'] = $request->perspectiveShrink;
+        }
+        if (!Utils::isUnset($request->recommendNum)) {
+            $body['RecommendNum'] = $request->recommendNum;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->utterance)) {
+            $body['Utterance'] = $request->utterance;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BeeBotAssociate',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BeeBotAssociateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BeeBotAssociateRequest $request
+     *
+     * @return BeeBotAssociateResponse
+     */
+    public function beeBotAssociate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->beeBotAssociateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BeeBotChatRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BeeBotChatResponse
+     */
+    public function beeBotChatWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BeeBotChatShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->perspective)) {
+            $request->perspectiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->vendorParam)) {
+            $request->vendorParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vendorParam, 'VendorParam', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->chatBotInstnaceId)) {
+            $body['ChatBotInstnaceId'] = $request->chatBotInstnaceId;
+        }
+        if (!Utils::isUnset($request->intentName)) {
+            $body['IntentName'] = $request->intentName;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->knowledgeId)) {
+            $body['KnowledgeId'] = $request->knowledgeId;
+        }
+        if (!Utils::isUnset($request->perspectiveShrink)) {
+            $body['Perspective'] = $request->perspectiveShrink;
+        }
+        if (!Utils::isUnset($request->senderId)) {
+            $body['SenderId'] = $request->senderId;
+        }
+        if (!Utils::isUnset($request->senderNick)) {
+            $body['SenderNick'] = $request->senderNick;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->utterance)) {
+            $body['Utterance'] = $request->utterance;
+        }
+        if (!Utils::isUnset($request->vendorParamShrink)) {
+            $body['VendorParam'] = $request->vendorParamShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BeeBotChat',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BeeBotChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BeeBotChatRequest $request
+     *
+     * @return BeeBotChatResponse
+     */
+    public function beeBotChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->beeBotChatWithOptions($request, $runtime);
     }
 
     /**
@@ -296,6 +446,72 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listChatappTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyChatappTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyChatappTemplateResponse
+     */
+    public function modifyChatappTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyChatappTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->components)) {
+            $request->componentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->example)) {
+            $request->exampleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->componentsShrink)) {
+            $body['Components'] = $request->componentsShrink;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $body['CustWabaId'] = $request->custWabaId;
+        }
+        if (!Utils::isUnset($request->exampleShrink)) {
+            $body['Example'] = $request->exampleShrink;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $body['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyChatappTemplate',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyChatappTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyChatappTemplateRequest $request
+     *
+     * @return ModifyChatappTemplateResponse
+     */
+    public function modifyChatappTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyChatappTemplateWithOptions($request, $runtime);
     }
 
     /**
