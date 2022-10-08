@@ -16,6 +16,11 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     /**
      * @var string
      */
+    public $ossCallbackUrl;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -23,9 +28,10 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
      */
     public $signUrl;
     protected $_name = [
-        'id'        => 'Id',
-        'requestId' => 'RequestId',
-        'signUrl'   => 'SignUrl',
+        'id'             => 'Id',
+        'ossCallbackUrl' => 'OssCallbackUrl',
+        'requestId'      => 'RequestId',
+        'signUrl'        => 'SignUrl',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->ossCallbackUrl) {
+            $res['OssCallbackUrl'] = $this->ossCallbackUrl;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -58,6 +67,9 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['OssCallbackUrl'])) {
+            $model->ossCallbackUrl = $map['OssCallbackUrl'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
