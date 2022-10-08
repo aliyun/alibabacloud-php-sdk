@@ -83,6 +83,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $rawId;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -119,6 +124,7 @@ class result extends Model
         'id'          => 'Id',
         'itemType'    => 'ItemType',
         'lyric'       => 'Lyric',
+        'rawId'       => 'RawId',
         'source'      => 'Source',
         'styles'      => 'Styles',
         'title'       => 'Title',
@@ -180,6 +186,9 @@ class result extends Model
         }
         if (null !== $this->lyric) {
             $res['Lyric'] = $this->lyric;
+        }
+        if (null !== $this->rawId) {
+            $res['RawId'] = $this->rawId;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -257,6 +266,9 @@ class result extends Model
         }
         if (isset($map['Lyric'])) {
             $model->lyric = $map['Lyric'];
+        }
+        if (isset($map['RawId'])) {
+            $model->rawId = $map['RawId'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
