@@ -1,3 +1,6 @@
+2022-10-09 Version: 1.0.19
+- Update requestId.
+
 2022-10-09 Version: 1.0.18
 - Update Syn Person.
 

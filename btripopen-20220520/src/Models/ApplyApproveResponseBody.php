@@ -41,7 +41,7 @@ class ApplyApproveResponseBody extends Model
         'code'      => 'code',
         'message'   => 'message',
         'module'    => 'module',
-        'requestId' => 'request_id',
+        'requestId' => 'requestId',
         'success'   => 'success',
         'traceId'   => 'trace_id',
     ];
@@ -63,7 +63,7 @@ class ApplyApproveResponseBody extends Model
             $res['module'] = $this->module;
         }
         if (null !== $this->requestId) {
-            $res['request_id'] = $this->requestId;
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
@@ -92,8 +92,8 @@ class ApplyApproveResponseBody extends Model
         if (isset($map['module'])) {
             $model->module = $map['module'];
         }
-        if (isset($map['request_id'])) {
-            $model->requestId = $map['request_id'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];

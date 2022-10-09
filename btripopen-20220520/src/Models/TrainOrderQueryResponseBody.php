@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class TrainOrderQueryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var module
      */
     public $module;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
@@ -39,8 +39,8 @@ class TrainOrderQueryResponseBody extends Model
      */
     public $traceId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'module'     => 'module',
+        'requestId'  => 'requestId',
         'resultCode' => 'result_code',
         'resultMsg'  => 'result_msg',
         'success'    => 'success',
@@ -54,11 +54,11 @@ class TrainOrderQueryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->module) {
             $res['module'] = null !== $this->module ? $this->module->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
         if (null !== $this->resultCode) {
             $res['result_code'] = $this->resultCode;
@@ -84,11 +84,11 @@ class TrainOrderQueryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
         if (isset($map['result_code'])) {
             $model->resultCode = $map['result_code'];
