@@ -31,6 +31,11 @@ class userList extends Model
     /**
      * @var string
      */
+    public $managerUserId;
+
+    /**
+     * @var string
+     */
     public $phone;
 
     /**
@@ -72,6 +77,7 @@ class userList extends Model
         'email'             => 'email',
         'jobNo'             => 'job_no',
         'leaveStatus'       => 'leave_status',
+        'managerUserId'     => 'manager_user_id',
         'phone'             => 'phone',
         'position'          => 'position',
         'positionLevel'     => 'position_level',
@@ -100,6 +106,9 @@ class userList extends Model
         }
         if (null !== $this->leaveStatus) {
             $res['leave_status'] = $this->leaveStatus;
+        }
+        if (null !== $this->managerUserId) {
+            $res['manager_user_id'] = $this->managerUserId;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
@@ -148,6 +157,9 @@ class userList extends Model
         }
         if (isset($map['leave_status'])) {
             $model->leaveStatus = $map['leave_status'];
+        }
+        if (isset($map['manager_user_id'])) {
+            $model->managerUserId = $map['manager_user_id'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
