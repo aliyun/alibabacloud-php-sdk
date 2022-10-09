@@ -4,8 +4,6 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponseBody\model;
 
-use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponseBody\model\skuModels\gradePriceModels;
-use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponseBody\model\skuModels\lmItemSkuStepPriceModels;
 use AlibabaCloud\Tea\Model;
 
 class skuModels extends Model
@@ -18,7 +16,7 @@ class skuModels extends Model
     /**
      * @var string
      */
-    public $canNotBeSoldMassage;
+    public $canNotBeSoldMessage;
 
     /**
      * @var string[]
@@ -34,11 +32,6 @@ class skuModels extends Model
      * @var string
      */
     public $extJson;
-
-    /**
-     * @var gradePriceModels[]
-     */
-    public $gradePriceModels;
 
     /**
      * @var bool
@@ -61,11 +54,6 @@ class skuModels extends Model
     public $lmItemId;
 
     /**
-     * @var lmItemSkuStepPriceModels[]
-     */
-    public $lmItemSkuStepPriceModels;
-
-    /**
      * @var string[]
      */
     public $lmSkuAttributeMap;
@@ -83,17 +71,12 @@ class skuModels extends Model
     /**
      * @var int
      */
-    public $reservePrice;
+    public $reservedPrice;
 
     /**
      * @var string
      */
     public $simpleQuantity;
-
-    /**
-     * @var string
-     */
-    public $skuDesc;
 
     /**
      * @var int
@@ -119,35 +102,26 @@ class skuModels extends Model
      * @var int
      */
     public $status;
-
-    /**
-     * @var int
-     */
-    public $supplierPrice;
     protected $_name = [
-        'canNotBeSoldCode'         => 'CanNotBeSoldCode',
-        'canNotBeSoldMassage'      => 'CanNotBeSoldMassage',
-        'customizedAttributeMap'   => 'CustomizedAttributeMap',
-        'distributionMallId'       => 'DistributionMallId',
-        'extJson'                  => 'ExtJson',
-        'gradePriceModels'         => 'GradePriceModels',
-        'hasQuantity'              => 'HasQuantity',
-        'invoiceType'              => 'InvoiceType',
-        'itemId'                   => 'ItemId',
-        'lmItemId'                 => 'LmItemId',
-        'lmItemSkuStepPriceModels' => 'LmItemSkuStepPriceModels',
-        'lmSkuAttributeMap'        => 'LmSkuAttributeMap',
-        'priceCent'                => 'PriceCent',
-        'quantity'                 => 'Quantity',
-        'reservePrice'             => 'ReservePrice',
-        'simpleQuantity'           => 'SimpleQuantity',
-        'skuDesc'                  => 'SkuDesc',
-        'skuId'                    => 'SkuId',
-        'skuPicUrl'                => 'SkuPicUrl',
-        'skuPvs'                   => 'SkuPvs',
-        'skuTitle'                 => 'SkuTitle',
-        'status'                   => 'Status',
-        'supplierPrice'            => 'SupplierPrice',
+        'canNotBeSoldCode'       => 'CanNotBeSoldCode',
+        'canNotBeSoldMessage'    => 'CanNotBeSoldMessage',
+        'customizedAttributeMap' => 'CustomizedAttributeMap',
+        'distributionMallId'     => 'DistributionMallId',
+        'extJson'                => 'ExtJson',
+        'hasQuantity'            => 'HasQuantity',
+        'invoiceType'            => 'InvoiceType',
+        'itemId'                 => 'ItemId',
+        'lmItemId'               => 'LmItemId',
+        'lmSkuAttributeMap'      => 'LmSkuAttributeMap',
+        'priceCent'              => 'PriceCent',
+        'quantity'               => 'Quantity',
+        'reservedPrice'          => 'ReservedPrice',
+        'simpleQuantity'         => 'SimpleQuantity',
+        'skuId'                  => 'SkuId',
+        'skuPicUrl'              => 'SkuPicUrl',
+        'skuPvs'                 => 'SkuPvs',
+        'skuTitle'               => 'SkuTitle',
+        'status'                 => 'Status',
     ];
 
     public function validate()
@@ -160,8 +134,8 @@ class skuModels extends Model
         if (null !== $this->canNotBeSoldCode) {
             $res['CanNotBeSoldCode'] = $this->canNotBeSoldCode;
         }
-        if (null !== $this->canNotBeSoldMassage) {
-            $res['CanNotBeSoldMassage'] = $this->canNotBeSoldMassage;
+        if (null !== $this->canNotBeSoldMessage) {
+            $res['CanNotBeSoldMessage'] = $this->canNotBeSoldMessage;
         }
         if (null !== $this->customizedAttributeMap) {
             $res['CustomizedAttributeMap'] = $this->customizedAttributeMap;
@@ -171,15 +145,6 @@ class skuModels extends Model
         }
         if (null !== $this->extJson) {
             $res['ExtJson'] = $this->extJson;
-        }
-        if (null !== $this->gradePriceModels) {
-            $res['GradePriceModels'] = [];
-            if (null !== $this->gradePriceModels && \is_array($this->gradePriceModels)) {
-                $n = 0;
-                foreach ($this->gradePriceModels as $item) {
-                    $res['GradePriceModels'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->hasQuantity) {
             $res['HasQuantity'] = $this->hasQuantity;
@@ -193,15 +158,6 @@ class skuModels extends Model
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
         }
-        if (null !== $this->lmItemSkuStepPriceModels) {
-            $res['LmItemSkuStepPriceModels'] = [];
-            if (null !== $this->lmItemSkuStepPriceModels && \is_array($this->lmItemSkuStepPriceModels)) {
-                $n = 0;
-                foreach ($this->lmItemSkuStepPriceModels as $item) {
-                    $res['LmItemSkuStepPriceModels'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->lmSkuAttributeMap) {
             $res['LmSkuAttributeMap'] = $this->lmSkuAttributeMap;
         }
@@ -211,14 +167,11 @@ class skuModels extends Model
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
-        if (null !== $this->reservePrice) {
-            $res['ReservePrice'] = $this->reservePrice;
+        if (null !== $this->reservedPrice) {
+            $res['ReservedPrice'] = $this->reservedPrice;
         }
         if (null !== $this->simpleQuantity) {
             $res['SimpleQuantity'] = $this->simpleQuantity;
-        }
-        if (null !== $this->skuDesc) {
-            $res['SkuDesc'] = $this->skuDesc;
         }
         if (null !== $this->skuId) {
             $res['SkuId'] = $this->skuId;
@@ -235,9 +188,6 @@ class skuModels extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->supplierPrice) {
-            $res['SupplierPrice'] = $this->supplierPrice;
-        }
 
         return $res;
     }
@@ -253,8 +203,8 @@ class skuModels extends Model
         if (isset($map['CanNotBeSoldCode'])) {
             $model->canNotBeSoldCode = $map['CanNotBeSoldCode'];
         }
-        if (isset($map['CanNotBeSoldMassage'])) {
-            $model->canNotBeSoldMassage = $map['CanNotBeSoldMassage'];
+        if (isset($map['CanNotBeSoldMessage'])) {
+            $model->canNotBeSoldMessage = $map['CanNotBeSoldMessage'];
         }
         if (isset($map['CustomizedAttributeMap'])) {
             $model->customizedAttributeMap = $map['CustomizedAttributeMap'];
@@ -264,15 +214,6 @@ class skuModels extends Model
         }
         if (isset($map['ExtJson'])) {
             $model->extJson = $map['ExtJson'];
-        }
-        if (isset($map['GradePriceModels'])) {
-            if (!empty($map['GradePriceModels'])) {
-                $model->gradePriceModels = [];
-                $n                       = 0;
-                foreach ($map['GradePriceModels'] as $item) {
-                    $model->gradePriceModels[$n++] = null !== $item ? gradePriceModels::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['HasQuantity'])) {
             $model->hasQuantity = $map['HasQuantity'];
@@ -286,15 +227,6 @@ class skuModels extends Model
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
         }
-        if (isset($map['LmItemSkuStepPriceModels'])) {
-            if (!empty($map['LmItemSkuStepPriceModels'])) {
-                $model->lmItemSkuStepPriceModels = [];
-                $n                               = 0;
-                foreach ($map['LmItemSkuStepPriceModels'] as $item) {
-                    $model->lmItemSkuStepPriceModels[$n++] = null !== $item ? lmItemSkuStepPriceModels::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['LmSkuAttributeMap'])) {
             $model->lmSkuAttributeMap = $map['LmSkuAttributeMap'];
         }
@@ -304,14 +236,11 @@ class skuModels extends Model
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
-        if (isset($map['ReservePrice'])) {
-            $model->reservePrice = $map['ReservePrice'];
+        if (isset($map['ReservedPrice'])) {
+            $model->reservedPrice = $map['ReservedPrice'];
         }
         if (isset($map['SimpleQuantity'])) {
             $model->simpleQuantity = $map['SimpleQuantity'];
-        }
-        if (isset($map['SkuDesc'])) {
-            $model->skuDesc = $map['SkuDesc'];
         }
         if (isset($map['SkuId'])) {
             $model->skuId = $map['SkuId'];
@@ -327,9 +256,6 @@ class skuModels extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['SupplierPrice'])) {
-            $model->supplierPrice = $map['SupplierPrice'];
         }
 
         return $model;

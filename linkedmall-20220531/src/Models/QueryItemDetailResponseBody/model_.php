@@ -4,18 +4,12 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponseBody;
 
-use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ModelItemExtendedPropModelMapValue;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponseBody\model\skuModels;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponseBody\model\skuPropertys;
 use AlibabaCloud\Tea\Model;
 
 class model_ extends Model
 {
-    /**
-     * @var int
-     */
-    public $auctionStatus;
-
     /**
      * @var string
      */
@@ -24,7 +18,7 @@ class model_ extends Model
     /**
      * @var string
      */
-    public $canNotBeSoldMassage;
+    public $canNotBeSoldMessage;
 
     /**
      * @var int
@@ -35,11 +29,6 @@ class model_ extends Model
      * @var int[]
      */
     public $categoryIds;
-
-    /**
-     * @var bool
-     */
-    public $centerInventory;
 
     /**
      * @var string
@@ -82,11 +71,6 @@ class model_ extends Model
     public $firstPicUrl;
 
     /**
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
      * @var bool
      */
     public $hasQuantity;
@@ -112,16 +96,6 @@ class model_ extends Model
     public $isSellerPayPostfee;
 
     /**
-     * @var string
-     */
-    public $itemDesc;
-
-    /**
-     * @var ModelItemExtendedPropModelMapValue[]
-     */
-    public $itemExtendedPropModelMap;
-
-    /**
      * @var int
      */
     public $itemId;
@@ -130,11 +104,6 @@ class model_ extends Model
      * @var string[]
      */
     public $itemImages;
-
-    /**
-     * @var string
-     */
-    public $itemName;
 
     /**
      * @var string
@@ -167,24 +136,9 @@ class model_ extends Model
     public $lmItemId;
 
     /**
-     * @var int
-     */
-    public $lmShopId;
-
-    /**
      * @var string
      */
     public $mainPicUrl;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var int
-     */
-    public $minPoints;
 
     /**
      * @var int
@@ -209,12 +163,7 @@ class model_ extends Model
     /**
      * @var int
      */
-    public $reservePrice;
-
-    /**
-     * @var int
-     */
-    public $securedTransactions;
+    public $reservedPrice;
 
     /**
      * @var string
@@ -242,16 +191,6 @@ class model_ extends Model
     public $thirdPartyName;
 
     /**
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $userType;
-
-    /**
      * @var string
      */
     public $videoPicUrl;
@@ -266,57 +205,45 @@ class model_ extends Model
      */
     public $virtualItemType;
     protected $_name = [
-        'auctionStatus'            => 'AuctionStatus',
-        'canNotBeSoldCode'         => 'CanNotBeSoldCode',
-        'canNotBeSoldMassage'      => 'CanNotBeSoldMassage',
-        'categoryId'               => 'CategoryId',
-        'categoryIds'              => 'CategoryIds',
-        'centerInventory'          => 'CenterInventory',
-        'city'                     => 'City',
-        'current'                  => 'Current',
-        'customizedAttributeMap'   => 'CustomizedAttributeMap',
-        'descOption'               => 'DescOption',
-        'descPath'                 => 'DescPath',
-        'distributionMallId'       => 'DistributionMallId',
-        'features'                 => 'Features',
-        'firstPicUrl'              => 'FirstPicUrl',
-        'gmtModified'              => 'GmtModified',
-        'hasQuantity'              => 'HasQuantity',
-        'iforestProps'             => 'IforestProps',
-        'invoiceType'              => 'InvoiceType',
-        'isCanSell'                => 'IsCanSell',
-        'isSellerPayPostfee'       => 'IsSellerPayPostfee',
-        'itemDesc'                 => 'ItemDesc',
-        'itemExtendedPropModelMap' => 'ItemExtendedPropModelMap',
-        'itemId'                   => 'ItemId',
-        'itemImages'               => 'ItemImages',
-        'itemName'                 => 'ItemName',
-        'itemTitle'                => 'ItemTitle',
-        'itemTotalSimpleValue'     => 'ItemTotalSimpleValue',
-        'itemTotalValue'           => 'ItemTotalValue',
-        'lmItemAttributeMap'       => 'LmItemAttributeMap',
-        'lmItemCategory'           => 'LmItemCategory',
-        'lmItemId'                 => 'LmItemId',
-        'lmShopId'                 => 'LmShopId',
-        'mainPicUrl'               => 'MainPicUrl',
-        'message'                  => 'Message',
-        'minPoints'                => 'MinPoints',
-        'minPrice'                 => 'MinPrice',
-        'properties'               => 'Properties',
-        'prov'                     => 'Prov',
-        'quantity'                 => 'Quantity',
-        'reservePrice'             => 'ReservePrice',
-        'securedTransactions'      => 'SecuredTransactions',
-        'simpleQuantity'           => 'SimpleQuantity',
-        'skuModels'                => 'SkuModels',
-        'skuPropertys'             => 'SkuPropertys',
-        'thirdPartyItemId'         => 'ThirdPartyItemId',
-        'thirdPartyName'           => 'ThirdPartyName',
-        'type'                     => 'Type',
-        'userType'                 => 'UserType',
-        'videoPicUrl'              => 'VideoPicUrl',
-        'videoUrl'                 => 'VideoUrl',
-        'virtualItemType'          => 'VirtualItemType',
+        'canNotBeSoldCode'       => 'CanNotBeSoldCode',
+        'canNotBeSoldMessage'    => 'CanNotBeSoldMessage',
+        'categoryId'             => 'CategoryId',
+        'categoryIds'            => 'CategoryIds',
+        'city'                   => 'City',
+        'current'                => 'Current',
+        'customizedAttributeMap' => 'CustomizedAttributeMap',
+        'descOption'             => 'DescOption',
+        'descPath'               => 'DescPath',
+        'distributionMallId'     => 'DistributionMallId',
+        'features'               => 'Features',
+        'firstPicUrl'            => 'FirstPicUrl',
+        'hasQuantity'            => 'HasQuantity',
+        'iforestProps'           => 'IforestProps',
+        'invoiceType'            => 'InvoiceType',
+        'isCanSell'              => 'IsCanSell',
+        'isSellerPayPostfee'     => 'IsSellerPayPostfee',
+        'itemId'                 => 'ItemId',
+        'itemImages'             => 'ItemImages',
+        'itemTitle'              => 'ItemTitle',
+        'itemTotalSimpleValue'   => 'ItemTotalSimpleValue',
+        'itemTotalValue'         => 'ItemTotalValue',
+        'lmItemAttributeMap'     => 'LmItemAttributeMap',
+        'lmItemCategory'         => 'LmItemCategory',
+        'lmItemId'               => 'LmItemId',
+        'mainPicUrl'             => 'MainPicUrl',
+        'minPrice'               => 'MinPrice',
+        'properties'             => 'Properties',
+        'prov'                   => 'Prov',
+        'quantity'               => 'Quantity',
+        'reservedPrice'          => 'ReservedPrice',
+        'simpleQuantity'         => 'SimpleQuantity',
+        'skuModels'              => 'SkuModels',
+        'skuPropertys'           => 'SkuPropertys',
+        'thirdPartyItemId'       => 'ThirdPartyItemId',
+        'thirdPartyName'         => 'ThirdPartyName',
+        'videoPicUrl'            => 'VideoPicUrl',
+        'videoUrl'               => 'VideoUrl',
+        'virtualItemType'        => 'VirtualItemType',
     ];
 
     public function validate()
@@ -326,23 +253,17 @@ class model_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->auctionStatus) {
-            $res['AuctionStatus'] = $this->auctionStatus;
-        }
         if (null !== $this->canNotBeSoldCode) {
             $res['CanNotBeSoldCode'] = $this->canNotBeSoldCode;
         }
-        if (null !== $this->canNotBeSoldMassage) {
-            $res['CanNotBeSoldMassage'] = $this->canNotBeSoldMassage;
+        if (null !== $this->canNotBeSoldMessage) {
+            $res['CanNotBeSoldMessage'] = $this->canNotBeSoldMessage;
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->categoryIds) {
             $res['CategoryIds'] = $this->categoryIds;
-        }
-        if (null !== $this->centerInventory) {
-            $res['CenterInventory'] = $this->centerInventory;
         }
         if (null !== $this->city) {
             $res['City'] = $this->city;
@@ -368,9 +289,6 @@ class model_ extends Model
         if (null !== $this->firstPicUrl) {
             $res['FirstPicUrl'] = $this->firstPicUrl;
         }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->hasQuantity) {
             $res['HasQuantity'] = $this->hasQuantity;
         }
@@ -386,25 +304,11 @@ class model_ extends Model
         if (null !== $this->isSellerPayPostfee) {
             $res['IsSellerPayPostfee'] = $this->isSellerPayPostfee;
         }
-        if (null !== $this->itemDesc) {
-            $res['ItemDesc'] = $this->itemDesc;
-        }
-        if (null !== $this->itemExtendedPropModelMap) {
-            $res['ItemExtendedPropModelMap'] = [];
-            if (null !== $this->itemExtendedPropModelMap && \is_array($this->itemExtendedPropModelMap)) {
-                foreach ($this->itemExtendedPropModelMap as $key => $val) {
-                    $res['ItemExtendedPropModelMap'][$key] = null !== $val ? $val->toMap() : $val;
-                }
-            }
-        }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
         }
         if (null !== $this->itemImages) {
             $res['ItemImages'] = $this->itemImages;
-        }
-        if (null !== $this->itemName) {
-            $res['ItemName'] = $this->itemName;
         }
         if (null !== $this->itemTitle) {
             $res['ItemTitle'] = $this->itemTitle;
@@ -424,17 +328,8 @@ class model_ extends Model
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
         }
-        if (null !== $this->lmShopId) {
-            $res['LmShopId'] = $this->lmShopId;
-        }
         if (null !== $this->mainPicUrl) {
             $res['MainPicUrl'] = $this->mainPicUrl;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->minPoints) {
-            $res['MinPoints'] = $this->minPoints;
         }
         if (null !== $this->minPrice) {
             $res['MinPrice'] = $this->minPrice;
@@ -448,11 +343,8 @@ class model_ extends Model
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
-        if (null !== $this->reservePrice) {
-            $res['ReservePrice'] = $this->reservePrice;
-        }
-        if (null !== $this->securedTransactions) {
-            $res['SecuredTransactions'] = $this->securedTransactions;
+        if (null !== $this->reservedPrice) {
+            $res['ReservedPrice'] = $this->reservedPrice;
         }
         if (null !== $this->simpleQuantity) {
             $res['SimpleQuantity'] = $this->simpleQuantity;
@@ -481,12 +373,6 @@ class model_ extends Model
         if (null !== $this->thirdPartyName) {
             $res['ThirdPartyName'] = $this->thirdPartyName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->userType) {
-            $res['UserType'] = $this->userType;
-        }
         if (null !== $this->videoPicUrl) {
             $res['VideoPicUrl'] = $this->videoPicUrl;
         }
@@ -508,14 +394,11 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuctionStatus'])) {
-            $model->auctionStatus = $map['AuctionStatus'];
-        }
         if (isset($map['CanNotBeSoldCode'])) {
             $model->canNotBeSoldCode = $map['CanNotBeSoldCode'];
         }
-        if (isset($map['CanNotBeSoldMassage'])) {
-            $model->canNotBeSoldMassage = $map['CanNotBeSoldMassage'];
+        if (isset($map['CanNotBeSoldMessage'])) {
+            $model->canNotBeSoldMessage = $map['CanNotBeSoldMessage'];
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
@@ -524,9 +407,6 @@ class model_ extends Model
             if (!empty($map['CategoryIds'])) {
                 $model->categoryIds = $map['CategoryIds'];
             }
-        }
-        if (isset($map['CenterInventory'])) {
-            $model->centerInventory = $map['CenterInventory'];
         }
         if (isset($map['City'])) {
             $model->city = $map['City'];
@@ -552,9 +432,6 @@ class model_ extends Model
         if (isset($map['FirstPicUrl'])) {
             $model->firstPicUrl = $map['FirstPicUrl'];
         }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['HasQuantity'])) {
             $model->hasQuantity = $map['HasQuantity'];
         }
@@ -572,12 +449,6 @@ class model_ extends Model
         if (isset($map['IsSellerPayPostfee'])) {
             $model->isSellerPayPostfee = $map['IsSellerPayPostfee'];
         }
-        if (isset($map['ItemDesc'])) {
-            $model->itemDesc = $map['ItemDesc'];
-        }
-        if (isset($map['ItemExtendedPropModelMap'])) {
-            $model->itemExtendedPropModelMap = $map['ItemExtendedPropModelMap'];
-        }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
         }
@@ -585,9 +456,6 @@ class model_ extends Model
             if (!empty($map['ItemImages'])) {
                 $model->itemImages = $map['ItemImages'];
             }
-        }
-        if (isset($map['ItemName'])) {
-            $model->itemName = $map['ItemName'];
         }
         if (isset($map['ItemTitle'])) {
             $model->itemTitle = $map['ItemTitle'];
@@ -607,17 +475,8 @@ class model_ extends Model
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
         }
-        if (isset($map['LmShopId'])) {
-            $model->lmShopId = $map['LmShopId'];
-        }
         if (isset($map['MainPicUrl'])) {
             $model->mainPicUrl = $map['MainPicUrl'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['MinPoints'])) {
-            $model->minPoints = $map['MinPoints'];
         }
         if (isset($map['MinPrice'])) {
             $model->minPrice = $map['MinPrice'];
@@ -631,11 +490,8 @@ class model_ extends Model
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
-        if (isset($map['ReservePrice'])) {
-            $model->reservePrice = $map['ReservePrice'];
-        }
-        if (isset($map['SecuredTransactions'])) {
-            $model->securedTransactions = $map['SecuredTransactions'];
+        if (isset($map['ReservedPrice'])) {
+            $model->reservedPrice = $map['ReservedPrice'];
         }
         if (isset($map['SimpleQuantity'])) {
             $model->simpleQuantity = $map['SimpleQuantity'];
@@ -663,12 +519,6 @@ class model_ extends Model
         }
         if (isset($map['ThirdPartyName'])) {
             $model->thirdPartyName = $map['ThirdPartyName'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['UserType'])) {
-            $model->userType = $map['UserType'];
         }
         if (isset($map['VideoPicUrl'])) {
             $model->videoPicUrl = $map['VideoPicUrl'];
