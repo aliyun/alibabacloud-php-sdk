@@ -31,6 +31,11 @@ class addressItems extends Model
     /**
      * @var string
      */
+    public $SSLEnabled;
+
+    /**
+     * @var string
+     */
     public $VPCId;
 
     /**
@@ -42,6 +47,7 @@ class addressItems extends Model
         'IPAddress'        => 'IPAddress',
         'netType'          => 'NetType',
         'port'             => 'Port',
+        'SSLEnabled'       => 'SSLEnabled',
         'VPCId'            => 'VPCId',
         'vSwitchId'        => 'VSwitchId',
     ];
@@ -64,6 +70,9 @@ class addressItems extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->SSLEnabled) {
+            $res['SSLEnabled'] = $this->SSLEnabled;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -94,6 +103,9 @@ class addressItems extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['SSLEnabled'])) {
+            $model->SSLEnabled = $map['SSLEnabled'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];

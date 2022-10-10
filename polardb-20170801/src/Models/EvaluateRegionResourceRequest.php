@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBClustersWithBackupsRequest extends Model
+class EvaluateRegionResourceRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBClusterDescription;
+    public $DBInstanceConnType;
 
     /**
      * @var string
      */
-    public $DBClusterIds;
+    public $DBNodeClass;
 
     /**
      * @var string
@@ -29,9 +29,14 @@ class DescribeDBClustersWithBackupsRequest extends Model
     public $DBVersion;
 
     /**
-     * @var int
+     * @var string
      */
-    public $isDeleted;
+    public $dispenseMode;
+
+    /**
+     * @var string
+     */
+    public $needMaxScaleLink;
 
     /**
      * @var string
@@ -42,16 +47,6 @@ class DescribeDBClustersWithBackupsRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
 
     /**
      * @var string
@@ -72,20 +67,31 @@ class DescribeDBClustersWithBackupsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $subDomain;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterIds'         => 'DBClusterIds',
+        'DBInstanceConnType'   => 'DBInstanceConnType',
+        'DBNodeClass'          => 'DBNodeClass',
         'DBType'               => 'DBType',
         'DBVersion'            => 'DBVersion',
-        'isDeleted'            => 'IsDeleted',
+        'dispenseMode'         => 'DispenseMode',
+        'needMaxScaleLink'     => 'NeedMaxScaleLink',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'subDomain'            => 'SubDomain',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -95,11 +101,11 @@ class DescribeDBClustersWithBackupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterDescription) {
-            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        if (null !== $this->DBInstanceConnType) {
+            $res['DBInstanceConnType'] = $this->DBInstanceConnType;
         }
-        if (null !== $this->DBClusterIds) {
-            $res['DBClusterIds'] = $this->DBClusterIds;
+        if (null !== $this->DBNodeClass) {
+            $res['DBNodeClass'] = $this->DBNodeClass;
         }
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
@@ -107,20 +113,17 @@ class DescribeDBClustersWithBackupsRequest extends Model
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
         }
-        if (null !== $this->isDeleted) {
-            $res['IsDeleted'] = $this->isDeleted;
+        if (null !== $this->dispenseMode) {
+            $res['DispenseMode'] = $this->dispenseMode;
+        }
+        if (null !== $this->needMaxScaleLink) {
+            $res['NeedMaxScaleLink'] = $this->needMaxScaleLink;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -134,6 +137,12 @@ class DescribeDBClustersWithBackupsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
 
         return $res;
     }
@@ -141,16 +150,16 @@ class DescribeDBClustersWithBackupsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBClustersWithBackupsRequest
+     * @return EvaluateRegionResourceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterDescription'])) {
-            $model->DBClusterDescription = $map['DBClusterDescription'];
+        if (isset($map['DBInstanceConnType'])) {
+            $model->DBInstanceConnType = $map['DBInstanceConnType'];
         }
-        if (isset($map['DBClusterIds'])) {
-            $model->DBClusterIds = $map['DBClusterIds'];
+        if (isset($map['DBNodeClass'])) {
+            $model->DBNodeClass = $map['DBNodeClass'];
         }
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
@@ -158,20 +167,17 @@ class DescribeDBClustersWithBackupsRequest extends Model
         if (isset($map['DBVersion'])) {
             $model->DBVersion = $map['DBVersion'];
         }
-        if (isset($map['IsDeleted'])) {
-            $model->isDeleted = $map['IsDeleted'];
+        if (isset($map['DispenseMode'])) {
+            $model->dispenseMode = $map['DispenseMode'];
+        }
+        if (isset($map['NeedMaxScaleLink'])) {
+            $model->needMaxScaleLink = $map['NeedMaxScaleLink'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -184,6 +190,12 @@ class DescribeDBClustersWithBackupsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

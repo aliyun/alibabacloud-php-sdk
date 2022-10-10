@@ -6,32 +6,17 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBClustersWithBackupsRequest extends Model
+class DescribeClassListRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBClusterDescription;
+    public $commodityCode;
 
     /**
      * @var string
      */
-    public $DBClusterIds;
-
-    /**
-     * @var string
-     */
-    public $DBType;
-
-    /**
-     * @var string
-     */
-    public $DBVersion;
-
-    /**
-     * @var int
-     */
-    public $isDeleted;
+    public $orderType;
 
     /**
      * @var string
@@ -42,16 +27,6 @@ class DescribeDBClustersWithBackupsRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
 
     /**
      * @var string
@@ -73,15 +48,10 @@ class DescribeDBClustersWithBackupsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterIds'         => 'DBClusterIds',
-        'DBType'               => 'DBType',
-        'DBVersion'            => 'DBVersion',
-        'isDeleted'            => 'IsDeleted',
+        'commodityCode'        => 'CommodityCode',
+        'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -95,32 +65,17 @@ class DescribeDBClustersWithBackupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterDescription) {
-            $res['DBClusterDescription'] = $this->DBClusterDescription;
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
         }
-        if (null !== $this->DBClusterIds) {
-            $res['DBClusterIds'] = $this->DBClusterIds;
-        }
-        if (null !== $this->DBType) {
-            $res['DBType'] = $this->DBType;
-        }
-        if (null !== $this->DBVersion) {
-            $res['DBVersion'] = $this->DBVersion;
-        }
-        if (null !== $this->isDeleted) {
-            $res['IsDeleted'] = $this->isDeleted;
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -141,37 +96,22 @@ class DescribeDBClustersWithBackupsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBClustersWithBackupsRequest
+     * @return DescribeClassListRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterDescription'])) {
-            $model->DBClusterDescription = $map['DBClusterDescription'];
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
         }
-        if (isset($map['DBClusterIds'])) {
-            $model->DBClusterIds = $map['DBClusterIds'];
-        }
-        if (isset($map['DBType'])) {
-            $model->DBType = $map['DBType'];
-        }
-        if (isset($map['DBVersion'])) {
-            $model->DBVersion = $map['DBVersion'];
-        }
-        if (isset($map['IsDeleted'])) {
-            $model->isDeleted = $map['IsDeleted'];
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -171,6 +171,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $SQLSize;
 
     /**
+     * @var string
+     */
+    public $serverlessType;
+
+    /**
      * @var int
      */
     public $storageMax;
@@ -252,6 +257,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'requestId'                 => 'RequestId',
         'resourceGroupId'           => 'ResourceGroupId',
         'SQLSize'                   => 'SQLSize',
+        'serverlessType'            => 'ServerlessType',
         'storageMax'                => 'StorageMax',
         'storagePayType'            => 'StoragePayType',
         'storageSpace'              => 'StorageSpace',
@@ -372,6 +378,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->SQLSize) {
             $res['SQLSize'] = $this->SQLSize;
+        }
+        if (null !== $this->serverlessType) {
+            $res['ServerlessType'] = $this->serverlessType;
         }
         if (null !== $this->storageMax) {
             $res['StorageMax'] = $this->storageMax;
@@ -522,6 +531,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['SQLSize'])) {
             $model->SQLSize = $map['SQLSize'];
+        }
+        if (isset($map['ServerlessType'])) {
+            $model->serverlessType = $map['ServerlessType'];
         }
         if (isset($map['StorageMax'])) {
             $model->storageMax = $map['StorageMax'];

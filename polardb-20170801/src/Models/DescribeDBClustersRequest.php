@@ -35,6 +35,11 @@ class DescribeDBClustersRequest extends Model
     public $DBType;
 
     /**
+     * @var bool
+     */
+    public $expired;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -58,6 +63,16 @@ class DescribeDBClustersRequest extends Model
      * @var string
      */
     public $payType;
+
+    /**
+     * @var int
+     */
+    public $recentCreationInterval;
+
+    /**
+     * @var int
+     */
+    public $recentExpirationInterval;
 
     /**
      * @var string
@@ -84,21 +99,24 @@ class DescribeDBClustersRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterIds'         => 'DBClusterIds',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'DBNodeIds'            => 'DBNodeIds',
-        'DBType'               => 'DBType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'payType'              => 'PayType',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
+        'DBClusterDescription'     => 'DBClusterDescription',
+        'DBClusterIds'             => 'DBClusterIds',
+        'DBClusterStatus'          => 'DBClusterStatus',
+        'DBNodeIds'                => 'DBNodeIds',
+        'DBType'                   => 'DBType',
+        'expired'                  => 'Expired',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'pageNumber'               => 'PageNumber',
+        'pageSize'                 => 'PageSize',
+        'payType'                  => 'PayType',
+        'recentCreationInterval'   => 'RecentCreationInterval',
+        'recentExpirationInterval' => 'RecentExpirationInterval',
+        'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'tag'                      => 'Tag',
     ];
 
     public function validate()
@@ -123,6 +141,9 @@ class DescribeDBClustersRequest extends Model
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
         }
+        if (null !== $this->expired) {
+            $res['Expired'] = $this->expired;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -137,6 +158,12 @@ class DescribeDBClustersRequest extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->recentCreationInterval) {
+            $res['RecentCreationInterval'] = $this->recentCreationInterval;
+        }
+        if (null !== $this->recentExpirationInterval) {
+            $res['RecentExpirationInterval'] = $this->recentExpirationInterval;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -186,6 +213,9 @@ class DescribeDBClustersRequest extends Model
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
         }
+        if (isset($map['Expired'])) {
+            $model->expired = $map['Expired'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -200,6 +230,12 @@ class DescribeDBClustersRequest extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['RecentCreationInterval'])) {
+            $model->recentCreationInterval = $map['RecentCreationInterval'];
+        }
+        if (isset($map['RecentExpirationInterval'])) {
+            $model->recentExpirationInterval = $map['RecentExpirationInterval'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

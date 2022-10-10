@@ -108,6 +108,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $serverlessType;
+
+    /**
+     * @var string
+     */
     public $storagePayType;
 
     /**
@@ -154,6 +159,7 @@ class DBCluster extends Model
         'payType'              => 'PayType',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
+        'serverlessType'       => 'ServerlessType',
         'storagePayType'       => 'StoragePayType',
         'storageSpace'         => 'StorageSpace',
         'storageUsed'          => 'StorageUsed',
@@ -225,6 +231,9 @@ class DBCluster extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->serverlessType) {
+            $res['ServerlessType'] = $this->serverlessType;
         }
         if (null !== $this->storagePayType) {
             $res['StoragePayType'] = $this->storagePayType;
@@ -312,6 +321,9 @@ class DBCluster extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ServerlessType'])) {
+            $model->serverlessType = $map['ServerlessType'];
         }
         if (isset($map['StoragePayType'])) {
             $model->storagePayType = $map['StoragePayType'];

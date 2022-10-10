@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDBClusterRequest extends Model
@@ -144,6 +145,11 @@ class CreateDBClusterRequest extends Model
     public $TDEStatus;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $usedTime;
@@ -190,6 +196,7 @@ class CreateDBClusterRequest extends Model
         'securityIPList'                         => 'SecurityIPList',
         'sourceResourceId'                       => 'SourceResourceId',
         'TDEStatus'                              => 'TDEStatus',
+        'tag'                                    => 'Tag',
         'usedTime'                               => 'UsedTime',
         'VPCId'                                  => 'VPCId',
         'vSwitchId'                              => 'VSwitchId',
@@ -283,6 +290,15 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -388,6 +404,15 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

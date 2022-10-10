@@ -22,6 +22,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $DBClusterId;
+
+    /**
+     * @var string
+     */
     public $DBEndpointDescription;
 
     /**
@@ -56,6 +61,7 @@ class items extends Model
     protected $_name = [
         'addressItems'          => 'AddressItems',
         'autoAddNewNodes'       => 'AutoAddNewNodes',
+        'DBClusterId'           => 'DBClusterId',
         'DBEndpointDescription' => 'DBEndpointDescription',
         'DBEndpointId'          => 'DBEndpointId',
         'endpointConfig'        => 'EndpointConfig',
@@ -83,6 +89,9 @@ class items extends Model
         }
         if (null !== $this->autoAddNewNodes) {
             $res['AutoAddNewNodes'] = $this->autoAddNewNodes;
+        }
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
         }
         if (null !== $this->DBEndpointDescription) {
             $res['DBEndpointDescription'] = $this->DBEndpointDescription;
@@ -128,6 +137,9 @@ class items extends Model
         }
         if (isset($map['AutoAddNewNodes'])) {
             $model->autoAddNewNodes = $map['AutoAddNewNodes'];
+        }
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
         }
         if (isset($map['DBEndpointDescription'])) {
             $model->DBEndpointDescription = $map['DBEndpointDescription'];

@@ -31,12 +31,18 @@ class DescribeDBClusterTDEResponseBody extends Model
     /**
      * @var string
      */
+    public $TDERegion;
+
+    /**
+     * @var string
+     */
     public $TDEStatus;
     protected $_name = [
         'DBClusterId'      => 'DBClusterId',
         'encryptNewTables' => 'EncryptNewTables',
         'encryptionKey'    => 'EncryptionKey',
         'requestId'        => 'RequestId',
+        'TDERegion'        => 'TDERegion',
         'TDEStatus'        => 'TDEStatus',
     ];
 
@@ -58,6 +64,9 @@ class DescribeDBClusterTDEResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->TDERegion) {
+            $res['TDERegion'] = $this->TDERegion;
         }
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
@@ -85,6 +94,9 @@ class DescribeDBClusterTDEResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TDERegion'])) {
+            $model->TDERegion = $map['TDERegion'];
         }
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];

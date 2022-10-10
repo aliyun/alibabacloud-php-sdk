@@ -71,6 +71,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $sccMode;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'addedCpuCores'    => 'AddedCpuCores',
@@ -85,6 +90,7 @@ class DBNodes extends Model
         'masterId'         => 'MasterId',
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
+        'sccMode'          => 'SccMode',
         'zoneId'           => 'ZoneId',
     ];
 
@@ -130,6 +136,9 @@ class DBNodes extends Model
         }
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
+        }
+        if (null !== $this->sccMode) {
+            $res['SccMode'] = $this->sccMode;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -181,6 +190,9 @@ class DBNodes extends Model
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['SccMode'])) {
+            $model->sccMode = $map['SccMode'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

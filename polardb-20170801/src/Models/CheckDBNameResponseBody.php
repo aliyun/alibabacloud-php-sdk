@@ -11,8 +11,14 @@ class CheckDBNameResponseBody extends Model
     /**
      * @var string
      */
+    public $DBName;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'DBName'    => 'DBName',
         'requestId' => 'RequestId',
     ];
 
@@ -23,6 +29,9 @@ class CheckDBNameResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -38,6 +47,9 @@ class CheckDBNameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
