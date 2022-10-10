@@ -43,7 +43,7 @@ class ApplyApproveResponseBody extends Model
         'module'    => 'module',
         'requestId' => 'requestId',
         'success'   => 'success',
-        'traceId'   => 'trace_id',
+        'traceId'   => 'traceId',
     ];
 
     public function validate()
@@ -69,7 +69,7 @@ class ApplyApproveResponseBody extends Model
             $res['success'] = $this->success;
         }
         if (null !== $this->traceId) {
-            $res['trace_id'] = $this->traceId;
+            $res['traceId'] = $this->traceId;
         }
 
         return $res;
@@ -98,8 +98,8 @@ class ApplyApproveResponseBody extends Model
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
-        if (isset($map['trace_id'])) {
-            $model->traceId = $map['trace_id'];
+        if (isset($map['traceId'])) {
+            $model->traceId = $map['traceId'];
         }
 
         return $model;
