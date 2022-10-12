@@ -11,7 +11,7 @@ class BeeBotChatShrinkRequest extends Model
     /**
      * @var string
      */
-    public $chatBotInstnaceId;
+    public $chatBotInstanceId;
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class BeeBotChatShrinkRequest extends Model
      */
     public $vendorParamShrink;
     protected $_name = [
-        'chatBotInstnaceId' => 'ChatBotInstnaceId',
+        'chatBotInstanceId' => 'ChatBotInstanceId',
         'intentName'        => 'IntentName',
         'isvCode'           => 'IsvCode',
         'knowledgeId'       => 'KnowledgeId',
@@ -77,8 +77,8 @@ class BeeBotChatShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->chatBotInstnaceId) {
-            $res['ChatBotInstnaceId'] = $this->chatBotInstnaceId;
+        if (null !== $this->chatBotInstanceId) {
+            $res['ChatBotInstanceId'] = $this->chatBotInstanceId;
         }
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
@@ -119,8 +119,8 @@ class BeeBotChatShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChatBotInstnaceId'])) {
-            $model->chatBotInstnaceId = $map['ChatBotInstnaceId'];
+        if (isset($map['ChatBotInstanceId'])) {
+            $model->chatBotInstanceId = $map['ChatBotInstanceId'];
         }
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];

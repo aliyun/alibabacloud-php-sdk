@@ -86,8 +86,8 @@ class Cams extends OpenApiClient
             $request->perspectiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->perspective, 'Perspective', 'json');
         }
         $body = [];
-        if (!Utils::isUnset($request->chatBotInstnaceId)) {
-            $body['ChatBotInstnaceId'] = $request->chatBotInstnaceId;
+        if (!Utils::isUnset($request->chatBotInstanceId)) {
+            $body['ChatBotInstanceId'] = $request->chatBotInstanceId;
         }
         if (!Utils::isUnset($request->isvCode)) {
             $body['IsvCode'] = $request->isvCode;
@@ -152,8 +152,8 @@ class Cams extends OpenApiClient
             $request->vendorParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vendorParam, 'VendorParam', 'json');
         }
         $body = [];
-        if (!Utils::isUnset($request->chatBotInstnaceId)) {
-            $body['ChatBotInstnaceId'] = $request->chatBotInstnaceId;
+        if (!Utils::isUnset($request->chatBotInstanceId)) {
+            $body['ChatBotInstanceId'] = $request->chatBotInstanceId;
         }
         if (!Utils::isUnset($request->intentName)) {
             $body['IntentName'] = $request->intentName;

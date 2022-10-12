@@ -11,7 +11,7 @@ class BeeBotAssociateRequest extends Model
     /**
      * @var string
      */
-    public $chatBotInstnaceId;
+    public $chatBotInstanceId;
 
     /**
      * @var string
@@ -38,7 +38,7 @@ class BeeBotAssociateRequest extends Model
      */
     public $utterance;
     protected $_name = [
-        'chatBotInstnaceId' => 'ChatBotInstnaceId',
+        'chatBotInstanceId' => 'ChatBotInstanceId',
         'isvCode'           => 'IsvCode',
         'perspective'       => 'Perspective',
         'recommendNum'      => 'RecommendNum',
@@ -53,8 +53,8 @@ class BeeBotAssociateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->chatBotInstnaceId) {
-            $res['ChatBotInstnaceId'] = $this->chatBotInstnaceId;
+        if (null !== $this->chatBotInstanceId) {
+            $res['ChatBotInstanceId'] = $this->chatBotInstanceId;
         }
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
@@ -83,8 +83,8 @@ class BeeBotAssociateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ChatBotInstnaceId'])) {
-            $model->chatBotInstnaceId = $map['ChatBotInstnaceId'];
+        if (isset($map['ChatBotInstanceId'])) {
+            $model->chatBotInstanceId = $map['ChatBotInstanceId'];
         }
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
