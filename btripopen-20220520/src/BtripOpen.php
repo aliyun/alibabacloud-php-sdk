@@ -475,6 +475,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->thirdpartBusinessId)) {
             $body['thirdpart_business_id'] = $request->thirdpartBusinessId;
         }
+        if (!Utils::isUnset($request->thirdpartDepartId)) {
+            $body['thirdpart_depart_id'] = $request->thirdpartDepartId;
+        }
         if (!Utils::isUnset($request->togetherBookRule)) {
             $body['together_book_rule'] = $request->togetherBookRule;
         }
@@ -786,6 +789,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->thirdpartBusinessId)) {
             $body['thirdpart_business_id'] = $request->thirdpartBusinessId;
+        }
+        if (!Utils::isUnset($request->thirdpartDepartId)) {
+            $body['thirdpart_depart_id'] = $request->thirdpartDepartId;
         }
         if (!Utils::isUnset($request->togetherBookRule)) {
             $body['together_book_rule'] = $request->togetherBookRule;

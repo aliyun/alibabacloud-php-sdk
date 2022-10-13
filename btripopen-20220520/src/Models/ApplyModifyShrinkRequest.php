@@ -94,6 +94,11 @@ class ApplyModifyShrinkRequest extends Model
     public $thirdpartBusinessId;
 
     /**
+     * @var string
+     */
+    public $thirdpartDepartId;
+
+    /**
      * @var int
      */
     public $togetherBookRule;
@@ -165,6 +170,7 @@ class ApplyModifyShrinkRequest extends Model
         'status'                         => 'status',
         'thirdpartApplyId'               => 'thirdpart_apply_id',
         'thirdpartBusinessId'            => 'thirdpart_business_id',
+        'thirdpartDepartId'              => 'thirdpart_depart_id',
         'togetherBookRule'               => 'together_book_rule',
         'trainBudget'                    => 'train_budget',
         'travelerListShrink'             => 'traveler_list',
@@ -235,6 +241,9 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (null !== $this->thirdpartBusinessId) {
             $res['thirdpart_business_id'] = $this->thirdpartBusinessId;
+        }
+        if (null !== $this->thirdpartDepartId) {
+            $res['thirdpart_depart_id'] = $this->thirdpartDepartId;
         }
         if (null !== $this->togetherBookRule) {
             $res['together_book_rule'] = $this->togetherBookRule;
@@ -331,6 +340,9 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (isset($map['thirdpart_business_id'])) {
             $model->thirdpartBusinessId = $map['thirdpart_business_id'];
+        }
+        if (isset($map['thirdpart_depart_id'])) {
+            $model->thirdpartDepartId = $map['thirdpart_depart_id'];
         }
         if (isset($map['together_book_rule'])) {
             $model->togetherBookRule = $map['together_book_rule'];
