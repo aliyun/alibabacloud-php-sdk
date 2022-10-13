@@ -51,6 +51,11 @@ class DescribeInstancesRequest extends Model
     /**
      * @var string
      */
+    public $intranetIp;
+
+    /**
+     * @var string
+     */
     public $networkId;
 
     /**
@@ -96,6 +101,7 @@ class DescribeInstancesRequest extends Model
         'instanceIds'          => 'InstanceIds',
         'instanceName'         => 'InstanceName',
         'instanceResourceType' => 'InstanceResourceType',
+        'intranetIp'           => 'IntranetIp',
         'networkId'            => 'NetworkId',
         'orderByParams'        => 'OrderByParams',
         'pageNumber'           => 'PageNumber',
@@ -136,6 +142,9 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->instanceResourceType) {
             $res['InstanceResourceType'] = $this->instanceResourceType;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
@@ -196,6 +205,9 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['InstanceResourceType'])) {
             $model->instanceResourceType = $map['InstanceResourceType'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];

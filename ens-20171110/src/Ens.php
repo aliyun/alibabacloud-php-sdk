@@ -114,6 +114,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResourceSummaryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationResourceSummaryResponse;
@@ -178,6 +180,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageInfoRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageStatusRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeExportImageStatusResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeFileSystemsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeFileSystemsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeForwardTableEntriesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeForwardTableEntriesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeImageInfosRequest;
@@ -3316,6 +3320,58 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeAICImagesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAICImagesResponse
+     */
+    public function describeAICImagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAICImages',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAICImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAICImagesRequest $request
+     *
+     * @return DescribeAICImagesResponse
+     */
+    public function describeAICImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAICImagesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeARMServerInstancesRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
@@ -4947,6 +5003,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeFileSystemsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeFileSystemsResponse
+     */
+    public function describeFileSystemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFileSystems',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFileSystemsRequest $request
+     *
+     * @return DescribeFileSystemsResponse
+     */
+    public function describeFileSystems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFileSystemsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeForwardTableEntriesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -5438,6 +5534,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceResourceType)) {
             $query['InstanceResourceType'] = $request->instanceResourceType;
+        }
+        if (!Utils::isUnset($request->intranetIp)) {
+            $query['IntranetIp'] = $request->intranetIp;
         }
         if (!Utils::isUnset($request->networkId)) {
             $query['NetworkId'] = $request->networkId;
@@ -6214,9 +6313,6 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->systemDiskSize)) {
             $query['SystemDiskSize'] = $request->systemDiskSize;
         }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6668,9 +6764,6 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

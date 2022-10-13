@@ -27,17 +27,11 @@ class DescribePrePaidInstanceStockRequest extends Model
      * @var int
      */
     public $systemDiskSize;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'dataDiskSize'   => 'DataDiskSize',
         'ensRegionId'    => 'EnsRegionId',
         'instanceSpec'   => 'InstanceSpec',
         'systemDiskSize' => 'SystemDiskSize',
-        'version'        => 'Version',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class DescribePrePaidInstanceStockRequest extends Model
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class DescribePrePaidInstanceStockRequest extends Model
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

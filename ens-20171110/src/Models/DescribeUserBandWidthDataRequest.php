@@ -37,11 +37,6 @@ class DescribeUserBandWidthDataRequest extends Model
      * @var string
      */
     public $startTime;
-
-    /**
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'endTime'     => 'EndTime',
         'ensRegionId' => 'EnsRegionId',
@@ -49,7 +44,6 @@ class DescribeUserBandWidthDataRequest extends Model
         'isp'         => 'Isp',
         'period'      => 'Period',
         'startTime'   => 'StartTime',
-        'version'     => 'Version',
     ];
 
     public function validate()
@@ -76,9 +70,6 @@ class DescribeUserBandWidthDataRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -109,9 +100,6 @@ class DescribeUserBandWidthDataRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

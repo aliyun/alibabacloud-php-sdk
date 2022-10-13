@@ -44,6 +44,11 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGap;
+
+    /**
      * @var int
      */
     public $systemDiskSize;
@@ -55,6 +60,7 @@ class DescribePrePaidInstanceStockResponseBody extends Model
         'instanceSpec'   => 'InstanceSpec',
         'memory'         => 'Memory',
         'requestId'      => 'RequestId',
+        'resourceGap'    => 'ResourceGap',
         'systemDiskSize' => 'SystemDiskSize',
     ];
 
@@ -85,6 +91,9 @@ class DescribePrePaidInstanceStockResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGap) {
+            $res['ResourceGap'] = $this->resourceGap;
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
@@ -121,6 +130,9 @@ class DescribePrePaidInstanceStockResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGap'])) {
+            $model->resourceGap = $map['ResourceGap'];
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
