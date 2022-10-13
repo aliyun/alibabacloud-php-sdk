@@ -49,8 +49,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateWasmRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateWasmResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DcdnHttpRequestTestToolShrinkRequest;
@@ -1655,57 +1653,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSlrAndSlsProjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateWasmRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateWasmResponse
-     */
-    public function createWasmWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateWasm',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateWasmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateWasmRequest $request
-     *
-     * @return CreateWasmResponse
-     */
-    public function createWasm($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWasmWithOptions($request, $runtime);
     }
 
     /**
