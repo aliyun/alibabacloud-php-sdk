@@ -11,15 +11,15 @@ class DescribeConversationContextResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $conversationContext;
 
     /**
      * @var string
      */
-    public $conversationContext;
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'conversationContext' => 'ConversationContext',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeConversationContextResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->conversationContext) {
             $res['ConversationContext'] = $this->conversationContext;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeConversationContextResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConversationContext'])) {
             $model->conversationContext = $map['ConversationContext'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

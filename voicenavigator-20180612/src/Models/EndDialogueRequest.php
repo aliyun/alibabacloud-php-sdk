@@ -11,15 +11,27 @@ class EndDialogueRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $conversationId;
 
     /**
      * @var string
      */
-    public $conversationId;
+    public $hangUpParams;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $instanceOwnerId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'conversationId' => 'ConversationId',
+        'conversationId'  => 'ConversationId',
+        'hangUpParams'    => 'HangUpParams',
+        'instanceId'      => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class EndDialogueRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conversationId) {
+            $res['ConversationId'] = $this->conversationId;
+        }
+        if (null !== $this->hangUpParams) {
+            $res['HangUpParams'] = $this->hangUpParams;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->conversationId) {
-            $res['ConversationId'] = $this->conversationId;
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class EndDialogueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConversationId'])) {
+            $model->conversationId = $map['ConversationId'];
+        }
+        if (isset($map['HangUpParams'])) {
+            $model->hangUpParams = $map['HangUpParams'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ConversationId'])) {
-            $model->conversationId = $map['ConversationId'];
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
 
         return $model;

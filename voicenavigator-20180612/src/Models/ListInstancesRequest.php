@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $nluServiceTypeListJsonString;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -18,8 +23,9 @@ class ListInstancesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'nluServiceTypeListJsonString' => 'NluServiceTypeListJsonString',
+        'pageNumber'                   => 'PageNumber',
+        'pageSize'                     => 'PageSize',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class ListInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nluServiceTypeListJsonString) {
+            $res['NluServiceTypeListJsonString'] = $this->nluServiceTypeListJsonString;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -47,6 +56,9 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NluServiceTypeListJsonString'])) {
+            $model->nluServiceTypeListJsonString = $map['NluServiceTypeListJsonString'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

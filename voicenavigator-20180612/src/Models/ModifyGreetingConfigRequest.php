@@ -11,27 +11,27 @@ class ModifyGreetingConfigRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $greetingWords;
 
     /**
      * @var string
      */
-    public $sourceType;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $intentTrigger;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
         'greetingWords' => 'GreetingWords',
-        'sourceType'    => 'SourceType',
+        'instanceId'    => 'InstanceId',
         'intentTrigger' => 'IntentTrigger',
+        'sourceType'    => 'SourceType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyGreetingConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->greetingWords) {
             $res['GreetingWords'] = $this->greetingWords;
         }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->intentTrigger) {
             $res['IntentTrigger'] = $this->intentTrigger;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyGreetingConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['GreetingWords'])) {
             $model->greetingWords = $map['GreetingWords'];
         }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IntentTrigger'])) {
             $model->intentTrigger = $map['IntentTrigger'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         return $model;

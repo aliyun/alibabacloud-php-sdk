@@ -11,17 +11,22 @@ class statisticalDataReports extends Model
     /**
      * @var string
      */
-    public $knowledgeHitRate;
+    public $dialoguePassRate;
 
     /**
-     * @var int
+     * @var string
      */
-    public $resolvedQuestionNum;
+    public $knowledgeHitRate;
 
     /**
      * @var string
      */
     public $resolutionRate;
+
+    /**
+     * @var int
+     */
+    public $resolvedQuestionNum;
 
     /**
      * @var string
@@ -37,19 +42,14 @@ class statisticalDataReports extends Model
      * @var string
      */
     public $validAnswerRate;
-
-    /**
-     * @var string
-     */
-    public $dialoguePassRate;
     protected $_name = [
+        'dialoguePassRate'     => 'DialoguePassRate',
         'knowledgeHitRate'     => 'KnowledgeHitRate',
-        'resolvedQuestionNum'  => 'ResolvedQuestionNum',
         'resolutionRate'       => 'ResolutionRate',
+        'resolvedQuestionNum'  => 'ResolvedQuestionNum',
         'statisticalDate'      => 'StatisticalDate',
         'totalConversationNum' => 'TotalConversationNum',
         'validAnswerRate'      => 'ValidAnswerRate',
-        'dialoguePassRate'     => 'DialoguePassRate',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class statisticalDataReports extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dialoguePassRate) {
+            $res['DialoguePassRate'] = $this->dialoguePassRate;
+        }
         if (null !== $this->knowledgeHitRate) {
             $res['KnowledgeHitRate'] = $this->knowledgeHitRate;
         }
-        if (null !== $this->resolvedQuestionNum) {
-            $res['ResolvedQuestionNum'] = $this->resolvedQuestionNum;
-        }
         if (null !== $this->resolutionRate) {
             $res['ResolutionRate'] = $this->resolutionRate;
+        }
+        if (null !== $this->resolvedQuestionNum) {
+            $res['ResolvedQuestionNum'] = $this->resolvedQuestionNum;
         }
         if (null !== $this->statisticalDate) {
             $res['StatisticalDate'] = $this->statisticalDate;
@@ -76,9 +79,6 @@ class statisticalDataReports extends Model
         }
         if (null !== $this->validAnswerRate) {
             $res['ValidAnswerRate'] = $this->validAnswerRate;
-        }
-        if (null !== $this->dialoguePassRate) {
-            $res['DialoguePassRate'] = $this->dialoguePassRate;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class statisticalDataReports extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DialoguePassRate'])) {
+            $model->dialoguePassRate = $map['DialoguePassRate'];
+        }
         if (isset($map['KnowledgeHitRate'])) {
             $model->knowledgeHitRate = $map['KnowledgeHitRate'];
         }
-        if (isset($map['ResolvedQuestionNum'])) {
-            $model->resolvedQuestionNum = $map['ResolvedQuestionNum'];
-        }
         if (isset($map['ResolutionRate'])) {
             $model->resolutionRate = $map['ResolutionRate'];
+        }
+        if (isset($map['ResolvedQuestionNum'])) {
+            $model->resolvedQuestionNum = $map['ResolvedQuestionNum'];
         }
         if (isset($map['StatisticalDate'])) {
             $model->statisticalDate = $map['StatisticalDate'];
@@ -109,9 +112,6 @@ class statisticalDataReports extends Model
         }
         if (isset($map['ValidAnswerRate'])) {
             $model->validAnswerRate = $map['ValidAnswerRate'];
-        }
-        if (isset($map['DialoguePassRate'])) {
-            $model->dialoguePassRate = $map['DialoguePassRate'];
         }
 
         return $model;

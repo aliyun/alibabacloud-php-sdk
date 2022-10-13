@@ -11,20 +11,20 @@ class DebugCollectedNumberRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $conversationId;
 
     /**
      * @var string
      */
-    public $conversationId;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $number;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
         'conversationId' => 'ConversationId',
+        'instanceId'     => 'InstanceId',
         'number'         => 'Number',
     ];
 
@@ -35,11 +35,11 @@ class DebugCollectedNumberRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->number) {
             $res['Number'] = $this->number;
@@ -56,11 +56,11 @@ class DebugCollectedNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Number'])) {
             $model->number = $map['Number'];

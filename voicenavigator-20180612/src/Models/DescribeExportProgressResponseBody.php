@@ -11,7 +11,7 @@ class DescribeExportProgressResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $fileHttpUrl;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeExportProgressResponseBody extends Model
     /**
      * @var string
      */
-    public $fileHttpUrl;
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
-        'requestId'   => 'RequestId',
         'fileHttpUrl' => 'FileHttpUrl',
+        'requestId'   => 'RequestId',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeExportProgressResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->fileHttpUrl) {
+            $res['FileHttpUrl'] = $this->fileHttpUrl;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->fileHttpUrl) {
-            $res['FileHttpUrl'] = $this->fileHttpUrl;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeExportProgressResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['FileHttpUrl'])) {
+            $model->fileHttpUrl = $map['FileHttpUrl'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['FileHttpUrl'])) {
-            $model->fileHttpUrl = $map['FileHttpUrl'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

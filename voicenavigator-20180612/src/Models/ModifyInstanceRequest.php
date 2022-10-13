@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
      * @var int
      */
     public $concurrency;
@@ -26,12 +16,22 @@ class ModifyInstanceRequest extends Model
     /**
      * @var string
      */
-    public $chatbotInstanceId;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'description'       => 'Description',
-        'concurrency'       => 'Concurrency',
-        'chatbotInstanceId' => 'ChatbotInstanceId',
+        'concurrency' => 'Concurrency',
+        'description' => 'Description',
+        'instanceId'  => 'InstanceId',
+        'name'        => 'Name',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->concurrency) {
+            $res['Concurrency'] = $this->concurrency;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->concurrency) {
-            $res['Concurrency'] = $this->concurrency;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->chatbotInstanceId) {
-            $res['ChatbotInstanceId'] = $this->chatbotInstanceId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Concurrency'])) {
+            $model->concurrency = $map['Concurrency'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Concurrency'])) {
-            $model->concurrency = $map['Concurrency'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ChatbotInstanceId'])) {
-            $model->chatbotInstanceId = $map['ChatbotInstanceId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

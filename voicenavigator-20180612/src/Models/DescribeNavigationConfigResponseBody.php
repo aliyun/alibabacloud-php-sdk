@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNavigationConfigResponseBody extends Model
 {
     /**
+     * @var greetingConfig
+     */
+    public $greetingConfig;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -22,18 +27,13 @@ class DescribeNavigationConfigResponseBody extends Model
     public $silenceTimeoutConfig;
 
     /**
-     * @var greetingConfig
-     */
-    public $greetingConfig;
-
-    /**
      * @var unrecognizingConfig
      */
     public $unrecognizingConfig;
     protected $_name = [
+        'greetingConfig'       => 'GreetingConfig',
         'requestId'            => 'RequestId',
         'silenceTimeoutConfig' => 'SilenceTimeoutConfig',
-        'greetingConfig'       => 'GreetingConfig',
         'unrecognizingConfig'  => 'UnrecognizingConfig',
     ];
 
@@ -44,14 +44,14 @@ class DescribeNavigationConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->greetingConfig) {
+            $res['GreetingConfig'] = null !== $this->greetingConfig ? $this->greetingConfig->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->silenceTimeoutConfig) {
             $res['SilenceTimeoutConfig'] = null !== $this->silenceTimeoutConfig ? $this->silenceTimeoutConfig->toMap() : null;
-        }
-        if (null !== $this->greetingConfig) {
-            $res['GreetingConfig'] = null !== $this->greetingConfig ? $this->greetingConfig->toMap() : null;
         }
         if (null !== $this->unrecognizingConfig) {
             $res['UnrecognizingConfig'] = null !== $this->unrecognizingConfig ? $this->unrecognizingConfig->toMap() : null;
@@ -68,14 +68,14 @@ class DescribeNavigationConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GreetingConfig'])) {
+            $model->greetingConfig = greetingConfig::fromMap($map['GreetingConfig']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SilenceTimeoutConfig'])) {
             $model->silenceTimeoutConfig = silenceTimeoutConfig::fromMap($map['SilenceTimeoutConfig']);
-        }
-        if (isset($map['GreetingConfig'])) {
-            $model->greetingConfig = greetingConfig::fromMap($map['GreetingConfig']);
         }
         if (isset($map['UnrecognizingConfig'])) {
             $model->unrecognizingConfig = unrecognizingConfig::fromMap($map['UnrecognizingConfig']);

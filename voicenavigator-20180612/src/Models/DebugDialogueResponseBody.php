@@ -14,6 +14,11 @@ class DebugDialogueResponseBody extends Model
     public $action;
 
     /**
+     * @var string
+     */
+    public $actionParams;
+
+    /**
      * @var bool
      */
     public $interruptible;
@@ -26,17 +31,12 @@ class DebugDialogueResponseBody extends Model
     /**
      * @var string
      */
-    public $actionParams;
-
-    /**
-     * @var string
-     */
     public $textResponse;
     protected $_name = [
         'action'        => 'Action',
+        'actionParams'  => 'ActionParams',
         'interruptible' => 'Interruptible',
         'requestId'     => 'RequestId',
-        'actionParams'  => 'ActionParams',
         'textResponse'  => 'TextResponse',
     ];
 
@@ -50,14 +50,14 @@ class DebugDialogueResponseBody extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+        if (null !== $this->actionParams) {
+            $res['ActionParams'] = $this->actionParams;
+        }
         if (null !== $this->interruptible) {
             $res['Interruptible'] = $this->interruptible;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->actionParams) {
-            $res['ActionParams'] = $this->actionParams;
         }
         if (null !== $this->textResponse) {
             $res['TextResponse'] = $this->textResponse;
@@ -77,14 +77,14 @@ class DebugDialogueResponseBody extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+        if (isset($map['ActionParams'])) {
+            $model->actionParams = $map['ActionParams'];
+        }
         if (isset($map['Interruptible'])) {
             $model->interruptible = $map['Interruptible'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ActionParams'])) {
-            $model->actionParams = $map['ActionParams'];
         }
         if (isset($map['TextResponse'])) {
             $model->textResponse = $map['TextResponse'];

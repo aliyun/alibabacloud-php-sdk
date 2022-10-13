@@ -11,21 +11,21 @@ class AssociateChatbotInstanceRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $chatbotInstanceId;
 
     /**
      * @var string
      */
     public $chatbotName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
         'chatbotInstanceId' => 'ChatbotInstanceId',
         'chatbotName'       => 'ChatbotName',
+        'instanceId'        => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AssociateChatbotInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->chatbotInstanceId) {
             $res['ChatbotInstanceId'] = $this->chatbotInstanceId;
         }
         if (null !== $this->chatbotName) {
             $res['ChatbotName'] = $this->chatbotName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AssociateChatbotInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ChatbotInstanceId'])) {
             $model->chatbotInstanceId = $map['ChatbotInstanceId'];
         }
         if (isset($map['ChatbotName'])) {
             $model->chatbotName = $map['ChatbotName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

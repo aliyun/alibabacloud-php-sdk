@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListChatbotInstancesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bots[]
      */
-    public $requestId;
+    public $bots;
 
     /**
      * @var int
@@ -22,23 +22,23 @@ class ListChatbotInstancesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var bots[]
-     */
-    public $bots;
+    public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
-        'totalCount' => 'TotalCount',
-        'pageSize'   => 'PageSize',
         'bots'       => 'Bots',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListChatbotInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->bots) {
             $res['Bots'] = [];
             if (null !== $this->bots && \is_array($this->bots)) {
@@ -68,6 +56,18 @@ class ListChatbotInstancesResponseBody extends Model
                     $res['Bots'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListChatbotInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['Bots'])) {
             if (!empty($map['Bots'])) {
                 $model->bots = [];
@@ -101,6 +89,18 @@ class ListChatbotInstancesResponseBody extends Model
                     $model->bots[$n++] = null !== $item ? bots::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -16,7 +16,12 @@ class conversationDetails extends Model
     /**
      * @var string
      */
-    public $speaker;
+    public $actionParams;
+
+    /**
+     * @var string
+     */
+    public $conversationId;
 
     /**
      * @var int
@@ -26,17 +31,12 @@ class conversationDetails extends Model
     /**
      * @var string
      */
-    public $conversationId;
-
-    /**
-     * @var string
-     */
-    public $actionParams;
-
-    /**
-     * @var string
-     */
     public $sequenceId;
+
+    /**
+     * @var string
+     */
+    public $speaker;
 
     /**
      * @var string
@@ -44,11 +44,11 @@ class conversationDetails extends Model
     public $utterance;
     protected $_name = [
         'action'         => 'Action',
-        'speaker'        => 'Speaker',
-        'createTime'     => 'CreateTime',
-        'conversationId' => 'ConversationId',
         'actionParams'   => 'ActionParams',
+        'conversationId' => 'ConversationId',
+        'createTime'     => 'CreateTime',
         'sequenceId'     => 'SequenceId',
+        'speaker'        => 'Speaker',
         'utterance'      => 'Utterance',
     ];
 
@@ -62,20 +62,20 @@ class conversationDetails extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-        if (null !== $this->speaker) {
-            $res['Speaker'] = $this->speaker;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->actionParams) {
+            $res['ActionParams'] = $this->actionParams;
         }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
-        if (null !== $this->actionParams) {
-            $res['ActionParams'] = $this->actionParams;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->sequenceId) {
             $res['SequenceId'] = $this->sequenceId;
+        }
+        if (null !== $this->speaker) {
+            $res['Speaker'] = $this->speaker;
         }
         if (null !== $this->utterance) {
             $res['Utterance'] = $this->utterance;
@@ -95,20 +95,20 @@ class conversationDetails extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-        if (isset($map['Speaker'])) {
-            $model->speaker = $map['Speaker'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['ActionParams'])) {
+            $model->actionParams = $map['ActionParams'];
         }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
-        if (isset($map['ActionParams'])) {
-            $model->actionParams = $map['ActionParams'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['SequenceId'])) {
             $model->sequenceId = $map['SequenceId'];
+        }
+        if (isset($map['Speaker'])) {
+            $model->speaker = $map['Speaker'];
         }
         if (isset($map['Utterance'])) {
             $model->utterance = $map['Utterance'];

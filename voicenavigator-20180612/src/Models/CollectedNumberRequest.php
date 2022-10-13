@@ -11,21 +11,27 @@ class CollectedNumberRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $conversationId;
 
     /**
      * @var string
      */
-    public $conversationId;
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $instanceOwnerId;
 
     /**
      * @var string
      */
     public $number;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'conversationId' => 'ConversationId',
-        'number'         => 'Number',
+        'conversationId'  => 'ConversationId',
+        'instanceId'      => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
+        'number'          => 'Number',
     ];
 
     public function validate()
@@ -35,11 +41,14 @@ class CollectedNumberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conversationId) {
+            $res['ConversationId'] = $this->conversationId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->conversationId) {
-            $res['ConversationId'] = $this->conversationId;
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
         if (null !== $this->number) {
             $res['Number'] = $this->number;
@@ -56,11 +65,14 @@ class CollectedNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConversationId'])) {
+            $model->conversationId = $map['ConversationId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ConversationId'])) {
-            $model->conversationId = $map['ConversationId'];
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
         if (isset($map['Number'])) {
             $model->number = $map['Number'];

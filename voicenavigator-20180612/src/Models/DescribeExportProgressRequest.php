@@ -11,15 +11,15 @@ class DescribeExportProgressRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $exportTaskId;
 
     /**
      * @var string
      */
-    public $exportTaskId;
+    public $instanceId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
         'exportTaskId' => 'ExportTaskId',
+        'instanceId'   => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeExportProgressRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->exportTaskId) {
             $res['ExportTaskId'] = $this->exportTaskId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeExportProgressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ExportTaskId'])) {
             $model->exportTaskId = $map['ExportTaskId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

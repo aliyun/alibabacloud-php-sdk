@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $status;
+    public $applicableOperations;
 
     /**
      * @var int
      */
-    public $modifyTime;
+    public $concurrency;
 
     /**
      * @var string
@@ -26,22 +26,12 @@ class DescribeInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
      * @var int
      */
-    public $concurrency;
-
-    /**
-     * @var string[]
-     */
-    public $applicableOperations;
+    public $modifyTime;
 
     /**
      * @var string
@@ -52,16 +42,26 @@ class DescribeInstanceResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'               => 'Status',
-        'modifyTime'           => 'ModifyTime',
-        'description'          => 'Description',
-        'requestId'            => 'RequestId',
-        'instanceId'           => 'InstanceId',
-        'concurrency'          => 'Concurrency',
         'applicableOperations' => 'ApplicableOperations',
+        'concurrency'          => 'Concurrency',
+        'description'          => 'Description',
+        'instanceId'           => 'InstanceId',
+        'modifyTime'           => 'ModifyTime',
         'modifyUserName'       => 'ModifyUserName',
         'name'                 => 'Name',
+        'requestId'            => 'RequestId',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class DescribeInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->applicableOperations) {
+            $res['ApplicableOperations'] = $this->applicableOperations;
         }
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
         }
-        if (null !== $this->applicableOperations) {
-            $res['ApplicableOperations'] = $this->applicableOperations;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->modifyUserName) {
             $res['ModifyUserName'] = $this->modifyUserName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -110,34 +110,34 @@ class DescribeInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Concurrency'])) {
-            $model->concurrency = $map['Concurrency'];
-        }
         if (isset($map['ApplicableOperations'])) {
             if (!empty($map['ApplicableOperations'])) {
                 $model->applicableOperations = $map['ApplicableOperations'];
             }
+        }
+        if (isset($map['Concurrency'])) {
+            $model->concurrency = $map['Concurrency'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['ModifyUserName'])) {
             $model->modifyUserName = $map['ModifyUserName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

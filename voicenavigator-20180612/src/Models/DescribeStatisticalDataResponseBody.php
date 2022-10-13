@@ -10,6 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticalDataResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $conversationTotalNum;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $resolvedQuestionTotalNum;
+
+    /**
+     * @var statisticalDataReports[]
+     */
+    public $statisticalDataReports;
+
+    /**
      * @var string
      */
     public $totalDialoguePassRate;
@@ -28,35 +48,15 @@ class DescribeStatisticalDataResponseBody extends Model
      * @var string
      */
     public $totalValidAnswerRate;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $resolvedQuestionTotalNum;
-
-    /**
-     * @var int
-     */
-    public $conversationTotalNum;
-
-    /**
-     * @var statisticalDataReports[]
-     */
-    public $statisticalDataReports;
     protected $_name = [
+        'conversationTotalNum'     => 'ConversationTotalNum',
+        'requestId'                => 'RequestId',
+        'resolvedQuestionTotalNum' => 'ResolvedQuestionTotalNum',
+        'statisticalDataReports'   => 'StatisticalDataReports',
         'totalDialoguePassRate'    => 'TotalDialoguePassRate',
         'totalKnowledgeHitRate'    => 'TotalKnowledgeHitRate',
         'totalResolutionRate'      => 'TotalResolutionRate',
         'totalValidAnswerRate'     => 'TotalValidAnswerRate',
-        'requestId'                => 'RequestId',
-        'resolvedQuestionTotalNum' => 'ResolvedQuestionTotalNum',
-        'conversationTotalNum'     => 'ConversationTotalNum',
-        'statisticalDataReports'   => 'StatisticalDataReports',
     ];
 
     public function validate()
@@ -66,6 +66,24 @@ class DescribeStatisticalDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conversationTotalNum) {
+            $res['ConversationTotalNum'] = $this->conversationTotalNum;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resolvedQuestionTotalNum) {
+            $res['ResolvedQuestionTotalNum'] = $this->resolvedQuestionTotalNum;
+        }
+        if (null !== $this->statisticalDataReports) {
+            $res['StatisticalDataReports'] = [];
+            if (null !== $this->statisticalDataReports && \is_array($this->statisticalDataReports)) {
+                $n = 0;
+                foreach ($this->statisticalDataReports as $item) {
+                    $res['StatisticalDataReports'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->totalDialoguePassRate) {
             $res['TotalDialoguePassRate'] = $this->totalDialoguePassRate;
         }
@@ -77,24 +95,6 @@ class DescribeStatisticalDataResponseBody extends Model
         }
         if (null !== $this->totalValidAnswerRate) {
             $res['TotalValidAnswerRate'] = $this->totalValidAnswerRate;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->resolvedQuestionTotalNum) {
-            $res['ResolvedQuestionTotalNum'] = $this->resolvedQuestionTotalNum;
-        }
-        if (null !== $this->conversationTotalNum) {
-            $res['ConversationTotalNum'] = $this->conversationTotalNum;
-        }
-        if (null !== $this->statisticalDataReports) {
-            $res['StatisticalDataReports'] = [];
-            if (null !== $this->statisticalDataReports && \is_array($this->statisticalDataReports)) {
-                $n = 0;
-                foreach ($this->statisticalDataReports as $item) {
-                    $res['StatisticalDataReports'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -108,6 +108,24 @@ class DescribeStatisticalDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConversationTotalNum'])) {
+            $model->conversationTotalNum = $map['ConversationTotalNum'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResolvedQuestionTotalNum'])) {
+            $model->resolvedQuestionTotalNum = $map['ResolvedQuestionTotalNum'];
+        }
+        if (isset($map['StatisticalDataReports'])) {
+            if (!empty($map['StatisticalDataReports'])) {
+                $model->statisticalDataReports = [];
+                $n                             = 0;
+                foreach ($map['StatisticalDataReports'] as $item) {
+                    $model->statisticalDataReports[$n++] = null !== $item ? statisticalDataReports::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['TotalDialoguePassRate'])) {
             $model->totalDialoguePassRate = $map['TotalDialoguePassRate'];
         }
@@ -119,24 +137,6 @@ class DescribeStatisticalDataResponseBody extends Model
         }
         if (isset($map['TotalValidAnswerRate'])) {
             $model->totalValidAnswerRate = $map['TotalValidAnswerRate'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ResolvedQuestionTotalNum'])) {
-            $model->resolvedQuestionTotalNum = $map['ResolvedQuestionTotalNum'];
-        }
-        if (isset($map['ConversationTotalNum'])) {
-            $model->conversationTotalNum = $map['ConversationTotalNum'];
-        }
-        if (isset($map['StatisticalDataReports'])) {
-            if (!empty($map['StatisticalDataReports'])) {
-                $model->statisticalDataReports = [];
-                $n                             = 0;
-                foreach ($map['StatisticalDataReports'] as $item) {
-                    $model->statisticalDataReports[$n++] = null !== $item ? statisticalDataReports::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

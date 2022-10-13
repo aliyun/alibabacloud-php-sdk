@@ -11,15 +11,15 @@ class ListConversationDetailsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $conversationId;
 
     /**
      * @var string
      */
-    public $conversationId;
+    public $instanceId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
         'conversationId' => 'ConversationId',
+        'instanceId'     => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListConversationDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListConversationDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

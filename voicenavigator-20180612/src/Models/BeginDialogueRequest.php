@@ -32,12 +32,18 @@ class BeginDialogueRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $instanceOwnerId;
     protected $_name = [
-        'calledNumber'   => 'CalledNumber',
-        'callingNumber'  => 'CallingNumber',
-        'conversationId' => 'ConversationId',
-        'initialContext' => 'InitialContext',
-        'instanceId'     => 'InstanceId',
+        'calledNumber'    => 'CalledNumber',
+        'callingNumber'   => 'CallingNumber',
+        'conversationId'  => 'ConversationId',
+        'initialContext'  => 'InitialContext',
+        'instanceId'      => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class BeginDialogueRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class BeginDialogueRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
 
         return $model;

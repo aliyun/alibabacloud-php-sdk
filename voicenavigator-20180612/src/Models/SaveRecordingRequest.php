@@ -11,17 +11,7 @@ class SaveRecordingRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $conversationId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -41,15 +31,37 @@ class SaveRecordingRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $instanceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $voiceSliceRecordingList;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'conversationId' => 'ConversationId',
-        'startTime'      => 'StartTime',
-        'duration'       => 'Duration',
-        'fileName'       => 'FileName',
-        'filePath'       => 'FilePath',
-        'type'           => 'Type',
+        'conversationId'          => 'ConversationId',
+        'duration'                => 'Duration',
+        'fileName'                => 'FileName',
+        'filePath'                => 'FilePath',
+        'instanceId'              => 'InstanceId',
+        'instanceOwnerId'         => 'InstanceOwnerId',
+        'startTime'               => 'StartTime',
+        'type'                    => 'Type',
+        'voiceSliceRecordingList' => 'VoiceSliceRecordingList',
     ];
 
     public function validate()
@@ -59,14 +71,8 @@ class SaveRecordingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -77,8 +83,20 @@ class SaveRecordingRequest extends Model
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->voiceSliceRecordingList) {
+            $res['VoiceSliceRecordingList'] = $this->voiceSliceRecordingList;
         }
 
         return $res;
@@ -92,14 +110,8 @@ class SaveRecordingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
@@ -110,8 +122,20 @@ class SaveRecordingRequest extends Model
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['VoiceSliceRecordingList'])) {
+            $model->voiceSliceRecordingList = $map['VoiceSliceRecordingList'];
         }
 
         return $model;

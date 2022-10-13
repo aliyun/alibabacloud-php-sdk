@@ -11,20 +11,20 @@ class greetingConfig extends Model
     /**
      * @var string
      */
-    public $intentTrigger;
+    public $greetingWords;
 
     /**
      * @var string
      */
-    public $greetingWords;
+    public $intentTrigger;
 
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'intentTrigger' => 'IntentTrigger',
         'greetingWords' => 'GreetingWords',
+        'intentTrigger' => 'IntentTrigger',
         'sourceType'    => 'SourceType',
     ];
 
@@ -35,11 +35,11 @@ class greetingConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->intentTrigger) {
-            $res['IntentTrigger'] = $this->intentTrigger;
-        }
         if (null !== $this->greetingWords) {
             $res['GreetingWords'] = $this->greetingWords;
+        }
+        if (null !== $this->intentTrigger) {
+            $res['IntentTrigger'] = $this->intentTrigger;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -56,11 +56,11 @@ class greetingConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IntentTrigger'])) {
-            $model->intentTrigger = $map['IntentTrigger'];
-        }
         if (isset($map['GreetingWords'])) {
             $model->greetingWords = $map['GreetingWords'];
+        }
+        if (isset($map['IntentTrigger'])) {
+            $model->intentTrigger = $map['IntentTrigger'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

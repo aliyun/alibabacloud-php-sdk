@@ -11,11 +11,6 @@ class unrecognizingConfig extends Model
     /**
      * @var string
      */
-    public $finalPrompt;
-
-    /**
-     * @var string
-     */
     public $finalAction;
 
     /**
@@ -24,20 +19,25 @@ class unrecognizingConfig extends Model
     public $finalActionParams;
 
     /**
-     * @var int
+     * @var string
      */
-    public $threshold;
+    public $finalPrompt;
 
     /**
      * @var string
      */
     public $prompt;
+
+    /**
+     * @var int
+     */
+    public $threshold;
     protected $_name = [
-        'finalPrompt'       => 'FinalPrompt',
         'finalAction'       => 'FinalAction',
         'finalActionParams' => 'FinalActionParams',
-        'threshold'         => 'Threshold',
+        'finalPrompt'       => 'FinalPrompt',
         'prompt'            => 'Prompt',
+        'threshold'         => 'Threshold',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class unrecognizingConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->finalPrompt) {
-            $res['FinalPrompt'] = $this->finalPrompt;
-        }
         if (null !== $this->finalAction) {
             $res['FinalAction'] = $this->finalAction;
         }
         if (null !== $this->finalActionParams) {
             $res['FinalActionParams'] = $this->finalActionParams;
         }
-        if (null !== $this->threshold) {
-            $res['Threshold'] = $this->threshold;
+        if (null !== $this->finalPrompt) {
+            $res['FinalPrompt'] = $this->finalPrompt;
         }
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
+        }
+        if (null !== $this->threshold) {
+            $res['Threshold'] = $this->threshold;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class unrecognizingConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FinalPrompt'])) {
-            $model->finalPrompt = $map['FinalPrompt'];
-        }
         if (isset($map['FinalAction'])) {
             $model->finalAction = $map['FinalAction'];
         }
         if (isset($map['FinalActionParams'])) {
             $model->finalActionParams = $map['FinalActionParams'];
         }
-        if (isset($map['Threshold'])) {
-            $model->threshold = $map['Threshold'];
+        if (isset($map['FinalPrompt'])) {
+            $model->finalPrompt = $map['FinalPrompt'];
         }
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
+        }
+        if (isset($map['Threshold'])) {
+            $model->threshold = $map['Threshold'];
         }
 
         return $model;

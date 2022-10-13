@@ -16,7 +16,7 @@ class AuditTTSVoiceRequest extends Model
     /**
      * @var string
      */
-    public $voice;
+    public $speechRate;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class AuditTTSVoiceRequest extends Model
     /**
      * @var string
      */
-    public $speechRate;
+    public $voice;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class AuditTTSVoiceRequest extends Model
     public $volume;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'voice'      => 'Voice',
-        'text'       => 'Text',
         'speechRate' => 'SpeechRate',
+        'text'       => 'Text',
+        'voice'      => 'Voice',
         'volume'     => 'Volume',
     ];
 
@@ -50,14 +50,14 @@ class AuditTTSVoiceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->voice) {
-            $res['Voice'] = $this->voice;
+        if (null !== $this->speechRate) {
+            $res['SpeechRate'] = $this->speechRate;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
-        if (null !== $this->speechRate) {
-            $res['SpeechRate'] = $this->speechRate;
+        if (null !== $this->voice) {
+            $res['Voice'] = $this->voice;
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
@@ -77,14 +77,14 @@ class AuditTTSVoiceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Voice'])) {
-            $model->voice = $map['Voice'];
+        if (isset($map['SpeechRate'])) {
+            $model->speechRate = $map['SpeechRate'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
-        if (isset($map['SpeechRate'])) {
-            $model->speechRate = $map['SpeechRate'];
+        if (isset($map['Voice'])) {
+            $model->voice = $map['Voice'];
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];

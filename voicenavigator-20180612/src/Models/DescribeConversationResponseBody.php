@@ -11,7 +11,12 @@ class DescribeConversationResponseBody extends Model
     /**
      * @var int
      */
-    public $effectiveAnswerCount;
+    public $beginTime;
+
+    /**
+     * @var string
+     */
+    public $callingNumber;
 
     /**
      * @var string
@@ -19,9 +24,9 @@ class DescribeConversationResponseBody extends Model
     public $conversationId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $transferredToAgent;
+    public $effectiveAnswerCount;
 
     /**
      * @var int
@@ -34,33 +39,28 @@ class DescribeConversationResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $beginTime;
-
-    /**
      * @var string
      */
     public $skillGroupId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $callingNumber;
+    public $transferredToAgent;
 
     /**
      * @var int
      */
     public $userUtteranceCount;
     protected $_name = [
-        'effectiveAnswerCount' => 'EffectiveAnswerCount',
+        'beginTime'            => 'BeginTime',
+        'callingNumber'        => 'CallingNumber',
         'conversationId'       => 'ConversationId',
-        'transferredToAgent'   => 'TransferredToAgent',
+        'effectiveAnswerCount' => 'EffectiveAnswerCount',
         'endTime'              => 'EndTime',
         'requestId'            => 'RequestId',
-        'beginTime'            => 'BeginTime',
         'skillGroupId'         => 'SkillGroupId',
-        'callingNumber'        => 'CallingNumber',
+        'transferredToAgent'   => 'TransferredToAgent',
         'userUtteranceCount'   => 'UserUtteranceCount',
     ];
 
@@ -71,14 +71,17 @@ class DescribeConversationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->effectiveAnswerCount) {
-            $res['EffectiveAnswerCount'] = $this->effectiveAnswerCount;
+        if (null !== $this->beginTime) {
+            $res['BeginTime'] = $this->beginTime;
+        }
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
         }
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
-        if (null !== $this->transferredToAgent) {
-            $res['TransferredToAgent'] = $this->transferredToAgent;
+        if (null !== $this->effectiveAnswerCount) {
+            $res['EffectiveAnswerCount'] = $this->effectiveAnswerCount;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -86,14 +89,11 @@ class DescribeConversationResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->beginTime) {
-            $res['BeginTime'] = $this->beginTime;
-        }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+        if (null !== $this->transferredToAgent) {
+            $res['TransferredToAgent'] = $this->transferredToAgent;
         }
         if (null !== $this->userUtteranceCount) {
             $res['UserUtteranceCount'] = $this->userUtteranceCount;
@@ -110,14 +110,17 @@ class DescribeConversationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EffectiveAnswerCount'])) {
-            $model->effectiveAnswerCount = $map['EffectiveAnswerCount'];
+        if (isset($map['BeginTime'])) {
+            $model->beginTime = $map['BeginTime'];
+        }
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
         }
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
-        if (isset($map['TransferredToAgent'])) {
-            $model->transferredToAgent = $map['TransferredToAgent'];
+        if (isset($map['EffectiveAnswerCount'])) {
+            $model->effectiveAnswerCount = $map['EffectiveAnswerCount'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -125,14 +128,11 @@ class DescribeConversationResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['BeginTime'])) {
-            $model->beginTime = $map['BeginTime'];
-        }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
+        if (isset($map['TransferredToAgent'])) {
+            $model->transferredToAgent = $map['TransferredToAgent'];
         }
         if (isset($map['UserUtteranceCount'])) {
             $model->userUtteranceCount = $map['UserUtteranceCount'];

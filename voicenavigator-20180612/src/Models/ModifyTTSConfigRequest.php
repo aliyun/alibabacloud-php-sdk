@@ -11,12 +11,17 @@ class ModifyTTSConfigRequest extends Model
     /**
      * @var string
      */
+    public $appKey;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
-    public $voice;
+    public $nlsServiceType;
 
     /**
      * @var string
@@ -26,12 +31,19 @@ class ModifyTTSConfigRequest extends Model
     /**
      * @var string
      */
+    public $voice;
+
+    /**
+     * @var string
+     */
     public $volume;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'voice'      => 'Voice',
-        'speechRate' => 'SpeechRate',
-        'volume'     => 'Volume',
+        'appKey'         => 'AppKey',
+        'instanceId'     => 'InstanceId',
+        'nlsServiceType' => 'NlsServiceType',
+        'speechRate'     => 'SpeechRate',
+        'voice'          => 'Voice',
+        'volume'         => 'Volume',
     ];
 
     public function validate()
@@ -41,14 +53,20 @@ class ModifyTTSConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->voice) {
-            $res['Voice'] = $this->voice;
+        if (null !== $this->nlsServiceType) {
+            $res['NlsServiceType'] = $this->nlsServiceType;
         }
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
+        }
+        if (null !== $this->voice) {
+            $res['Voice'] = $this->voice;
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
@@ -65,14 +83,20 @@ class ModifyTTSConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Voice'])) {
-            $model->voice = $map['Voice'];
+        if (isset($map['NlsServiceType'])) {
+            $model->nlsServiceType = $map['NlsServiceType'];
         }
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];
+        }
+        if (isset($map['Voice'])) {
+            $model->voice = $map['Voice'];
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];

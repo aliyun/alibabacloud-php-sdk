@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryConversationsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $callingNumber;
-
-    /**
      * @var int
      */
     public $beginTimeLeftRange;
@@ -27,6 +17,16 @@ class QueryConversationsRequest extends Model
      * @var int
      */
     public $beginTimeRightRange;
+
+    /**
+     * @var string
+     */
+    public $callingNumber;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var int
@@ -38,10 +38,10 @@ class QueryConversationsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
-        'callingNumber'       => 'CallingNumber',
         'beginTimeLeftRange'  => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
+        'callingNumber'       => 'CallingNumber',
+        'instanceId'          => 'InstanceId',
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
     ];
@@ -53,17 +53,17 @@ class QueryConversationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
-        }
         if (null !== $this->beginTimeLeftRange) {
             $res['BeginTimeLeftRange'] = $this->beginTimeLeftRange;
         }
         if (null !== $this->beginTimeRightRange) {
             $res['BeginTimeRightRange'] = $this->beginTimeRightRange;
+        }
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -83,17 +83,17 @@ class QueryConversationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
-        }
         if (isset($map['BeginTimeLeftRange'])) {
             $model->beginTimeLeftRange = $map['BeginTimeLeftRange'];
         }
         if (isset($map['BeginTimeRightRange'])) {
             $model->beginTimeRightRange = $map['BeginTimeRightRange'];
+        }
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

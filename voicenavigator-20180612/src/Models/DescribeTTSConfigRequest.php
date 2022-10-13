@@ -12,8 +12,14 @@ class DescribeTTSConfigRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $instanceOwnerId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'instanceId'      => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeTTSConfigRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceOwnerId) {
+            $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeTTSConfigRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceOwnerId'])) {
+            $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
 
         return $model;

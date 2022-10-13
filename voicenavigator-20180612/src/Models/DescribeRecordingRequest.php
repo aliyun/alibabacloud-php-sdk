@@ -11,15 +11,21 @@ class DescribeRecordingRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $conversationId;
 
     /**
      * @var string
      */
-    public $conversationId;
+    public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $needVoiceSliceRecording;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'conversationId' => 'ConversationId',
+        'conversationId'          => 'ConversationId',
+        'instanceId'              => 'InstanceId',
+        'needVoiceSliceRecording' => 'NeedVoiceSliceRecording',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class DescribeRecordingRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conversationId) {
+            $res['ConversationId'] = $this->conversationId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->conversationId) {
-            $res['ConversationId'] = $this->conversationId;
+        if (null !== $this->needVoiceSliceRecording) {
+            $res['NeedVoiceSliceRecording'] = $this->needVoiceSliceRecording;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class DescribeRecordingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConversationId'])) {
+            $model->conversationId = $map['ConversationId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ConversationId'])) {
-            $model->conversationId = $map['ConversationId'];
+        if (isset($map['NeedVoiceSliceRecording'])) {
+            $model->needVoiceSliceRecording = $map['NeedVoiceSliceRecording'];
         }
 
         return $model;

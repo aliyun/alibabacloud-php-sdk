@@ -11,6 +11,21 @@ class ModifyUnrecognizingConfigRequest extends Model
     /**
      * @var string
      */
+    public $finalAction;
+
+    /**
+     * @var string
+     */
+    public $finalActionParams;
+
+    /**
+     * @var string
+     */
+    public $finalPrompt;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,28 +37,13 @@ class ModifyUnrecognizingConfigRequest extends Model
      * @var int
      */
     public $threshold;
-
-    /**
-     * @var string
-     */
-    public $finalPrompt;
-
-    /**
-     * @var string
-     */
-    public $finalAction;
-
-    /**
-     * @var string
-     */
-    public $finalActionParams;
     protected $_name = [
+        'finalAction'       => 'FinalAction',
+        'finalActionParams' => 'FinalActionParams',
+        'finalPrompt'       => 'FinalPrompt',
         'instanceId'        => 'InstanceId',
         'prompt'            => 'Prompt',
         'threshold'         => 'Threshold',
-        'finalPrompt'       => 'FinalPrompt',
-        'finalAction'       => 'FinalAction',
-        'finalActionParams' => 'FinalActionParams',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ModifyUnrecognizingConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->finalAction) {
+            $res['FinalAction'] = $this->finalAction;
+        }
+        if (null !== $this->finalActionParams) {
+            $res['FinalActionParams'] = $this->finalActionParams;
+        }
+        if (null !== $this->finalPrompt) {
+            $res['FinalPrompt'] = $this->finalPrompt;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,15 +70,6 @@ class ModifyUnrecognizingConfigRequest extends Model
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
-        }
-        if (null !== $this->finalPrompt) {
-            $res['FinalPrompt'] = $this->finalPrompt;
-        }
-        if (null !== $this->finalAction) {
-            $res['FinalAction'] = $this->finalAction;
-        }
-        if (null !== $this->finalActionParams) {
-            $res['FinalActionParams'] = $this->finalActionParams;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ModifyUnrecognizingConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FinalAction'])) {
+            $model->finalAction = $map['FinalAction'];
+        }
+        if (isset($map['FinalActionParams'])) {
+            $model->finalActionParams = $map['FinalActionParams'];
+        }
+        if (isset($map['FinalPrompt'])) {
+            $model->finalPrompt = $map['FinalPrompt'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -91,15 +100,6 @@ class ModifyUnrecognizingConfigRequest extends Model
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
-        }
-        if (isset($map['FinalPrompt'])) {
-            $model->finalPrompt = $map['FinalPrompt'];
-        }
-        if (isset($map['FinalAction'])) {
-            $model->finalAction = $map['FinalAction'];
-        }
-        if (isset($map['FinalActionParams'])) {
-            $model->finalActionParams = $map['FinalActionParams'];
         }
 
         return $model;

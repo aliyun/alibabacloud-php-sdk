@@ -11,15 +11,15 @@ class AuditTTSVoiceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $auditionUrl;
 
     /**
      * @var string
      */
-    public $auditionUrl;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'auditionUrl' => 'AuditionUrl',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AuditTTSVoiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->auditionUrl) {
             $res['AuditionUrl'] = $this->auditionUrl;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AuditTTSVoiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AuditionUrl'])) {
             $model->auditionUrl = $map['AuditionUrl'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

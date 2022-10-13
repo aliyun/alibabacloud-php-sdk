@@ -11,12 +11,12 @@ class DebugDialogueRequest extends Model
     /**
      * @var string
      */
-    public $conversationId;
+    public $additionalContext;
 
     /**
      * @var string
      */
-    public $additionalContext;
+    public $conversationId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class DebugDialogueRequest extends Model
      */
     public $utterance;
     protected $_name = [
-        'conversationId'    => 'ConversationId',
         'additionalContext' => 'AdditionalContext',
+        'conversationId'    => 'ConversationId',
         'instanceId'        => 'InstanceId',
         'utterance'         => 'Utterance',
     ];
@@ -41,11 +41,11 @@ class DebugDialogueRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->conversationId) {
-            $res['ConversationId'] = $this->conversationId;
-        }
         if (null !== $this->additionalContext) {
             $res['AdditionalContext'] = $this->additionalContext;
+        }
+        if (null !== $this->conversationId) {
+            $res['ConversationId'] = $this->conversationId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -65,11 +65,11 @@ class DebugDialogueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConversationId'])) {
-            $model->conversationId = $map['ConversationId'];
-        }
         if (isset($map['AdditionalContext'])) {
             $model->additionalContext = $map['AdditionalContext'];
+        }
+        if (isset($map['ConversationId'])) {
+            $model->conversationId = $map['ConversationId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

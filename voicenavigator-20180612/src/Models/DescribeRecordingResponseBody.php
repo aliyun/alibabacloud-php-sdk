@@ -11,6 +11,11 @@ class DescribeRecordingResponseBody extends Model
     /**
      * @var string
      */
+    public $fileName;
+
+    /**
+     * @var string
+     */
     public $filePath;
 
     /**
@@ -21,11 +26,12 @@ class DescribeRecordingResponseBody extends Model
     /**
      * @var string
      */
-    public $fileName;
+    public $voiceSliceRecordingListJson;
     protected $_name = [
-        'filePath'  => 'FilePath',
-        'requestId' => 'RequestId',
-        'fileName'  => 'FileName',
+        'fileName'                    => 'FileName',
+        'filePath'                    => 'FilePath',
+        'requestId'                   => 'RequestId',
+        'voiceSliceRecordingListJson' => 'VoiceSliceRecordingListJson',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class DescribeRecordingResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
+        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
+        if (null !== $this->voiceSliceRecordingListJson) {
+            $res['VoiceSliceRecordingListJson'] = $this->voiceSliceRecordingListJson;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class DescribeRecordingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
+        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
+        if (isset($map['VoiceSliceRecordingListJson'])) {
+            $model->voiceSliceRecordingListJson = $map['VoiceSliceRecordingListJson'];
         }
 
         return $model;

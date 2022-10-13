@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ExportConversationDetailsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $callingNumber;
-
-    /**
      * @var int
      */
     public $beginTimeLeftRange;
@@ -27,11 +17,39 @@ class ExportConversationDetailsRequest extends Model
      * @var int
      */
     public $beginTimeRightRange;
+
+    /**
+     * @var string
+     */
+    public $callingNumber;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string[]
+     */
+    public $options;
+
+    /**
+     * @var int
+     */
+    public $roundsLeftRange;
+
+    /**
+     * @var int
+     */
+    public $roundsRightRange;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
-        'callingNumber'       => 'CallingNumber',
         'beginTimeLeftRange'  => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
+        'callingNumber'       => 'CallingNumber',
+        'instanceId'          => 'InstanceId',
+        'options'             => 'Options',
+        'roundsLeftRange'     => 'RoundsLeftRange',
+        'roundsRightRange'    => 'RoundsRightRange',
     ];
 
     public function validate()
@@ -41,17 +59,26 @@ class ExportConversationDetailsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
-        }
         if (null !== $this->beginTimeLeftRange) {
             $res['BeginTimeLeftRange'] = $this->beginTimeLeftRange;
         }
         if (null !== $this->beginTimeRightRange) {
             $res['BeginTimeRightRange'] = $this->beginTimeRightRange;
+        }
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
+        }
+        if (null !== $this->roundsLeftRange) {
+            $res['RoundsLeftRange'] = $this->roundsLeftRange;
+        }
+        if (null !== $this->roundsRightRange) {
+            $res['RoundsRightRange'] = $this->roundsRightRange;
         }
 
         return $res;
@@ -65,17 +92,28 @@ class ExportConversationDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
-        }
         if (isset($map['BeginTimeLeftRange'])) {
             $model->beginTimeLeftRange = $map['BeginTimeLeftRange'];
         }
         if (isset($map['BeginTimeRightRange'])) {
             $model->beginTimeRightRange = $map['BeginTimeRightRange'];
+        }
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Options'])) {
+            if (!empty($map['Options'])) {
+                $model->options = $map['Options'];
+            }
+        }
+        if (isset($map['RoundsLeftRange'])) {
+            $model->roundsLeftRange = $map['RoundsLeftRange'];
+        }
+        if (isset($map['RoundsRightRange'])) {
+            $model->roundsRightRange = $map['RoundsRightRange'];
         }
 
         return $model;
