@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class CreateImportMigrationAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $packageFileObject;
-
-    /**
      * @var string
      */
     public $calculateEngineMap;
@@ -33,6 +28,11 @@ class CreateImportMigrationAdvanceRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var Stream
+     */
+    public $packageFileObject;
 
     /**
      * @var string
@@ -54,11 +54,11 @@ class CreateImportMigrationAdvanceRequest extends Model
      */
     public $workspaceMap;
     protected $_name = [
-        'packageFileObject'  => 'PackageFileObject',
         'calculateEngineMap' => 'CalculateEngineMap',
         'commitRule'         => 'CommitRule',
         'description'        => 'Description',
         'name'               => 'Name',
+        'packageFileObject'  => 'PackageFile',
         'packageType'        => 'PackageType',
         'projectId'          => 'ProjectId',
         'resourceGroupMap'   => 'ResourceGroupMap',
@@ -67,15 +67,11 @@ class CreateImportMigrationAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('packageFileObject', $this->packageFileObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->packageFileObject) {
-            $res['PackageFileObject'] = $this->packageFileObject;
-        }
         if (null !== $this->calculateEngineMap) {
             $res['CalculateEngineMap'] = $this->calculateEngineMap;
         }
@@ -87,6 +83,9 @@ class CreateImportMigrationAdvanceRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->packageFileObject) {
+            $res['PackageFile'] = $this->packageFileObject;
         }
         if (null !== $this->packageType) {
             $res['PackageType'] = $this->packageType;
@@ -112,9 +111,6 @@ class CreateImportMigrationAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PackageFileObject'])) {
-            $model->packageFileObject = $map['PackageFileObject'];
-        }
         if (isset($map['CalculateEngineMap'])) {
             $model->calculateEngineMap = $map['CalculateEngineMap'];
         }
@@ -126,6 +122,9 @@ class CreateImportMigrationAdvanceRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PackageFile'])) {
+            $model->packageFileObject = $map['PackageFile'];
         }
         if (isset($map['PackageType'])) {
             $model->packageType = $map['PackageType'];

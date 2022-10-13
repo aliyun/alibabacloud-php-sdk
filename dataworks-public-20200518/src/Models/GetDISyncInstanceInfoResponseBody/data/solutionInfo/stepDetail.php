@@ -11,6 +11,11 @@ class stepDetail extends Model
     /**
      * @var string
      */
+    public $info;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -23,6 +28,7 @@ class stepDetail extends Model
      */
     public $stepName;
     protected $_name = [
+        'info'     => 'Info',
         'status'   => 'Status',
         'stepId'   => 'StepId',
         'stepName' => 'StepName',
@@ -35,6 +41,9 @@ class stepDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->info) {
+            $res['Info'] = $this->info;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -56,6 +65,9 @@ class stepDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Info'])) {
+            $model->info = $map['Info'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
