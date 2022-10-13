@@ -67,6 +67,11 @@ class domainItem extends Model
      * @var string
      */
     public $wildcardDomainPatterns;
+
+    /**
+     * @var string
+     */
+    public $wssEnable;
     protected $_name = [
         'bindStageName'          => 'BindStageName',
         'certificateId'          => 'CertificateId',
@@ -80,6 +85,7 @@ class domainItem extends Model
         'domainWebSocketStatus'  => 'DomainWebSocketStatus',
         'isHttpRedirectToHttps'  => 'IsHttpRedirectToHttps',
         'wildcardDomainPatterns' => 'WildcardDomainPatterns',
+        'wssEnable'              => 'WssEnable',
     ];
 
     public function validate()
@@ -124,6 +130,9 @@ class domainItem extends Model
         }
         if (null !== $this->wildcardDomainPatterns) {
             $res['WildcardDomainPatterns'] = $this->wildcardDomainPatterns;
+        }
+        if (null !== $this->wssEnable) {
+            $res['WssEnable'] = $this->wssEnable;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class domainItem extends Model
         }
         if (isset($map['WildcardDomainPatterns'])) {
             $model->wildcardDomainPatterns = $map['WildcardDomainPatterns'];
+        }
+        if (isset($map['WssEnable'])) {
+            $model->wssEnable = $map['WssEnable'];
         }
 
         return $model;

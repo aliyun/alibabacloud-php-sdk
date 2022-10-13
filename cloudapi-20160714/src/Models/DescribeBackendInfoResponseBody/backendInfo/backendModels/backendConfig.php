@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponse
 
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\eventBridgeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\functionComputeConfig;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\mockConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\ossConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\vpcConfig;
 use AlibabaCloud\Tea\Model;
@@ -21,6 +22,11 @@ class backendConfig extends Model
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
+
+    /**
+     * @var mockConfig
+     */
+    public $mockConfig;
 
     /**
      * @var ossConfig
@@ -44,6 +50,7 @@ class backendConfig extends Model
     protected $_name = [
         'eventBridgeConfig'     => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
+        'mockConfig'            => 'MockConfig',
         'ossConfig'             => 'OssConfig',
         'serviceAddress'        => 'ServiceAddress',
         'type'                  => 'Type',
@@ -62,6 +69,9 @@ class backendConfig extends Model
         }
         if (null !== $this->functionComputeConfig) {
             $res['FunctionComputeConfig'] = null !== $this->functionComputeConfig ? $this->functionComputeConfig->toMap() : null;
+        }
+        if (null !== $this->mockConfig) {
+            $res['MockConfig'] = null !== $this->mockConfig ? $this->mockConfig->toMap() : null;
         }
         if (null !== $this->ossConfig) {
             $res['OssConfig'] = null !== $this->ossConfig ? $this->ossConfig->toMap() : null;
@@ -92,6 +102,9 @@ class backendConfig extends Model
         }
         if (isset($map['FunctionComputeConfig'])) {
             $model->functionComputeConfig = functionComputeConfig::fromMap($map['FunctionComputeConfig']);
+        }
+        if (isset($map['MockConfig'])) {
+            $model->mockConfig = mockConfig::fromMap($map['MockConfig']);
         }
         if (isset($map['OssConfig'])) {
             $model->ossConfig = ossConfig::fromMap($map['OssConfig']);

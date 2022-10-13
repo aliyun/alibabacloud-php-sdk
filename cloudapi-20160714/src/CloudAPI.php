@@ -34,6 +34,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendModelRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendModelResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateDatasetItemRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateDatasetItemResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateDatasetRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateIntranetDomainRequest;
@@ -68,6 +72,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendModelRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendModelResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDatasetItemRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDatasetItemResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDatasetRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDomainCertificateRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDomainCertificateResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteDomainRequest;
@@ -154,6 +162,14 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetInfoRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetInfoResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetItemInfoRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetItemInfoResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetItemListRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetItemListResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetListRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDatasetListResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployApiTaskRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployApiTaskResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApiRequest;
@@ -238,6 +254,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendModelRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendModelResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyBackendResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetItemRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetItemResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyDatasetResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyIpControlPolicyItemRequest;
@@ -1208,6 +1228,110 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param CreateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->datasetType)) {
+            $query['DatasetType'] = $request->datasetType;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataset',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDatasetItemRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDatasetItemResponse
+     */
+    public function createDatasetItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->expiredTime)) {
+            $query['ExpiredTime'] = $request->expiredTime;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDatasetItem',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDatasetItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDatasetItemRequest $request
+     *
+     * @return CreateDatasetItemResponse
+     */
+    public function createDatasetItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetItemWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2089,6 +2213,101 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBackendModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataset',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDatasetRequest $request
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDatasetItemRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDatasetItemResponse
+     */
+    public function deleteDatasetItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->datasetItemId)) {
+            $query['DatasetItemId'] = $request->datasetItemId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDatasetItem',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDatasetItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDatasetItemRequest $request
+     *
+     * @return DeleteDatasetItemResponse
+     */
+    public function deleteDatasetItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasetItemWithOptions($request, $runtime);
     }
 
     /**
@@ -4388,6 +4607,211 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackendListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDatasetInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDatasetInfoResponse
+     */
+    public function describeDatasetInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDatasetInfo',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDatasetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDatasetInfoRequest $request
+     *
+     * @return DescribeDatasetInfoResponse
+     */
+    public function describeDatasetInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDatasetInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDatasetItemInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDatasetItemInfoResponse
+     */
+    public function describeDatasetItemInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->datasetItemId)) {
+            $query['DatasetItemId'] = $request->datasetItemId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $query['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDatasetItemInfo',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDatasetItemInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDatasetItemInfoRequest $request
+     *
+     * @return DescribeDatasetItemInfoResponse
+     */
+    public function describeDatasetItemInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDatasetItemInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDatasetItemListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDatasetItemListResponse
+     */
+    public function describeDatasetItemListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->datasetItemIds)) {
+            $query['DatasetItemIds'] = $request->datasetItemIds;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDatasetItemList',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDatasetItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDatasetItemListRequest $request
+     *
+     * @return DescribeDatasetItemListResponse
+     */
+    public function describeDatasetItemList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDatasetItemListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDatasetListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDatasetListResponse
+     */
+    public function describeDatasetListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetIds)) {
+            $query['DatasetIds'] = $request->datasetIds;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDatasetList',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDatasetListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDatasetListRequest $request
+     *
+     * @return DescribeDatasetListResponse
+     */
+    public function describeDatasetList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDatasetListWithOptions($request, $runtime);
     }
 
     /**
@@ -6777,6 +7201,110 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyBackendModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyDatasetResponse
+     */
+    public function modifyDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDataset',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDatasetRequest $request
+     *
+     * @return ModifyDatasetResponse
+     */
+    public function modifyDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDatasetItemRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyDatasetItemResponse
+     */
+    public function modifyDatasetItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['DatasetId'] = $request->datasetId;
+        }
+        if (!Utils::isUnset($request->datasetItemId)) {
+            $query['DatasetItemId'] = $request->datasetItemId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->expiredTime)) {
+            $query['ExpiredTime'] = $request->expiredTime;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDatasetItem',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDatasetItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDatasetItemRequest $request
+     *
+     * @return ModifyDatasetItemResponse
+     */
+    public function modifyDatasetItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDatasetItemWithOptions($request, $runtime);
     }
 
     /**
