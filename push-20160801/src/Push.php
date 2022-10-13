@@ -41,8 +41,6 @@ use AlibabaCloud\SDK\Push\V20160801\Models\PushRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\PushResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryAliasesResponse;
-use AlibabaCloud\SDK\Push\V20160801\Models\QueryDeviceCountRequest;
-use AlibabaCloud\SDK\Push\V20160801\Models\QueryDeviceCountResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryDeviceInfoRequest;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryDeviceInfoResponse;
 use AlibabaCloud\SDK\Push\V20160801\Models\QueryDevicesByAccountRequest;
@@ -766,6 +764,12 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->androidNotificationChannel)) {
             $query['AndroidNotificationChannel'] = $request->androidNotificationChannel;
         }
+        if (!Utils::isUnset($request->androidNotificationGroup)) {
+            $query['AndroidNotificationGroup'] = $request->androidNotificationGroup;
+        }
+        if (!Utils::isUnset($request->androidNotificationHonorChannel)) {
+            $query['AndroidNotificationHonorChannel'] = $request->androidNotificationHonorChannel;
+        }
         if (!Utils::isUnset($request->androidNotificationHuaweiChannel)) {
             $query['AndroidNotificationHuaweiChannel'] = $request->androidNotificationHuaweiChannel;
         }
@@ -1237,55 +1241,6 @@ class Push extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAliasesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryDeviceCountRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return QueryDeviceCountResponse
-     */
-    public function queryDeviceCountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
-        }
-        if (!Utils::isUnset($request->targetValue)) {
-            $query['TargetValue'] = $request->targetValue;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceCount',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QueryDeviceCountResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param QueryDeviceCountRequest $request
-     *
-     * @return QueryDeviceCountResponse
-     */
-    public function queryDeviceCount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryDeviceCountWithOptions($request, $runtime);
     }
 
     /**

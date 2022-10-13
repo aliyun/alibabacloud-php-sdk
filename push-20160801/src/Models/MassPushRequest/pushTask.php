@@ -76,6 +76,16 @@ class pushTask extends Model
     /**
      * @var string
      */
+    public $androidNotificationGroup;
+
+    /**
+     * @var string
+     */
+    public $androidNotificationHonorChannel;
+
+    /**
+     * @var string
+     */
     public $androidNotificationHuaweiChannel;
 
     /**
@@ -316,6 +326,8 @@ class pushTask extends Model
         'androidNotificationBarPriority'   => 'AndroidNotificationBarPriority',
         'androidNotificationBarType'       => 'AndroidNotificationBarType',
         'androidNotificationChannel'       => 'AndroidNotificationChannel',
+        'androidNotificationGroup'         => 'AndroidNotificationGroup',
+        'androidNotificationHonorChannel'  => 'AndroidNotificationHonorChannel',
         'androidNotificationHuaweiChannel' => 'AndroidNotificationHuaweiChannel',
         'androidNotificationNotifyId'      => 'AndroidNotificationNotifyId',
         'androidNotificationVivoChannel'   => 'AndroidNotificationVivoChannel',
@@ -409,6 +421,12 @@ class pushTask extends Model
         }
         if (null !== $this->androidNotificationChannel) {
             $res['AndroidNotificationChannel'] = $this->androidNotificationChannel;
+        }
+        if (null !== $this->androidNotificationGroup) {
+            $res['AndroidNotificationGroup'] = $this->androidNotificationGroup;
+        }
+        if (null !== $this->androidNotificationHonorChannel) {
+            $res['AndroidNotificationHonorChannel'] = $this->androidNotificationHonorChannel;
         }
         if (null !== $this->androidNotificationHuaweiChannel) {
             $res['AndroidNotificationHuaweiChannel'] = $this->androidNotificationHuaweiChannel;
@@ -598,6 +616,12 @@ class pushTask extends Model
         }
         if (isset($map['AndroidNotificationChannel'])) {
             $model->androidNotificationChannel = $map['AndroidNotificationChannel'];
+        }
+        if (isset($map['AndroidNotificationGroup'])) {
+            $model->androidNotificationGroup = $map['AndroidNotificationGroup'];
+        }
+        if (isset($map['AndroidNotificationHonorChannel'])) {
+            $model->androidNotificationHonorChannel = $map['AndroidNotificationHonorChannel'];
         }
         if (isset($map['AndroidNotificationHuaweiChannel'])) {
             $model->androidNotificationHuaweiChannel = $map['AndroidNotificationHuaweiChannel'];
