@@ -41,6 +41,11 @@ class ListCardsRequest extends Model
     /**
      * @var string
      */
+    public $msisdn;
+
+    /**
+     * @var string
+     */
     public $netLinkId;
 
     /**
@@ -69,6 +74,7 @@ class ListCardsRequest extends Model
         'ipAddress'                => 'IpAddress',
         'lock'                     => 'Lock',
         'maxResults'               => 'MaxResults',
+        'msisdn'                   => 'Msisdn',
         'netLinkId'                => 'NetLinkId',
         'nextToken'                => 'NextToken',
         'online'                   => 'Online',
@@ -100,6 +106,9 @@ class ListCardsRequest extends Model
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->msisdn) {
+            $res['Msisdn'] = $this->msisdn;
         }
         if (null !== $this->netLinkId) {
             $res['NetLinkId'] = $this->netLinkId;
@@ -147,6 +156,9 @@ class ListCardsRequest extends Model
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['Msisdn'])) {
+            $model->msisdn = $map['Msisdn'];
         }
         if (isset($map['NetLinkId'])) {
             $model->netLinkId = $map['NetLinkId'];

@@ -26,6 +26,11 @@ class netLinks extends Model
     /**
      * @var string
      */
+    public $grantAliUid;
+
+    /**
+     * @var string
+     */
     public $ISP;
 
     /**
@@ -61,6 +66,7 @@ class netLinks extends Model
         'APN'         => 'APN',
         'createTime'  => 'CreateTime',
         'description' => 'Description',
+        'grantAliUid' => 'GrantAliUid',
         'ISP'         => 'ISP',
         'name'        => 'Name',
         'netLinkId'   => 'NetLinkId',
@@ -85,6 +91,9 @@ class netLinks extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->grantAliUid) {
+            $res['GrantAliUid'] = $this->grantAliUid;
         }
         if (null !== $this->ISP) {
             $res['ISP'] = $this->ISP;
@@ -127,6 +136,9 @@ class netLinks extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['GrantAliUid'])) {
+            $model->grantAliUid = $map['GrantAliUid'];
         }
         if (isset($map['ISP'])) {
             $model->ISP = $map['ISP'];

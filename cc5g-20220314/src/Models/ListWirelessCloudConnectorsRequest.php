@@ -14,6 +14,11 @@ class ListWirelessCloudConnectorsRequest extends Model
     public $businessType;
 
     /**
+     * @var string
+     */
+    public $isInGroup;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -39,17 +44,24 @@ class ListWirelessCloudConnectorsRequest extends Model
     public $statuses;
 
     /**
+     * @var string
+     */
+    public $wirelessCloudConnectorGroupId;
+
+    /**
      * @var string[]
      */
     public $wirelessCloudConnectorIds;
     protected $_name = [
-        'businessType'              => 'BusinessType',
-        'maxResults'                => 'MaxResults',
-        'names'                     => 'Names',
-        'nextToken'                 => 'NextToken',
-        'regionId'                  => 'RegionId',
-        'statuses'                  => 'Statuses',
-        'wirelessCloudConnectorIds' => 'WirelessCloudConnectorIds',
+        'businessType'                  => 'BusinessType',
+        'isInGroup'                     => 'IsInGroup',
+        'maxResults'                    => 'MaxResults',
+        'names'                         => 'Names',
+        'nextToken'                     => 'NextToken',
+        'regionId'                      => 'RegionId',
+        'statuses'                      => 'Statuses',
+        'wirelessCloudConnectorGroupId' => 'WirelessCloudConnectorGroupId',
+        'wirelessCloudConnectorIds'     => 'WirelessCloudConnectorIds',
     ];
 
     public function validate()
@@ -61,6 +73,9 @@ class ListWirelessCloudConnectorsRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+        if (null !== $this->isInGroup) {
+            $res['IsInGroup'] = $this->isInGroup;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -76,6 +91,9 @@ class ListWirelessCloudConnectorsRequest extends Model
         }
         if (null !== $this->statuses) {
             $res['Statuses'] = $this->statuses;
+        }
+        if (null !== $this->wirelessCloudConnectorGroupId) {
+            $res['WirelessCloudConnectorGroupId'] = $this->wirelessCloudConnectorGroupId;
         }
         if (null !== $this->wirelessCloudConnectorIds) {
             $res['WirelessCloudConnectorIds'] = $this->wirelessCloudConnectorIds;
@@ -95,6 +113,9 @@ class ListWirelessCloudConnectorsRequest extends Model
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
+        if (isset($map['IsInGroup'])) {
+            $model->isInGroup = $map['IsInGroup'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -113,6 +134,9 @@ class ListWirelessCloudConnectorsRequest extends Model
             if (!empty($map['Statuses'])) {
                 $model->statuses = $map['Statuses'];
             }
+        }
+        if (isset($map['WirelessCloudConnectorGroupId'])) {
+            $model->wirelessCloudConnectorGroupId = $map['WirelessCloudConnectorGroupId'];
         }
         if (isset($map['WirelessCloudConnectorIds'])) {
             if (!empty($map['WirelessCloudConnectorIds'])) {

@@ -67,6 +67,11 @@ class GetWirelessCloudConnectorResponseBody extends Model
     /**
      * @var string
      */
+    public $serviceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -90,6 +95,7 @@ class GetWirelessCloudConnectorResponseBody extends Model
         'netLinks'                 => 'NetLinks',
         'regionId'                 => 'RegionId',
         'requestId'                => 'RequestId',
+        'serviceType'              => 'ServiceType',
         'status'                   => 'Status',
         'useCase'                  => 'UseCase',
         'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
@@ -140,6 +146,9 @@ class GetWirelessCloudConnectorResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -202,6 +211,9 @@ class GetWirelessCloudConnectorResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -51,6 +51,11 @@ class wirelessCloudConnectors extends Model
     /**
      * @var string
      */
+    public $serviceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -61,19 +66,26 @@ class wirelessCloudConnectors extends Model
     /**
      * @var string
      */
+    public $wirelessCloudConnectorGroupId;
+
+    /**
+     * @var string
+     */
     public $wirelessCloudConnectorId;
     protected $_name = [
-        'businessType'             => 'BusinessType',
-        'cardCount'                => 'CardCount',
-        'createTime'               => 'CreateTime',
-        'dataPackageId'            => 'DataPackageId',
-        'dataPackageType'          => 'DataPackageType',
-        'description'              => 'Description',
-        'name'                     => 'Name',
-        'regionId'                 => 'RegionId',
-        'status'                   => 'Status',
-        'useCase'                  => 'UseCase',
-        'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
+        'businessType'                  => 'BusinessType',
+        'cardCount'                     => 'CardCount',
+        'createTime'                    => 'CreateTime',
+        'dataPackageId'                 => 'DataPackageId',
+        'dataPackageType'               => 'DataPackageType',
+        'description'                   => 'Description',
+        'name'                          => 'Name',
+        'regionId'                      => 'RegionId',
+        'serviceType'                   => 'ServiceType',
+        'status'                        => 'Status',
+        'useCase'                       => 'UseCase',
+        'wirelessCloudConnectorGroupId' => 'WirelessCloudConnectorGroupId',
+        'wirelessCloudConnectorId'      => 'WirelessCloudConnectorId',
     ];
 
     public function validate()
@@ -107,11 +119,17 @@ class wirelessCloudConnectors extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->useCase) {
             $res['UseCase'] = $this->useCase;
+        }
+        if (null !== $this->wirelessCloudConnectorGroupId) {
+            $res['WirelessCloudConnectorGroupId'] = $this->wirelessCloudConnectorGroupId;
         }
         if (null !== $this->wirelessCloudConnectorId) {
             $res['WirelessCloudConnectorId'] = $this->wirelessCloudConnectorId;
@@ -152,11 +170,17 @@ class wirelessCloudConnectors extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['UseCase'])) {
             $model->useCase = $map['UseCase'];
+        }
+        if (isset($map['WirelessCloudConnectorGroupId'])) {
+            $model->wirelessCloudConnectorGroupId = $map['WirelessCloudConnectorGroupId'];
         }
         if (isset($map['WirelessCloudConnectorId'])) {
             $model->wirelessCloudConnectorId = $map['WirelessCloudConnectorId'];

@@ -28,14 +28,22 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DetachVpcFromNetLinkRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DetachVpcFromNetLinkResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\FailCardsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\FailCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardLockReasonRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardLockReasonResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCardResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCreateCustomerInformationRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetCreateCustomerInformationResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GetDiagnoseResultForSingleCardRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GetDiagnoseResultForSingleCardResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GrantNetLinkRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\GrantNetLinkResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAPNsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAPNsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksRequest;
@@ -44,6 +52,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDiagnoseInfoForSingleCardRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDiagnoseInfoForSingleCardResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListIoTCloudConnectorBackhaulRouteRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListIoTCloudConnectorBackhaulRouteResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListOrdersRequest;
@@ -62,8 +72,12 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\RevokeNetLinkRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\RevokeNetLinkResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\StopCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\StopCardsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\SubmitDiagnoseTaskForSingleCardRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\SubmitDiagnoseTaskForSingleCardResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\SwitchWirelessCloudConnectorToBusinessRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\SwitchWirelessCloudConnectorToBusinessResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\UnlockCardsRequest;
@@ -762,6 +776,58 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param FailCardsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return FailCardsResponse
+     */
+    public function failCardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->iccids)) {
+            $query['Iccids'] = $request->iccids;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FailCards',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FailCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FailCardsRequest $request
+     *
+     * @return FailCardsResponse
+     */
+    public function failCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->failCardsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetCardRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -882,6 +948,52 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param GetDiagnoseResultForSingleCardRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetDiagnoseResultForSingleCardResponse
+     */
+    public function getDiagnoseResultForSingleCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->diagnoseTaskId)) {
+            $query['DiagnoseTaskId'] = $request->diagnoseTaskId;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiagnoseResultForSingleCard',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDiagnoseResultForSingleCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDiagnoseResultForSingleCardRequest $request
+     *
+     * @return GetDiagnoseResultForSingleCardResponse
+     */
+    public function getDiagnoseResultForSingleCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiagnoseResultForSingleCardWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetWirelessCloudConnectorRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -919,6 +1031,101 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWirelessCloudConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GrantNetLinkRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GrantNetLinkResponse
+     */
+    public function grantNetLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->grantAliUid)) {
+            $query['GrantAliUid'] = $request->grantAliUid;
+        }
+        if (!Utils::isUnset($request->netLinkId)) {
+            $query['NetLinkId'] = $request->netLinkId;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorId)) {
+            $query['WirelessCloudConnectorId'] = $request->wirelessCloudConnectorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantNetLink',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantNetLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantNetLinkRequest $request
+     *
+     * @return GrantNetLinkResponse
+     */
+    public function grantNetLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantNetLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAPNsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAPNsResponse
+     */
+    public function listAPNsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAPNs',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAPNsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAPNsRequest $request
+     *
+     * @return ListAPNsResponse
+     */
+    public function listAPNs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAPNsWithOptions($request, $runtime);
     }
 
     /**
@@ -1079,6 +1286,67 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataPackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDiagnoseInfoForSingleCardRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListDiagnoseInfoForSingleCardResponse
+     */
+    public function listDiagnoseInfoForSingleCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorId)) {
+            $query['WirelessCloudConnectorId'] = $request->wirelessCloudConnectorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiagnoseInfoForSingleCard',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDiagnoseInfoForSingleCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDiagnoseInfoForSingleCardRequest $request
+     *
+     * @return ListDiagnoseInfoForSingleCardResponse
+     */
+    public function listDiagnoseInfoForSingleCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDiagnoseInfoForSingleCardWithOptions($request, $runtime);
     }
 
     /**
@@ -1484,6 +1752,58 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param RevokeNetLinkRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RevokeNetLinkResponse
+     */
+    public function revokeNetLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->netLinkId)) {
+            $query['NetLinkId'] = $request->netLinkId;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorId)) {
+            $query['WirelessCloudConnectorId'] = $request->wirelessCloudConnectorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeNetLink',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeNetLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevokeNetLinkRequest $request
+     *
+     * @return RevokeNetLinkResponse
+     */
+    public function revokeNetLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeNetLinkWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopCardsRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1533,6 +1853,67 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopCardsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDiagnoseTaskForSingleCardRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitDiagnoseTaskForSingleCardResponse
+     */
+    public function submitDiagnoseTaskForSingleCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->resourceUid)) {
+            $query['ResourceUid'] = $request->resourceUid;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorId)) {
+            $query['WirelessCloudConnectorId'] = $request->wirelessCloudConnectorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDiagnoseTaskForSingleCard',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDiagnoseTaskForSingleCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDiagnoseTaskForSingleCardRequest $request
+     *
+     * @return SubmitDiagnoseTaskForSingleCardResponse
+     */
+    public function submitDiagnoseTaskForSingleCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDiagnoseTaskForSingleCardWithOptions($request, $runtime);
     }
 
     /**
