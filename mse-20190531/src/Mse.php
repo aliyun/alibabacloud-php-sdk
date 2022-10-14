@@ -1966,6 +1966,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->appIds)) {
             $query['AppIds'] = $request->appIds;
         }
+        if (!Utils::isUnset($request->dbGrayEnable)) {
+            $query['DbGrayEnable'] = $request->dbGrayEnable;
+        }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
         }

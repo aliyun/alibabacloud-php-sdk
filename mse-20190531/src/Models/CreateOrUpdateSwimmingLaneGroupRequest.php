@@ -21,6 +21,11 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     /**
      * @var bool
      */
+    public $dbGrayEnable;
+
+    /**
+     * @var bool
+     */
     public $enable;
 
     /**
@@ -90,6 +95,7 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     protected $_name = [
         'acceptLanguage'         => 'AcceptLanguage',
         'appIds'                 => 'AppIds',
+        'dbGrayEnable'           => 'DbGrayEnable',
         'enable'                 => 'Enable',
         'entryApp'               => 'EntryApp',
         'gmtCreate'              => 'GmtCreate',
@@ -118,6 +124,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
+        }
+        if (null !== $this->dbGrayEnable) {
+            $res['DbGrayEnable'] = $this->dbGrayEnable;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
@@ -178,6 +187,9 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
+        }
+        if (isset($map['DbGrayEnable'])) {
+            $model->dbGrayEnable = $map['DbGrayEnable'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
