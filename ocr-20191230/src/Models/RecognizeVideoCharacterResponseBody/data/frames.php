@@ -15,8 +15,6 @@ class frames extends Model
     public $elements;
 
     /**
-     * @description 帧时间戳时间戳，单位秒。
-     *
      * @var int
      */
     public $timestamp;

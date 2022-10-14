@@ -44,6 +44,11 @@ class box extends Model
     public $invoiceNoes;
 
     /**
+     * @var int[]
+     */
+    public $itemNames;
+
+    /**
      * @var float[]
      */
     public $payeeAddresses;
@@ -110,6 +115,7 @@ class box extends Model
         'invoiceDates'      => 'InvoiceDates',
         'invoiceFakeCodes'  => 'InvoiceFakeCodes',
         'invoiceNoes'       => 'InvoiceNoes',
+        'itemNames'         => 'ItemNames',
         'payeeAddresses'    => 'PayeeAddresses',
         'payeeBankNames'    => 'PayeeBankNames',
         'payeeNames'        => 'PayeeNames',
@@ -151,6 +157,9 @@ class box extends Model
         }
         if (null !== $this->invoiceNoes) {
             $res['InvoiceNoes'] = $this->invoiceNoes;
+        }
+        if (null !== $this->itemNames) {
+            $res['ItemNames'] = $this->itemNames;
         }
         if (null !== $this->payeeAddresses) {
             $res['PayeeAddresses'] = $this->payeeAddresses;
@@ -233,6 +242,11 @@ class box extends Model
         if (isset($map['InvoiceNoes'])) {
             if (!empty($map['InvoiceNoes'])) {
                 $model->invoiceNoes = $map['InvoiceNoes'];
+            }
+        }
+        if (isset($map['ItemNames'])) {
+            if (!empty($map['ItemNames'])) {
+                $model->itemNames = $map['ItemNames'];
             }
         }
         if (isset($map['PayeeAddresses'])) {

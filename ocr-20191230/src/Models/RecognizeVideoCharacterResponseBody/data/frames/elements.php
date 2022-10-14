@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @description 文字区域概率，概率值的范围为[0.0, 1.0]
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @description 文字内容
-     *
      * @var string
      */
     public $text;

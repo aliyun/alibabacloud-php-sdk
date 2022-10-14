@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class TrimDocumentAdvanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fileType;
+
+    /**
      * @var Stream
      */
     public $fileURLObject;
@@ -17,31 +22,25 @@ class TrimDocumentAdvanceRequest extends Model
     /**
      * @var string
      */
-    public $fileType;
-
-    /**
-     * @var string
-     */
     public $outputType;
     protected $_name = [
-        'fileURLObject' => 'FileURLObject',
         'fileType'      => 'FileType',
+        'fileURLObject' => 'FileURL',
         'outputType'    => 'OutputType',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileURLObject', $this->fileURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileURLObject) {
-            $res['FileURLObject'] = $this->fileURLObject;
-        }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->fileURLObject) {
+            $res['FileURL'] = $this->fileURLObject;
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
@@ -58,11 +57,11 @@ class TrimDocumentAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileURLObject'])) {
-            $model->fileURLObject = $map['FileURLObject'];
-        }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['FileURL'])) {
+            $model->fileURLObject = $map['FileURL'];
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];

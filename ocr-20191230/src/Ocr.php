@@ -116,9 +116,9 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -250,28 +250,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $detectCardScreenshotReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $detectCardScreenshotReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $detectCardScreenshotReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->detectCardScreenshotWithOptions($detectCardScreenshotReq, $runtime);
@@ -414,28 +414,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeAccountPageReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeAccountPageReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeAccountPageReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeAccountPageWithOptions($recognizeAccountPageReq, $runtime);
@@ -535,28 +535,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeBankCardReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeBankCardReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeBankCardReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeBankCardWithOptions($recognizeBankCardReq, $runtime);
@@ -656,28 +656,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeBusinessCardReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeBusinessCardReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeBusinessCardReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeBusinessCardWithOptions($recognizeBusinessCardReq, $runtime);
@@ -777,28 +777,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeBusinessLicenseReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeBusinessLicenseReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeBusinessLicenseReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeBusinessLicenseWithOptions($recognizeBusinessLicenseReq, $runtime);
@@ -904,28 +904,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeCharacterReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeCharacterReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeCharacterReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeCharacterWithOptions($recognizeCharacterReq, $runtime);
@@ -1025,28 +1025,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeChinapassportReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeChinapassportReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeChinapassportReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeChinapassportWithOptions($recognizeChinapassportReq, $runtime);
@@ -1149,28 +1149,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeDriverLicenseReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeDriverLicenseReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeDriverLicenseReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeDriverLicenseWithOptions($recognizeDriverLicenseReq, $runtime);
@@ -1273,28 +1273,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeDrivingLicenseReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeDrivingLicenseReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeDrivingLicenseReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeDrivingLicenseWithOptions($recognizeDrivingLicenseReq, $runtime);
@@ -1397,28 +1397,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeIdentityCardReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeIdentityCardReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeIdentityCardReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeIdentityCardWithOptions($recognizeIdentityCardReq, $runtime);
@@ -1518,28 +1518,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeIndonesiaIdentityCardReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeIndonesiaIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeIndonesiaIdentityCardReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeIndonesiaIdentityCardWithOptions($recognizeIndonesiaIdentityCardReq, $runtime);
@@ -1639,28 +1639,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeLicensePlateReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeLicensePlateReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeLicensePlateReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeLicensePlateWithOptions($recognizeLicensePlateReq, $runtime);
@@ -1760,28 +1760,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeMalaysiaIdentityCardReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeMalaysiaIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeMalaysiaIdentityCardReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeMalaysiaIdentityCardWithOptions($recognizeMalaysiaIdentityCardReq, $runtime);
@@ -1881,28 +1881,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizePassportMRZReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizePassportMRZReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizePassportMRZReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizePassportMRZWithOptions($recognizePassportMRZReq, $runtime);
@@ -2002,28 +2002,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizePdfReq);
         if (!Utils::isUnset($request->fileURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->fileURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizePdfReq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizePdfReq->fileURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizePdfWithOptions($recognizePdfReq, $runtime);
@@ -2123,28 +2123,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizePoiNameReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizePoiNameReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizePoiNameReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizePoiNameWithOptions($recognizePoiNameReq, $runtime);
@@ -2287,28 +2287,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeQuotaInvoiceReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeQuotaInvoiceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeQuotaInvoiceReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeQuotaInvoiceWithOptions($recognizeQuotaInvoiceReq, $runtime);
@@ -2408,28 +2408,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeRussiaIdentityCardReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeRussiaIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeRussiaIdentityCardReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeRussiaIdentityCardWithOptions($recognizeRussiaIdentityCardReq, $runtime);
@@ -2529,28 +2529,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeStampReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeStampReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeStampReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeStampWithOptions($recognizeStampReq, $runtime);
@@ -2665,28 +2665,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeTableReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeTableReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeTableReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeTableWithOptions($recognizeTableReq, $runtime);
@@ -2786,28 +2786,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeTakeoutOrderReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeTakeoutOrderReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeTakeoutOrderReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeTakeoutOrderWithOptions($recognizeTakeoutOrderReq, $runtime);
@@ -2907,28 +2907,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeTaxiInvoiceReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeTaxiInvoiceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeTaxiInvoiceReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeTaxiInvoiceWithOptions($recognizeTaxiInvoiceReq, $runtime);
@@ -3028,28 +3028,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeTicketInvoiceReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeTicketInvoiceReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeTicketInvoiceReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeTicketInvoiceWithOptions($recognizeTicketInvoiceReq, $runtime);
@@ -3149,28 +3149,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeTrainTicketReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeTrainTicketReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeTrainTicketReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeTrainTicketWithOptions($recognizeTrainTicketReq, $runtime);
@@ -3270,28 +3270,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeTurkeyIdentityCardReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeTurkeyIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeTurkeyIdentityCardReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeTurkeyIdentityCardWithOptions($recognizeTurkeyIdentityCardReq, $runtime);
@@ -3391,28 +3391,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeUkraineIdentityCardReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeUkraineIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeUkraineIdentityCardReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeUkraineIdentityCardWithOptions($recognizeUkraineIdentityCardReq, $runtime);
@@ -3515,28 +3515,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeVATInvoiceReq);
         if (!Utils::isUnset($request->fileURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->fileURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeVATInvoiceReq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeVATInvoiceReq->fileURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeVATInvoiceWithOptions($recognizeVATInvoiceReq, $runtime);
@@ -3636,28 +3636,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeVINCodeReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeVINCodeReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeVINCodeReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeVINCodeWithOptions($recognizeVINCodeReq, $runtime);
@@ -3757,28 +3757,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeVerificationcodeReq);
         if (!Utils::isUnset($request->imageURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeVerificationcodeReq->imageURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeVerificationcodeReq->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeVerificationcodeWithOptions($recognizeVerificationcodeReq, $runtime);
@@ -3889,28 +3889,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeVideoCastCrewListReq);
         if (!Utils::isUnset($request->videoUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->videoUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeVideoCastCrewListReq->videoUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeVideoCastCrewListReq->videoUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeVideoCastCrewListWithOptions($recognizeVideoCastCrewListReq, $runtime);
@@ -4053,28 +4053,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $recognizeVietnamIdentityCardReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $recognizeVietnamIdentityCardReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $recognizeVietnamIdentityCardReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->recognizeVietnamIdentityCardWithOptions($recognizeVietnamIdentityCardReq, $runtime);
@@ -4180,28 +4180,28 @@ class Ocr extends OpenApiClient
         OpenApiUtilClient::convert($request, $trimDocumentReq);
         if (!Utils::isUnset($request->fileURLObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->fileURLObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $trimDocumentReq->fileURL = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $trimDocumentReq->fileURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->trimDocumentWithOptions($trimDocumentReq, $runtime);

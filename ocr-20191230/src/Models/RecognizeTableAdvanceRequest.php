@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTableAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $imageURLObject;
-
-    /**
      * @var bool
      */
     public $assureDirection;
@@ -23,6 +18,11 @@ class RecognizeTableAdvanceRequest extends Model
      * @var bool
      */
     public $hasLine;
+
+    /**
+     * @var Stream
+     */
+    public $imageURLObject;
 
     /**
      * @var string
@@ -39,9 +39,9 @@ class RecognizeTableAdvanceRequest extends Model
      */
     public $useFinanceModel;
     protected $_name = [
-        'imageURLObject'  => 'ImageURLObject',
         'assureDirection' => 'AssureDirection',
         'hasLine'         => 'HasLine',
+        'imageURLObject'  => 'ImageURL',
         'outputFormat'    => 'OutputFormat',
         'skipDetection'   => 'SkipDetection',
         'useFinanceModel' => 'UseFinanceModel',
@@ -49,20 +49,19 @@ class RecognizeTableAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
-        }
         if (null !== $this->assureDirection) {
             $res['AssureDirection'] = $this->assureDirection;
         }
         if (null !== $this->hasLine) {
             $res['HasLine'] = $this->hasLine;
+        }
+        if (null !== $this->imageURLObject) {
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->outputFormat) {
             $res['OutputFormat'] = $this->outputFormat;
@@ -85,14 +84,14 @@ class RecognizeTableAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
-        }
         if (isset($map['AssureDirection'])) {
             $model->assureDirection = $map['AssureDirection'];
         }
         if (isset($map['HasLine'])) {
             $model->hasLine = $map['HasLine'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['OutputFormat'])) {
             $model->outputFormat = $map['OutputFormat'];

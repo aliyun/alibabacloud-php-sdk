@@ -11,11 +11,6 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeVideoCastCrewListAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoUrlObject;
-
-    /**
      * @var params[]
      */
     public $params;
@@ -24,23 +19,24 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
      * @var string
      */
     public $registerUrl;
+
+    /**
+     * @var Stream
+     */
+    public $videoUrlObject;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
         'params'         => 'Params',
         'registerUrl'    => 'RegisterUrl',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
-        }
         if (null !== $this->params) {
             $res['Params'] = [];
             if (null !== $this->params && \is_array($this->params)) {
@@ -52,6 +48,9 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
         }
         if (null !== $this->registerUrl) {
             $res['RegisterUrl'] = $this->registerUrl;
+        }
+        if (null !== $this->videoUrlObject) {
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -65,9 +64,6 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
-        }
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
@@ -79,6 +75,9 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
         }
         if (isset($map['RegisterUrl'])) {
             $model->registerUrl = $map['RegisterUrl'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;

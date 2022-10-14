@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 视频帧的集合，空信息的帧不列出。
-     *
      * @var frames[]
      */
     public $frames;
@@ -22,8 +20,6 @@ class data extends Model
     public $height;
 
     /**
-     * @description 对应的输入OSS文件 (格式oss://{bucketName}/{object})
-     *
      * @var string
      */
     public $inputFile;

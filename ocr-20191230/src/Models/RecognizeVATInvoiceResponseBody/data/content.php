@@ -44,6 +44,11 @@ class content extends Model
     public $invoiceNo;
 
     /**
+     * @var string[]
+     */
+    public $itemName;
+
+    /**
      * @var string
      */
     public $payee;
@@ -110,6 +115,7 @@ class content extends Model
         'invoiceCode'      => 'InvoiceCode',
         'invoiceDate'      => 'InvoiceDate',
         'invoiceNo'        => 'InvoiceNo',
+        'itemName'         => 'ItemName',
         'payee'            => 'Payee',
         'payeeAddress'     => 'PayeeAddress',
         'payeeBankName'    => 'PayeeBankName',
@@ -151,6 +157,9 @@ class content extends Model
         }
         if (null !== $this->invoiceNo) {
             $res['InvoiceNo'] = $this->invoiceNo;
+        }
+        if (null !== $this->itemName) {
+            $res['ItemName'] = $this->itemName;
         }
         if (null !== $this->payee) {
             $res['Payee'] = $this->payee;
@@ -220,6 +229,11 @@ class content extends Model
         }
         if (isset($map['InvoiceNo'])) {
             $model->invoiceNo = $map['InvoiceNo'];
+        }
+        if (isset($map['ItemName'])) {
+            if (!empty($map['ItemName'])) {
+                $model->itemName = $map['ItemName'];
+            }
         }
         if (isset($map['Payee'])) {
             $model->payee = $map['Payee'];

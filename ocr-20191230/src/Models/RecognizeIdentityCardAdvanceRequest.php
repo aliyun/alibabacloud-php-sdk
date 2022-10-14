@@ -19,20 +19,19 @@ class RecognizeIdentityCardAdvanceRequest extends Model
      */
     public $side;
     protected $_name = [
-        'imageURLObject' => 'ImageURLObject',
+        'imageURLObject' => 'ImageURL',
         'side'           => 'Side',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageURLObject', $this->imageURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageURLObject) {
-            $res['ImageURLObject'] = $this->imageURLObject;
+            $res['ImageURL'] = $this->imageURLObject;
         }
         if (null !== $this->side) {
             $res['Side'] = $this->side;
@@ -49,8 +48,8 @@ class RecognizeIdentityCardAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURLObject'])) {
-            $model->imageURLObject = $map['ImageURLObject'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['Side'])) {
             $model->side = $map['Side'];

@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeVATInvoiceAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $fileURLObject;
-
-    /**
      * @var string
      */
     public $fileType;
+
+    /**
+     * @var Stream
+     */
+    public $fileURLObject;
     protected $_name = [
-        'fileURLObject' => 'FileURLObject',
         'fileType'      => 'FileType',
+        'fileURLObject' => 'FileURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileURLObject', $this->fileURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileURLObject) {
-            $res['FileURLObject'] = $this->fileURLObject;
-        }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->fileURLObject) {
+            $res['FileURL'] = $this->fileURLObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class RecognizeVATInvoiceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileURLObject'])) {
-            $model->fileURLObject = $map['FileURLObject'];
-        }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['FileURL'])) {
+            $model->fileURLObject = $map['FileURL'];
         }
 
         return $model;

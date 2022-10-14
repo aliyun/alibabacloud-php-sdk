@@ -14,19 +14,18 @@ class RecognizeUkraineIdentityCardAdvanceRequest extends Model
      */
     public $imageUrlObject;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrlObject',
+        'imageUrlObject' => 'ImageUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
 
         return $res;
@@ -40,8 +39,8 @@ class RecognizeUkraineIdentityCardAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
 
         return $model;

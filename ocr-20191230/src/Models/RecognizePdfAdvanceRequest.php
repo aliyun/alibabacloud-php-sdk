@@ -14,19 +14,18 @@ class RecognizePdfAdvanceRequest extends Model
      */
     public $fileURLObject;
     protected $_name = [
-        'fileURLObject' => 'FileURLObject',
+        'fileURLObject' => 'FileURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('fileURLObject', $this->fileURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->fileURLObject) {
-            $res['FileURLObject'] = $this->fileURLObject;
+            $res['FileURL'] = $this->fileURLObject;
         }
 
         return $res;
@@ -40,8 +39,8 @@ class RecognizePdfAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileURLObject'])) {
-            $model->fileURLObject = $map['FileURLObject'];
+        if (isset($map['FileURL'])) {
+            $model->fileURLObject = $map['FileURL'];
         }
 
         return $model;

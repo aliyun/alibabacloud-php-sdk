@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeVideoCharacterRequest extends Model
 {
     /**
-     * @description 视频文件地址
-     *
      * @var string
      */
     public $videoURL;
