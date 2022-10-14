@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenResponseBody\data;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CorpTokenResponseBody\module;
 use AlibabaCloud\Tea\Model;
 
 class CorpTokenResponseBody extends Model
@@ -25,6 +26,11 @@ class CorpTokenResponseBody extends Model
     public $message;
 
     /**
+     * @var module
+     */
+    public $module;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -37,6 +43,7 @@ class CorpTokenResponseBody extends Model
         'code'      => 'code',
         'data'      => 'data',
         'message'   => 'message',
+        'module'    => 'module',
         'requestId' => 'requestId',
         'traceId'   => 'traceId',
     ];
@@ -56,6 +63,9 @@ class CorpTokenResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+        if (null !== $this->module) {
+            $res['module'] = null !== $this->module ? $this->module->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -83,6 +93,9 @@ class CorpTokenResponseBody extends Model
         }
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+        if (isset($map['module'])) {
+            $model->module = module::fromMap($map['module']);
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
