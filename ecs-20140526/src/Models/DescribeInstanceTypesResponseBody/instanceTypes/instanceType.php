@@ -74,6 +74,11 @@ class instanceType extends Model
     public $GPUAmount;
 
     /**
+     * @var float
+     */
+    public $GPUMemorySize;
+
+    /**
      * @var string
      */
     public $GPUSpec;
@@ -196,6 +201,7 @@ class instanceType extends Model
         'eniTrunkSupported'           => 'EniTrunkSupported',
         'eriQuantity'                 => 'EriQuantity',
         'GPUAmount'                   => 'GPUAmount',
+        'GPUMemorySize'               => 'GPUMemorySize',
         'GPUSpec'                     => 'GPUSpec',
         'initialCredit'               => 'InitialCredit',
         'instanceBandwidthRx'         => 'InstanceBandwidthRx',
@@ -265,6 +271,9 @@ class instanceType extends Model
         }
         if (null !== $this->GPUAmount) {
             $res['GPUAmount'] = $this->GPUAmount;
+        }
+        if (null !== $this->GPUMemorySize) {
+            $res['GPUMemorySize'] = $this->GPUMemorySize;
         }
         if (null !== $this->GPUSpec) {
             $res['GPUSpec'] = $this->GPUSpec;
@@ -382,6 +391,9 @@ class instanceType extends Model
         }
         if (isset($map['GPUAmount'])) {
             $model->GPUAmount = $map['GPUAmount'];
+        }
+        if (isset($map['GPUMemorySize'])) {
+            $model->GPUMemorySize = $map['GPUMemorySize'];
         }
         if (isset($map['GPUSpec'])) {
             $model->GPUSpec = $map['GPUSpec'];
