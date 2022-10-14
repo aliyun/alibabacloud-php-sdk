@@ -21,6 +21,10 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateIstioGatewayRoutesRespon
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateIstioGatewayRoutesShrinkRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneGroupRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneGroupResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateSwimLaneResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteGatewayRouteRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteGatewayRouteResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteGatewaySecretRequest;
@@ -29,6 +33,10 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteIstioGatewayDomainsReque
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteIstioGatewayDomainsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteServiceMeshRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteServiceMeshResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneGroupRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneGroupResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DeleteSwimLaneResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAhasProRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeAhasProResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeASMGatewayImportedServicesRequest;
@@ -103,10 +111,21 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetCaCertRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetCaCertResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetDeploymentBySelectorRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetDeploymentBySelectorResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetDeploymentBySelectorShrinkRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetGrafanaDashboardUrlRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetGrafanaDashboardUrlResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceEndpointsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceNamespacesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetRegisteredServiceNamespacesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneDetailRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneDetailResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneGroupListRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneGroupListResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneListRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneListResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmAppMeshInfoRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmAppMeshInfoResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaRequest;
@@ -142,6 +161,10 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshFeatureResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateNamespaceScopeSidecarConfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateNamespaceScopeSidecarConfigResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneGroupRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneGroupResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateSwimLaneResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshEditionPartiallyRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshEditionPartiallyResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionRequest;
@@ -755,6 +778,119 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param CreateSwimLaneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSwimLaneResponse
+     */
+    public function createSwimLaneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->labelSelectorKey)) {
+            $body['LabelSelectorKey'] = $request->labelSelectorKey;
+        }
+        if (!Utils::isUnset($request->labelSelectorValue)) {
+            $body['LabelSelectorValue'] = $request->labelSelectorValue;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->servicesList)) {
+            $body['ServicesList'] = $request->servicesList;
+        }
+        if (!Utils::isUnset($request->swimLaneName)) {
+            $body['SwimLaneName'] = $request->swimLaneName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSwimLane',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSwimLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSwimLaneRequest $request
+     *
+     * @return CreateSwimLaneResponse
+     */
+    public function createSwimLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSwimLaneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSwimLaneGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSwimLaneGroupResponse
+     */
+    public function createSwimLaneGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ingressGatewayName)) {
+            $body['IngressGatewayName'] = $request->ingressGatewayName;
+        }
+        if (!Utils::isUnset($request->ingressType)) {
+            $body['IngressType'] = $request->ingressType;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->servicesList)) {
+            $body['ServicesList'] = $request->servicesList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSwimLaneGroup',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSwimLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSwimLaneGroupRequest $request
+     *
+     * @return CreateSwimLaneGroupResponse
+     */
+    public function createSwimLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSwimLaneGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteGatewayRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -957,6 +1093,101 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteServiceMeshWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSwimLaneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSwimLaneResponse
+     */
+    public function deleteSwimLaneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->swimLaneName)) {
+            $body['SwimLaneName'] = $request->swimLaneName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSwimLane',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSwimLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSwimLaneRequest $request
+     *
+     * @return DeleteSwimLaneResponse
+     */
+    public function deleteSwimLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSwimLaneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSwimLaneGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSwimLaneGroupResponse
+     */
+    public function deleteSwimLaneGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSwimLaneGroup',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSwimLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSwimLaneGroupRequest $request
+     *
+     * @return DeleteSwimLaneGroupResponse
+     */
+    public function deleteSwimLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSwimLaneGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1474,6 +1705,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->showNsLabels)) {
+            $body['ShowNsLabels'] = $request->showNsLabels;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2662,6 +2896,118 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param GetDeploymentBySelectorRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDeploymentBySelectorResponse
+     */
+    public function getDeploymentBySelectorWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetDeploymentBySelectorShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->labelSelector)) {
+            $request->labelSelectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labelSelector, 'LabelSelector', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->guestCluster)) {
+            $body['GuestCluster'] = $request->guestCluster;
+        }
+        if (!Utils::isUnset($request->labelSelectorShrink)) {
+            $body['LabelSelector'] = $request->labelSelectorShrink;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->mark)) {
+            $body['Mark'] = $request->mark;
+        }
+        if (!Utils::isUnset($request->nameSpace_)) {
+            $body['NameSpace'] = $request->nameSpace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDeploymentBySelector',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDeploymentBySelectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDeploymentBySelectorRequest $request
+     *
+     * @return GetDeploymentBySelectorResponse
+     */
+    public function getDeploymentBySelector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDeploymentBySelectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGrafanaDashboardUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetGrafanaDashboardUrlResponse
+     */
+    public function getGrafanaDashboardUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->k8sClusterId)) {
+            $body['K8sClusterId'] = $request->k8sClusterId;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGrafanaDashboardUrl',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGrafanaDashboardUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGrafanaDashboardUrlRequest $request
+     *
+     * @return GetGrafanaDashboardUrlResponse
+     */
+    public function getGrafanaDashboardUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGrafanaDashboardUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRegisteredServiceEndpointsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2757,6 +3103,144 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRegisteredServiceNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSwimLaneDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSwimLaneDetailResponse
+     */
+    public function getSwimLaneDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->swimLaneName)) {
+            $body['SwimLaneName'] = $request->swimLaneName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSwimLaneDetail',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSwimLaneDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSwimLaneDetailRequest $request
+     *
+     * @return GetSwimLaneDetailResponse
+     */
+    public function getSwimLaneDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSwimLaneDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSwimLaneGroupListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSwimLaneGroupListResponse
+     */
+    public function getSwimLaneGroupListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSwimLaneGroupList',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSwimLaneGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSwimLaneGroupListRequest $request
+     *
+     * @return GetSwimLaneGroupListResponse
+     */
+    public function getSwimLaneGroupList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSwimLaneGroupListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetSwimLaneListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSwimLaneListResponse
+     */
+    public function getSwimLaneListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSwimLaneList',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSwimLaneListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSwimLaneListRequest $request
+     *
+     * @return GetSwimLaneListResponse
+     */
+    public function getSwimLaneList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSwimLaneListWithOptions($request, $runtime);
     }
 
     /**
@@ -3906,6 +4390,113 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateNamespaceScopeSidecarConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSwimLaneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSwimLaneResponse
+     */
+    public function updateSwimLaneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->labelSelectorKey)) {
+            $body['LabelSelectorKey'] = $request->labelSelectorKey;
+        }
+        if (!Utils::isUnset($request->labelSelectorValue)) {
+            $body['LabelSelectorValue'] = $request->labelSelectorValue;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->servicesList)) {
+            $body['ServicesList'] = $request->servicesList;
+        }
+        if (!Utils::isUnset($request->swimLaneName)) {
+            $body['SwimLaneName'] = $request->swimLaneName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSwimLane',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSwimLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSwimLaneRequest $request
+     *
+     * @return UpdateSwimLaneResponse
+     */
+    public function updateSwimLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSwimLaneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSwimLaneGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateSwimLaneGroupResponse
+     */
+    public function updateSwimLaneGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        if (!Utils::isUnset($request->servicesList)) {
+            $body['ServicesList'] = $request->servicesList;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSwimLaneGroup',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSwimLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSwimLaneGroupRequest $request
+     *
+     * @return UpdateSwimLaneGroupResponse
+     */
+    public function updateSwimLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSwimLaneGroupWithOptions($request, $runtime);
     }
 
     /**

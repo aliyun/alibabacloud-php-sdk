@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateSwimLaneRequest extends Model
+class CreateSwimLaneGroupRequest extends Model
 {
     /**
      * @var string
@@ -16,12 +16,12 @@ class UpdateSwimLaneRequest extends Model
     /**
      * @var string
      */
-    public $labelSelectorKey;
+    public $ingressGatewayName;
 
     /**
      * @var string
      */
-    public $labelSelectorValue;
+    public $ingressType;
 
     /**
      * @var string
@@ -32,18 +32,12 @@ class UpdateSwimLaneRequest extends Model
      * @var string
      */
     public $servicesList;
-
-    /**
-     * @var string
-     */
-    public $swimLaneName;
     protected $_name = [
         'groupName'          => 'GroupName',
-        'labelSelectorKey'   => 'LabelSelectorKey',
-        'labelSelectorValue' => 'LabelSelectorValue',
+        'ingressGatewayName' => 'IngressGatewayName',
+        'ingressType'        => 'IngressType',
         'serviceMeshId'      => 'ServiceMeshId',
         'servicesList'       => 'ServicesList',
-        'swimLaneName'       => 'SwimLaneName',
     ];
 
     public function validate()
@@ -56,20 +50,17 @@ class UpdateSwimLaneRequest extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->labelSelectorKey) {
-            $res['LabelSelectorKey'] = $this->labelSelectorKey;
+        if (null !== $this->ingressGatewayName) {
+            $res['IngressGatewayName'] = $this->ingressGatewayName;
         }
-        if (null !== $this->labelSelectorValue) {
-            $res['LabelSelectorValue'] = $this->labelSelectorValue;
+        if (null !== $this->ingressType) {
+            $res['IngressType'] = $this->ingressType;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
         if (null !== $this->servicesList) {
             $res['ServicesList'] = $this->servicesList;
-        }
-        if (null !== $this->swimLaneName) {
-            $res['SwimLaneName'] = $this->swimLaneName;
         }
 
         return $res;
@@ -78,7 +69,7 @@ class UpdateSwimLaneRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateSwimLaneRequest
+     * @return CreateSwimLaneGroupRequest
      */
     public static function fromMap($map = [])
     {
@@ -86,20 +77,17 @@ class UpdateSwimLaneRequest extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['LabelSelectorKey'])) {
-            $model->labelSelectorKey = $map['LabelSelectorKey'];
+        if (isset($map['IngressGatewayName'])) {
+            $model->ingressGatewayName = $map['IngressGatewayName'];
         }
-        if (isset($map['LabelSelectorValue'])) {
-            $model->labelSelectorValue = $map['LabelSelectorValue'];
+        if (isset($map['IngressType'])) {
+            $model->ingressType = $map['IngressType'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
         if (isset($map['ServicesList'])) {
             $model->servicesList = $map['ServicesList'];
-        }
-        if (isset($map['SwimLaneName'])) {
-            $model->swimLaneName = $map['SwimLaneName'];
         }
 
         return $model;

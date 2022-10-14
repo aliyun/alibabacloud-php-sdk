@@ -6,25 +6,13 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeGuestClusterNamespacesResponseBody extends Model
+class CreateSwimLaneResponseBody extends Model
 {
-    /**
-     * @var mixed[]
-     */
-    public $nsLabels;
-
-    /**
-     * @var string[]
-     */
-    public $nsList;
-
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nsLabels'  => 'NsLabels',
-        'nsList'    => 'NsList',
         'requestId' => 'RequestId',
     ];
 
@@ -35,12 +23,6 @@ class DescribeGuestClusterNamespacesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nsLabels) {
-            $res['NsLabels'] = $this->nsLabels;
-        }
-        if (null !== $this->nsList) {
-            $res['NsList'] = $this->nsList;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,19 +33,11 @@ class DescribeGuestClusterNamespacesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeGuestClusterNamespacesResponseBody
+     * @return CreateSwimLaneResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NsLabels'])) {
-            $model->nsLabels = $map['NsLabels'];
-        }
-        if (isset($map['NsList'])) {
-            if (!empty($map['NsList'])) {
-                $model->nsList = $map['NsList'];
-            }
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

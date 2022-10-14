@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateSwimLaneRequest extends Model
+class CreateSwimLaneRequest extends Model
 {
     /**
      * @var string
@@ -78,7 +78,7 @@ class UpdateSwimLaneRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateSwimLaneRequest
+     * @return CreateSwimLaneRequest
      */
     public static function fromMap($map = [])
     {

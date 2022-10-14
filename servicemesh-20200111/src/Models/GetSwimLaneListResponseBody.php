@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetSwimLaneListResponseBody\swimLaneList;
 use AlibabaCloud\Tea\Model;
 
 class GetSwimLaneListResponseBody extends Model
@@ -14,7 +15,7 @@ class GetSwimLaneListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string[]
+     * @var swimLaneList[]
      */
     public $swimLaneList;
     protected $_name = [
@@ -33,7 +34,13 @@ class GetSwimLaneListResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->swimLaneList) {
-            $res['SwimLaneList'] = $this->swimLaneList;
+            $res['SwimLaneList'] = [];
+            if (null !== $this->swimLaneList && \is_array($this->swimLaneList)) {
+                $n = 0;
+                foreach ($this->swimLaneList as $item) {
+                    $res['SwimLaneList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -52,7 +59,11 @@ class GetSwimLaneListResponseBody extends Model
         }
         if (isset($map['SwimLaneList'])) {
             if (!empty($map['SwimLaneList'])) {
-                $model->swimLaneList = $map['SwimLaneList'];
+                $model->swimLaneList = [];
+                $n                   = 0;
+                foreach ($map['SwimLaneList'] as $item) {
+                    $model->swimLaneList[$n++] = null !== $item ? swimLaneList::fromMap($item) : $item;
+                }
             }
         }
 

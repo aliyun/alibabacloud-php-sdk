@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSwimLaneDetailRequest extends Model
+class DeleteSwimLaneGroupRequest extends Model
 {
     /**
      * @var string
@@ -17,15 +17,9 @@ class GetSwimLaneDetailRequest extends Model
      * @var string
      */
     public $serviceMeshId;
-
-    /**
-     * @var string
-     */
-    public $swimLaneName;
     protected $_name = [
         'groupName'     => 'GroupName',
         'serviceMeshId' => 'ServiceMeshId',
-        'swimLaneName'  => 'SwimLaneName',
     ];
 
     public function validate()
@@ -41,9 +35,6 @@ class GetSwimLaneDetailRequest extends Model
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
-        if (null !== $this->swimLaneName) {
-            $res['SwimLaneName'] = $this->swimLaneName;
-        }
 
         return $res;
     }
@@ -51,7 +42,7 @@ class GetSwimLaneDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSwimLaneDetailRequest
+     * @return DeleteSwimLaneGroupRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,9 +52,6 @@ class GetSwimLaneDetailRequest extends Model
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
-        }
-        if (isset($map['SwimLaneName'])) {
-            $model->swimLaneName = $map['SwimLaneName'];
         }
 
         return $model;

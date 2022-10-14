@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSwimLaneDetailRequest extends Model
+class GetSwimLaneGroupListRequest extends Model
 {
     /**
      * @var string
      */
-    public $groupName;
-
-    /**
-     * @var string
-     */
     public $serviceMeshId;
-
-    /**
-     * @var string
-     */
-    public $swimLaneName;
     protected $_name = [
-        'groupName'     => 'GroupName',
         'serviceMeshId' => 'ServiceMeshId',
-        'swimLaneName'  => 'SwimLaneName',
     ];
 
     public function validate()
@@ -35,14 +23,8 @@ class GetSwimLaneDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
-        }
-        if (null !== $this->swimLaneName) {
-            $res['SwimLaneName'] = $this->swimLaneName;
         }
 
         return $res;
@@ -51,19 +33,13 @@ class GetSwimLaneDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSwimLaneDetailRequest
+     * @return GetSwimLaneGroupListRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
-        }
-        if (isset($map['SwimLaneName'])) {
-            $model->swimLaneName = $map['SwimLaneName'];
         }
 
         return $model;

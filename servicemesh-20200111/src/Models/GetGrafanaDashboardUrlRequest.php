@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSwimLaneDetailRequest extends Model
+class GetGrafanaDashboardUrlRequest extends Model
 {
     /**
      * @var string
      */
-    public $groupName;
+    public $k8sClusterId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetSwimLaneDetailRequest extends Model
     /**
      * @var string
      */
-    public $swimLaneName;
+    public $title;
     protected $_name = [
-        'groupName'     => 'GroupName',
+        'k8sClusterId'  => 'K8sClusterId',
         'serviceMeshId' => 'ServiceMeshId',
-        'swimLaneName'  => 'SwimLaneName',
+        'title'         => 'Title',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetSwimLaneDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->k8sClusterId) {
+            $res['K8sClusterId'] = $this->k8sClusterId;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
-        if (null !== $this->swimLaneName) {
-            $res['SwimLaneName'] = $this->swimLaneName;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class GetSwimLaneDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSwimLaneDetailRequest
+     * @return GetGrafanaDashboardUrlRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['K8sClusterId'])) {
+            $model->k8sClusterId = $map['K8sClusterId'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
-        if (isset($map['SwimLaneName'])) {
-            $model->swimLaneName = $map['SwimLaneName'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

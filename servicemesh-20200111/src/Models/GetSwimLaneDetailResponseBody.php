@@ -11,6 +11,16 @@ class GetSwimLaneDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $ingressRule;
+
+    /**
+     * @var string
+     */
+    public $ingressService;
+
+    /**
+     * @var string
+     */
     public $labelSelectorKey;
 
     /**
@@ -24,10 +34,12 @@ class GetSwimLaneDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int[][]
+     * @var string
      */
     public $servicesList;
     protected $_name = [
+        'ingressRule'        => 'IngressRule',
+        'ingressService'     => 'IngressService',
         'labelSelectorKey'   => 'LabelSelectorKey',
         'labelSelectorValue' => 'LabelSelectorValue',
         'requestId'          => 'RequestId',
@@ -41,6 +53,12 @@ class GetSwimLaneDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ingressRule) {
+            $res['IngressRule'] = $this->ingressRule;
+        }
+        if (null !== $this->ingressService) {
+            $res['IngressService'] = $this->ingressService;
+        }
         if (null !== $this->labelSelectorKey) {
             $res['LabelSelectorKey'] = $this->labelSelectorKey;
         }
@@ -65,6 +83,12 @@ class GetSwimLaneDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IngressRule'])) {
+            $model->ingressRule = $map['IngressRule'];
+        }
+        if (isset($map['IngressService'])) {
+            $model->ingressService = $map['IngressService'];
+        }
         if (isset($map['LabelSelectorKey'])) {
             $model->labelSelectorKey = $map['LabelSelectorKey'];
         }
@@ -75,9 +99,7 @@ class GetSwimLaneDetailResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ServicesList'])) {
-            if (!empty($map['ServicesList'])) {
-                $model->servicesList = $map['ServicesList'];
-            }
+            $model->servicesList = $map['ServicesList'];
         }
 
         return $model;

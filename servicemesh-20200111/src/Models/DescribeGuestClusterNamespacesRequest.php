@@ -17,9 +17,15 @@ class DescribeGuestClusterNamespacesRequest extends Model
      * @var string
      */
     public $serviceMeshId;
+
+    /**
+     * @var bool
+     */
+    public $showNsLabels;
     protected $_name = [
         'guestClusterID' => 'GuestClusterID',
         'serviceMeshId'  => 'ServiceMeshId',
+        'showNsLabels'   => 'ShowNsLabels',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeGuestClusterNamespacesRequest extends Model
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
+        }
+        if (null !== $this->showNsLabels) {
+            $res['ShowNsLabels'] = $this->showNsLabels;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeGuestClusterNamespacesRequest extends Model
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
+        }
+        if (isset($map['ShowNsLabels'])) {
+            $model->showNsLabels = $map['ShowNsLabels'];
         }
 
         return $model;

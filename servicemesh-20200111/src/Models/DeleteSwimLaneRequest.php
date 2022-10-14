@@ -11,6 +11,11 @@ class DeleteSwimLaneRequest extends Model
     /**
      * @var string
      */
+    public $groupName;
+
+    /**
+     * @var string
+     */
     public $serviceMeshId;
 
     /**
@@ -18,6 +23,7 @@ class DeleteSwimLaneRequest extends Model
      */
     public $swimLaneName;
     protected $_name = [
+        'groupName'     => 'GroupName',
         'serviceMeshId' => 'ServiceMeshId',
         'swimLaneName'  => 'SwimLaneName',
     ];
@@ -29,6 +35,9 @@ class DeleteSwimLaneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
@@ -47,6 +56,9 @@ class DeleteSwimLaneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
