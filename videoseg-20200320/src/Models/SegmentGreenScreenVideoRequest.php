@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SegmentGreenScreenVideoRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $videoURL;

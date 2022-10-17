@@ -14,19 +14,18 @@ class SegmentGreenScreenVideoAdvanceRequest extends Model
      */
     public $videoURLObject;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -40,8 +39,8 @@ class SegmentGreenScreenVideoAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

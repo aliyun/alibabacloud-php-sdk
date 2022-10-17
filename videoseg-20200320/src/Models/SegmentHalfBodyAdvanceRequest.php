@@ -14,19 +14,18 @@ class SegmentHalfBodyAdvanceRequest extends Model
      */
     public $videoUrlObject;
     protected $_name = [
-        'videoUrlObject' => 'VideoUrlObject',
+        'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoUrlObject', $this->videoUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->videoUrlObject) {
-            $res['VideoUrlObject'] = $this->videoUrlObject;
+            $res['VideoUrl'] = $this->videoUrlObject;
         }
 
         return $res;
@@ -40,8 +39,8 @@ class SegmentHalfBodyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUrlObject'])) {
-            $model->videoUrlObject = $map['VideoUrlObject'];
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrlObject = $map['VideoUrl'];
         }
 
         return $model;

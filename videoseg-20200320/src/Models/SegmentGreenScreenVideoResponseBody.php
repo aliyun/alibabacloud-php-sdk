@@ -15,13 +15,17 @@ class SegmentGreenScreenVideoResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
-     *
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -34,6 +38,9 @@ class SegmentGreenScreenVideoResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -52,6 +59,9 @@ class SegmentGreenScreenVideoResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
