@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class ContrastFaceVerifyAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $faceContrastFileObject;
-
-    /**
      * @var string
      */
     public $certName;
@@ -48,6 +43,11 @@ class ContrastFaceVerifyAdvanceRequest extends Model
      * @var string
      */
     public $encryptType;
+
+    /**
+     * @var Stream
+     */
+    public $faceContrastFileObject;
 
     /**
      * @var string
@@ -104,7 +104,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'faceContrastFileObject' => 'FaceContrastFileObject',
         'certName'               => 'CertName',
         'certNo'                 => 'CertNo',
         'certType'               => 'CertType',
@@ -112,6 +111,7 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         'crop'                   => 'Crop',
         'deviceToken'            => 'DeviceToken',
         'encryptType'            => 'EncryptType',
+        'faceContrastFileObject' => 'FaceContrastFile',
         'faceContrastPicture'    => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
         'ip'                     => 'Ip',
@@ -127,15 +127,11 @@ class ContrastFaceVerifyAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('faceContrastFileObject', $this->faceContrastFileObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->faceContrastFileObject) {
-            $res['FaceContrastFileObject'] = $this->faceContrastFileObject;
-        }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
@@ -156,6 +152,9 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         }
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
+        }
+        if (null !== $this->faceContrastFileObject) {
+            $res['FaceContrastFile'] = $this->faceContrastFileObject;
         }
         if (null !== $this->faceContrastPicture) {
             $res['FaceContrastPicture'] = $this->faceContrastPicture;
@@ -202,9 +201,6 @@ class ContrastFaceVerifyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceContrastFileObject'])) {
-            $model->faceContrastFileObject = $map['FaceContrastFileObject'];
-        }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
@@ -225,6 +221,9 @@ class ContrastFaceVerifyAdvanceRequest extends Model
         }
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
+        }
+        if (isset($map['FaceContrastFile'])) {
+            $model->faceContrastFileObject = $map['FaceContrastFile'];
         }
         if (isset($map['FaceContrastPicture'])) {
             $model->faceContrastPicture = $map['FaceContrastPicture'];
