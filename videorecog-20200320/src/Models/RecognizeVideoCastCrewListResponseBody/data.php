@@ -23,6 +23,16 @@ class data extends Model
     public $ocrResults;
 
     /**
+     * @var string
+     */
+    public $ocrResultsUrl;
+
+    /**
+     * @var string
+     */
+    public $ocrVideoResultsUrl;
+
+    /**
      * @var subtitlesResults[]
      */
     public $subtitlesResults;
@@ -32,10 +42,12 @@ class data extends Model
      */
     public $videoOcrResults;
     protected $_name = [
-        'castResults'      => 'CastResults',
-        'ocrResults'       => 'OcrResults',
-        'subtitlesResults' => 'SubtitlesResults',
-        'videoOcrResults'  => 'VideoOcrResults',
+        'castResults'        => 'CastResults',
+        'ocrResults'         => 'OcrResults',
+        'ocrResultsUrl'      => 'OcrResultsUrl',
+        'ocrVideoResultsUrl' => 'OcrVideoResultsUrl',
+        'subtitlesResults'   => 'SubtitlesResults',
+        'videoOcrResults'    => 'VideoOcrResults',
     ];
 
     public function validate()
@@ -62,6 +74,12 @@ class data extends Model
                     $res['OcrResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ocrResultsUrl) {
+            $res['OcrResultsUrl'] = $this->ocrResultsUrl;
+        }
+        if (null !== $this->ocrVideoResultsUrl) {
+            $res['OcrVideoResultsUrl'] = $this->ocrVideoResultsUrl;
         }
         if (null !== $this->subtitlesResults) {
             $res['SubtitlesResults'] = [];
@@ -110,6 +128,12 @@ class data extends Model
                     $model->ocrResults[$n++] = null !== $item ? ocrResults::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OcrResultsUrl'])) {
+            $model->ocrResultsUrl = $map['OcrResultsUrl'];
+        }
+        if (isset($map['OcrVideoResultsUrl'])) {
+            $model->ocrVideoResultsUrl = $map['OcrVideoResultsUrl'];
         }
         if (isset($map['SubtitlesResults'])) {
             if (!empty($map['SubtitlesResults'])) {
