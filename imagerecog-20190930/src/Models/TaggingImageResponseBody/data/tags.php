@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @var string
-     */
-    public $value;
-
-    /**
      * @var float
      */
     public $confidence;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value'      => 'Value',
         'confidence' => 'Confidence',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -12,7 +12,7 @@ class results extends Model
     /**
      * @var string
      */
-    public $suggestion;
+    public $label;
 
     /**
      * @var logosData[]
@@ -20,19 +20,19 @@ class results extends Model
     public $logosData;
 
     /**
-     * @var string
-     */
-    public $label;
-
-    /**
      * @var float
      */
     public $rate;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
     protected $_name = [
-        'suggestion' => 'Suggestion',
-        'logosData'  => 'LogosData',
         'label'      => 'Label',
+        'logosData'  => 'LogosData',
         'rate'       => 'Rate',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->logosData) {
             $res['LogosData'] = [];
@@ -54,11 +54,11 @@ class results extends Model
                 }
             }
         }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
 
         return $res;
@@ -72,8 +72,8 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['LogosData'])) {
             if (!empty($map['LogosData'])) {
@@ -84,11 +84,11 @@ class results extends Model
                 }
             }
         }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;

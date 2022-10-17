@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var float
      */
     public $categoryScore;
@@ -22,16 +27,11 @@ class elements extends Model
      * @var float
      */
     public $rubbishScore;
-
-    /**
-     * @var string
-     */
-    public $category;
     protected $_name = [
+        'category'      => 'Category',
         'categoryScore' => 'CategoryScore',
         'rubbish'       => 'Rubbish',
         'rubbishScore'  => 'RubbishScore',
-        'category'      => 'Category',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->categoryScore) {
             $res['CategoryScore'] = $this->categoryScore;
         }
@@ -49,9 +52,6 @@ class elements extends Model
         }
         if (null !== $this->rubbishScore) {
             $res['RubbishScore'] = $this->rubbishScore;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['CategoryScore'])) {
             $model->categoryScore = $map['CategoryScore'];
         }
@@ -73,9 +76,6 @@ class elements extends Model
         }
         if (isset($map['RubbishScore'])) {
             $model->rubbishScore = $map['RubbishScore'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
 
         return $model;

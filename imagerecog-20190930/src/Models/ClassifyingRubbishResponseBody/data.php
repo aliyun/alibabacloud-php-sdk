@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var bool
-     */
-    public $sensitive;
-
-    /**
      * @var elements[]
      */
     public $elements;
+
+    /**
+     * @var bool
+     */
+    public $sensitive;
     protected $_name = [
-        'sensitive' => 'Sensitive',
         'elements'  => 'Elements',
+        'sensitive' => 'Sensitive',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sensitive) {
-            $res['Sensitive'] = $this->sensitive;
-        }
         if (null !== $this->elements) {
             $res['Elements'] = [];
             if (null !== $this->elements && \is_array($this->elements)) {
@@ -41,6 +38,9 @@ class data extends Model
                     $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->sensitive) {
+            $res['Sensitive'] = $this->sensitive;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Sensitive'])) {
-            $model->sensitive = $map['Sensitive'];
-        }
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
                 $model->elements = [];
@@ -65,6 +62,9 @@ class data extends Model
                     $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Sensitive'])) {
+            $model->sensitive = $map['Sensitive'];
         }
 
         return $model;

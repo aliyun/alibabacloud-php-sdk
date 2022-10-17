@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeImageColorAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $urlObject;
-
-    /**
      * @var int
      */
     public $colorCount;
+
+    /**
+     * @var Stream
+     */
+    public $urlObject;
     protected $_name = [
-        'urlObject'  => 'UrlObject',
         'colorCount' => 'ColorCount',
+        'urlObject'  => 'Url',
     ];
 
     public function validate()
     {
-        Model::validateRequired('urlObject', $this->urlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->urlObject) {
-            $res['UrlObject'] = $this->urlObject;
-        }
         if (null !== $this->colorCount) {
             $res['ColorCount'] = $this->colorCount;
+        }
+        if (null !== $this->urlObject) {
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class RecognizeImageColorAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UrlObject'])) {
-            $model->urlObject = $map['UrlObject'];
-        }
         if (isset($map['ColorCount'])) {
             $model->colorCount = $map['ColorCount'];
+        }
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;

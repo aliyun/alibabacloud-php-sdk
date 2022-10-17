@@ -11,21 +11,21 @@ class elements extends Model
     /**
      * @var string
      */
-    public $value;
-
-    /**
-     * @var string
-     */
     public $pass;
 
     /**
      * @var string
      */
     public $score;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'pass'  => 'Pass',
         'score' => 'Score',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->pass) {
             $res['Pass'] = $this->pass;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Pass'])) {
             $model->pass = $map['Pass'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

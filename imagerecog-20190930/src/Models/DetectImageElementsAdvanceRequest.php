@@ -14,19 +14,18 @@ class DetectImageElementsAdvanceRequest extends Model
      */
     public $urlObject;
     protected $_name = [
-        'urlObject' => 'UrlObject',
+        'urlObject' => 'Url',
     ];
 
     public function validate()
     {
-        Model::validateRequired('urlObject', $this->urlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->urlObject) {
-            $res['UrlObject'] = $this->urlObject;
+            $res['Url'] = $this->urlObject;
         }
 
         return $res;
@@ -40,8 +39,8 @@ class DetectImageElementsAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UrlObject'])) {
-            $model->urlObject = $map['UrlObject'];
+        if (isset($map['Url'])) {
+            $model->urlObject = $map['Url'];
         }
 
         return $model;
