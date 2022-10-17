@@ -46,6 +46,11 @@ class CreatePersistentVolumeRequest extends Model
     /**
      * @var string
      */
+    public $nasType;
+
+    /**
+     * @var string
+     */
     public $reclaimPolicy;
 
     /**
@@ -60,6 +65,7 @@ class CreatePersistentVolumeRequest extends Model
         'mountTargetDomain' => 'MountTargetDomain',
         'NFSVersion'        => 'NFSVersion',
         'name'              => 'Name',
+        'nasType'           => 'NasType',
         'reclaimPolicy'     => 'ReclaimPolicy',
         'storageClass'      => 'StorageClass',
     ];
@@ -91,6 +97,9 @@ class CreatePersistentVolumeRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nasType) {
+            $res['NasType'] = $this->nasType;
         }
         if (null !== $this->reclaimPolicy) {
             $res['ReclaimPolicy'] = $this->reclaimPolicy;
@@ -130,6 +139,9 @@ class CreatePersistentVolumeRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NasType'])) {
+            $model->nasType = $map['NasType'];
         }
         if (isset($map['ReclaimPolicy'])) {
             $model->reclaimPolicy = $map['ReclaimPolicy'];

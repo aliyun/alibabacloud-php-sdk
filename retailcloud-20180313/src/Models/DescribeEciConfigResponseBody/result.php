@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description appEnvId
-     *
      * @var int
      */
     public $appEnvId;
 
     /**
-     * @description eipBandwidth
-     *
      * @var int
      */
     public $eipBandwidth;
 
     /**
-     * @description enableEciSchedulePolicy
-     *
      * @var bool
      */
     public $enableEciSchedulePolicy;
 
     /**
-     * @description mirrorCache
-     *
      * @var bool
      */
     public $mirrorCache;
 
     /**
-     * @description normalInstanceLimit
-     *
      * @var int
      */
     public $normalInstanceLimit;
 
     /**
-     * @description scheduleVirtualNode
-     *
      * @var bool
      */
     public $scheduleVirtualNode;

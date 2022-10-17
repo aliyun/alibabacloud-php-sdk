@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class RestartAppInstanceRequest extends Model
 {
     /**
-     * @description appId
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description appInstanceIdList
-     *
      * @var int[]
      */
     public $appInstanceIdList;
 
     /**
-     * @description envId
-     *
      * @var int
      */
     public $envId;

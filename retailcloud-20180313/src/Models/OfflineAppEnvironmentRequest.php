@@ -14,8 +14,6 @@ class OfflineAppEnvironmentRequest extends Model
     public $appId;
 
     /**
-     * @description 是否删除PVC，未传递默认不删除
-     *
      * @var bool
      */
     public $deletePvc;

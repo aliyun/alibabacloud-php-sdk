@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppGroupDeploySettingResponseBody extends Model
 {
     /**
-     * @description CodeEnum
-     *
      * @var int
      */
     public $code;

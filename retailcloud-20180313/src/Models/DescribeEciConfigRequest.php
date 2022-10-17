@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeEciConfigRequest extends Model
 {
     /**
-     * @description appEnvId
-     *
      * @var int
      */
     public $appEnvId;

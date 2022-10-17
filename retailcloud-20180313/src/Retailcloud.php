@@ -1293,6 +1293,9 @@ class Retailcloud extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->nasType)) {
+            $body['NasType'] = $request->nasType;
+        }
         if (!Utils::isUnset($request->reclaimPolicy)) {
             $body['ReclaimPolicy'] = $request->reclaimPolicy;
         }

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description 默认代码包描述
-     *
      * @var string
      */
     public $defaultPacketComment;
 
     /**
-     * @description 默认代码包id
-     *
      * @var int
      */
     public $defaultPacketId;

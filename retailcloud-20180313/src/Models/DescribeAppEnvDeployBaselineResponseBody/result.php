@@ -14,8 +14,6 @@ class result extends Model
     public $appId;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
@@ -26,29 +24,21 @@ class result extends Model
     public $envId;
 
     /**
-     * @description 代码包描述
-     *
      * @var string
      */
     public $packetComment;
 
     /**
-     * @description 代码包id
-     *
      * @var int
      */
     public $packetId;
 
     /**
-     * @description 指定代码包发布时，为代码包Url；纯镜像发布时，为镜像地址
-     *
      * @var string
      */
     public $packetUrl;
 
     /**
-     * @description 部署配置schema_id
-     *
      * @var int
      */
     public $schemaId;

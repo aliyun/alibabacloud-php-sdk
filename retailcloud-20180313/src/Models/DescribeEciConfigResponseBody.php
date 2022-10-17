@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeEciConfigResponseBody extends Model
 {
     /**
-     * @description code
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description errMsg
-     *
      * @var string
      */
     public $errMsg;
 
     /**
-     * @description requestId
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description result
-     *
      * @var result
      */
     public $result;
