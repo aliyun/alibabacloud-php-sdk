@@ -9,19 +9,17 @@ use AlibabaCloud\Tea\Model;
 class EstimateMonocularVideoDepthRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
-    public $videoURL;
+    public $sampleRate;
 
     /**
      * @var string
      */
-    public $sampleRate;
+    public $videoURL;
     protected $_name = [
-        'videoURL'   => 'VideoURL',
         'sampleRate' => 'SampleRate',
+        'videoURL'   => 'VideoURL',
     ];
 
     public function validate()
@@ -31,11 +29,11 @@ class EstimateMonocularVideoDepthRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURL) {
-            $res['VideoURL'] = $this->videoURL;
-        }
         if (null !== $this->sampleRate) {
             $res['SampleRate'] = $this->sampleRate;
+        }
+        if (null !== $this->videoURL) {
+            $res['VideoURL'] = $this->videoURL;
         }
 
         return $res;
@@ -49,11 +47,11 @@ class EstimateMonocularVideoDepthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURL'])) {
-            $model->videoURL = $map['VideoURL'];
-        }
         if (isset($map['SampleRate'])) {
             $model->sampleRate = $map['SampleRate'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURL = $map['VideoURL'];
         }
 
         return $model;

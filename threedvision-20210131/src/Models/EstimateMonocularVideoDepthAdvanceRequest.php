@@ -10,32 +10,31 @@ use GuzzleHttp\Psr7\Stream;
 class EstimateMonocularVideoDepthAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $videoURLObject;
-
-    /**
      * @var string
      */
     public $sampleRate;
+
+    /**
+     * @var Stream
+     */
+    public $videoURLObject;
     protected $_name = [
-        'videoURLObject' => 'VideoURLObject',
         'sampleRate'     => 'SampleRate',
+        'videoURLObject' => 'VideoURL',
     ];
 
     public function validate()
     {
-        Model::validateRequired('videoURLObject', $this->videoURLObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoURLObject) {
-            $res['VideoURLObject'] = $this->videoURLObject;
-        }
         if (null !== $this->sampleRate) {
             $res['SampleRate'] = $this->sampleRate;
+        }
+        if (null !== $this->videoURLObject) {
+            $res['VideoURL'] = $this->videoURLObject;
         }
 
         return $res;
@@ -49,11 +48,11 @@ class EstimateMonocularVideoDepthAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoURLObject'])) {
-            $model->videoURLObject = $map['VideoURLObject'];
-        }
         if (isset($map['SampleRate'])) {
             $model->sampleRate = $map['SampleRate'];
+        }
+        if (isset($map['VideoURL'])) {
+            $model->videoURLObject = $map['VideoURL'];
         }
 
         return $model;

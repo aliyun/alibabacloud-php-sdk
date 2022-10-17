@@ -9,19 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ReconstructThreeDMultiViewRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
-    public $zipFileUrl;
+    public $mode;
 
     /**
      * @var string
      */
-    public $mode;
+    public $zipFileUrl;
     protected $_name = [
-        'zipFileUrl' => 'ZipFileUrl',
         'mode'       => 'Mode',
+        'zipFileUrl' => 'ZipFileUrl',
     ];
 
     public function validate()
@@ -31,11 +29,11 @@ class ReconstructThreeDMultiViewRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zipFileUrl) {
-            $res['ZipFileUrl'] = $this->zipFileUrl;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->zipFileUrl) {
+            $res['ZipFileUrl'] = $this->zipFileUrl;
         }
 
         return $res;
@@ -49,11 +47,11 @@ class ReconstructThreeDMultiViewRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZipFileUrl'])) {
-            $model->zipFileUrl = $map['ZipFileUrl'];
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['ZipFileUrl'])) {
+            $model->zipFileUrl = $map['ZipFileUrl'];
         }
 
         return $model;
