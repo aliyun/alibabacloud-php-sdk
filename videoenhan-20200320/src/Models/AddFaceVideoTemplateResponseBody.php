@@ -17,9 +17,15 @@ class AddFaceVideoTemplateResponseBody extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'date'      => 'Date',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -32,6 +38,9 @@ class AddFaceVideoTemplateResponseBody extends Model
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = null !== $this->date ? $this->date->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -50,6 +59,9 @@ class AddFaceVideoTemplateResponseBody extends Model
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = date::fromMap($map['Date']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
