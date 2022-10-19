@@ -953,6 +953,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->storageEngine)) {
             $query['StorageEngine'] = $request->storageEngine;
         }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }

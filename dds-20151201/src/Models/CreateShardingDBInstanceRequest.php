@@ -144,6 +144,11 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -182,6 +187,7 @@ class CreateShardingDBInstanceRequest extends Model
         'securityToken'         => 'SecurityToken',
         'srcDBInstanceId'       => 'SrcDBInstanceId',
         'storageEngine'         => 'StorageEngine',
+        'storageType'           => 'StorageType',
         'vSwitchId'             => 'VSwitchId',
         'vpcId'                 => 'VpcId',
         'zoneId'                => 'ZoneId',
@@ -289,6 +295,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->storageEngine) {
             $res['StorageEngine'] = $this->storageEngine;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -406,6 +415,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['StorageEngine'])) {
             $model->storageEngine = $map['StorageEngine'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
