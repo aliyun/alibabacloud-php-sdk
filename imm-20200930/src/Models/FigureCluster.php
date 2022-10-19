@@ -59,6 +59,11 @@ class FigureCluster extends Model
     public $maxAge;
 
     /**
+     * @var int
+     */
+    public $metaLockVersion;
+
+    /**
      * @var float
      */
     public $minAge;
@@ -98,24 +103,25 @@ class FigureCluster extends Model
      */
     public $videoCount;
     protected $_name = [
-        'averageAge'   => 'AverageAge',
-        'cover'        => 'Cover',
-        'createTime'   => 'CreateTime',
-        'customId'     => 'CustomId',
-        'customLabels' => 'CustomLabels',
-        'datasetName'  => 'DatasetName',
-        'faceCount'    => 'FaceCount',
-        'gender'       => 'Gender',
-        'imageCount'   => 'ImageCount',
-        'maxAge'       => 'MaxAge',
-        'minAge'       => 'MinAge',
-        'name'         => 'Name',
-        'objectId'     => 'ObjectId',
-        'objectType'   => 'ObjectType',
-        'ownerId'      => 'OwnerId',
-        'projectName'  => 'ProjectName',
-        'updateTime'   => 'UpdateTime',
-        'videoCount'   => 'VideoCount',
+        'averageAge'      => 'AverageAge',
+        'cover'           => 'Cover',
+        'createTime'      => 'CreateTime',
+        'customId'        => 'CustomId',
+        'customLabels'    => 'CustomLabels',
+        'datasetName'     => 'DatasetName',
+        'faceCount'       => 'FaceCount',
+        'gender'          => 'Gender',
+        'imageCount'      => 'ImageCount',
+        'maxAge'          => 'MaxAge',
+        'metaLockVersion' => 'MetaLockVersion',
+        'minAge'          => 'MinAge',
+        'name'            => 'Name',
+        'objectId'        => 'ObjectId',
+        'objectType'      => 'ObjectType',
+        'ownerId'         => 'OwnerId',
+        'projectName'     => 'ProjectName',
+        'updateTime'      => 'UpdateTime',
+        'videoCount'      => 'VideoCount',
     ];
 
     public function validate()
@@ -154,6 +160,9 @@ class FigureCluster extends Model
         }
         if (null !== $this->maxAge) {
             $res['MaxAge'] = $this->maxAge;
+        }
+        if (null !== $this->metaLockVersion) {
+            $res['MetaLockVersion'] = $this->metaLockVersion;
         }
         if (null !== $this->minAge) {
             $res['MinAge'] = $this->minAge;
@@ -220,6 +229,9 @@ class FigureCluster extends Model
         }
         if (isset($map['MaxAge'])) {
             $model->maxAge = $map['MaxAge'];
+        }
+        if (isset($map['MetaLockVersion'])) {
+            $model->metaLockVersion = $map['MetaLockVersion'];
         }
         if (isset($map['MinAge'])) {
             $model->minAge = $map['MinAge'];

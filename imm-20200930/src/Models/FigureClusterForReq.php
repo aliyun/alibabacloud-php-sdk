@@ -25,6 +25,11 @@ class FigureClusterForReq extends Model
     public $customLabels;
 
     /**
+     * @var int
+     */
+    public $metaLockVersion;
+
+    /**
      * @var string
      */
     public $name;
@@ -34,11 +39,12 @@ class FigureClusterForReq extends Model
      */
     public $objectId;
     protected $_name = [
-        'cover'        => 'Cover',
-        'customId'     => 'CustomId',
-        'customLabels' => 'CustomLabels',
-        'name'         => 'Name',
-        'objectId'     => 'ObjectId',
+        'cover'           => 'Cover',
+        'customId'        => 'CustomId',
+        'customLabels'    => 'CustomLabels',
+        'metaLockVersion' => 'MetaLockVersion',
+        'name'            => 'Name',
+        'objectId'        => 'ObjectId',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class FigureClusterForReq extends Model
         }
         if (null !== $this->customLabels) {
             $res['CustomLabels'] = $this->customLabels;
+        }
+        if (null !== $this->metaLockVersion) {
+            $res['MetaLockVersion'] = $this->metaLockVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -83,6 +92,9 @@ class FigureClusterForReq extends Model
         }
         if (isset($map['CustomLabels'])) {
             $model->customLabels = $map['CustomLabels'];
+        }
+        if (isset($map['MetaLockVersion'])) {
+            $model->metaLockVersion = $map['MetaLockVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
