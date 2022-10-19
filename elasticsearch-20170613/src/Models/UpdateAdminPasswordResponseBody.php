@@ -12,8 +12,14 @@ class UpdateAdminPasswordResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $result;
     protected $_name = [
         'requestId' => 'RequestId',
+        'result'    => 'Result',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class UpdateAdminPasswordResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class UpdateAdminPasswordResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
 
         return $model;

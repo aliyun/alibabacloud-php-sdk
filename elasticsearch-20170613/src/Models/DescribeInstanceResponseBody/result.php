@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\clientNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\dictList;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\elasticDataNodeConfiguration;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\ikHotDicts;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\kibanaConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\masterConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\networkConfig;
@@ -120,6 +121,11 @@ class result extends Model
      * @var bool
      */
     public $haveKibana;
+
+    /**
+     * @var ikHotDicts[]
+     */
+    public $ikHotDicts;
 
     /**
      * @var string
@@ -291,6 +297,7 @@ class result extends Model
         'extendConfigs'                => 'extendConfigs',
         'haveClientNode'               => 'haveClientNode',
         'haveKibana'                   => 'haveKibana',
+        'ikHotDicts'                   => 'ikHotDicts',
         'instanceId'                   => 'instanceId',
         'isNewDeployment'              => 'isNewDeployment',
         'kibanaConfiguration'          => 'kibanaConfiguration',
@@ -401,6 +408,15 @@ class result extends Model
         }
         if (null !== $this->haveKibana) {
             $res['haveKibana'] = $this->haveKibana;
+        }
+        if (null !== $this->ikHotDicts) {
+            $res['ikHotDicts'] = [];
+            if (null !== $this->ikHotDicts && \is_array($this->ikHotDicts)) {
+                $n = 0;
+                foreach ($this->ikHotDicts as $item) {
+                    $res['ikHotDicts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -599,6 +615,15 @@ class result extends Model
         }
         if (isset($map['haveKibana'])) {
             $model->haveKibana = $map['haveKibana'];
+        }
+        if (isset($map['ikHotDicts'])) {
+            if (!empty($map['ikHotDicts'])) {
+                $model->ikHotDicts = [];
+                $n                 = 0;
+                foreach ($map['ikHotDicts'] as $item) {
+                    $model->ikHotDicts[$n++] = null !== $item ? ikHotDicts::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];

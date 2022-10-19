@@ -26,12 +26,18 @@ class nodeSpec extends Model
     /**
      * @var string
      */
+    public $performanceLevel;
+
+    /**
+     * @var string
+     */
     public $spec;
     protected $_name = [
-        'disk'           => 'disk',
-        'diskEncryption' => 'diskEncryption',
-        'diskType'       => 'diskType',
-        'spec'           => 'spec',
+        'disk'             => 'disk',
+        'diskEncryption'   => 'diskEncryption',
+        'diskType'         => 'diskType',
+        'performanceLevel' => 'performanceLevel',
+        'spec'             => 'spec',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class nodeSpec extends Model
         }
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
+        }
+        if (null !== $this->performanceLevel) {
+            $res['performanceLevel'] = $this->performanceLevel;
         }
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
@@ -73,6 +82,9 @@ class nodeSpec extends Model
         }
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
+        }
+        if (isset($map['performanceLevel'])) {
+            $model->performanceLevel = $map['performanceLevel'];
         }
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];

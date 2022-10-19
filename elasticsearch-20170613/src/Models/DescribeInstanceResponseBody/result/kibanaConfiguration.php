@@ -14,11 +14,17 @@ class kibanaConfiguration extends Model
     public $amount;
 
     /**
+     * @var int
+     */
+    public $disk;
+
+    /**
      * @var string
      */
     public $spec;
     protected $_name = [
         'amount' => 'amount',
+        'disk'   => 'disk',
         'spec'   => 'spec',
     ];
 
@@ -31,6 +37,9 @@ class kibanaConfiguration extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
+        }
+        if (null !== $this->disk) {
+            $res['disk'] = $this->disk;
         }
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
@@ -49,6 +58,9 @@ class kibanaConfiguration extends Model
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
+        }
+        if (isset($map['disk'])) {
+            $model->disk = $map['disk'];
         }
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];

@@ -7844,10 +7844,14 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['clientToken'] = $request->clientToken;
         }
+        $body = [];
+        if (!Utils::isUnset($request->esAdminPassword)) {
+            $body['esAdminPassword'] = $request->esAdminPassword;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAdminPassword',

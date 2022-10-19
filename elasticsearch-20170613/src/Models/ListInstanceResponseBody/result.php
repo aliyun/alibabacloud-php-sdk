@@ -124,6 +124,11 @@ class result extends Model
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $vpcInstanceId;
     protected $_name = [
         'advancedDedicateMaster'       => 'advancedDedicateMaster',
         'clientNodeConfiguration'      => 'clientNodeConfiguration',
@@ -147,6 +152,7 @@ class result extends Model
         'status'                       => 'status',
         'tags'                         => 'tags',
         'updatedAt'                    => 'updatedAt',
+        'vpcInstanceId'                => 'vpcInstanceId',
     ];
 
     public function validate()
@@ -227,6 +233,9 @@ class result extends Model
         }
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
+        }
+        if (null !== $this->vpcInstanceId) {
+            $res['vpcInstanceId'] = $this->vpcInstanceId;
         }
 
         return $res;
@@ -313,6 +322,9 @@ class result extends Model
         }
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+        if (isset($map['vpcInstanceId'])) {
+            $model->vpcInstanceId = $map['vpcInstanceId'];
         }
 
         return $model;

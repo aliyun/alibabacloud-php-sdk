@@ -11,15 +11,15 @@ class UpdateAdminPasswordRequest extends Model
     /**
      * @var string
      */
-    public $body;
+    public $esAdminPassword;
 
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'body'        => 'body',
-        'clientToken' => 'clientToken',
+        'esAdminPassword' => 'esAdminPassword',
+        'clientToken'     => 'clientToken',
     ];
 
     public function validate()
@@ -29,8 +29,8 @@ class UpdateAdminPasswordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->esAdminPassword) {
+            $res['esAdminPassword'] = $this->esAdminPassword;
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
@@ -47,8 +47,8 @@ class UpdateAdminPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['esAdminPassword'])) {
+            $model->esAdminPassword = $map['esAdminPassword'];
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
