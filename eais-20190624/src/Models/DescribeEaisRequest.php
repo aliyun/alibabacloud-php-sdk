@@ -11,11 +11,6 @@ class DescribeEaisRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $elasticAcceleratedInstanceIds;
 
     /**
@@ -26,18 +21,35 @@ class DescribeEaisRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $instanceType;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'regionId'                      => 'RegionId',
         'elasticAcceleratedInstanceIds' => 'ElasticAcceleratedInstanceIds',
         'instanceName'                  => 'InstanceName',
-        'status'                        => 'Status',
         'instanceType'                  => 'InstanceType',
+        'pageNumber'                    => 'PageNumber',
+        'pageSize'                      => 'PageSize',
+        'regionId'                      => 'RegionId',
+        'status'                        => 'Status',
     ];
 
     public function validate()
@@ -47,20 +59,26 @@ class DescribeEaisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->elasticAcceleratedInstanceIds) {
             $res['ElasticAcceleratedInstanceIds'] = $this->elasticAcceleratedInstanceIds;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +92,26 @@ class DescribeEaisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ElasticAcceleratedInstanceIds'])) {
             $model->elasticAcceleratedInstanceIds = $map['ElasticAcceleratedInstanceIds'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class AttachEaiResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $clientInstanceId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class AttachEaiResponseBody extends Model
     /**
      * @var string
      */
-    public $clientInstanceId;
+    public $requestId;
     protected $_name = [
-        'requestId'                    => 'RequestId',
-        'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
         'clientInstanceId'             => 'ClientInstanceId',
+        'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
+        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AttachEaiResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->clientInstanceId) {
+            $res['ClientInstanceId'] = $this->clientInstanceId;
         }
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
         }
-        if (null !== $this->clientInstanceId) {
-            $res['ClientInstanceId'] = $this->clientInstanceId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AttachEaiResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ClientInstanceId'])) {
+            $model->clientInstanceId = $map['ClientInstanceId'];
         }
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
         }
-        if (isset($map['ClientInstanceId'])) {
-            $model->clientInstanceId = $map['ClientInstanceId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

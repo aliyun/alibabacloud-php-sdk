@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateEaiRequest extends Model
+class CreateEaiJupyterRequest extends Model
 {
     /**
      * @var string
@@ -16,12 +16,7 @@ class CreateEaiRequest extends Model
     /**
      * @var string
      */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
+    public $eaisType;
 
     /**
      * @var string
@@ -39,8 +34,7 @@ class CreateEaiRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'clientToken'     => 'ClientToken',
-        'instanceName'    => 'InstanceName',
-        'instanceType'    => 'InstanceType',
+        'eaisType'        => 'EaisType',
         'regionId'        => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
         'vSwitchId'       => 'VSwitchId',
@@ -56,11 +50,8 @@ class CreateEaiRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->eaisType) {
+            $res['EaisType'] = $this->eaisType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -78,7 +69,7 @@ class CreateEaiRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateEaiRequest
+     * @return CreateEaiJupyterRequest
      */
     public static function fromMap($map = [])
     {
@@ -86,11 +77,8 @@ class CreateEaiRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['EaisType'])) {
+            $model->eaisType = $map['EaisType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

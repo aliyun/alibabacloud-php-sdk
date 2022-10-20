@@ -5,10 +5,13 @@
 namespace AlibabaCloud\SDK\Eais\V20190624;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Eais\V20190624\Models\AttachEaiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\AttachEaiResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiAllRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiAllResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterRequest;
+use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\DeleteEaiAllRequest;
@@ -20,11 +23,10 @@ use AlibabaCloud\SDK\Eais\V20190624\Models\DescribeEaisResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\DetachEaiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\DetachEaiResponse;
-use AlibabaCloud\SDK\Eais\V20190624\Models\GetPrivateIpRequest;
-use AlibabaCloud\SDK\Eais\V20190624\Models\GetPrivateIpResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Eais extends OpenApiClient
@@ -122,11 +124,32 @@ class Eais extends OpenApiClient
     public function attachEaiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientInstanceId)) {
+            $query['ClientInstanceId'] = $request->clientInstanceId;
+        }
+        if (!Utils::isUnset($request->elasticAcceleratedInstanceId)) {
+            $query['ElasticAcceleratedInstanceId'] = $request->elasticAcceleratedInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachEai',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachEaiResponse::fromMap($this->doRPCRequest('AttachEai', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachEaiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -150,11 +173,41 @@ class Eais extends OpenApiClient
     public function createEaiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEai',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEaiResponse::fromMap($this->doRPCRequest('CreateEai', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEaiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -178,11 +231,68 @@ class Eais extends OpenApiClient
     public function createEaiAllWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientImageId)) {
+            $query['ClientImageId'] = $request->clientImageId;
+        }
+        if (!Utils::isUnset($request->clientInstanceName)) {
+            $query['ClientInstanceName'] = $request->clientInstanceName;
+        }
+        if (!Utils::isUnset($request->clientInstanceType)) {
+            $query['ClientInstanceType'] = $request->clientInstanceType;
+        }
+        if (!Utils::isUnset($request->clientInternetMaxBandwidthIn)) {
+            $query['ClientInternetMaxBandwidthIn'] = $request->clientInternetMaxBandwidthIn;
+        }
+        if (!Utils::isUnset($request->clientInternetMaxBandwidthOut)) {
+            $query['ClientInternetMaxBandwidthOut'] = $request->clientInternetMaxBandwidthOut;
+        }
+        if (!Utils::isUnset($request->clientPassword)) {
+            $query['ClientPassword'] = $request->clientPassword;
+        }
+        if (!Utils::isUnset($request->clientSecurityGroupId)) {
+            $query['ClientSecurityGroupId'] = $request->clientSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->clientSystemDiskCategory)) {
+            $query['ClientSystemDiskCategory'] = $request->clientSystemDiskCategory;
+        }
+        if (!Utils::isUnset($request->clientSystemDiskSize)) {
+            $query['ClientSystemDiskSize'] = $request->clientSystemDiskSize;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clientVSwitchId)) {
+            $query['ClientVSwitchId'] = $request->clientVSwitchId;
+        }
+        if (!Utils::isUnset($request->clientZoneId)) {
+            $query['ClientZoneId'] = $request->clientZoneId;
+        }
+        if (!Utils::isUnset($request->eaiInstanceType)) {
+            $query['EaiInstanceType'] = $request->eaiInstanceType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEaiAll',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEaiAllResponse::fromMap($this->doRPCRequest('CreateEaiAll', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEaiAllResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,6 +308,61 @@ class Eais extends OpenApiClient
     }
 
     /**
+     * @param CreateEaiJupyterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateEaiJupyterResponse
+     */
+    public function createEaiJupyterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->eaisType)) {
+            $query['EaisType'] = $request->eaisType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEaiJupyter',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEaiJupyterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEaiJupyterRequest $request
+     *
+     * @return CreateEaiJupyterResponse
+     */
+    public function createEaiJupyter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEaiJupyterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEaiRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -206,11 +371,32 @@ class Eais extends OpenApiClient
     public function deleteEaiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->elasticAcceleratedInstanceId)) {
+            $query['ElasticAcceleratedInstanceId'] = $request->elasticAcceleratedInstanceId;
+        }
+        if (!Utils::isUnset($request->force)) {
+            $query['Force'] = $request->force;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEai',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEaiResponse::fromMap($this->doRPCRequest('DeleteEai', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEaiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -234,11 +420,32 @@ class Eais extends OpenApiClient
     public function deleteEaiAllWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientInstanceId)) {
+            $query['ClientInstanceId'] = $request->clientInstanceId;
+        }
+        if (!Utils::isUnset($request->elasticAcceleratedInstanceId)) {
+            $query['ElasticAcceleratedInstanceId'] = $request->elasticAcceleratedInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEaiAll',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEaiAllResponse::fromMap($this->doRPCRequest('DeleteEaiAll', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEaiAllResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -262,11 +469,44 @@ class Eais extends OpenApiClient
     public function describeEaisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->elasticAcceleratedInstanceIds)) {
+            $query['ElasticAcceleratedInstanceIds'] = $request->elasticAcceleratedInstanceIds;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEais',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEaisResponse::fromMap($this->doRPCRequest('DescribeEais', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEaisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -288,9 +528,20 @@ class Eais extends OpenApiClient
      */
     public function describeRegionsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -312,11 +563,29 @@ class Eais extends OpenApiClient
     public function detachEaiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->elasticAcceleratedInstanceId)) {
+            $query['ElasticAcceleratedInstanceId'] = $request->elasticAcceleratedInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachEai',
+            'version'     => '2019-06-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachEaiResponse::fromMap($this->doRPCRequest('DetachEai', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachEaiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -329,33 +598,5 @@ class Eais extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachEaiWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetPrivateIpRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetPrivateIpResponse
-     */
-    public function getPrivateIpWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetPrivateIpResponse::fromMap($this->doRPCRequest('GetPrivateIp', '2019-06-24', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPrivateIpRequest $request
-     *
-     * @return GetPrivateIpResponse
-     */
-    public function getPrivateIp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPrivateIpWithOptions($request, $runtime);
     }
 }

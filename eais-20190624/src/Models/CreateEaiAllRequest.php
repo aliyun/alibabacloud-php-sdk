@@ -11,37 +11,7 @@ class CreateEaiAllRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $eaiInstanceType;
-
-    /**
-     * @var string
-     */
-    public $clientVSwitchId;
-
-    /**
-     * @var string
-     */
-    public $clientSecurityGroupId;
-
-    /**
-     * @var string
-     */
     public $clientImageId;
-
-    /**
-     * @var string
-     */
-    public $clientInstanceType;
-
-    /**
-     * @var string
-     */
-    public $clientZoneId;
 
     /**
      * @var string
@@ -51,7 +21,7 @@ class CreateEaiAllRequest extends Model
     /**
      * @var string
      */
-    public $clientPassword;
+    public $clientInstanceType;
 
     /**
      * @var int
@@ -62,6 +32,16 @@ class CreateEaiAllRequest extends Model
      * @var int
      */
     public $clientInternetMaxBandwidthOut;
+
+    /**
+     * @var string
+     */
+    public $clientPassword;
+
+    /**
+     * @var string
+     */
+    public $clientSecurityGroupId;
 
     /**
      * @var string
@@ -81,23 +61,43 @@ class CreateEaiAllRequest extends Model
     /**
      * @var string
      */
+    public $clientVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $clientZoneId;
+
+    /**
+     * @var string
+     */
+    public $eaiInstanceType;
+
+    /**
+     * @var string
+     */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'                      => 'RegionId',
-        'eaiInstanceType'               => 'EaiInstanceType',
-        'clientVSwitchId'               => 'ClientVSwitchId',
-        'clientSecurityGroupId'         => 'ClientSecurityGroupId',
         'clientImageId'                 => 'ClientImageId',
-        'clientInstanceType'            => 'ClientInstanceType',
-        'clientZoneId'                  => 'ClientZoneId',
         'clientInstanceName'            => 'ClientInstanceName',
-        'clientPassword'                => 'ClientPassword',
+        'clientInstanceType'            => 'ClientInstanceType',
         'clientInternetMaxBandwidthIn'  => 'ClientInternetMaxBandwidthIn',
         'clientInternetMaxBandwidthOut' => 'ClientInternetMaxBandwidthOut',
+        'clientPassword'                => 'ClientPassword',
+        'clientSecurityGroupId'         => 'ClientSecurityGroupId',
         'clientSystemDiskCategory'      => 'ClientSystemDiskCategory',
         'clientSystemDiskSize'          => 'ClientSystemDiskSize',
         'clientToken'                   => 'ClientToken',
+        'clientVSwitchId'               => 'ClientVSwitchId',
+        'clientZoneId'                  => 'ClientZoneId',
+        'eaiInstanceType'               => 'EaiInstanceType',
         'instanceName'                  => 'InstanceName',
+        'regionId'                      => 'RegionId',
     ];
 
     public function validate()
@@ -107,38 +107,26 @@ class CreateEaiAllRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->eaiInstanceType) {
-            $res['EaiInstanceType'] = $this->eaiInstanceType;
-        }
-        if (null !== $this->clientVSwitchId) {
-            $res['ClientVSwitchId'] = $this->clientVSwitchId;
-        }
-        if (null !== $this->clientSecurityGroupId) {
-            $res['ClientSecurityGroupId'] = $this->clientSecurityGroupId;
-        }
         if (null !== $this->clientImageId) {
             $res['ClientImageId'] = $this->clientImageId;
-        }
-        if (null !== $this->clientInstanceType) {
-            $res['ClientInstanceType'] = $this->clientInstanceType;
-        }
-        if (null !== $this->clientZoneId) {
-            $res['ClientZoneId'] = $this->clientZoneId;
         }
         if (null !== $this->clientInstanceName) {
             $res['ClientInstanceName'] = $this->clientInstanceName;
         }
-        if (null !== $this->clientPassword) {
-            $res['ClientPassword'] = $this->clientPassword;
+        if (null !== $this->clientInstanceType) {
+            $res['ClientInstanceType'] = $this->clientInstanceType;
         }
         if (null !== $this->clientInternetMaxBandwidthIn) {
             $res['ClientInternetMaxBandwidthIn'] = $this->clientInternetMaxBandwidthIn;
         }
         if (null !== $this->clientInternetMaxBandwidthOut) {
             $res['ClientInternetMaxBandwidthOut'] = $this->clientInternetMaxBandwidthOut;
+        }
+        if (null !== $this->clientPassword) {
+            $res['ClientPassword'] = $this->clientPassword;
+        }
+        if (null !== $this->clientSecurityGroupId) {
+            $res['ClientSecurityGroupId'] = $this->clientSecurityGroupId;
         }
         if (null !== $this->clientSystemDiskCategory) {
             $res['ClientSystemDiskCategory'] = $this->clientSystemDiskCategory;
@@ -149,8 +137,20 @@ class CreateEaiAllRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->clientVSwitchId) {
+            $res['ClientVSwitchId'] = $this->clientVSwitchId;
+        }
+        if (null !== $this->clientZoneId) {
+            $res['ClientZoneId'] = $this->clientZoneId;
+        }
+        if (null !== $this->eaiInstanceType) {
+            $res['EaiInstanceType'] = $this->eaiInstanceType;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -164,38 +164,26 @@ class CreateEaiAllRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['EaiInstanceType'])) {
-            $model->eaiInstanceType = $map['EaiInstanceType'];
-        }
-        if (isset($map['ClientVSwitchId'])) {
-            $model->clientVSwitchId = $map['ClientVSwitchId'];
-        }
-        if (isset($map['ClientSecurityGroupId'])) {
-            $model->clientSecurityGroupId = $map['ClientSecurityGroupId'];
-        }
         if (isset($map['ClientImageId'])) {
             $model->clientImageId = $map['ClientImageId'];
-        }
-        if (isset($map['ClientInstanceType'])) {
-            $model->clientInstanceType = $map['ClientInstanceType'];
-        }
-        if (isset($map['ClientZoneId'])) {
-            $model->clientZoneId = $map['ClientZoneId'];
         }
         if (isset($map['ClientInstanceName'])) {
             $model->clientInstanceName = $map['ClientInstanceName'];
         }
-        if (isset($map['ClientPassword'])) {
-            $model->clientPassword = $map['ClientPassword'];
+        if (isset($map['ClientInstanceType'])) {
+            $model->clientInstanceType = $map['ClientInstanceType'];
         }
         if (isset($map['ClientInternetMaxBandwidthIn'])) {
             $model->clientInternetMaxBandwidthIn = $map['ClientInternetMaxBandwidthIn'];
         }
         if (isset($map['ClientInternetMaxBandwidthOut'])) {
             $model->clientInternetMaxBandwidthOut = $map['ClientInternetMaxBandwidthOut'];
+        }
+        if (isset($map['ClientPassword'])) {
+            $model->clientPassword = $map['ClientPassword'];
+        }
+        if (isset($map['ClientSecurityGroupId'])) {
+            $model->clientSecurityGroupId = $map['ClientSecurityGroupId'];
         }
         if (isset($map['ClientSystemDiskCategory'])) {
             $model->clientSystemDiskCategory = $map['ClientSystemDiskCategory'];
@@ -206,8 +194,20 @@ class CreateEaiAllRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ClientVSwitchId'])) {
+            $model->clientVSwitchId = $map['ClientVSwitchId'];
+        }
+        if (isset($map['ClientZoneId'])) {
+            $model->clientZoneId = $map['ClientZoneId'];
+        }
+        if (isset($map['EaiInstanceType'])) {
+            $model->eaiInstanceType = $map['EaiInstanceType'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

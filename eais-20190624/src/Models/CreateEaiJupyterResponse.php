@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEaiResponse extends Model
+class CreateEaiJupyterResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteEaiResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteEaiResponseBody
+     * @var CreateEaiJupyterResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DeleteEaiResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEaiResponse
+     * @return CreateEaiJupyterResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DeleteEaiResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteEaiResponseBody::fromMap($map['body']);
+            $model->body = CreateEaiJupyterResponseBody::fromMap($map['body']);
         }
 
         return $model;

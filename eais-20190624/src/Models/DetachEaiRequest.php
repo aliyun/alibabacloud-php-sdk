@@ -11,15 +11,15 @@ class DetachEaiRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $elasticAcceleratedInstanceId;
 
     /**
      * @var string
      */
-    public $elasticAcceleratedInstanceId;
+    public $regionId;
     protected $_name = [
-        'regionId'                     => 'RegionId',
         'elasticAcceleratedInstanceId' => 'ElasticAcceleratedInstanceId',
+        'regionId'                     => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DetachEaiRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->elasticAcceleratedInstanceId) {
             $res['ElasticAcceleratedInstanceId'] = $this->elasticAcceleratedInstanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DetachEaiRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ElasticAcceleratedInstanceId'])) {
             $model->elasticAcceleratedInstanceId = $map['ElasticAcceleratedInstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
