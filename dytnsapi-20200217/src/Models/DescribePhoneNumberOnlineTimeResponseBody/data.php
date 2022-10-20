@@ -11,8 +11,14 @@ class data extends Model
     /**
      * @var string
      */
+    public $carrierCode;
+
+    /**
+     * @var string
+     */
     public $verifyResult;
     protected $_name = [
+        'carrierCode'  => 'CarrierCode',
         'verifyResult' => 'VerifyResult',
     ];
 
@@ -23,6 +29,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->carrierCode) {
+            $res['CarrierCode'] = $this->carrierCode;
+        }
         if (null !== $this->verifyResult) {
             $res['VerifyResult'] = $this->verifyResult;
         }
@@ -38,6 +47,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CarrierCode'])) {
+            $model->carrierCode = $map['CarrierCode'];
+        }
         if (isset($map['VerifyResult'])) {
             $model->verifyResult = $map['VerifyResult'];
         }
