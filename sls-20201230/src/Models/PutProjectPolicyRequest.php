@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetCursorRequest extends Model
+class PutProjectPolicyRequest extends Model
 {
     /**
      * @var string
      */
-    public $from;
+    public $body;
     protected $_name = [
-        'from' => 'from',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class GetCursorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->from) {
-            $res['from'] = $this->from;
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class GetCursorRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetCursorRequest
+     * @return PutProjectPolicyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['from'])) {
-            $model->from = $map['from'];
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

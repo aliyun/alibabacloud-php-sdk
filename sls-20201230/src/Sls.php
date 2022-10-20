@@ -6,20 +6,10 @@ namespace AlibabaCloud\SDK\Sls\V20201230;
 
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ApplyConfigToMachineGroupResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\BatchCreateEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\BatchCreateEtlMetaResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\BatchModifyEtlMetaStatusRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\BatchModifyEtlMetaStatusResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\BatchUpdateEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\BatchUpdateEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlJobRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlJobResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\CreateEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingRequest;
@@ -42,14 +32,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlJobResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
@@ -63,9 +51,6 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlJobResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
@@ -77,20 +62,14 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlJobRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlJobResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaNameRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaNameResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\ListEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
@@ -108,29 +87,29 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListShipperResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\MergeShardsRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\MergeShardsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PullDataRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PullDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UnTagResourcesRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UnTagResourcesResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateCheckPointRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateCheckPointResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlJobRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlJobResponse;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlMetaRequest;
-use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateEtlMetaResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateOdpsShipperRequest;
@@ -209,173 +188,6 @@ class Sls extends OpenApiClient
         ]);
 
         return ApplyConfigToMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                    $project
-     * @param BatchCreateEtlMetaRequest $request
-     *
-     * @return BatchCreateEtlMetaResponse
-     */
-    public function batchCreateEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->batchCreateEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                    $project
-     * @param BatchCreateEtlMetaRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return BatchCreateEtlMetaResponse
-     */
-    public function batchCreateEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->etlMetaList)) {
-            $body['etlMetaList'] = $request->etlMetaList;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCreateEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return BatchCreateEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                          $project
-     * @param BatchModifyEtlMetaStatusRequest $request
-     *
-     * @return BatchModifyEtlMetaStatusResponse
-     */
-    public function batchModifyEtlMetaStatus($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->batchModifyEtlMetaStatusWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                          $project
-     * @param BatchModifyEtlMetaStatusRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return BatchModifyEtlMetaStatusResponse
-     */
-    public function batchModifyEtlMetaStatusWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->etlMetaKeyList)) {
-            $body['etlMetaKeyList'] = $request->etlMetaKeyList;
-        }
-        if (!Utils::isUnset($request->etlMetaName)) {
-            $body['etlMetaName'] = $request->etlMetaName;
-        }
-        if (!Utils::isUnset($request->etlMetaTag)) {
-            $body['etlMetaTag'] = $request->etlMetaTag;
-        }
-        if (!Utils::isUnset($request->range)) {
-            $body['range'] = $request->range;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchModifyEtlMetaStatus',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return BatchModifyEtlMetaStatusResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                    $project
-     * @param BatchUpdateEtlMetaRequest $request
-     *
-     * @return BatchUpdateEtlMetaResponse
-     */
-    public function batchUpdateEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->batchUpdateEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                    $project
-     * @param BatchUpdateEtlMetaRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return BatchUpdateEtlMetaResponse
-     */
-    public function batchUpdateEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->etlMetaList)) {
-            $body['etlMetaList'] = $request->etlMetaList;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchUpdateEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return BatchUpdateEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -486,138 +298,6 @@ class Sls extends OpenApiClient
         ]);
 
         return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string              $project
-     * @param CreateEtlJobRequest $request
-     *
-     * @return CreateEtlJobResponse
-     */
-    public function createEtlJob($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createEtlJobWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string              $project
-     * @param CreateEtlJobRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateEtlJobResponse
-     */
-    public function createEtlJobWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->enable)) {
-            $body['enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->etlJobName)) {
-            $body['etlJobName'] = $request->etlJobName;
-        }
-        if (!Utils::isUnset($request->functionConfig)) {
-            $body['functionConfig'] = $request->functionConfig;
-        }
-        if (!Utils::isUnset($request->functionParameter)) {
-            $body['functionParameter'] = $request->functionParameter;
-        }
-        if (!Utils::isUnset($request->logConfig)) {
-            $body['logConfig'] = $request->logConfig;
-        }
-        if (!Utils::isUnset($request->sourceConfig)) {
-            $body['sourceConfig'] = $request->sourceConfig;
-        }
-        if (!Utils::isUnset($request->triggerConfig)) {
-            $body['triggerConfig'] = $request->triggerConfig;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEtlJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etljobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return CreateEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string               $project
-     * @param CreateEtlMetaRequest $request
-     *
-     * @return CreateEtlMetaResponse
-     */
-    public function createEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string               $project
-     * @param CreateEtlMetaRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateEtlMetaResponse
-     */
-    public function createEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->enable)) {
-            $body['enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->etlMetaKey)) {
-            $body['etlMetaKey'] = $request->etlMetaKey;
-        }
-        if (!Utils::isUnset($request->etlMetaName)) {
-            $body['etlMetaName'] = $request->etlMetaName;
-        }
-        if (!Utils::isUnset($request->etlMetaTag)) {
-            $body['etlMetaTag'] = $request->etlMetaTag;
-        }
-        if (!Utils::isUnset($request->etlMetaValue)) {
-            $body['etlMetaValue'] = $request->etlMetaValue;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return CreateEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1327,108 +1007,6 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
-     * @param string $etlJobName
-     *
-     * @return DeleteEtlJobResponse
-     */
-    public function deleteEtlJob($project, $etlJobName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteEtlJobWithOptions($project, $etlJobName, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $project
-     * @param string         $etlJobName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteEtlJobResponse
-     */
-    public function deleteEtlJobWithOptions($project, $etlJobName, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteEtlJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etljobs/' . $etlJobName . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return DeleteEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string               $project
-     * @param DeleteEtlMetaRequest $request
-     *
-     * @return DeleteEtlMetaResponse
-     */
-    public function deleteEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string               $project
-     * @param DeleteEtlMetaRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteEtlMetaResponse
-     */
-    public function deleteEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->etlMetaKey)) {
-            $query['etlMetaKey'] = $request->etlMetaKey;
-        }
-        if (!Utils::isUnset($request->etlMetaName)) {
-            $query['etlMetaName'] = $request->etlMetaName;
-        }
-        if (!Utils::isUnset($request->etlMetaTag)) {
-            $query['etlMetaTag'] = $request->etlMetaTag;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return DeleteEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $project
      * @param string $externalStoreName
      *
      * @return DeleteExternalStoreResponse
@@ -1691,6 +1269,49 @@ class Sls extends OpenApiClient
         ]);
 
         return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     *
+     * @return DeleteProjectPolicyResponse
+     */
+    public function deleteProjectPolicy($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProjectPolicyWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteProjectPolicyResponse
+     */
+    public function deleteProjectPolicyWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProjectPolicy',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/policy',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2030,9 +1651,6 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->from)) {
             $query['from'] = $request->from;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2042,7 +1660,7 @@ class Sls extends OpenApiClient
             'action'      => 'GetCursor',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardId . '',
+            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardId . '?type=cursor',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2088,9 +1706,6 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->cursor)) {
             $query['cursor'] = $request->cursor;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
@@ -2100,7 +1715,7 @@ class Sls extends OpenApiClient
             'action'      => 'GetCursorTime',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardId . '',
+            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardId . '?type=cursor_time',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2109,108 +1724,6 @@ class Sls extends OpenApiClient
         ]);
 
         return GetCursorTimeResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $project
-     * @param string $etlJobName
-     *
-     * @return GetEtlJobResponse
-     */
-    public function getEtlJob($project, $etlJobName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getEtlJobWithOptions($project, $etlJobName, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $project
-     * @param string         $etlJobName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetEtlJobResponse
-     */
-    public function getEtlJobWithOptions($project, $etlJobName, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetEtlJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etljobs/' . $etlJobName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string            $project
-     * @param GetEtlMetaRequest $request
-     *
-     * @return GetEtlMetaResponse
-     */
-    public function getEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string            $project
-     * @param GetEtlMetaRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetEtlMetaResponse
-     */
-    public function getEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->etlMetaKey)) {
-            $query['etlMetaKey'] = $request->etlMetaKey;
-        }
-        if (!Utils::isUnset($request->etlMetaName)) {
-            $query['etlMetaName'] = $request->etlMetaName;
-        }
-        if (!Utils::isUnset($request->etlMetaTag)) {
-            $query['etlMetaTag'] = $request->etlMetaTag;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2671,6 +2184,49 @@ class Sls extends OpenApiClient
 
     /**
      * @param string $project
+     *
+     * @return GetProjectPolicyResponse
+     */
+    public function getProjectPolicy($project)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getProjectPolicyWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetProjectPolicyResponse
+     */
+    public function getProjectPolicyWithOptions($project, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetProjectPolicy',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/policy',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
      * @param string $savedsearchName
      *
      * @return GetSavedSearchResponse
@@ -2712,53 +2268,6 @@ class Sls extends OpenApiClient
         ]);
 
         return GetSavedSearchResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $project
-     * @param string $logstore
-     * @param string $shipperName
-     *
-     * @return GetShipperConfigResponse
-     */
-    public function getShipperConfig($project, $logstore, $shipperName)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getShipperConfigWithOptions($project, $logstore, $shipperName, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $project
-     * @param string         $logstore
-     * @param string         $shipperName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetShipperConfigResponse
-     */
-    public function getShipperConfigWithOptions($project, $logstore, $shipperName, $headers, $runtime)
-    {
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $req                = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetShipperConfig',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shipper/' . $shipperName . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetShipperConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2928,177 +2437,6 @@ class Sls extends OpenApiClient
         ]);
 
         return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string            $project
-     * @param ListEtlJobRequest $request
-     *
-     * @return ListEtlJobResponse
-     */
-    public function listEtlJob($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listEtlJobWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string            $project
-     * @param ListEtlJobRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListEtlJobResponse
-     */
-    public function listEtlJobWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListEtlJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etljobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string             $project
-     * @param ListEtlMetaRequest $request
-     *
-     * @return ListEtlMetaResponse
-     */
-    public function listEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string             $project
-     * @param ListEtlMetaRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListEtlMetaResponse
-     */
-    public function listEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->etlMetaKey)) {
-            $query['etlMetaKey'] = $request->etlMetaKey;
-        }
-        if (!Utils::isUnset($request->etlMetaName)) {
-            $query['etlMetaName'] = $request->etlMetaName;
-        }
-        if (!Utils::isUnset($request->etlMetaTag)) {
-            $query['etlMetaTag'] = $request->etlMetaTag;
-        }
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                 $project
-     * @param ListEtlMetaNameRequest $request
-     *
-     * @return ListEtlMetaNameResponse
-     */
-    public function listEtlMetaName($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listEtlMetaNameWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                 $project
-     * @param ListEtlMetaNameRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListEtlMetaNameResponse
-     */
-    public function listEtlMetaNameWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->size)) {
-            $query['size'] = $request->size;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListEtlMetaName',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetanames',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListEtlMetaNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3591,39 +2929,45 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param string             $project
-     * @param string             $logstore
-     * @param string             $shardID
-     * @param MergeShardsRequest $request
+     * @param string          $project
+     * @param string          $logstore
+     * @param string          $shard
+     * @param PullDataRequest $request
      *
-     * @return MergeShardsResponse
+     * @return PullDataResponse
      */
-    public function mergeShards($project, $logstore, $shardID, $request)
+    public function pullData($project, $logstore, $shard, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->mergeShardsWithOptions($project, $logstore, $shardID, $request, $headers, $runtime);
+        return $this->pullDataWithOptions($project, $logstore, $shard, $request, $headers, $runtime);
     }
 
     /**
-     * @param string             $project
-     * @param string             $logstore
-     * @param string             $shardID
-     * @param MergeShardsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param string          $project
+     * @param string          $logstore
+     * @param string          $shard
+     * @param PullDataRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
      *
-     * @return MergeShardsResponse
+     * @return PullDataResponse
      */
-    public function mergeShardsWithOptions($project, $logstore, $shardID, $request, $headers, $runtime)
+    public function pullDataWithOptions($project, $logstore, $shard, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
-        if (!Utils::isUnset($request->action)) {
-            $query['action'] = $request->action;
+        if (!Utils::isUnset($request->count)) {
+            $query['count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->cursor)) {
+            $query['cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->endCursor)) {
+            $query['endCursor'] = $request->endCursor;
         }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
@@ -3631,18 +2975,127 @@ class Sls extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MergeShards',
+            'action'      => 'PullData',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardID . '',
+            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shard . '?type=log',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PullDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $project
+     * @param PutProjectPolicyRequest $request
+     *
+     * @return PutProjectPolicyResponse
+     */
+    public function putProjectPolicy($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putProjectPolicyWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $project
+     * @param PutProjectPolicyRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PutProjectPolicyResponse
+     */
+    public function putProjectPolicyWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'PutProjectPolicy',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/policy',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType'    => 'json',
         ]);
 
-        return MergeShardsResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutProjectPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $project
+     * @param string                $logstoreName
+     * @param PutWebtrackingRequest $request
+     *
+     * @return PutWebtrackingResponse
+     */
+    public function putWebtracking($project, $logstoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putWebtrackingWithOptions($project, $logstoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $project
+     * @param string                $logstoreName
+     * @param PutWebtrackingRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PutWebtrackingResponse
+     */
+    public function putWebtrackingWithOptions($project, $logstoreName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->logs)) {
+            $body['__logs__'] = $request->logs;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $body['__source__'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['__tags__'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['__topic__'] = $request->topic;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutWebtracking',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstoreName . '/track',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return PutWebtrackingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3695,38 +3148,35 @@ class Sls extends OpenApiClient
     /**
      * @param string            $project
      * @param string            $logstore
-     * @param string            $shardID
+     * @param string            $shard
      * @param SplitShardRequest $request
      *
      * @return SplitShardResponse
      */
-    public function splitShard($project, $logstore, $shardID, $request)
+    public function splitShard($project, $logstore, $shard, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->splitShardWithOptions($project, $logstore, $shardID, $request, $headers, $runtime);
+        return $this->splitShardWithOptions($project, $logstore, $shard, $request, $headers, $runtime);
     }
 
     /**
      * @param string            $project
      * @param string            $logstore
-     * @param string            $shardID
+     * @param string            $shard
      * @param SplitShardRequest $request
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
      *
      * @return SplitShardResponse
      */
-    public function splitShardWithOptions($project, $logstore, $shardID, $request, $headers, $runtime)
+    public function splitShardWithOptions($project, $logstore, $shard, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $hostMap            = [];
         $hostMap['project'] = $project;
         $query              = [];
-        if (!Utils::isUnset($request->action)) {
-            $query['action'] = $request->action;
-        }
         if (!Utils::isUnset($request->key)) {
             $query['key'] = $request->key;
         }
@@ -3742,7 +3192,7 @@ class Sls extends OpenApiClient
             'action'      => 'SplitShard',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shardID . '',
+            'pathname'    => '/logstores/' . $logstore . '/shards/' . $shard . '?action=split',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3806,26 +3256,26 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * @param UnTagResourcesRequest $request
+     * @param UntagResourcesRequest $request
      *
-     * @return UnTagResourcesResponse
+     * @return UntagResourcesResponse
      */
-    public function unTagResources($request)
+    public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->unTagResourcesWithOptions($request, $headers, $runtime);
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param UnTagResourcesRequest $request
+     * @param UntagResourcesRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
-     * @return UnTagResourcesResponse
+     * @return UntagResourcesResponse
      */
-    public function unTagResourcesWithOptions($request, $headers, $runtime)
+    public function untagResourcesWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
@@ -3846,7 +3296,7 @@ class Sls extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
+            'action'      => 'UntagResources',
             'version'     => '2020-12-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/untag',
@@ -3854,79 +3304,10 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
-        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param string                  $consumerGroup
-     * @param UpdateCheckPointRequest $request
-     *
-     * @return UpdateCheckPointResponse
-     */
-    public function updateCheckPoint($project, $logstore, $consumerGroup, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                  $project
-     * @param string                  $logstore
-     * @param string                  $consumerGroup
-     * @param UpdateCheckPointRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateCheckPointResponse
-     */
-    public function updateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $query              = [];
-        if (!Utils::isUnset($request->consumer)) {
-            $query['consumer'] = $request->consumer;
-        }
-        if (!Utils::isUnset($request->forceSuccess)) {
-            $query['forceSuccess'] = $request->forceSuccess;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->checkpoint)) {
-            $body['checkpoint'] = $request->checkpoint;
-        }
-        if (!Utils::isUnset($request->shard)) {
-            $body['shard'] = $request->shard;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateCheckPoint',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/logstores/' . $logstore . '/consumergroups/' . $consumerGroup . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UpdateCheckPointResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3985,140 +3366,6 @@ class Sls extends OpenApiClient
         ]);
 
         return UpdateConsumerGroupResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string              $project
-     * @param string              $etlJobName
-     * @param UpdateEtlJobRequest $request
-     *
-     * @return UpdateEtlJobResponse
-     */
-    public function updateEtlJob($project, $etlJobName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateEtlJobWithOptions($project, $etlJobName, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string              $project
-     * @param string              $etlJobName
-     * @param UpdateEtlJobRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateEtlJobResponse
-     */
-    public function updateEtlJobWithOptions($project, $etlJobName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->enable)) {
-            $body['enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->etlJobName)) {
-            $body['etlJobName'] = $request->etlJobName;
-        }
-        if (!Utils::isUnset($request->functionConfig)) {
-            $body['functionConfig'] = $request->functionConfig;
-        }
-        if (!Utils::isUnset($request->functionParameter)) {
-            $body['functionParameter'] = $request->functionParameter;
-        }
-        if (!Utils::isUnset($request->logConfig)) {
-            $body['logConfig'] = $request->logConfig;
-        }
-        if (!Utils::isUnset($request->sourceConfig)) {
-            $body['sourceConfig'] = $request->sourceConfig;
-        }
-        if (!Utils::isUnset($request->triggerConfig)) {
-            $body['triggerConfig'] = $request->triggerConfig;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateEtlJob',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etljobs/' . $etlJobName . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UpdateEtlJobResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param string               $project
-     * @param UpdateEtlMetaRequest $request
-     *
-     * @return UpdateEtlMetaResponse
-     */
-    public function updateEtlMeta($project, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateEtlMetaWithOptions($project, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string               $project
-     * @param UpdateEtlMetaRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateEtlMetaResponse
-     */
-    public function updateEtlMetaWithOptions($project, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $hostMap            = [];
-        $hostMap['project'] = $project;
-        $body               = [];
-        if (!Utils::isUnset($request->enable)) {
-            $body['enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->etlMetaKey)) {
-            $body['etlMetaKey'] = $request->etlMetaKey;
-        }
-        if (!Utils::isUnset($request->etlMetaName)) {
-            $body['etlMetaName'] = $request->etlMetaName;
-        }
-        if (!Utils::isUnset($request->etlMetaTag)) {
-            $body['etlMetaTag'] = $request->etlMetaTag;
-        }
-        if (!Utils::isUnset($request->etlMetaValue)) {
-            $body['etlMetaValue'] = $request->etlMetaValue;
-        }
-        $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateEtlMeta',
-            'version'     => '2020-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/etlmetas',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UpdateEtlMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4392,6 +3639,60 @@ class Sls extends OpenApiClient
         ]);
 
         return UpdateMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $project
+     * @param string                           $machineGroup
+     * @param UpdateMachineGroupMachineRequest $request
+     *
+     * @return UpdateMachineGroupMachineResponse
+     */
+    public function updateMachineGroupMachine($project, $machineGroup, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMachineGroupMachineWithOptions($project, $machineGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                           $project
+     * @param string                           $machineGroup
+     * @param UpdateMachineGroupMachineRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateMachineGroupMachineResponse
+     */
+    public function updateMachineGroupMachineWithOptions($project, $machineGroup, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->action)) {
+            $query['action'] = $request->action;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMachineGroupMachine',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/machinegroups/' . $machineGroup . '/machines',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateMachineGroupMachineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

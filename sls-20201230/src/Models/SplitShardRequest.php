@@ -11,11 +11,6 @@ class SplitShardRequest extends Model
     /**
      * @var string
      */
-    public $action;
-
-    /**
-     * @var string
-     */
     public $key;
 
     /**
@@ -23,7 +18,6 @@ class SplitShardRequest extends Model
      */
     public $shardCount;
     protected $_name = [
-        'action'     => 'action',
         'key'        => 'key',
         'shardCount' => 'shardCount',
     ];
@@ -35,9 +29,6 @@ class SplitShardRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->action) {
-            $res['action'] = $this->action;
-        }
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
@@ -56,9 +47,6 @@ class SplitShardRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['action'])) {
-            $model->action = $map['action'];
-        }
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
