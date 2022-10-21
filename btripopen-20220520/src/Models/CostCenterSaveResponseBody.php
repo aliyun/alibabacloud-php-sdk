@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CostCenterSaveResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

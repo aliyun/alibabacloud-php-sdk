@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class IsvUserSaveResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

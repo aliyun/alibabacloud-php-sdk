@@ -15,7 +15,7 @@ class CarApplyQueryResponseBody extends Model
     public $applyList;
 
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ProjectModifyResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

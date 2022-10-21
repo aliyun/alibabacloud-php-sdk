@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CarOrderListQueryResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 

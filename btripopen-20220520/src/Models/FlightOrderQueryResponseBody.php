@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class FlightOrderQueryResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $code;
 
