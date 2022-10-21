@@ -14,6 +14,11 @@ class keyWord extends Model
     public $cid;
 
     /**
+     * @var string
+     */
+    public $customizeCode;
+
+    /**
      * @var int
      */
     public $from;
@@ -38,12 +43,13 @@ class keyWord extends Model
      */
     public $val;
     protected $_name = [
-        'cid'  => 'Cid',
-        'from' => 'From',
-        'pid'  => 'Pid',
-        'tid'  => 'Tid',
-        'to'   => 'To',
-        'val'  => 'Val',
+        'cid'           => 'Cid',
+        'customizeCode' => 'CustomizeCode',
+        'from'          => 'From',
+        'pid'           => 'Pid',
+        'tid'           => 'Tid',
+        'to'            => 'To',
+        'val'           => 'Val',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class keyWord extends Model
         $res = [];
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
+        }
+        if (null !== $this->customizeCode) {
+            $res['CustomizeCode'] = $this->customizeCode;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -85,6 +94,9 @@ class keyWord extends Model
         $model = new self();
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
+        }
+        if (isset($map['CustomizeCode'])) {
+            $model->customizeCode = $map['CustomizeCode'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

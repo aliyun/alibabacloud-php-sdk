@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\re
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\recording;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\schemeIdList;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\schemeNameList;
 use AlibabaCloud\Tea\Model;
 
 class resultInfo extends Model
@@ -104,6 +106,16 @@ class resultInfo extends Model
     public $reviewer;
 
     /**
+     * @var schemeIdList
+     */
+    public $schemeIdList;
+
+    /**
+     * @var schemeNameList
+     */
+    public $schemeNameList;
+
+    /**
      * @var int
      */
     public $score;
@@ -141,6 +153,8 @@ class resultInfo extends Model
         'reviewTimeLong' => 'ReviewTimeLong',
         'reviewType'     => 'ReviewType',
         'reviewer'       => 'Reviewer',
+        'schemeIdList'   => 'SchemeIdList',
+        'schemeNameList' => 'SchemeNameList',
         'score'          => 'Score',
         'status'         => 'Status',
         'taskId'         => 'TaskId',
@@ -207,6 +221,12 @@ class resultInfo extends Model
         }
         if (null !== $this->reviewer) {
             $res['Reviewer'] = $this->reviewer;
+        }
+        if (null !== $this->schemeIdList) {
+            $res['SchemeIdList'] = null !== $this->schemeIdList ? $this->schemeIdList->toMap() : null;
+        }
+        if (null !== $this->schemeNameList) {
+            $res['SchemeNameList'] = null !== $this->schemeNameList ? $this->schemeNameList->toMap() : null;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -285,6 +305,12 @@ class resultInfo extends Model
         }
         if (isset($map['Reviewer'])) {
             $model->reviewer = $map['Reviewer'];
+        }
+        if (isset($map['SchemeIdList'])) {
+            $model->schemeIdList = schemeIdList::fromMap($map['SchemeIdList']);
+        }
+        if (isset($map['SchemeNameList'])) {
+            $model->schemeNameList = schemeNameList::fromMap($map['SchemeNameList']);
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];

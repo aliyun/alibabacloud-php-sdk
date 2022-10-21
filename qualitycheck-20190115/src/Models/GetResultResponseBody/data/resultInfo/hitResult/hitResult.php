@@ -30,15 +30,27 @@ class hitResult extends Model
     public $rid;
 
     /**
+     * @var int
+     */
+    public $schemeId;
+
+    /**
+     * @var int
+     */
+    public $schemeVersion;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'hits'         => 'Hits',
-        'name'         => 'Name',
-        'reviewResult' => 'ReviewResult',
-        'rid'          => 'Rid',
-        'type'         => 'Type',
+        'hits'          => 'Hits',
+        'name'          => 'Name',
+        'reviewResult'  => 'ReviewResult',
+        'rid'           => 'Rid',
+        'schemeId'      => 'SchemeId',
+        'schemeVersion' => 'SchemeVersion',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -59,6 +71,12 @@ class hitResult extends Model
         }
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
+        }
+        if (null !== $this->schemeId) {
+            $res['SchemeId'] = $this->schemeId;
+        }
+        if (null !== $this->schemeVersion) {
+            $res['SchemeVersion'] = $this->schemeVersion;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -86,6 +104,12 @@ class hitResult extends Model
         }
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
+        }
+        if (isset($map['SchemeId'])) {
+            $model->schemeId = $map['SchemeId'];
+        }
+        if (isset($map['SchemeVersion'])) {
+            $model->schemeVersion = $map['SchemeVersion'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

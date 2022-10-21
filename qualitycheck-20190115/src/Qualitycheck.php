@@ -10,12 +10,24 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddBusinessCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddBusinessCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddThesaurusForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddThesaurusForApiResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerBySessionGroupRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerBySessionGroupResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\BatchSubmitReviewInfoRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\BatchSubmitReviewInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAsrVocabResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateCheckTypeToSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateCheckTypeToSchemeResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateQualityCheckSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateQualityCheckSchemeResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSchemeTaskConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSchemeTaskConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleRequest;
@@ -24,6 +36,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningStrategyConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteBusinessCategoryRequest;
@@ -34,6 +48,14 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeletePrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeletePrecisionTaskResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteQualityCheckSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteQualityCheckSchemeResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSchemeTaskConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSchemeTaskConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteScoreForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSkillGroupConfigRequest;
@@ -46,6 +68,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningStrategyConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelRuleCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelThesaurusForApiRequest;
@@ -64,18 +88,26 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultCallbackRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultCallbackResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleByIdRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleByIdResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRulesCountListResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
@@ -84,6 +116,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetThesaurusBySynonymForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetThesaurusBySynonymForApiResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InsertScoreForApiRequest;
@@ -94,14 +128,26 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\InvalidRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListBusinessSpacesRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListBusinessSpacesResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListHotWordsTasksRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListHotWordsTasksResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRolesRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRolesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesRequest;
@@ -110,8 +156,14 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningStrategyConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RestartAsrTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RestartAsrTaskResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionGroupRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionGroupResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitComplaintRequest;
@@ -126,8 +178,22 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateCheckTypeToSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateCheckTypeToSchemeResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateQualityCheckDataRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateQualityCheckDataResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateQualityCheckSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateQualityCheckSchemeResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleByIdRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleByIdResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleToSchemeRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleToSchemeResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleV4Request;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateRuleV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSchemeTaskConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSchemeTaskConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateScoreForApiRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateScoreForApiResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSkillGroupConfigRequest;
@@ -144,6 +210,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateWarningConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateWarningStrategyConfigRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadAudioDataRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadAudioDataResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataRequest;
@@ -282,6 +350,52 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param AddRuleV4Request $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddRuleV4Response
+     */
+    public function addRuleV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isCopy)) {
+            $body['IsCopy'] = $request->isCopy;
+        }
+        if (!Utils::isUnset($request->jsonStrForRule)) {
+            $body['JsonStrForRule'] = $request->jsonStrForRule;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRuleV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddRuleV4Request $request
+     *
+     * @return AddRuleV4Response
+     */
+    public function addRuleV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRuleV4WithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddThesaurusForApiRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -368,6 +482,92 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param AssignReviewerBySessionGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AssignReviewerBySessionGroupResponse
+     */
+    public function assignReviewerBySessionGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssignReviewerBySessionGroup',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssignReviewerBySessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssignReviewerBySessionGroupRequest $request
+     *
+     * @return AssignReviewerBySessionGroupResponse
+     */
+    public function assignReviewerBySessionGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignReviewerBySessionGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchSubmitReviewInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchSubmitReviewInfoResponse
+     */
+    public function batchSubmitReviewInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSubmitReviewInfo',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchSubmitReviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchSubmitReviewInfoRequest $request
+     *
+     * @return BatchSubmitReviewInfoResponse
+     */
+    public function batchSubmitReviewInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchSubmitReviewInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateAsrVocabRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -408,6 +608,135 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAsrVocabWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCheckTypeToSchemeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCheckTypeToSchemeResponse
+     */
+    public function createCheckTypeToSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCheckTypeToScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCheckTypeToSchemeRequest $request
+     *
+     * @return CreateCheckTypeToSchemeResponse
+     */
+    public function createCheckTypeToScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCheckTypeToSchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateQualityCheckSchemeResponse
+     */
+    public function createQualityCheckSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateQualityCheckScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateQualityCheckSchemeRequest $request
+     *
+     * @return CreateQualityCheckSchemeResponse
+     */
+    public function createQualityCheckScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createQualityCheckSchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSchemeTaskConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSchemeTaskConfigResponse
+     */
+    public function createSchemeTaskConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSchemeTaskConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSchemeTaskConfigRequest $request
+     *
+     * @return CreateSchemeTaskConfigResponse
+     */
+    public function createSchemeTaskConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSchemeTaskConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -580,6 +909,49 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createWarningConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateWarningStrategyConfigResponse
+     */
+    public function createWarningStrategyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWarningStrategyConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWarningStrategyConfigRequest $request
+     *
+     * @return CreateWarningStrategyConfigResponse
+     */
+    public function createWarningStrategyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWarningStrategyConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -884,6 +1256,187 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param DeleteQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteQualityCheckSchemeResponse
+     */
+    public function deleteQualityCheckSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteQualityCheckScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteQualityCheckSchemeRequest $request
+     *
+     * @return DeleteQualityCheckSchemeResponse
+     */
+    public function deleteQualityCheckScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityCheckSchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
+     */
+    public function deleteRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->forceDelete)) {
+            $body['ForceDelete'] = $request->forceDelete;
+        }
+        if (!Utils::isUnset($request->isSchemeData)) {
+            $body['IsSchemeData'] = $request->isSchemeData;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRule',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
+     */
+    public function deleteRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRuleV4Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteRuleV4Response
+     */
+    public function deleteRuleV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->forceDelete)) {
+            $body['ForceDelete'] = $request->forceDelete;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRuleV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRuleV4Request $request
+     *
+     * @return DeleteRuleV4Response
+     */
+    public function deleteRuleV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRuleV4WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSchemeTaskConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSchemeTaskConfigResponse
+     */
+    public function deleteSchemeTaskConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSchemeTaskConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSchemeTaskConfigRequest $request
+     *
+     * @return DeleteSchemeTaskConfigResponse
+     */
+    public function deleteSchemeTaskConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSchemeTaskConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteScoreForApiRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1139,6 +1692,49 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWarningConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteWarningStrategyConfigResponse
+     */
+    public function deleteWarningStrategyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWarningStrategyConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWarningStrategyConfigRequest $request
+     *
+     * @return DeleteWarningStrategyConfigResponse
+     */
+    public function deleteWarningStrategyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWarningStrategyConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -1443,6 +2039,49 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param GetQualityCheckSchemeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetQualityCheckSchemeResponse
+     */
+    public function getQualityCheckSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQualityCheckScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetQualityCheckSchemeRequest $request
+     *
+     * @return GetQualityCheckSchemeResponse
+     */
+    public function getQualityCheckScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityCheckSchemeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetResultRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1615,6 +2254,49 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param GetRuleByIdRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRuleByIdResponse
+     */
+    public function getRuleByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRuleById',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRuleByIdRequest $request
+     *
+     * @return GetRuleByIdResponse
+     */
+    public function getRuleById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuleByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRuleCategoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1698,6 +2380,164 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRuleDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRuleV4Request $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetRuleV4Response
+     */
+    public function getRuleV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRuleV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRuleV4Request $request
+     *
+     * @return GetRuleV4Response
+     */
+    public function getRuleV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuleV4WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRulesCountListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRulesCountListResponse
+     */
+    public function getRulesCountListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessName)) {
+            $body['BusinessName'] = $request->businessName;
+        }
+        if (!Utils::isUnset($request->businessRange)) {
+            $body['BusinessRange'] = $request->businessRange;
+        }
+        if (!Utils::isUnset($request->categoryName)) {
+            $body['CategoryName'] = $request->categoryName;
+        }
+        if (!Utils::isUnset($request->countTotal)) {
+            $body['CountTotal'] = $request->countTotal;
+        }
+        if (!Utils::isUnset($request->createEmpid)) {
+            $body['CreateEmpid'] = $request->createEmpid;
+        }
+        if (!Utils::isUnset($request->createUserId)) {
+            $body['CreateUserId'] = $request->createUserId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lastUpdateEmpid)) {
+            $body['LastUpdateEmpid'] = $request->lastUpdateEmpid;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requireInfos)) {
+            $body['RequireInfos'] = $request->requireInfos;
+        }
+        if (!Utils::isUnset($request->rid)) {
+            $body['Rid'] = $request->rid;
+        }
+        if (!Utils::isUnset($request->ruleIdOrRuleName)) {
+            $body['RuleIdOrRuleName'] = $request->ruleIdOrRuleName;
+        }
+        if (!Utils::isUnset($request->ruleScoreSingleType)) {
+            $body['RuleScoreSingleType'] = $request->ruleScoreSingleType;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $body['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->schemeId)) {
+            $body['SchemeId'] = $request->schemeId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $body['TypeName'] = $request->typeName;
+        }
+        if (!Utils::isUnset($request->updateEndTime)) {
+            $body['UpdateEndTime'] = $request->updateEndTime;
+        }
+        if (!Utils::isUnset($request->updateStartTime)) {
+            $body['UpdateStartTime'] = $request->updateStartTime;
+        }
+        if (!Utils::isUnset($request->updateUserId)) {
+            $body['UpdateUserId'] = $request->updateUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRulesCountList',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRulesCountListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRulesCountListRequest $request
+     *
+     * @return GetRulesCountListResponse
+     */
+    public function getRulesCountList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRulesCountListWithOptions($request, $runtime);
     }
 
     /**
@@ -1870,6 +2710,49 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getThesaurusBySynonymForApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetWarningStrategyConfigResponse
+     */
+    public function getWarningStrategyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWarningStrategyConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWarningStrategyConfigRequest $request
+     *
+     * @return GetWarningStrategyConfigResponse
+     */
+    public function getWarningStrategyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWarningStrategyConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -2088,6 +2971,92 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param ListBusinessSpacesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListBusinessSpacesResponse
+     */
+    public function listBusinessSpacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBusinessSpaces',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBusinessSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBusinessSpacesRequest $request
+     *
+     * @return ListBusinessSpacesResponse
+     */
+    public function listBusinessSpaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBusinessSpacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDataSetRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDataSetResponse
+     */
+    public function listDataSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSet',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataSetRequest $request
+     *
+     * @return ListDataSetResponse
+     */
+    public function listDataSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListHotWordsTasksRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2174,6 +3143,49 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param ListQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListQualityCheckSchemeResponse
+     */
+    public function listQualityCheckSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQualityCheckScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListQualityCheckSchemeRequest $request
+     *
+     * @return ListQualityCheckSchemeResponse
+     */
+    public function listQualityCheckScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityCheckSchemeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListRolesRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2257,6 +3269,207 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRulesV4Request $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRulesV4Response
+     */
+    public function listRulesV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->businessName)) {
+            $body['BusinessName'] = $request->businessName;
+        }
+        if (!Utils::isUnset($request->businessRange)) {
+            $body['BusinessRange'] = $request->businessRange;
+        }
+        if (!Utils::isUnset($request->categoryName)) {
+            $body['CategoryName'] = $request->categoryName;
+        }
+        if (!Utils::isUnset($request->countTotal)) {
+            $body['CountTotal'] = $request->countTotal;
+        }
+        if (!Utils::isUnset($request->createEmpid)) {
+            $body['CreateEmpid'] = $request->createEmpid;
+        }
+        if (!Utils::isUnset($request->createUserId)) {
+            $body['CreateUserId'] = $request->createUserId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lastUpdateEmpid)) {
+            $body['LastUpdateEmpid'] = $request->lastUpdateEmpid;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requireInfos)) {
+            $body['RequireInfos'] = $request->requireInfos;
+        }
+        if (!Utils::isUnset($request->rid)) {
+            $body['Rid'] = $request->rid;
+        }
+        if (!Utils::isUnset($request->ruleIdOrRuleName)) {
+            $body['RuleIdOrRuleName'] = $request->ruleIdOrRuleName;
+        }
+        if (!Utils::isUnset($request->ruleScoreSingleType)) {
+            $body['RuleScoreSingleType'] = $request->ruleScoreSingleType;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $body['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->schemeId)) {
+            $body['SchemeId'] = $request->schemeId;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $body['SourceType'] = $request->sourceType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->typeName)) {
+            $body['TypeName'] = $request->typeName;
+        }
+        if (!Utils::isUnset($request->updateEndTime)) {
+            $body['UpdateEndTime'] = $request->updateEndTime;
+        }
+        if (!Utils::isUnset($request->updateStartTime)) {
+            $body['UpdateStartTime'] = $request->updateStartTime;
+        }
+        if (!Utils::isUnset($request->updateUserId)) {
+            $body['UpdateUserId'] = $request->updateUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRulesV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRulesV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRulesV4Request $request
+     *
+     * @return ListRulesV4Response
+     */
+    public function listRulesV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRulesV4WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSchemeTaskConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSchemeTaskConfigResponse
+     */
+    public function listSchemeTaskConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSchemeTaskConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSchemeTaskConfigRequest $request
+     *
+     * @return ListSchemeTaskConfigResponse
+     */
+    public function listSchemeTaskConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSchemeTaskConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSessionGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSessionGroupResponse
+     */
+    public function listSessionGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSessionGroup',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSessionGroupRequest $request
+     *
+     * @return ListSessionGroupResponse
+     */
+    public function listSessionGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSessionGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2432,6 +3645,49 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param ListWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListWarningStrategyConfigResponse
+     */
+    public function listWarningStrategyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWarningStrategyConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWarningStrategyConfigRequest $request
+     *
+     * @return ListWarningStrategyConfigResponse
+     */
+    public function listWarningStrategyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWarningStrategyConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RestartAsrTaskRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2472,6 +3728,92 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartAsrTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevertAssignedSessionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevertAssignedSessionResponse
+     */
+    public function revertAssignedSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevertAssignedSession',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevertAssignedSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevertAssignedSessionRequest $request
+     *
+     * @return RevertAssignedSessionResponse
+     */
+    public function revertAssignedSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revertAssignedSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevertAssignedSessionGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RevertAssignedSessionGroupResponse
+     */
+    public function revertAssignedSessionGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevertAssignedSessionGroup',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevertAssignedSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevertAssignedSessionGroupRequest $request
+     *
+     * @return RevertAssignedSessionGroupResponse
+     */
+    public function revertAssignedSessionGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revertAssignedSessionGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2776,6 +4118,135 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * @param UpdateCheckTypeToSchemeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateCheckTypeToSchemeResponse
+     */
+    public function updateCheckTypeToSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCheckTypeToScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCheckTypeToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCheckTypeToSchemeRequest $request
+     *
+     * @return UpdateCheckTypeToSchemeResponse
+     */
+    public function updateCheckTypeToScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCheckTypeToSchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateQualityCheckDataRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateQualityCheckDataResponse
+     */
+    public function updateQualityCheckDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateQualityCheckData',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateQualityCheckDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateQualityCheckDataRequest $request
+     *
+     * @return UpdateQualityCheckDataResponse
+     */
+    public function updateQualityCheckData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateQualityCheckDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateQualityCheckSchemeResponse
+     */
+    public function updateQualityCheckSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateQualityCheckScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateQualityCheckSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateQualityCheckSchemeRequest $request
+     *
+     * @return UpdateQualityCheckSchemeResponse
+     */
+    public function updateQualityCheckScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateQualityCheckSchemeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateRuleRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2816,6 +4287,190 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRuleByIdRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateRuleByIdResponse
+     */
+    public function updateRuleByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->isCopy)) {
+            $body['IsCopy'] = $request->isCopy;
+        }
+        if (!Utils::isUnset($request->jsonStrForRule)) {
+            $body['JsonStrForRule'] = $request->jsonStrForRule;
+        }
+        if (!Utils::isUnset($request->returnRelatedSchemes)) {
+            $body['ReturnRelatedSchemes'] = $request->returnRelatedSchemes;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRuleById',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRuleByIdRequest $request
+     *
+     * @return UpdateRuleByIdResponse
+     */
+    public function updateRuleById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRuleByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRuleToSchemeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateRuleToSchemeResponse
+     */
+    public function updateRuleToSchemeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRuleToScheme',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRuleToSchemeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRuleToSchemeRequest $request
+     *
+     * @return UpdateRuleToSchemeResponse
+     */
+    public function updateRuleToScheme($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRuleToSchemeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRuleV4Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateRuleV4Response
+     */
+    public function updateRuleV4WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jsonStrForRule)) {
+            $body['JsonStrForRule'] = $request->jsonStrForRule;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $body['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRuleV4',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRuleV4Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRuleV4Request $request
+     *
+     * @return UpdateRuleV4Response
+     */
+    public function updateRuleV4($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRuleV4WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSchemeTaskConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSchemeTaskConfigResponse
+     */
+    public function updateSchemeTaskConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['jsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSchemeTaskConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSchemeTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSchemeTaskConfigRequest $request
+     *
+     * @return UpdateSchemeTaskConfigResponse
+     */
+    public function updateSchemeTaskConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSchemeTaskConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3160,6 +4815,49 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWarningConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateWarningStrategyConfigResponse
+     */
+    public function updateWarningStrategyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jsonStr)) {
+            $query['JsonStr'] = $request->jsonStr;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWarningStrategyConfig',
+            'version'     => '2019-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWarningStrategyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateWarningStrategyConfigRequest $request
+     *
+     * @return UpdateWarningStrategyConfigResponse
+     */
+    public function updateWarningStrategyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWarningStrategyConfigWithOptions($request, $runtime);
     }
 
     /**
