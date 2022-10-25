@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiAllRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiAllResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterResponse;
+use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterShrinkRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiRequest;
 use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiResponse;
 use AlibabaCloud\SDK\Eais\V20190624\Models\DeleteEaiAllRequest;
@@ -308,20 +309,28 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @param CreateEaiJupyterRequest $request
+     * @param CreateEaiJupyterRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return CreateEaiJupyterResponse
      */
-    public function createEaiJupyterWithOptions($request, $runtime)
+    public function createEaiJupyterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateEaiJupyterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->environmentVar)) {
+            $request->environmentVarShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->environmentVar, 'EnvironmentVar', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->eaisType)) {
             $query['EaisType'] = $request->eaisType;
+        }
+        if (!Utils::isUnset($request->environmentVarShrink)) {
+            $query['EnvironmentVar'] = $request->environmentVarShrink;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
