@@ -14,11 +14,6 @@ class ListGroupRepositoriesRequest extends Model
     public $accessToken;
 
     /**
-     * @var string
-     */
-    public $organizationId;
-
-    /**
      * @var bool
      */
     public $isMember;
@@ -26,12 +21,7 @@ class ListGroupRepositoriesRequest extends Model
     /**
      * @var string
      */
-    public $subUserId;
-
-    /**
-     * @var string
-     */
-    public $search;
+    public $organizationId;
 
     /**
      * @var int
@@ -42,14 +32,24 @@ class ListGroupRepositoriesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $search;
+
+    /**
+     * @var string
+     */
+    public $subUserId;
     protected $_name = [
         'accessToken'    => 'AccessToken',
-        'organizationId' => 'OrganizationId',
         'isMember'       => 'IsMember',
-        'subUserId'      => 'SubUserId',
-        'search'         => 'Search',
+        'organizationId' => 'OrganizationId',
         'page'           => 'Page',
         'pageSize'       => 'PageSize',
+        'search'         => 'Search',
+        'subUserId'      => 'SubUserId',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class ListGroupRepositoriesRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->isMember) {
             $res['IsMember'] = $this->isMember;
         }
-        if (null !== $this->subUserId) {
-            $res['SubUserId'] = $this->subUserId;
-        }
-        if (null !== $this->search) {
-            $res['Search'] = $this->search;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->search) {
+            $res['Search'] = $this->search;
+        }
+        if (null !== $this->subUserId) {
+            $res['SubUserId'] = $this->subUserId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class ListGroupRepositoriesRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['IsMember'])) {
             $model->isMember = $map['IsMember'];
         }
-        if (isset($map['SubUserId'])) {
-            $model->subUserId = $map['SubUserId'];
-        }
-        if (isset($map['Search'])) {
-            $model->search = $map['Search'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Search'])) {
+            $model->search = $map['Search'];
+        }
+        if (isset($map['SubUserId'])) {
+            $model->subUserId = $map['SubUserId'];
         }
 
         return $model;

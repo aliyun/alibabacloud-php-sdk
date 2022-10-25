@@ -9,21 +9,17 @@ use AlibabaCloud\Tea\Model;
 class orgCloneDownloadMethodList extends Model
 {
     /**
-     * @description 权限码。ssh-clone：SSH克隆；http-clone：HTTP克隆；download：下载ZIP/TAR
-     *
-     * @var string
-     */
-    public $permissionCode;
-
-    /**
-     * @description 是否允许
-     *
      * @var bool
      */
     public $allowed;
+
+    /**
+     * @var string
+     */
+    public $permissionCode;
     protected $_name = [
-        'permissionCode' => 'PermissionCode',
         'allowed'        => 'Allowed',
+        'permissionCode' => 'PermissionCode',
     ];
 
     public function validate()
@@ -33,11 +29,11 @@ class orgCloneDownloadMethodList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->permissionCode) {
-            $res['PermissionCode'] = $this->permissionCode;
-        }
         if (null !== $this->allowed) {
             $res['Allowed'] = $this->allowed;
+        }
+        if (null !== $this->permissionCode) {
+            $res['PermissionCode'] = $this->permissionCode;
         }
 
         return $res;
@@ -51,11 +47,11 @@ class orgCloneDownloadMethodList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PermissionCode'])) {
-            $model->permissionCode = $map['PermissionCode'];
-        }
         if (isset($map['Allowed'])) {
             $model->allowed = $map['Allowed'];
+        }
+        if (isset($map['PermissionCode'])) {
+            $model->permissionCode = $map['PermissionCode'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $path;
+    public $id;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class result extends Model
     /**
      * @var string
      */
-    public $id;
+    public $path;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type' => 'Type',
-        'path' => 'Path',
+        'id'   => 'Id',
         'mode' => 'Mode',
         'name' => 'Name',
-        'id'   => 'Id',
+        'path' => 'Path',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
@@ -59,8 +56,11 @@ class result extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
@@ -86,8 +83,11 @@ class result extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

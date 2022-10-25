@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class mergeRequestSetting extends Model
 {
     /**
-     * @var string
+     * @var int[]
      */
-    public $mergeRequestMode;
+    public $allowMergeRequestRoles;
 
     /**
      * @var bool
      */
     public $allowSelfApproval;
+
+    /**
+     * @var string[]
+     */
+    public $defaultAssignees;
 
     /**
      * @var bool
@@ -26,12 +31,12 @@ class mergeRequestSetting extends Model
     /**
      * @var bool
      */
-    public $required;
+    public $isResetApprovalWhenNewPush;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isResetApprovalWhenNewPush;
+    public $mergeRequestMode;
 
     /**
      * @var int
@@ -39,23 +44,18 @@ class mergeRequestSetting extends Model
     public $minimualApproval;
 
     /**
-     * @var string[]
+     * @var bool
      */
-    public $defaultAssignees;
-
-    /**
-     * @var int[]
-     */
-    public $allowMergeRequestRoles;
+    public $required;
     protected $_name = [
-        'mergeRequestMode'             => 'MergeRequestMode',
-        'allowSelfApproval'            => 'AllowSelfApproval',
-        'isRequireDiscussionProcessed' => 'IsRequireDiscussionProcessed',
-        'required'                     => 'Required',
-        'isResetApprovalWhenNewPush'   => 'IsResetApprovalWhenNewPush',
-        'minimualApproval'             => 'MinimualApproval',
-        'defaultAssignees'             => 'DefaultAssignees',
         'allowMergeRequestRoles'       => 'AllowMergeRequestRoles',
+        'allowSelfApproval'            => 'AllowSelfApproval',
+        'defaultAssignees'             => 'DefaultAssignees',
+        'isRequireDiscussionProcessed' => 'IsRequireDiscussionProcessed',
+        'isResetApprovalWhenNewPush'   => 'IsResetApprovalWhenNewPush',
+        'mergeRequestMode'             => 'MergeRequestMode',
+        'minimualApproval'             => 'MinimualApproval',
+        'required'                     => 'Required',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class mergeRequestSetting extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mergeRequestMode) {
-            $res['MergeRequestMode'] = $this->mergeRequestMode;
+        if (null !== $this->allowMergeRequestRoles) {
+            $res['AllowMergeRequestRoles'] = $this->allowMergeRequestRoles;
         }
         if (null !== $this->allowSelfApproval) {
             $res['AllowSelfApproval'] = $this->allowSelfApproval;
         }
+        if (null !== $this->defaultAssignees) {
+            $res['DefaultAssignees'] = $this->defaultAssignees;
+        }
         if (null !== $this->isRequireDiscussionProcessed) {
             $res['IsRequireDiscussionProcessed'] = $this->isRequireDiscussionProcessed;
-        }
-        if (null !== $this->required) {
-            $res['Required'] = $this->required;
         }
         if (null !== $this->isResetApprovalWhenNewPush) {
             $res['IsResetApprovalWhenNewPush'] = $this->isResetApprovalWhenNewPush;
         }
+        if (null !== $this->mergeRequestMode) {
+            $res['MergeRequestMode'] = $this->mergeRequestMode;
+        }
         if (null !== $this->minimualApproval) {
             $res['MinimualApproval'] = $this->minimualApproval;
         }
-        if (null !== $this->defaultAssignees) {
-            $res['DefaultAssignees'] = $this->defaultAssignees;
-        }
-        if (null !== $this->allowMergeRequestRoles) {
-            $res['AllowMergeRequestRoles'] = $this->allowMergeRequestRoles;
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
         }
 
         return $res;
@@ -101,33 +101,33 @@ class mergeRequestSetting extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MergeRequestMode'])) {
-            $model->mergeRequestMode = $map['MergeRequestMode'];
+        if (isset($map['AllowMergeRequestRoles'])) {
+            if (!empty($map['AllowMergeRequestRoles'])) {
+                $model->allowMergeRequestRoles = $map['AllowMergeRequestRoles'];
+            }
         }
         if (isset($map['AllowSelfApproval'])) {
             $model->allowSelfApproval = $map['AllowSelfApproval'];
-        }
-        if (isset($map['IsRequireDiscussionProcessed'])) {
-            $model->isRequireDiscussionProcessed = $map['IsRequireDiscussionProcessed'];
-        }
-        if (isset($map['Required'])) {
-            $model->required = $map['Required'];
-        }
-        if (isset($map['IsResetApprovalWhenNewPush'])) {
-            $model->isResetApprovalWhenNewPush = $map['IsResetApprovalWhenNewPush'];
-        }
-        if (isset($map['MinimualApproval'])) {
-            $model->minimualApproval = $map['MinimualApproval'];
         }
         if (isset($map['DefaultAssignees'])) {
             if (!empty($map['DefaultAssignees'])) {
                 $model->defaultAssignees = $map['DefaultAssignees'];
             }
         }
-        if (isset($map['AllowMergeRequestRoles'])) {
-            if (!empty($map['AllowMergeRequestRoles'])) {
-                $model->allowMergeRequestRoles = $map['AllowMergeRequestRoles'];
-            }
+        if (isset($map['IsRequireDiscussionProcessed'])) {
+            $model->isRequireDiscussionProcessed = $map['IsRequireDiscussionProcessed'];
+        }
+        if (isset($map['IsResetApprovalWhenNewPush'])) {
+            $model->isResetApprovalWhenNewPush = $map['IsResetApprovalWhenNewPush'];
+        }
+        if (isset($map['MergeRequestMode'])) {
+            $model->mergeRequestMode = $map['MergeRequestMode'];
+        }
+        if (isset($map['MinimualApproval'])) {
+            $model->minimualApproval = $map['MinimualApproval'];
+        }
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $key;
+    public $createdAt;
 
     /**
      * @var string
@@ -19,14 +19,14 @@ class result extends Model
     public $fingerPrint;
 
     /**
-     * @var string
+     * @var int
      */
-    public $createdAt;
+    public $id;
 
     /**
      * @var string
      */
-    public $title;
+    public $key;
 
     /**
      * @var string
@@ -34,16 +34,16 @@ class result extends Model
     public $keyScope;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $title;
     protected $_name = [
-        'key'         => 'Key',
-        'fingerPrint' => 'FingerPrint',
         'createdAt'   => 'CreatedAt',
-        'title'       => 'Title',
-        'keyScope'    => 'KeyScope',
+        'fingerPrint' => 'FingerPrint',
         'id'          => 'Id',
+        'key'         => 'Key',
+        'keyScope'    => 'KeyScope',
+        'title'       => 'Title',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->createdAt) {
+            $res['CreatedAt'] = $this->createdAt;
         }
         if (null !== $this->fingerPrint) {
             $res['FingerPrint'] = $this->fingerPrint;
         }
-        if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
         if (null !== $this->keyScope) {
             $res['KeyScope'] = $this->keyScope;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['CreatedAt'])) {
+            $model->createdAt = $map['CreatedAt'];
         }
         if (isset($map['FingerPrint'])) {
             $model->fingerPrint = $map['FingerPrint'];
         }
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
         if (isset($map['KeyScope'])) {
             $model->keyScope = $map['KeyScope'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

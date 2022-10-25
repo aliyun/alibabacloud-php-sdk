@@ -16,11 +16,6 @@ class ListRepositoryTagsRequest extends Model
     /**
      * @var string
      */
-    public $search;
-
-    /**
-     * @var string
-     */
     public $organizationId;
 
     /**
@@ -36,20 +31,25 @@ class ListRepositoryTagsRequest extends Model
     /**
      * @var string
      */
-    public $sort;
+    public $search;
 
     /**
      * @var bool
      */
     public $showSignature;
+
+    /**
+     * @var string
+     */
+    public $sort;
     protected $_name = [
         'accessToken'    => 'AccessToken',
-        'search'         => 'Search',
         'organizationId' => 'OrganizationId',
         'page'           => 'Page',
         'pageSize'       => 'PageSize',
-        'sort'           => 'Sort',
+        'search'         => 'Search',
         'showSignature'  => 'ShowSignature',
+        'sort'           => 'Sort',
     ];
 
     public function validate()
@@ -62,9 +62,6 @@ class ListRepositoryTagsRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->search) {
-            $res['Search'] = $this->search;
-        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
@@ -74,11 +71,14 @@ class ListRepositoryTagsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
+        if (null !== $this->search) {
+            $res['Search'] = $this->search;
         }
         if (null !== $this->showSignature) {
             $res['ShowSignature'] = $this->showSignature;
+        }
+        if (null !== $this->sort) {
+            $res['Sort'] = $this->sort;
         }
 
         return $res;
@@ -95,9 +95,6 @@ class ListRepositoryTagsRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['Search'])) {
-            $model->search = $map['Search'];
-        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
@@ -107,11 +104,14 @@ class ListRepositoryTagsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
+        if (isset($map['Search'])) {
+            $model->search = $map['Search'];
         }
         if (isset($map['ShowSignature'])) {
             $model->showSignature = $map['ShowSignature'];
+        }
+        if (isset($map['Sort'])) {
+            $model->sort = $map['Sort'];
         }
 
         return $model;

@@ -10,68 +10,52 @@ use AlibabaCloud\Tea\Model;
 class mergeRequestSetting extends Model
 {
     /**
-     * @description 评审模式。  general：普通 codeowner：CodeOwner模式
-     *
-     * @var string
-     */
-    public $mergeRequestMode;
-
-    /**
-     * @description 是否允许创建者通过代码评审。
-     *
-     * @var bool
-     */
-    public $allowSelfApproval;
-
-    /**
-     * @description 是否要求评论全部已解决。
-     *
-     * @var bool
-     */
-    public $isRequireDiscussionProcessed;
-
-    /**
-     * @description 是否要求合并前通过代码评审。
-     *
-     * @var bool
-     */
-    public $required;
-
-    /**
-     * @description 评审通过的最少人数。  注：仅普通模式生效。
-     *
-     * @var int
-     */
-    public $minimumApproval;
-
-    /**
-     * @description 默认评审者。  注：云效用户 ID 列表。
-     *
-     * @var defaultAssignees[]
-     */
-    public $defaultAssignees;
-
-    /**
-     * @description 允许通过代码评审的角色。  40：管理员  30：开发者
-     *
      * @var int[]
      */
     public $allowMergeRequestRoles;
 
     /**
-     * @description 评审文件白名单
-     *
+     * @var bool
+     */
+    public $allowSelfApproval;
+
+    /**
+     * @var defaultAssignees[]
+     */
+    public $defaultAssignees;
+
+    /**
+     * @var bool
+     */
+    public $isRequireDiscussionProcessed;
+
+    /**
+     * @var string
+     */
+    public $mergeRequestMode;
+
+    /**
+     * @var int
+     */
+    public $minimumApproval;
+
+    /**
+     * @var bool
+     */
+    public $required;
+
+    /**
      * @var string
      */
     public $whiteList;
     protected $_name = [
-        'mergeRequestMode'             => 'MergeRequestMode',
-        'allowSelfApproval'            => 'AllowSelfApproval',
-        'isRequireDiscussionProcessed' => 'IsRequireDiscussionProcessed',
-        'required'                     => 'Required',
-        'minimumApproval'              => 'MinimumApproval',
-        'defaultAssignees'             => 'DefaultAssignees',
         'allowMergeRequestRoles'       => 'AllowMergeRequestRoles',
+        'allowSelfApproval'            => 'AllowSelfApproval',
+        'defaultAssignees'             => 'DefaultAssignees',
+        'isRequireDiscussionProcessed' => 'IsRequireDiscussionProcessed',
+        'mergeRequestMode'             => 'MergeRequestMode',
+        'minimumApproval'              => 'MinimumApproval',
+        'required'                     => 'Required',
         'whiteList'                    => 'WhiteList',
     ];
 
@@ -82,20 +66,11 @@ class mergeRequestSetting extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mergeRequestMode) {
-            $res['MergeRequestMode'] = $this->mergeRequestMode;
+        if (null !== $this->allowMergeRequestRoles) {
+            $res['AllowMergeRequestRoles'] = $this->allowMergeRequestRoles;
         }
         if (null !== $this->allowSelfApproval) {
             $res['AllowSelfApproval'] = $this->allowSelfApproval;
-        }
-        if (null !== $this->isRequireDiscussionProcessed) {
-            $res['IsRequireDiscussionProcessed'] = $this->isRequireDiscussionProcessed;
-        }
-        if (null !== $this->required) {
-            $res['Required'] = $this->required;
-        }
-        if (null !== $this->minimumApproval) {
-            $res['MinimumApproval'] = $this->minimumApproval;
         }
         if (null !== $this->defaultAssignees) {
             $res['DefaultAssignees'] = [];
@@ -106,8 +81,17 @@ class mergeRequestSetting extends Model
                 }
             }
         }
-        if (null !== $this->allowMergeRequestRoles) {
-            $res['AllowMergeRequestRoles'] = $this->allowMergeRequestRoles;
+        if (null !== $this->isRequireDiscussionProcessed) {
+            $res['IsRequireDiscussionProcessed'] = $this->isRequireDiscussionProcessed;
+        }
+        if (null !== $this->mergeRequestMode) {
+            $res['MergeRequestMode'] = $this->mergeRequestMode;
+        }
+        if (null !== $this->minimumApproval) {
+            $res['MinimumApproval'] = $this->minimumApproval;
+        }
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
         }
         if (null !== $this->whiteList) {
             $res['WhiteList'] = $this->whiteList;
@@ -124,20 +108,13 @@ class mergeRequestSetting extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MergeRequestMode'])) {
-            $model->mergeRequestMode = $map['MergeRequestMode'];
+        if (isset($map['AllowMergeRequestRoles'])) {
+            if (!empty($map['AllowMergeRequestRoles'])) {
+                $model->allowMergeRequestRoles = $map['AllowMergeRequestRoles'];
+            }
         }
         if (isset($map['AllowSelfApproval'])) {
             $model->allowSelfApproval = $map['AllowSelfApproval'];
-        }
-        if (isset($map['IsRequireDiscussionProcessed'])) {
-            $model->isRequireDiscussionProcessed = $map['IsRequireDiscussionProcessed'];
-        }
-        if (isset($map['Required'])) {
-            $model->required = $map['Required'];
-        }
-        if (isset($map['MinimumApproval'])) {
-            $model->minimumApproval = $map['MinimumApproval'];
         }
         if (isset($map['DefaultAssignees'])) {
             if (!empty($map['DefaultAssignees'])) {
@@ -148,10 +125,17 @@ class mergeRequestSetting extends Model
                 }
             }
         }
-        if (isset($map['AllowMergeRequestRoles'])) {
-            if (!empty($map['AllowMergeRequestRoles'])) {
-                $model->allowMergeRequestRoles = $map['AllowMergeRequestRoles'];
-            }
+        if (isset($map['IsRequireDiscussionProcessed'])) {
+            $model->isRequireDiscussionProcessed = $map['IsRequireDiscussionProcessed'];
+        }
+        if (isset($map['MergeRequestMode'])) {
+            $model->mergeRequestMode = $map['MergeRequestMode'];
+        }
+        if (isset($map['MinimumApproval'])) {
+            $model->minimumApproval = $map['MinimumApproval'];
+        }
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
         }
         if (isset($map['WhiteList'])) {
             $model->whiteList = $map['WhiteList'];

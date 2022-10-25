@@ -11,27 +11,27 @@ class assigneeList extends Model
     /**
      * @var string
      */
-    public $externUserId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $avatarUrl;
 
     /**
      * @var string
      */
+    public $externUserId;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
-        'externUserId' => 'ExternUserId',
-        'name'         => 'Name',
         'avatarUrl'    => 'AvatarUrl',
+        'externUserId' => 'ExternUserId',
         'id'           => 'Id',
+        'name'         => 'Name',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class assigneeList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->externUserId) {
-            $res['ExternUserId'] = $this->externUserId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->avatarUrl) {
             $res['AvatarUrl'] = $this->avatarUrl;
         }
+        if (null !== $this->externUserId) {
+            $res['ExternUserId'] = $this->externUserId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class assigneeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExternUserId'])) {
-            $model->externUserId = $map['ExternUserId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['AvatarUrl'])) {
             $model->avatarUrl = $map['AvatarUrl'];
         }
+        if (isset($map['ExternUserId'])) {
+            $model->externUserId = $map['ExternUserId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

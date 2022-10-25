@@ -11,12 +11,7 @@ class assigneeList extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $externUserId;
+    public $avatarUrl;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class assigneeList extends Model
     /**
      * @var string
      */
-    public $avatarUrl;
+    public $externUserId;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class assigneeList extends Model
     /**
      * @var string
      */
-    public $id;
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'externUserId' => 'ExternUserId',
-        'email'        => 'Email',
         'avatarUrl'    => 'AvatarUrl',
-        'name'         => 'Name',
+        'email'        => 'Email',
+        'externUserId' => 'ExternUserId',
         'id'           => 'Id',
+        'name'         => 'Name',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class assigneeList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->externUserId) {
-            $res['ExternUserId'] = $this->externUserId;
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-        if (null !== $this->avatarUrl) {
-            $res['AvatarUrl'] = $this->avatarUrl;
+        if (null !== $this->externUserId) {
+            $res['ExternUserId'] = $this->externUserId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class assigneeList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ExternUserId'])) {
-            $model->externUserId = $map['ExternUserId'];
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-        if (isset($map['AvatarUrl'])) {
-            $model->avatarUrl = $map['AvatarUrl'];
+        if (isset($map['ExternUserId'])) {
+            $model->externUserId = $map['ExternUserId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

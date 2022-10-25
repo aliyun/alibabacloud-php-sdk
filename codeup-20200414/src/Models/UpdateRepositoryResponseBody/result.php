@@ -10,24 +10,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $lastActivityAt;
-
-    /**
-     * @var string
-     */
-    public $defaultBranch;
+    public $archive;
 
     /**
      * @var string
      */
     public $avatarUrl;
-
-    /**
-     * @var bool
-     */
-    public $archive;
 
     /**
      * @var string
@@ -42,12 +32,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $httpUrlToRepo;
-
-    /**
-     * @var string
-     */
-    public $webUrl;
+    public $defaultBranch;
 
     /**
      * @var string
@@ -57,17 +42,32 @@ class result extends Model
     /**
      * @var string
      */
+    public $httpUrlToRepo;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $lastActivityAt;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nameWithNamespace;
 
     /**
-     * @var string
+     * @var namespace_
      */
-    public $pathWithNamespace;
-
-    /**
-     * @var string
-     */
-    public $visibilityLevel;
+    public $namespace;
 
     /**
      * @var string
@@ -77,40 +77,40 @@ class result extends Model
     /**
      * @var string
      */
+    public $pathWithNamespace;
+
+    /**
+     * @var string
+     */
     public $sshUrlToRepo;
 
     /**
      * @var string
      */
-    public $name;
+    public $visibilityLevel;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
-
-    /**
-     * @var namespace_
-     */
-    public $namespace;
+    public $webUrl;
     protected $_name = [
-        'lastActivityAt'    => 'LastActivityAt',
-        'defaultBranch'     => 'DefaultBranch',
-        'avatarUrl'         => 'AvatarUrl',
         'archive'           => 'Archive',
+        'avatarUrl'         => 'AvatarUrl',
         'createdAt'         => 'CreatedAt',
         'creatorId'         => 'CreatorId',
-        'httpUrlToRepo'     => 'HttpUrlToRepo',
-        'webUrl'            => 'WebUrl',
+        'defaultBranch'     => 'DefaultBranch',
         'description'       => 'Description',
-        'nameWithNamespace' => 'NameWithNamespace',
-        'pathWithNamespace' => 'PathWithNamespace',
-        'visibilityLevel'   => 'VisibilityLevel',
-        'path'              => 'Path',
-        'sshUrlToRepo'      => 'SshUrlToRepo',
-        'name'              => 'Name',
+        'httpUrlToRepo'     => 'HttpUrlToRepo',
         'id'                => 'Id',
+        'lastActivityAt'    => 'LastActivityAt',
+        'name'              => 'Name',
+        'nameWithNamespace' => 'NameWithNamespace',
         'namespace'         => 'Namespace',
+        'path'              => 'Path',
+        'pathWithNamespace' => 'PathWithNamespace',
+        'sshUrlToRepo'      => 'SshUrlToRepo',
+        'visibilityLevel'   => 'VisibilityLevel',
+        'webUrl'            => 'WebUrl',
     ];
 
     public function validate()
@@ -120,17 +120,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lastActivityAt) {
-            $res['LastActivityAt'] = $this->lastActivityAt;
-        }
-        if (null !== $this->defaultBranch) {
-            $res['DefaultBranch'] = $this->defaultBranch;
+        if (null !== $this->archive) {
+            $res['Archive'] = $this->archive;
         }
         if (null !== $this->avatarUrl) {
             $res['AvatarUrl'] = $this->avatarUrl;
-        }
-        if (null !== $this->archive) {
-            $res['Archive'] = $this->archive;
         }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
@@ -138,38 +132,44 @@ class result extends Model
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
-        if (null !== $this->httpUrlToRepo) {
-            $res['HttpUrlToRepo'] = $this->httpUrlToRepo;
-        }
-        if (null !== $this->webUrl) {
-            $res['WebUrl'] = $this->webUrl;
+        if (null !== $this->defaultBranch) {
+            $res['DefaultBranch'] = $this->defaultBranch;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->nameWithNamespace) {
-            $res['NameWithNamespace'] = $this->nameWithNamespace;
-        }
-        if (null !== $this->pathWithNamespace) {
-            $res['PathWithNamespace'] = $this->pathWithNamespace;
-        }
-        if (null !== $this->visibilityLevel) {
-            $res['VisibilityLevel'] = $this->visibilityLevel;
-        }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
-        if (null !== $this->sshUrlToRepo) {
-            $res['SshUrlToRepo'] = $this->sshUrlToRepo;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->httpUrlToRepo) {
+            $res['HttpUrlToRepo'] = $this->httpUrlToRepo;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->lastActivityAt) {
+            $res['LastActivityAt'] = $this->lastActivityAt;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->nameWithNamespace) {
+            $res['NameWithNamespace'] = $this->nameWithNamespace;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = null !== $this->namespace ? $this->namespace->toMap() : null;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+        if (null !== $this->pathWithNamespace) {
+            $res['PathWithNamespace'] = $this->pathWithNamespace;
+        }
+        if (null !== $this->sshUrlToRepo) {
+            $res['SshUrlToRepo'] = $this->sshUrlToRepo;
+        }
+        if (null !== $this->visibilityLevel) {
+            $res['VisibilityLevel'] = $this->visibilityLevel;
+        }
+        if (null !== $this->webUrl) {
+            $res['WebUrl'] = $this->webUrl;
         }
 
         return $res;
@@ -183,17 +183,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LastActivityAt'])) {
-            $model->lastActivityAt = $map['LastActivityAt'];
-        }
-        if (isset($map['DefaultBranch'])) {
-            $model->defaultBranch = $map['DefaultBranch'];
+        if (isset($map['Archive'])) {
+            $model->archive = $map['Archive'];
         }
         if (isset($map['AvatarUrl'])) {
             $model->avatarUrl = $map['AvatarUrl'];
-        }
-        if (isset($map['Archive'])) {
-            $model->archive = $map['Archive'];
         }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
@@ -201,38 +195,44 @@ class result extends Model
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
-        if (isset($map['HttpUrlToRepo'])) {
-            $model->httpUrlToRepo = $map['HttpUrlToRepo'];
-        }
-        if (isset($map['WebUrl'])) {
-            $model->webUrl = $map['WebUrl'];
+        if (isset($map['DefaultBranch'])) {
+            $model->defaultBranch = $map['DefaultBranch'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['NameWithNamespace'])) {
-            $model->nameWithNamespace = $map['NameWithNamespace'];
-        }
-        if (isset($map['PathWithNamespace'])) {
-            $model->pathWithNamespace = $map['PathWithNamespace'];
-        }
-        if (isset($map['VisibilityLevel'])) {
-            $model->visibilityLevel = $map['VisibilityLevel'];
-        }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
-        if (isset($map['SshUrlToRepo'])) {
-            $model->sshUrlToRepo = $map['SshUrlToRepo'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['HttpUrlToRepo'])) {
+            $model->httpUrlToRepo = $map['HttpUrlToRepo'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['LastActivityAt'])) {
+            $model->lastActivityAt = $map['LastActivityAt'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['NameWithNamespace'])) {
+            $model->nameWithNamespace = $map['NameWithNamespace'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = namespace_::fromMap($map['Namespace']);
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+        if (isset($map['PathWithNamespace'])) {
+            $model->pathWithNamespace = $map['PathWithNamespace'];
+        }
+        if (isset($map['SshUrlToRepo'])) {
+            $model->sshUrlToRepo = $map['SshUrlToRepo'];
+        }
+        if (isset($map['VisibilityLevel'])) {
+            $model->visibilityLevel = $map['VisibilityLevel'];
+        }
+        if (isset($map['WebUrl'])) {
+            $model->webUrl = $map['WebUrl'];
         }
 
         return $model;

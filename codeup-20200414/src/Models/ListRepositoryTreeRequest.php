@@ -26,24 +26,24 @@ class ListRepositoryTreeRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $refName;
 
     /**
      * @var string
      */
     public $subUserId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'accessToken'    => 'AccessToken',
         'organizationId' => 'OrganizationId',
         'path'           => 'Path',
-        'type'           => 'Type',
         'refName'        => 'RefName',
         'subUserId'      => 'SubUserId',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class ListRepositoryTreeRequest extends Model
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->refName) {
             $res['RefName'] = $this->refName;
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class ListRepositoryTreeRequest extends Model
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['RefName'])) {
             $model->refName = $map['RefName'];
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

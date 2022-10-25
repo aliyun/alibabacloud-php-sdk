@@ -16,12 +16,12 @@ class ListMergeRequestCommentsRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $fromCommit;
 
     /**
      * @var string
      */
-    public $fromCommit;
+    public $organizationId;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class ListMergeRequestCommentsRequest extends Model
     public $toCommit;
     protected $_name = [
         'accessToken'    => 'AccessToken',
-        'organizationId' => 'OrganizationId',
         'fromCommit'     => 'FromCommit',
+        'organizationId' => 'OrganizationId',
         'toCommit'       => 'ToCommit',
     ];
 
@@ -44,11 +44,11 @@ class ListMergeRequestCommentsRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->fromCommit) {
             $res['FromCommit'] = $this->fromCommit;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->toCommit) {
             $res['ToCommit'] = $this->toCommit;
@@ -68,11 +68,11 @@ class ListMergeRequestCommentsRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['FromCommit'])) {
             $model->fromCommit = $map['FromCommit'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['ToCommit'])) {
             $model->toCommit = $map['ToCommit'];

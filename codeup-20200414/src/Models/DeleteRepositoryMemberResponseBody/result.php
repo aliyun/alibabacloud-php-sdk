@@ -11,17 +11,17 @@ class result extends Model
     /**
      * @var int
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
+    public $accessLevel;
 
     /**
      * @var string
      */
     public $createdAt;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var string
@@ -31,7 +31,17 @@ class result extends Model
     /**
      * @var int
      */
-    public $accessLevel;
+    public $notificationLevel;
+
+    /**
+     * @var int
+     */
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
 
     /**
      * @var string
@@ -41,27 +51,17 @@ class result extends Model
     /**
      * @var int
      */
-    public $sourceId;
-
-    /**
-     * @var int
-     */
-    public $notificationLevel;
-
-    /**
-     * @var int
-     */
-    public $id;
+    public $userId;
     protected $_name = [
-        'userId'            => 'UserId',
-        'sourceType'        => 'SourceType',
-        'createdAt'         => 'CreatedAt',
-        'message'           => 'Message',
         'accessLevel'       => 'AccessLevel',
-        'updatedAt'         => 'UpdatedAt',
-        'sourceId'          => 'SourceId',
-        'notificationLevel' => 'NotificationLevel',
+        'createdAt'         => 'CreatedAt',
         'id'                => 'Id',
+        'message'           => 'Message',
+        'notificationLevel' => 'NotificationLevel',
+        'sourceId'          => 'SourceId',
+        'sourceType'        => 'SourceType',
+        'updatedAt'         => 'UpdatedAt',
+        'userId'            => 'UserId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
+        if (null !== $this->accessLevel) {
+            $res['AccessLevel'] = $this->accessLevel;
         }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->accessLevel) {
-            $res['AccessLevel'] = $this->accessLevel;
-        }
-        if (null !== $this->updatedAt) {
-            $res['UpdatedAt'] = $this->updatedAt;
-        }
-        if (null !== $this->sourceId) {
-            $res['SourceId'] = $this->sourceId;
         }
         if (null !== $this->notificationLevel) {
             $res['NotificationLevel'] = $this->notificationLevel;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->updatedAt) {
+            $res['UpdatedAt'] = $this->updatedAt;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
+        if (isset($map['AccessLevel'])) {
+            $model->accessLevel = $map['AccessLevel'];
         }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['AccessLevel'])) {
-            $model->accessLevel = $map['AccessLevel'];
-        }
-        if (isset($map['UpdatedAt'])) {
-            $model->updatedAt = $map['UpdatedAt'];
-        }
-        if (isset($map['SourceId'])) {
-            $model->sourceId = $map['SourceId'];
         }
         if (isset($map['NotificationLevel'])) {
             $model->notificationLevel = $map['NotificationLevel'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['UpdatedAt'])) {
+            $model->updatedAt = $map['UpdatedAt'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

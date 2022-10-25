@@ -19,11 +19,6 @@ class ListRepositoryMemberRequest extends Model
     public $organizationId;
 
     /**
-     * @var string
-     */
-    public $query;
-
-    /**
      * @var int
      */
     public $page;
@@ -36,13 +31,18 @@ class ListRepositoryMemberRequest extends Model
     /**
      * @var string
      */
+    public $query;
+
+    /**
+     * @var string
+     */
     public $subUserId;
     protected $_name = [
         'accessToken'    => 'AccessToken',
         'organizationId' => 'OrganizationId',
-        'query'          => 'Query',
         'page'           => 'Page',
         'pageSize'       => 'PageSize',
+        'query'          => 'Query',
         'subUserId'      => 'SubUserId',
     ];
 
@@ -59,14 +59,14 @@ class ListRepositoryMemberRequest extends Model
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
-        if (null !== $this->query) {
-            $res['Query'] = $this->query;
-        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
@@ -89,14 +89,14 @@ class ListRepositoryMemberRequest extends Model
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
-        if (isset($map['Query'])) {
-            $model->query = $map['Query'];
-        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];

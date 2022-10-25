@@ -11,15 +11,15 @@ class result extends Model
     /**
      * @var string
      */
-    public $filePath;
+    public $branchName;
 
     /**
      * @var string
      */
-    public $branchName;
+    public $filePath;
     protected $_name = [
-        'filePath'   => 'FilePath',
         'branchName' => 'BranchName',
+        'filePath'   => 'FilePath',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->filePath) {
-            $res['FilePath'] = $this->filePath;
-        }
         if (null !== $this->branchName) {
             $res['BranchName'] = $this->branchName;
+        }
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FilePath'])) {
-            $model->filePath = $map['FilePath'];
-        }
         if (isset($map['BranchName'])) {
             $model->branchName = $map['BranchName'];
+        }
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
         }
 
         return $model;

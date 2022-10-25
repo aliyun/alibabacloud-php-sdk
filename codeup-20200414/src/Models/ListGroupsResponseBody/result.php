@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $accessLevel;
 
     /**
      * @var string
@@ -19,14 +19,29 @@ class result extends Model
     public $createdAt;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
-    public $ownerId;
+    public $id;
 
     /**
      * @var string
      */
-    public $webUrl;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $nameWithNamespace;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -36,12 +51,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $nameWithNamespace;
+    public $path;
 
     /**
      * @var string
@@ -51,17 +61,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $visibilityLevel;
-
-    /**
-     * @var string
-     */
-    public $path;
-
-    /**
-     * @var int
-     */
-    public $accessLevel;
+    public $type;
 
     /**
      * @var string
@@ -71,27 +71,27 @@ class result extends Model
     /**
      * @var string
      */
-    public $name;
+    public $visibilityLevel;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $webUrl;
     protected $_name = [
-        'type'              => 'Type',
-        'createdAt'         => 'CreatedAt',
-        'ownerId'           => 'OwnerId',
-        'webUrl'            => 'WebUrl',
-        'parentId'          => 'ParentId',
-        'description'       => 'Description',
-        'nameWithNamespace' => 'NameWithNamespace',
-        'pathWithNamespace' => 'PathWithNamespace',
-        'visibilityLevel'   => 'VisibilityLevel',
-        'path'              => 'Path',
         'accessLevel'       => 'AccessLevel',
-        'updatedAt'         => 'UpdatedAt',
-        'name'              => 'Name',
+        'createdAt'         => 'CreatedAt',
+        'description'       => 'Description',
         'id'                => 'Id',
+        'name'              => 'Name',
+        'nameWithNamespace' => 'NameWithNamespace',
+        'ownerId'           => 'OwnerId',
+        'parentId'          => 'ParentId',
+        'path'              => 'Path',
+        'pathWithNamespace' => 'PathWithNamespace',
+        'type'              => 'Type',
+        'updatedAt'         => 'UpdatedAt',
+        'visibilityLevel'   => 'VisibilityLevel',
+        'webUrl'            => 'WebUrl',
     ];
 
     public function validate()
@@ -101,47 +101,47 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->accessLevel) {
+            $res['AccessLevel'] = $this->accessLevel;
         }
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->webUrl) {
-            $res['WebUrl'] = $this->webUrl;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->nameWithNamespace) {
-            $res['NameWithNamespace'] = $this->nameWithNamespace;
-        }
-        if (null !== $this->pathWithNamespace) {
-            $res['PathWithNamespace'] = $this->pathWithNamespace;
-        }
-        if (null !== $this->visibilityLevel) {
-            $res['VisibilityLevel'] = $this->visibilityLevel;
-        }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
-        if (null !== $this->accessLevel) {
-            $res['AccessLevel'] = $this->accessLevel;
-        }
-        if (null !== $this->updatedAt) {
-            $res['UpdatedAt'] = $this->updatedAt;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->nameWithNamespace) {
+            $res['NameWithNamespace'] = $this->nameWithNamespace;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+        if (null !== $this->pathWithNamespace) {
+            $res['PathWithNamespace'] = $this->pathWithNamespace;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updatedAt) {
+            $res['UpdatedAt'] = $this->updatedAt;
+        }
+        if (null !== $this->visibilityLevel) {
+            $res['VisibilityLevel'] = $this->visibilityLevel;
+        }
+        if (null !== $this->webUrl) {
+            $res['WebUrl'] = $this->webUrl;
         }
 
         return $res;
@@ -155,47 +155,47 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['AccessLevel'])) {
+            $model->accessLevel = $map['AccessLevel'];
         }
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['WebUrl'])) {
-            $model->webUrl = $map['WebUrl'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['NameWithNamespace'])) {
-            $model->nameWithNamespace = $map['NameWithNamespace'];
-        }
-        if (isset($map['PathWithNamespace'])) {
-            $model->pathWithNamespace = $map['PathWithNamespace'];
-        }
-        if (isset($map['VisibilityLevel'])) {
-            $model->visibilityLevel = $map['VisibilityLevel'];
-        }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
-        if (isset($map['AccessLevel'])) {
-            $model->accessLevel = $map['AccessLevel'];
-        }
-        if (isset($map['UpdatedAt'])) {
-            $model->updatedAt = $map['UpdatedAt'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['NameWithNamespace'])) {
+            $model->nameWithNamespace = $map['NameWithNamespace'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+        if (isset($map['PathWithNamespace'])) {
+            $model->pathWithNamespace = $map['PathWithNamespace'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdatedAt'])) {
+            $model->updatedAt = $map['UpdatedAt'];
+        }
+        if (isset($map['VisibilityLevel'])) {
+            $model->visibilityLevel = $map['VisibilityLevel'];
+        }
+        if (isset($map['WebUrl'])) {
+            $model->webUrl = $map['WebUrl'];
         }
 
         return $model;

@@ -9,37 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetFileLastCommitRequest extends Model
 {
     /**
-     * @description 个人访问令牌
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @description 云效企业ID
-     *
+     * @var string
+     */
+    public $filePath;
+
+    /**
      * @var string
      */
     public $organizationId;
 
     /**
-     * @description 分支名称、标签名称或Commit ID
-     *
      * @var string
      */
     public $sha;
-
-    /**
-     * @description 文件路径
-     *
-     * @var string
-     */
-    public $filePath;
     protected $_name = [
         'accessToken'    => 'AccessToken',
+        'filePath'       => 'FilePath',
         'organizationId' => 'OrganizationId',
         'sha'            => 'Sha',
-        'filePath'       => 'FilePath',
     ];
 
     public function validate()
@@ -52,14 +44,14 @@ class GetFileLastCommitRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
+        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->sha) {
             $res['Sha'] = $this->sha;
-        }
-        if (null !== $this->filePath) {
-            $res['FilePath'] = $this->filePath;
         }
 
         return $res;
@@ -76,14 +68,14 @@ class GetFileLastCommitRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
+        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['Sha'])) {
             $model->sha = $map['Sha'];
-        }
-        if (isset($map['FilePath'])) {
-            $model->filePath = $map['FilePath'];
         }
 
         return $model;

@@ -16,12 +16,7 @@ class result extends Model
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var string
-     */
-    public $title;
+    public $fingerPrint;
 
     /**
      * @var int
@@ -31,13 +26,18 @@ class result extends Model
     /**
      * @var string
      */
-    public $fingerPrint;
+    public $key;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
         'createdAt'   => 'CreatedAt',
+        'fingerPrint' => 'FingerPrint',
+        'id'          => 'Id',
         'key'         => 'Key',
         'title'       => 'Title',
-        'id'          => 'Id',
-        'fingerPrint' => 'FingerPrint',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class result extends Model
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
+        if (null !== $this->fingerPrint) {
+            $res['FingerPrint'] = $this->fingerPrint;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->fingerPrint) {
-            $res['FingerPrint'] = $this->fingerPrint;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class result extends Model
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
+        if (isset($map['FingerPrint'])) {
+            $model->fingerPrint = $map['FingerPrint'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['FingerPrint'])) {
-            $model->fingerPrint = $map['FingerPrint'];
         }
 
         return $model;

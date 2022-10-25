@@ -12,6 +12,11 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $errorMessage;
 
     /**
@@ -20,25 +25,20 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var result[]
      */
-    public $errorCode;
+    public $result;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var result[]
-     */
-    public $result;
     protected $_name = [
+        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
-        'errorCode'    => 'ErrorCode',
-        'success'      => 'Success',
         'result'       => 'Result',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -48,17 +48,14 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -68,6 +65,9 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -81,17 +81,14 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
@@ -101,6 +98,9 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

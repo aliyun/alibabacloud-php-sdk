@@ -31,17 +31,17 @@ class ListRepositoryCommitsRequest extends Model
     /**
      * @var string
      */
-    public $search;
-
-    /**
-     * @var string
-     */
     public $path;
 
     /**
      * @var string
      */
     public $refName;
+
+    /**
+     * @var string
+     */
+    public $search;
 
     /**
      * @var bool
@@ -52,9 +52,9 @@ class ListRepositoryCommitsRequest extends Model
         'organizationId' => 'OrganizationId',
         'page'           => 'Page',
         'pageSize'       => 'PageSize',
-        'search'         => 'Search',
         'path'           => 'Path',
         'refName'        => 'RefName',
+        'search'         => 'Search',
         'showSignature'  => 'ShowSignature',
     ];
 
@@ -77,14 +77,14 @@ class ListRepositoryCommitsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->search) {
-            $res['Search'] = $this->search;
-        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
         if (null !== $this->refName) {
             $res['RefName'] = $this->refName;
+        }
+        if (null !== $this->search) {
+            $res['Search'] = $this->search;
         }
         if (null !== $this->showSignature) {
             $res['ShowSignature'] = $this->showSignature;
@@ -113,14 +113,14 @@ class ListRepositoryCommitsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Search'])) {
-            $model->search = $map['Search'];
-        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
         if (isset($map['RefName'])) {
             $model->refName = $map['RefName'];
+        }
+        if (isset($map['Search'])) {
+            $model->search = $map['Search'];
         }
         if (isset($map['ShowSignature'])) {
             $model->showSignature = $map['ShowSignature'];

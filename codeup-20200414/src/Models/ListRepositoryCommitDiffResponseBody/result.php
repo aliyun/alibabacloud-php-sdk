@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $AMode;
+
+    /**
+     * @var string
+     */
+    public $BMode;
+
+    /**
      * @var bool
      */
     public $deletedFile;
@@ -19,24 +29,9 @@ class result extends Model
     public $diff;
 
     /**
-     * @var string
-     */
-    public $oldPath;
-
-    /**
-     * @var string
-     */
-    public $oldId;
-
-    /**
-     * @var string
-     */
-    public $BMode;
-
-    /**
      * @var bool
      */
-    public $isOldLfs;
+    public $isBinary;
 
     /**
      * @var bool
@@ -46,7 +41,7 @@ class result extends Model
     /**
      * @var bool
      */
-    public $renamedFile;
+    public $isOldLfs;
 
     /**
      * @var bool
@@ -59,11 +54,6 @@ class result extends Model
     public $newId;
 
     /**
-     * @var bool
-     */
-    public $isBinary;
-
-    /**
      * @var string
      */
     public $newPath;
@@ -71,21 +61,31 @@ class result extends Model
     /**
      * @var string
      */
-    public $AMode;
+    public $oldId;
+
+    /**
+     * @var string
+     */
+    public $oldPath;
+
+    /**
+     * @var bool
+     */
+    public $renamedFile;
     protected $_name = [
+        'AMode'       => 'AMode',
+        'BMode'       => 'BMode',
         'deletedFile' => 'DeletedFile',
         'diff'        => 'Diff',
-        'oldPath'     => 'OldPath',
-        'oldId'       => 'OldId',
-        'BMode'       => 'BMode',
-        'isOldLfs'    => 'IsOldLfs',
+        'isBinary'    => 'IsBinary',
         'isNewLfs'    => 'IsNewLfs',
-        'renamedFile' => 'RenamedFile',
+        'isOldLfs'    => 'IsOldLfs',
         'newFile'     => 'NewFile',
         'newId'       => 'NewId',
-        'isBinary'    => 'IsBinary',
         'newPath'     => 'NewPath',
-        'AMode'       => 'AMode',
+        'oldId'       => 'OldId',
+        'oldPath'     => 'OldPath',
+        'renamedFile' => 'RenamedFile',
     ];
 
     public function validate()
@@ -95,29 +95,26 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->AMode) {
+            $res['AMode'] = $this->AMode;
+        }
+        if (null !== $this->BMode) {
+            $res['BMode'] = $this->BMode;
+        }
         if (null !== $this->deletedFile) {
             $res['DeletedFile'] = $this->deletedFile;
         }
         if (null !== $this->diff) {
             $res['Diff'] = $this->diff;
         }
-        if (null !== $this->oldPath) {
-            $res['OldPath'] = $this->oldPath;
-        }
-        if (null !== $this->oldId) {
-            $res['OldId'] = $this->oldId;
-        }
-        if (null !== $this->BMode) {
-            $res['BMode'] = $this->BMode;
-        }
-        if (null !== $this->isOldLfs) {
-            $res['IsOldLfs'] = $this->isOldLfs;
+        if (null !== $this->isBinary) {
+            $res['IsBinary'] = $this->isBinary;
         }
         if (null !== $this->isNewLfs) {
             $res['IsNewLfs'] = $this->isNewLfs;
         }
-        if (null !== $this->renamedFile) {
-            $res['RenamedFile'] = $this->renamedFile;
+        if (null !== $this->isOldLfs) {
+            $res['IsOldLfs'] = $this->isOldLfs;
         }
         if (null !== $this->newFile) {
             $res['NewFile'] = $this->newFile;
@@ -125,14 +122,17 @@ class result extends Model
         if (null !== $this->newId) {
             $res['NewId'] = $this->newId;
         }
-        if (null !== $this->isBinary) {
-            $res['IsBinary'] = $this->isBinary;
-        }
         if (null !== $this->newPath) {
             $res['NewPath'] = $this->newPath;
         }
-        if (null !== $this->AMode) {
-            $res['AMode'] = $this->AMode;
+        if (null !== $this->oldId) {
+            $res['OldId'] = $this->oldId;
+        }
+        if (null !== $this->oldPath) {
+            $res['OldPath'] = $this->oldPath;
+        }
+        if (null !== $this->renamedFile) {
+            $res['RenamedFile'] = $this->renamedFile;
         }
 
         return $res;
@@ -146,29 +146,26 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AMode'])) {
+            $model->AMode = $map['AMode'];
+        }
+        if (isset($map['BMode'])) {
+            $model->BMode = $map['BMode'];
+        }
         if (isset($map['DeletedFile'])) {
             $model->deletedFile = $map['DeletedFile'];
         }
         if (isset($map['Diff'])) {
             $model->diff = $map['Diff'];
         }
-        if (isset($map['OldPath'])) {
-            $model->oldPath = $map['OldPath'];
-        }
-        if (isset($map['OldId'])) {
-            $model->oldId = $map['OldId'];
-        }
-        if (isset($map['BMode'])) {
-            $model->BMode = $map['BMode'];
-        }
-        if (isset($map['IsOldLfs'])) {
-            $model->isOldLfs = $map['IsOldLfs'];
+        if (isset($map['IsBinary'])) {
+            $model->isBinary = $map['IsBinary'];
         }
         if (isset($map['IsNewLfs'])) {
             $model->isNewLfs = $map['IsNewLfs'];
         }
-        if (isset($map['RenamedFile'])) {
-            $model->renamedFile = $map['RenamedFile'];
+        if (isset($map['IsOldLfs'])) {
+            $model->isOldLfs = $map['IsOldLfs'];
         }
         if (isset($map['NewFile'])) {
             $model->newFile = $map['NewFile'];
@@ -176,14 +173,17 @@ class result extends Model
         if (isset($map['NewId'])) {
             $model->newId = $map['NewId'];
         }
-        if (isset($map['IsBinary'])) {
-            $model->isBinary = $map['IsBinary'];
-        }
         if (isset($map['NewPath'])) {
             $model->newPath = $map['NewPath'];
         }
-        if (isset($map['AMode'])) {
-            $model->AMode = $map['AMode'];
+        if (isset($map['OldId'])) {
+            $model->oldId = $map['OldId'];
+        }
+        if (isset($map['OldPath'])) {
+            $model->oldPath = $map['OldPath'];
+        }
+        if (isset($map['RenamedFile'])) {
+            $model->renamedFile = $map['RenamedFile'];
         }
 
         return $model;

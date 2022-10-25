@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var string
-     */
-    public $organizationRole;
-
-    /**
      * @var int
      */
     public $accessLevel;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class result extends Model
     /**
      * @var string
      */
-    public $organizationId;
+    public $organizationRole;
     protected $_name = [
-        'organizationRole' => 'OrganizationRole',
         'accessLevel'      => 'AccessLevel',
-        'organizationName' => 'OrganizationName',
         'organizationId'   => 'OrganizationId',
+        'organizationName' => 'OrganizationName',
+        'organizationRole' => 'OrganizationRole',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->organizationRole) {
-            $res['OrganizationRole'] = $this->organizationRole;
-        }
         if (null !== $this->accessLevel) {
             $res['AccessLevel'] = $this->accessLevel;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->organizationName) {
             $res['OrganizationName'] = $this->organizationName;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
+        if (null !== $this->organizationRole) {
+            $res['OrganizationRole'] = $this->organizationRole;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrganizationRole'])) {
-            $model->organizationRole = $map['OrganizationRole'];
-        }
         if (isset($map['AccessLevel'])) {
             $model->accessLevel = $map['AccessLevel'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['OrganizationName'])) {
             $model->organizationName = $map['OrganizationName'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
+        if (isset($map['OrganizationRole'])) {
+            $model->organizationRole = $map['OrganizationRole'];
         }
 
         return $model;

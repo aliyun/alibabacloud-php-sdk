@@ -16,17 +16,7 @@ class DeleteFileRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
-
-    /**
-     * @var string
-     */
     public $branchName;
-
-    /**
-     * @var string
-     */
-    public $filePath;
 
     /**
      * @var string
@@ -36,13 +26,23 @@ class DeleteFileRequest extends Model
     /**
      * @var string
      */
+    public $filePath;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
+
+    /**
+     * @var string
+     */
     public $subUserId;
     protected $_name = [
         'accessToken'    => 'AccessToken',
-        'organizationId' => 'OrganizationId',
         'branchName'     => 'BranchName',
-        'filePath'       => 'FilePath',
         'commitMessage'  => 'CommitMessage',
+        'filePath'       => 'FilePath',
+        'organizationId' => 'OrganizationId',
         'subUserId'      => 'SubUserId',
     ];
 
@@ -56,17 +56,17 @@ class DeleteFileRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->branchName) {
             $res['BranchName'] = $this->branchName;
+        }
+        if (null !== $this->commitMessage) {
+            $res['CommitMessage'] = $this->commitMessage;
         }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
-        if (null !== $this->commitMessage) {
-            $res['CommitMessage'] = $this->commitMessage;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
@@ -86,17 +86,17 @@ class DeleteFileRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['BranchName'])) {
             $model->branchName = $map['BranchName'];
+        }
+        if (isset($map['CommitMessage'])) {
+            $model->commitMessage = $map['CommitMessage'];
         }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
-        if (isset($map['CommitMessage'])) {
-            $model->commitMessage = $map['CommitMessage'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];

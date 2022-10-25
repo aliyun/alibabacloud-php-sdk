@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
-     * @var projectAccess
-     */
-    public $projectAccess;
-
-    /**
      * @var groupAccess
      */
     public $groupAccess;
+
+    /**
+     * @var projectAccess
+     */
+    public $projectAccess;
     protected $_name = [
-        'projectAccess' => 'ProjectAccess',
         'groupAccess'   => 'GroupAccess',
+        'projectAccess' => 'ProjectAccess',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class permissions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectAccess) {
-            $res['ProjectAccess'] = null !== $this->projectAccess ? $this->projectAccess->toMap() : null;
-        }
         if (null !== $this->groupAccess) {
             $res['GroupAccess'] = null !== $this->groupAccess ? $this->groupAccess->toMap() : null;
+        }
+        if (null !== $this->projectAccess) {
+            $res['ProjectAccess'] = null !== $this->projectAccess ? $this->projectAccess->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class permissions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectAccess'])) {
-            $model->projectAccess = projectAccess::fromMap($map['ProjectAccess']);
-        }
         if (isset($map['GroupAccess'])) {
             $model->groupAccess = groupAccess::fromMap($map['GroupAccess']);
+        }
+        if (isset($map['ProjectAccess'])) {
+            $model->projectAccess = projectAccess::fromMap($map['ProjectAccess']);
         }
 
         return $model;

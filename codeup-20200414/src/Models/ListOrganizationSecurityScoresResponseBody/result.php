@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var int
-     */
-    public $id;
-
-    /**
      * @var bool
      */
     public $enable;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class result extends Model
      */
     public $organizationSecurityScore;
     protected $_name = [
-        'id'                        => 'Id',
         'enable'                    => 'Enable',
+        'id'                        => 'Id',
         'organizationId'            => 'OrganizationId',
         'organizationSecurityScore' => 'OrganizationSecurityScore',
     ];
@@ -42,11 +42,11 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
@@ -66,11 +66,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];

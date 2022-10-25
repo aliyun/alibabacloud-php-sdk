@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $accessLevel;
+
+    /**
      * @var string
      */
     public $accessToken;
@@ -16,15 +21,10 @@ class ListOrganizationsRequest extends Model
     /**
      * @var int
      */
-    public $accessLevel;
-
-    /**
-     * @var int
-     */
     public $minAccessLevel;
     protected $_name = [
-        'accessToken'    => 'AccessToken',
         'accessLevel'    => 'AccessLevel',
+        'accessToken'    => 'AccessToken',
         'minAccessLevel' => 'MinAccessLevel',
     ];
 
@@ -35,11 +35,11 @@ class ListOrganizationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessToken) {
-            $res['AccessToken'] = $this->accessToken;
-        }
         if (null !== $this->accessLevel) {
             $res['AccessLevel'] = $this->accessLevel;
+        }
+        if (null !== $this->accessToken) {
+            $res['AccessToken'] = $this->accessToken;
         }
         if (null !== $this->minAccessLevel) {
             $res['MinAccessLevel'] = $this->minAccessLevel;
@@ -56,11 +56,11 @@ class ListOrganizationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessToken'])) {
-            $model->accessToken = $map['AccessToken'];
-        }
         if (isset($map['AccessLevel'])) {
             $model->accessLevel = $map['AccessLevel'];
+        }
+        if (isset($map['AccessToken'])) {
+            $model->accessToken = $map['AccessToken'];
         }
         if (isset($map['MinAccessLevel'])) {
             $model->minAccessLevel = $map['MinAccessLevel'];

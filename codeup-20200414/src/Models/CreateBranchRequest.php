@@ -22,10 +22,22 @@ class CreateBranchRequest extends Model
      * @var string
      */
     public $subUserId;
+
+    /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
+     * @var string
+     */
+    public $ref;
     protected $_name = [
         'accessToken'    => 'AccessToken',
         'organizationId' => 'OrganizationId',
         'subUserId'      => 'SubUserId',
+        'branchName'     => 'branchName',
+        'ref'            => 'ref',
     ];
 
     public function validate()
@@ -43,6 +55,12 @@ class CreateBranchRequest extends Model
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
+        }
+        if (null !== $this->branchName) {
+            $res['branchName'] = $this->branchName;
+        }
+        if (null !== $this->ref) {
+            $res['ref'] = $this->ref;
         }
 
         return $res;
@@ -64,6 +82,12 @@ class CreateBranchRequest extends Model
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
+        }
+        if (isset($map['branchName'])) {
+            $model->branchName = $map['branchName'];
+        }
+        if (isset($map['ref'])) {
+            $model->ref = $map['ref'];
         }
 
         return $model;

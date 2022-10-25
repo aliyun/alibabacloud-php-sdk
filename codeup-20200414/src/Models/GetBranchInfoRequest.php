@@ -16,22 +16,22 @@ class GetBranchInfoRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $organizationId;
 
     /**
      * @var string
      */
     public $subUserId;
-
-    /**
-     * @var string
-     */
-    public $branchName;
     protected $_name = [
         'accessToken'    => 'AccessToken',
+        'branchName'     => 'BranchName',
         'organizationId' => 'OrganizationId',
         'subUserId'      => 'SubUserId',
-        'branchName'     => 'BranchName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class GetBranchInfoRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
-        }
-        if (null !== $this->branchName) {
-            $res['BranchName'] = $this->branchName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class GetBranchInfoRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
-        }
-        if (isset($map['BranchName'])) {
-            $model->branchName = $map['BranchName'];
         }
 
         return $model;

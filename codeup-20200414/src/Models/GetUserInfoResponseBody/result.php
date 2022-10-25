@@ -11,22 +11,17 @@ class result extends Model
     /**
      * @var string
      */
-    public $email;
-
-    /**
-     * @var string
-     */
     public $avatarUrl;
 
     /**
      * @var string
      */
-    public $externalUserId;
+    public $email;
 
     /**
      * @var string
      */
-    public $name;
+    public $externalUserId;
 
     /**
      * @var int
@@ -36,13 +31,18 @@ class result extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
-        'email'          => 'Email',
         'avatarUrl'      => 'AvatarUrl',
+        'email'          => 'Email',
         'externalUserId' => 'ExternalUserId',
-        'name'           => 'Name',
         'id'             => 'Id',
+        'name'           => 'Name',
         'username'       => 'Username',
     ];
 
@@ -53,20 +53,20 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
-        }
         if (null !== $this->avatarUrl) {
             $res['AvatarUrl'] = $this->avatarUrl;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
         }
         if (null !== $this->externalUserId) {
             $res['ExternalUserId'] = $this->externalUserId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -83,20 +83,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
-        }
         if (isset($map['AvatarUrl'])) {
             $model->avatarUrl = $map['AvatarUrl'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
         }
         if (isset($map['ExternalUserId'])) {
             $model->externalUserId = $map['ExternalUserId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

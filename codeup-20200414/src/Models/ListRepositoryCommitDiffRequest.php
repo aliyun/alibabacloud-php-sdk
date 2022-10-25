@@ -14,18 +14,18 @@ class ListRepositoryCommitDiffRequest extends Model
     public $accessToken;
 
     /**
-     * @var string
-     */
-    public $organizationId;
-
-    /**
      * @var int
      */
     public $contextLine;
+
+    /**
+     * @var string
+     */
+    public $organizationId;
     protected $_name = [
         'accessToken'    => 'AccessToken',
-        'organizationId' => 'OrganizationId',
         'contextLine'    => 'ContextLine',
+        'organizationId' => 'OrganizationId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ListRepositoryCommitDiffRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->contextLine) {
             $res['ContextLine'] = $this->contextLine;
+        }
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ListRepositoryCommitDiffRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['ContextLine'])) {
             $model->contextLine = $map['ContextLine'];
+        }
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
 
         return $model;

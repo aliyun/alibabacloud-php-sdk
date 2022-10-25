@@ -12,17 +12,17 @@ class satisfiedCheckResults extends Model
     /**
      * @var string
      */
+    public $checkName;
+
+    /**
+     * @var string
+     */
     public $checkStatus;
 
     /**
      * @var string
      */
     public $checkType;
-
-    /**
-     * @var string
-     */
-    public $checkName;
 
     /**
      * @var extraUsers[]
@@ -32,19 +32,19 @@ class satisfiedCheckResults extends Model
     /**
      * @var string[]
      */
-    public $unsatisfiedItems;
+    public $satisfiedItems;
 
     /**
      * @var string[]
      */
-    public $satisfiedItems;
+    public $unsatisfiedItems;
     protected $_name = [
+        'checkName'        => 'CheckName',
         'checkStatus'      => 'CheckStatus',
         'checkType'        => 'CheckType',
-        'checkName'        => 'CheckName',
         'extraUsers'       => 'ExtraUsers',
-        'unsatisfiedItems' => 'UnsatisfiedItems',
         'satisfiedItems'   => 'SatisfiedItems',
+        'unsatisfiedItems' => 'UnsatisfiedItems',
     ];
 
     public function validate()
@@ -54,14 +54,14 @@ class satisfiedCheckResults extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkName) {
+            $res['CheckName'] = $this->checkName;
+        }
         if (null !== $this->checkStatus) {
             $res['CheckStatus'] = $this->checkStatus;
         }
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
-        }
-        if (null !== $this->checkName) {
-            $res['CheckName'] = $this->checkName;
         }
         if (null !== $this->extraUsers) {
             $res['ExtraUsers'] = [];
@@ -72,11 +72,11 @@ class satisfiedCheckResults extends Model
                 }
             }
         }
-        if (null !== $this->unsatisfiedItems) {
-            $res['UnsatisfiedItems'] = $this->unsatisfiedItems;
-        }
         if (null !== $this->satisfiedItems) {
             $res['SatisfiedItems'] = $this->satisfiedItems;
+        }
+        if (null !== $this->unsatisfiedItems) {
+            $res['UnsatisfiedItems'] = $this->unsatisfiedItems;
         }
 
         return $res;
@@ -90,14 +90,14 @@ class satisfiedCheckResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckName'])) {
+            $model->checkName = $map['CheckName'];
+        }
         if (isset($map['CheckStatus'])) {
             $model->checkStatus = $map['CheckStatus'];
         }
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
-        }
-        if (isset($map['CheckName'])) {
-            $model->checkName = $map['CheckName'];
         }
         if (isset($map['ExtraUsers'])) {
             if (!empty($map['ExtraUsers'])) {
@@ -108,14 +108,14 @@ class satisfiedCheckResults extends Model
                 }
             }
         }
-        if (isset($map['UnsatisfiedItems'])) {
-            if (!empty($map['UnsatisfiedItems'])) {
-                $model->unsatisfiedItems = $map['UnsatisfiedItems'];
-            }
-        }
         if (isset($map['SatisfiedItems'])) {
             if (!empty($map['SatisfiedItems'])) {
                 $model->satisfiedItems = $map['SatisfiedItems'];
+            }
+        }
+        if (isset($map['UnsatisfiedItems'])) {
+            if (!empty($map['UnsatisfiedItems'])) {
+                $model->unsatisfiedItems = $map['UnsatisfiedItems'];
             }
         }
 

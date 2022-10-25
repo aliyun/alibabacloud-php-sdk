@@ -16,17 +16,7 @@ class GetFileBlobsRequest extends Model
     /**
      * @var string
      */
-    public $organizationId;
-
-    /**
-     * @var string
-     */
     public $filePath;
-
-    /**
-     * @var string
-     */
-    public $ref;
 
     /**
      * @var int
@@ -34,22 +24,32 @@ class GetFileBlobsRequest extends Model
     public $from;
 
     /**
-     * @var int
+     * @var string
      */
-    public $to;
+    public $organizationId;
+
+    /**
+     * @var string
+     */
+    public $ref;
 
     /**
      * @var string
      */
     public $subUserId;
+
+    /**
+     * @var int
+     */
+    public $to;
     protected $_name = [
         'accessToken'    => 'AccessToken',
-        'organizationId' => 'OrganizationId',
         'filePath'       => 'FilePath',
-        'ref'            => 'Ref',
         'from'           => 'From',
-        'to'             => 'To',
+        'organizationId' => 'OrganizationId',
+        'ref'            => 'Ref',
         'subUserId'      => 'SubUserId',
+        'to'             => 'To',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class GetFileBlobsRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
-        }
-        if (null !== $this->ref) {
-            $res['Ref'] = $this->ref;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
+        }
+        if (null !== $this->ref) {
+            $res['Ref'] = $this->ref;
         }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
+        }
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class GetFileBlobsRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
-        }
-        if (isset($map['Ref'])) {
-            $model->ref = $map['Ref'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
+        }
+        if (isset($map['Ref'])) {
+            $model->ref = $map['Ref'];
         }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
+        }
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
 
         return $model;

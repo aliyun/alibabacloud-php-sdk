@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class approveCheckResult extends Model
 {
     /**
-     * @var string
-     */
-    public $totalCheckResult;
-
-    /**
      * @var satisfiedCheckResults[]
      */
     public $satisfiedCheckResults;
+
+    /**
+     * @var string
+     */
+    public $totalCheckResult;
 
     /**
      * @var unsatisfiedCheckResults[]
      */
     public $unsatisfiedCheckResults;
     protected $_name = [
-        'totalCheckResult'        => 'TotalCheckResult',
         'satisfiedCheckResults'   => 'SatisfiedCheckResults',
+        'totalCheckResult'        => 'TotalCheckResult',
         'unsatisfiedCheckResults' => 'UnsatisfiedCheckResults',
     ];
 
@@ -37,9 +37,6 @@ class approveCheckResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCheckResult) {
-            $res['TotalCheckResult'] = $this->totalCheckResult;
-        }
         if (null !== $this->satisfiedCheckResults) {
             $res['SatisfiedCheckResults'] = [];
             if (null !== $this->satisfiedCheckResults && \is_array($this->satisfiedCheckResults)) {
@@ -48,6 +45,9 @@ class approveCheckResult extends Model
                     $res['SatisfiedCheckResults'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCheckResult) {
+            $res['TotalCheckResult'] = $this->totalCheckResult;
         }
         if (null !== $this->unsatisfiedCheckResults) {
             $res['UnsatisfiedCheckResults'] = [];
@@ -70,9 +70,6 @@ class approveCheckResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCheckResult'])) {
-            $model->totalCheckResult = $map['TotalCheckResult'];
-        }
         if (isset($map['SatisfiedCheckResults'])) {
             if (!empty($map['SatisfiedCheckResults'])) {
                 $model->satisfiedCheckResults = [];
@@ -81,6 +78,9 @@ class approveCheckResult extends Model
                     $model->satisfiedCheckResults[$n++] = null !== $item ? satisfiedCheckResults::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCheckResult'])) {
+            $model->totalCheckResult = $map['TotalCheckResult'];
         }
         if (isset($map['UnsatisfiedCheckResults'])) {
             if (!empty($map['UnsatisfiedCheckResults'])) {

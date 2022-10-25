@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoriesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $errorCode;
 
     /**
      * @var string
@@ -20,9 +20,14 @@ class ListRepositoriesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @var int
+     * @var string
      */
-    public $total;
+    public $requestId;
+
+    /**
+     * @var result[]
+     */
+    public $result;
 
     /**
      * @var bool
@@ -32,19 +37,14 @@ class ListRepositoriesResponseBody extends Model
     /**
      * @var int
      */
-    public $errorCode;
-
-    /**
-     * @var result[]
-     */
-    public $result;
+    public $total;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'errorMessage' => 'ErrorMessage',
-        'total'        => 'Total',
-        'success'      => 'Success',
         'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'requestId'    => 'RequestId',
         'result'       => 'Result',
+        'success'      => 'Success',
+        'total'        => 'Total',
     ];
 
     public function validate()
@@ -54,20 +54,14 @@ class ListRepositoriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -77,6 +71,12 @@ class ListRepositoriesResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -90,20 +90,14 @@ class ListRepositoriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
@@ -113,6 +107,12 @@ class ListRepositoriesResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

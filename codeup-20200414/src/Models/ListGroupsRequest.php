@@ -14,9 +14,9 @@ class ListGroupsRequest extends Model
     public $accessToken;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $search;
+    public $includePersonal;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class ListGroupsRequest extends Model
     /**
      * @var string
      */
-    public $subUserId;
+    public $search;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $includePersonal;
+    public $subUserId;
     protected $_name = [
         'accessToken'     => 'AccessToken',
-        'search'          => 'Search',
+        'includePersonal' => 'IncludePersonal',
         'organizationId'  => 'OrganizationId',
         'page'            => 'Page',
         'pageSize'        => 'PageSize',
+        'search'          => 'Search',
         'subUserId'       => 'SubUserId',
-        'includePersonal' => 'IncludePersonal',
     ];
 
     public function validate()
@@ -62,8 +62,8 @@ class ListGroupsRequest extends Model
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
-        if (null !== $this->search) {
-            $res['Search'] = $this->search;
+        if (null !== $this->includePersonal) {
+            $res['IncludePersonal'] = $this->includePersonal;
         }
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
@@ -74,11 +74,11 @@ class ListGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->search) {
+            $res['Search'] = $this->search;
+        }
         if (null !== $this->subUserId) {
             $res['SubUserId'] = $this->subUserId;
-        }
-        if (null !== $this->includePersonal) {
-            $res['IncludePersonal'] = $this->includePersonal;
         }
 
         return $res;
@@ -95,8 +95,8 @@ class ListGroupsRequest extends Model
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
-        if (isset($map['Search'])) {
-            $model->search = $map['Search'];
+        if (isset($map['IncludePersonal'])) {
+            $model->includePersonal = $map['IncludePersonal'];
         }
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
@@ -107,11 +107,11 @@ class ListGroupsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['Search'])) {
+            $model->search = $map['Search'];
+        }
         if (isset($map['SubUserId'])) {
             $model->subUserId = $map['SubUserId'];
-        }
-        if (isset($map['IncludePersonal'])) {
-            $model->includePersonal = $map['IncludePersonal'];
         }
 
         return $model;

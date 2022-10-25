@@ -19,11 +19,6 @@ class ListRepositoryBranchesRequest extends Model
     public $organizationId;
 
     /**
-     * @var string
-     */
-    public $subUserId;
-
-    /**
      * @var int
      */
     public $page;
@@ -37,13 +32,18 @@ class ListRepositoryBranchesRequest extends Model
      * @var string
      */
     public $search;
+
+    /**
+     * @var string
+     */
+    public $subUserId;
     protected $_name = [
         'accessToken'    => 'AccessToken',
         'organizationId' => 'OrganizationId',
-        'subUserId'      => 'SubUserId',
         'page'           => 'Page',
         'pageSize'       => 'PageSize',
         'search'         => 'Search',
+        'subUserId'      => 'SubUserId',
     ];
 
     public function validate()
@@ -59,9 +59,6 @@ class ListRepositoryBranchesRequest extends Model
         if (null !== $this->organizationId) {
             $res['OrganizationId'] = $this->organizationId;
         }
-        if (null !== $this->subUserId) {
-            $res['SubUserId'] = $this->subUserId;
-        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
@@ -70,6 +67,9 @@ class ListRepositoryBranchesRequest extends Model
         }
         if (null !== $this->search) {
             $res['Search'] = $this->search;
+        }
+        if (null !== $this->subUserId) {
+            $res['SubUserId'] = $this->subUserId;
         }
 
         return $res;
@@ -89,9 +89,6 @@ class ListRepositoryBranchesRequest extends Model
         if (isset($map['OrganizationId'])) {
             $model->organizationId = $map['OrganizationId'];
         }
-        if (isset($map['SubUserId'])) {
-            $model->subUserId = $map['SubUserId'];
-        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
@@ -100,6 +97,9 @@ class ListRepositoryBranchesRequest extends Model
         }
         if (isset($map['Search'])) {
             $model->search = $map['Search'];
+        }
+        if (isset($map['SubUserId'])) {
+            $model->subUserId = $map['SubUserId'];
         }
 
         return $model;

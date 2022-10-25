@@ -12,6 +12,11 @@ class ListRepositoryWebhookResponseBody extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $errorMessage;
 
     /**
@@ -20,9 +25,9 @@ class ListRepositoryWebhookResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var result[]
      */
-    public $total;
+    public $result;
 
     /**
      * @var bool
@@ -30,21 +35,16 @@ class ListRepositoryWebhookResponseBody extends Model
     public $success;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errorCode;
-
-    /**
-     * @var result[]
-     */
-    public $result;
+    public $total;
     protected $_name = [
+        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
-        'total'        => 'Total',
-        'success'      => 'Success',
-        'errorCode'    => 'ErrorCode',
         'result'       => 'Result',
+        'success'      => 'Success',
+        'total'        => 'Total',
     ];
 
     public function validate()
@@ -54,20 +54,14 @@ class ListRepositoryWebhookResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -77,6 +71,12 @@ class ListRepositoryWebhookResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -90,20 +90,14 @@ class ListRepositoryWebhookResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
@@ -113,6 +107,12 @@ class ListRepositoryWebhookResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

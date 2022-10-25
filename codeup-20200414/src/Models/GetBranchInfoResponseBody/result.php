@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @var bool
-     */
-    public $protectedBranch;
-
-    /**
      * @var string
      */
     public $branchName;
@@ -23,10 +18,15 @@ class result extends Model
      * @var commitInfo
      */
     public $commitInfo;
+
+    /**
+     * @var bool
+     */
+    public $protectedBranch;
     protected $_name = [
-        'protectedBranch' => 'ProtectedBranch',
         'branchName'      => 'BranchName',
         'commitInfo'      => 'CommitInfo',
+        'protectedBranch' => 'ProtectedBranch',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protectedBranch) {
-            $res['ProtectedBranch'] = $this->protectedBranch;
-        }
         if (null !== $this->branchName) {
             $res['BranchName'] = $this->branchName;
         }
         if (null !== $this->commitInfo) {
             $res['CommitInfo'] = null !== $this->commitInfo ? $this->commitInfo->toMap() : null;
+        }
+        if (null !== $this->protectedBranch) {
+            $res['ProtectedBranch'] = $this->protectedBranch;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProtectedBranch'])) {
-            $model->protectedBranch = $map['ProtectedBranch'];
-        }
         if (isset($map['BranchName'])) {
             $model->branchName = $map['BranchName'];
         }
         if (isset($map['CommitInfo'])) {
             $model->commitInfo = commitInfo::fromMap($map['CommitInfo']);
+        }
+        if (isset($map['ProtectedBranch'])) {
+            $model->protectedBranch = $map['ProtectedBranch'];
         }
 
         return $model;
