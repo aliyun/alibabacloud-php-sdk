@@ -1,3 +1,6 @@
+2022-10-25 Version: 1.0.3
+- ADD QueryItemGuideRetailPrice .
+
 2022-10-09 Version: 1.0.2
 - QueryItemDetail DOC CHANGE.
 
