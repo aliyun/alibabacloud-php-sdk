@@ -19,11 +19,6 @@ class UpdateGatewaySpecRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var int
      */
     public $replica;
@@ -35,7 +30,6 @@ class UpdateGatewaySpecRequest extends Model
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'mseSessionId'    => 'MseSessionId',
         'replica'         => 'Replica',
         'spec'            => 'Spec',
     ];
@@ -52,9 +46,6 @@ class UpdateGatewaySpecRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
@@ -79,9 +70,6 @@ class UpdateGatewaySpecRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];

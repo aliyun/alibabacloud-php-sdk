@@ -21,16 +21,10 @@ class UpdateImageRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $versionCode;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
-        'mseSessionId'   => 'MseSessionId',
         'versionCode'    => 'VersionCode',
     ];
 
@@ -46,9 +40,6 @@ class UpdateImageRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
@@ -70,9 +61,6 @@ class UpdateImageRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];

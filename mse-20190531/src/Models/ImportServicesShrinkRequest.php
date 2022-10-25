@@ -21,11 +21,6 @@ class ImportServicesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $serviceListShrink;
 
     /**
@@ -40,7 +35,6 @@ class ImportServicesShrinkRequest extends Model
     protected $_name = [
         'acceptLanguage'    => 'AcceptLanguage',
         'gatewayUniqueId'   => 'GatewayUniqueId',
-        'mseSessionId'      => 'MseSessionId',
         'serviceListShrink' => 'ServiceList',
         'sourceType'        => 'SourceType',
         'tlsSetting'        => 'TlsSetting',
@@ -58,9 +52,6 @@ class ImportServicesShrinkRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->serviceListShrink) {
             $res['ServiceList'] = $this->serviceListShrink;
@@ -88,9 +79,6 @@ class ImportServicesShrinkRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['ServiceList'])) {
             $model->serviceListShrink = $map['ServiceList'];

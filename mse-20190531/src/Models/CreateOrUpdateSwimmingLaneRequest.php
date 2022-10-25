@@ -62,11 +62,6 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -104,7 +99,6 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         'groupId'        => 'GroupId',
         'id'             => 'Id',
         'licenseKey'     => 'LicenseKey',
-        'mseSessionId'   => 'MseSessionId',
         'name'           => 'Name',
         'regionId'       => 'RegionId',
         'source'         => 'Source',
@@ -155,9 +149,6 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (null !== $this->licenseKey) {
             $res['LicenseKey'] = $this->licenseKey;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -224,9 +215,6 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (isset($map['LicenseKey'])) {
             $model->licenseKey = $map['LicenseKey'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

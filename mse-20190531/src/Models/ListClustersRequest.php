@@ -20,11 +20,6 @@ class ListClustersRequest extends Model
     public $clusterAliasName;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var int
      */
     public $pageNum;
@@ -56,7 +51,6 @@ class ListClustersRequest extends Model
     protected $_name = [
         'acceptLanguage'   => 'AcceptLanguage',
         'clusterAliasName' => 'ClusterAliasName',
-        'mseSessionId'     => 'MseSessionId',
         'pageNum'          => 'PageNum',
         'pageSize'         => 'PageSize',
         'regionId'         => 'RegionId',
@@ -77,9 +71,6 @@ class ListClustersRequest extends Model
         }
         if (null !== $this->clusterAliasName) {
             $res['ClusterAliasName'] = $this->clusterAliasName;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -122,9 +113,6 @@ class ListClustersRequest extends Model
         }
         if (isset($map['ClusterAliasName'])) {
             $model->clusterAliasName = $map['ClusterAliasName'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

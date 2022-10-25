@@ -14,6 +14,11 @@ class ingressOptions extends Model
     public $enableIngress;
 
     /**
+     * @var bool
+     */
+    public $enableStatus;
+
+    /**
      * @var string
      */
     public $ingressClass;
@@ -24,6 +29,7 @@ class ingressOptions extends Model
     public $watchNamespace;
     protected $_name = [
         'enableIngress'  => 'EnableIngress',
+        'enableStatus'   => 'EnableStatus',
         'ingressClass'   => 'IngressClass',
         'watchNamespace' => 'WatchNamespace',
     ];
@@ -37,6 +43,9 @@ class ingressOptions extends Model
         $res = [];
         if (null !== $this->enableIngress) {
             $res['EnableIngress'] = $this->enableIngress;
+        }
+        if (null !== $this->enableStatus) {
+            $res['EnableStatus'] = $this->enableStatus;
         }
         if (null !== $this->ingressClass) {
             $res['IngressClass'] = $this->ingressClass;
@@ -58,6 +67,9 @@ class ingressOptions extends Model
         $model = new self();
         if (isset($map['EnableIngress'])) {
             $model->enableIngress = $map['EnableIngress'];
+        }
+        if (isset($map['EnableStatus'])) {
+            $model->enableStatus = $map['EnableStatus'];
         }
         if (isset($map['IngressClass'])) {
             $model->ingressClass = $map['IngressClass'];

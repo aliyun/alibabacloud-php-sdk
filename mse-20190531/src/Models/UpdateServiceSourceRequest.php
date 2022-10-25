@@ -42,12 +42,12 @@ class UpdateServiceSourceRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
+    public $name;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $name;
+    public $pathList;
 
     /**
      * @var string
@@ -65,8 +65,8 @@ class UpdateServiceSourceRequest extends Model
         'gatewayUniqueId'       => 'GatewayUniqueId',
         'id'                    => 'Id',
         'ingressOptionsRequest' => 'IngressOptionsRequest',
-        'mseSessionId'          => 'MseSessionId',
         'name'                  => 'Name',
+        'pathList'              => 'PathList',
         'source'                => 'Source',
         'type'                  => 'Type',
     ];
@@ -96,11 +96,11 @@ class UpdateServiceSourceRequest extends Model
         if (null !== $this->ingressOptionsRequest) {
             $res['IngressOptionsRequest'] = null !== $this->ingressOptionsRequest ? $this->ingressOptionsRequest->toMap() : null;
         }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->pathList) {
+            $res['PathList'] = $this->pathList;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -138,11 +138,13 @@ class UpdateServiceSourceRequest extends Model
         if (isset($map['IngressOptionsRequest'])) {
             $model->ingressOptionsRequest = ingressOptionsRequest::fromMap($map['IngressOptionsRequest']);
         }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PathList'])) {
+            if (!empty($map['PathList'])) {
+                $model->pathList = $map['PathList'];
+            }
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

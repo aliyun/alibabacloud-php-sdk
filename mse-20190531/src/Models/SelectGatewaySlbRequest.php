@@ -21,11 +21,6 @@ class SelectGatewaySlbRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -35,7 +30,6 @@ class SelectGatewaySlbRequest extends Model
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'mseSessionId'    => 'MseSessionId',
         'name'            => 'Name',
         'type'            => 'Type',
     ];
@@ -52,9 +46,6 @@ class SelectGatewaySlbRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -79,9 +70,6 @@ class SelectGatewaySlbRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

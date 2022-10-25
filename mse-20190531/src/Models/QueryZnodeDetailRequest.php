@@ -26,11 +26,6 @@ class QueryZnodeDetailRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $path;
 
     /**
@@ -41,7 +36,6 @@ class QueryZnodeDetailRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'instanceId'     => 'InstanceId',
-        'mseSessionId'   => 'MseSessionId',
         'path'           => 'Path',
         'requestPars'    => 'RequestPars',
     ];
@@ -61,9 +55,6 @@ class QueryZnodeDetailRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -91,9 +82,6 @@ class QueryZnodeDetailRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];

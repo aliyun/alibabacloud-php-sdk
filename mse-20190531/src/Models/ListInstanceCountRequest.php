@@ -21,11 +21,6 @@ class ListInstanceCountRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $mseVersion;
 
     /**
@@ -40,7 +35,6 @@ class ListInstanceCountRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterType'    => 'ClusterType',
-        'mseSessionId'   => 'MseSessionId',
         'mseVersion'     => 'MseVersion',
         'regionId'       => 'RegionId',
         'requestPars'    => 'RequestPars',
@@ -58,9 +52,6 @@ class ListInstanceCountRequest extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
@@ -88,9 +79,6 @@ class ListInstanceCountRequest extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];

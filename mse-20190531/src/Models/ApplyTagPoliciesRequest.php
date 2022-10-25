@@ -26,11 +26,6 @@ class ApplyTagPoliciesRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
 
     /**
@@ -51,7 +46,6 @@ class ApplyTagPoliciesRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'enable'         => 'Enable',
-        'mseSessionId'   => 'MseSessionId',
         'namespaceId'    => 'NamespaceId',
         'region'         => 'Region',
         'rules'          => 'Rules',
@@ -73,9 +67,6 @@ class ApplyTagPoliciesRequest extends Model
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -109,9 +100,6 @@ class ApplyTagPoliciesRequest extends Model
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

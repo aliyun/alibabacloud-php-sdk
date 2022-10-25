@@ -27,17 +27,11 @@ class DeleteGatewaySlbRequest extends Model
      * @var string
      */
     public $id;
-
-    /**
-     * @var string
-     */
-    public $mseSessionId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'deleteSlb'       => 'DeleteSlb',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
-        'mseSessionId'    => 'MseSessionId',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class DeleteGatewaySlbRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class DeleteGatewaySlbRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

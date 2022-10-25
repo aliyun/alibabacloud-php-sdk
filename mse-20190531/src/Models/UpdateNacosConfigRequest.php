@@ -61,11 +61,6 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
 
     /**
@@ -88,7 +83,6 @@ class UpdateNacosConfigRequest extends Model
         'group'            => 'Group',
         'instanceId'       => 'InstanceId',
         'md5'              => 'Md5',
-        'mseSessionId'     => 'MseSessionId',
         'namespaceId'      => 'NamespaceId',
         'tags'             => 'Tags',
         'type'             => 'Type',
@@ -130,9 +124,6 @@ class UpdateNacosConfigRequest extends Model
         }
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -184,9 +175,6 @@ class UpdateNacosConfigRequest extends Model
         }
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

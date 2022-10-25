@@ -16,11 +16,6 @@ class ListVgroupsRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $region;
 
     /**
@@ -29,7 +24,6 @@ class ListVgroupsRequest extends Model
     public $userId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'mseSessionId'   => 'MseSessionId',
         'region'         => 'Region',
         'userId'         => 'UserId',
     ];
@@ -43,9 +37,6 @@ class ListVgroupsRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -67,9 +58,6 @@ class ListVgroupsRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

@@ -24,11 +24,6 @@ class ListApplicationsWithTagRulesRequest extends Model
     public $appName;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -51,7 +46,6 @@ class ListApplicationsWithTagRulesRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'appName'        => 'AppName',
-        'mseSessionId'   => 'MseSessionId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'region'         => 'Region',
@@ -73,9 +67,6 @@ class ListApplicationsWithTagRulesRequest extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -109,9 +100,6 @@ class ListApplicationsWithTagRulesRequest extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

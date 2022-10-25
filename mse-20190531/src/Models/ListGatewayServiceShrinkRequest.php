@@ -26,11 +26,6 @@ class ListGatewayServiceShrinkRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $orderItem;
 
     /**
@@ -46,7 +41,6 @@ class ListGatewayServiceShrinkRequest extends Model
         'acceptLanguage'     => 'AcceptLanguage',
         'descSort'           => 'DescSort',
         'filterParamsShrink' => 'FilterParams',
-        'mseSessionId'       => 'MseSessionId',
         'orderItem'          => 'OrderItem',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
@@ -67,9 +61,6 @@ class ListGatewayServiceShrinkRequest extends Model
         }
         if (null !== $this->filterParamsShrink) {
             $res['FilterParams'] = $this->filterParamsShrink;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->orderItem) {
             $res['OrderItem'] = $this->orderItem;
@@ -100,9 +91,6 @@ class ListGatewayServiceShrinkRequest extends Model
         }
         if (isset($map['FilterParams'])) {
             $model->filterParamsShrink = $map['FilterParams'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['OrderItem'])) {
             $model->orderItem = $map['OrderItem'];

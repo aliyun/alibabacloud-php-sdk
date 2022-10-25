@@ -21,11 +21,6 @@ class ListClusterTypesRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $mseVersion;
 
     /**
@@ -35,7 +30,6 @@ class ListClusterTypesRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'connectType'    => 'ConnectType',
-        'mseSessionId'   => 'MseSessionId',
         'mseVersion'     => 'MseVersion',
         'regionId'       => 'RegionId',
     ];
@@ -52,9 +46,6 @@ class ListClusterTypesRequest extends Model
         }
         if (null !== $this->connectType) {
             $res['ConnectType'] = $this->connectType;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
@@ -79,9 +70,6 @@ class ListClusterTypesRequest extends Model
         }
         if (isset($map['ConnectType'])) {
             $model->connectType = $map['ConnectType'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];

@@ -29,11 +29,6 @@ class AddGatewayDomainRequest extends Model
     public $http2;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var bool
      */
     public $mustHttps;
@@ -62,7 +57,6 @@ class AddGatewayDomainRequest extends Model
         'certIdentifier'  => 'CertIdentifier',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'http2'           => 'Http2',
-        'mseSessionId'    => 'MseSessionId',
         'mustHttps'       => 'MustHttps',
         'name'            => 'Name',
         'protocol'        => 'Protocol',
@@ -88,9 +82,6 @@ class AddGatewayDomainRequest extends Model
         }
         if (null !== $this->http2) {
             $res['Http2'] = $this->http2;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mustHttps) {
             $res['MustHttps'] = $this->mustHttps;
@@ -130,9 +121,6 @@ class AddGatewayDomainRequest extends Model
         }
         if (isset($map['Http2'])) {
             $model->http2 = $map['Http2'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MustHttps'])) {
             $model->mustHttps = $map['MustHttps'];

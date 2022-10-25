@@ -32,18 +32,12 @@ class UpdateClusterSpecRequest extends Model
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $mseSessionId;
     protected $_name = [
         'acceptLanguage'       => 'AcceptLanguage',
         'clusterId'            => 'ClusterId',
         'clusterSpecification' => 'ClusterSpecification',
         'instanceCount'        => 'InstanceCount',
         'instanceId'           => 'InstanceId',
-        'mseSessionId'         => 'MseSessionId',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class UpdateClusterSpecRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -97,9 +88,6 @@ class UpdateClusterSpecRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

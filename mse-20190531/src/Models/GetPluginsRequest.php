@@ -31,18 +31,12 @@ class GetPluginsRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'category'        => 'Category',
         'enableOnly'      => 'EnableOnly',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'mseSessionId'    => 'MseSessionId',
         'name'            => 'Name',
     ];
 
@@ -64,9 +58,6 @@ class GetPluginsRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -94,9 +85,6 @@ class GetPluginsRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

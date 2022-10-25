@@ -31,11 +31,6 @@ class UpdateNacosServiceRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
 
     /**
@@ -52,7 +47,6 @@ class UpdateNacosServiceRequest extends Model
         'clusterId'        => 'ClusterId',
         'groupName'        => 'GroupName',
         'instanceId'       => 'InstanceId',
-        'mseSessionId'     => 'MseSessionId',
         'namespaceId'      => 'NamespaceId',
         'protectThreshold' => 'ProtectThreshold',
         'serviceName'      => 'ServiceName',
@@ -76,9 +70,6 @@ class UpdateNacosServiceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -112,9 +103,6 @@ class UpdateNacosServiceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

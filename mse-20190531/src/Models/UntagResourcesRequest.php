@@ -21,11 +21,6 @@ class UntagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -45,7 +40,6 @@ class UntagResourcesRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'all'            => 'All',
-        'mseSessionId'   => 'MseSessionId',
         'regionId'       => 'RegionId',
         'resourceId'     => 'ResourceId',
         'resourceType'   => 'ResourceType',
@@ -64,9 +58,6 @@ class UntagResourcesRequest extends Model
         }
         if (null !== $this->all) {
             $res['All'] = $this->all;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -97,9 +88,6 @@ class UntagResourcesRequest extends Model
         }
         if (isset($map['All'])) {
             $model->all = $map['All'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

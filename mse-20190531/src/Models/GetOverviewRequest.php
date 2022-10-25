@@ -14,11 +14,6 @@ class GetOverviewRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var int
      */
     public $period;
@@ -29,7 +24,6 @@ class GetOverviewRequest extends Model
     public $region;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'mseSessionId'   => 'MseSessionId',
         'period'         => 'Period',
         'region'         => 'Region',
     ];
@@ -43,9 +37,6 @@ class GetOverviewRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -67,9 +58,6 @@ class GetOverviewRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];

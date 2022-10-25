@@ -66,11 +66,6 @@ class UpdateGatewayRouteRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -103,7 +98,6 @@ class UpdateGatewayRouteRequest extends Model
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'id'                 => 'Id',
-        'mseSessionId'       => 'MseSessionId',
         'name'               => 'Name',
         'predicates'         => 'Predicates',
         'redirectJSON'       => 'RedirectJSON',
@@ -153,9 +147,6 @@ class UpdateGatewayRouteRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -225,9 +216,6 @@ class UpdateGatewayRouteRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

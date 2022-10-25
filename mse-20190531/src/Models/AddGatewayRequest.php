@@ -42,11 +42,6 @@ class AddGatewayRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -100,7 +95,6 @@ class AddGatewayRequest extends Model
         'enableXtrace'               => 'EnableXtrace',
         'enterpriseSecurityGroup'    => 'EnterpriseSecurityGroup',
         'internetSlbSpec'            => 'InternetSlbSpec',
-        'mseSessionId'               => 'MseSessionId',
         'name'                       => 'Name',
         'region'                     => 'Region',
         'replica'                    => 'Replica',
@@ -137,9 +131,6 @@ class AddGatewayRequest extends Model
         }
         if (null !== $this->internetSlbSpec) {
             $res['InternetSlbSpec'] = $this->internetSlbSpec;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -206,9 +197,6 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['InternetSlbSpec'])) {
             $model->internetSlbSpec = $map['InternetSlbSpec'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

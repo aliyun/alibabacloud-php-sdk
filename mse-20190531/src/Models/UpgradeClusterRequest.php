@@ -21,11 +21,6 @@ class UpgradeClusterRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $requestPars;
 
     /**
@@ -35,7 +30,6 @@ class UpgradeClusterRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'instanceId'     => 'InstanceId',
-        'mseSessionId'   => 'MseSessionId',
         'requestPars'    => 'RequestPars',
         'upgradeVersion' => 'UpgradeVersion',
     ];
@@ -52,9 +46,6 @@ class UpgradeClusterRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
@@ -79,9 +70,6 @@ class UpgradeClusterRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];

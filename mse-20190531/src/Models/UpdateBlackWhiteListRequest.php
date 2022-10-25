@@ -36,11 +36,6 @@ class UpdateBlackWhiteListRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -73,7 +68,6 @@ class UpdateBlackWhiteListRequest extends Model
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'id'                 => 'Id',
         'isWhite'            => 'IsWhite',
-        'mseSessionId'       => 'MseSessionId',
         'name'               => 'Name',
         'note'               => 'Note',
         'resourceIdJsonList' => 'ResourceIdJsonList',
@@ -103,9 +97,6 @@ class UpdateBlackWhiteListRequest extends Model
         }
         if (null !== $this->isWhite) {
             $res['IsWhite'] = $this->isWhite;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -151,9 +142,6 @@ class UpdateBlackWhiteListRequest extends Model
         }
         if (isset($map['IsWhite'])) {
             $model->isWhite = $map['IsWhite'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

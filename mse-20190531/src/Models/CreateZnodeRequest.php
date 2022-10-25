@@ -26,17 +26,11 @@ class CreateZnodeRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $path;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
         'data'           => 'Data',
-        'mseSessionId'   => 'MseSessionId',
         'path'           => 'Path',
     ];
 
@@ -55,9 +49,6 @@ class CreateZnodeRequest extends Model
         }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
@@ -82,9 +73,6 @@ class CreateZnodeRequest extends Model
         }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];

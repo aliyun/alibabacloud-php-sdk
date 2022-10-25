@@ -61,11 +61,6 @@ class UpdateGatewayRouteShrinkRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -98,7 +93,6 @@ class UpdateGatewayRouteShrinkRequest extends Model
         'gatewayId'                => 'GatewayId',
         'gatewayUniqueId'          => 'GatewayUniqueId',
         'id'                       => 'Id',
-        'mseSessionId'             => 'MseSessionId',
         'name'                     => 'Name',
         'predicatesShrink'         => 'Predicates',
         'redirectJSONShrink'       => 'RedirectJSON',
@@ -142,9 +136,6 @@ class UpdateGatewayRouteShrinkRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -202,9 +193,6 @@ class UpdateGatewayRouteShrinkRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -79,11 +79,6 @@ class UpdateConfigRequest extends Model
     public $minSessionTimeout;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var bool
      */
     public $namingAuthEnabled;
@@ -137,7 +132,6 @@ class UpdateConfigRequest extends Model
         'maxClientCnxns'           => 'MaxClientCnxns',
         'maxSessionTimeout'        => 'MaxSessionTimeout',
         'minSessionTimeout'        => 'MinSessionTimeout',
-        'mseSessionId'             => 'MseSessionId',
         'namingAuthEnabled'        => 'NamingAuthEnabled',
         'openSuperAcl'             => 'OpenSuperAcl',
         'passWord'                 => 'PassWord',
@@ -196,9 +190,6 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->minSessionTimeout) {
             $res['MinSessionTimeout'] = $this->minSessionTimeout;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namingAuthEnabled) {
             $res['NamingAuthEnabled'] = $this->namingAuthEnabled;
@@ -277,9 +268,6 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['MinSessionTimeout'])) {
             $model->minSessionTimeout = $map['MinSessionTimeout'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamingAuthEnabled'])) {
             $model->namingAuthEnabled = $map['NamingAuthEnabled'];

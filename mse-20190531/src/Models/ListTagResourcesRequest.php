@@ -17,11 +17,6 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $nextToken;
 
     /**
@@ -45,7 +40,6 @@ class ListTagResourcesRequest extends Model
     public $tag;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'mseSessionId'   => 'MseSessionId',
         'nextToken'      => 'NextToken',
         'regionId'       => 'RegionId',
         'resourceId'     => 'ResourceId',
@@ -62,9 +56,6 @@ class ListTagResourcesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -101,9 +92,6 @@ class ListTagResourcesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];

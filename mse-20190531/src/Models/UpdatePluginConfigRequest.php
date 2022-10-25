@@ -54,11 +54,6 @@ class UpdatePluginConfigRequest extends Model
     public $id;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var int
      */
     public $pluginId;
@@ -72,7 +67,6 @@ class UpdatePluginConfigRequest extends Model
         'gmtCreate'       => 'GmtCreate',
         'gmtModified'     => 'GmtModified',
         'id'              => 'Id',
-        'mseSessionId'    => 'MseSessionId',
         'pluginId'        => 'PluginId',
     ];
 
@@ -109,9 +103,6 @@ class UpdatePluginConfigRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
@@ -154,9 +145,6 @@ class UpdatePluginConfigRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];

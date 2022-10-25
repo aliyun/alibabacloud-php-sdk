@@ -17,11 +17,6 @@ class TagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -40,7 +35,6 @@ class TagResourcesRequest extends Model
     public $tag;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'mseSessionId'   => 'MseSessionId',
         'regionId'       => 'RegionId',
         'resourceId'     => 'ResourceId',
         'resourceType'   => 'ResourceType',
@@ -56,9 +50,6 @@ class TagResourcesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -92,9 +83,6 @@ class TagResourcesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

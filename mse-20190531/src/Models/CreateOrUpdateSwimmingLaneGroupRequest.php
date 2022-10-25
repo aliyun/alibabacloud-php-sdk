@@ -66,11 +66,6 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -104,7 +99,6 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         'licenseKey'             => 'LicenseKey',
         'messageQueueFilterSide' => 'MessageQueueFilterSide',
         'messageQueueGrayEnable' => 'MessageQueueGrayEnable',
-        'mseSessionId'           => 'MseSessionId',
         'name'                   => 'Name',
         'region'                 => 'Region',
         'source'                 => 'Source',
@@ -151,9 +145,6 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (null !== $this->messageQueueGrayEnable) {
             $res['MessageQueueGrayEnable'] = $this->messageQueueGrayEnable;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -214,9 +205,6 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         }
         if (isset($map['MessageQueueGrayEnable'])) {
             $model->messageQueueGrayEnable = $map['MessageQueueGrayEnable'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

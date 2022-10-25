@@ -27,12 +27,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $gatewayUniqueId;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
      * @var string
      */
     public $gmtModified;
+
+    /**
+     * @var string[]
+     */
+    public $groupList;
 
     /**
      * @var int
@@ -48,6 +58,11 @@ class data extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $pathList;
 
     /**
      * @var string
@@ -67,11 +82,14 @@ class data extends Model
         'address'            => 'Address',
         'bindingWithGateway' => 'BindingWithGateway',
         'gatewayId'          => 'GatewayId',
+        'gatewayUniqueId'    => 'GatewayUniqueId',
         'gmtCreate'          => 'GmtCreate',
         'gmtModified'        => 'GmtModified',
+        'groupList'          => 'GroupList',
         'id'                 => 'Id',
         'ingressOptions'     => 'IngressOptions',
         'name'               => 'Name',
+        'pathList'           => 'PathList',
         'source'             => 'Source',
         'sourceUniqueId'     => 'SourceUniqueId',
         'type'               => 'Type',
@@ -93,11 +111,17 @@ class data extends Model
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
+        if (null !== $this->gatewayUniqueId) {
+            $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->groupList) {
+            $res['GroupList'] = $this->groupList;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -107,6 +131,9 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->pathList) {
+            $res['PathList'] = $this->pathList;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -138,11 +165,19 @@ class data extends Model
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
+        if (isset($map['GatewayUniqueId'])) {
+            $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['GroupList'])) {
+            if (!empty($map['GroupList'])) {
+                $model->groupList = $map['GroupList'];
+            }
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -152,6 +187,11 @@ class data extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PathList'])) {
+            if (!empty($map['PathList'])) {
+                $model->pathList = $map['PathList'];
+            }
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

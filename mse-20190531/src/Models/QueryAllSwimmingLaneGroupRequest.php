@@ -12,14 +12,8 @@ class QueryAllSwimmingLaneGroupRequest extends Model
      * @var string
      */
     public $acceptLanguage;
-
-    /**
-     * @var string
-     */
-    public $mseSessionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'mseSessionId'   => 'MseSessionId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class QueryAllSwimmingLaneGroupRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class QueryAllSwimmingLaneGroupRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

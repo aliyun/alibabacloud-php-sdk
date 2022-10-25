@@ -34,11 +34,6 @@ class AddGatewaySlbRequest extends Model
     public $httpsVServerGroupId;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var int
      */
     public $serviceWeight;
@@ -63,7 +58,6 @@ class AddGatewaySlbRequest extends Model
         'httpPort'            => 'HttpPort',
         'httpsPort'           => 'HttpsPort',
         'httpsVServerGroupId' => 'HttpsVServerGroupId',
-        'mseSessionId'        => 'MseSessionId',
         'serviceWeight'       => 'ServiceWeight',
         'slbId'               => 'SlbId',
         'type'                => 'Type',
@@ -91,9 +85,6 @@ class AddGatewaySlbRequest extends Model
         }
         if (null !== $this->httpsVServerGroupId) {
             $res['HttpsVServerGroupId'] = $this->httpsVServerGroupId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->serviceWeight) {
             $res['ServiceWeight'] = $this->serviceWeight;
@@ -133,9 +124,6 @@ class AddGatewaySlbRequest extends Model
         }
         if (isset($map['HttpsVServerGroupId'])) {
             $model->httpsVServerGroupId = $map['HttpsVServerGroupId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['ServiceWeight'])) {
             $model->serviceWeight = $map['ServiceWeight'];

@@ -26,11 +26,6 @@ class GetServiceListRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $region;
 
     /**
@@ -46,7 +41,6 @@ class GetServiceListRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'ip'             => 'Ip',
-        'mseSessionId'   => 'MseSessionId',
         'region'         => 'Region',
         'serviceName'    => 'ServiceName',
         'serviceType'    => 'ServiceType',
@@ -67,9 +61,6 @@ class GetServiceListRequest extends Model
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -100,9 +91,6 @@ class GetServiceListRequest extends Model
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

@@ -22,16 +22,10 @@ class GetGatewayOptionRequest extends Model
      * @var string
      */
     public $gatewayUniqueId;
-
-    /**
-     * @var string
-     */
-    public $mseSessionId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'mseSessionId'    => 'MseSessionId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class GetGatewayOptionRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class GetGatewayOptionRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

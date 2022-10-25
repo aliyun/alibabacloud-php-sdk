@@ -52,11 +52,6 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $mseVersion;
 
     /**
@@ -117,7 +112,6 @@ class CreateClusterRequest extends Model
         'diskType'                => 'DiskType',
         'instanceCount'           => 'InstanceCount',
         'instanceName'            => 'InstanceName',
-        'mseSessionId'            => 'MseSessionId',
         'mseVersion'              => 'MseVersion',
         'netType'                 => 'NetType',
         'privateSlbSpecification' => 'PrivateSlbSpecification',
@@ -161,9 +155,6 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mseVersion) {
             $res['MseVersion'] = $this->mseVersion;
@@ -239,9 +230,6 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MseVersion'])) {
             $model->mseVersion = $map['MseVersion'];

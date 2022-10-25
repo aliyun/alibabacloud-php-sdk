@@ -41,11 +41,6 @@ class AddMockRuleRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -79,7 +74,6 @@ class AddMockRuleRequest extends Model
         'enable'          => 'Enable',
         'extraJson'       => 'ExtraJson',
         'mockType'        => 'MockType',
-        'mseSessionId'    => 'MseSessionId',
         'name'            => 'Name',
         'providerAppId'   => 'ProviderAppId',
         'providerAppName' => 'ProviderAppName',
@@ -112,9 +106,6 @@ class AddMockRuleRequest extends Model
         }
         if (null !== $this->mockType) {
             $res['MockType'] = $this->mockType;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -163,9 +154,6 @@ class AddMockRuleRequest extends Model
         }
         if (isset($map['MockType'])) {
             $model->mockType = $map['MockType'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

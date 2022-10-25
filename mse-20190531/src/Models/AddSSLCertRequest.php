@@ -27,17 +27,11 @@ class AddSSLCertRequest extends Model
      * @var string
      */
     public $gatewayUniqueId;
-
-    /**
-     * @var string
-     */
-    public $mseSessionId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'certIdentifier'  => 'CertIdentifier',
         'domainId'        => 'DomainId',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'mseSessionId'    => 'MseSessionId',
     ];
 
     public function validate()
@@ -58,9 +52,6 @@ class AddSSLCertRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
 
         return $res;
@@ -85,9 +76,6 @@ class AddSSLCertRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
 
         return $model;

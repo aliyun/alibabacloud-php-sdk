@@ -36,12 +36,12 @@ class AddServiceSourceShrinkRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $pathListShrink;
 
     /**
      * @var string
@@ -58,8 +58,8 @@ class AddServiceSourceShrinkRequest extends Model
         'gatewayUniqueId'             => 'GatewayUniqueId',
         'groupListShrink'             => 'GroupList',
         'ingressOptionsRequestShrink' => 'IngressOptionsRequest',
-        'mseSessionId'                => 'MseSessionId',
         'name'                        => 'Name',
+        'pathListShrink'              => 'PathList',
         'source'                      => 'Source',
         'type'                        => 'Type',
     ];
@@ -86,11 +86,11 @@ class AddServiceSourceShrinkRequest extends Model
         if (null !== $this->ingressOptionsRequestShrink) {
             $res['IngressOptionsRequest'] = $this->ingressOptionsRequestShrink;
         }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->pathListShrink) {
+            $res['PathList'] = $this->pathListShrink;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -125,11 +125,11 @@ class AddServiceSourceShrinkRequest extends Model
         if (isset($map['IngressOptionsRequest'])) {
             $model->ingressOptionsRequestShrink = $map['IngressOptionsRequest'];
         }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PathList'])) {
+            $model->pathListShrink = $map['PathList'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

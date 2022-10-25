@@ -34,11 +34,6 @@ class UpdateGatewayDomainRequest extends Model
     public $id;
 
     /**
-     * @var string
-     */
-    public $mseSessionId;
-
-    /**
      * @var bool
      */
     public $mustHttps;
@@ -63,7 +58,6 @@ class UpdateGatewayDomainRequest extends Model
         'gatewayUniqueId' => 'GatewayUniqueId',
         'http2'           => 'Http2',
         'id'              => 'Id',
-        'mseSessionId'    => 'MseSessionId',
         'mustHttps'       => 'MustHttps',
         'protocol'        => 'Protocol',
         'tlsMax'          => 'TlsMax',
@@ -91,9 +85,6 @@ class UpdateGatewayDomainRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->mustHttps) {
             $res['MustHttps'] = $this->mustHttps;
@@ -133,9 +124,6 @@ class UpdateGatewayDomainRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['MustHttps'])) {
             $model->mustHttps = $map['MustHttps'];

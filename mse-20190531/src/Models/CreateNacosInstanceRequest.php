@@ -51,11 +51,6 @@ class CreateNacosInstanceRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
 
     /**
@@ -81,7 +76,6 @@ class CreateNacosInstanceRequest extends Model
         'instanceId'     => 'InstanceId',
         'ip'             => 'Ip',
         'metadata'       => 'Metadata',
-        'mseSessionId'   => 'MseSessionId',
         'namespaceId'    => 'NamespaceId',
         'port'           => 'Port',
         'serviceName'    => 'ServiceName',
@@ -118,9 +112,6 @@ class CreateNacosInstanceRequest extends Model
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -169,9 +160,6 @@ class CreateNacosInstanceRequest extends Model
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

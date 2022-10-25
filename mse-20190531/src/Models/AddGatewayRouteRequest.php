@@ -66,11 +66,6 @@ class AddGatewayRouteRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -103,7 +98,6 @@ class AddGatewayRouteRequest extends Model
         'fallbackServices'   => 'FallbackServices',
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
-        'mseSessionId'       => 'MseSessionId',
         'name'               => 'Name',
         'predicates'         => 'Predicates',
         'redirectJSON'       => 'RedirectJSON',
@@ -153,9 +147,6 @@ class AddGatewayRouteRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -225,9 +216,6 @@ class AddGatewayRouteRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

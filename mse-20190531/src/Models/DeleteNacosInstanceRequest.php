@@ -41,11 +41,6 @@ class DeleteNacosInstanceRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
 
     /**
@@ -64,7 +59,6 @@ class DeleteNacosInstanceRequest extends Model
         'groupName'      => 'GroupName',
         'instanceId'     => 'InstanceId',
         'ip'             => 'Ip',
-        'mseSessionId'   => 'MseSessionId',
         'namespaceId'    => 'NamespaceId',
         'port'           => 'Port',
         'serviceName'    => 'ServiceName',
@@ -94,9 +88,6 @@ class DeleteNacosInstanceRequest extends Model
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -136,9 +127,6 @@ class DeleteNacosInstanceRequest extends Model
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

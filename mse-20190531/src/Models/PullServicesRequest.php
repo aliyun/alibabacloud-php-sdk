@@ -21,11 +21,6 @@ class PullServicesRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespace;
 
     /**
@@ -35,7 +30,6 @@ class PullServicesRequest extends Model
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'mseSessionId'    => 'MseSessionId',
         'namespace'       => 'Namespace',
         'sourceType'      => 'SourceType',
     ];
@@ -52,9 +46,6 @@ class PullServicesRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -79,9 +70,6 @@ class PullServicesRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

@@ -390,9 +390,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->matchType)) {
             $query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->path)) {
             $query['Path'] = $request->path;
         }
@@ -447,9 +444,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->isWhite)) {
             $query['IsWhite'] = $request->isWhite;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -526,9 +520,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->internetSlbSpec)) {
             $query['InternetSlbSpec'] = $request->internetSlbSpec;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -611,9 +602,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->http2)) {
             $query['Http2'] = $request->http2;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mustHttps)) {
             $query['MustHttps'] = $request->mustHttps;
@@ -717,9 +705,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -781,9 +766,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
         }
@@ -844,9 +826,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->httpsVServerGroupId)) {
             $query['HttpsVServerGroupId'] = $request->httpsVServerGroupId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->serviceWeight)) {
             $query['ServiceWeight'] = $request->serviceWeight;
@@ -918,9 +897,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->mockType)) {
             $query['MockType'] = $request->mockType;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -991,9 +967,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1042,9 +1015,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->portRange)) {
             $query['PortRange'] = $request->portRange;
@@ -1099,6 +1069,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($tmpReq->ingressOptionsRequest)) {
             $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ingressOptionsRequest), 'IngressOptionsRequest', 'json');
         }
+        if (!Utils::isUnset($tmpReq->pathList)) {
+            $request->pathListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pathList, 'PathList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -1115,11 +1088,11 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->ingressOptionsRequestShrink)) {
             $query['IngressOptionsRequest'] = $request->ingressOptionsRequestShrink;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pathListShrink)) {
+            $query['PathList'] = $request->pathListShrink;
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
@@ -1173,9 +1146,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->routeId)) {
             $query['RouteId'] = $request->routeId;
         }
@@ -1227,9 +1197,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -1292,9 +1259,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->originNamespaceId)) {
             $query['OriginNamespaceId'] = $request->originNamespaceId;
         }
@@ -1355,9 +1319,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
@@ -1434,9 +1395,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
@@ -1526,9 +1484,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -1586,9 +1541,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
@@ -1669,9 +1621,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -1741,9 +1690,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -1816,9 +1762,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -1898,9 +1841,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->licenseKey)) {
             $query['LicenseKey'] = $request->licenseKey;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -1993,9 +1933,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->messageQueueGrayEnable)) {
             $query['MessageQueueGrayEnable'] = $request->messageQueueGrayEnable;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -2060,9 +1997,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->data)) {
             $query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->path)) {
             $query['Path'] = $request->path;
         }
@@ -2115,9 +2049,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2163,9 +2094,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2219,9 +2147,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2270,9 +2195,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2323,9 +2245,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2371,9 +2290,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->routeId)) {
             $query['RouteId'] = $request->routeId;
@@ -2427,9 +2343,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
         }
@@ -2478,9 +2391,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
@@ -2540,9 +2450,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2598,9 +2505,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -2652,9 +2556,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -2717,9 +2618,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -2778,9 +2676,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -2836,9 +2731,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2884,9 +2776,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->sourceId)) {
             $query['SourceId'] = $request->sourceId;
@@ -2937,9 +2826,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->laneId)) {
             $query['LaneId'] = $request->laneId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2986,9 +2872,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3034,9 +2917,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->path)) {
             $query['Path'] = $request->path;
@@ -3102,9 +2982,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -3153,9 +3030,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
@@ -3211,9 +3085,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->language)) {
             $query['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -3282,9 +3153,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->isWhite)) {
             $query['IsWhite'] = $request->isWhite;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
@@ -3343,9 +3211,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3391,9 +3256,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3444,9 +3306,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3496,9 +3355,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3544,9 +3400,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->routeId)) {
             $query['RouteId'] = $request->routeId;
@@ -3597,9 +3450,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
         }
@@ -3649,9 +3499,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3697,9 +3544,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->versionCode)) {
             $query['VersionCode'] = $request->versionCode;
@@ -3753,9 +3597,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -3805,9 +3646,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3850,9 +3688,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3899,9 +3734,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -3961,9 +3793,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -4019,9 +3848,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -4070,9 +3896,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
@@ -4125,9 +3948,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->pluginId)) {
             $query['PluginId'] = $request->pluginId;
@@ -4184,9 +4004,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -4238,9 +4055,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
@@ -4309,9 +4123,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -4376,9 +4187,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4427,9 +4235,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -4487,9 +4292,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->serviceListShrink)) {
             $query['ServiceList'] = $request->serviceListShrink;
@@ -4666,9 +4468,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -4755,9 +4554,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4803,9 +4599,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->connectType)) {
             $query['ConnectType'] = $request->connectType;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
@@ -4858,9 +4651,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
@@ -5079,9 +4869,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->filterParamsShrink)) {
             $query['FilterParams'] = $request->filterParamsShrink;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->orderItem)) {
             $query['OrderItem'] = $request->orderItem;
         }
@@ -5136,9 +4923,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -5196,9 +4980,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->filterParamsShrink)) {
             $query['FilterParams'] = $request->filterParamsShrink;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->orderItem)) {
             $query['OrderItem'] = $request->orderItem;
@@ -5263,9 +5044,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->filterParamsShrink)) {
             $query['FilterParams'] = $request->filterParamsShrink;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->orderItem)) {
             $query['OrderItem'] = $request->orderItem;
         }
@@ -5321,9 +5099,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5369,9 +5144,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
@@ -5474,9 +5246,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -5531,9 +5300,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -5595,9 +5361,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -5669,9 +5432,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -5733,9 +5493,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5781,9 +5538,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5831,9 +5585,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5880,9 +5631,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5925,9 +5673,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
@@ -6110,9 +5855,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceInfos)) {
             $query['NamespaceInfos'] = $request->namespaceInfos;
         }
@@ -6180,9 +5922,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->funcType)) {
             $query['FuncType'] = $request->funcType;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -6244,9 +5983,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->routeId)) {
             $query['RouteId'] = $request->routeId;
         }
@@ -6295,9 +6031,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
@@ -6351,9 +6084,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6396,9 +6126,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6489,9 +6216,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
         }
@@ -6541,9 +6265,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6589,9 +6310,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->connectType)) {
             $query['ConnectType'] = $request->connectType;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->mseVersion)) {
             $query['MseVersion'] = $request->mseVersion;
@@ -6679,9 +6397,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6724,9 +6439,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6894,9 +6606,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->laneId)) {
             $query['LaneId'] = $request->laneId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6986,9 +6695,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->podNameList)) {
             $query['PodNameList'] = $request->podNameList;
         }
@@ -7041,9 +6747,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->requestPars)) {
             $query['RequestPars'] = $request->requestPars;
         }
@@ -7093,9 +6796,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -7144,9 +6844,6 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -7205,9 +6902,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->all)) {
             $query['All'] = $request->all;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -7270,9 +6964,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -7327,9 +7018,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->isWhite)) {
             $query['IsWhite'] = $request->isWhite;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -7398,9 +7086,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->requestPars)) {
             $query['RequestPars'] = $request->requestPars;
         }
@@ -7458,9 +7143,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7544,9 +7226,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->minSessionTimeout)) {
             $query['MinSessionTimeout'] = $request->minSessionTimeout;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namingAuthEnabled)) {
             $query['NamingAuthEnabled'] = $request->namingAuthEnabled;
         }
@@ -7628,9 +7307,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -7692,9 +7368,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->mustHttps)) {
             $query['MustHttps'] = $request->mustHttps;
         }
@@ -7752,9 +7425,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -7815,9 +7485,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7906,9 +7573,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
@@ -7984,9 +7648,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8042,9 +7703,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8099,9 +7757,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8159,9 +7814,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->retryJSONShrink)) {
             $query['RetryJSON'] = $request->retryJSONShrink;
@@ -8223,9 +7875,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->timeoutJSONShrink)) {
             $query['TimeoutJSON'] = $request->timeoutJSONShrink;
         }
@@ -8277,9 +7926,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->routeId)) {
             $query['RouteId'] = $request->routeId;
@@ -8341,9 +7987,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
         }
@@ -8392,9 +8035,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;
@@ -8448,9 +8088,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->replica)) {
             $query['Replica'] = $request->replica;
         }
@@ -8502,9 +8139,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->versionCode)) {
             $query['VersionCode'] = $request->versionCode;
@@ -8565,9 +8199,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->filterSide)) {
             $query['FilterSide'] = $request->filterSide;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
@@ -8632,9 +8263,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -8715,9 +8343,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->md5)) {
             $query['Md5'] = $request->md5;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -8788,9 +8413,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -8859,9 +8481,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
@@ -8939,9 +8558,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->pluginId)) {
             $query['PluginId'] = $request->pluginId;
         }
@@ -8997,9 +8613,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -9044,6 +8657,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($tmpReq->ingressOptionsRequest)) {
             $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ingressOptionsRequest), 'IngressOptionsRequest', 'json');
         }
+        if (!Utils::isUnset($tmpReq->pathList)) {
+            $request->pathListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pathList, 'PathList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -9063,11 +8679,11 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->ingressOptionsRequestShrink)) {
             $query['IngressOptionsRequest'] = $request->ingressOptionsRequestShrink;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pathListShrink)) {
+            $query['PathList'] = $request->pathListShrink;
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
@@ -9124,9 +8740,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->data)) {
             $query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
-        }
         if (!Utils::isUnset($request->path)) {
             $query['Path'] = $request->path;
         }
@@ -9178,9 +8791,6 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->mseSessionId)) {
-            $query['MseSessionId'] = $request->mseSessionId;
         }
         if (!Utils::isUnset($request->requestPars)) {
             $query['RequestPars'] = $request->requestPars;

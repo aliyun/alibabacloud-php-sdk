@@ -31,18 +31,12 @@ class UpdateGatewayRouteRetryShrinkRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $retryJSONShrink;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
-        'mseSessionId'    => 'MseSessionId',
         'retryJSONShrink' => 'RetryJSON',
     ];
 
@@ -64,9 +58,6 @@ class UpdateGatewayRouteRetryShrinkRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->retryJSONShrink) {
             $res['RetryJSON'] = $this->retryJSONShrink;
@@ -94,9 +85,6 @@ class UpdateGatewayRouteRetryShrinkRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RetryJSON'])) {
             $model->retryJSONShrink = $map['RetryJSON'];

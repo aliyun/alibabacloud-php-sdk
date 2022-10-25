@@ -41,11 +41,6 @@ class ExportNacosConfigRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
@@ -54,7 +49,6 @@ class ExportNacosConfigRequest extends Model
         'group'          => 'Group',
         'ids'            => 'Ids',
         'instanceId'     => 'InstanceId',
-        'mseSessionId'   => 'MseSessionId',
         'namespaceId'    => 'NamespaceId',
     ];
 
@@ -82,9 +76,6 @@ class ExportNacosConfigRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -118,9 +109,6 @@ class ExportNacosConfigRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

@@ -26,11 +26,6 @@ class ListListenersByIpRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $namespaceId;
 
     /**
@@ -41,7 +36,6 @@ class ListListenersByIpRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'instanceId'     => 'InstanceId',
         'ip'             => 'Ip',
-        'mseSessionId'   => 'MseSessionId',
         'namespaceId'    => 'NamespaceId',
         'requestPars'    => 'RequestPars',
     ];
@@ -61,9 +55,6 @@ class ListListenersByIpRequest extends Model
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -91,9 +82,6 @@ class ListListenersByIpRequest extends Model
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

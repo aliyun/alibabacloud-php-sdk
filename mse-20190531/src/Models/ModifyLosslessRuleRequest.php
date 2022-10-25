@@ -46,11 +46,6 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
@@ -80,7 +75,6 @@ class ModifyLosslessRuleRequest extends Model
         'delayTime'           => 'DelayTime',
         'enable'              => 'Enable',
         'funcType'            => 'FuncType',
-        'mseSessionId'        => 'MseSessionId',
         'regionId'            => 'RegionId',
         'related'             => 'Related',
         'shutdownWaitSeconds' => 'ShutdownWaitSeconds',
@@ -115,9 +109,6 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (null !== $this->funcType) {
             $res['FuncType'] = $this->funcType;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -166,9 +157,6 @@ class ModifyLosslessRuleRequest extends Model
         }
         if (isset($map['FuncType'])) {
             $model->funcType = $map['FuncType'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

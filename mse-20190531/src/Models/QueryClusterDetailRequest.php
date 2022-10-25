@@ -26,17 +26,11 @@ class QueryClusterDetailRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $orderId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'aclSwitch'      => 'AclSwitch',
         'instanceId'     => 'InstanceId',
-        'mseSessionId'   => 'MseSessionId',
         'orderId'        => 'OrderId',
     ];
 
@@ -55,9 +49,6 @@ class QueryClusterDetailRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -82,9 +73,6 @@ class QueryClusterDetailRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];

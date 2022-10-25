@@ -21,16 +21,10 @@ class GetGovernanceKubernetesClusterRequest extends Model
     /**
      * @var string
      */
-    public $mseSessionId;
-
-    /**
-     * @var string
-     */
     public $regionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
-        'mseSessionId'   => 'MseSessionId',
         'regionId'       => 'RegionId',
     ];
 
@@ -46,9 +40,6 @@ class GetGovernanceKubernetesClusterRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->mseSessionId) {
-            $res['MseSessionId'] = $this->mseSessionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -70,9 +61,6 @@ class GetGovernanceKubernetesClusterRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['MseSessionId'])) {
-            $model->mseSessionId = $map['MseSessionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
