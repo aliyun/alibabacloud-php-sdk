@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetFileLastCommitRequest extends Model
+class ListRepositoryCommitDiffRequest extends Model
 {
     /**
      * @var string
@@ -14,30 +14,18 @@ class GetFileLastCommitRequest extends Model
     public $accessToken;
 
     /**
-     * @var string
+     * @var int
      */
-    public $filepath;
+    public $contextLine;
 
     /**
      * @var string
      */
     public $organizationId;
-
-    /**
-     * @var string
-     */
-    public $sha;
-
-    /**
-     * @var bool
-     */
-    public $showSignature;
     protected $_name = [
         'accessToken'    => 'accessToken',
-        'filepath'       => 'filepath',
+        'contextLine'    => 'contextLine',
         'organizationId' => 'organizationId',
-        'sha'            => 'sha',
-        'showSignature'  => 'showSignature',
     ];
 
     public function validate()
@@ -50,17 +38,11 @@ class GetFileLastCommitRequest extends Model
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
-        if (null !== $this->filepath) {
-            $res['filepath'] = $this->filepath;
+        if (null !== $this->contextLine) {
+            $res['contextLine'] = $this->contextLine;
         }
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
-        }
-        if (null !== $this->sha) {
-            $res['sha'] = $this->sha;
-        }
-        if (null !== $this->showSignature) {
-            $res['showSignature'] = $this->showSignature;
         }
 
         return $res;
@@ -69,7 +51,7 @@ class GetFileLastCommitRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetFileLastCommitRequest
+     * @return ListRepositoryCommitDiffRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,17 +59,11 @@ class GetFileLastCommitRequest extends Model
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
-        if (isset($map['filepath'])) {
-            $model->filepath = $map['filepath'];
+        if (isset($map['contextLine'])) {
+            $model->contextLine = $map['contextLine'];
         }
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
-        }
-        if (isset($map['sha'])) {
-            $model->sha = $map['sha'];
-        }
-        if (isset($map['showSignature'])) {
-            $model->showSignature = $map['showSignature'];
         }
 
         return $model;

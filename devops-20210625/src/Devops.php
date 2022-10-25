@@ -20,8 +20,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineRequest;
-use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest;
@@ -107,6 +105,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoriesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoriesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryWebhookRequest;
@@ -156,10 +156,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineRequest;
-use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupRequest;
@@ -230,8 +232,7 @@ class Devops extends OpenApiClient
     public function addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['AccessToken'] = $request->accessToken;
         }
@@ -254,7 +255,7 @@ class Devops extends OpenApiClient
             'action'      => 'AddRepositoryMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . $repositoryId . '/members',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -290,8 +291,7 @@ class Devops extends OpenApiClient
     public function addWebhookWithOptions($repositoryId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['AccessToken'] = $request->accessToken;
         }
@@ -332,7 +332,7 @@ class Devops extends OpenApiClient
             'action'      => 'AddWebhook',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . $repositoryId . '/webhooks/create',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/webhooks/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -368,8 +368,7 @@ class Devops extends OpenApiClient
     public function createFlowTagWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->color)) {
             $query['color'] = $request->color;
         }
@@ -387,7 +386,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateFlowTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tags',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tags',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -423,8 +422,7 @@ class Devops extends OpenApiClient
     public function createFlowTagGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -436,7 +434,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tagGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -472,8 +470,7 @@ class Devops extends OpenApiClient
     public function createHostGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->aliyunRegion)) {
             $body['aliyunRegion'] = $request->aliyunRegion;
         }
@@ -512,7 +509,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/hostGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -585,64 +582,6 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string                $organizationId
-     * @param CreatePipelineRequest $request
-     *
-     * @return CreatePipelineResponse
-     */
-    public function createPipeline($organizationId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createPipelineWithOptions($organizationId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                $organizationId
-     * @param CreatePipelineRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreatePipelineResponse
-     */
-    public function createPipelineWithOptions($organizationId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
-        if (!Utils::isUnset($request->basicInfo)) {
-            $body['basicInfo'] = $request->basicInfo;
-        }
-        if (!Utils::isUnset($request->pipelineYaml)) {
-            $body['pipelineYaml'] = $request->pipelineYaml;
-        }
-        if (!Utils::isUnset($request->settings)) {
-            $body['settings'] = $request->settings;
-        }
-        if (!Utils::isUnset($request->triggerInfo)) {
-            $body['triggerInfo'] = $request->triggerInfo;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreatePipeline',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
      * @param string                     $organizationId
      * @param CreatePipelineGroupRequest $request
      *
@@ -667,8 +606,7 @@ class Devops extends OpenApiClient
     public function createPipelineGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -680,7 +618,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreatePipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -716,8 +654,7 @@ class Devops extends OpenApiClient
     public function createProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->customCode)) {
             $body['customCode'] = $request->customCode;
         }
@@ -738,7 +675,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateProject',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/createProject',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/createProject',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -886,10 +823,7 @@ class Devops extends OpenApiClient
     public function createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
-        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->accountId)) {
             $body['accountId'] = $request->accountId;
         }
@@ -904,7 +838,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateResourceMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -940,8 +874,7 @@ class Devops extends OpenApiClient
     public function createSprintWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->endDate)) {
             $body['endDate'] = $request->endDate;
         }
@@ -965,7 +898,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateSprint',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/sprints/create',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sprints/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -998,15 +931,14 @@ class Devops extends OpenApiClient
      */
     public function createSshKeyWithOptions($organizationId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'CreateSshKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/sshKey',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sshKey',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1042,8 +974,7 @@ class Devops extends OpenApiClient
     public function createVariableGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -1061,7 +992,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/variableGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1097,8 +1028,7 @@ class Devops extends OpenApiClient
     public function createWorkitemWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->assignedTo)) {
             $body['assignedTo'] = $request->assignedTo;
         }
@@ -1152,7 +1082,7 @@ class Devops extends OpenApiClient
             'action'      => 'CreateWorkitem',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/create',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1254,16 +1184,14 @@ class Devops extends OpenApiClient
      */
     public function deleteFlowTagWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteFlowTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tags/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tags/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1298,16 +1226,14 @@ class Devops extends OpenApiClient
      */
     public function deleteFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tagGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1342,16 +1268,14 @@ class Devops extends OpenApiClient
      */
     public function deleteHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/hostGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1386,16 +1310,14 @@ class Devops extends OpenApiClient
      */
     public function deletePipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeletePipeline',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1430,16 +1352,14 @@ class Devops extends OpenApiClient
      */
     public function deletePipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $groupId        = OpenApiUtilClient::getEncodeParam($groupId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeletePipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups/' . $groupId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1475,8 +1395,7 @@ class Devops extends OpenApiClient
     public function deleteProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->identifier)) {
             $query['identifier'] = $request->identifier;
         }
@@ -1488,7 +1407,7 @@ class Devops extends OpenApiClient
             'action'      => 'DeleteProject',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/delete',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1527,18 +1446,14 @@ class Devops extends OpenApiClient
      */
     public function deleteResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
-        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
-        $accountId      = OpenApiUtilClient::getEncodeParam($accountId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteResourceMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members/' . $accountId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1573,16 +1488,14 @@ class Devops extends OpenApiClient
      */
     public function deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/variableGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1615,15 +1528,14 @@ class Devops extends OpenApiClient
      */
     public function frozenWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $workspaceId = OpenApiUtilClient::getEncodeParam($workspaceId);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'FrozenWorkspace',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces/' . $workspaceId . '/frozen',
+            'pathname'    => '/api/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/frozen',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1659,8 +1571,7 @@ class Devops extends OpenApiClient
     public function getCodeupOrganizationWithOptions($identity, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $identity = OpenApiUtilClient::getEncodeParam($identity);
-        $query    = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['AccessToken'] = $request->accessToken;
         }
@@ -1672,7 +1583,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetCodeupOrganization',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/organization/' . $identity . '',
+            'pathname'    => '/api/organization/' . OpenApiUtilClient::getEncodeParam($identity) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1710,9 +1621,7 @@ class Devops extends OpenApiClient
     public function getCustomFieldOptionWithOptions($organizationId, $fieldId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $fieldId        = OpenApiUtilClient::getEncodeParam($fieldId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->spaceIdentifier)) {
             $query['spaceIdentifier'] = $request->spaceIdentifier;
         }
@@ -1730,7 +1639,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetCustomFieldOption',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/fields/' . $fieldId . '/getCustomOption',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/fields/' . OpenApiUtilClient::getEncodeParam($fieldId) . '/getCustomOption',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1766,8 +1675,7 @@ class Devops extends OpenApiClient
     public function getFileLastCommitWithOptions($repositoryId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['accessToken'] = $request->accessToken;
         }
@@ -1780,6 +1688,9 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->sha)) {
             $query['sha'] = $request->sha;
         }
+        if (!Utils::isUnset($request->showSignature)) {
+            $query['showSignature'] = $request->showSignature;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1788,7 +1699,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetFileLastCommit',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . $repositoryId . '/files/lastCommit',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/lastCommit',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1823,16 +1734,14 @@ class Devops extends OpenApiClient
      */
     public function getFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tagGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1867,16 +1776,14 @@ class Devops extends OpenApiClient
      */
     public function getHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/hostGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1911,16 +1818,14 @@ class Devops extends OpenApiClient
      */
     public function getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $accountId      = OpenApiUtilClient::getEncodeParam($accountId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetOrganizationMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/members/' . $accountId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1955,16 +1860,14 @@ class Devops extends OpenApiClient
      */
     public function getPipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetPipeline',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2000,8 +1903,7 @@ class Devops extends OpenApiClient
     public function getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->fileName)) {
             $query['fileName'] = $request->fileName;
         }
@@ -2016,7 +1918,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetPipelineArtifactUrl',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipeline/getArtifactDownloadUrl',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/getArtifactDownloadUrl',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2060,12 +1962,7 @@ class Devops extends OpenApiClient
     public function getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId    = OpenApiUtilClient::getEncodeParam($organizationId);
-        $emasJobInstanceId = OpenApiUtilClient::getEncodeParam($emasJobInstanceId);
-        $md5               = OpenApiUtilClient::getEncodeParam($md5);
-        $pipelineId        = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId     = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $query             = [];
+        $query = [];
         if (!Utils::isUnset($request->serviceConnectionId)) {
             $query['serviceConnectionId'] = $request->serviceConnectionId;
         }
@@ -2077,7 +1974,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetPipelineEmasArtifactUrl',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/pipelineRun/' . $pipelineRunId . '/emas/artifact/' . $emasJobInstanceId . '/' . $md5 . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRun/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/emas/artifact/' . OpenApiUtilClient::getEncodeParam($emasJobInstanceId) . '/' . OpenApiUtilClient::getEncodeParam($md5) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2112,16 +2009,14 @@ class Devops extends OpenApiClient
      */
     public function getPipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $groupId        = OpenApiUtilClient::getEncodeParam($groupId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetPipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups/' . $groupId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2158,17 +2053,14 @@ class Devops extends OpenApiClient
      */
     public function getPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetPipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2204,8 +2096,7 @@ class Devops extends OpenApiClient
     public function getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->reportPath)) {
             $body['reportPath'] = $request->reportPath;
         }
@@ -2217,7 +2108,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetPipelineScanReportUrl',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipeline/getPipelineScanReportUrl',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/getPipelineScanReportUrl',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2252,16 +2143,14 @@ class Devops extends OpenApiClient
      */
     public function getProjectInfoWithOptions($organizationId, $projectId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $projectId      = OpenApiUtilClient::getEncodeParam($projectId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetProjectInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/project/' . $projectId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/project/' . OpenApiUtilClient::getEncodeParam($projectId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2403,16 +2292,14 @@ class Devops extends OpenApiClient
      */
     public function getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $sprintId       = OpenApiUtilClient::getEncodeParam($sprintId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetSprintInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/sprints/' . $sprintId . '/getSprintinfo',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sprints/' . OpenApiUtilClient::getEncodeParam($sprintId) . '/getSprintinfo',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2449,17 +2336,14 @@ class Devops extends OpenApiClient
      */
     public function getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetVMDeployOrder',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/deploy/' . $deployOrderId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2494,16 +2378,14 @@ class Devops extends OpenApiClient
      */
     public function getVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/variableGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2538,16 +2420,14 @@ class Devops extends OpenApiClient
      */
     public function getWorkItemActivityWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $workitemId     = OpenApiUtilClient::getEncodeParam($workitemId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetWorkItemActivity',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/' . $workitemId . '/getActivity',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/getActivity',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2582,16 +2462,14 @@ class Devops extends OpenApiClient
      */
     public function getWorkItemInfoWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $workitemId     = OpenApiUtilClient::getEncodeParam($workitemId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetWorkItemInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/' . $workitemId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2629,9 +2507,7 @@ class Devops extends OpenApiClient
     public function getWorkItemWorkFlowInfoWithOptions($organizationId, $workitemId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $workitemId     = OpenApiUtilClient::getEncodeParam($workitemId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->configurationId)) {
             $query['configurationId'] = $request->configurationId;
         }
@@ -2643,7 +2519,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetWorkItemWorkFlowInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/' . $workitemId . '/getWorkflowInfo',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/getWorkflowInfo',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2676,15 +2552,14 @@ class Devops extends OpenApiClient
      */
     public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $workspaceId = OpenApiUtilClient::getEncodeParam($workspaceId);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'GetWorkspace',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces/' . $workspaceId . '',
+            'pathname'    => '/api/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2720,8 +2595,7 @@ class Devops extends OpenApiClient
     public function joinPipelineGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->groupId)) {
             $query['groupId'] = $request->groupId;
         }
@@ -2736,7 +2610,7 @@ class Devops extends OpenApiClient
             'action'      => 'JoinPipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups/join',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/join',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2769,15 +2643,14 @@ class Devops extends OpenApiClient
      */
     public function listFlowTagGroupsWithOptions($organizationId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListFlowTagGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tagGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2813,8 +2686,7 @@ class Devops extends OpenApiClient
     public function listHostGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->createEndTime)) {
             $query['createEndTime'] = $request->createEndTime;
         }
@@ -2850,7 +2722,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListHostGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/hostGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2886,8 +2758,7 @@ class Devops extends OpenApiClient
     public function listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->externUid)) {
             $query['externUid'] = $request->externUid;
         }
@@ -2920,7 +2791,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListOrganizationMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/members',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/members',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2958,9 +2829,7 @@ class Devops extends OpenApiClient
     public function listPipelineGroupPipelinesWithOptions($organizationId, $groupId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $groupId        = OpenApiUtilClient::getEncodeParam($groupId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->createEndTime)) {
             $query['createEndTime'] = $request->createEndTime;
         }
@@ -2993,7 +2862,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListPipelineGroupPipelines',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups/' . $groupId . '/pipelines',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/pipelines',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3029,8 +2898,7 @@ class Devops extends OpenApiClient
     public function listPipelineGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->maxResults)) {
             $query['maxResults'] = $request->maxResults;
         }
@@ -3045,7 +2913,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListPipelineGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3083,9 +2951,7 @@ class Devops extends OpenApiClient
     public function listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -3106,7 +2972,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListPipelineJobHistorys',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/job/historys',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/job/historys',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3144,9 +3010,7 @@ class Devops extends OpenApiClient
     public function listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -3158,7 +3022,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListPipelineJobs',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/jobs',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/jobs',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3196,9 +3060,7 @@ class Devops extends OpenApiClient
     public function listPipelineRunsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['endTime'] = $request->endTime;
         }
@@ -3225,7 +3087,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListPipelineRuns',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3261,8 +3123,7 @@ class Devops extends OpenApiClient
     public function listPipelinesWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->createEndTime)) {
             $query['createEndTime'] = $request->createEndTime;
         }
@@ -3301,7 +3162,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListPipelines',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3339,9 +3200,7 @@ class Devops extends OpenApiClient
     public function listProjectMembersWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $projectId      = OpenApiUtilClient::getEncodeParam($projectId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->targetType)) {
             $query['targetType'] = $request->targetType;
         }
@@ -3353,7 +3212,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListProjectMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/' . $projectId . '/listMembers',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/listMembers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3389,8 +3248,7 @@ class Devops extends OpenApiClient
     public function listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -3402,7 +3260,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListProjectTemplates',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/listTemplates',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/listTemplates',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3440,9 +3298,7 @@ class Devops extends OpenApiClient
     public function listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $projectId      = OpenApiUtilClient::getEncodeParam($projectId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -3457,7 +3313,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListProjectWorkitemTypes',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/' . $projectId . '/getWorkitemType',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/getWorkitemType',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3493,8 +3349,7 @@ class Devops extends OpenApiClient
     public function listProjectsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -3521,7 +3376,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListProjects',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/listProjects',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/listProjects',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3600,6 +3455,62 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                          $repositoryId
+     * @param string                          $sha
+     * @param ListRepositoryCommitDiffRequest $request
+     *
+     * @return ListRepositoryCommitDiffResponse
+     */
+    public function listRepositoryCommitDiff($repositoryId, $sha, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRepositoryCommitDiffWithOptions($repositoryId, $sha, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $repositoryId
+     * @param string                          $sha
+     * @param ListRepositoryCommitDiffRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListRepositoryCommitDiffResponse
+     */
+    public function listRepositoryCommitDiffWithOptions($repositoryId, $sha, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->contextLine)) {
+            $query['contextLine'] = $request->contextLine;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRepositoryCommitDiff',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits/' . OpenApiUtilClient::getEncodeParam($sha) . '/diff',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRepositoryCommitDiffResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                                   $repositoryId
      * @param ListRepositoryMemberWithInheritedRequest $request
      *
@@ -3624,8 +3535,7 @@ class Devops extends OpenApiClient
     public function listRepositoryMemberWithInheritedWithOptions($repositoryId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['accessToken'] = $request->accessToken;
         }
@@ -3640,7 +3550,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListRepositoryMemberWithInherited',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . $repositoryId . '/members/list',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3676,8 +3586,7 @@ class Devops extends OpenApiClient
     public function listRepositoryWebhookWithOptions($repositoryId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['accessToken'] = $request->accessToken;
         }
@@ -3698,7 +3607,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListRepositoryWebhook',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . $repositoryId . '/webhooks/list',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/webhooks/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3735,17 +3644,14 @@ class Devops extends OpenApiClient
      */
     public function listResourceMembersWithOptions($organizationId, $resourceType, $resourceId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
-        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListResourceMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3781,8 +3687,7 @@ class Devops extends OpenApiClient
     public function listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->sericeConnectionType)) {
             $query['sericeConnectionType'] = $request->sericeConnectionType;
         }
@@ -3794,7 +3699,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListServiceConnections',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/serviceConnections',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceConnections',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3830,8 +3735,7 @@ class Devops extends OpenApiClient
     public function listSprintsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->maxResults)) {
             $query['maxResults'] = $request->maxResults;
         }
@@ -3852,7 +3756,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListSprints',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/sprints/list',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sprints/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3888,8 +3792,7 @@ class Devops extends OpenApiClient
     public function listVariableGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->maxResults)) {
             $query['maxResults'] = $request->maxResults;
         }
@@ -3910,7 +3813,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListVariableGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/variableGroups',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3946,8 +3849,7 @@ class Devops extends OpenApiClient
     public function listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->spaceIdentifier)) {
             $query['spaceIdentifier'] = $request->spaceIdentifier;
         }
@@ -3965,7 +3867,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListWorkItemAllFields',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/fields/listAll',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/fields/listAll',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4001,8 +3903,7 @@ class Devops extends OpenApiClient
     public function listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->spaceIdentifier)) {
             $query['spaceIdentifier'] = $request->spaceIdentifier;
         }
@@ -4023,7 +3924,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListWorkItemWorkFlowStatus',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/workflow/listWorkflowStatus',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/workflow/listWorkflowStatus',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4058,16 +3959,14 @@ class Devops extends OpenApiClient
      */
     public function listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $workitemId     = OpenApiUtilClient::getEncodeParam($workitemId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ListWorkitemTime',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/' . $workitemId . '/time/list',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/time/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4103,8 +4002,7 @@ class Devops extends OpenApiClient
     public function listWorkitemsWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -4143,7 +4041,7 @@ class Devops extends OpenApiClient
             'action'      => 'ListWorkitems',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/listWorkitems',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/listWorkitems',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4245,18 +4143,14 @@ class Devops extends OpenApiClient
      */
     public function logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'LogPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipeline/' . $pipelineId . '/pipelineRun/' . $pipelineRunId . '/job/' . $jobId . '/logs',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRun/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/job/' . OpenApiUtilClient::getEncodeParam($jobId) . '/logs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4295,18 +4189,14 @@ class Devops extends OpenApiClient
      */
     public function logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
-        $machineSn      = OpenApiUtilClient::getEncodeParam($machineSn);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'LogVMDeployMachine',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/deploy/' . $deployOrderId . '/machine/' . $machineSn . '/log',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/machine/' . OpenApiUtilClient::getEncodeParam($machineSn) . '/log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4345,18 +4235,14 @@ class Devops extends OpenApiClient
      */
     public function passPipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'PassPipelineValidate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/pass',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/pass',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4395,18 +4281,14 @@ class Devops extends OpenApiClient
      */
     public function refusePipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RefusePipelineValidate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/refuse',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/refuse',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4439,15 +4321,14 @@ class Devops extends OpenApiClient
      */
     public function releaseWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $workspaceId = OpenApiUtilClient::getEncodeParam($workspaceId);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ReleaseWorkspace',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces/' . $workspaceId . '/release',
+            'pathname'    => '/api/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/release',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4480,15 +4361,14 @@ class Devops extends OpenApiClient
      */
     public function resetSshKeyWithOptions($organizationId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ResetSshKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/sshKey',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sshKey',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4525,17 +4405,14 @@ class Devops extends OpenApiClient
      */
     public function resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'ResumeVMDeployOrder',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/deploy/' . $deployOrderId . '/resume',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/resume',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4574,18 +4451,14 @@ class Devops extends OpenApiClient
      */
     public function retryPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RetryPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4624,18 +4497,14 @@ class Devops extends OpenApiClient
      */
     public function retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
-        $machineSn      = OpenApiUtilClient::getEncodeParam($machineSn);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'RetryVMDeployMachine',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/deploy/' . $deployOrderId . '/machine/' . $machineSn . '/retry',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/machine/' . OpenApiUtilClient::getEncodeParam($machineSn) . '/retry',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4674,18 +4543,14 @@ class Devops extends OpenApiClient
      */
     public function skipPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'SkipPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/skip',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/skip',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4724,18 +4589,14 @@ class Devops extends OpenApiClient
      */
     public function skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
-        $machineSn      = OpenApiUtilClient::getEncodeParam($machineSn);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'SkipVMDeployMachine',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/deploy/' . $deployOrderId . '/machine/' . $machineSn . '/skip',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/machine/' . OpenApiUtilClient::getEncodeParam($machineSn) . '/skip',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4773,9 +4634,7 @@ class Devops extends OpenApiClient
     public function startPipelineRunWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->params)) {
             $body['params'] = $request->params;
         }
@@ -4787,7 +4646,7 @@ class Devops extends OpenApiClient
             'action'      => 'StartPipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organizations/' . $organizationId . '/pipelines/' . $pipelineId . '/run',
+            'pathname'    => '/organizations/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/run',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4826,18 +4685,14 @@ class Devops extends OpenApiClient
      */
     public function stopPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StopPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/stop',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4874,17 +4729,14 @@ class Devops extends OpenApiClient
      */
     public function stopPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StopPipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/stop',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4921,17 +4773,14 @@ class Devops extends OpenApiClient
      */
     public function stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
-        $req            = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StopVMDeployOrder',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/deploy/' . $deployOrderId . '/stop',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4967,8 +4816,7 @@ class Devops extends OpenApiClient
     public function triggerRepositoryMirrorSyncWithOptions($repositoryId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $repositoryId = OpenApiUtilClient::getEncodeParam($repositoryId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->accessToken)) {
             $query['accessToken'] = $request->accessToken;
         }
@@ -4989,7 +4837,7 @@ class Devops extends OpenApiClient
             'action'      => 'TriggerRepositoryMirrorSync',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . $repositoryId . '/mirror',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/mirror',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5027,9 +4875,7 @@ class Devops extends OpenApiClient
     public function updateFlowTagWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->color)) {
             $query['color'] = $request->color;
         }
@@ -5047,7 +4893,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateFlowTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tags/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tags/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5085,9 +4931,7 @@ class Devops extends OpenApiClient
     public function updateFlowTagGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -5099,7 +4943,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/flow/tagGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5137,9 +4981,7 @@ class Devops extends OpenApiClient
     public function updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->aliyunRegion)) {
             $body['aliyunRegion'] = $request->aliyunRegion;
         }
@@ -5178,7 +5020,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/hostGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5187,64 +5029,6 @@ class Devops extends OpenApiClient
         ]);
 
         return UpdateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                $organizationId
-     * @param UpdatePipelineRequest $request
-     *
-     * @return UpdatePipelineResponse
-     */
-    public function updatePipeline($organizationId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updatePipelineWithOptions($organizationId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                $organizationId
-     * @param UpdatePipelineRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdatePipelineResponse
-     */
-    public function updatePipelineWithOptions($organizationId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
-        if (!Utils::isUnset($request->basicInfo)) {
-            $body['basicInfo'] = $request->basicInfo;
-        }
-        if (!Utils::isUnset($request->pipelineYaml)) {
-            $body['pipelineYaml'] = $request->pipelineYaml;
-        }
-        if (!Utils::isUnset($request->settings)) {
-            $body['settings'] = $request->settings;
-        }
-        if (!Utils::isUnset($request->triggerInfo)) {
-            $body['triggerInfo'] = $request->triggerInfo;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdatePipeline',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5274,9 +5058,7 @@ class Devops extends OpenApiClient
     public function updatePipelineBaseInfoWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->envId)) {
             $query['envId'] = $request->envId;
         }
@@ -5294,7 +5076,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdatePipelineBaseInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/baseInfo',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/baseInfo',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5332,9 +5114,7 @@ class Devops extends OpenApiClient
     public function updatePipelineGroupWithOptions($organizationId, $groupId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $groupId        = OpenApiUtilClient::getEncodeParam($groupId);
-        $query          = [];
+        $query = [];
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
         }
@@ -5346,7 +5126,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdatePipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/pipelineGroups/' . $groupId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5384,9 +5164,7 @@ class Devops extends OpenApiClient
     public function updateProjectMemberWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $projectId      = OpenApiUtilClient::getEncodeParam($projectId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->roleIdentifier)) {
             $body['roleIdentifier'] = $request->roleIdentifier;
         }
@@ -5410,7 +5188,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateProjectMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/projects/' . $projectId . '/updateMember',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/updateMember',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5419,6 +5197,155 @@ class Devops extends OpenApiClient
         ]);
 
         return UpdateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $repositoryId
+     * @param string                         $id
+     * @param UpdateProtectedBranchesRequest $request
+     *
+     * @return UpdateProtectedBranchesResponse
+     */
+    public function updateProtectedBranches($repositoryId, $id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $repositoryId
+     * @param string                         $id
+     * @param UpdateProtectedBranchesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateProtectedBranchesResponse
+     */
+    public function updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->allowMergeRoles)) {
+            $body['allowMergeRoles'] = $request->allowMergeRoles;
+        }
+        if (!Utils::isUnset($request->allowMergeUserIds)) {
+            $body['allowMergeUserIds'] = $request->allowMergeUserIds;
+        }
+        if (!Utils::isUnset($request->allowPushRoles)) {
+            $body['allowPushRoles'] = $request->allowPushRoles;
+        }
+        if (!Utils::isUnset($request->allowPushUserIds)) {
+            $body['allowPushUserIds'] = $request->allowPushUserIds;
+        }
+        if (!Utils::isUnset($request->branch)) {
+            $body['branch'] = $request->branch;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mergeRequestSetting)) {
+            $body['mergeRequestSetting'] = $request->mergeRequestSetting;
+        }
+        if (!Utils::isUnset($request->testSettingDTO)) {
+            $body['testSettingDTO'] = $request->testSettingDTO;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProtectedBranches',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $repositoryId
+     * @param string                        $userId
+     * @param UpdateRepositoryMemberRequest $request
+     *
+     * @return UpdateRepositoryMemberResponse
+     */
+    public function updateRepositoryMember($repositoryId, $userId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRepositoryMemberWithOptions($repositoryId, $userId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $repositoryId
+     * @param string                        $userId
+     * @param UpdateRepositoryMemberRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateRepositoryMemberResponse
+     */
+    public function updateRepositoryMemberWithOptions($repositoryId, $userId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->accessLevel)) {
+            $body['accessLevel'] = $request->accessLevel;
+        }
+        if (!Utils::isUnset($request->expireAt)) {
+            $body['expireAt'] = $request->expireAt;
+        }
+        if (!Utils::isUnset($request->memberType)) {
+            $body['memberType'] = $request->memberType;
+        }
+        if (!Utils::isUnset($request->relatedId)) {
+            $body['relatedId'] = $request->relatedId;
+        }
+        if (!Utils::isUnset($request->relatedInfos)) {
+            $body['relatedInfos'] = $request->relatedInfos;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRepositoryMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/' . OpenApiUtilClient::getEncodeParam($userId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5452,11 +5379,7 @@ class Devops extends OpenApiClient
     public function updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $resourceType   = OpenApiUtilClient::getEncodeParam($resourceType);
-        $resourceId     = OpenApiUtilClient::getEncodeParam($resourceId);
-        $accountId      = OpenApiUtilClient::getEncodeParam($accountId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->roleName)) {
             $body['roleName'] = $request->roleName;
         }
@@ -5468,7 +5391,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateResourceMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members/' . $accountId . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5506,9 +5429,7 @@ class Devops extends OpenApiClient
     public function updateVariableGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $id             = OpenApiUtilClient::getEncodeParam($id);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -5526,7 +5447,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/variableGroups/' . $id . '',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5562,8 +5483,7 @@ class Devops extends OpenApiClient
     public function updateWorkItemWithOptions($organizationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
-        $body           = [];
+        $body = [];
         if (!Utils::isUnset($request->fieldType)) {
             $body['fieldType'] = $request->fieldType;
         }
@@ -5584,7 +5504,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateWorkItem',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . $organizationId . '/workitems/update',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/update',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
