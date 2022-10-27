@@ -36,6 +36,11 @@ class CreateUploadImageRequest extends Model
     /**
      * @var string
      */
+    public $originalFileName;
+
+    /**
+     * @var string
+     */
     public $storageLocation;
 
     /**
@@ -53,15 +58,16 @@ class CreateUploadImageRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'appId'           => 'AppId',
-        'cateId'          => 'CateId',
-        'description'     => 'Description',
-        'imageExt'        => 'ImageExt',
-        'imageType'       => 'ImageType',
-        'storageLocation' => 'StorageLocation',
-        'tags'            => 'Tags',
-        'title'           => 'Title',
-        'userData'        => 'UserData',
+        'appId'            => 'AppId',
+        'cateId'           => 'CateId',
+        'description'      => 'Description',
+        'imageExt'         => 'ImageExt',
+        'imageType'        => 'ImageType',
+        'originalFileName' => 'OriginalFileName',
+        'storageLocation'  => 'StorageLocation',
+        'tags'             => 'Tags',
+        'title'            => 'Title',
+        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class CreateUploadImageRequest extends Model
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->originalFileName) {
+            $res['OriginalFileName'] = $this->originalFileName;
         }
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
@@ -124,6 +133,9 @@ class CreateUploadImageRequest extends Model
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['OriginalFileName'])) {
+            $model->originalFileName = $map['OriginalFileName'];
         }
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];

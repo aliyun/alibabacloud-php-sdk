@@ -1212,6 +1212,9 @@ class Vod extends OpenApiClient
         if (!Utils::isUnset($request->imageType)) {
             $query['ImageType'] = $request->imageType;
         }
+        if (!Utils::isUnset($request->originalFileName)) {
+            $query['OriginalFileName'] = $request->originalFileName;
+        }
         if (!Utils::isUnset($request->storageLocation)) {
             $query['StorageLocation'] = $request->storageLocation;
         }
