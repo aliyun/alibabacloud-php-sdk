@@ -39,6 +39,11 @@ class SubmitCopyrightJobRequest extends Model
     public $output;
 
     /**
+     * @var string
+     */
+    public $params;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -69,6 +74,7 @@ class SubmitCopyrightJobRequest extends Model
         'level'          => 'Level',
         'message'        => 'Message',
         'output'         => 'Output',
+        'params'         => 'Params',
         'startTime'      => 'StartTime',
         'totalTime'      => 'TotalTime',
         'url'            => 'Url',
@@ -100,6 +106,9 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -145,6 +154,9 @@ class SubmitCopyrightJobRequest extends Model
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

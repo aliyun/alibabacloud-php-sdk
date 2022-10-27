@@ -474,6 +474,9 @@ class Mts extends OpenApiClient
         if (!Utils::isUnset($request->output)) {
             $body['Output'] = $request->output;
         }
+        if (!Utils::isUnset($request->params)) {
+            $body['Params'] = $request->params;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
         }
@@ -532,9 +535,6 @@ class Mts extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->input)) {
-            $body['Input'] = $request->input;
-        }
         if (!Utils::isUnset($request->level)) {
             $body['Level'] = $request->level;
         }
@@ -546,9 +546,6 @@ class Mts extends OpenApiClient
         }
         if (!Utils::isUnset($request->params)) {
             $body['Params'] = $request->params;
-        }
-        if (!Utils::isUnset($request->url)) {
-            $body['Url'] = $request->url;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

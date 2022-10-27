@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SubmitImageCopyrightRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $input;
-
-    /**
      * @var int
      */
     public $level;
@@ -32,18 +27,11 @@ class SubmitImageCopyrightRequest extends Model
      * @var string
      */
     public $params;
-
-    /**
-     * @var string
-     */
-    public $url;
     protected $_name = [
-        'input'   => 'Input',
         'level'   => 'Level',
         'message' => 'Message',
         'output'  => 'Output',
         'params'  => 'Params',
-        'url'     => 'Url',
     ];
 
     public function validate()
@@ -53,9 +41,6 @@ class SubmitImageCopyrightRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
-        }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
@@ -67,9 +52,6 @@ class SubmitImageCopyrightRequest extends Model
         }
         if (null !== $this->params) {
             $res['Params'] = $this->params;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -83,9 +65,6 @@ class SubmitImageCopyrightRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
-        }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
@@ -97,9 +76,6 @@ class SubmitImageCopyrightRequest extends Model
         }
         if (isset($map['Params'])) {
             $model->params = $map['Params'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
 
         return $model;
