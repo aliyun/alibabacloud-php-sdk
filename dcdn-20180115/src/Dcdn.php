@@ -28,10 +28,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnWafDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnWafDomainConfigsResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeRequest;
@@ -1117,104 +1113,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchSetDcdnWafDomainConfigsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchStartDcdnDomainRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return BatchStartDcdnDomainResponse
-     */
-    public function batchStartDcdnDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchStartDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchStartDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param BatchStartDcdnDomainRequest $request
-     *
-     * @return BatchStartDcdnDomainResponse
-     */
-    public function batchStartDcdnDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchStartDcdnDomainWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BatchStopDcdnDomainRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return BatchStopDcdnDomainResponse
-     */
-    public function batchStopDcdnDomainWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchStopDcdnDomain',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchStopDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param BatchStopDcdnDomainRequest $request
-     *
-     * @return BatchStopDcdnDomainResponse
-     */
-    public function batchStopDcdnDomain($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchStopDcdnDomainWithOptions($request, $runtime);
     }
 
     /**
