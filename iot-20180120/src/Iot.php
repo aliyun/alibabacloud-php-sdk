@@ -374,6 +374,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GisSearchDeviceTraceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GisSearchDeviceTraceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ImportDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ImportDeviceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ImportDTDataRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ImportDTDataResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ImportThingModelTslRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ImportThingModelTslResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeDataAPIServiceRequest;
@@ -10282,6 +10284,55 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->gisSearchDeviceTraceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportDTDataRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ImportDTDataResponse
+     */
+    public function importDTDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $body['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->items)) {
+            $body['Items'] = $request->items;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportDTData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportDTDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportDTDataRequest $request
+     *
+     * @return ImportDTDataResponse
+     */
+    public function importDTData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDTDataWithOptions($request, $runtime);
     }
 
     /**
