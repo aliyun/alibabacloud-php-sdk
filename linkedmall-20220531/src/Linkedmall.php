@@ -37,8 +37,15 @@ use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionTradeStatusReq
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionTradeStatusResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailResponse;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailWithDivisionRequest;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemDetailWithDivisionResponse;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemGuideRetailPriceRequest;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemGuideRetailPriceResponse;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryItemGuideRetailPriceShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryLogistics4DistributionRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryLogistics4DistributionResponse;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryMallCategoryListRequest;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryMallCategoryListResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryOrderDetail4DistributionRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryOrderDetail4DistributionResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryOrderList4DistributionRequest;
@@ -955,6 +962,118 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param QueryItemDetailWithDivisionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryItemDetailWithDivisionResponse
+     */
+    public function queryItemDetailWithDivisionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->distributionMallId)) {
+            $body['DistributionMallId'] = $request->distributionMallId;
+        }
+        if (!Utils::isUnset($request->distributorId)) {
+            $body['DistributorId'] = $request->distributorId;
+        }
+        if (!Utils::isUnset($request->divisionCode)) {
+            $body['DivisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $body['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemDetailWithDivision',
+            'version'     => '2022-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryItemDetailWithDivisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryItemDetailWithDivisionRequest $request
+     *
+     * @return QueryItemDetailWithDivisionResponse
+     */
+    public function queryItemDetailWithDivision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryItemDetailWithDivisionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryItemGuideRetailPriceRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryItemGuideRetailPriceResponse
+     */
+    public function queryItemGuideRetailPriceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryItemGuideRetailPriceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->lmItemIds)) {
+            $request->lmItemIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lmItemIds, 'LmItemIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->distributionMallId)) {
+            $body['DistributionMallId'] = $request->distributionMallId;
+        }
+        if (!Utils::isUnset($request->distributorId)) {
+            $body['DistributorId'] = $request->distributorId;
+        }
+        if (!Utils::isUnset($request->lmItemIdsShrink)) {
+            $body['LmItemIds'] = $request->lmItemIdsShrink;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItemGuideRetailPrice',
+            'version'     => '2022-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryItemGuideRetailPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryItemGuideRetailPriceRequest $request
+     *
+     * @return QueryItemGuideRetailPriceResponse
+     */
+    public function queryItemGuideRetailPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryItemGuideRetailPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryLogistics4DistributionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1001,6 +1120,58 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryLogistics4DistributionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMallCategoryListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryMallCategoryListResponse
+     */
+    public function queryMallCategoryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->distributionMallId)) {
+            $body['DistributionMallId'] = $request->distributionMallId;
+        }
+        if (!Utils::isUnset($request->distributorId)) {
+            $body['DistributorId'] = $request->distributorId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMallCategoryList',
+            'version'     => '2022-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMallCategoryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryMallCategoryListRequest $request
+     *
+     * @return QueryMallCategoryListResponse
+     */
+    public function queryMallCategoryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMallCategoryListWithOptions($request, $runtime);
     }
 
     /**
