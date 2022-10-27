@@ -55,6 +55,11 @@ class jobs extends Model
     public $queue;
 
     /**
+     * @var bool
+     */
+    public $rerunable;
+
+    /**
      * @var resources
      */
     public $resources;
@@ -88,6 +93,11 @@ class jobs extends Model
      * @var string
      */
     public $submitTime;
+
+    /**
+     * @var string
+     */
+    public $variableList;
     protected $_name = [
         'arrayRequest'   => 'ArrayRequest',
         'comment'        => 'Comment',
@@ -98,6 +108,7 @@ class jobs extends Model
         'owner'          => 'Owner',
         'priority'       => 'Priority',
         'queue'          => 'Queue',
+        'rerunable'      => 'Rerunable',
         'resources'      => 'Resources',
         'shellPath'      => 'ShellPath',
         'startTime'      => 'StartTime',
@@ -105,6 +116,7 @@ class jobs extends Model
         'stderr'         => 'Stderr',
         'stdout'         => 'Stdout',
         'submitTime'     => 'SubmitTime',
+        'variableList'   => 'VariableList',
     ];
 
     public function validate()
@@ -141,6 +153,9 @@ class jobs extends Model
         if (null !== $this->queue) {
             $res['Queue'] = $this->queue;
         }
+        if (null !== $this->rerunable) {
+            $res['Rerunable'] = $this->rerunable;
+        }
         if (null !== $this->resources) {
             $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
@@ -161,6 +176,9 @@ class jobs extends Model
         }
         if (null !== $this->submitTime) {
             $res['SubmitTime'] = $this->submitTime;
+        }
+        if (null !== $this->variableList) {
+            $res['VariableList'] = $this->variableList;
         }
 
         return $res;
@@ -201,6 +219,9 @@ class jobs extends Model
         if (isset($map['Queue'])) {
             $model->queue = $map['Queue'];
         }
+        if (isset($map['Rerunable'])) {
+            $model->rerunable = $map['Rerunable'];
+        }
         if (isset($map['Resources'])) {
             $model->resources = resources::fromMap($map['Resources']);
         }
@@ -221,6 +242,9 @@ class jobs extends Model
         }
         if (isset($map['SubmitTime'])) {
             $model->submitTime = $map['SubmitTime'];
+        }
+        if (isset($map['VariableList'])) {
+            $model->variableList = $map['VariableList'];
         }
 
         return $model;

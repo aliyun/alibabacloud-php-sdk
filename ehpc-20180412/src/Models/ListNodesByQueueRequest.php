@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListNodesByQueueRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -28,6 +33,7 @@ class ListNodesByQueueRequest extends Model
      */
     public $queueName;
     protected $_name = [
+        'async'      => 'Async',
         'clusterId'  => 'ClusterId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
@@ -41,6 +47,9 @@ class ListNodesByQueueRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -65,6 +74,9 @@ class ListNodesByQueueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

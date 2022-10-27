@@ -14,6 +14,11 @@ class resourceLimit extends Model
     public $cpus;
 
     /**
+     * @var int
+     */
+    public $maxJobs;
+
+    /**
      * @var string
      */
     public $mem;
@@ -33,11 +38,12 @@ class resourceLimit extends Model
      */
     public $user;
     protected $_name = [
-        'cpus'  => 'Cpus',
-        'mem'   => 'Mem',
-        'nodes' => 'Nodes',
-        'queue' => 'Queue',
-        'user'  => 'User',
+        'cpus'    => 'Cpus',
+        'maxJobs' => 'MaxJobs',
+        'mem'     => 'Mem',
+        'nodes'   => 'Nodes',
+        'queue'   => 'Queue',
+        'user'    => 'User',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class resourceLimit extends Model
         $res = [];
         if (null !== $this->cpus) {
             $res['Cpus'] = $this->cpus;
+        }
+        if (null !== $this->maxJobs) {
+            $res['MaxJobs'] = $this->maxJobs;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
@@ -76,6 +85,9 @@ class resourceLimit extends Model
         $model = new self();
         if (isset($map['Cpus'])) {
             $model->cpus = $map['Cpus'];
+        }
+        if (isset($map['MaxJobs'])) {
+            $model->maxJobs = $map['MaxJobs'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];

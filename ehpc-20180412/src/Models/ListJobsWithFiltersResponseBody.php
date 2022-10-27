@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListJobsWithFiltersResponseBody extends Model
 {
     /**
-     * @description Jobs
-     *
      * @var jobs[]
      */
     public $jobs;
 
     /**
-     * @description PageNumber
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description PageSize
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Success
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description TotalCount本次请求条件下的数据总量，此参数为可选参数，默认可不返回
-     *
      * @var int
      */
     public $totalCount;

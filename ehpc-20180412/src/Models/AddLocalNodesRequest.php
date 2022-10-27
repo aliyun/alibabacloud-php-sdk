@@ -17,9 +17,15 @@ class AddLocalNodesRequest extends Model
      * @var string
      */
     public $nodes;
+
+    /**
+     * @var string
+     */
+    public $queue;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'nodes'     => 'Nodes',
+        'queue'     => 'Queue',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class AddLocalNodesRequest extends Model
         }
         if (null !== $this->nodes) {
             $res['Nodes'] = $this->nodes;
+        }
+        if (null !== $this->queue) {
+            $res['Queue'] = $this->queue;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class AddLocalNodesRequest extends Model
         }
         if (isset($map['Nodes'])) {
             $model->nodes = $map['Nodes'];
+        }
+        if (isset($map['Queue'])) {
+            $model->queue = $map['Queue'];
         }
 
         return $model;

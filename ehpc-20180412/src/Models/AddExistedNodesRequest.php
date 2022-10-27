@@ -12,11 +12,6 @@ class AddExistedNodesRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -39,7 +34,6 @@ class AddExistedNodesRequest extends Model
      */
     public $jobQueue;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
         'clusterId'       => 'ClusterId',
         'imageId'         => 'ImageId',
         'imageOwnerAlias' => 'ImageOwnerAlias',
@@ -54,9 +48,6 @@ class AddExistedNodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -90,9 +81,6 @@ class AddExistedNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

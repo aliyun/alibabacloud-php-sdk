@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest\additionalVolume
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest\application;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest\ecsOrder;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest\postInstallScript;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateClusterRequest extends Model
@@ -228,6 +229,11 @@ class CreateClusterRequest extends Model
     public $systemDiskType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -320,6 +326,7 @@ class CreateClusterRequest extends Model
         'systemDiskLevel'       => 'SystemDiskLevel',
         'systemDiskSize'        => 'SystemDiskSize',
         'systemDiskType'        => 'SystemDiskType',
+        'tag'                   => 'Tag',
         'vSwitchId'             => 'VSwitchId',
         'volumeId'              => 'VolumeId',
         'volumeMountOption'     => 'VolumeMountOption',
@@ -485,6 +492,15 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->systemDiskType) {
             $res['SystemDiskType'] = $this->systemDiskType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -676,6 +692,15 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['SystemDiskType'])) {
             $model->systemDiskType = $map['SystemDiskType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

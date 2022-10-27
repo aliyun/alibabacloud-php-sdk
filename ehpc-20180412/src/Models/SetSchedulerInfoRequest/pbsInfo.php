@@ -29,11 +29,23 @@ class pbsInfo extends Model
      * @var int
      */
     public $schedInterval;
+
+    /**
+     * @var int
+     */
+    public $schedMaxJobs;
+
+    /**
+     * @var int
+     */
+    public $schedMaxQueuedJobs;
     protected $_name = [
         'aclLimit'           => 'AclLimit',
         'jobHistoryDuration' => 'JobHistoryDuration',
         'resourceLimit'      => 'ResourceLimit',
         'schedInterval'      => 'SchedInterval',
+        'schedMaxJobs'       => 'SchedMaxJobs',
+        'schedMaxQueuedJobs' => 'SchedMaxQueuedJobs',
     ];
 
     public function validate()
@@ -66,6 +78,12 @@ class pbsInfo extends Model
         }
         if (null !== $this->schedInterval) {
             $res['SchedInterval'] = $this->schedInterval;
+        }
+        if (null !== $this->schedMaxJobs) {
+            $res['SchedMaxJobs'] = $this->schedMaxJobs;
+        }
+        if (null !== $this->schedMaxQueuedJobs) {
+            $res['SchedMaxQueuedJobs'] = $this->schedMaxQueuedJobs;
         }
 
         return $res;
@@ -102,6 +120,12 @@ class pbsInfo extends Model
         }
         if (isset($map['SchedInterval'])) {
             $model->schedInterval = $map['SchedInterval'];
+        }
+        if (isset($map['SchedMaxJobs'])) {
+            $model->schedMaxJobs = $map['SchedMaxJobs'];
+        }
+        if (isset($map['SchedMaxQueuedJobs'])) {
+            $model->schedMaxQueuedJobs = $map['SchedMaxQueuedJobs'];
         }
 
         return $model;

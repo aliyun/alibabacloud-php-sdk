@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobTemplatesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobTemplatesResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteLocalImageRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteLocalImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteQueueRequest;
@@ -64,8 +66,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeContainerAppRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeContainerAppResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeDeployProcessRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeDeployProcessResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeEstackImageRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeEstackImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClusterPolicyRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClusterPolicyResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClustersRequest;
@@ -98,6 +100,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCommonImageRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCommonImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetGWSConnectTicketRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetGWSConnectTicketResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigRequest;
@@ -106,14 +110,16 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetQueueConfRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetQueueConfResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetUserImageRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetUserImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InitializeEHPCRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InitializeEHPCResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\InspectImageRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\InspectImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InstallSoftwareRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InstallSoftwareResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InvokeShellCommandRequest;
@@ -130,6 +136,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ListClustersRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListClustersResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerAppsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerAppsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerImagesRequest;
@@ -170,8 +178,14 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSecurityGroupsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSecurityGroupsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListTasksRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListTasksResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUpgradeClientsRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUpgradeClientsResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUsersAsyncRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUsersAsyncResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUsersRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListUsersResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListVolumesRequest;
@@ -235,10 +249,18 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\StopVisualServiceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopVisualServiceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitJobRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitJobResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesInfoRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesInfoResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SyncUsersRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SyncUsersResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UninstallSoftwareRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UninstallSoftwareResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\UnTagResourcesRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UpdateClusterVolumesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UpdateClusterVolumesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UpdateQueueConfigRequest;
@@ -1165,6 +1187,46 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param DeleteLocalImageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteLocalImageResponse
+     */
+    public function deleteLocalImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLocalImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLocalImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLocalImageRequest $request
+     *
+     * @return DeleteLocalImageResponse
+     */
+    public function deleteLocalImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLocalImageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteNodesRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1445,12 +1507,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeployProcessRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeEstackImageRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DescribeDeployProcessResponse
+     * @return DescribeEstackImageResponse
      */
-    public function describeDeployProcessWithOptions($request, $runtime)
+    public function describeEstackImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1458,7 +1520,7 @@ class EHPC extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDeployProcess',
+            'action'      => 'DescribeEstackImage',
             'version'     => '2018-04-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1469,19 +1531,19 @@ class EHPC extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeDeployProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEstackImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDeployProcessRequest $request
+     * @param DescribeEstackImageRequest $request
      *
-     * @return DescribeDeployProcessResponse
+     * @return DescribeEstackImageResponse
      */
-    public function describeDeployProcess($request)
+    public function describeEstackImage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDeployProcessWithOptions($request, $runtime);
+        return $this->describeEstackImageWithOptions($request, $runtime);
     }
 
     /**
@@ -2134,6 +2196,46 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param GetCommonImageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCommonImageResponse
+     */
+    public function getCommonImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCommonImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCommonImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCommonImageRequest $request
+     *
+     * @return GetCommonImageResponse
+     */
+    public function getCommonImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCommonImageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetGWSConnectTicketRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2294,46 +2396,6 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param GetQueueConfRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetQueueConfResponse
-     */
-    public function getQueueConfWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetQueueConf',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetQueueConfResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetQueueConfRequest $request
-     *
-     * @return GetQueueConfResponse
-     */
-    public function getQueueConf($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getQueueConfWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetSchedulerInfoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2371,6 +2433,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSchedulerInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserImageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetUserImageResponse
+     */
+    public function getUserImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserImageRequest $request
+     *
+     * @return GetUserImageResponse
+     */
+    public function getUserImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserImageWithOptions($request, $runtime);
     }
 
     /**
@@ -2451,6 +2553,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->initializeEHPCWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InspectImageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InspectImageResponse
+     */
+    public function inspectImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InspectImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InspectImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InspectImageRequest $request
+     *
+     * @return InspectImageResponse
+     */
+    public function inspectImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inspectImageWithOptions($request, $runtime);
     }
 
     /**
@@ -2771,6 +2913,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCommandsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCommunityImagesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCommunityImagesResponse
+     */
+    public function listCommunityImagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCommunityImages',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCommunityImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCommunityImagesRequest $request
+     *
+     * @return ListCommunityImagesResponse
+     */
+    public function listCommunityImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCommunityImagesWithOptions($request, $runtime);
     }
 
     /**
@@ -3600,6 +3782,61 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTasksRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3640,6 +3877,46 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param ListUpgradeClientsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListUpgradeClientsResponse
+     */
+    public function listUpgradeClientsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUpgradeClients',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUpgradeClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUpgradeClientsRequest $request
+     *
+     * @return ListUpgradeClientsResponse
+     */
+    public function listUpgradeClients($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUpgradeClientsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3677,6 +3954,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUsersAsyncRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListUsersAsyncResponse
+     */
+    public function listUsersAsyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsersAsync',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUsersAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUsersAsyncRequest $request
+     *
+     * @return ListUsersAsyncResponse
+     */
+    public function listUsersAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersAsyncWithOptions($request, $runtime);
     }
 
     /**
@@ -4934,6 +5251,86 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param SummaryImagesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SummaryImagesResponse
+     */
+    public function summaryImagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SummaryImages',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SummaryImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SummaryImagesRequest $request
+     *
+     * @return SummaryImagesResponse
+     */
+    public function summaryImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->summaryImagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SummaryImagesInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SummaryImagesInfoResponse
+     */
+    public function summaryImagesInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SummaryImagesInfo',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SummaryImagesInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SummaryImagesInfoRequest $request
+     *
+     * @return SummaryImagesInfoResponse
+     */
+    public function summaryImagesInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->summaryImagesInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SyncUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -4971,6 +5368,113 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->syncUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagResources',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unTagResourcesWithOptions($request, $runtime);
     }
 
     /**

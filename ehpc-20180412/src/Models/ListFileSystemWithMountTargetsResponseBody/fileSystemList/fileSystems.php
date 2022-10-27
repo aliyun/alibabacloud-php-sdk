@@ -79,6 +79,11 @@ class fileSystems extends Model
      * @var string
      */
     public $storageType;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'bandWidth'       => 'BandWidth',
         'capacity'        => 'Capacity',
@@ -94,6 +99,7 @@ class fileSystems extends Model
         'regionId'        => 'RegionId',
         'status'          => 'Status',
         'storageType'     => 'StorageType',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -144,6 +150,9 @@ class fileSystems extends Model
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -198,6 +207,9 @@ class fileSystems extends Model
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -15,8 +15,6 @@ class GetPostScriptsResponseBody extends Model
     public $postInstallScripts;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
