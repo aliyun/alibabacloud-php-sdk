@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryAuditResultResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var records[]
      */
     public $records;
@@ -29,6 +34,7 @@ class QueryAuditResultResponseBody extends Model
      */
     public $total;
     protected $_name = [
+        'message'   => 'Message',
         'records'   => 'Records',
         'requestId' => 'RequestId',
         'status'    => 'Status',
@@ -42,6 +48,9 @@ class QueryAuditResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->records) {
             $res['Records'] = [];
             if (null !== $this->records && \is_array($this->records)) {
@@ -72,6 +81,9 @@ class QueryAuditResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];

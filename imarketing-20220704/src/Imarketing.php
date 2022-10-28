@@ -19,7 +19,6 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetCreativeInfoRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetCreativeInfoResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetLeadsListPageRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetLeadsListPageResponse;
-use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartListByUserIdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartPageResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetOssUploadSignatureRequest;
@@ -438,39 +437,6 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLeadsListPageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetMainPartListByUserIdResponse
-     */
-    public function getMainPartListByUserIdWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'GetMainPartListByUserId',
-            'version'     => '2022-07-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMainPartListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return GetMainPartListByUserIdResponse
-     */
-    public function getMainPartListByUserId()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMainPartListByUserIdWithOptions($runtime);
     }
 
     /**
