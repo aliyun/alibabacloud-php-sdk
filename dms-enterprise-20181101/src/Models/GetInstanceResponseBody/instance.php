@@ -114,6 +114,11 @@ class instance extends Model
     /**
      * @var string
      */
+    public $sellSitd;
+
+    /**
+     * @var string
+     */
     public $sid;
 
     /**
@@ -156,6 +161,7 @@ class instance extends Model
         'port'             => 'Port',
         'queryTimeout'     => 'QueryTimeout',
         'safeRuleId'       => 'SafeRuleId',
+        'sellSitd'         => 'SellSitd',
         'sid'              => 'Sid',
         'standardGroup'    => 'StandardGroup',
         'state'            => 'State',
@@ -229,6 +235,9 @@ class instance extends Model
         }
         if (null !== $this->safeRuleId) {
             $res['SafeRuleId'] = $this->safeRuleId;
+        }
+        if (null !== $this->sellSitd) {
+            $res['SellSitd'] = $this->sellSitd;
         }
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
@@ -316,6 +325,9 @@ class instance extends Model
         }
         if (isset($map['SafeRuleId'])) {
             $model->safeRuleId = $map['SafeRuleId'];
+        }
+        if (isset($map['SellSitd'])) {
+            $model->sellSitd = $map['SellSitd'];
         }
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];

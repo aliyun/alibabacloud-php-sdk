@@ -46,6 +46,11 @@ class originSQLList extends Model
     /**
      * @var string
      */
+    public $SQLName;
+
+    /**
+     * @var string
+     */
     public $SQLReviewQueryKey;
 
     /**
@@ -65,6 +70,7 @@ class originSQLList extends Model
         'reviewSummary'     => 'ReviewSummary',
         'SQLContent'        => 'SQLContent',
         'SQLId'             => 'SQLId',
+        'SQLName'           => 'SQLName',
         'SQLReviewQueryKey' => 'SQLReviewQueryKey',
         'sqlHash'           => 'SqlHash',
         'statusDesc'        => 'StatusDesc',
@@ -97,6 +103,9 @@ class originSQLList extends Model
         }
         if (null !== $this->SQLId) {
             $res['SQLId'] = $this->SQLId;
+        }
+        if (null !== $this->SQLName) {
+            $res['SQLName'] = $this->SQLName;
         }
         if (null !== $this->SQLReviewQueryKey) {
             $res['SQLReviewQueryKey'] = $this->SQLReviewQueryKey;
@@ -139,6 +148,9 @@ class originSQLList extends Model
         }
         if (isset($map['SQLId'])) {
             $model->SQLId = $map['SQLId'];
+        }
+        if (isset($map['SQLName'])) {
+            $model->SQLName = $map['SQLName'];
         }
         if (isset($map['SQLReviewQueryKey'])) {
             $model->SQLReviewQueryKey = $map['SQLReviewQueryKey'];

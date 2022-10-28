@@ -46,6 +46,11 @@ class UpdateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $enableSellSitd;
+
+    /**
+     * @var string
+     */
     public $envType;
 
     /**
@@ -106,6 +111,16 @@ class UpdateInstanceRequest extends Model
     /**
      * @var int
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateType;
+
+    /**
+     * @var int
+     */
     public $tid;
 
     /**
@@ -125,6 +140,7 @@ class UpdateInstanceRequest extends Model
         'ddlOnline'        => 'DdlOnline',
         'ecsInstanceId'    => 'EcsInstanceId',
         'ecsRegion'        => 'EcsRegion',
+        'enableSellSitd'   => 'EnableSellSitd',
         'envType'          => 'EnvType',
         'exportTimeout'    => 'ExportTimeout',
         'host'             => 'Host',
@@ -137,6 +153,8 @@ class UpdateInstanceRequest extends Model
         'safeRuleId'       => 'SafeRuleId',
         'sid'              => 'Sid',
         'skipTest'         => 'SkipTest',
+        'templateId'       => 'TemplateId',
+        'templateType'     => 'TemplateType',
         'tid'              => 'Tid',
         'useDsql'          => 'UseDsql',
         'vpcId'            => 'VpcId',
@@ -169,6 +187,9 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->ecsRegion) {
             $res['EcsRegion'] = $this->ecsRegion;
+        }
+        if (null !== $this->enableSellSitd) {
+            $res['EnableSellSitd'] = $this->enableSellSitd;
         }
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
@@ -205,6 +226,12 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->skipTest) {
             $res['SkipTest'] = $this->skipTest;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -248,6 +275,9 @@ class UpdateInstanceRequest extends Model
         if (isset($map['EcsRegion'])) {
             $model->ecsRegion = $map['EcsRegion'];
         }
+        if (isset($map['EnableSellSitd'])) {
+            $model->enableSellSitd = $map['EnableSellSitd'];
+        }
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
         }
@@ -283,6 +313,12 @@ class UpdateInstanceRequest extends Model
         }
         if (isset($map['SkipTest'])) {
             $model->skipTest = $map['SkipTest'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

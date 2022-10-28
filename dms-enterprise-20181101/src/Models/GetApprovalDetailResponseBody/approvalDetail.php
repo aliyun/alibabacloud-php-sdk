@@ -47,6 +47,11 @@ class approvalDetail extends Model
     public $reasonList;
 
     /**
+     * @var int
+     */
+    public $templateId;
+
+    /**
      * @var string
      */
     public $title;
@@ -68,6 +73,7 @@ class approvalDetail extends Model
         'orderId'         => 'OrderId',
         'orderType'       => 'OrderType',
         'reasonList'      => 'ReasonList',
+        'templateId'      => 'TemplateId',
         'title'           => 'Title',
         'workflowInsCode' => 'WorkflowInsCode',
         'workflowNodes'   => 'WorkflowNodes',
@@ -100,6 +106,9 @@ class approvalDetail extends Model
         }
         if (null !== $this->reasonList) {
             $res['ReasonList'] = null !== $this->reasonList ? $this->reasonList->toMap() : null;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -142,6 +151,9 @@ class approvalDetail extends Model
         }
         if (isset($map['ReasonList'])) {
             $model->reasonList = reasonList::fromMap($map['ReasonList']);
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

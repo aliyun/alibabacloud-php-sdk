@@ -13,8 +13,16 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLhMembersShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLogicTableRouteConfigRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLogicTableRouteConfigResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BuyPayAsYouGoOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BuyPayAsYouGoOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerRequest;
@@ -47,6 +55,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreatePublishGroupTaskResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateScenarioRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderShrinkRequest;
@@ -55,6 +65,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStandardGroupResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateStructSyncOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateTaskFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateTaskFlowResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateTaskRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadFileJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadFileJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRequest;
@@ -75,8 +89,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyAccessResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteProxyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteScenarioRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteScenarioResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowEdgesByConditionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowEdgesByConditionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskFlowResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserRequest;
@@ -121,6 +141,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDBTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetIntervalLimitOfSLARequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetIntervalLimitOfSLAResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLhSpaceByNameRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLhSpaceByNameResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetLogicDatabaseRequest;
@@ -141,6 +163,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetPhysicalDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetProxyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetRuleNumLimitOfSLARequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetRuleNumLimitOfSLAResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewCheckResultStatusResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetSQLReviewOptimizeDetailRequest;
@@ -157,8 +181,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowGraphResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowNotificationRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskFlowNotificationResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskInstanceRelationRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskInstanceRelationResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserActiveTenantRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserActiveTenantResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetUserRequest;
@@ -169,6 +199,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDAGVersionsRequest;
@@ -187,8 +219,12 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDDLPublishRecordsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDefaultSLARulesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDefaultSLARulesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDesensitizationRuleRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDesensitizationRuleResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListEffectiveOrdersRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListEffectiveOrdersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListIndexesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceLoginAuditLogRequest;
@@ -213,10 +249,16 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxyAccessesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxyAccessesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxySQLExecAuditLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListProxySQLExecAuditLogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListScenariosRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListScenariosResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveDataAuditLogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveDataAuditLogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSLARulesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSLARulesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLExecAuditLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLExecAuditLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLReviewOriginSQLRequest;
@@ -226,10 +268,22 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListStandardGroupsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowCooperatorsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowCooperatorsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowEdgesByConditionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowEdgesByConditionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowsByPageRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowsByPageResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowTimeVariablesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowTimeVariablesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTasksInTaskFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTasksInTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUserPermissionsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListUsersRequest;
@@ -240,22 +294,34 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowNodesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowNodesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MakeTaskFlowInstanceSuccessRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MakeTaskFlowInstanceSuccessResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDesensitizationStrategyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDesensitizationStrategyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MoveTaskFlowToScenarioRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MoveTaskFlowToScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\OfflineTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PauseDataCorrectSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\PublishAndDeployTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReDeployLhDagVersionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RefundPayAsYouGoOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RefundPayAsYouGoOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RegisterUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReRunTaskFlowInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReRunTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ResumeTaskFlowInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ResumeTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RetryDataCorrectPreCheckResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RevokeUserPermissionRequest;
@@ -266,16 +332,57 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\StopTaskFlowInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\StopTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitStructSyncOrderApprovalResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SuspendTaskFlowInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SuspendTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncInstanceMetaRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncInstanceMetaResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateSLARulesShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskConfigRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskConfigResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskContentResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowConstantsShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowCooperatorsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowCooperatorsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowCooperatorsShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowEdgesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowEdgesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowEdgesShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowNameAndDescRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowNameAndDescResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowNotificationRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowNotificationResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowOwnerRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowOwnerResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowRelationsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowRelationsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowRelationsShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowScheduleRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowScheduleResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowTimeVariablesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskFlowTimeVariablesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskNameRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskNameResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskOutputRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskOutputResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskTimeVariablesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateTaskTimeVariablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Tea;
@@ -490,6 +597,60 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param AddTaskFlowEdgesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddTaskFlowEdgesResponse
+     */
+    public function addTaskFlowEdgesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddTaskFlowEdgesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->edges)) {
+            $request->edgesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->edgesShrink)) {
+            $query['Edges'] = $request->edgesShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTaskFlowEdges',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddTaskFlowEdgesRequest $request
+     *
+     * @return AddTaskFlowEdgesResponse
+     */
+    public function addTaskFlowEdges($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addTaskFlowEdgesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ApproveOrderRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -539,6 +700,133 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approveOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BackFillRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return BackFillResponse
+     */
+    public function backFillWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BackFillShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->startNodeIds)) {
+            $request->startNodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startNodeIds, 'StartNodeIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->backFillDate)) {
+            $query['BackFillDate'] = $request->backFillDate;
+        }
+        if (!Utils::isUnset($request->backFillDateBegin)) {
+            $query['BackFillDateBegin'] = $request->backFillDateBegin;
+        }
+        if (!Utils::isUnset($request->backFillDateEnd)) {
+            $query['BackFillDateEnd'] = $request->backFillDateEnd;
+        }
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->historyDagId)) {
+            $query['HistoryDagId'] = $request->historyDagId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->isTriggerSubTree)) {
+            $query['IsTriggerSubTree'] = $request->isTriggerSubTree;
+        }
+        if (!Utils::isUnset($request->startNodeIdsShrink)) {
+            $query['StartNodeIds'] = $request->startNodeIdsShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BackFill',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BackFillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BackFillRequest $request
+     *
+     * @return BackFillResponse
+     */
+    public function backFill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->backFillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BuyPayAsYouGoOrderRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BuyPayAsYouGoOrderResponse
+     */
+    public function buyPayAsYouGoOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityType)) {
+            $query['CommodityType'] = $request->commodityType;
+        }
+        if (!Utils::isUnset($request->insNum)) {
+            $query['InsNum'] = $request->insNum;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->versionType)) {
+            $query['VersionType'] = $request->versionType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BuyPayAsYouGoOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BuyPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BuyPayAsYouGoOrderRequest $request
+     *
+     * @return BuyPayAsYouGoOrderResponse
+     */
+    public function buyPayAsYouGoOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->buyPayAsYouGoOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -1361,6 +1649,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param CreateScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateScenarioResponse
+     */
+    public function createScenarioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->scenarioName)) {
+            $query['ScenarioName'] = $request->scenarioName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScenario',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateScenarioRequest $request
+     *
+     * @return CreateScenarioResponse
+     */
+    public function createScenario($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScenarioWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateStandardGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1473,6 +1810,122 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createStructSyncOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTaskResponse
+     */
+    public function createTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->graphParam)) {
+            $query['GraphParam'] = $request->graphParam;
+        }
+        if (!Utils::isUnset($request->nodeContent)) {
+            $query['NodeContent'] = $request->nodeContent;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->nodeOutput)) {
+            $query['NodeOutput'] = $request->nodeOutput;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->timeVariables)) {
+            $query['TimeVariables'] = $request->timeVariables;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTask',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTaskRequest $request
+     *
+     * @return CreateTaskResponse
+     */
+    public function createTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateTaskFlowRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTaskFlowResponse
+     */
+    public function createTaskFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagName)) {
+            $query['DagName'] = $request->dagName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->scenarioId)) {
+            $query['ScenarioId'] = $request->scenarioId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTaskFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTaskFlowRequest $request
+     *
+     * @return CreateTaskFlowResponse
+     */
+    public function createTaskFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTaskFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -1927,6 +2380,98 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param DeleteScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteScenarioResponse
+     */
+    public function deleteScenarioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->scenarioId)) {
+            $query['ScenarioId'] = $request->scenarioId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScenario',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteScenarioRequest $request
+     *
+     * @return DeleteScenarioResponse
+     */
+    public function deleteScenario($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteScenarioWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteTaskResponse
+     */
+    public function deleteTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTask',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTaskRequest $request
+     *
+     * @return DeleteTaskResponse
+     */
+    public function deleteTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteTaskFlowRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1970,6 +2515,61 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteTaskFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTaskFlowEdgesByConditionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteTaskFlowEdgesByConditionResponse
+     */
+    public function deleteTaskFlowEdgesByConditionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->nodeEnd)) {
+            $query['NodeEnd'] = $request->nodeEnd;
+        }
+        if (!Utils::isUnset($request->nodeFrom)) {
+            $query['NodeFrom'] = $request->nodeFrom;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTaskFlowEdgesByCondition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTaskFlowEdgesByConditionRequest $request
+     *
+     * @return DeleteTaskFlowEdgesByConditionResponse
+     */
+    public function deleteTaskFlowEdgesByCondition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTaskFlowEdgesByConditionWithOptions($request, $runtime);
     }
 
     /**
@@ -2957,6 +3557,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetIntervalLimitOfSLARequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetIntervalLimitOfSLAResponse
+     */
+    public function getIntervalLimitOfSLAWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIntervalLimitOfSLA',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIntervalLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetIntervalLimitOfSLARequest $request
+     *
+     * @return GetIntervalLimitOfSLAResponse
+     */
+    public function getIntervalLimitOfSLA($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIntervalLimitOfSLAWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetLhSpaceByNameRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3432,6 +4078,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetRuleNumLimitOfSLARequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetRuleNumLimitOfSLAResponse
+     */
+    public function getRuleNumLimitOfSLAWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRuleNumLimitOfSLA',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRuleNumLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRuleNumLimitOfSLARequest $request
+     *
+     * @return GetRuleNumLimitOfSLAResponse
+     */
+    public function getRuleNumLimitOfSLA($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuleNumLimitOfSLAWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSQLReviewCheckResultStatusRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -3815,6 +4507,144 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
+     */
+    public function getTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTask',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
+     */
+    public function getTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskFlowGraphRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTaskFlowGraphResponse
+     */
+    public function getTaskFlowGraphWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskFlowGraph',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskFlowGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskFlowGraphRequest $request
+     *
+     * @return GetTaskFlowGraphResponse
+     */
+    public function getTaskFlowGraph($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskFlowGraphWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTaskFlowNotificationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTaskFlowNotificationResponse
+     */
+    public function getTaskFlowNotificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskFlowNotification',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskFlowNotificationRequest $request
+     *
+     * @return GetTaskFlowNotificationResponse
+     */
+    public function getTaskFlowNotification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskFlowNotificationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTaskInstanceRelationRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4115,6 +4945,49 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->inspectProxyAccessSecretWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListClassificationTemplatesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListClassificationTemplatesResponse
+     */
+    public function listClassificationTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClassificationTemplates',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClassificationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListClassificationTemplatesRequest $request
+     *
+     * @return ListClassificationTemplatesResponse
+     */
+    public function listClassificationTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClassificationTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -4589,6 +5462,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListDefaultSLARulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDefaultSLARulesResponse
+     */
+    public function listDefaultSLARulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDefaultSLARules',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDefaultSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDefaultSLARulesRequest $request
+     *
+     * @return ListDefaultSLARulesResponse
+     */
+    public function listDefaultSLARules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDefaultSLARulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDesensitizationRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4647,6 +5566,49 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDesensitizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEffectiveOrdersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListEffectiveOrdersResponse
+     */
+    public function listEffectiveOrdersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEffectiveOrders',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEffectiveOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEffectiveOrdersRequest $request
+     *
+     * @return ListEffectiveOrdersResponse
+     */
+    public function listEffectiveOrders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEffectiveOrdersWithOptions($request, $runtime);
     }
 
     /**
@@ -5310,6 +6272,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListSLARulesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSLARulesResponse
+     */
+    public function listSLARulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSLARules',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSLARulesRequest $request
+     *
+     * @return ListSLARulesResponse
+     */
+    public function listSLARules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSLARulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListSQLExecAuditLogRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5428,6 +6436,49 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSQLReviewOriginSQLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListScenariosRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListScenariosResponse
+     */
+    public function listScenariosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScenarios',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListScenariosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListScenariosRequest $request
+     *
+     * @return ListScenariosResponse
+     */
+    public function listScenarios($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScenariosWithOptions($request, $runtime);
     }
 
     /**
@@ -5553,6 +6604,76 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSensitiveColumnsDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSensitiveDataAuditLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSensitiveDataAuditLogResponse
+     */
+    public function listSensitiveDataAuditLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $query['ModuleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->opUserName)) {
+            $query['OpUserName'] = $request->opUserName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSensitiveDataAuditLog',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSensitiveDataAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSensitiveDataAuditLogRequest $request
+     *
+     * @return ListSensitiveDataAuditLogResponse
+     */
+    public function listSensitiveDataAuditLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSensitiveDataAuditLogWithOptions($request, $runtime);
     }
 
     /**
@@ -5700,6 +6821,153 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ListTaskFlowConstantsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTaskFlowConstantsResponse
+     */
+    public function listTaskFlowConstantsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlowConstants',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowConstantsRequest $request
+     *
+     * @return ListTaskFlowConstantsResponse
+     */
+    public function listTaskFlowConstants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowConstantsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskFlowCooperatorsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListTaskFlowCooperatorsResponse
+     */
+    public function listTaskFlowCooperatorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlowCooperators',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowCooperatorsRequest $request
+     *
+     * @return ListTaskFlowCooperatorsResponse
+     */
+    public function listTaskFlowCooperators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowCooperatorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskFlowEdgesByConditionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListTaskFlowEdgesByConditionResponse
+     */
+    public function listTaskFlowEdgesByConditionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->nodeEnd)) {
+            $query['NodeEnd'] = $request->nodeEnd;
+        }
+        if (!Utils::isUnset($request->nodeFrom)) {
+            $query['NodeFrom'] = $request->nodeFrom;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlowEdgesByCondition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowEdgesByConditionRequest $request
+     *
+     * @return ListTaskFlowEdgesByConditionResponse
+     */
+    public function listTaskFlowEdgesByCondition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowEdgesByConditionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTaskFlowInstanceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5758,6 +7026,150 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTaskFlowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskFlowTimeVariablesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListTaskFlowTimeVariablesResponse
+     */
+    public function listTaskFlowTimeVariablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlowTimeVariables',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowTimeVariablesRequest $request
+     *
+     * @return ListTaskFlowTimeVariablesResponse
+     */
+    public function listTaskFlowTimeVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowTimeVariablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTaskFlowsByPageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListTaskFlowsByPageResponse
+     */
+    public function listTaskFlowsByPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTaskFlowsByPage',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTaskFlowsByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTaskFlowsByPageRequest $request
+     *
+     * @return ListTaskFlowsByPageResponse
+     */
+    public function listTaskFlowsByPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskFlowsByPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTasksInTaskFlowRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListTasksInTaskFlowResponse
+     */
+    public function listTasksInTaskFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTasksInTaskFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTasksInTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTasksInTaskFlowRequest $request
+     *
+     * @return ListTasksInTaskFlowResponse
+     */
+    public function listTasksInTaskFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTasksInTaskFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -6024,6 +7436,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param MakeTaskFlowInstanceSuccessRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return MakeTaskFlowInstanceSuccessResponse
+     */
+    public function makeTaskFlowInstanceSuccessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MakeTaskFlowInstanceSuccess',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MakeTaskFlowInstanceSuccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MakeTaskFlowInstanceSuccessRequest $request
+     *
+     * @return MakeTaskFlowInstanceSuccessResponse
+     */
+    public function makeTaskFlowInstanceSuccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->makeTaskFlowInstanceSuccessWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDataCorrectExecSQLRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -6137,6 +7598,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param MoveTaskFlowToScenarioRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return MoveTaskFlowToScenarioResponse
+     */
+    public function moveTaskFlowToScenarioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->scenarioId)) {
+            $query['ScenarioId'] = $request->scenarioId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveTaskFlowToScenario',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveTaskFlowToScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveTaskFlowToScenarioRequest $request
+     *
+     * @return MoveTaskFlowToScenarioResponse
+     */
+    public function moveTaskFlowToScenario($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveTaskFlowToScenarioWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OfflineTaskFlowRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -6235,6 +7745,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param PublishAndDeployTaskFlowRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return PublishAndDeployTaskFlowResponse
+     */
+    public function publishAndDeployTaskFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->versionComments)) {
+            $query['VersionComments'] = $request->versionComments;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishAndDeployTaskFlow',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishAndDeployTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PublishAndDeployTaskFlowRequest $request
+     *
+     * @return PublishAndDeployTaskFlowResponse
+     */
+    public function publishAndDeployTaskFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishAndDeployTaskFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReDeployLhDagVersionRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -6284,6 +7843,104 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param ReRunTaskFlowInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ReRunTaskFlowInstanceResponse
+     */
+    public function reRunTaskFlowInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->dagVersion)) {
+            $query['DagVersion'] = $request->dagVersion;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReRunTaskFlowInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReRunTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReRunTaskFlowInstanceRequest $request
+     *
+     * @return ReRunTaskFlowInstanceResponse
+     */
+    public function reRunTaskFlowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reRunTaskFlowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RefundPayAsYouGoOrderRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefundPayAsYouGoOrderResponse
+     */
+    public function refundPayAsYouGoOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefundPayAsYouGoOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefundPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RefundPayAsYouGoOrderRequest $request
+     *
+     * @return RefundPayAsYouGoOrderResponse
+     */
+    public function refundPayAsYouGoOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refundPayAsYouGoOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RegisterInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -6313,6 +7970,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->ecsRegion)) {
             $query['EcsRegion'] = $request->ecsRegion;
+        }
+        if (!Utils::isUnset($request->enableSellSitd)) {
+            $query['EnableSellSitd'] = $request->enableSellSitd;
         }
         if (!Utils::isUnset($request->envType)) {
             $query['EnvType'] = $request->envType;
@@ -6349,6 +8009,12 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->skipTest)) {
             $query['SkipTest'] = $request->skipTest;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
@@ -6494,6 +8160,58 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDataCorrectSQLJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeTaskFlowInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ResumeTaskFlowInstanceResponse
+     */
+    public function resumeTaskFlowInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->dagVersion)) {
+            $query['DagVersion'] = $request->dagVersion;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeTaskFlowInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeTaskFlowInstanceRequest $request
+     *
+     * @return ResumeTaskFlowInstanceResponse
+     */
+    public function resumeTaskFlowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeTaskFlowInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -6796,6 +8514,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param StopTaskFlowInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopTaskFlowInstanceResponse
+     */
+    public function stopTaskFlowInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTaskFlowInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopTaskFlowInstanceRequest $request
+     *
+     * @return StopTaskFlowInstanceResponse
+     */
+    public function stopTaskFlowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopTaskFlowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitOrderApprovalRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -6885,6 +8652,55 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitStructSyncOrderApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SuspendTaskFlowInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SuspendTaskFlowInstanceResponse
+     */
+    public function suspendTaskFlowInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagInstanceId)) {
+            $query['DagInstanceId'] = $request->dagInstanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendTaskFlowInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SuspendTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SuspendTaskFlowInstanceRequest $request
+     *
+     * @return SuspendTaskFlowInstanceResponse
+     */
+    public function suspendTaskFlowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->suspendTaskFlowInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -7016,6 +8832,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->ecsRegion)) {
             $query['EcsRegion'] = $request->ecsRegion;
         }
+        if (!Utils::isUnset($request->enableSellSitd)) {
+            $query['EnableSellSitd'] = $request->enableSellSitd;
+        }
         if (!Utils::isUnset($request->envType)) {
             $query['EnvType'] = $request->envType;
         }
@@ -7051,6 +8870,12 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->skipTest)) {
             $query['SkipTest'] = $request->skipTest;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
         }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
@@ -7089,6 +8914,848 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSLARulesRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateSLARulesResponse
+     */
+    public function updateSLARulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSLARulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->slaRuleList)) {
+            $request->slaRuleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slaRuleList, 'SlaRuleList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->slaRuleListShrink)) {
+            $query['SlaRuleList'] = $request->slaRuleListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSLARules',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSLARulesRequest $request
+     *
+     * @return UpdateSLARulesResponse
+     */
+    public function updateSLARules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSLARulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateScenarioRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateScenarioResponse
+     */
+    public function updateScenarioWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->scenarioId)) {
+            $query['ScenarioId'] = $request->scenarioId;
+        }
+        if (!Utils::isUnset($request->scenarioName)) {
+            $query['ScenarioName'] = $request->scenarioName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScenario',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateScenarioRequest $request
+     *
+     * @return UpdateScenarioResponse
+     */
+    public function updateScenario($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateScenarioWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTaskConfigResponse
+     */
+    public function updateTaskConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeConfig)) {
+            $query['NodeConfig'] = $request->nodeConfig;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskConfig',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskConfigRequest $request
+     *
+     * @return UpdateTaskConfigResponse
+     */
+    public function updateTaskConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskContentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateTaskContentResponse
+     */
+    public function updateTaskContentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeContent)) {
+            $query['NodeContent'] = $request->nodeContent;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskContent',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskContentRequest $request
+     *
+     * @return UpdateTaskContentResponse
+     */
+    public function updateTaskContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowConstantsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTaskFlowConstantsResponse
+     */
+    public function updateTaskFlowConstantsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTaskFlowConstantsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dagConstants)) {
+            $request->dagConstantsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dagConstants, 'DagConstants', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dagConstantsShrink)) {
+            $query['DagConstants'] = $request->dagConstantsShrink;
+        }
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowConstants',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowConstantsRequest $request
+     *
+     * @return UpdateTaskFlowConstantsResponse
+     */
+    public function updateTaskFlowConstants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowConstantsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowCooperatorsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTaskFlowCooperatorsResponse
+     */
+    public function updateTaskFlowCooperatorsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTaskFlowCooperatorsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cooperatorIds)) {
+            $request->cooperatorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cooperatorIds, 'CooperatorIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->cooperatorIdsShrink)) {
+            $query['CooperatorIds'] = $request->cooperatorIdsShrink;
+        }
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowCooperators',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowCooperatorsRequest $request
+     *
+     * @return UpdateTaskFlowCooperatorsResponse
+     */
+    public function updateTaskFlowCooperators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowCooperatorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowEdgesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTaskFlowEdgesResponse
+     */
+    public function updateTaskFlowEdgesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTaskFlowEdgesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->edges)) {
+            $request->edgesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->edgesShrink)) {
+            $query['Edges'] = $request->edgesShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowEdges',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowEdgesRequest $request
+     *
+     * @return UpdateTaskFlowEdgesResponse
+     */
+    public function updateTaskFlowEdges($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowEdgesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowNameAndDescRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTaskFlowNameAndDescResponse
+     */
+    public function updateTaskFlowNameAndDescWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagName)) {
+            $query['DagName'] = $request->dagName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowNameAndDesc',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowNameAndDescResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowNameAndDescRequest $request
+     *
+     * @return UpdateTaskFlowNameAndDescResponse
+     */
+    public function updateTaskFlowNameAndDesc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowNameAndDescWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowNotificationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateTaskFlowNotificationResponse
+     */
+    public function updateTaskFlowNotificationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->dagNotificationFail)) {
+            $query['DagNotificationFail'] = $request->dagNotificationFail;
+        }
+        if (!Utils::isUnset($request->dagNotificationSla)) {
+            $query['DagNotificationSla'] = $request->dagNotificationSla;
+        }
+        if (!Utils::isUnset($request->dagNotificationSuccess)) {
+            $query['DagNotificationSuccess'] = $request->dagNotificationSuccess;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowNotification',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowNotificationRequest $request
+     *
+     * @return UpdateTaskFlowNotificationResponse
+     */
+    public function updateTaskFlowNotification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowNotificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowOwnerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateTaskFlowOwnerResponse
+     */
+    public function updateTaskFlowOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->newOwnerId)) {
+            $query['NewOwnerId'] = $request->newOwnerId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowOwner',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowOwnerRequest $request
+     *
+     * @return UpdateTaskFlowOwnerResponse
+     */
+    public function updateTaskFlowOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowOwnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowRelationsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTaskFlowRelationsResponse
+     */
+    public function updateTaskFlowRelationsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTaskFlowRelationsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->edges)) {
+            $request->edgesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->edges, 'Edges', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->edgesShrink)) {
+            $query['Edges'] = $request->edgesShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowRelations',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowRelationsRequest $request
+     *
+     * @return UpdateTaskFlowRelationsResponse
+     */
+    public function updateTaskFlowRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowScheduleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateTaskFlowScheduleResponse
+     */
+    public function updateTaskFlowScheduleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cronBeginDate)) {
+            $query['CronBeginDate'] = $request->cronBeginDate;
+        }
+        if (!Utils::isUnset($request->cronEndDate)) {
+            $query['CronEndDate'] = $request->cronEndDate;
+        }
+        if (!Utils::isUnset($request->cronStr)) {
+            $query['CronStr'] = $request->cronStr;
+        }
+        if (!Utils::isUnset($request->cronType)) {
+            $query['CronType'] = $request->cronType;
+        }
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->scheduleParam)) {
+            $query['ScheduleParam'] = $request->scheduleParam;
+        }
+        if (!Utils::isUnset($request->scheduleSwitch)) {
+            $query['ScheduleSwitch'] = $request->scheduleSwitch;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->timeZoneId)) {
+            $query['TimeZoneId'] = $request->timeZoneId;
+        }
+        if (!Utils::isUnset($request->triggerType)) {
+            $query['TriggerType'] = $request->triggerType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowSchedule',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowScheduleRequest $request
+     *
+     * @return UpdateTaskFlowScheduleResponse
+     */
+    public function updateTaskFlowSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowScheduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskFlowTimeVariablesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateTaskFlowTimeVariablesResponse
+     */
+    public function updateTaskFlowTimeVariablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dagId)) {
+            $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->timeVariables)) {
+            $query['TimeVariables'] = $request->timeVariables;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskFlowTimeVariables',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskFlowTimeVariablesRequest $request
+     *
+     * @return UpdateTaskFlowTimeVariablesResponse
+     */
+    public function updateTaskFlowTimeVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskFlowTimeVariablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskNameRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTaskNameResponse
+     */
+    public function updateTaskNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskName',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskNameRequest $request
+     *
+     * @return UpdateTaskNameResponse
+     */
+    public function updateTaskName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskOutputRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTaskOutputResponse
+     */
+    public function updateTaskOutputWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->nodeOutput)) {
+            $query['NodeOutput'] = $request->nodeOutput;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskOutput',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskOutputRequest $request
+     *
+     * @return UpdateTaskOutputResponse
+     */
+    public function updateTaskOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTaskTimeVariablesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTaskTimeVariablesResponse
+     */
+    public function updateTaskTimeVariablesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->timeVariables)) {
+            $query['TimeVariables'] = $request->timeVariables;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTaskTimeVariables',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTaskTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTaskTimeVariablesRequest $request
+     *
+     * @return UpdateTaskTimeVariablesResponse
+     */
+    public function updateTaskTimeVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTaskTimeVariablesWithOptions($request, $runtime);
     }
 
     /**

@@ -26,6 +26,11 @@ class DAGInstance extends Model
     /**
      * @var string
      */
+    public $dagVersion;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -61,6 +66,7 @@ class DAGInstance extends Model
         'businessTime' => 'BusinessTime',
         'dagId'        => 'DagId',
         'dagName'      => 'DagName',
+        'dagVersion'   => 'DagVersion',
         'endTime'      => 'EndTime',
         'historyDagId' => 'HistoryDagId',
         'id'           => 'Id',
@@ -85,6 +91,9 @@ class DAGInstance extends Model
         }
         if (null !== $this->dagName) {
             $res['DagName'] = $this->dagName;
+        }
+        if (null !== $this->dagVersion) {
+            $res['DagVersion'] = $this->dagVersion;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -127,6 +136,9 @@ class DAGInstance extends Model
         }
         if (isset($map['DagName'])) {
             $model->dagName = $map['DagName'];
+        }
+        if (isset($map['DagVersion'])) {
+            $model->dagVersion = $map['DagVersion'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
