@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryFigureClustersRequest extends Model
+class QueryFigureClustersShrinkRequest extends Model
 {
     /**
-     * @var TimeRange
+     * @var string
      */
-    public $createTimeRange;
+    public $createTimeRangeShrink;
 
     /**
      * @var string
@@ -49,19 +49,19 @@ class QueryFigureClustersRequest extends Model
     public $sort;
 
     /**
-     * @var TimeRange
+     * @var string
      */
-    public $updateTimeRange;
+    public $updateTimeRangeShrink;
     protected $_name = [
-        'createTimeRange' => 'CreateTimeRange',
-        'customLabels'    => 'CustomLabels',
-        'datasetName'     => 'DatasetName',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'order'           => 'Order',
-        'projectName'     => 'ProjectName',
-        'sort'            => 'Sort',
-        'updateTimeRange' => 'UpdateTimeRange',
+        'createTimeRangeShrink' => 'CreateTimeRange',
+        'customLabels'          => 'CustomLabels',
+        'datasetName'           => 'DatasetName',
+        'maxResults'            => 'MaxResults',
+        'nextToken'             => 'NextToken',
+        'order'                 => 'Order',
+        'projectName'           => 'ProjectName',
+        'sort'                  => 'Sort',
+        'updateTimeRangeShrink' => 'UpdateTimeRange',
     ];
 
     public function validate()
@@ -71,8 +71,8 @@ class QueryFigureClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createTimeRange) {
-            $res['CreateTimeRange'] = null !== $this->createTimeRange ? $this->createTimeRange->toMap() : null;
+        if (null !== $this->createTimeRangeShrink) {
+            $res['CreateTimeRange'] = $this->createTimeRangeShrink;
         }
         if (null !== $this->customLabels) {
             $res['CustomLabels'] = $this->customLabels;
@@ -95,8 +95,8 @@ class QueryFigureClustersRequest extends Model
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
-        if (null !== $this->updateTimeRange) {
-            $res['UpdateTimeRange'] = null !== $this->updateTimeRange ? $this->updateTimeRange->toMap() : null;
+        if (null !== $this->updateTimeRangeShrink) {
+            $res['UpdateTimeRange'] = $this->updateTimeRangeShrink;
         }
 
         return $res;
@@ -105,13 +105,13 @@ class QueryFigureClustersRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryFigureClustersRequest
+     * @return QueryFigureClustersShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimeRange'])) {
-            $model->createTimeRange = TimeRange::fromMap($map['CreateTimeRange']);
+            $model->createTimeRangeShrink = $map['CreateTimeRange'];
         }
         if (isset($map['CustomLabels'])) {
             $model->customLabels = $map['CustomLabels'];
@@ -135,7 +135,7 @@ class QueryFigureClustersRequest extends Model
             $model->sort = $map['Sort'];
         }
         if (isset($map['UpdateTimeRange'])) {
-            $model->updateTimeRange = TimeRange::fromMap($map['UpdateTimeRange']);
+            $model->updateTimeRangeShrink = $map['UpdateTimeRange'];
         }
 
         return $model;

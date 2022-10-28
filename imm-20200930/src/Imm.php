@@ -153,6 +153,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesShrinkRequest;
@@ -3727,15 +3728,26 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryFigureClustersRequest $request
+     * @param QueryFigureClustersRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return QueryFigureClustersResponse
      */
-    public function queryFigureClustersWithOptions($request, $runtime)
+    public function queryFigureClustersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new QueryFigureClustersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createTimeRange)) {
+            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->createTimeRange), 'CreateTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->updateTimeRange)) {
+            $request->updateTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->updateTimeRange), 'UpdateTimeRange', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->createTimeRangeShrink)) {
+            $query['CreateTimeRange'] = $request->createTimeRangeShrink;
+        }
         if (!Utils::isUnset($request->customLabels)) {
             $query['CustomLabels'] = $request->customLabels;
         }
@@ -3756,6 +3768,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->updateTimeRangeShrink)) {
+            $query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
