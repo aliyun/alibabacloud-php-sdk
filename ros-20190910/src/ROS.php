@@ -272,6 +272,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->ramRoleName)) {
             $query['RamRoleName'] = $request->ramRoleName;
         }
+        if (!Utils::isUnset($request->recreatingOptions)) {
+            $query['RecreatingOptions'] = $request->recreatingOptions;
+        }
         if (!Utils::isUnset($request->recreatingResources)) {
             $query['RecreatingResources'] = $request->recreatingResources;
         }
@@ -586,6 +589,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->stackGroupName)) {
             $query['StackGroupName'] = $request->stackGroupName;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->templateBody)) {
             $query['TemplateBody'] = $request->templateBody;
         }
@@ -730,6 +736,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->templateBody)) {
             $query['TemplateBody'] = $request->templateBody;
@@ -2859,6 +2868,18 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
+        }
+        if (!Utils::isUnset($request->templateBody)) {
+            $query['TemplateBody'] = $request->templateBody;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

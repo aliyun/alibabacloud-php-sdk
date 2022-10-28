@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupShrinkRequest\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackGroupShrinkRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateStackGroupShrinkRequest extends Model
@@ -60,6 +61,11 @@ class CreateStackGroupShrinkRequest extends Model
     public $stackGroupName;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -89,6 +95,7 @@ class CreateStackGroupShrinkRequest extends Model
         'regionId'               => 'RegionId',
         'resourceGroupId'        => 'ResourceGroupId',
         'stackGroupName'         => 'StackGroupName',
+        'tags'                   => 'Tags',
         'templateBody'           => 'TemplateBody',
         'templateId'             => 'TemplateId',
         'templateURL'            => 'TemplateURL',
@@ -137,6 +144,15 @@ class CreateStackGroupShrinkRequest extends Model
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -197,6 +213,15 @@ class CreateStackGroupShrinkRequest extends Model
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];

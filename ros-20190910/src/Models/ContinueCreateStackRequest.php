@@ -37,6 +37,11 @@ class ContinueCreateStackRequest extends Model
     /**
      * @var string[]
      */
+    public $recreatingOptions;
+
+    /**
+     * @var string[]
+     */
     public $recreatingResources;
 
     /**
@@ -74,6 +79,7 @@ class ContinueCreateStackRequest extends Model
         'parallelism'         => 'Parallelism',
         'parameters'          => 'Parameters',
         'ramRoleName'         => 'RamRoleName',
+        'recreatingOptions'   => 'RecreatingOptions',
         'recreatingResources' => 'RecreatingResources',
         'regionId'            => 'RegionId',
         'stackId'             => 'StackId',
@@ -110,6 +116,9 @@ class ContinueCreateStackRequest extends Model
         }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
+        }
+        if (null !== $this->recreatingOptions) {
+            $res['RecreatingOptions'] = $this->recreatingOptions;
         }
         if (null !== $this->recreatingResources) {
             $res['RecreatingResources'] = $this->recreatingResources;
@@ -164,6 +173,11 @@ class ContinueCreateStackRequest extends Model
         }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
+        }
+        if (isset($map['RecreatingOptions'])) {
+            if (!empty($map['RecreatingOptions'])) {
+                $model->recreatingOptions = $map['RecreatingOptions'];
+            }
         }
         if (isset($map['RecreatingResources'])) {
             if (!empty($map['RecreatingResources'])) {

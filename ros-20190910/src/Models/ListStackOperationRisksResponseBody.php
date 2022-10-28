@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListStackOperationRisksResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $missingPolicyActions;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -19,8 +24,9 @@ class ListStackOperationRisksResponseBody extends Model
      */
     public $riskResources;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'riskResources' => 'RiskResources',
+        'missingPolicyActions' => 'MissingPolicyActions',
+        'requestId'            => 'RequestId',
+        'riskResources'        => 'RiskResources',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class ListStackOperationRisksResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->missingPolicyActions) {
+            $res['MissingPolicyActions'] = $this->missingPolicyActions;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,6 +63,11 @@ class ListStackOperationRisksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MissingPolicyActions'])) {
+            if (!empty($map['MissingPolicyActions'])) {
+                $model->missingPolicyActions = $map['MissingPolicyActions'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

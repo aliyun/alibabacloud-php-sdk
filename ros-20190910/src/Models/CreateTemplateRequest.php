@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateTemplateRequest extends Model
@@ -17,6 +18,11 @@ class CreateTemplateRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -35,6 +41,7 @@ class CreateTemplateRequest extends Model
     protected $_name = [
         'description'     => 'Description',
         'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
         'templateBody'    => 'TemplateBody',
         'templateName'    => 'TemplateName',
         'templateURL'     => 'TemplateURL',
@@ -52,6 +59,15 @@ class CreateTemplateRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -79,6 +95,15 @@ class CreateTemplateRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];

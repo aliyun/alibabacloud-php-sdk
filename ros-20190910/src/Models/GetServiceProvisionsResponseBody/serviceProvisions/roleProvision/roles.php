@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponseBody\serviceProvisions\roleProvision;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponseBody\serviceProvisions\roleProvision\roles\apiForCreation;
 use AlibabaCloud\Tea\Model;
 
 class roles extends Model
 {
+    /**
+     * @var apiForCreation
+     */
+    public $apiForCreation;
+
     /**
      * @var bool
      */
@@ -23,9 +29,10 @@ class roles extends Model
      */
     public $roleName;
     protected $_name = [
-        'created'  => 'Created',
-        'function' => 'Function',
-        'roleName' => 'RoleName',
+        'apiForCreation' => 'ApiForCreation',
+        'created'        => 'Created',
+        'function'       => 'Function',
+        'roleName'       => 'RoleName',
     ];
 
     public function validate()
@@ -35,6 +42,9 @@ class roles extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiForCreation) {
+            $res['ApiForCreation'] = null !== $this->apiForCreation ? $this->apiForCreation->toMap() : null;
+        }
         if (null !== $this->created) {
             $res['Created'] = $this->created;
         }
@@ -56,6 +66,9 @@ class roles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiForCreation'])) {
+            $model->apiForCreation = apiForCreation::fromMap($map['ApiForCreation']);
+        }
         if (isset($map['Created'])) {
             $model->created = $map['Created'];
         }
