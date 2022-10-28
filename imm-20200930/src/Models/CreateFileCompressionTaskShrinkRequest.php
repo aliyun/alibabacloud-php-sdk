@@ -21,11 +21,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     /**
      * @var string
      */
-    public $manifestURI;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
@@ -37,6 +32,11 @@ class CreateFileCompressionTaskShrinkRequest extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $sourceManifestURI;
 
     /**
      * @var string
@@ -55,10 +55,10 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     protected $_name = [
         'compressedFormat'       => 'CompressedFormat',
         'credentialConfigShrink' => 'CredentialConfig',
-        'manifestURI'            => 'ManifestURI',
         'notifyTopicName'        => 'NotifyTopicName',
         'password'               => 'Password',
         'projectName'            => 'ProjectName',
+        'sourceManifestURI'      => 'SourceManifestURI',
         'sourcesShrink'          => 'Sources',
         'targetURI'              => 'TargetURI',
         'userData'               => 'UserData',
@@ -77,9 +77,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
         }
-        if (null !== $this->manifestURI) {
-            $res['ManifestURI'] = $this->manifestURI;
-        }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
@@ -88,6 +85,9 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->sourceManifestURI) {
+            $res['SourceManifestURI'] = $this->sourceManifestURI;
         }
         if (null !== $this->sourcesShrink) {
             $res['Sources'] = $this->sourcesShrink;
@@ -116,9 +116,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
         }
-        if (isset($map['ManifestURI'])) {
-            $model->manifestURI = $map['ManifestURI'];
-        }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
@@ -127,6 +124,9 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['SourceManifestURI'])) {
+            $model->sourceManifestURI = $map['SourceManifestURI'];
         }
         if (isset($map['Sources'])) {
             $model->sourcesShrink = $map['Sources'];

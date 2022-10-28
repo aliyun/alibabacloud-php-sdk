@@ -1119,9 +1119,6 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->credentialConfigShrink)) {
             $query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->manifestURI)) {
-            $query['ManifestURI'] = $request->manifestURI;
-        }
         if (!Utils::isUnset($request->notifyTopicName)) {
             $query['NotifyTopicName'] = $request->notifyTopicName;
         }
@@ -1130,6 +1127,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceManifestURI)) {
+            $query['SourceManifestURI'] = $request->sourceManifestURI;
         }
         if (!Utils::isUnset($request->sourcesShrink)) {
             $query['Sources'] = $request->sourcesShrink;

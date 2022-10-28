@@ -22,11 +22,6 @@ class CreateFileCompressionTaskRequest extends Model
     /**
      * @var string
      */
-    public $manifestURI;
-
-    /**
-     * @var string
-     */
     public $notifyTopicName;
 
     /**
@@ -38,6 +33,11 @@ class CreateFileCompressionTaskRequest extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $sourceManifestURI;
 
     /**
      * @var sources[]
@@ -54,15 +54,15 @@ class CreateFileCompressionTaskRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'compressedFormat' => 'CompressedFormat',
-        'credentialConfig' => 'CredentialConfig',
-        'manifestURI'      => 'ManifestURI',
-        'notifyTopicName'  => 'NotifyTopicName',
-        'password'         => 'Password',
-        'projectName'      => 'ProjectName',
-        'sources'          => 'Sources',
-        'targetURI'        => 'TargetURI',
-        'userData'         => 'UserData',
+        'compressedFormat'  => 'CompressedFormat',
+        'credentialConfig'  => 'CredentialConfig',
+        'notifyTopicName'   => 'NotifyTopicName',
+        'password'          => 'Password',
+        'projectName'       => 'ProjectName',
+        'sourceManifestURI' => 'SourceManifestURI',
+        'sources'           => 'Sources',
+        'targetURI'         => 'TargetURI',
+        'userData'          => 'UserData',
     ];
 
     public function validate()
@@ -78,9 +78,6 @@ class CreateFileCompressionTaskRequest extends Model
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
         }
-        if (null !== $this->manifestURI) {
-            $res['ManifestURI'] = $this->manifestURI;
-        }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
@@ -89,6 +86,9 @@ class CreateFileCompressionTaskRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->sourceManifestURI) {
+            $res['SourceManifestURI'] = $this->sourceManifestURI;
         }
         if (null !== $this->sources) {
             $res['Sources'] = [];
@@ -123,9 +123,6 @@ class CreateFileCompressionTaskRequest extends Model
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
-        if (isset($map['ManifestURI'])) {
-            $model->manifestURI = $map['ManifestURI'];
-        }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
@@ -134,6 +131,9 @@ class CreateFileCompressionTaskRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['SourceManifestURI'])) {
+            $model->sourceManifestURI = $map['SourceManifestURI'];
         }
         if (isset($map['Sources'])) {
             if (!empty($map['Sources'])) {
