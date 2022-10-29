@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListBasicAcceleratorsRequest extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 分页页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 全球加速实例状态
-     *
      * @var string
      */
     public $state;

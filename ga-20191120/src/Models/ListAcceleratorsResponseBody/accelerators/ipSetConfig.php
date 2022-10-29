@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ipSetConfig extends Model
 {
     /**
-     * @description 加速区接入方式
-     *
      * @var string
      */
     public $accessMode;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class basicBandwidthPackage extends Model
 {
     /**
-     * @description 基础带宽包带宽
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description 基础带宽包类型
-     *
      * @var string
      */
     public $bandwidthType;
 
     /**
-     * @description 基础带宽包Id
-     *
      * @var string
      */
     public $instanceId;

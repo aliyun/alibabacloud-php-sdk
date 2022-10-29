@@ -22,10 +22,16 @@ class ipSets extends Model
      * @var string
      */
     public $ipSetId;
+
+    /**
+     * @var string
+     */
+    public $ispType;
     protected $_name = [
         'accelerateRegionId' => 'AccelerateRegionId',
         'bandwidth'          => 'Bandwidth',
         'ipSetId'            => 'IpSetId',
+        'ispType'            => 'IspType',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ipSets extends Model
         }
         if (null !== $this->ipSetId) {
             $res['IpSetId'] = $this->ipSetId;
+        }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ipSets extends Model
         }
         if (isset($map['IpSetId'])) {
             $model->ipSetId = $map['IpSetId'];
+        }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
         }
 
         return $model;

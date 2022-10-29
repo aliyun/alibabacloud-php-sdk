@@ -9,64 +9,51 @@ use AlibabaCloud\Tea\Model;
 class GetBasicEndpointGroupResponseBody extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 终端节点组描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 终端节点组地址
-     *
      * @var string
      */
     public $endpointAddress;
 
     /**
-     * @description 终端节点组Id
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description 终端节点组所在地域
-     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
-     * @description 终端节点类型
-     *
+     * @var string
+     */
+    public $endpointSubAddress;
+
+    /**
      * @var string
      */
     public $endpointType;
 
     /**
-     * @description 终端节点组名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 终端节点组状态
-     *
      * @var string
      */
     public $state;
@@ -76,6 +63,7 @@ class GetBasicEndpointGroupResponseBody extends Model
         'endpointAddress'     => 'EndpointAddress',
         'endpointGroupId'     => 'EndpointGroupId',
         'endpointGroupRegion' => 'EndpointGroupRegion',
+        'endpointSubAddress'  => 'EndpointSubAddress',
         'endpointType'        => 'EndpointType',
         'name'                => 'Name',
         'requestId'           => 'RequestId',
@@ -103,6 +91,9 @@ class GetBasicEndpointGroupResponseBody extends Model
         }
         if (null !== $this->endpointGroupRegion) {
             $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
+        }
+        if (null !== $this->endpointSubAddress) {
+            $res['EndpointSubAddress'] = $this->endpointSubAddress;
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
@@ -142,6 +133,9 @@ class GetBasicEndpointGroupResponseBody extends Model
         }
         if (isset($map['EndpointGroupRegion'])) {
             $model->endpointGroupRegion = $map['EndpointGroupRegion'];
+        }
+        if (isset($map['EndpointSubAddress'])) {
+            $model->endpointSubAddress = $map['EndpointSubAddress'];
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];

@@ -11,110 +11,94 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAcceleratorResponseBody extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 绑定的基础带宽包
-     *
+     * @var string
+     */
+    public $bandwidthBillingType;
+
+    /**
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
-     * @description 全球加速实例下车点Id
-     *
      * @var string
      */
     public $basicEndpointGroupId;
 
     /**
-     * @description 全球加速实例上车点Id
-     *
      * @var string
      */
     public $basicIpSetId;
 
     /**
-     * @description 使用的云企业网Id
-     *
      * @var string
      */
     public $cenId;
 
     /**
-     * @description 全球加速实例创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 绑定的跨境带宽包
-     *
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
-     * @description 全球加速实例描述
-     *
+     * @var string
+     */
+    public $crossPrivateState;
+
+    /**
      * @var string
      */
     public $description;
 
     /**
-     * @description 到期时间
-     *
      * @var int
      */
     public $expiredTime;
 
     /**
-     * @description 全球加速实例收费类型
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description 全球加速实例名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 实例状态
-     *
      * @var string
      */
     public $state;
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
+        'bandwidthBillingType'        => 'BandwidthBillingType',
         'basicBandwidthPackage'       => 'BasicBandwidthPackage',
         'basicEndpointGroupId'        => 'BasicEndpointGroupId',
         'basicIpSetId'                => 'BasicIpSetId',
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
+        'crossPrivateState'           => 'CrossPrivateState',
         'description'                 => 'Description',
         'expiredTime'                 => 'ExpiredTime',
         'instanceChargeType'          => 'InstanceChargeType',
@@ -134,6 +118,9 @@ class GetBasicAcceleratorResponseBody extends Model
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+        if (null !== $this->bandwidthBillingType) {
+            $res['BandwidthBillingType'] = $this->bandwidthBillingType;
+        }
         if (null !== $this->basicBandwidthPackage) {
             $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
         }
@@ -151,6 +138,9 @@ class GetBasicAcceleratorResponseBody extends Model
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
+        }
+        if (null !== $this->crossPrivateState) {
+            $res['CrossPrivateState'] = $this->crossPrivateState;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -188,6 +178,9 @@ class GetBasicAcceleratorResponseBody extends Model
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+        if (isset($map['BandwidthBillingType'])) {
+            $model->bandwidthBillingType = $map['BandwidthBillingType'];
+        }
         if (isset($map['BasicBandwidthPackage'])) {
             $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);
         }
@@ -205,6 +198,9 @@ class GetBasicAcceleratorResponseBody extends Model
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);
+        }
+        if (isset($map['CrossPrivateState'])) {
+            $model->crossPrivateState = $map['CrossPrivateState'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

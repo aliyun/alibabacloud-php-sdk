@@ -22,6 +22,11 @@ class accelerators extends Model
     public $bandwidth;
 
     /**
+     * @var string
+     */
+    public $bandwidthBillingType;
+
+    /**
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
@@ -67,8 +72,6 @@ class accelerators extends Model
     public $instanceChargeType;
 
     /**
-     * @description 加速区配置
-     *
      * @var ipSetConfig
      */
     public $ipSetConfig;
@@ -105,6 +108,7 @@ class accelerators extends Model
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
         'bandwidth'                   => 'Bandwidth',
+        'bandwidthBillingType'        => 'BandwidthBillingType',
         'basicBandwidthPackage'       => 'BasicBandwidthPackage',
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
@@ -135,6 +139,9 @@ class accelerators extends Model
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->bandwidthBillingType) {
+            $res['BandwidthBillingType'] = $this->bandwidthBillingType;
         }
         if (null !== $this->basicBandwidthPackage) {
             $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
@@ -201,6 +208,9 @@ class accelerators extends Model
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['BandwidthBillingType'])) {
+            $model->bandwidthBillingType = $map['BandwidthBillingType'];
         }
         if (isset($map['BasicBandwidthPackage'])) {
             $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);

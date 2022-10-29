@@ -32,6 +32,11 @@ class CreateAcceleratorRequest extends Model
     /**
      * @var string
      */
+    public $bandwidthBillingType;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -64,17 +69,18 @@ class CreateAcceleratorRequest extends Model
      */
     public $spec;
     protected $_name = [
-        'autoPay'           => 'AutoPay',
-        'autoRenew'         => 'AutoRenew',
-        'autoRenewDuration' => 'AutoRenewDuration',
-        'autoUseCoupon'     => 'AutoUseCoupon',
-        'clientToken'       => 'ClientToken',
-        'duration'          => 'Duration',
-        'ipSetConfig'       => 'IpSetConfig',
-        'name'              => 'Name',
-        'pricingCycle'      => 'PricingCycle',
-        'regionId'          => 'RegionId',
-        'spec'              => 'Spec',
+        'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewDuration'    => 'AutoRenewDuration',
+        'autoUseCoupon'        => 'AutoUseCoupon',
+        'bandwidthBillingType' => 'BandwidthBillingType',
+        'clientToken'          => 'ClientToken',
+        'duration'             => 'Duration',
+        'ipSetConfig'          => 'IpSetConfig',
+        'name'                 => 'Name',
+        'pricingCycle'         => 'PricingCycle',
+        'regionId'             => 'RegionId',
+        'spec'                 => 'Spec',
     ];
 
     public function validate()
@@ -95,6 +101,9 @@ class CreateAcceleratorRequest extends Model
         }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+        if (null !== $this->bandwidthBillingType) {
+            $res['BandwidthBillingType'] = $this->bandwidthBillingType;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -140,6 +149,9 @@ class CreateAcceleratorRequest extends Model
         }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+        if (isset($map['BandwidthBillingType'])) {
+            $model->bandwidthBillingType = $map['BandwidthBillingType'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetBasicAcceleratorRequest extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;

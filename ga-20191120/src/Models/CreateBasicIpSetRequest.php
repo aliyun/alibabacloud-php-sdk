@@ -9,42 +9,38 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicIpSetRequest extends Model
 {
     /**
-     * @description 加速地域Id
-     *
      * @var string
      */
     public $accelerateRegionId;
 
     /**
-     * @description 基础版全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 客户端Token
-     *
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 公网质量类型
-     *
      * @var string
      */
     public $ispType;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'accelerateRegionId' => 'AccelerateRegionId',
         'acceleratorId'      => 'AcceleratorId',
+        'bandwidth'          => 'Bandwidth',
         'clientToken'        => 'ClientToken',
         'ispType'            => 'IspType',
         'regionId'           => 'RegionId',
@@ -62,6 +58,9 @@ class CreateBasicIpSetRequest extends Model
         }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -89,6 +88,9 @@ class CreateBasicIpSetRequest extends Model
         }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

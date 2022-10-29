@@ -11,97 +11,77 @@ use AlibabaCloud\Tea\Model;
 class accelerators extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 绑定的基础带宽包
-     *
+     * @var string
+     */
+    public $bandwidthBillingType;
+
+    /**
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
-     * @description 全球加速实例下车点Id
-     *
      * @var string
      */
     public $basicEndpointGroupId;
 
     /**
-     * @description 全球加速实例上车点Id
-     *
      * @var string
      */
     public $basicIpSetId;
 
     /**
-     * @description 创建时间
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 绑定的跨境带宽包
-     *
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
 
     /**
-     * @description 全球加速实例描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 到期时间
-     *
      * @var int
      */
     public $expiredTime;
 
     /**
-     * @description 全球加速实例计费类型
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description 全球加速实例名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 全球加速实例状态
-     *
      * @var string
      */
     public $state;
 
     /**
-     * @description 全球加速实例类型
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
+        'bandwidthBillingType'        => 'BandwidthBillingType',
         'basicBandwidthPackage'       => 'BasicBandwidthPackage',
         'basicEndpointGroupId'        => 'BasicEndpointGroupId',
         'basicIpSetId'                => 'BasicIpSetId',
@@ -125,6 +105,9 @@ class accelerators extends Model
         $res = [];
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->bandwidthBillingType) {
+            $res['BandwidthBillingType'] = $this->bandwidthBillingType;
         }
         if (null !== $this->basicBandwidthPackage) {
             $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
@@ -176,6 +159,9 @@ class accelerators extends Model
         $model = new self();
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['BandwidthBillingType'])) {
+            $model->bandwidthBillingType = $map['BandwidthBillingType'];
         }
         if (isset($map['BasicBandwidthPackage'])) {
             $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);

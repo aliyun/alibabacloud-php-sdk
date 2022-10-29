@@ -41,8 +41,6 @@ class GetAclResponseBody extends Model
     public $relatedListeners;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

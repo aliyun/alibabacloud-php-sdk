@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class GetBasicIpSetResponseBody extends Model
 {
     /**
-     * @description 加速地域Id
-     *
      * @var string
      */
     public $accelerateRegionId;
 
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 加速地域带宽
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description 加速接入点IP地址
-     *
      * @var string
      */
     public $ipAddress;
 
     /**
-     * @description 加速接入点id
-     *
      * @var string
      */
     public $ipSetId;
 
     /**
-     * @description 加速接入点地址类型
-     *
      * @var string
      */
     public $ipVersion;
 
     /**
-     * @description 公网质量类型
-     *
      * @var string
      */
     public $ispType;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 加速接入点状态
-     *
      * @var string
      */
     public $state;

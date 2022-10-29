@@ -9,57 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicEndpointGroupRequest extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 客户端Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 终端节点组描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 终端节点地址
-     *
      * @var string
      */
     public $endpointAddress;
 
     /**
-     * @description 终端节点组所在地域
-     *
      * @var string
      */
     public $endpointGroupRegion;
 
     /**
-     * @description 终端节点类型
-     *
+     * @var string
+     */
+    public $endpointSubAddress;
+
+    /**
      * @var string
      */
     public $endpointType;
 
     /**
-     * @description 终端节点组名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Regionid
-     *
      * @var string
      */
     public $regionId;
@@ -69,6 +58,7 @@ class CreateBasicEndpointGroupRequest extends Model
         'description'         => 'Description',
         'endpointAddress'     => 'EndpointAddress',
         'endpointGroupRegion' => 'EndpointGroupRegion',
+        'endpointSubAddress'  => 'EndpointSubAddress',
         'endpointType'        => 'EndpointType',
         'name'                => 'Name',
         'regionId'            => 'RegionId',
@@ -95,6 +85,9 @@ class CreateBasicEndpointGroupRequest extends Model
         }
         if (null !== $this->endpointGroupRegion) {
             $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
+        }
+        if (null !== $this->endpointSubAddress) {
+            $res['EndpointSubAddress'] = $this->endpointSubAddress;
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
@@ -131,6 +124,9 @@ class CreateBasicEndpointGroupRequest extends Model
         }
         if (isset($map['EndpointGroupRegion'])) {
             $model->endpointGroupRegion = $map['EndpointGroupRegion'];
+        }
+        if (isset($map['EndpointSubAddress'])) {
+            $model->endpointSubAddress = $map['EndpointSubAddress'];
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];

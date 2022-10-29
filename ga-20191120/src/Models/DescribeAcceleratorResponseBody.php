@@ -17,6 +17,11 @@ class DescribeAcceleratorResponseBody extends Model
     public $acceleratorId;
 
     /**
+     * @var string
+     */
+    public $bandwidthBillingType;
+
+    /**
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
@@ -35,6 +40,11 @@ class DescribeAcceleratorResponseBody extends Model
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
+
+    /**
+     * @var string
+     */
+    public $crossPrivateState;
 
     /**
      * @var string
@@ -97,10 +107,12 @@ class DescribeAcceleratorResponseBody extends Model
     public $state;
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
+        'bandwidthBillingType'        => 'BandwidthBillingType',
         'basicBandwidthPackage'       => 'BasicBandwidthPackage',
         'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
+        'crossPrivateState'           => 'CrossPrivateState',
         'ddosId'                      => 'DdosId',
         'description'                 => 'Description',
         'dnsName'                     => 'DnsName',
@@ -125,6 +137,9 @@ class DescribeAcceleratorResponseBody extends Model
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
+        if (null !== $this->bandwidthBillingType) {
+            $res['BandwidthBillingType'] = $this->bandwidthBillingType;
+        }
         if (null !== $this->basicBandwidthPackage) {
             $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
         }
@@ -136,6 +151,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
+        }
+        if (null !== $this->crossPrivateState) {
+            $res['CrossPrivateState'] = $this->crossPrivateState;
         }
         if (null !== $this->ddosId) {
             $res['DdosId'] = $this->ddosId;
@@ -188,6 +206,9 @@ class DescribeAcceleratorResponseBody extends Model
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
+        if (isset($map['BandwidthBillingType'])) {
+            $model->bandwidthBillingType = $map['BandwidthBillingType'];
+        }
         if (isset($map['BasicBandwidthPackage'])) {
             $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);
         }
@@ -199,6 +220,9 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);
+        }
+        if (isset($map['CrossPrivateState'])) {
+            $model->crossPrivateState = $map['CrossPrivateState'];
         }
         if (isset($map['DdosId'])) {
             $model->ddosId = $map['DdosId'];

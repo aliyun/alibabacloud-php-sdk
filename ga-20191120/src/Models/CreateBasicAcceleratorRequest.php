@@ -9,69 +9,59 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicAcceleratorRequest extends Model
 {
     /**
-     * @description 自动续费
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @description 自动续费
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description 续费周期
-     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
-     * @description 自动使用优惠券
-     *
      * @var string
      */
     public $autoUseCoupon;
 
     /**
-     * @description 客户端Token
-     *
+     * @var string
+     */
+    public $bandwidthBillingType;
+
+    /**
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 购买时长
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @description 时长单位
-     *
      * @var string
      */
     public $pricingCycle;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoPay'           => 'AutoPay',
-        'autoRenew'         => 'AutoRenew',
-        'autoRenewDuration' => 'AutoRenewDuration',
-        'autoUseCoupon'     => 'AutoUseCoupon',
-        'clientToken'       => 'ClientToken',
-        'duration'          => 'Duration',
-        'pricingCycle'      => 'PricingCycle',
-        'regionId'          => 'RegionId',
+        'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewDuration'    => 'AutoRenewDuration',
+        'autoUseCoupon'        => 'AutoUseCoupon',
+        'bandwidthBillingType' => 'BandwidthBillingType',
+        'clientToken'          => 'ClientToken',
+        'duration'             => 'Duration',
+        'pricingCycle'         => 'PricingCycle',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -92,6 +82,9 @@ class CreateBasicAcceleratorRequest extends Model
         }
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+        if (null !== $this->bandwidthBillingType) {
+            $res['BandwidthBillingType'] = $this->bandwidthBillingType;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -128,6 +121,9 @@ class CreateBasicAcceleratorRequest extends Model
         }
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+        if (isset($map['BandwidthBillingType'])) {
+            $model->bandwidthBillingType = $map['BandwidthBillingType'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

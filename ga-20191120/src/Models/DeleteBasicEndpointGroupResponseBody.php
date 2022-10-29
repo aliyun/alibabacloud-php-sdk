@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteBasicEndpointGroupResponseBody extends Model
 {
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

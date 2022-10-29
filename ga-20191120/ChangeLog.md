@@ -1,3 +1,6 @@
+2022-10-29 Version: 1.0.13
+- Update Basic Ga Api.
+
 2022-07-19 Version: 1.0.12
 - Update Create Basic Ipset Api.
 

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicIpSetResponseBody extends Model
 {
     /**
-     * @description 加速地域接入点Id
-     *
      * @var string
      */
     public $ipSetId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

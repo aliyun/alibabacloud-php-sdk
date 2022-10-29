@@ -78,6 +78,11 @@ class listeners extends Model
     public $state;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var XForwardedForConfig
      */
     public $XForwardedForConfig;
@@ -95,6 +100,7 @@ class listeners extends Model
         'proxyProtocol'       => 'ProxyProtocol',
         'securityPolicyId'    => 'SecurityPolicyId',
         'state'               => 'State',
+        'type'                => 'Type',
         'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
@@ -161,6 +167,9 @@ class listeners extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->XForwardedForConfig) {
             $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
@@ -233,6 +242,9 @@ class listeners extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['XForwardedForConfig'])) {
             $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteBasicAcceleratorResponseBody extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

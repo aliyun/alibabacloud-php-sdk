@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicEndpointGroupResponseBody extends Model
 {
     /**
-     * @description 终端节点组Id
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

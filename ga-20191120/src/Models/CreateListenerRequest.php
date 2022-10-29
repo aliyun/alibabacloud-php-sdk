@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\certificates;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\customRoutingEndpointGroupConfigurations;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\endpointGroupConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\portRanges;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateListenerRequest\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
@@ -32,9 +34,19 @@ class CreateListenerRequest extends Model
     public $clientToken;
 
     /**
+     * @var customRoutingEndpointGroupConfigurations[]
+     */
+    public $customRoutingEndpointGroupConfigurations;
+
+    /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var endpointGroupConfigurations[]
+     */
+    public $endpointGroupConfigurations;
 
     /**
      * @var string
@@ -67,22 +79,30 @@ class CreateListenerRequest extends Model
     public $securityPolicyId;
 
     /**
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var XForwardedForConfig
      */
     public $XForwardedForConfig;
     protected $_name = [
-        'acceleratorId'       => 'AcceleratorId',
-        'certificates'        => 'Certificates',
-        'clientAffinity'      => 'ClientAffinity',
-        'clientToken'         => 'ClientToken',
-        'description'         => 'Description',
-        'name'                => 'Name',
-        'portRanges'          => 'PortRanges',
-        'protocol'            => 'Protocol',
-        'proxyProtocol'       => 'ProxyProtocol',
-        'regionId'            => 'RegionId',
-        'securityPolicyId'    => 'SecurityPolicyId',
-        'XForwardedForConfig' => 'XForwardedForConfig',
+        'acceleratorId'                            => 'AcceleratorId',
+        'certificates'                             => 'Certificates',
+        'clientAffinity'                           => 'ClientAffinity',
+        'clientToken'                              => 'ClientToken',
+        'customRoutingEndpointGroupConfigurations' => 'CustomRoutingEndpointGroupConfigurations',
+        'description'                              => 'Description',
+        'endpointGroupConfigurations'              => 'EndpointGroupConfigurations',
+        'name'                                     => 'Name',
+        'portRanges'                               => 'PortRanges',
+        'protocol'                                 => 'Protocol',
+        'proxyProtocol'                            => 'ProxyProtocol',
+        'regionId'                                 => 'RegionId',
+        'securityPolicyId'                         => 'SecurityPolicyId',
+        'type'                                     => 'Type',
+        'XForwardedForConfig'                      => 'XForwardedForConfig',
     ];
 
     public function validate()
@@ -110,8 +130,26 @@ class CreateListenerRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->customRoutingEndpointGroupConfigurations) {
+            $res['CustomRoutingEndpointGroupConfigurations'] = [];
+            if (null !== $this->customRoutingEndpointGroupConfigurations && \is_array($this->customRoutingEndpointGroupConfigurations)) {
+                $n = 0;
+                foreach ($this->customRoutingEndpointGroupConfigurations as $item) {
+                    $res['CustomRoutingEndpointGroupConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->endpointGroupConfigurations) {
+            $res['EndpointGroupConfigurations'] = [];
+            if (null !== $this->endpointGroupConfigurations && \is_array($this->endpointGroupConfigurations)) {
+                $n = 0;
+                foreach ($this->endpointGroupConfigurations as $item) {
+                    $res['EndpointGroupConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -136,6 +174,9 @@ class CreateListenerRequest extends Model
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->XForwardedForConfig) {
             $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
@@ -170,8 +211,26 @@ class CreateListenerRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['CustomRoutingEndpointGroupConfigurations'])) {
+            if (!empty($map['CustomRoutingEndpointGroupConfigurations'])) {
+                $model->customRoutingEndpointGroupConfigurations = [];
+                $n                                               = 0;
+                foreach ($map['CustomRoutingEndpointGroupConfigurations'] as $item) {
+                    $model->customRoutingEndpointGroupConfigurations[$n++] = null !== $item ? customRoutingEndpointGroupConfigurations::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EndpointGroupConfigurations'])) {
+            if (!empty($map['EndpointGroupConfigurations'])) {
+                $model->endpointGroupConfigurations = [];
+                $n                                  = 0;
+                foreach ($map['EndpointGroupConfigurations'] as $item) {
+                    $model->endpointGroupConfigurations[$n++] = null !== $item ? endpointGroupConfigurations::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -196,6 +255,9 @@ class CreateListenerRequest extends Model
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['XForwardedForConfig'])) {
             $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);

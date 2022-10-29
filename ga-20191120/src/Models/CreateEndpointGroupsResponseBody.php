@@ -14,8 +14,6 @@ class CreateEndpointGroupsResponseBody extends Model
     public $endpointGroupIds;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

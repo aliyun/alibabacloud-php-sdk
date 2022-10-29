@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateBasicAcceleratorRequest extends Model
 {
     /**
-     * @description 全球加速实例Id
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 客户端Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 全球加速实例描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 全球加速实例名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;

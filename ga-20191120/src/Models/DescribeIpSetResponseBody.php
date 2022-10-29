@@ -41,6 +41,11 @@ class DescribeIpSetResponseBody extends Model
     /**
      * @var string
      */
+    public $ispType;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -54,6 +59,7 @@ class DescribeIpSetResponseBody extends Model
         'ipAddressList'      => 'IpAddressList',
         'ipSetId'            => 'IpSetId',
         'ipVersion'          => 'IpVersion',
+        'ispType'            => 'IspType',
         'requestId'          => 'RequestId',
         'state'              => 'State',
     ];
@@ -82,6 +88,9 @@ class DescribeIpSetResponseBody extends Model
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -120,6 +129,9 @@ class DescribeIpSetResponseBody extends Model
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

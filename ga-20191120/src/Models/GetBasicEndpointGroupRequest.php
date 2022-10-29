@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetBasicEndpointGroupRequest extends Model
 {
     /**
-     * @description 客户端Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 终端节点组Id
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;

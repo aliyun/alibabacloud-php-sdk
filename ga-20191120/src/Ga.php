@@ -36,6 +36,14 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicIpSetResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointGroupDestinationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointGroupDestinationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointGroupsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointGroupsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointTrafficPoliciesRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointTrafficPoliciesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest;
@@ -62,6 +70,14 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicIpSetResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointGroupDestinationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointGroupDestinationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointGroupsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointGroupsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointTrafficPoliciesRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointTrafficPoliciesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupsRequest;
@@ -86,6 +102,14 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageAutoRenewAttrib
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupDestinationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupDestinationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndPointTrafficPolicyRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndPointTrafficPolicyResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeIpSetRequest;
@@ -142,6 +166,18 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAcceleratorsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAcceleratorsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupDestinationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupDestinationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsByDestinationRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsByDestinationResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingPortMappingsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesRequest;
@@ -178,6 +214,16 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicIpSetRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicIpSetResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupAttributeRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupAttributeResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupDestinationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupDestinationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointTrafficPoliciesRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointTrafficPoliciesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupRequest;
@@ -699,6 +745,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->autoUseCoupon)) {
             $query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
+        if (!Utils::isUnset($request->bandwidthBillingType)) {
+            $query['BandwidthBillingType'] = $request->bandwidthBillingType;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -991,6 +1040,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->autoUseCoupon)) {
             $query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
+        if (!Utils::isUnset($request->bandwidthBillingType)) {
+            $query['BandwidthBillingType'] = $request->bandwidthBillingType;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1058,6 +1110,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->endpointGroupRegion)) {
             $query['EndpointGroupRegion'] = $request->endpointGroupRegion;
         }
+        if (!Utils::isUnset($request->endpointSubAddress)) {
+            $query['EndpointSubAddress'] = $request->endpointSubAddress;
+        }
         if (!Utils::isUnset($request->endpointType)) {
             $query['EndpointType'] = $request->endpointType;
         }
@@ -1113,6 +1168,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->acceleratorId)) {
             $query['AcceleratorId'] = $request->acceleratorId;
         }
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -1150,6 +1208,223 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointGroupDestinationsRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function createCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destinationConfigurations)) {
+            $query['DestinationConfigurations'] = $request->destinationConfigurations;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomRoutingEndpointGroupDestinations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomRoutingEndpointGroupDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointGroupDestinationsRequest $request
+     *
+     * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function createCustomRoutingEndpointGroupDestinations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointGroupsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateCustomRoutingEndpointGroupsResponse
+     */
+    public function createCustomRoutingEndpointGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupConfigurations)) {
+            $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomRoutingEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomRoutingEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointGroupsRequest $request
+     *
+     * @return CreateCustomRoutingEndpointGroupsResponse
+     */
+    public function createCustomRoutingEndpointGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomRoutingEndpointGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointTrafficPoliciesRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function createCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->policyConfigurations)) {
+            $query['PolicyConfigurations'] = $request->policyConfigurations;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomRoutingEndpointTrafficPolicies',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomRoutingEndpointTrafficPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointTrafficPoliciesRequest $request
+     *
+     * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function createCustomRoutingEndpointTrafficPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateCustomRoutingEndpointsResponse
+     */
+    public function createCustomRoutingEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointConfigurations)) {
+            $query['EndpointConfigurations'] = $request->endpointConfigurations;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomRoutingEndpoints',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomRoutingEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomRoutingEndpointsRequest $request
+     *
+     * @return CreateCustomRoutingEndpointsResponse
+     */
+    public function createCustomRoutingEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomRoutingEndpointsWithOptions($request, $runtime);
     }
 
     /**
@@ -1433,8 +1708,14 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->customRoutingEndpointGroupConfigurations)) {
+            $query['CustomRoutingEndpointGroupConfigurations'] = $request->customRoutingEndpointGroupConfigurations;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointGroupConfigurations)) {
+            $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -1453,6 +1734,9 @@ class Ga extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityPolicyId)) {
             $query['SecurityPolicyId'] = $request->securityPolicyId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         if (!Utils::isUnset($request->XForwardedForConfig)) {
             $query['XForwardedForConfig'] = $request->XForwardedForConfig;
@@ -1877,6 +2161,220 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointGroupDestinationsRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function deleteCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destinationIds)) {
+            $query['DestinationIds'] = $request->destinationIds;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomRoutingEndpointGroupDestinations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomRoutingEndpointGroupDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointGroupDestinationsRequest $request
+     *
+     * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function deleteCustomRoutingEndpointGroupDestinations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointGroupsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteCustomRoutingEndpointGroupsResponse
+     */
+    public function deleteCustomRoutingEndpointGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupIds)) {
+            $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomRoutingEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomRoutingEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointGroupsRequest $request
+     *
+     * @return DeleteCustomRoutingEndpointGroupsResponse
+     */
+    public function deleteCustomRoutingEndpointGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomRoutingEndpointGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointTrafficPoliciesRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function deleteCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->policyIds)) {
+            $query['PolicyIds'] = $request->policyIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomRoutingEndpointTrafficPolicies',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomRoutingEndpointTrafficPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointTrafficPoliciesRequest $request
+     *
+     * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function deleteCustomRoutingEndpointTrafficPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteCustomRoutingEndpointsResponse
+     */
+    public function deleteCustomRoutingEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointIds)) {
+            $query['EndpointIds'] = $request->endpointIds;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomRoutingEndpoints',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomRoutingEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomRoutingEndpointsRequest $request
+     *
+     * @return DeleteCustomRoutingEndpointsResponse
+     */
+    public function deleteCustomRoutingEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomRoutingEndpointsWithOptions($request, $runtime);
     }
 
     /**
@@ -2468,6 +2966,190 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBandwidthPackageAutoRenewAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndPointTrafficPolicyRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DescribeCustomRoutingEndPointTrafficPolicyResponse
+     */
+    public function describeCustomRoutingEndPointTrafficPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomRoutingEndPointTrafficPolicy',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomRoutingEndPointTrafficPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndPointTrafficPolicyRequest $request
+     *
+     * @return DescribeCustomRoutingEndPointTrafficPolicyResponse
+     */
+    public function describeCustomRoutingEndPointTrafficPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomRoutingEndPointTrafficPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndpointRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeCustomRoutingEndpointResponse
+     */
+    public function describeCustomRoutingEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomRoutingEndpoint',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomRoutingEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndpointRequest $request
+     *
+     * @return DescribeCustomRoutingEndpointResponse
+     */
+    public function describeCustomRoutingEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomRoutingEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndpointGroupRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeCustomRoutingEndpointGroupResponse
+     */
+    public function describeCustomRoutingEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomRoutingEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomRoutingEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndpointGroupRequest $request
+     *
+     * @return DescribeCustomRoutingEndpointGroupResponse
+     */
+    public function describeCustomRoutingEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomRoutingEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndpointGroupDestinationsRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return DescribeCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function describeCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationId)) {
+            $query['DestinationId'] = $request->destinationId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomRoutingEndpointGroupDestinations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCustomRoutingEndpointGroupDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCustomRoutingEndpointGroupDestinationsRequest $request
+     *
+     * @return DescribeCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function describeCustomRoutingEndpointGroupDestinations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime);
     }
 
     /**
@@ -3873,6 +4555,366 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param ListCustomRoutingEndpointGroupDestinationsRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return ListCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function listCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->fromPort)) {
+            $query['FromPort'] = $request->fromPort;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->protocols)) {
+            $query['Protocols'] = $request->protocols;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->toPort)) {
+            $query['ToPort'] = $request->toPort;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomRoutingEndpointGroupDestinations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomRoutingEndpointGroupDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointGroupDestinationsRequest $request
+     *
+     * @return ListCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function listCustomRoutingEndpointGroupDestinations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointGroupsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListCustomRoutingEndpointGroupsResponse
+     */
+    public function listCustomRoutingEndpointGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomRoutingEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomRoutingEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointGroupsRequest $request
+     *
+     * @return ListCustomRoutingEndpointGroupsResponse
+     */
+    public function listCustomRoutingEndpointGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomRoutingEndpointGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointTrafficPoliciesRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ListCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function listCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomRoutingEndpointTrafficPolicies',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomRoutingEndpointTrafficPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointTrafficPoliciesRequest $request
+     *
+     * @return ListCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function listCustomRoutingEndpointTrafficPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListCustomRoutingEndpointsResponse
+     */
+    public function listCustomRoutingEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomRoutingEndpoints',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomRoutingEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomRoutingEndpointsRequest $request
+     *
+     * @return ListCustomRoutingEndpointsResponse
+     */
+    public function listCustomRoutingEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomRoutingEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomRoutingPortMappingsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListCustomRoutingPortMappingsResponse
+     */
+    public function listCustomRoutingPortMappingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomRoutingPortMappings',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomRoutingPortMappingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomRoutingPortMappingsRequest $request
+     *
+     * @return ListCustomRoutingPortMappingsResponse
+     */
+    public function listCustomRoutingPortMappings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomRoutingPortMappingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomRoutingPortMappingsByDestinationRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return ListCustomRoutingPortMappingsByDestinationResponse
+     */
+    public function listCustomRoutingPortMappingsByDestinationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destinationAddress)) {
+            $query['DestinationAddress'] = $request->destinationAddress;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomRoutingPortMappingsByDestination',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomRoutingPortMappingsByDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomRoutingPortMappingsByDestinationRequest $request
+     *
+     * @return ListCustomRoutingPortMappingsByDestinationResponse
+     */
+    public function listCustomRoutingPortMappingsByDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomRoutingPortMappingsByDestinationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListEndpointGroupsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4865,6 +5907,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->endpointGroupId)) {
             $query['EndpointGroupId'] = $request->endpointGroupId;
         }
+        if (!Utils::isUnset($request->endpointSubAddress)) {
+            $query['EndpointSubAddress'] = $request->endpointSubAddress;
+        }
         if (!Utils::isUnset($request->endpointType)) {
             $query['EndpointType'] = $request->endpointType;
         }
@@ -4902,6 +5947,272 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBasicEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateBasicIpSetRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateBasicIpSetResponse
+     */
+    public function updateBasicIpSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBasicIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBasicIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBasicIpSetRequest $request
+     *
+     * @return UpdateBasicIpSetResponse
+     */
+    public function updateBasicIpSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointGroupAttributeRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return UpdateCustomRoutingEndpointGroupAttributeResponse
+     */
+    public function updateCustomRoutingEndpointGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomRoutingEndpointGroupAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomRoutingEndpointGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointGroupAttributeRequest $request
+     *
+     * @return UpdateCustomRoutingEndpointGroupAttributeResponse
+     */
+    public function updateCustomRoutingEndpointGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomRoutingEndpointGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointGroupDestinationsRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function updateCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->destinationConfigurations)) {
+            $query['DestinationConfigurations'] = $request->destinationConfigurations;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomRoutingEndpointGroupDestinations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomRoutingEndpointGroupDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointGroupDestinationsRequest $request
+     *
+     * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+     */
+    public function updateCustomRoutingEndpointGroupDestinations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomRoutingEndpointGroupDestinationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointTrafficPoliciesRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function updateCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->policyConfigurations)) {
+            $query['PolicyConfigurations'] = $request->policyConfigurations;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomRoutingEndpointTrafficPolicies',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomRoutingEndpointTrafficPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointTrafficPoliciesRequest $request
+     *
+     * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+     */
+    public function updateCustomRoutingEndpointTrafficPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomRoutingEndpointTrafficPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateCustomRoutingEndpointsResponse
+     */
+    public function updateCustomRoutingEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointConfigurations)) {
+            $query['EndpointConfigurations'] = $request->endpointConfigurations;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomRoutingEndpoints',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomRoutingEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomRoutingEndpointsRequest $request
+     *
+     * @return UpdateCustomRoutingEndpointsResponse
+     */
+    public function updateCustomRoutingEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomRoutingEndpointsWithOptions($request, $runtime);
     }
 
     /**

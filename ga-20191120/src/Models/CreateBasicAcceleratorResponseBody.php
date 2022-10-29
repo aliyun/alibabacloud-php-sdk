@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicAcceleratorResponseBody extends Model
 {
     /**
-     * @description 全球加速实例ID
-     *
      * @var string
      */
     public $acceleratorId;
 
     /**
-     * @description 订单Id
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

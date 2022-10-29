@@ -9,61 +9,53 @@ use AlibabaCloud\Tea\Model;
 class UpdateBasicEndpointGroupRequest extends Model
 {
     /**
-     * @description 客户端Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 终端节点组描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 终端节点地址
-     *
      * @var string
      */
     public $endpointAddress;
 
     /**
-     * @description 终端节点组Id
-     *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description 终端节点类型
-     *
+     * @var string
+     */
+    public $endpointSubAddress;
+
+    /**
      * @var string
      */
     public $endpointType;
 
     /**
-     * @description 终端节点组名称
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Regionid
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'description'     => 'Description',
-        'endpointAddress' => 'EndpointAddress',
-        'endpointGroupId' => 'EndpointGroupId',
-        'endpointType'    => 'EndpointType',
-        'name'            => 'Name',
-        'regionId'        => 'RegionId',
+        'clientToken'        => 'ClientToken',
+        'description'        => 'Description',
+        'endpointAddress'    => 'EndpointAddress',
+        'endpointGroupId'    => 'EndpointGroupId',
+        'endpointSubAddress' => 'EndpointSubAddress',
+        'endpointType'       => 'EndpointType',
+        'name'               => 'Name',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -84,6 +76,9 @@ class UpdateBasicEndpointGroupRequest extends Model
         }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+        if (null !== $this->endpointSubAddress) {
+            $res['EndpointSubAddress'] = $this->endpointSubAddress;
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
@@ -117,6 +112,9 @@ class UpdateBasicEndpointGroupRequest extends Model
         }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+        if (isset($map['EndpointSubAddress'])) {
+            $model->endpointSubAddress = $map['EndpointSubAddress'];
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];

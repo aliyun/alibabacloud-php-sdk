@@ -25,8 +25,6 @@ class GetHealthStatusResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

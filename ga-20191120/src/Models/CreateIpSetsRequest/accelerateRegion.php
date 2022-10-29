@@ -22,10 +22,16 @@ class accelerateRegion extends Model
      * @var string
      */
     public $ipVersion;
+
+    /**
+     * @var string
+     */
+    public $ispType;
     protected $_name = [
         'accelerateRegionId' => 'AccelerateRegionId',
         'bandwidth'          => 'Bandwidth',
         'ipVersion'          => 'IpVersion',
+        'ispType'            => 'IspType',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class accelerateRegion extends Model
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class accelerateRegion extends Model
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
         }
 
         return $model;

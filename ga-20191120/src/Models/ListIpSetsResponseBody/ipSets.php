@@ -36,6 +36,11 @@ class ipSets extends Model
     /**
      * @var string
      */
+    public $ispType;
+
+    /**
+     * @var string
+     */
     public $state;
     protected $_name = [
         'accelerateRegionId' => 'AccelerateRegionId',
@@ -43,6 +48,7 @@ class ipSets extends Model
         'ipAddressList'      => 'IpAddressList',
         'ipSetId'            => 'IpSetId',
         'ipVersion'          => 'IpVersion',
+        'ispType'            => 'IspType',
         'state'              => 'State',
     ];
 
@@ -67,6 +73,9 @@ class ipSets extends Model
         }
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -99,6 +108,9 @@ class ipSets extends Model
         }
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

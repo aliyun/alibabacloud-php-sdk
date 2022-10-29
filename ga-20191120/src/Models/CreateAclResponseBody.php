@@ -14,8 +14,6 @@ class CreateAclResponseBody extends Model
     public $aclId;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

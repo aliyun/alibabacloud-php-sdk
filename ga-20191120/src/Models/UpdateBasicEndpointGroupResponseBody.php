@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateBasicEndpointGroupResponseBody extends Model
 {
     /**
-     * @description 请求Id
-     *
      * @var string
      */
     public $requestId;

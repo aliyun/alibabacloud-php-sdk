@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class crossDomainBandwidthPackage extends Model
 {
     /**
-     * @description 跨境带宽包带宽
-     *
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @description 跨境带宽包Id
-     *
      * @var string
      */
     public $instanceId;

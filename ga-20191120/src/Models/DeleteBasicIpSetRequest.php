@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteBasicIpSetRequest extends Model
 {
     /**
-     * @description 客户端Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 加速接入点Id
-     *
      * @var string
      */
     public $ipSetId;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
