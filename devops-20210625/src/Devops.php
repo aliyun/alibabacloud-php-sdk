@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagRequest;
@@ -35,6 +37,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFlowTagGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFlowTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteHostGroupResponse;
@@ -42,6 +46,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
@@ -49,6 +55,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCustomFieldOptionRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCustomFieldOptionResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileBlobsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileBlobsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetFlowTagGroupResponse;
@@ -109,6 +117,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTreeRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTreeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListResourceMembersResponse;
@@ -146,6 +156,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\StopPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StopVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TriggerRepositoryMirrorSyncRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TriggerRepositoryMirrorSyncResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFlowTagRequest;
@@ -162,6 +174,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupRequest;
@@ -341,6 +355,74 @@ class Devops extends OpenApiClient
         ]);
 
         return AddWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string            $repositoryId
+     * @param CreateFileRequest $request
+     *
+     * @return CreateFileResponse
+     */
+    public function createFile($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFileWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string            $repositoryId
+     * @param CreateFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFileResponse
+     */
+    public function createFileWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->branchName)) {
+            $body['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->commitMessage)) {
+            $body['commitMessage'] = $request->commitMessage;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->encoding)) {
+            $body['encoding'] = $request->encoding;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $body['filePath'] = $request->filePath;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFile',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1161,6 +1243,66 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string            $repositoryId
+     * @param DeleteFileRequest $request
+     *
+     * @return DeleteFileResponse
+     */
+    public function deleteFile($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFileWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string            $repositoryId
+     * @param DeleteFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFileResponse
+     */
+    public function deleteFileWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->branchName)) {
+            $query['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->commitMessage)) {
+            $query['commitMessage'] = $request->commitMessage;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $query['filePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFile',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/delete',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      * @param string $id
      *
@@ -1419,6 +1561,62 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                  $repositoryId
+     * @param DeleteRepositoryRequest $request
+     *
+     * @return DeleteRepositoryResponse
+     */
+    public function deleteRepository($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRepositoryWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $repositoryId
+     * @param DeleteRepositoryRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRepositoryResponse
+     */
+    public function deleteRepositoryWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->reason)) {
+            $body['reason'] = $request->reason;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRepository',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/remove',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
@@ -1648,6 +1846,69 @@ class Devops extends OpenApiClient
         ]);
 
         return GetCustomFieldOptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $repositoryId
+     * @param GetFileBlobsRequest $request
+     *
+     * @return GetFileBlobsResponse
+     */
+    public function getFileBlobs($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getFileBlobsWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $repositoryId
+     * @param GetFileBlobsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetFileBlobsResponse
+     */
+    public function getFileBlobsWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->filePath)) {
+            $query['filePath'] = $request->filePath;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['from'] = $request->from;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->ref)) {
+            $query['ref'] = $request->ref;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['to'] = $request->to;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFileBlobs',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/blobs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetFileBlobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3562,6 +3823,66 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                    $repositoryId
+     * @param ListRepositoryTreeRequest $request
+     *
+     * @return ListRepositoryTreeResponse
+     */
+    public function listRepositoryTree($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRepositoryTreeWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $repositoryId
+     * @param ListRepositoryTreeRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRepositoryTreeResponse
+     */
+    public function listRepositoryTreeWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->refName)) {
+            $query['refName'] = $request->refName;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRepositoryTree',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/tree',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRepositoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                       $repositoryId
      * @param ListRepositoryWebhookRequest $request
      *
@@ -4849,6 +5170,77 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string            $repositoryId
+     * @param UpdateFileRequest $request
+     *
+     * @return UpdateFileResponse
+     */
+    public function updateFile($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFileWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string            $repositoryId
+     * @param UpdateFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFileResponse
+     */
+    public function updateFileWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->branchName)) {
+            $body['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->commitMessage)) {
+            $body['commitMessage'] = $request->commitMessage;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->encoding)) {
+            $body['encoding'] = $request->encoding;
+        }
+        if (!Utils::isUnset($request->newPath)) {
+            $body['newPath'] = $request->newPath;
+        }
+        if (!Utils::isUnset($request->oldPath)) {
+            $body['oldPath'] = $request->oldPath;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFile',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/update',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string               $organizationId
      * @param string               $id
      * @param UpdateFlowTagRequest $request
@@ -5276,6 +5668,110 @@ class Devops extends OpenApiClient
         ]);
 
         return UpdateProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $repositoryId
+     * @param UpdateRepositoryRequest $request
+     *
+     * @return UpdateRepositoryResponse
+     */
+    public function updateRepository($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRepositoryWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $repositoryId
+     * @param UpdateRepositoryRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateRepositoryResponse
+     */
+    public function updateRepositoryWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->adminSettingLanguage)) {
+            $body['adminSettingLanguage'] = $request->adminSettingLanguage;
+        }
+        if (!Utils::isUnset($request->avatar)) {
+            $body['avatar'] = $request->avatar;
+        }
+        if (!Utils::isUnset($request->buildsEnabled)) {
+            $body['buildsEnabled'] = $request->buildsEnabled;
+        }
+        if (!Utils::isUnset($request->checkEmail)) {
+            $body['checkEmail'] = $request->checkEmail;
+        }
+        if (!Utils::isUnset($request->defaultBranch)) {
+            $body['defaultBranch'] = $request->defaultBranch;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->issuesEnabled)) {
+            $body['issuesEnabled'] = $request->issuesEnabled;
+        }
+        if (!Utils::isUnset($request->mergeRequestsEnabled)) {
+            $body['mergeRequestsEnabled'] = $request->mergeRequestsEnabled;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->openCloneDownloadControl)) {
+            $body['openCloneDownloadControl'] = $request->openCloneDownloadControl;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $body['path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->projectCloneDownloadMethodList)) {
+            $body['projectCloneDownloadMethodList'] = $request->projectCloneDownloadMethodList;
+        }
+        if (!Utils::isUnset($request->projectCloneDownloadRoleList)) {
+            $body['projectCloneDownloadRoleList'] = $request->projectCloneDownloadRoleList;
+        }
+        if (!Utils::isUnset($request->snippetsEnabled)) {
+            $body['snippetsEnabled'] = $request->snippetsEnabled;
+        }
+        if (!Utils::isUnset($request->visibilityLevel)) {
+            $body['visibilityLevel'] = $request->visibilityLevel;
+        }
+        if (!Utils::isUnset($request->wikiEnabled)) {
+            $body['wikiEnabled'] = $request->wikiEnabled;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRepository',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
