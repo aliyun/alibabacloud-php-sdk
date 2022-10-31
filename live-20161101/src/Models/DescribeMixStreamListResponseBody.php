@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMixStreamListResponseBody extends Model
 {
     /**
+     * @var mixStreamList[]
+     */
+    public $mixStreamList;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeMixStreamListResponseBody extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var mixStreamList[]
-     */
-    public $mixStreamList;
     protected $_name = [
+        'mixStreamList' => 'MixStreamList',
         'requestId'     => 'RequestId',
         'total'         => 'Total',
-        'mixStreamList' => 'MixStreamList',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeMixStreamListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->mixStreamList) {
             $res['MixStreamList'] = [];
             if (null !== $this->mixStreamList && \is_array($this->mixStreamList)) {
@@ -50,6 +44,12 @@ class DescribeMixStreamListResponseBody extends Model
                     $res['MixStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeMixStreamListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['MixStreamList'])) {
             if (!empty($map['MixStreamList'])) {
                 $model->mixStreamList = [];
@@ -77,6 +71,12 @@ class DescribeMixStreamListResponseBody extends Model
                     $model->mixStreamList[$n++] = null !== $item ? mixStreamList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

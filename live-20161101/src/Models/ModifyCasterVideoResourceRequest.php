@@ -11,12 +11,42 @@ class ModifyCasterVideoResourceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $beginOffset;
 
     /**
      * @var string
      */
     public $casterId;
+
+    /**
+     * @var int
+     */
+    public $endOffset;
+
+    /**
+     * @var string
+     */
+    public $liveStreamUrl;
+
+    /**
+     * @var string
+     */
+    public $materialId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $ptsCallbackInterval;
+
+    /**
+     * @var int
+     */
+    public $repeatNum;
 
     /**
      * @var string
@@ -31,49 +61,19 @@ class ModifyCasterVideoResourceRequest extends Model
     /**
      * @var string
      */
-    public $liveStreamUrl;
-
-    /**
-     * @var string
-     */
-    public $materialId;
-
-    /**
-     * @var string
-     */
     public $vodUrl;
-
-    /**
-     * @var int
-     */
-    public $beginOffset;
-
-    /**
-     * @var int
-     */
-    public $endOffset;
-
-    /**
-     * @var int
-     */
-    public $repeatNum;
-
-    /**
-     * @var int
-     */
-    public $ptsCallbackInterval;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
+        'beginOffset'         => 'BeginOffset',
         'casterId'            => 'CasterId',
-        'resourceId'          => 'ResourceId',
-        'resourceName'        => 'ResourceName',
+        'endOffset'           => 'EndOffset',
         'liveStreamUrl'       => 'LiveStreamUrl',
         'materialId'          => 'MaterialId',
-        'vodUrl'              => 'VodUrl',
-        'beginOffset'         => 'BeginOffset',
-        'endOffset'           => 'EndOffset',
-        'repeatNum'           => 'RepeatNum',
+        'ownerId'             => 'OwnerId',
         'ptsCallbackInterval' => 'PtsCallbackInterval',
+        'repeatNum'           => 'RepeatNum',
+        'resourceId'          => 'ResourceId',
+        'resourceName'        => 'ResourceName',
+        'vodUrl'              => 'VodUrl',
     ];
 
     public function validate()
@@ -83,17 +83,14 @@ class ModifyCasterVideoResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->beginOffset) {
+            $res['BeginOffset'] = $this->beginOffset;
         }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->resourceName) {
-            $res['ResourceName'] = $this->resourceName;
+        if (null !== $this->endOffset) {
+            $res['EndOffset'] = $this->endOffset;
         }
         if (null !== $this->liveStreamUrl) {
             $res['LiveStreamUrl'] = $this->liveStreamUrl;
@@ -101,20 +98,23 @@ class ModifyCasterVideoResourceRequest extends Model
         if (null !== $this->materialId) {
             $res['MaterialId'] = $this->materialId;
         }
-        if (null !== $this->vodUrl) {
-            $res['VodUrl'] = $this->vodUrl;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->beginOffset) {
-            $res['BeginOffset'] = $this->beginOffset;
-        }
-        if (null !== $this->endOffset) {
-            $res['EndOffset'] = $this->endOffset;
+        if (null !== $this->ptsCallbackInterval) {
+            $res['PtsCallbackInterval'] = $this->ptsCallbackInterval;
         }
         if (null !== $this->repeatNum) {
             $res['RepeatNum'] = $this->repeatNum;
         }
-        if (null !== $this->ptsCallbackInterval) {
-            $res['PtsCallbackInterval'] = $this->ptsCallbackInterval;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->vodUrl) {
+            $res['VodUrl'] = $this->vodUrl;
         }
 
         return $res;
@@ -128,17 +128,14 @@ class ModifyCasterVideoResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BeginOffset'])) {
+            $model->beginOffset = $map['BeginOffset'];
         }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['ResourceName'])) {
-            $model->resourceName = $map['ResourceName'];
+        if (isset($map['EndOffset'])) {
+            $model->endOffset = $map['EndOffset'];
         }
         if (isset($map['LiveStreamUrl'])) {
             $model->liveStreamUrl = $map['LiveStreamUrl'];
@@ -146,20 +143,23 @@ class ModifyCasterVideoResourceRequest extends Model
         if (isset($map['MaterialId'])) {
             $model->materialId = $map['MaterialId'];
         }
-        if (isset($map['VodUrl'])) {
-            $model->vodUrl = $map['VodUrl'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['BeginOffset'])) {
-            $model->beginOffset = $map['BeginOffset'];
-        }
-        if (isset($map['EndOffset'])) {
-            $model->endOffset = $map['EndOffset'];
+        if (isset($map['PtsCallbackInterval'])) {
+            $model->ptsCallbackInterval = $map['PtsCallbackInterval'];
         }
         if (isset($map['RepeatNum'])) {
             $model->repeatNum = $map['RepeatNum'];
         }
-        if (isset($map['PtsCallbackInterval'])) {
-            $model->ptsCallbackInterval = $map['PtsCallbackInterval'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['VodUrl'])) {
+            $model->vodUrl = $map['VodUrl'];
         }
 
         return $model;

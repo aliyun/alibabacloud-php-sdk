@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteCasterVideoResourceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $casterId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,15 +21,10 @@ class DeleteCasterVideoResourceRequest extends Model
     /**
      * @var string
      */
-    public $casterId;
-
-    /**
-     * @var string
-     */
     public $resourceId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'casterId'   => 'CasterId',
+        'ownerId'    => 'OwnerId',
         'resourceId' => 'ResourceId',
     ];
 
@@ -35,11 +35,11 @@ class DeleteCasterVideoResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -56,11 +56,11 @@ class DeleteCasterVideoResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];

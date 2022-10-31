@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GetMultiRateConfigListResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var groupInfo
+     */
+    public $groupInfo;
+
+    /**
      * @var string
      */
     public $message;
@@ -18,21 +28,11 @@ class GetMultiRateConfigListResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var groupInfo
-     */
-    public $groupInfo;
-
-    /**
-     * @var int
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
+        'groupInfo' => 'GroupInfo',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'groupInfo' => 'GroupInfo',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class GetMultiRateConfigListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->groupInfo) {
+            $res['GroupInfo'] = null !== $this->groupInfo ? $this->groupInfo->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->groupInfo) {
-            $res['GroupInfo'] = null !== $this->groupInfo ? $this->groupInfo->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class GetMultiRateConfigListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['GroupInfo'])) {
+            $model->groupInfo = groupInfo::fromMap($map['GroupInfo']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['GroupInfo'])) {
-            $model->groupInfo = groupInfo::fromMap($map['GroupInfo']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

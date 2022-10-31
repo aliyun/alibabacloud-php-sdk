@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddLiveAudioAuditConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $appName;
@@ -26,7 +16,12 @@ class AddLiveAudioAuditConfigRequest extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $bizType;
+
+    /**
+     * @var string
+     */
+    public $domainName;
 
     /**
      * @var string
@@ -44,18 +39,23 @@ class AddLiveAudioAuditConfigRequest extends Model
     public $ossObject;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $bizType;
+    public $streamName;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'domainName'  => 'DomainName',
         'appName'     => 'AppName',
-        'streamName'  => 'StreamName',
+        'bizType'     => 'BizType',
+        'domainName'  => 'DomainName',
         'ossBucket'   => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
         'ossObject'   => 'OssObject',
-        'bizType'     => 'BizType',
+        'ownerId'     => 'OwnerId',
+        'streamName'  => 'StreamName',
     ];
 
     public function validate()
@@ -65,17 +65,14 @@ class AddLiveAudioAuditConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
@@ -86,8 +83,11 @@ class AddLiveAudioAuditConfigRequest extends Model
         if (null !== $this->ossObject) {
             $res['OssObject'] = $this->ossObject;
         }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -101,17 +101,14 @@ class AddLiveAudioAuditConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
@@ -122,8 +119,11 @@ class AddLiveAudioAuditConfigRequest extends Model
         if (isset($map['OssObject'])) {
             $model->ossObject = $map['OssObject'];
         }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

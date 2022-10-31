@@ -12,37 +12,7 @@ class DescribeLiveUserDomainsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $liveDomainType;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var string
-     */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $regionName;
 
     /**
      * @var string
@@ -55,19 +25,49 @@ class DescribeLiveUserDomainsRequest extends Model
     public $domainStatus;
 
     /**
+     * @var string
+     */
+    public $liveDomainType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken'    => 'SecurityToken',
-        'ownerId'          => 'OwnerId',
-        'liveDomainType'   => 'LiveDomainType',
-        'pageSize'         => 'PageSize',
-        'pageNumber'       => 'PageNumber',
         'domainName'       => 'DomainName',
-        'regionName'       => 'RegionName',
         'domainSearchType' => 'DomainSearchType',
         'domainStatus'     => 'DomainStatus',
+        'liveDomainType'   => 'LiveDomainType',
+        'ownerId'          => 'OwnerId',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'regionName'       => 'RegionName',
+        'securityToken'    => 'SecurityToken',
         'tag'              => 'Tag',
     ];
 
@@ -78,32 +78,32 @@ class DescribeLiveUserDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->liveDomainType) {
-            $res['LiveDomainType'] = $this->liveDomainType;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
         }
         if (null !== $this->domainSearchType) {
             $res['DomainSearchType'] = $this->domainSearchType;
         }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
+        }
+        if (null !== $this->liveDomainType) {
+            $res['LiveDomainType'] = $this->liveDomainType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -126,32 +126,32 @@ class DescribeLiveUserDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['LiveDomainType'])) {
-            $model->liveDomainType = $map['LiveDomainType'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
         }
         if (isset($map['DomainSearchType'])) {
             $model->domainSearchType = $map['DomainSearchType'];
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
+        }
+        if (isset($map['LiveDomainType'])) {
+            $model->liveDomainType = $map['LiveDomainType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

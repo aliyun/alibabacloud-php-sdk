@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyCasterComponentRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $captionLayerContent;
 
     /**
      * @var string
@@ -22,6 +22,11 @@ class ModifyCasterComponentRequest extends Model
      * @var string
      */
     public $componentId;
+
+    /**
+     * @var string
+     */
+    public $componentLayer;
 
     /**
      * @var string
@@ -41,33 +46,28 @@ class ModifyCasterComponentRequest extends Model
     /**
      * @var string
      */
-    public $componentLayer;
+    public $imageLayerContent;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
     public $textLayerContent;
-
-    /**
-     * @var string
-     */
-    public $imageLayerContent;
-
-    /**
-     * @var string
-     */
-    public $captionLayerContent;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
+        'captionLayerContent' => 'CaptionLayerContent',
         'casterId'            => 'CasterId',
         'componentId'         => 'ComponentId',
+        'componentLayer'      => 'ComponentLayer',
         'componentName'       => 'ComponentName',
         'componentType'       => 'ComponentType',
         'effect'              => 'Effect',
-        'componentLayer'      => 'ComponentLayer',
-        'textLayerContent'    => 'TextLayerContent',
         'imageLayerContent'   => 'ImageLayerContent',
-        'captionLayerContent' => 'CaptionLayerContent',
+        'ownerId'             => 'OwnerId',
+        'textLayerContent'    => 'TextLayerContent',
     ];
 
     public function validate()
@@ -77,14 +77,17 @@ class ModifyCasterComponentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->captionLayerContent) {
+            $res['CaptionLayerContent'] = $this->captionLayerContent;
         }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->componentId) {
             $res['ComponentId'] = $this->componentId;
+        }
+        if (null !== $this->componentLayer) {
+            $res['ComponentLayer'] = $this->componentLayer;
         }
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
@@ -95,17 +98,14 @@ class ModifyCasterComponentRequest extends Model
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
         }
-        if (null !== $this->componentLayer) {
-            $res['ComponentLayer'] = $this->componentLayer;
-        }
-        if (null !== $this->textLayerContent) {
-            $res['TextLayerContent'] = $this->textLayerContent;
-        }
         if (null !== $this->imageLayerContent) {
             $res['ImageLayerContent'] = $this->imageLayerContent;
         }
-        if (null !== $this->captionLayerContent) {
-            $res['CaptionLayerContent'] = $this->captionLayerContent;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->textLayerContent) {
+            $res['TextLayerContent'] = $this->textLayerContent;
         }
 
         return $res;
@@ -119,14 +119,17 @@ class ModifyCasterComponentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CaptionLayerContent'])) {
+            $model->captionLayerContent = $map['CaptionLayerContent'];
         }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
         if (isset($map['ComponentId'])) {
             $model->componentId = $map['ComponentId'];
+        }
+        if (isset($map['ComponentLayer'])) {
+            $model->componentLayer = $map['ComponentLayer'];
         }
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
@@ -137,17 +140,14 @@ class ModifyCasterComponentRequest extends Model
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];
         }
-        if (isset($map['ComponentLayer'])) {
-            $model->componentLayer = $map['ComponentLayer'];
-        }
-        if (isset($map['TextLayerContent'])) {
-            $model->textLayerContent = $map['TextLayerContent'];
-        }
         if (isset($map['ImageLayerContent'])) {
             $model->imageLayerContent = $map['ImageLayerContent'];
         }
-        if (isset($map['CaptionLayerContent'])) {
-            $model->captionLayerContent = $map['CaptionLayerContent'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['TextLayerContent'])) {
+            $model->textLayerContent = $map['TextLayerContent'];
         }
 
         return $model;

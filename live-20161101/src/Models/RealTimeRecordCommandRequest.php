@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RealTimeRecordCommandRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -24,19 +24,19 @@ class RealTimeRecordCommandRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appName;
+    public $ownerId;
 
     /**
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
+        'appName'    => 'AppName',
         'command'    => 'Command',
         'domainName' => 'DomainName',
-        'appName'    => 'AppName',
+        'ownerId'    => 'OwnerId',
         'streamName' => 'StreamName',
     ];
 
@@ -47,8 +47,8 @@ class RealTimeRecordCommandRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
@@ -56,8 +56,8 @@ class RealTimeRecordCommandRequest extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -74,8 +74,8 @@ class RealTimeRecordCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
@@ -83,8 +83,8 @@ class RealTimeRecordCommandRequest extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

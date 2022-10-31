@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $liveOpenapiReserve;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
         'liveOpenapiReserve' => 'LiveOpenapiReserve',
+        'ownerId'            => 'OwnerId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListLiveRealtimeLogDeliveryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->liveOpenapiReserve) {
             $res['LiveOpenapiReserve'] = $this->liveOpenapiReserve;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListLiveRealtimeLogDeliveryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['LiveOpenapiReserve'])) {
             $model->liveOpenapiReserve = $map['LiveOpenapiReserve'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

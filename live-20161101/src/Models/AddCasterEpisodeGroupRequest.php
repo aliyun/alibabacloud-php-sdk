@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeGroupRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $callbackUrl;
 
     /**
      * @var string
@@ -25,9 +25,14 @@ class AddCasterEpisodeGroupRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var item[]
      */
-    public $startTime;
+    public $item;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -42,21 +47,16 @@ class AddCasterEpisodeGroupRequest extends Model
     /**
      * @var string
      */
-    public $callbackUrl;
-
-    /**
-     * @var item[]
-     */
-    public $item;
+    public $startTime;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
+        'callbackUrl'   => 'CallbackUrl',
         'clientToken'   => 'ClientToken',
         'domainName'    => 'DomainName',
-        'startTime'     => 'StartTime',
+        'item'          => 'Item',
+        'ownerId'       => 'OwnerId',
         'repeatNum'     => 'RepeatNum',
         'sideOutputUrl' => 'SideOutputUrl',
-        'callbackUrl'   => 'CallbackUrl',
-        'item'          => 'Item',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -66,26 +66,14 @@ class AddCasterEpisodeGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->repeatNum) {
-            $res['RepeatNum'] = $this->repeatNum;
-        }
-        if (null !== $this->sideOutputUrl) {
-            $res['SideOutputUrl'] = $this->sideOutputUrl;
-        }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->item) {
             $res['Item'] = [];
@@ -95,6 +83,18 @@ class AddCasterEpisodeGroupRequest extends Model
                     $res['Item'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->repeatNum) {
+            $res['RepeatNum'] = $this->repeatNum;
+        }
+        if (null !== $this->sideOutputUrl) {
+            $res['SideOutputUrl'] = $this->sideOutputUrl;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -108,26 +108,14 @@ class AddCasterEpisodeGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RepeatNum'])) {
-            $model->repeatNum = $map['RepeatNum'];
-        }
-        if (isset($map['SideOutputUrl'])) {
-            $model->sideOutputUrl = $map['SideOutputUrl'];
-        }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['Item'])) {
             if (!empty($map['Item'])) {
@@ -137,6 +125,18 @@ class AddCasterEpisodeGroupRequest extends Model
                     $model->item[$n++] = null !== $item ? item::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RepeatNum'])) {
+            $model->repeatNum = $map['RepeatNum'];
+        }
+        if (isset($map['SideOutputUrl'])) {
+            $model->sideOutputUrl = $map['SideOutputUrl'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

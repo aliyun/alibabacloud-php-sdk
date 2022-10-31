@@ -10,24 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsBlockListResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $totalNum;
+    public $domainName;
 
     /**
      * @var int
      */
     public $pageNum;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $totalPage;
 
     /**
      * @var int
@@ -37,20 +27,30 @@ class DescribeLiveStreamsBlockListResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $requestId;
 
     /**
      * @var streamUrls
      */
     public $streamUrls;
+
+    /**
+     * @var int
+     */
+    public $totalNum;
+
+    /**
+     * @var int
+     */
+    public $totalPage;
     protected $_name = [
-        'totalNum'   => 'TotalNum',
-        'pageNum'    => 'PageNum',
-        'requestId'  => 'RequestId',
-        'totalPage'  => 'TotalPage',
-        'pageSize'   => 'PageSize',
         'domainName' => 'DomainName',
+        'pageNum'    => 'PageNum',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
         'streamUrls' => 'StreamUrls',
+        'totalNum'   => 'TotalNum',
+        'totalPage'  => 'TotalPage',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class DescribeLiveStreamsBlockListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->streamUrls) {
             $res['StreamUrls'] = null !== $this->streamUrls ? $this->streamUrls->toMap() : null;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class DescribeLiveStreamsBlockListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StreamUrls'])) {
             $model->streamUrls = streamUrls::fromMap($map['StreamUrls']);
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

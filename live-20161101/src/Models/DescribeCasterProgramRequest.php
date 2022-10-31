@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterProgramRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $casterId;
 
     /**
      * @var string
      */
-    public $casterId;
+    public $endTime;
 
     /**
      * @var string
@@ -29,14 +29,9 @@ class DescribeCasterProgramRequest extends Model
     public $episodeType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $endTime;
+    public $ownerId;
 
     /**
      * @var int
@@ -49,18 +44,23 @@ class DescribeCasterProgramRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
         'casterId'    => 'CasterId',
+        'endTime'     => 'EndTime',
         'episodeId'   => 'EpisodeId',
         'episodeType' => 'EpisodeType',
-        'startTime'   => 'StartTime',
-        'endTime'     => 'EndTime',
+        'ownerId'     => 'OwnerId',
         'pageNum'     => 'PageNum',
         'pageSize'    => 'PageSize',
+        'startTime'   => 'StartTime',
         'status'      => 'Status',
     ];
 
@@ -71,11 +71,11 @@ class DescribeCasterProgramRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->episodeId) {
             $res['EpisodeId'] = $this->episodeId;
@@ -83,17 +83,17 @@ class DescribeCasterProgramRequest extends Model
         if (null !== $this->episodeType) {
             $res['EpisodeType'] = $this->episodeType;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -110,11 +110,11 @@ class DescribeCasterProgramRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['EpisodeId'])) {
             $model->episodeId = $map['EpisodeId'];
@@ -122,17 +122,17 @@ class DescribeCasterProgramRequest extends Model
         if (isset($map['EpisodeType'])) {
             $model->episodeType = $map['EpisodeType'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -12,22 +12,17 @@ class DescribeCasterProgramResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $programEffect;
-
-    /**
-     * @var int
-     */
-    public $total;
+    public $casterId;
 
     /**
      * @var episodes
      */
     public $episodes;
+
+    /**
+     * @var int
+     */
+    public $programEffect;
 
     /**
      * @var string
@@ -37,14 +32,19 @@ class DescribeCasterProgramResponseBody extends Model
     /**
      * @var string
      */
-    public $casterId;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'programEffect' => 'ProgramEffect',
-        'total'         => 'Total',
-        'episodes'      => 'Episodes',
-        'programName'   => 'ProgramName',
         'casterId'      => 'CasterId',
+        'episodes'      => 'Episodes',
+        'programEffect' => 'ProgramEffect',
+        'programName'   => 'ProgramName',
+        'requestId'     => 'RequestId',
+        'total'         => 'Total',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class DescribeCasterProgramResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->programEffect) {
-            $res['ProgramEffect'] = $this->programEffect;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->episodes) {
             $res['Episodes'] = null !== $this->episodes ? $this->episodes->toMap() : null;
         }
+        if (null !== $this->programEffect) {
+            $res['ProgramEffect'] = $this->programEffect;
+        }
         if (null !== $this->programName) {
             $res['ProgramName'] = $this->programName;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class DescribeCasterProgramResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ProgramEffect'])) {
-            $model->programEffect = $map['ProgramEffect'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
         }
         if (isset($map['Episodes'])) {
             $model->episodes = episodes::fromMap($map['Episodes']);
         }
+        if (isset($map['ProgramEffect'])) {
+            $model->programEffect = $map['ProgramEffect'];
+        }
         if (isset($map['ProgramName'])) {
             $model->programName = $map['ProgramName'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

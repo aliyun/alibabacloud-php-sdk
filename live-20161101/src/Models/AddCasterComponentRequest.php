@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddCasterComponentRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $captionLayerContent;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class AddCasterComponentRequest extends Model
     /**
      * @var string
      */
-    public $componentName;
+    public $componentLayer;
 
     /**
      * @var string
      */
-    public $locationId;
+    public $componentName;
 
     /**
      * @var string
@@ -41,17 +41,7 @@ class AddCasterComponentRequest extends Model
     /**
      * @var string
      */
-    public $componentLayer;
-
-    /**
-     * @var string
-     */
-    public $layerOrder;
-
-    /**
-     * @var string
-     */
-    public $textLayerContent;
+    public $htmlLayerContent;
 
     /**
      * @var string
@@ -61,25 +51,35 @@ class AddCasterComponentRequest extends Model
     /**
      * @var string
      */
-    public $captionLayerContent;
+    public $layerOrder;
 
     /**
      * @var string
      */
-    public $htmlLayerContent;
+    public $locationId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $textLayerContent;
     protected $_name = [
-        'ownerId'             => 'OwnerId',
+        'captionLayerContent' => 'CaptionLayerContent',
         'casterId'            => 'CasterId',
+        'componentLayer'      => 'ComponentLayer',
         'componentName'       => 'ComponentName',
-        'locationId'          => 'LocationId',
         'componentType'       => 'ComponentType',
         'effect'              => 'Effect',
-        'componentLayer'      => 'ComponentLayer',
-        'layerOrder'          => 'LayerOrder',
-        'textLayerContent'    => 'TextLayerContent',
-        'imageLayerContent'   => 'ImageLayerContent',
-        'captionLayerContent' => 'CaptionLayerContent',
         'htmlLayerContent'    => 'HtmlLayerContent',
+        'imageLayerContent'   => 'ImageLayerContent',
+        'layerOrder'          => 'LayerOrder',
+        'locationId'          => 'LocationId',
+        'ownerId'             => 'OwnerId',
+        'textLayerContent'    => 'TextLayerContent',
     ];
 
     public function validate()
@@ -89,17 +89,17 @@ class AddCasterComponentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->captionLayerContent) {
+            $res['CaptionLayerContent'] = $this->captionLayerContent;
         }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
+        if (null !== $this->componentLayer) {
+            $res['ComponentLayer'] = $this->componentLayer;
+        }
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
-        }
-        if (null !== $this->locationId) {
-            $res['LocationId'] = $this->locationId;
         }
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
@@ -107,23 +107,23 @@ class AddCasterComponentRequest extends Model
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
         }
-        if (null !== $this->componentLayer) {
-            $res['ComponentLayer'] = $this->componentLayer;
-        }
-        if (null !== $this->layerOrder) {
-            $res['LayerOrder'] = $this->layerOrder;
-        }
-        if (null !== $this->textLayerContent) {
-            $res['TextLayerContent'] = $this->textLayerContent;
+        if (null !== $this->htmlLayerContent) {
+            $res['HtmlLayerContent'] = $this->htmlLayerContent;
         }
         if (null !== $this->imageLayerContent) {
             $res['ImageLayerContent'] = $this->imageLayerContent;
         }
-        if (null !== $this->captionLayerContent) {
-            $res['CaptionLayerContent'] = $this->captionLayerContent;
+        if (null !== $this->layerOrder) {
+            $res['LayerOrder'] = $this->layerOrder;
         }
-        if (null !== $this->htmlLayerContent) {
-            $res['HtmlLayerContent'] = $this->htmlLayerContent;
+        if (null !== $this->locationId) {
+            $res['LocationId'] = $this->locationId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->textLayerContent) {
+            $res['TextLayerContent'] = $this->textLayerContent;
         }
 
         return $res;
@@ -137,17 +137,17 @@ class AddCasterComponentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CaptionLayerContent'])) {
+            $model->captionLayerContent = $map['CaptionLayerContent'];
         }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
+        if (isset($map['ComponentLayer'])) {
+            $model->componentLayer = $map['ComponentLayer'];
+        }
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
-        }
-        if (isset($map['LocationId'])) {
-            $model->locationId = $map['LocationId'];
         }
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
@@ -155,23 +155,23 @@ class AddCasterComponentRequest extends Model
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];
         }
-        if (isset($map['ComponentLayer'])) {
-            $model->componentLayer = $map['ComponentLayer'];
-        }
-        if (isset($map['LayerOrder'])) {
-            $model->layerOrder = $map['LayerOrder'];
-        }
-        if (isset($map['TextLayerContent'])) {
-            $model->textLayerContent = $map['TextLayerContent'];
+        if (isset($map['HtmlLayerContent'])) {
+            $model->htmlLayerContent = $map['HtmlLayerContent'];
         }
         if (isset($map['ImageLayerContent'])) {
             $model->imageLayerContent = $map['ImageLayerContent'];
         }
-        if (isset($map['CaptionLayerContent'])) {
-            $model->captionLayerContent = $map['CaptionLayerContent'];
+        if (isset($map['LayerOrder'])) {
+            $model->layerOrder = $map['LayerOrder'];
         }
-        if (isset($map['HtmlLayerContent'])) {
-            $model->htmlLayerContent = $map['HtmlLayerContent'];
+        if (isset($map['LocationId'])) {
+            $model->locationId = $map['LocationId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['TextLayerContent'])) {
+            $model->textLayerContent = $map['TextLayerContent'];
         }
 
         return $model;

@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeStudioLayoutsResponseBody extends Model
 {
     /**
-     * @var studioLayouts[]
-     */
-    public $studioLayouts;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var studioLayouts[]
+     */
+    public $studioLayouts;
 
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'studioLayouts' => 'StudioLayouts',
         'requestId'     => 'RequestId',
+        'studioLayouts' => 'StudioLayouts',
         'total'         => 'Total',
     ];
 
@@ -36,6 +36,9 @@ class DescribeStudioLayoutsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->studioLayouts) {
             $res['StudioLayouts'] = [];
             if (null !== $this->studioLayouts && \is_array($this->studioLayouts)) {
@@ -44,9 +47,6 @@ class DescribeStudioLayoutsResponseBody extends Model
                     $res['StudioLayouts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -63,6 +63,9 @@ class DescribeStudioLayoutsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['StudioLayouts'])) {
             if (!empty($map['StudioLayouts'])) {
                 $model->studioLayouts = [];
@@ -71,9 +74,6 @@ class DescribeStudioLayoutsResponseBody extends Model
                     $model->studioLayouts[$n++] = null !== $item ? studioLayouts::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

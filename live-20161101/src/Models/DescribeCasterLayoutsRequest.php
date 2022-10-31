@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterLayoutsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterId;
@@ -22,10 +17,15 @@ class DescribeCasterLayoutsRequest extends Model
      * @var string
      */
     public $layoutId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'casterId' => 'CasterId',
         'layoutId' => 'LayoutId',
+        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeCasterLayoutsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeCasterLayoutsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

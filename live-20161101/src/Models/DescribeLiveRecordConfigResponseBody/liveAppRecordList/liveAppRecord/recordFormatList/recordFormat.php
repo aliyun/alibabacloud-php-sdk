@@ -16,7 +16,7 @@ class recordFormat extends Model
     /**
      * @var string
      */
-    public $sliceOssObjectPrefix;
+    public $format;
 
     /**
      * @var string
@@ -24,14 +24,20 @@ class recordFormat extends Model
     public $ossObjectPrefix;
 
     /**
+     * @var int
+     */
+    public $sliceDuration;
+
+    /**
      * @var string
      */
-    public $format;
+    public $sliceOssObjectPrefix;
     protected $_name = [
         'cycleDuration'        => 'CycleDuration',
-        'sliceOssObjectPrefix' => 'SliceOssObjectPrefix',
-        'ossObjectPrefix'      => 'OssObjectPrefix',
         'format'               => 'Format',
+        'ossObjectPrefix'      => 'OssObjectPrefix',
+        'sliceDuration'        => 'SliceDuration',
+        'sliceOssObjectPrefix' => 'SliceOssObjectPrefix',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class recordFormat extends Model
         if (null !== $this->cycleDuration) {
             $res['CycleDuration'] = $this->cycleDuration;
         }
-        if (null !== $this->sliceOssObjectPrefix) {
-            $res['SliceOssObjectPrefix'] = $this->sliceOssObjectPrefix;
+        if (null !== $this->format) {
+            $res['Format'] = $this->format;
         }
         if (null !== $this->ossObjectPrefix) {
             $res['OssObjectPrefix'] = $this->ossObjectPrefix;
         }
-        if (null !== $this->format) {
-            $res['Format'] = $this->format;
+        if (null !== $this->sliceDuration) {
+            $res['SliceDuration'] = $this->sliceDuration;
+        }
+        if (null !== $this->sliceOssObjectPrefix) {
+            $res['SliceOssObjectPrefix'] = $this->sliceOssObjectPrefix;
         }
 
         return $res;
@@ -68,14 +77,17 @@ class recordFormat extends Model
         if (isset($map['CycleDuration'])) {
             $model->cycleDuration = $map['CycleDuration'];
         }
-        if (isset($map['SliceOssObjectPrefix'])) {
-            $model->sliceOssObjectPrefix = $map['SliceOssObjectPrefix'];
+        if (isset($map['Format'])) {
+            $model->format = $map['Format'];
         }
         if (isset($map['OssObjectPrefix'])) {
             $model->ossObjectPrefix = $map['OssObjectPrefix'];
         }
-        if (isset($map['Format'])) {
-            $model->format = $map['Format'];
+        if (isset($map['SliceDuration'])) {
+            $model->sliceDuration = $map['SliceDuration'];
+        }
+        if (isset($map['SliceOssObjectPrefix'])) {
+            $model->sliceOssObjectPrefix = $map['SliceOssObjectPrefix'];
         }
 
         return $model;

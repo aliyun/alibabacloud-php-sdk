@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class programList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $repeatNumber;
+    public $casterId;
 
     /**
      * @var string
      */
-    public $programName;
+    public $domainName;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class programList extends Model
     /**
      * @var string
      */
-    public $casterId;
+    public $programName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $domainName;
+    public $repeatNumber;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'repeatNumber' => 'RepeatNumber',
-        'programName'  => 'ProgramName',
-        'programId'    => 'ProgramId',
         'casterId'     => 'CasterId',
         'domainName'   => 'DomainName',
+        'programId'    => 'ProgramId',
+        'programName'  => 'ProgramName',
+        'repeatNumber' => 'RepeatNumber',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class programList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->repeatNumber) {
-            $res['RepeatNumber'] = $this->repeatNumber;
-        }
-        if (null !== $this->programName) {
-            $res['ProgramName'] = $this->programName;
-        }
-        if (null !== $this->programId) {
-            $res['ProgramId'] = $this->programId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->programId) {
+            $res['ProgramId'] = $this->programId;
+        }
+        if (null !== $this->programName) {
+            $res['ProgramName'] = $this->programName;
+        }
+        if (null !== $this->repeatNumber) {
+            $res['RepeatNumber'] = $this->repeatNumber;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class programList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RepeatNumber'])) {
-            $model->repeatNumber = $map['RepeatNumber'];
-        }
-        if (isset($map['ProgramName'])) {
-            $model->programName = $map['ProgramName'];
-        }
-        if (isset($map['ProgramId'])) {
-            $model->programId = $map['ProgramId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['ProgramId'])) {
+            $model->programId = $map['ProgramId'];
+        }
+        if (isset($map['ProgramName'])) {
+            $model->programName = $map['ProgramName'];
+        }
+        if (isset($map['RepeatNumber'])) {
+            $model->repeatNumber = $map['RepeatNumber'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

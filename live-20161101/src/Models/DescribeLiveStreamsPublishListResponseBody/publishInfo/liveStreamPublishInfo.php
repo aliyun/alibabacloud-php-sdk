@@ -11,22 +11,12 @@ class liveStreamPublishInfo extends Model
     /**
      * @var string
      */
-    public $edgeNodeAddr;
+    public $appName;
 
     /**
      * @var string
      */
-    public $publishUrl;
-
-    /**
-     * @var string
-     */
-    public $streamName;
-
-    /**
-     * @var string
-     */
-    public $stopTime;
+    public $clientAddr;
 
     /**
      * @var string
@@ -36,7 +26,7 @@ class liveStreamPublishInfo extends Model
     /**
      * @var string
      */
-    public $transcodeId;
+    public $edgeNodeAddr;
 
     /**
      * @var string
@@ -51,41 +41,51 @@ class liveStreamPublishInfo extends Model
     /**
      * @var string
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
     public $publishType;
 
     /**
      * @var string
      */
-    public $transcoded;
+    public $publishUrl;
 
     /**
      * @var string
      */
-    public $clientAddr;
+    public $stopTime;
+
+    /**
+     * @var string
+     */
+    public $streamName;
 
     /**
      * @var string
      */
     public $streamUrl;
+
+    /**
+     * @var string
+     */
+    public $transcodeId;
+
+    /**
+     * @var string
+     */
+    public $transcoded;
     protected $_name = [
-        'edgeNodeAddr'  => 'EdgeNodeAddr',
-        'publishUrl'    => 'PublishUrl',
-        'streamName'    => 'StreamName',
-        'stopTime'      => 'StopTime',
+        'appName'       => 'AppName',
+        'clientAddr'    => 'ClientAddr',
         'domainName'    => 'DomainName',
-        'transcodeId'   => 'TranscodeId',
+        'edgeNodeAddr'  => 'EdgeNodeAddr',
         'publishDomain' => 'PublishDomain',
         'publishTime'   => 'PublishTime',
-        'appName'       => 'AppName',
         'publishType'   => 'PublishType',
-        'transcoded'    => 'Transcoded',
-        'clientAddr'    => 'ClientAddr',
+        'publishUrl'    => 'PublishUrl',
+        'stopTime'      => 'StopTime',
+        'streamName'    => 'StreamName',
         'streamUrl'     => 'StreamUrl',
+        'transcodeId'   => 'TranscodeId',
+        'transcoded'    => 'Transcoded',
     ];
 
     public function validate()
@@ -95,23 +95,17 @@ class liveStreamPublishInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->edgeNodeAddr) {
-            $res['EdgeNodeAddr'] = $this->edgeNodeAddr;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
-        if (null !== $this->publishUrl) {
-            $res['PublishUrl'] = $this->publishUrl;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
-        if (null !== $this->stopTime) {
-            $res['StopTime'] = $this->stopTime;
+        if (null !== $this->clientAddr) {
+            $res['ClientAddr'] = $this->clientAddr;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->transcodeId) {
-            $res['TranscodeId'] = $this->transcodeId;
+        if (null !== $this->edgeNodeAddr) {
+            $res['EdgeNodeAddr'] = $this->edgeNodeAddr;
         }
         if (null !== $this->publishDomain) {
             $res['PublishDomain'] = $this->publishDomain;
@@ -119,20 +113,26 @@ class liveStreamPublishInfo extends Model
         if (null !== $this->publishTime) {
             $res['PublishTime'] = $this->publishTime;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
         if (null !== $this->publishType) {
             $res['PublishType'] = $this->publishType;
         }
-        if (null !== $this->transcoded) {
-            $res['Transcoded'] = $this->transcoded;
+        if (null !== $this->publishUrl) {
+            $res['PublishUrl'] = $this->publishUrl;
         }
-        if (null !== $this->clientAddr) {
-            $res['ClientAddr'] = $this->clientAddr;
+        if (null !== $this->stopTime) {
+            $res['StopTime'] = $this->stopTime;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
         if (null !== $this->streamUrl) {
             $res['StreamUrl'] = $this->streamUrl;
+        }
+        if (null !== $this->transcodeId) {
+            $res['TranscodeId'] = $this->transcodeId;
+        }
+        if (null !== $this->transcoded) {
+            $res['Transcoded'] = $this->transcoded;
         }
 
         return $res;
@@ -146,23 +146,17 @@ class liveStreamPublishInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EdgeNodeAddr'])) {
-            $model->edgeNodeAddr = $map['EdgeNodeAddr'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
-        if (isset($map['PublishUrl'])) {
-            $model->publishUrl = $map['PublishUrl'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
-        if (isset($map['StopTime'])) {
-            $model->stopTime = $map['StopTime'];
+        if (isset($map['ClientAddr'])) {
+            $model->clientAddr = $map['ClientAddr'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['TranscodeId'])) {
-            $model->transcodeId = $map['TranscodeId'];
+        if (isset($map['EdgeNodeAddr'])) {
+            $model->edgeNodeAddr = $map['EdgeNodeAddr'];
         }
         if (isset($map['PublishDomain'])) {
             $model->publishDomain = $map['PublishDomain'];
@@ -170,20 +164,26 @@ class liveStreamPublishInfo extends Model
         if (isset($map['PublishTime'])) {
             $model->publishTime = $map['PublishTime'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
         if (isset($map['PublishType'])) {
             $model->publishType = $map['PublishType'];
         }
-        if (isset($map['Transcoded'])) {
-            $model->transcoded = $map['Transcoded'];
+        if (isset($map['PublishUrl'])) {
+            $model->publishUrl = $map['PublishUrl'];
         }
-        if (isset($map['ClientAddr'])) {
-            $model->clientAddr = $map['ClientAddr'];
+        if (isset($map['StopTime'])) {
+            $model->stopTime = $map['StopTime'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
         if (isset($map['StreamUrl'])) {
             $model->streamUrl = $map['StreamUrl'];
+        }
+        if (isset($map['TranscodeId'])) {
+            $model->transcodeId = $map['TranscodeId'];
+        }
+        if (isset($map['Transcoded'])) {
+            $model->transcoded = $map['Transcoded'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class liveDomainLimit extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $limitTranscodeNum;
+    public $domainName;
 
     /**
      * @var int
@@ -19,13 +19,19 @@ class liveDomainLimit extends Model
     public $limitNum;
 
     /**
-     * @var string
+     * @var int
      */
-    public $domainName;
+    public $limitTranscodeNum;
+
+    /**
+     * @var int
+     */
+    public $limitTransferNum;
     protected $_name = [
-        'limitTranscodeNum' => 'LimitTranscodeNum',
-        'limitNum'          => 'LimitNum',
         'domainName'        => 'DomainName',
+        'limitNum'          => 'LimitNum',
+        'limitTranscodeNum' => 'LimitTranscodeNum',
+        'limitTransferNum'  => 'LimitTransferNum',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class liveDomainLimit extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->limitTranscodeNum) {
-            $res['LimitTranscodeNum'] = $this->limitTranscodeNum;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->limitNum) {
             $res['LimitNum'] = $this->limitNum;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->limitTranscodeNum) {
+            $res['LimitTranscodeNum'] = $this->limitTranscodeNum;
+        }
+        if (null !== $this->limitTransferNum) {
+            $res['LimitTransferNum'] = $this->limitTransferNum;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class liveDomainLimit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LimitTranscodeNum'])) {
-            $model->limitTranscodeNum = $map['LimitTranscodeNum'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['LimitNum'])) {
             $model->limitNum = $map['LimitNum'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['LimitTranscodeNum'])) {
+            $model->limitTranscodeNum = $map['LimitTranscodeNum'];
+        }
+        if (isset($map['LimitTransferNum'])) {
+            $model->limitTransferNum = $map['LimitTransferNum'];
         }
 
         return $model;

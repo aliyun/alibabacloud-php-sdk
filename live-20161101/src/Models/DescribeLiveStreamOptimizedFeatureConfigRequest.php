@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamOptimizedFeatureConfigRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $configName;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DescribeLiveStreamOptimizedFeatureConfigRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $configName;
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'configName' => 'ConfigName',
+        'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeLiveStreamOptimizedFeatureConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->configName) {
+            $res['ConfigName'] = $this->configName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->configName) {
-            $res['ConfigName'] = $this->configName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeLiveStreamOptimizedFeatureConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ConfigName'])) {
+            $model->configName = $map['ConfigName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['ConfigName'])) {
-            $model->configName = $map['ConfigName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

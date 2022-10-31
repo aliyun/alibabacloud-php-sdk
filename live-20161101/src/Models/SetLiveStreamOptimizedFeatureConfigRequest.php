@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetLiveStreamOptimizedFeatureConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $configName;
@@ -32,12 +22,22 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
      * @var string
      */
     public $configValue;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'domainName'   => 'DomainName',
         'configName'   => 'ConfigName',
         'configStatus' => 'ConfigStatus',
         'configValue'  => 'ConfigValue',
+        'domainName'   => 'DomainName',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
@@ -61,6 +55,12 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
         }
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
@@ -88,6 +82,12 @@ class SetLiveStreamOptimizedFeatureConfigRequest extends Model
         }
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamsOnlineListResponseBody extends Model
 {
     /**
-     * @var int
+     * @var onlineInfo
      */
-    public $totalNum;
-
-    /**
-     * @var int
-     */
-    public $totalPage;
+    public $onlineInfo;
 
     /**
      * @var int
@@ -35,16 +30,21 @@ class DescribeLiveStreamsOnlineListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var onlineInfo
+     * @var int
      */
-    public $onlineInfo;
+    public $totalNum;
+
+    /**
+     * @var int
+     */
+    public $totalPage;
     protected $_name = [
-        'totalNum'   => 'TotalNum',
-        'totalPage'  => 'TotalPage',
+        'onlineInfo' => 'OnlineInfo',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'onlineInfo' => 'OnlineInfo',
+        'totalNum'   => 'TotalNum',
+        'totalPage'  => 'TotalPage',
     ];
 
     public function validate()
@@ -54,11 +54,8 @@ class DescribeLiveStreamsOnlineListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
+        if (null !== $this->onlineInfo) {
+            $res['OnlineInfo'] = null !== $this->onlineInfo ? $this->onlineInfo->toMap() : null;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -69,8 +66,11 @@ class DescribeLiveStreamsOnlineListResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->onlineInfo) {
-            $res['OnlineInfo'] = null !== $this->onlineInfo ? $this->onlineInfo->toMap() : null;
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -84,11 +84,8 @@ class DescribeLiveStreamsOnlineListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
+        if (isset($map['OnlineInfo'])) {
+            $model->onlineInfo = onlineInfo::fromMap($map['OnlineInfo']);
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -99,8 +96,11 @@ class DescribeLiveStreamsOnlineListResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OnlineInfo'])) {
-            $model->onlineInfo = onlineInfo::fromMap($map['OnlineInfo']);
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

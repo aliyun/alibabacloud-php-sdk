@@ -12,12 +12,7 @@ class DescribeCasterStreamUrlResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $total;
+    public $casterId;
 
     /**
      * @var casterStreams
@@ -27,12 +22,17 @@ class DescribeCasterStreamUrlResponseBody extends Model
     /**
      * @var string
      */
-    public $casterId;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
+        'casterId'      => 'CasterId',
+        'casterStreams' => 'CasterStreams',
         'requestId'     => 'RequestId',
         'total'         => 'Total',
-        'casterStreams' => 'CasterStreams',
-        'casterId'      => 'CasterId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DescribeCasterStreamUrlResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->casterStreams) {
+            $res['CasterStreams'] = null !== $this->casterStreams ? $this->casterStreams->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->casterStreams) {
-            $res['CasterStreams'] = null !== $this->casterStreams ? $this->casterStreams->toMap() : null;
-        }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DescribeCasterStreamUrlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['CasterStreams'])) {
+            $model->casterStreams = casterStreams::fromMap($map['CasterStreams']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['CasterStreams'])) {
-            $model->casterStreams = casterStreams::fromMap($map['CasterStreams']);
-        }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class audioLayer extends Model
 {
     /**
-     * @var float
-     */
-    public $volumeRate;
-
-    /**
      * @var int
      */
     public $fixedDelayDuration;
@@ -22,10 +17,15 @@ class audioLayer extends Model
      * @var string
      */
     public $validChannel;
+
+    /**
+     * @var float
+     */
+    public $volumeRate;
     protected $_name = [
-        'volumeRate'         => 'VolumeRate',
         'fixedDelayDuration' => 'FixedDelayDuration',
         'validChannel'       => 'ValidChannel',
+        'volumeRate'         => 'VolumeRate',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class audioLayer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->volumeRate) {
-            $res['VolumeRate'] = $this->volumeRate;
-        }
         if (null !== $this->fixedDelayDuration) {
             $res['FixedDelayDuration'] = $this->fixedDelayDuration;
         }
         if (null !== $this->validChannel) {
             $res['ValidChannel'] = $this->validChannel;
+        }
+        if (null !== $this->volumeRate) {
+            $res['VolumeRate'] = $this->volumeRate;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class audioLayer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VolumeRate'])) {
-            $model->volumeRate = $map['VolumeRate'];
-        }
         if (isset($map['FixedDelayDuration'])) {
             $model->fixedDelayDuration = $map['FixedDelayDuration'];
         }
         if (isset($map['ValidChannel'])) {
             $model->validChannel = $map['ValidChannel'];
+        }
+        if (isset($map['VolumeRate'])) {
+            $model->volumeRate = $map['VolumeRate'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateCasterSceneAudioRequest extends Model
 {
     /**
-     * @var int
+     * @var audioLayer[]
      */
-    public $ownerId;
+    public $audioLayer;
 
     /**
      * @var string
@@ -20,31 +20,31 @@ class UpdateCasterSceneAudioRequest extends Model
     public $casterId;
 
     /**
-     * @var string
-     */
-    public $sceneId;
-
-    /**
      * @var int
      */
     public $followEnable;
 
     /**
-     * @var audioLayer[]
-     */
-    public $audioLayer;
-
-    /**
      * @var string[]
      */
     public $mixList;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'casterId'     => 'CasterId',
-        'sceneId'      => 'SceneId',
-        'followEnable' => 'FollowEnable',
         'audioLayer'   => 'AudioLayer',
+        'casterId'     => 'CasterId',
+        'followEnable' => 'FollowEnable',
         'mixList'      => 'MixList',
+        'ownerId'      => 'OwnerId',
+        'sceneId'      => 'SceneId',
     ];
 
     public function validate()
@@ -54,18 +54,6 @@ class UpdateCasterSceneAudioRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
-        }
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
-        }
-        if (null !== $this->followEnable) {
-            $res['FollowEnable'] = $this->followEnable;
-        }
         if (null !== $this->audioLayer) {
             $res['AudioLayer'] = [];
             if (null !== $this->audioLayer && \is_array($this->audioLayer)) {
@@ -75,8 +63,20 @@ class UpdateCasterSceneAudioRequest extends Model
                 }
             }
         }
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->followEnable) {
+            $res['FollowEnable'] = $this->followEnable;
+        }
         if (null !== $this->mixList) {
             $res['MixList'] = $this->mixList;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -90,18 +90,6 @@ class UpdateCasterSceneAudioRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
-        }
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
-        if (isset($map['FollowEnable'])) {
-            $model->followEnable = $map['FollowEnable'];
-        }
         if (isset($map['AudioLayer'])) {
             if (!empty($map['AudioLayer'])) {
                 $model->audioLayer = [];
@@ -111,10 +99,22 @@ class UpdateCasterSceneAudioRequest extends Model
                 }
             }
         }
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['FollowEnable'])) {
+            $model->followEnable = $map['FollowEnable'];
+        }
         if (isset($map['MixList'])) {
             if (!empty($map['MixList'])) {
                 $model->mixList = $map['MixList'];
             }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

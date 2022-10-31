@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainFrameRateAndBitRateDataRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,15 +21,10 @@ class DescribeLiveDomainFrameRateAndBitRateDataRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $queryTime;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
         'queryTime'  => 'QueryTime',
     ];
 
@@ -35,11 +35,11 @@ class DescribeLiveDomainFrameRateAndBitRateDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->queryTime) {
             $res['QueryTime'] = $this->queryTime;
@@ -56,11 +56,11 @@ class DescribeLiveDomainFrameRateAndBitRateDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['QueryTime'])) {
             $model->queryTime = $map['QueryTime'];

@@ -11,12 +11,12 @@ class AddLiveAppSnapshotConfigRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $appName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $callback;
 
     /**
      * @var string
@@ -26,12 +26,7 @@ class AddLiveAppSnapshotConfigRequest extends Model
     /**
      * @var string
      */
-    public $appName;
-
-    /**
-     * @var int
-     */
-    public $timeInterval;
+    public $ossBucket;
 
     /**
      * @var string
@@ -41,12 +36,17 @@ class AddLiveAppSnapshotConfigRequest extends Model
     /**
      * @var string
      */
-    public $ossBucket;
+    public $overwriteOssObject;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $overwriteOssObject;
+    public $securityToken;
 
     /**
      * @var string
@@ -54,20 +54,20 @@ class AddLiveAppSnapshotConfigRequest extends Model
     public $sequenceOssObject;
 
     /**
-     * @var string
+     * @var int
      */
-    public $callback;
+    public $timeInterval;
     protected $_name = [
-        'securityToken'      => 'SecurityToken',
-        'ownerId'            => 'OwnerId',
-        'domainName'         => 'DomainName',
         'appName'            => 'AppName',
-        'timeInterval'       => 'TimeInterval',
-        'ossEndpoint'        => 'OssEndpoint',
-        'ossBucket'          => 'OssBucket',
-        'overwriteOssObject' => 'OverwriteOssObject',
-        'sequenceOssObject'  => 'SequenceOssObject',
         'callback'           => 'Callback',
+        'domainName'         => 'DomainName',
+        'ossBucket'          => 'OssBucket',
+        'ossEndpoint'        => 'OssEndpoint',
+        'overwriteOssObject' => 'OverwriteOssObject',
+        'ownerId'            => 'OwnerId',
+        'securityToken'      => 'SecurityToken',
+        'sequenceOssObject'  => 'SequenceOssObject',
+        'timeInterval'       => 'TimeInterval',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class AddLiveAppSnapshotConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->callback) {
+            $res['Callback'] = $this->callback;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->timeInterval) {
-            $res['TimeInterval'] = $this->timeInterval;
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
         }
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
         }
-        if (null !== $this->ossBucket) {
-            $res['OssBucket'] = $this->ossBucket;
-        }
         if (null !== $this->overwriteOssObject) {
             $res['OverwriteOssObject'] = $this->overwriteOssObject;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->sequenceOssObject) {
             $res['SequenceOssObject'] = $this->sequenceOssObject;
         }
-        if (null !== $this->callback) {
-            $res['Callback'] = $this->callback;
+        if (null !== $this->timeInterval) {
+            $res['TimeInterval'] = $this->timeInterval;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class AddLiveAppSnapshotConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Callback'])) {
+            $model->callback = $map['Callback'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['TimeInterval'])) {
-            $model->timeInterval = $map['TimeInterval'];
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
         }
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
         }
-        if (isset($map['OssBucket'])) {
-            $model->ossBucket = $map['OssBucket'];
-        }
         if (isset($map['OverwriteOssObject'])) {
             $model->overwriteOssObject = $map['OverwriteOssObject'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['SequenceOssObject'])) {
             $model->sequenceOssObject = $map['SequenceOssObject'];
         }
-        if (isset($map['Callback'])) {
-            $model->callback = $map['Callback'];
+        if (isset($map['TimeInterval'])) {
+            $model->timeInterval = $map['TimeInterval'];
         }
 
         return $model;

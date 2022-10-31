@@ -13,19 +13,19 @@ use AlibabaCloud\Tea\Model;
 class layout extends Model
 {
     /**
-     * @var string
-     */
-    public $layoutId;
-
-    /**
      * @var audioLayers
      */
     public $audioLayers;
 
     /**
-     * @var videoLayers
+     * @var blendList
      */
-    public $videoLayers;
+    public $blendList;
+
+    /**
+     * @var string
+     */
+    public $layoutId;
 
     /**
      * @var mixList
@@ -33,15 +33,15 @@ class layout extends Model
     public $mixList;
 
     /**
-     * @var blendList
+     * @var videoLayers
      */
-    public $blendList;
+    public $videoLayers;
     protected $_name = [
-        'layoutId'    => 'LayoutId',
         'audioLayers' => 'AudioLayers',
-        'videoLayers' => 'VideoLayers',
-        'mixList'     => 'MixList',
         'blendList'   => 'BlendList',
+        'layoutId'    => 'LayoutId',
+        'mixList'     => 'MixList',
+        'videoLayers' => 'VideoLayers',
     ];
 
     public function validate()
@@ -51,20 +51,20 @@ class layout extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->layoutId) {
-            $res['LayoutId'] = $this->layoutId;
-        }
         if (null !== $this->audioLayers) {
             $res['AudioLayers'] = null !== $this->audioLayers ? $this->audioLayers->toMap() : null;
         }
-        if (null !== $this->videoLayers) {
-            $res['VideoLayers'] = null !== $this->videoLayers ? $this->videoLayers->toMap() : null;
+        if (null !== $this->blendList) {
+            $res['BlendList'] = null !== $this->blendList ? $this->blendList->toMap() : null;
+        }
+        if (null !== $this->layoutId) {
+            $res['LayoutId'] = $this->layoutId;
         }
         if (null !== $this->mixList) {
             $res['MixList'] = null !== $this->mixList ? $this->mixList->toMap() : null;
         }
-        if (null !== $this->blendList) {
-            $res['BlendList'] = null !== $this->blendList ? $this->blendList->toMap() : null;
+        if (null !== $this->videoLayers) {
+            $res['VideoLayers'] = null !== $this->videoLayers ? $this->videoLayers->toMap() : null;
         }
 
         return $res;
@@ -78,20 +78,20 @@ class layout extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LayoutId'])) {
-            $model->layoutId = $map['LayoutId'];
-        }
         if (isset($map['AudioLayers'])) {
             $model->audioLayers = audioLayers::fromMap($map['AudioLayers']);
         }
-        if (isset($map['VideoLayers'])) {
-            $model->videoLayers = videoLayers::fromMap($map['VideoLayers']);
+        if (isset($map['BlendList'])) {
+            $model->blendList = blendList::fromMap($map['BlendList']);
+        }
+        if (isset($map['LayoutId'])) {
+            $model->layoutId = $map['LayoutId'];
         }
         if (isset($map['MixList'])) {
             $model->mixList = mixList::fromMap($map['MixList']);
         }
-        if (isset($map['BlendList'])) {
-            $model->blendList = blendList::fromMap($map['BlendList']);
+        if (isset($map['VideoLayers'])) {
+            $model->videoLayers = videoLayers::fromMap($map['VideoLayers']);
         }
 
         return $model;

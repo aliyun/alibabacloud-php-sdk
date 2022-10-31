@@ -17,7 +17,12 @@ class liveAudioAuditConfig extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $bizType;
+
+    /**
+     * @var string
+     */
+    public $domainName;
 
     /**
      * @var scenes
@@ -27,18 +32,13 @@ class liveAudioAuditConfig extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $bizType;
+    public $streamName;
     protected $_name = [
         'appName'    => 'AppName',
-        'streamName' => 'StreamName',
-        'scenes'     => 'Scenes',
-        'domainName' => 'DomainName',
         'bizType'    => 'BizType',
+        'domainName' => 'DomainName',
+        'scenes'     => 'Scenes',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class liveAudioAuditConfig extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
-        if (null !== $this->scenes) {
-            $res['Scenes'] = null !== $this->scenes ? $this->scenes->toMap() : null;
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
+        if (null !== $this->scenes) {
+            $res['Scenes'] = null !== $this->scenes ? $this->scenes->toMap() : null;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class liveAudioAuditConfig extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
-        if (isset($map['Scenes'])) {
-            $model->scenes = scenes::fromMap($map['Scenes']);
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
+        if (isset($map['Scenes'])) {
+            $model->scenes = scenes::fromMap($map['Scenes']);
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeletePlaylistResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $programId;
 
     /**
      * @var string
      */
-    public $programId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'programId' => 'ProgramId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeletePlaylistResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeletePlaylistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

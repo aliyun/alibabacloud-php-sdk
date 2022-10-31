@@ -11,15 +11,15 @@ class liveDetectNotifyConfig extends Model
     /**
      * @var string
      */
-    public $notifyUrl;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $notifyUrl;
     protected $_name = [
-        'notifyUrl'  => 'NotifyUrl',
         'domainName' => 'DomainName',
+        'notifyUrl'  => 'NotifyUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class liveDetectNotifyConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->notifyUrl) {
-            $res['NotifyUrl'] = $this->notifyUrl;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->notifyUrl) {
+            $res['NotifyUrl'] = $this->notifyUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class liveDetectNotifyConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NotifyUrl'])) {
-            $model->notifyUrl = $map['NotifyUrl'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['NotifyUrl'])) {
+            $model->notifyUrl = $map['NotifyUrl'];
         }
 
         return $model;

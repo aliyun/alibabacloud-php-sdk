@@ -16,16 +16,16 @@ class encryptParameters extends Model
     /**
      * @var string
      */
-    public $kmsKeyID;
+    public $kmsKeyExpireInterval;
 
     /**
      * @var string
      */
-    public $kmsKeyExpireInterval;
+    public $kmsKeyID;
     protected $_name = [
         'encryptType'          => 'EncryptType',
-        'kmsKeyID'             => 'KmsKeyID',
         'kmsKeyExpireInterval' => 'KmsKeyExpireInterval',
+        'kmsKeyID'             => 'KmsKeyID',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class encryptParameters extends Model
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
         }
-        if (null !== $this->kmsKeyID) {
-            $res['KmsKeyID'] = $this->kmsKeyID;
-        }
         if (null !== $this->kmsKeyExpireInterval) {
             $res['KmsKeyExpireInterval'] = $this->kmsKeyExpireInterval;
+        }
+        if (null !== $this->kmsKeyID) {
+            $res['KmsKeyID'] = $this->kmsKeyID;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class encryptParameters extends Model
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
         }
-        if (isset($map['KmsKeyID'])) {
-            $model->kmsKeyID = $map['KmsKeyID'];
-        }
         if (isset($map['KmsKeyExpireInterval'])) {
             $model->kmsKeyExpireInterval = $map['KmsKeyExpireInterval'];
+        }
+        if (isset($map['KmsKeyID'])) {
+            $model->kmsKeyID = $map['KmsKeyID'];
         }
 
         return $model;

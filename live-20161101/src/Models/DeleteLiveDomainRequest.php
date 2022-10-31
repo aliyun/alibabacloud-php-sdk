@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveDomainRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $domainName;
 
     /**
      * @var string
@@ -19,19 +19,19 @@ class DeleteLiveDomainRequest extends Model
     public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $securityToken;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'ownerAccount'  => 'OwnerAccount',
-        'securityToken' => 'SecurityToken',
         'domainName'    => 'DomainName',
+        'ownerAccount'  => 'OwnerAccount',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteLiveDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteLiveDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
 
         return $model;

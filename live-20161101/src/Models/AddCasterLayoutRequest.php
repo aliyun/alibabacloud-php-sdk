@@ -11,21 +11,6 @@ use AlibabaCloud\Tea\Model;
 class AddCasterLayoutRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $casterId;
-
-    /**
-     * @var videoLayer[]
-     */
-    public $videoLayer;
-
-    /**
      * @var audioLayer[]
      */
     public $audioLayer;
@@ -36,16 +21,31 @@ class AddCasterLayoutRequest extends Model
     public $blendList;
 
     /**
+     * @var string
+     */
+    public $casterId;
+
+    /**
      * @var string[]
      */
     public $mixList;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var videoLayer[]
+     */
+    public $videoLayer;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'casterId'   => 'CasterId',
-        'videoLayer' => 'VideoLayer',
         'audioLayer' => 'AudioLayer',
         'blendList'  => 'BlendList',
+        'casterId'   => 'CasterId',
         'mixList'    => 'MixList',
+        'ownerId'    => 'OwnerId',
+        'videoLayer' => 'VideoLayer',
     ];
 
     public function validate()
@@ -55,21 +55,6 @@ class AddCasterLayoutRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
-        }
-        if (null !== $this->videoLayer) {
-            $res['VideoLayer'] = [];
-            if (null !== $this->videoLayer && \is_array($this->videoLayer)) {
-                $n = 0;
-                foreach ($this->videoLayer as $item) {
-                    $res['VideoLayer'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->audioLayer) {
             $res['AudioLayer'] = [];
             if (null !== $this->audioLayer && \is_array($this->audioLayer)) {
@@ -82,8 +67,23 @@ class AddCasterLayoutRequest extends Model
         if (null !== $this->blendList) {
             $res['BlendList'] = $this->blendList;
         }
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
+        }
         if (null !== $this->mixList) {
             $res['MixList'] = $this->mixList;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->videoLayer) {
+            $res['VideoLayer'] = [];
+            if (null !== $this->videoLayer && \is_array($this->videoLayer)) {
+                $n = 0;
+                foreach ($this->videoLayer as $item) {
+                    $res['VideoLayer'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -97,21 +97,6 @@ class AddCasterLayoutRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
-        }
-        if (isset($map['VideoLayer'])) {
-            if (!empty($map['VideoLayer'])) {
-                $model->videoLayer = [];
-                $n                 = 0;
-                foreach ($map['VideoLayer'] as $item) {
-                    $model->videoLayer[$n++] = null !== $item ? videoLayer::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['AudioLayer'])) {
             if (!empty($map['AudioLayer'])) {
                 $model->audioLayer = [];
@@ -126,9 +111,24 @@ class AddCasterLayoutRequest extends Model
                 $model->blendList = $map['BlendList'];
             }
         }
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
+        }
         if (isset($map['MixList'])) {
             if (!empty($map['MixList'])) {
                 $model->mixList = $map['MixList'];
+            }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['VideoLayer'])) {
+            if (!empty($map['VideoLayer'])) {
+                $model->videoLayer = [];
+                $n                 = 0;
+                foreach ($map['VideoLayer'] as $item) {
+                    $model->videoLayer[$n++] = null !== $item ? videoLayer::fromMap($item) : $item;
+                }
             }
         }
 

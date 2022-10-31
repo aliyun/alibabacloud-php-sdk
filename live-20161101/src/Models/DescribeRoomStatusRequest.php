@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoomStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,15 +21,10 @@ class DescribeRoomStatusRequest extends Model
     /**
      * @var string
      */
-    public $appId;
-
-    /**
-     * @var string
-     */
     public $roomId;
     protected $_name = [
-        'ownerId' => 'OwnerId',
         'appId'   => 'AppId',
+        'ownerId' => 'OwnerId',
         'roomId'  => 'RoomId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeRoomStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -56,11 +56,11 @@ class DescribeRoomStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

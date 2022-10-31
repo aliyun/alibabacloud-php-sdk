@@ -13,19 +13,14 @@ use AlibabaCloud\Tea\Model;
 class component extends Model
 {
     /**
-     * @var textLayerContent
+     * @var captionLayerContent
      */
-    public $textLayerContent;
+    public $captionLayerContent;
 
     /**
      * @var string
      */
-    public $effect;
-
-    /**
-     * @var string
-     */
-    public $componentName;
+    public $componentId;
 
     /**
      * @var componentLayer
@@ -33,9 +28,9 @@ class component extends Model
     public $componentLayer;
 
     /**
-     * @var imageLayerContent
+     * @var string
      */
-    public $imageLayerContent;
+    public $componentName;
 
     /**
      * @var string
@@ -45,27 +40,32 @@ class component extends Model
     /**
      * @var string
      */
-    public $locationId;
+    public $effect;
 
     /**
-     * @var captionLayerContent
+     * @var imageLayerContent
      */
-    public $captionLayerContent;
+    public $imageLayerContent;
 
     /**
      * @var string
      */
-    public $componentId;
+    public $locationId;
+
+    /**
+     * @var textLayerContent
+     */
+    public $textLayerContent;
     protected $_name = [
-        'textLayerContent'    => 'TextLayerContent',
-        'effect'              => 'Effect',
-        'componentName'       => 'ComponentName',
-        'componentLayer'      => 'ComponentLayer',
-        'imageLayerContent'   => 'ImageLayerContent',
-        'componentType'       => 'ComponentType',
-        'locationId'          => 'LocationId',
         'captionLayerContent' => 'CaptionLayerContent',
         'componentId'         => 'ComponentId',
+        'componentLayer'      => 'ComponentLayer',
+        'componentName'       => 'ComponentName',
+        'componentType'       => 'ComponentType',
+        'effect'              => 'Effect',
+        'imageLayerContent'   => 'ImageLayerContent',
+        'locationId'          => 'LocationId',
+        'textLayerContent'    => 'TextLayerContent',
     ];
 
     public function validate()
@@ -75,32 +75,32 @@ class component extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->textLayerContent) {
-            $res['TextLayerContent'] = null !== $this->textLayerContent ? $this->textLayerContent->toMap() : null;
-        }
-        if (null !== $this->effect) {
-            $res['Effect'] = $this->effect;
-        }
-        if (null !== $this->componentName) {
-            $res['ComponentName'] = $this->componentName;
-        }
-        if (null !== $this->componentLayer) {
-            $res['ComponentLayer'] = null !== $this->componentLayer ? $this->componentLayer->toMap() : null;
-        }
-        if (null !== $this->imageLayerContent) {
-            $res['ImageLayerContent'] = null !== $this->imageLayerContent ? $this->imageLayerContent->toMap() : null;
-        }
-        if (null !== $this->componentType) {
-            $res['ComponentType'] = $this->componentType;
-        }
-        if (null !== $this->locationId) {
-            $res['LocationId'] = $this->locationId;
-        }
         if (null !== $this->captionLayerContent) {
             $res['CaptionLayerContent'] = null !== $this->captionLayerContent ? $this->captionLayerContent->toMap() : null;
         }
         if (null !== $this->componentId) {
             $res['ComponentId'] = $this->componentId;
+        }
+        if (null !== $this->componentLayer) {
+            $res['ComponentLayer'] = null !== $this->componentLayer ? $this->componentLayer->toMap() : null;
+        }
+        if (null !== $this->componentName) {
+            $res['ComponentName'] = $this->componentName;
+        }
+        if (null !== $this->componentType) {
+            $res['ComponentType'] = $this->componentType;
+        }
+        if (null !== $this->effect) {
+            $res['Effect'] = $this->effect;
+        }
+        if (null !== $this->imageLayerContent) {
+            $res['ImageLayerContent'] = null !== $this->imageLayerContent ? $this->imageLayerContent->toMap() : null;
+        }
+        if (null !== $this->locationId) {
+            $res['LocationId'] = $this->locationId;
+        }
+        if (null !== $this->textLayerContent) {
+            $res['TextLayerContent'] = null !== $this->textLayerContent ? $this->textLayerContent->toMap() : null;
         }
 
         return $res;
@@ -114,32 +114,32 @@ class component extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TextLayerContent'])) {
-            $model->textLayerContent = textLayerContent::fromMap($map['TextLayerContent']);
-        }
-        if (isset($map['Effect'])) {
-            $model->effect = $map['Effect'];
-        }
-        if (isset($map['ComponentName'])) {
-            $model->componentName = $map['ComponentName'];
-        }
-        if (isset($map['ComponentLayer'])) {
-            $model->componentLayer = componentLayer::fromMap($map['ComponentLayer']);
-        }
-        if (isset($map['ImageLayerContent'])) {
-            $model->imageLayerContent = imageLayerContent::fromMap($map['ImageLayerContent']);
-        }
-        if (isset($map['ComponentType'])) {
-            $model->componentType = $map['ComponentType'];
-        }
-        if (isset($map['LocationId'])) {
-            $model->locationId = $map['LocationId'];
-        }
         if (isset($map['CaptionLayerContent'])) {
             $model->captionLayerContent = captionLayerContent::fromMap($map['CaptionLayerContent']);
         }
         if (isset($map['ComponentId'])) {
             $model->componentId = $map['ComponentId'];
+        }
+        if (isset($map['ComponentLayer'])) {
+            $model->componentLayer = componentLayer::fromMap($map['ComponentLayer']);
+        }
+        if (isset($map['ComponentName'])) {
+            $model->componentName = $map['ComponentName'];
+        }
+        if (isset($map['ComponentType'])) {
+            $model->componentType = $map['ComponentType'];
+        }
+        if (isset($map['Effect'])) {
+            $model->effect = $map['Effect'];
+        }
+        if (isset($map['ImageLayerContent'])) {
+            $model->imageLayerContent = imageLayerContent::fromMap($map['ImageLayerContent']);
+        }
+        if (isset($map['LocationId'])) {
+            $model->locationId = $map['LocationId'];
+        }
+        if (isset($map['TextLayerContent'])) {
+            $model->textLayerContent = textLayerContent::fromMap($map['TextLayerContent']);
         }
 
         return $model;

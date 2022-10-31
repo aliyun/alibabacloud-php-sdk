@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRecordVodConfigsResponseBody extends Model
 {
     /**
+     * @var liveRecordVodConfigs
+     */
+    public $liveRecordVodConfigs;
+
+    /**
      * @var int
      */
     public $pageNum;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var int
@@ -25,19 +25,19 @@ class DescribeLiveRecordVodConfigsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var liveRecordVodConfigs
+     * @var string
      */
-    public $liveRecordVodConfigs;
+    public $requestId;
 
     /**
      * @var string
      */
     public $total;
     protected $_name = [
-        'pageNum'              => 'PageNum',
-        'requestId'            => 'RequestId',
-        'pageSize'             => 'PageSize',
         'liveRecordVodConfigs' => 'LiveRecordVodConfigs',
+        'pageNum'              => 'PageNum',
+        'pageSize'             => 'PageSize',
+        'requestId'            => 'RequestId',
         'total'                => 'Total',
     ];
 
@@ -48,17 +48,17 @@ class DescribeLiveRecordVodConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->liveRecordVodConfigs) {
+            $res['LiveRecordVodConfigs'] = null !== $this->liveRecordVodConfigs ? $this->liveRecordVodConfigs->toMap() : null;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->liveRecordVodConfigs) {
-            $res['LiveRecordVodConfigs'] = null !== $this->liveRecordVodConfigs ? $this->liveRecordVodConfigs->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -75,17 +75,17 @@ class DescribeLiveRecordVodConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LiveRecordVodConfigs'])) {
+            $model->liveRecordVodConfigs = liveRecordVodConfigs::fromMap($map['LiveRecordVodConfigs']);
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['LiveRecordVodConfigs'])) {
-            $model->liveRecordVodConfigs = liveRecordVodConfigs::fromMap($map['LiveRecordVodConfigs']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

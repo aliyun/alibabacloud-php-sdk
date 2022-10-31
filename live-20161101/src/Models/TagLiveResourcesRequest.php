@@ -15,14 +15,14 @@ class TagLiveResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
      * @var string[]
      */
     public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @var tag[]
@@ -30,8 +30,8 @@ class TagLiveResourcesRequest extends Model
     public $tag;
     protected $_name = [
         'ownerId'      => 'OwnerId',
-        'resourceType' => 'ResourceType',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
     ];
 
@@ -45,11 +45,11 @@ class TagLiveResourcesRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -75,13 +75,13 @@ class TagLiveResourcesRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

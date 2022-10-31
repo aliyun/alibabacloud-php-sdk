@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AddStudioLayoutRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $bgImageConfig;
 
     /**
      * @var string
      */
     public $casterId;
+
+    /**
+     * @var string
+     */
+    public $commonConfig;
+
+    /**
+     * @var string
+     */
+    public $layerOrderConfigList;
 
     /**
      * @var string
@@ -31,37 +41,27 @@ class AddStudioLayoutRequest extends Model
     /**
      * @var string
      */
-    public $commonConfig;
+    public $mediaInputConfigList;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bgImageConfig;
+    public $ownerId;
 
     /**
      * @var string
      */
     public $screenInputConfigList;
-
-    /**
-     * @var string
-     */
-    public $mediaInputConfigList;
-
-    /**
-     * @var string
-     */
-    public $layerOrderConfigList;
     protected $_name = [
-        'ownerId'               => 'OwnerId',
+        'bgImageConfig'         => 'BgImageConfig',
         'casterId'              => 'CasterId',
+        'commonConfig'          => 'CommonConfig',
+        'layerOrderConfigList'  => 'LayerOrderConfigList',
         'layoutName'            => 'LayoutName',
         'layoutType'            => 'LayoutType',
-        'commonConfig'          => 'CommonConfig',
-        'bgImageConfig'         => 'BgImageConfig',
-        'screenInputConfigList' => 'ScreenInputConfigList',
         'mediaInputConfigList'  => 'MediaInputConfigList',
-        'layerOrderConfigList'  => 'LayerOrderConfigList',
+        'ownerId'               => 'OwnerId',
+        'screenInputConfigList' => 'ScreenInputConfigList',
     ];
 
     public function validate()
@@ -71,11 +71,17 @@ class AddStudioLayoutRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->bgImageConfig) {
+            $res['BgImageConfig'] = $this->bgImageConfig;
         }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->commonConfig) {
+            $res['CommonConfig'] = $this->commonConfig;
+        }
+        if (null !== $this->layerOrderConfigList) {
+            $res['LayerOrderConfigList'] = $this->layerOrderConfigList;
         }
         if (null !== $this->layoutName) {
             $res['LayoutName'] = $this->layoutName;
@@ -83,20 +89,14 @@ class AddStudioLayoutRequest extends Model
         if (null !== $this->layoutType) {
             $res['LayoutType'] = $this->layoutType;
         }
-        if (null !== $this->commonConfig) {
-            $res['CommonConfig'] = $this->commonConfig;
-        }
-        if (null !== $this->bgImageConfig) {
-            $res['BgImageConfig'] = $this->bgImageConfig;
-        }
-        if (null !== $this->screenInputConfigList) {
-            $res['ScreenInputConfigList'] = $this->screenInputConfigList;
-        }
         if (null !== $this->mediaInputConfigList) {
             $res['MediaInputConfigList'] = $this->mediaInputConfigList;
         }
-        if (null !== $this->layerOrderConfigList) {
-            $res['LayerOrderConfigList'] = $this->layerOrderConfigList;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->screenInputConfigList) {
+            $res['ScreenInputConfigList'] = $this->screenInputConfigList;
         }
 
         return $res;
@@ -110,11 +110,17 @@ class AddStudioLayoutRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BgImageConfig'])) {
+            $model->bgImageConfig = $map['BgImageConfig'];
         }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['CommonConfig'])) {
+            $model->commonConfig = $map['CommonConfig'];
+        }
+        if (isset($map['LayerOrderConfigList'])) {
+            $model->layerOrderConfigList = $map['LayerOrderConfigList'];
         }
         if (isset($map['LayoutName'])) {
             $model->layoutName = $map['LayoutName'];
@@ -122,20 +128,14 @@ class AddStudioLayoutRequest extends Model
         if (isset($map['LayoutType'])) {
             $model->layoutType = $map['LayoutType'];
         }
-        if (isset($map['CommonConfig'])) {
-            $model->commonConfig = $map['CommonConfig'];
-        }
-        if (isset($map['BgImageConfig'])) {
-            $model->bgImageConfig = $map['BgImageConfig'];
-        }
-        if (isset($map['ScreenInputConfigList'])) {
-            $model->screenInputConfigList = $map['ScreenInputConfigList'];
-        }
         if (isset($map['MediaInputConfigList'])) {
             $model->mediaInputConfigList = $map['MediaInputConfigList'];
         }
-        if (isset($map['LayerOrderConfigList'])) {
-            $model->layerOrderConfigList = $map['LayerOrderConfigList'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ScreenInputConfigList'])) {
+            $model->screenInputConfigList = $map['ScreenInputConfigList'];
         }
 
         return $model;

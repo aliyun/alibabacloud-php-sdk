@@ -15,18 +15,18 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @var usageData[]
-     */
-    public $usageData;
-
-    /**
      * @var string
      */
     public $time;
+
+    /**
+     * @var usageData[]
+     */
+    public $usageData;
     protected $_name = [
         'requestId' => 'RequestId',
-        'usageData' => 'UsageData',
         'time'      => 'Time',
+        'usageData' => 'UsageData',
     ];
 
     public function validate()
@@ -39,6 +39,9 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
         if (null !== $this->usageData) {
             $res['UsageData'] = [];
             if (null !== $this->usageData && \is_array($this->usageData)) {
@@ -47,9 +50,6 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
                     $res['UsageData'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -66,6 +66,9 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
         if (isset($map['UsageData'])) {
             if (!empty($map['UsageData'])) {
                 $model->usageData = [];
@@ -74,9 +77,6 @@ class DescribeHlsLiveStreamRealTimeBpsDataResponseBody extends Model
                     $model->usageData[$n++] = null !== $item ? usageData::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
         }
 
         return $model;

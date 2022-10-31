@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainBpsDataByTimeStampRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $timePoint;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class DescribeLiveDomainBpsDataByTimeStampRequest extends Model
      * @var string
      */
     public $locationNames;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $timePoint;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'domainName'    => 'DomainName',
-        'timePoint'     => 'TimePoint',
         'ispNames'      => 'IspNames',
         'locationNames' => 'LocationNames',
+        'ownerId'       => 'OwnerId',
+        'timePoint'     => 'TimePoint',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeLiveDomainBpsDataByTimeStampRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->timePoint) {
-            $res['TimePoint'] = $this->timePoint;
         }
         if (null !== $this->ispNames) {
             $res['IspNames'] = $this->ispNames;
         }
         if (null !== $this->locationNames) {
             $res['LocationNames'] = $this->locationNames;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->timePoint) {
+            $res['TimePoint'] = $this->timePoint;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeLiveDomainBpsDataByTimeStampRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['TimePoint'])) {
-            $model->timePoint = $map['TimePoint'];
         }
         if (isset($map['IspNames'])) {
             $model->ispNames = $map['IspNames'];
         }
         if (isset($map['LocationNames'])) {
             $model->locationNames = $map['LocationNames'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['TimePoint'])) {
+            $model->timePoint = $map['TimePoint'];
         }
 
         return $model;

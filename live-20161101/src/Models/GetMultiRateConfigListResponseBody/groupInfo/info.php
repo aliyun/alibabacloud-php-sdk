@@ -11,11 +11,6 @@ class info extends Model
     /**
      * @var string
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
     public $app;
 
     /**
@@ -27,11 +22,16 @@ class info extends Model
      * @var int
      */
     public $count;
+
+    /**
+     * @var string
+     */
+    public $groupId;
     protected $_name = [
-        'groupId'  => 'GroupId',
         'app'      => 'App',
         'avFormat' => 'AvFormat',
         'count'    => 'Count',
+        'groupId'  => 'GroupId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class info extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->app) {
             $res['App'] = $this->app;
         }
@@ -52,6 +49,9 @@ class info extends Model
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class info extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['App'])) {
             $model->app = $map['App'];
         }
@@ -76,6 +73,9 @@ class info extends Model
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
 
         return $model;

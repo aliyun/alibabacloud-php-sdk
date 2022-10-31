@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateCasterSceneConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterId;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $sceneId;
+    public $componentId;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class UpdateCasterSceneConfigRequest extends Model
     public $layoutId;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $componentId;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $sceneId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
         'casterId'    => 'CasterId',
-        'sceneId'     => 'SceneId',
-        'layoutId'    => 'LayoutId',
         'componentId' => 'ComponentId',
+        'layoutId'    => 'LayoutId',
+        'ownerId'     => 'OwnerId',
+        'sceneId'     => 'SceneId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateCasterSceneConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
-        if (null !== $this->sceneId) {
-            $res['SceneId'] = $this->sceneId;
+        if (null !== $this->componentId) {
+            $res['ComponentId'] = $this->componentId;
         }
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
-        if (null !== $this->componentId) {
-            $res['ComponentId'] = $this->componentId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->sceneId) {
+            $res['SceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class UpdateCasterSceneConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
-        }
-        if (isset($map['SceneId'])) {
-            $model->sceneId = $map['SceneId'];
-        }
-        if (isset($map['LayoutId'])) {
-            $model->layoutId = $map['LayoutId'];
         }
         if (isset($map['ComponentId'])) {
             if (!empty($map['ComponentId'])) {
                 $model->componentId = $map['ComponentId'];
             }
+        }
+        if (isset($map['LayoutId'])) {
+            $model->layoutId = $map['LayoutId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SceneId'])) {
+            $model->sceneId = $map['SceneId'];
         }
 
         return $model;

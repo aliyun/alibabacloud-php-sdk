@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveStreamRecordIndexFilesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var recordInfo
      */
     public $recordInfo;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'recordInfo' => 'RecordInfo',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class CreateLiveStreamRecordIndexFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->recordInfo) {
             $res['RecordInfo'] = null !== $this->recordInfo ? $this->recordInfo->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class CreateLiveStreamRecordIndexFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RecordInfo'])) {
             $model->recordInfo = recordInfo::fromMap($map['RecordInfo']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -16,12 +16,12 @@ class liveStreamControlInfo extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $clientIP;
 
     /**
      * @var string
      */
-    public $clientIP;
+    public $streamName;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class liveStreamControlInfo extends Model
     public $timeStamp;
     protected $_name = [
         'action'     => 'Action',
-        'streamName' => 'StreamName',
         'clientIP'   => 'ClientIP',
+        'streamName' => 'StreamName',
         'timeStamp'  => 'TimeStamp',
     ];
 
@@ -44,11 +44,11 @@ class liveStreamControlInfo extends Model
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
         if (null !== $this->clientIP) {
             $res['ClientIP'] = $this->clientIP;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -68,11 +68,11 @@ class liveStreamControlInfo extends Model
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
         if (isset($map['ClientIP'])) {
             $model->clientIP = $map['ClientIP'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

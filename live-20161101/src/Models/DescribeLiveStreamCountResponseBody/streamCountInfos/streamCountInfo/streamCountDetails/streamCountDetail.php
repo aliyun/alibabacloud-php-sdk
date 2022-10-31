@@ -11,7 +11,7 @@ class streamCountDetail extends Model
     /**
      * @var int
      */
-    public $videoDataRate;
+    public $count;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class streamCountDetail extends Model
     /**
      * @var int
      */
-    public $count;
+    public $videoDataRate;
     protected $_name = [
-        'videoDataRate' => 'VideoDataRate',
-        'format'        => 'Format',
         'count'         => 'Count',
+        'format'        => 'Format',
+        'videoDataRate' => 'VideoDataRate',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class streamCountDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoDataRate) {
-            $res['VideoDataRate'] = $this->videoDataRate;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->videoDataRate) {
+            $res['VideoDataRate'] = $this->videoDataRate;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class streamCountDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoDataRate'])) {
-            $model->videoDataRate = $map['VideoDataRate'];
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['VideoDataRate'])) {
+            $model->videoDataRate = $map['VideoDataRate'];
         }
 
         return $model;

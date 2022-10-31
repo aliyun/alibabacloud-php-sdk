@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateCasterRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterName;
@@ -21,12 +16,7 @@ class CreateCasterRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var int
-     */
-    public $normType;
+    public $casterTemplate;
 
     /**
      * @var string
@@ -36,7 +26,7 @@ class CreateCasterRequest extends Model
     /**
      * @var string
      */
-    public $purchaseTime;
+    public $clientToken;
 
     /**
      * @var string
@@ -44,18 +34,28 @@ class CreateCasterRequest extends Model
     public $expireTime;
 
     /**
+     * @var int
+     */
+    public $normType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $casterTemplate;
+    public $purchaseTime;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'casterName'     => 'CasterName',
-        'clientToken'    => 'ClientToken',
-        'normType'       => 'NormType',
-        'chargeType'     => 'ChargeType',
-        'purchaseTime'   => 'PurchaseTime',
-        'expireTime'     => 'ExpireTime',
         'casterTemplate' => 'CasterTemplate',
+        'chargeType'     => 'ChargeType',
+        'clientToken'    => 'ClientToken',
+        'expireTime'     => 'ExpireTime',
+        'normType'       => 'NormType',
+        'ownerId'        => 'OwnerId',
+        'purchaseTime'   => 'PurchaseTime',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class CreateCasterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterName) {
             $res['CasterName'] = $this->casterName;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->normType) {
-            $res['NormType'] = $this->normType;
+        if (null !== $this->casterTemplate) {
+            $res['CasterTemplate'] = $this->casterTemplate;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->purchaseTime) {
-            $res['PurchaseTime'] = $this->purchaseTime;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
-        if (null !== $this->casterTemplate) {
-            $res['CasterTemplate'] = $this->casterTemplate;
+        if (null !== $this->normType) {
+            $res['NormType'] = $this->normType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->purchaseTime) {
+            $res['PurchaseTime'] = $this->purchaseTime;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class CreateCasterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterName'])) {
             $model->casterName = $map['CasterName'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['NormType'])) {
-            $model->normType = $map['NormType'];
+        if (isset($map['CasterTemplate'])) {
+            $model->casterTemplate = $map['CasterTemplate'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['PurchaseTime'])) {
-            $model->purchaseTime = $map['PurchaseTime'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
-        if (isset($map['CasterTemplate'])) {
-            $model->casterTemplate = $map['CasterTemplate'];
+        if (isset($map['NormType'])) {
+            $model->normType = $map['NormType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PurchaseTime'])) {
+            $model->purchaseTime = $map['PurchaseTime'];
         }
 
         return $model;

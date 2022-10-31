@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddLivePullStreamInfoConfigRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class AddLivePullStreamInfoConfigRequest extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $streamName;
+    public $ownerId;
 
     /**
      * @var string
@@ -41,15 +41,15 @@ class AddLivePullStreamInfoConfigRequest extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $streamName;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'appName'    => 'AppName',
-        'streamName' => 'StreamName',
+        'domainName' => 'DomainName',
+        'endTime'    => 'EndTime',
+        'ownerId'    => 'OwnerId',
         'sourceUrl'  => 'SourceUrl',
         'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class AddLivePullStreamInfoConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->sourceUrl) {
             $res['SourceUrl'] = $this->sourceUrl;
@@ -77,8 +77,8 @@ class AddLivePullStreamInfoConfigRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -92,17 +92,17 @@ class AddLivePullStreamInfoConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SourceUrl'])) {
             $model->sourceUrl = $map['SourceUrl'];
@@ -110,8 +110,8 @@ class AddLivePullStreamInfoConfigRequest extends Model
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

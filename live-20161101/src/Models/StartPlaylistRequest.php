@@ -11,6 +11,11 @@ class StartPlaylistRequest extends Model
     /**
      * @var int
      */
+    public $offset;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -27,17 +32,12 @@ class StartPlaylistRequest extends Model
      * @var string
      */
     public $startItemId;
-
-    /**
-     * @var int
-     */
-    public $offset;
     protected $_name = [
+        'offset'      => 'Offset',
         'ownerId'     => 'OwnerId',
         'programId'   => 'ProgramId',
         'resumeMode'  => 'ResumeMode',
         'startItemId' => 'StartItemId',
-        'offset'      => 'Offset',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class StartPlaylistRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -58,9 +61,6 @@ class StartPlaylistRequest extends Model
         }
         if (null !== $this->startItemId) {
             $res['StartItemId'] = $this->startItemId;
-        }
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class StartPlaylistRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -85,9 +88,6 @@ class StartPlaylistRequest extends Model
         }
         if (isset($map['StartItemId'])) {
             $model->startItemId = $map['StartItemId'];
-        }
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
         }
 
         return $model;

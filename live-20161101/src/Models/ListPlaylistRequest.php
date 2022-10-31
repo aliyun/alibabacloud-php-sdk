@@ -14,11 +14,6 @@ class ListPlaylistRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $programId;
-
-    /**
      * @var int
      */
     public $page;
@@ -27,11 +22,16 @@ class ListPlaylistRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $programId;
     protected $_name = [
         'ownerId'   => 'OwnerId',
-        'programId' => 'ProgramId',
         'page'      => 'Page',
         'pageSize'  => 'PageSize',
+        'programId' => 'ProgramId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListPlaylistRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->programId) {
-            $res['ProgramId'] = $this->programId;
-        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->programId) {
+            $res['ProgramId'] = $this->programId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListPlaylistRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ProgramId'])) {
-            $model->programId = $map['ProgramId'];
-        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProgramId'])) {
+            $model->programId = $map['ProgramId'];
         }
 
         return $model;

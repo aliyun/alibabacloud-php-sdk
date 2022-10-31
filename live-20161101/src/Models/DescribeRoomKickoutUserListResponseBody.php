@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoomKickoutUserListResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalNum;
@@ -20,18 +25,13 @@ class DescribeRoomKickoutUserListResponseBody extends Model
     public $totalPage;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var userList[]
      */
     public $userList;
     protected $_name = [
+        'requestId' => 'RequestId',
         'totalNum'  => 'TotalNum',
         'totalPage' => 'TotalPage',
-        'requestId' => 'RequestId',
         'userList'  => 'UserList',
     ];
 
@@ -42,14 +42,14 @@ class DescribeRoomKickoutUserListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->userList) {
             $res['UserList'] = [];
@@ -72,14 +72,14 @@ class DescribeRoomKickoutUserListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {

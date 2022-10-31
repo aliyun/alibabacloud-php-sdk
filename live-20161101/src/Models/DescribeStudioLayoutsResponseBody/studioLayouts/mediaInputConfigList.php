@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class mediaInputConfigList extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $index;
+    public $channelId;
+
+    /**
+     * @var string
+     */
+    public $fillMode;
 
     /**
      * @var float
@@ -21,22 +26,27 @@ class mediaInputConfigList extends Model
     /**
      * @var string
      */
-    public $fillMode;
+    public $id;
 
     /**
      * @var string
      */
-    public $positionRefer;
+    public $imageMaterialId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $channelId;
+    public $index;
 
     /**
      * @var float[]
      */
     public $positionNormalized;
+
+    /**
+     * @var string
+     */
+    public $positionRefer;
 
     /**
      * @var string
@@ -47,27 +57,17 @@ class mediaInputConfigList extends Model
      * @var float
      */
     public $widthNormalized;
-
-    /**
-     * @var string
-     */
-    public $imageMaterialId;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
-        'index'              => 'Index',
-        'heightNormalized'   => 'HeightNormalized',
-        'fillMode'           => 'FillMode',
-        'positionRefer'      => 'PositionRefer',
         'channelId'          => 'ChannelId',
+        'fillMode'           => 'FillMode',
+        'heightNormalized'   => 'HeightNormalized',
+        'id'                 => 'Id',
+        'imageMaterialId'    => 'ImageMaterialId',
+        'index'              => 'Index',
         'positionNormalized' => 'PositionNormalized',
+        'positionRefer'      => 'PositionRefer',
         'videoResourceId'    => 'VideoResourceId',
         'widthNormalized'    => 'WidthNormalized',
-        'imageMaterialId'    => 'ImageMaterialId',
-        'id'                 => 'Id',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class mediaInputConfigList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
-        }
-        if (null !== $this->heightNormalized) {
-            $res['HeightNormalized'] = $this->heightNormalized;
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->fillMode) {
             $res['FillMode'] = $this->fillMode;
         }
-        if (null !== $this->positionRefer) {
-            $res['PositionRefer'] = $this->positionRefer;
+        if (null !== $this->heightNormalized) {
+            $res['HeightNormalized'] = $this->heightNormalized;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->imageMaterialId) {
+            $res['ImageMaterialId'] = $this->imageMaterialId;
+        }
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
         }
         if (null !== $this->positionNormalized) {
             $res['PositionNormalized'] = $this->positionNormalized;
+        }
+        if (null !== $this->positionRefer) {
+            $res['PositionRefer'] = $this->positionRefer;
         }
         if (null !== $this->videoResourceId) {
             $res['VideoResourceId'] = $this->videoResourceId;
         }
         if (null !== $this->widthNormalized) {
             $res['WidthNormalized'] = $this->widthNormalized;
-        }
-        if (null !== $this->imageMaterialId) {
-            $res['ImageMaterialId'] = $this->imageMaterialId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -119,37 +119,37 @@ class mediaInputConfigList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
-        }
-        if (isset($map['HeightNormalized'])) {
-            $model->heightNormalized = $map['HeightNormalized'];
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['FillMode'])) {
             $model->fillMode = $map['FillMode'];
         }
-        if (isset($map['PositionRefer'])) {
-            $model->positionRefer = $map['PositionRefer'];
+        if (isset($map['HeightNormalized'])) {
+            $model->heightNormalized = $map['HeightNormalized'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['ImageMaterialId'])) {
+            $model->imageMaterialId = $map['ImageMaterialId'];
+        }
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
         }
         if (isset($map['PositionNormalized'])) {
             if (!empty($map['PositionNormalized'])) {
                 $model->positionNormalized = $map['PositionNormalized'];
             }
         }
+        if (isset($map['PositionRefer'])) {
+            $model->positionRefer = $map['PositionRefer'];
+        }
         if (isset($map['VideoResourceId'])) {
             $model->videoResourceId = $map['VideoResourceId'];
         }
         if (isset($map['WidthNormalized'])) {
             $model->widthNormalized = $map['WidthNormalized'];
-        }
-        if (isset($map['ImageMaterialId'])) {
-            $model->imageMaterialId = $map['ImageMaterialId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

@@ -11,15 +11,27 @@ class liveStreamsNotifyConfig extends Model
     /**
      * @var string
      */
-    public $notifyUrl;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $notifyAuthKey;
+
+    /**
+     * @var string
+     */
+    public $notifyReqAuth;
+
+    /**
+     * @var string
+     */
+    public $notifyUrl;
     protected $_name = [
-        'notifyUrl'  => 'NotifyUrl',
-        'domainName' => 'DomainName',
+        'domainName'    => 'DomainName',
+        'notifyAuthKey' => 'NotifyAuthKey',
+        'notifyReqAuth' => 'NotifyReqAuth',
+        'notifyUrl'     => 'NotifyUrl',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class liveStreamsNotifyConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->notifyUrl) {
-            $res['NotifyUrl'] = $this->notifyUrl;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->notifyAuthKey) {
+            $res['NotifyAuthKey'] = $this->notifyAuthKey;
+        }
+        if (null !== $this->notifyReqAuth) {
+            $res['NotifyReqAuth'] = $this->notifyReqAuth;
+        }
+        if (null !== $this->notifyUrl) {
+            $res['NotifyUrl'] = $this->notifyUrl;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class liveStreamsNotifyConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NotifyUrl'])) {
-            $model->notifyUrl = $map['NotifyUrl'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['NotifyAuthKey'])) {
+            $model->notifyAuthKey = $map['NotifyAuthKey'];
+        }
+        if (isset($map['NotifyReqAuth'])) {
+            $model->notifyReqAuth = $map['NotifyReqAuth'];
+        }
+        if (isset($map['NotifyUrl'])) {
+            $model->notifyUrl = $map['NotifyUrl'];
         }
 
         return $model;

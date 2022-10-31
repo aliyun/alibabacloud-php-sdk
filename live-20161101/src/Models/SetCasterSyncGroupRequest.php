@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class SetCasterSyncGroupRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var syncGroup[]
      */
     public $syncGroup;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'casterId'  => 'CasterId',
+        'ownerId'   => 'OwnerId',
         'syncGroup' => 'SyncGroup',
     ];
 
@@ -36,11 +36,11 @@ class SetCasterSyncGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->syncGroup) {
             $res['SyncGroup'] = [];
@@ -63,11 +63,11 @@ class SetCasterSyncGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SyncGroup'])) {
             if (!empty($map['SyncGroup'])) {

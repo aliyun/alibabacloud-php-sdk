@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetLiveLazyPullStreamInfoConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $appName;
@@ -26,7 +16,12 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
     /**
      * @var string
      */
-    public $pullDomainName;
+    public $domainName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -36,13 +31,18 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
     /**
      * @var string
      */
+    public $pullDomainName;
+
+    /**
+     * @var string
+     */
     public $pullProtocol;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
-        'domainName'     => 'DomainName',
         'appName'        => 'AppName',
-        'pullDomainName' => 'PullDomainName',
+        'domainName'     => 'DomainName',
+        'ownerId'        => 'OwnerId',
         'pullAppName'    => 'PullAppName',
+        'pullDomainName' => 'PullDomainName',
         'pullProtocol'   => 'PullProtocol',
     ];
 
@@ -53,20 +53,20 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->pullDomainName) {
-            $res['PullDomainName'] = $this->pullDomainName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pullAppName) {
             $res['PullAppName'] = $this->pullAppName;
+        }
+        if (null !== $this->pullDomainName) {
+            $res['PullDomainName'] = $this->pullDomainName;
         }
         if (null !== $this->pullProtocol) {
             $res['PullProtocol'] = $this->pullProtocol;
@@ -83,20 +83,20 @@ class SetLiveLazyPullStreamInfoConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['PullDomainName'])) {
-            $model->pullDomainName = $map['PullDomainName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PullAppName'])) {
             $model->pullAppName = $map['PullAppName'];
+        }
+        if (isset($map['PullDomainName'])) {
+            $model->pullDomainName = $map['PullDomainName'];
         }
         if (isset($map['PullProtocol'])) {
             $model->pullProtocol = $map['PullProtocol'];

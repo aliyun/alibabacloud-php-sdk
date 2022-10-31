@@ -11,20 +11,20 @@ class UpdateLiveTopLevelDomainRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $topLevelDomain;
     protected $_name = [
-        'securityToken'  => 'SecurityToken',
         'domainName'     => 'DomainName',
+        'securityToken'  => 'SecurityToken',
         'topLevelDomain' => 'TopLevelDomain',
     ];
 
@@ -35,11 +35,11 @@ class UpdateLiveTopLevelDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->topLevelDomain) {
             $res['TopLevelDomain'] = $this->topLevelDomain;
@@ -56,11 +56,11 @@ class UpdateLiveTopLevelDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['TopLevelDomain'])) {
             $model->topLevelDomain = $map['TopLevelDomain'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeForbidPushStreamRoomListRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $appId;
@@ -26,6 +21,11 @@ class DescribeForbidPushStreamRoomListRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -33,9 +33,9 @@ class DescribeForbidPushStreamRoomListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
         'order'    => 'Order',
+        'ownerId'  => 'OwnerId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
     ];
@@ -47,14 +47,14 @@ class DescribeForbidPushStreamRoomListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -74,14 +74,14 @@ class DescribeForbidPushStreamRoomListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

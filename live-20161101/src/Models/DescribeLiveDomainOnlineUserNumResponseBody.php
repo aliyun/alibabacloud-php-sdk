@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainOnlineUserNumResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $streamCount;
-
-    /**
      * @var onlineUserInfo
      */
     public $onlineUserInfo;
@@ -27,11 +22,16 @@ class DescribeLiveDomainOnlineUserNumResponseBody extends Model
     /**
      * @var int
      */
+    public $streamCount;
+
+    /**
+     * @var int
+     */
     public $userCount;
     protected $_name = [
-        'streamCount'    => 'StreamCount',
         'onlineUserInfo' => 'OnlineUserInfo',
         'requestId'      => 'RequestId',
+        'streamCount'    => 'StreamCount',
         'userCount'      => 'UserCount',
     ];
 
@@ -42,14 +42,14 @@ class DescribeLiveDomainOnlineUserNumResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streamCount) {
-            $res['StreamCount'] = $this->streamCount;
-        }
         if (null !== $this->onlineUserInfo) {
             $res['OnlineUserInfo'] = null !== $this->onlineUserInfo ? $this->onlineUserInfo->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->streamCount) {
+            $res['StreamCount'] = $this->streamCount;
         }
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
@@ -66,14 +66,14 @@ class DescribeLiveDomainOnlineUserNumResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StreamCount'])) {
-            $model->streamCount = $map['StreamCount'];
-        }
         if (isset($map['OnlineUserInfo'])) {
             $model->onlineUserInfo = onlineUserInfo::fromMap($map['OnlineUserInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StreamCount'])) {
+            $model->streamCount = $map['StreamCount'];
         }
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class AddPlaylistItemsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var items
      */
     public $items;
@@ -23,10 +18,15 @@ class AddPlaylistItemsResponseBody extends Model
      * @var string
      */
     public $programId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'items'     => 'Items',
         'programId' => 'ProgramId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class AddPlaylistItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class AddPlaylistItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class detail extends Model
     /**
      * @var int
      */
-    public $TS;
+    public $MP4;
 
     /**
      * @var int
      */
-    public $MP4;
+    public $TS;
     protected $_name = [
         'FLV' => 'FLV',
-        'TS'  => 'TS',
         'MP4' => 'MP4',
+        'TS'  => 'TS',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class detail extends Model
         if (null !== $this->FLV) {
             $res['FLV'] = $this->FLV;
         }
-        if (null !== $this->TS) {
-            $res['TS'] = $this->TS;
-        }
         if (null !== $this->MP4) {
             $res['MP4'] = $this->MP4;
+        }
+        if (null !== $this->TS) {
+            $res['TS'] = $this->TS;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class detail extends Model
         if (isset($map['FLV'])) {
             $model->FLV = $map['FLV'];
         }
-        if (isset($map['TS'])) {
-            $model->TS = $map['TS'];
-        }
         if (isset($map['MP4'])) {
             $model->MP4 = $map['MP4'];
+        }
+        if (isset($map['TS'])) {
+            $model->TS = $map['TS'];
         }
 
         return $model;

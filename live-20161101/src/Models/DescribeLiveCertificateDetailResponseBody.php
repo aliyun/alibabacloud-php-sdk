@@ -11,7 +11,7 @@ class DescribeLiveCertificateDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $cert;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class DescribeLiveCertificateDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $cert;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'cert'      => 'Cert',
         'certId'    => 'CertId',
         'certName'  => 'CertName',
-        'cert'      => 'Cert',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class DescribeLiveCertificateDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->cert) {
+            $res['Cert'] = $this->cert;
         }
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
@@ -50,8 +50,8 @@ class DescribeLiveCertificateDetailResponseBody extends Model
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
-        if (null !== $this->cert) {
-            $res['Cert'] = $this->cert;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class DescribeLiveCertificateDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Cert'])) {
+            $model->cert = $map['Cert'];
         }
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
@@ -74,8 +74,8 @@ class DescribeLiveCertificateDetailResponseBody extends Model
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
-        if (isset($map['Cert'])) {
-            $model->cert = $map['Cert'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class streamInfos extends Model
 {
     /**
-     * @var string
-     */
-    public $streamName;
-
-    /**
      * @var infos[]
      */
     public $infos;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'streamName' => 'StreamName',
         'infos'      => 'Infos',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class streamInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
         if (null !== $this->infos) {
             $res['Infos'] = [];
             if (null !== $this->infos && \is_array($this->infos)) {
@@ -41,6 +38,9 @@ class streamInfos extends Model
                     $res['Infos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class streamInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
         if (isset($map['Infos'])) {
             if (!empty($map['Infos'])) {
                 $model->infos = [];
@@ -65,6 +62,9 @@ class streamInfos extends Model
                     $model->infos[$n++] = null !== $item ? infos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

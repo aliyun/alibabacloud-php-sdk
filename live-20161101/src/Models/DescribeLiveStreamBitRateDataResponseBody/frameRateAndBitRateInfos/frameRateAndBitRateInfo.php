@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class frameRateAndBitRateInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $time;
-
-    /**
      * @var float
      */
     public $audioFrameRate;
@@ -21,7 +16,7 @@ class frameRateAndBitRateInfo extends Model
     /**
      * @var float
      */
-    public $videoFrameRate;
+    public $bitRate;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class frameRateAndBitRateInfo extends Model
     public $streamUrl;
 
     /**
+     * @var string
+     */
+    public $time;
+
+    /**
      * @var float
      */
-    public $bitRate;
+    public $videoFrameRate;
     protected $_name = [
-        'time'           => 'Time',
         'audioFrameRate' => 'AudioFrameRate',
-        'videoFrameRate' => 'VideoFrameRate',
-        'streamUrl'      => 'StreamUrl',
         'bitRate'        => 'BitRate',
+        'streamUrl'      => 'StreamUrl',
+        'time'           => 'Time',
+        'videoFrameRate' => 'VideoFrameRate',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class frameRateAndBitRateInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->audioFrameRate) {
             $res['AudioFrameRate'] = $this->audioFrameRate;
         }
-        if (null !== $this->videoFrameRate) {
-            $res['VideoFrameRate'] = $this->videoFrameRate;
+        if (null !== $this->bitRate) {
+            $res['BitRate'] = $this->bitRate;
         }
         if (null !== $this->streamUrl) {
             $res['StreamUrl'] = $this->streamUrl;
         }
-        if (null !== $this->bitRate) {
-            $res['BitRate'] = $this->bitRate;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
+        if (null !== $this->videoFrameRate) {
+            $res['VideoFrameRate'] = $this->videoFrameRate;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class frameRateAndBitRateInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['AudioFrameRate'])) {
             $model->audioFrameRate = $map['AudioFrameRate'];
         }
-        if (isset($map['VideoFrameRate'])) {
-            $model->videoFrameRate = $map['VideoFrameRate'];
+        if (isset($map['BitRate'])) {
+            $model->bitRate = $map['BitRate'];
         }
         if (isset($map['StreamUrl'])) {
             $model->streamUrl = $map['StreamUrl'];
         }
-        if (isset($map['BitRate'])) {
-            $model->bitRate = $map['BitRate'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
+        if (isset($map['VideoFrameRate'])) {
+            $model->videoFrameRate = $map['VideoFrameRate'];
         }
 
         return $model;

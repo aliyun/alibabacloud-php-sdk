@@ -11,20 +11,20 @@ class userList extends Model
     /**
      * @var string
      */
-    public $opEndTime;
+    public $appUid;
 
     /**
      * @var string
      */
-    public $appUid;
+    public $opEndTime;
 
     /**
      * @var string
      */
     public $opStartTime;
     protected $_name = [
-        'opEndTime'   => 'OpEndTime',
         'appUid'      => 'AppUid',
+        'opEndTime'   => 'OpEndTime',
         'opStartTime' => 'OpStartTime',
     ];
 
@@ -35,11 +35,11 @@ class userList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->opEndTime) {
-            $res['OpEndTime'] = $this->opEndTime;
-        }
         if (null !== $this->appUid) {
             $res['AppUid'] = $this->appUid;
+        }
+        if (null !== $this->opEndTime) {
+            $res['OpEndTime'] = $this->opEndTime;
         }
         if (null !== $this->opStartTime) {
             $res['OpStartTime'] = $this->opStartTime;
@@ -56,11 +56,11 @@ class userList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpEndTime'])) {
-            $model->opEndTime = $map['OpEndTime'];
-        }
         if (isset($map['AppUid'])) {
             $model->appUid = $map['AppUid'];
+        }
+        if (isset($map['OpEndTime'])) {
+            $model->opEndTime = $map['OpEndTime'];
         }
         if (isset($map['OpStartTime'])) {
             $model->opStartTime = $map['OpStartTime'];

@@ -11,7 +11,12 @@ class DeleteLiveStreamTranscodeRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $app;
+
+    /**
+     * @var string
+     */
+    public $domain;
 
     /**
      * @var int
@@ -21,22 +26,17 @@ class DeleteLiveStreamTranscodeRequest extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
-    public $app;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $template;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'ownerId'       => 'OwnerId',
-        'domain'        => 'Domain',
         'app'           => 'App',
+        'domain'        => 'Domain',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
         'template'      => 'Template',
     ];
 
@@ -47,17 +47,17 @@ class DeleteLiveStreamTranscodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->app) {
+            $res['App'] = $this->app;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->app) {
-            $res['App'] = $this->app;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->template) {
             $res['Template'] = $this->template;
@@ -74,17 +74,17 @@ class DeleteLiveStreamTranscodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['App'])) {
+            $model->app = $map['App'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['App'])) {
-            $model->app = $map['App'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Template'])) {
             $model->template = $map['Template'];

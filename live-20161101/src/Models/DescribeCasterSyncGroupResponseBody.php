@@ -12,21 +12,21 @@ class DescribeCasterSyncGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $casterId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var syncGroups
      */
     public $syncGroups;
-
-    /**
-     * @var string
-     */
-    public $casterId;
     protected $_name = [
+        'casterId'   => 'CasterId',
         'requestId'  => 'RequestId',
         'syncGroups' => 'SyncGroups',
-        'casterId'   => 'CasterId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeCasterSyncGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->syncGroups) {
             $res['SyncGroups'] = null !== $this->syncGroups ? $this->syncGroups->toMap() : null;
-        }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeCasterSyncGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SyncGroups'])) {
             $model->syncGroups = syncGroups::fromMap($map['SyncGroups']);
-        }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
         }
 
         return $model;

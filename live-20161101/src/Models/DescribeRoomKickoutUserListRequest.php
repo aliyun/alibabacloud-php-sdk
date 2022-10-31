@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoomKickoutUserListRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $appId;
@@ -21,12 +16,12 @@ class DescribeRoomKickoutUserListRequest extends Model
     /**
      * @var string
      */
-    public $roomId;
+    public $order;
 
     /**
-     * @var string
+     * @var int
      */
-    public $order;
+    public $ownerId;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class DescribeRoomKickoutUserListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $roomId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
-        'roomId'   => 'RoomId',
         'order'    => 'Order',
+        'ownerId'  => 'OwnerId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
+        'roomId'   => 'RoomId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeRoomKickoutUserListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->roomId) {
-            $res['RoomId'] = $this->roomId;
-        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeRoomKickoutUserListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['RoomId'])) {
-            $model->roomId = $map['RoomId'];
-        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
 
         return $model;

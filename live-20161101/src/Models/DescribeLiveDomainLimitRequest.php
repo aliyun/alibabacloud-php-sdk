@@ -9,23 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainLimitRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $liveapiRequestFrom;
+    public $ownerId;
     protected $_name = [
-        'ownerId'            => 'OwnerId',
-        'domainName'         => 'DomainName',
-        'liveapiRequestFrom' => 'LiveapiRequestFrom',
+        'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class DescribeLiveDomainLimitRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->liveapiRequestFrom) {
-            $res['LiveapiRequestFrom'] = $this->liveapiRequestFrom;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +47,11 @@ class DescribeLiveDomainLimitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['LiveapiRequestFrom'])) {
-            $model->liveapiRequestFrom = $map['LiveapiRequestFrom'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

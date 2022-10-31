@@ -16,7 +16,7 @@ class programItems extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $programId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class programItems extends Model
     /**
      * @var string
      */
-    public $programId;
+    public $programItemName;
 
     /**
      * @var string
      */
-    public $programItemName;
+    public $resourceType;
 
     /**
      * @var string
@@ -39,10 +39,10 @@ class programItems extends Model
     public $resourceValue;
     protected $_name = [
         'index'           => 'Index',
-        'resourceType'    => 'ResourceType',
-        'programItemId'   => 'ProgramItemId',
         'programId'       => 'ProgramId',
+        'programItemId'   => 'ProgramItemId',
         'programItemName' => 'ProgramItemName',
+        'resourceType'    => 'ResourceType',
         'resourceValue'   => 'ResourceValue',
     ];
 
@@ -56,17 +56,17 @@ class programItems extends Model
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->programId) {
+            $res['ProgramId'] = $this->programId;
         }
         if (null !== $this->programItemId) {
             $res['ProgramItemId'] = $this->programItemId;
         }
-        if (null !== $this->programId) {
-            $res['ProgramId'] = $this->programId;
-        }
         if (null !== $this->programItemName) {
             $res['ProgramItemName'] = $this->programItemName;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->resourceValue) {
             $res['ResourceValue'] = $this->resourceValue;
@@ -86,17 +86,17 @@ class programItems extends Model
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['ProgramId'])) {
+            $model->programId = $map['ProgramId'];
         }
         if (isset($map['ProgramItemId'])) {
             $model->programItemId = $map['ProgramItemId'];
         }
-        if (isset($map['ProgramId'])) {
-            $model->programId = $map['ProgramId'];
-        }
         if (isset($map['ProgramItemName'])) {
             $model->programItemName = $map['ProgramItemName'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['ResourceValue'])) {
             $model->resourceValue = $map['ResourceValue'];

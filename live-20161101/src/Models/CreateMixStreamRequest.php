@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMixStreamRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $callbackConfig;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class CreateMixStreamRequest extends Model
     /**
      * @var string
      */
-    public $layoutId;
+    public $inputStreamList;
 
     /**
      * @var string
      */
-    public $inputStreamList;
+    public $layoutId;
 
     /**
      * @var string
@@ -34,16 +34,16 @@ class CreateMixStreamRequest extends Model
     public $outputConfig;
 
     /**
-     * @var string
+     * @var int
      */
-    public $callbackConfig;
+    public $ownerId;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'domainName'      => 'DomainName',
-        'layoutId'        => 'LayoutId',
-        'inputStreamList' => 'InputStreamList',
-        'outputConfig'    => 'OutputConfig',
         'callbackConfig'  => 'CallbackConfig',
+        'domainName'      => 'DomainName',
+        'inputStreamList' => 'InputStreamList',
+        'layoutId'        => 'LayoutId',
+        'outputConfig'    => 'OutputConfig',
+        'ownerId'         => 'OwnerId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateMixStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->callbackConfig) {
+            $res['CallbackConfig'] = $this->callbackConfig;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->layoutId) {
-            $res['LayoutId'] = $this->layoutId;
-        }
         if (null !== $this->inputStreamList) {
             $res['InputStreamList'] = $this->inputStreamList;
+        }
+        if (null !== $this->layoutId) {
+            $res['LayoutId'] = $this->layoutId;
         }
         if (null !== $this->outputConfig) {
             $res['OutputConfig'] = $this->outputConfig;
         }
-        if (null !== $this->callbackConfig) {
-            $res['CallbackConfig'] = $this->callbackConfig;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateMixStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CallbackConfig'])) {
+            $model->callbackConfig = $map['CallbackConfig'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['LayoutId'])) {
-            $model->layoutId = $map['LayoutId'];
-        }
         if (isset($map['InputStreamList'])) {
             $model->inputStreamList = $map['InputStreamList'];
+        }
+        if (isset($map['LayoutId'])) {
+            $model->layoutId = $map['LayoutId'];
         }
         if (isset($map['OutputConfig'])) {
             $model->outputConfig = $map['OutputConfig'];
         }
-        if (isset($map['CallbackConfig'])) {
-            $model->callbackConfig = $map['CallbackConfig'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

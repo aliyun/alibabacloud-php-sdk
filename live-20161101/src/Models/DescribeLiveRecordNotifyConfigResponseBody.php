@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRecordNotifyConfigResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var liveRecordNotifyConfig
      */
     public $liveRecordNotifyConfig;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'              => 'RequestId',
         'liveRecordNotifyConfig' => 'LiveRecordNotifyConfig',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLiveRecordNotifyConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->liveRecordNotifyConfig) {
             $res['LiveRecordNotifyConfig'] = null !== $this->liveRecordNotifyConfig ? $this->liveRecordNotifyConfig->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLiveRecordNotifyConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LiveRecordNotifyConfig'])) {
             $model->liveRecordNotifyConfig = liveRecordNotifyConfig::fromMap($map['LiveRecordNotifyConfig']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

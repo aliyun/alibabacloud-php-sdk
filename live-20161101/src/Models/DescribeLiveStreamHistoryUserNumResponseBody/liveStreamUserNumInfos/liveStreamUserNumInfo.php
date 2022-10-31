@@ -11,15 +11,15 @@ class liveStreamUserNumInfo extends Model
     /**
      * @var string
      */
-    public $userNum;
+    public $streamTime;
 
     /**
      * @var string
      */
-    public $streamTime;
+    public $userNum;
     protected $_name = [
-        'userNum'    => 'UserNum',
         'streamTime' => 'StreamTime',
+        'userNum'    => 'UserNum',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class liveStreamUserNumInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userNum) {
-            $res['UserNum'] = $this->userNum;
-        }
         if (null !== $this->streamTime) {
             $res['StreamTime'] = $this->streamTime;
+        }
+        if (null !== $this->userNum) {
+            $res['UserNum'] = $this->userNum;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class liveStreamUserNumInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserNum'])) {
-            $model->userNum = $map['UserNum'];
-        }
         if (isset($map['StreamTime'])) {
             $model->streamTime = $map['StreamTime'];
+        }
+        if (isset($map['UserNum'])) {
+            $model->userNum = $map['UserNum'];
         }
 
         return $model;

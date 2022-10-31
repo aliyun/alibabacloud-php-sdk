@@ -11,12 +11,7 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -24,14 +19,9 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $ossEndpoint;
+    public $interval;
 
     /**
      * @var string
@@ -41,27 +31,37 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     /**
      * @var string
      */
+    public $ossEndpoint;
+
+    /**
+     * @var string
+     */
     public $ossObject;
 
     /**
      * @var int
      */
-    public $interval;
+    public $ownerId;
 
     /**
      * @var string[]
      */
     public $scene;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'ownerId'       => 'OwnerId',
-        'domainName'    => 'DomainName',
         'appName'       => 'AppName',
-        'ossEndpoint'   => 'OssEndpoint',
-        'ossBucket'     => 'OssBucket',
-        'ossObject'     => 'OssObject',
+        'domainName'    => 'DomainName',
         'interval'      => 'Interval',
+        'ossBucket'     => 'OssBucket',
+        'ossEndpoint'   => 'OssEndpoint',
+        'ossObject'     => 'OssObject',
+        'ownerId'       => 'OwnerId',
         'scene'         => 'Scene',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->ossEndpoint) {
-            $res['OssEndpoint'] = $this->ossEndpoint;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
+        }
         if (null !== $this->ossObject) {
             $res['OssObject'] = $this->ossObject;
         }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -110,34 +110,34 @@ class AddLiveSnapshotDetectPornConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['OssEndpoint'])) {
-            $model->ossEndpoint = $map['OssEndpoint'];
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
+        }
         if (isset($map['OssObject'])) {
             $model->ossObject = $map['OssObject'];
         }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Scene'])) {
             if (!empty($map['Scene'])) {
                 $model->scene = $map['Scene'];
             }
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

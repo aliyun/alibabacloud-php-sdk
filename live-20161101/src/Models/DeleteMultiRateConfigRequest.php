@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMultiRateConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $app;
-
-    /**
-     * @var string
-     */
-    public $groupId;
 
     /**
      * @var string
@@ -36,13 +21,28 @@ class DeleteMultiRateConfigRequest extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $templates;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'app'        => 'App',
-        'groupId'    => 'GroupId',
         'deleteAll'  => 'DeleteAll',
+        'domainName' => 'DomainName',
+        'groupId'    => 'GroupId',
+        'ownerId'    => 'OwnerId',
         'templates'  => 'Templates',
     ];
 
@@ -53,20 +53,20 @@ class DeleteMultiRateConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->app) {
+            $res['App'] = $this->app;
+        }
+        if (null !== $this->deleteAll) {
+            $res['DeleteAll'] = $this->deleteAll;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->app) {
-            $res['App'] = $this->app;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->deleteAll) {
-            $res['DeleteAll'] = $this->deleteAll;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->templates) {
             $res['Templates'] = $this->templates;
@@ -83,20 +83,20 @@ class DeleteMultiRateConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['App'])) {
+            $model->app = $map['App'];
+        }
+        if (isset($map['DeleteAll'])) {
+            $model->deleteAll = $map['DeleteAll'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['App'])) {
-            $model->app = $map['App'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['DeleteAll'])) {
-            $model->deleteAll = $map['DeleteAll'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Templates'])) {
             $model->templates = $map['Templates'];

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveAudioAuditConfigResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var liveAudioAuditConfigList
      */
     public $liveAudioAuditConfigList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                => 'RequestId',
         'liveAudioAuditConfigList' => 'LiveAudioAuditConfigList',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLiveAudioAuditConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->liveAudioAuditConfigList) {
             $res['LiveAudioAuditConfigList'] = null !== $this->liveAudioAuditConfigList ? $this->liveAudioAuditConfigList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLiveAudioAuditConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LiveAudioAuditConfigList'])) {
             $model->liveAudioAuditConfigList = liveAudioAuditConfigList::fromMap($map['LiveAudioAuditConfigList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

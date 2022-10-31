@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class realtimeLogDeliveryInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
     public $dmId;
@@ -21,7 +16,7 @@ class realtimeLogDeliveryInfo extends Model
     /**
      * @var string
      */
-    public $region;
+    public $domainName;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class realtimeLogDeliveryInfo extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
         'dmId'       => 'DmId',
-        'region'     => 'Region',
+        'domainName' => 'DomainName',
         'logstore'   => 'Logstore',
         'project'    => 'Project',
-        'domainName' => 'DomainName',
+        'region'     => 'Region',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class realtimeLogDeliveryInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->dmId) {
             $res['DmId'] = $this->dmId;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
@@ -68,8 +65,11 @@ class realtimeLogDeliveryInfo extends Model
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class realtimeLogDeliveryInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['DmId'])) {
             $model->dmId = $map['DmId'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
@@ -98,8 +95,11 @@ class realtimeLogDeliveryInfo extends Model
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

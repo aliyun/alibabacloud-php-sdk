@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class AddTrancodeSEIRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appName;
+
+    /**
      * @var int
      */
-    public $ownerId;
+    public $delay;
 
     /**
      * @var string
@@ -19,19 +24,9 @@ class AddTrancodeSEIRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $streamName;
-
-    /**
-     * @var string
-     */
-    public $text;
+    public $ownerId;
 
     /**
      * @var string
@@ -44,18 +39,23 @@ class AddTrancodeSEIRequest extends Model
     public $repeat;
 
     /**
-     * @var int
+     * @var string
      */
-    public $delay;
+    public $streamName;
+
+    /**
+     * @var string
+     */
+    public $text;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'appName'    => 'AppName',
-        'streamName' => 'StreamName',
-        'text'       => 'Text',
+        'delay'      => 'Delay',
+        'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
         'pattern'    => 'Pattern',
         'repeat'     => 'Repeat',
-        'delay'      => 'Delay',
+        'streamName' => 'StreamName',
+        'text'       => 'Text',
     ];
 
     public function validate()
@@ -65,20 +65,17 @@ class AddTrancodeSEIRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->delay) {
+            $res['Delay'] = $this->delay;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pattern) {
             $res['Pattern'] = $this->pattern;
@@ -86,8 +83,11 @@ class AddTrancodeSEIRequest extends Model
         if (null !== $this->repeat) {
             $res['Repeat'] = $this->repeat;
         }
-        if (null !== $this->delay) {
-            $res['Delay'] = $this->delay;
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
         }
 
         return $res;
@@ -101,20 +101,17 @@ class AddTrancodeSEIRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['Delay'])) {
+            $model->delay = $map['Delay'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Pattern'])) {
             $model->pattern = $map['Pattern'];
@@ -122,8 +119,11 @@ class AddTrancodeSEIRequest extends Model
         if (isset($map['Repeat'])) {
             $model->repeat = $map['Repeat'];
         }
-        if (isset($map['Delay'])) {
-            $model->delay = $map['Delay'];
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
+        }
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteCasterEpisodeRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterId;
@@ -22,10 +17,15 @@ class DeleteCasterEpisodeRequest extends Model
      * @var string
      */
     public $episodeId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'casterId'  => 'CasterId',
         'episodeId' => 'EpisodeId',
+        'ownerId'   => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteCasterEpisodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->episodeId) {
             $res['EpisodeId'] = $this->episodeId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteCasterEpisodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
         if (isset($map['EpisodeId'])) {
             $model->episodeId = $map['EpisodeId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

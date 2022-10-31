@@ -15,18 +15,18 @@ class recordDataInfo extends Model
     public $date;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var detail
      */
     public $detail;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'date'   => 'Date',
-        'total'  => 'Total',
         'detail' => 'Detail',
+        'total'  => 'Total',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class recordDataInfo extends Model
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class recordDataInfo extends Model
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Detail'])) {
             $model->detail = detail::fromMap($map['Detail']);
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

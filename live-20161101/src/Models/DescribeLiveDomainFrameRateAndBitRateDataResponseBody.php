@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainFrameRateAndBitRateDataResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var frameRateAndBitRateInfos
      */
     public $frameRateAndBitRateInfos;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                => 'RequestId',
         'frameRateAndBitRateInfos' => 'FrameRateAndBitRateInfos',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLiveDomainFrameRateAndBitRateDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->frameRateAndBitRateInfos) {
             $res['FrameRateAndBitRateInfos'] = null !== $this->frameRateAndBitRateInfos ? $this->frameRateAndBitRateInfos->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLiveDomainFrameRateAndBitRateDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FrameRateAndBitRateInfos'])) {
             $model->frameRateAndBitRateInfos = frameRateAndBitRateInfos::fromMap($map['FrameRateAndBitRateInfos']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

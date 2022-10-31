@@ -11,15 +11,15 @@ class ModifyCasterComponentResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $componentId;
 
     /**
      * @var string
      */
-    public $componentId;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'componentId' => 'ComponentId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyCasterComponentResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->componentId) {
             $res['ComponentId'] = $this->componentId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyCasterComponentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ComponentId'])) {
             $model->componentId = $map['ComponentId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

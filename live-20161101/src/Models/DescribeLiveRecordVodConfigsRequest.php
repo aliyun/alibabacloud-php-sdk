@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRecordVodConfigsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $appName;
@@ -26,7 +16,12 @@ class DescribeLiveRecordVodConfigsRequest extends Model
     /**
      * @var string
      */
-    public $streamName;
+    public $domainName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -37,13 +32,18 @@ class DescribeLiveRecordVodConfigsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'appName'    => 'AppName',
-        'streamName' => 'StreamName',
+        'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeLiveRecordVodConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeLiveRecordVodConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

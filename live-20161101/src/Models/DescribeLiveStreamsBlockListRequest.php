@@ -11,17 +11,12 @@ class DescribeLiveStreamsBlockListRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $domainName;
 
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
 
     /**
      * @var int
@@ -32,12 +27,17 @@ class DescribeLiveStreamsBlockListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'ownerId'       => 'OwnerId',
         'domainName'    => 'DomainName',
+        'ownerId'       => 'OwnerId',
         'pageNum'       => 'PageNum',
         'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeLiveStreamsBlockListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeLiveStreamsBlockListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

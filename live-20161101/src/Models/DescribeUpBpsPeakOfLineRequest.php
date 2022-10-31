@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpBpsPeakOfLineRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $domainSwitch;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class DescribeUpBpsPeakOfLineRequest extends Model
     public $line;
 
     /**
-     * @var string
+     * @var int
      */
-    public $domainSwitch;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $startTime;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'startTime'    => 'StartTime',
+        'domainName'   => 'DomainName',
+        'domainSwitch' => 'DomainSwitch',
         'endTime'      => 'EndTime',
         'line'         => 'Line',
-        'domainSwitch' => 'DomainSwitch',
-        'domainName'   => 'DomainName',
+        'ownerId'      => 'OwnerId',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class DescribeUpBpsPeakOfLineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domainSwitch) {
+            $res['DomainSwitch'] = $this->domainSwitch;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -65,11 +65,11 @@ class DescribeUpBpsPeakOfLineRequest extends Model
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
-        if (null !== $this->domainSwitch) {
-            $res['DomainSwitch'] = $this->domainSwitch;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class DescribeUpBpsPeakOfLineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DomainSwitch'])) {
+            $model->domainSwitch = $map['DomainSwitch'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -95,11 +95,11 @@ class DescribeUpBpsPeakOfLineRequest extends Model
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
-        if (isset($map['DomainSwitch'])) {
-            $model->domainSwitch = $map['DomainSwitch'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

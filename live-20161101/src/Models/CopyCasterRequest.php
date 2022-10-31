@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CopyCasterRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterName;
@@ -21,17 +16,22 @@ class CopyCasterRequest extends Model
     /**
      * @var string
      */
-    public $srcCasterId;
+    public $clientToken;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $srcCasterId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
         'casterName'  => 'CasterName',
-        'srcCasterId' => 'SrcCasterId',
         'clientToken' => 'ClientToken',
+        'ownerId'     => 'OwnerId',
+        'srcCasterId' => 'SrcCasterId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CopyCasterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterName) {
             $res['CasterName'] = $this->casterName;
         }
-        if (null !== $this->srcCasterId) {
-            $res['SrcCasterId'] = $this->srcCasterId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->srcCasterId) {
+            $res['SrcCasterId'] = $this->srcCasterId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CopyCasterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterName'])) {
             $model->casterName = $map['CasterName'];
         }
-        if (isset($map['SrcCasterId'])) {
-            $model->srcCasterId = $map['SrcCasterId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SrcCasterId'])) {
+            $model->srcCasterId = $map['SrcCasterId'];
         }
 
         return $model;

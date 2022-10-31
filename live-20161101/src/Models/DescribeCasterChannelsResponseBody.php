@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCasterChannelsResponseBody extends Model
 {
     /**
+     * @var channels
+     */
+    public $channels;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeCasterChannelsResponseBody extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var channels
-     */
-    public $channels;
     protected $_name = [
+        'channels'  => 'Channels',
         'requestId' => 'RequestId',
         'total'     => 'Total',
-        'channels'  => 'Channels',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeCasterChannelsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channels) {
+            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeCasterChannelsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Channels'])) {
+            $model->channels = channels::fromMap($map['Channels']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['Channels'])) {
-            $model->channels = channels::fromMap($map['Channels']);
         }
 
         return $model;

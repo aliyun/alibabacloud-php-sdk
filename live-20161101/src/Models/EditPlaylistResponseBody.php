@@ -12,7 +12,7 @@ class EditPlaylistResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $casterId;
 
     /**
      * @var items
@@ -27,12 +27,12 @@ class EditPlaylistResponseBody extends Model
     /**
      * @var string
      */
-    public $casterId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'casterId'  => 'CasterId',
         'items'     => 'Items',
         'programId' => 'ProgramId',
-        'casterId'  => 'CasterId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class EditPlaylistResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
@@ -51,8 +51,8 @@ class EditPlaylistResponseBody extends Model
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class EditPlaylistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
         }
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
@@ -75,8 +75,8 @@ class EditPlaylistResponseBody extends Model
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

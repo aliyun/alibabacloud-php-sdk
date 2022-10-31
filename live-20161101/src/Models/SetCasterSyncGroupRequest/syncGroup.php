@@ -14,6 +14,11 @@ class syncGroup extends Model
     public $hostResourceId;
 
     /**
+     * @var int
+     */
+    public $mode;
+
+    /**
      * @var string[]
      */
     public $resourceIds;
@@ -24,14 +29,15 @@ class syncGroup extends Model
     public $syncDelayThreshold;
 
     /**
-     * @var int
+     * @var int[]
      */
-    public $mode;
+    public $syncOffsets;
     protected $_name = [
         'hostResourceId'     => 'HostResourceId',
+        'mode'               => 'Mode',
         'resourceIds'        => 'ResourceIds',
         'syncDelayThreshold' => 'SyncDelayThreshold',
-        'mode'               => 'Mode',
+        'syncOffsets'        => 'SyncOffsets',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class syncGroup extends Model
         if (null !== $this->hostResourceId) {
             $res['HostResourceId'] = $this->hostResourceId;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->resourceIds) {
             $res['ResourceIds'] = $this->resourceIds;
         }
         if (null !== $this->syncDelayThreshold) {
             $res['SyncDelayThreshold'] = $this->syncDelayThreshold;
         }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
+        if (null !== $this->syncOffsets) {
+            $res['SyncOffsets'] = $this->syncOffsets;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class syncGroup extends Model
         if (isset($map['HostResourceId'])) {
             $model->hostResourceId = $map['HostResourceId'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = $map['ResourceIds'];
@@ -76,8 +88,10 @@ class syncGroup extends Model
         if (isset($map['SyncDelayThreshold'])) {
             $model->syncDelayThreshold = $map['SyncDelayThreshold'];
         }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
+        if (isset($map['SyncOffsets'])) {
+            if (!empty($map['SyncOffsets'])) {
+                $model->syncOffsets = $map['SyncOffsets'];
+            }
         }
 
         return $model;

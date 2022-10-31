@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class episode extends Model
 {
     /**
-     * @var int
+     * @var componentIds
      */
-    public $status;
+    public $componentIds;
 
     /**
      * @var string
@@ -22,7 +22,7 @@ class episode extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $episodeId;
 
     /**
      * @var string
@@ -37,32 +37,32 @@ class episode extends Model
     /**
      * @var string
      */
-    public $episodeId;
-
-    /**
-     * @var string
-     */
     public $resourceId;
 
     /**
      * @var string
      */
-    public $switchType;
+    public $startTime;
 
     /**
-     * @var componentIds
+     * @var int
      */
-    public $componentIds;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $switchType;
     protected $_name = [
-        'status'       => 'Status',
+        'componentIds' => 'ComponentIds',
         'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
+        'episodeId'    => 'EpisodeId',
         'episodeName'  => 'EpisodeName',
         'episodeType'  => 'EpisodeType',
-        'episodeId'    => 'EpisodeId',
         'resourceId'   => 'ResourceId',
+        'startTime'    => 'StartTime',
+        'status'       => 'Status',
         'switchType'   => 'SwitchType',
-        'componentIds' => 'ComponentIds',
     ];
 
     public function validate()
@@ -72,14 +72,14 @@ class episode extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->componentIds) {
+            $res['ComponentIds'] = null !== $this->componentIds ? $this->componentIds->toMap() : null;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->episodeId) {
+            $res['EpisodeId'] = $this->episodeId;
         }
         if (null !== $this->episodeName) {
             $res['EpisodeName'] = $this->episodeName;
@@ -87,17 +87,17 @@ class episode extends Model
         if (null !== $this->episodeType) {
             $res['EpisodeType'] = $this->episodeType;
         }
-        if (null !== $this->episodeId) {
-            $res['EpisodeId'] = $this->episodeId;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->switchType) {
             $res['SwitchType'] = $this->switchType;
-        }
-        if (null !== $this->componentIds) {
-            $res['ComponentIds'] = null !== $this->componentIds ? $this->componentIds->toMap() : null;
         }
 
         return $res;
@@ -111,14 +111,14 @@ class episode extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ComponentIds'])) {
+            $model->componentIds = componentIds::fromMap($map['ComponentIds']);
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['EpisodeId'])) {
+            $model->episodeId = $map['EpisodeId'];
         }
         if (isset($map['EpisodeName'])) {
             $model->episodeName = $map['EpisodeName'];
@@ -126,17 +126,17 @@ class episode extends Model
         if (isset($map['EpisodeType'])) {
             $model->episodeType = $map['EpisodeType'];
         }
-        if (isset($map['EpisodeId'])) {
-            $model->episodeId = $map['EpisodeId'];
-        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['SwitchType'])) {
             $model->switchType = $map['SwitchType'];
-        }
-        if (isset($map['ComponentIds'])) {
-            $model->componentIds = componentIds::fromMap($map['ComponentIds']);
         }
 
         return $model;

@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class StartCasterResponseBody extends Model
 {
     /**
-     * @var string
+     * @var pgmSceneInfos
      */
-    public $requestId;
+    public $pgmSceneInfos;
 
     /**
      * @var pvwSceneInfos
@@ -21,13 +21,13 @@ class StartCasterResponseBody extends Model
     public $pvwSceneInfos;
 
     /**
-     * @var pgmSceneInfos
+     * @var string
      */
-    public $pgmSceneInfos;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'pvwSceneInfos' => 'PvwSceneInfos',
         'pgmSceneInfos' => 'PgmSceneInfos',
+        'pvwSceneInfos' => 'PvwSceneInfos',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class StartCasterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->pgmSceneInfos) {
+            $res['PgmSceneInfos'] = null !== $this->pgmSceneInfos ? $this->pgmSceneInfos->toMap() : null;
         }
         if (null !== $this->pvwSceneInfos) {
             $res['PvwSceneInfos'] = null !== $this->pvwSceneInfos ? $this->pvwSceneInfos->toMap() : null;
         }
-        if (null !== $this->pgmSceneInfos) {
-            $res['PgmSceneInfos'] = null !== $this->pgmSceneInfos ? $this->pgmSceneInfos->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class StartCasterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['PgmSceneInfos'])) {
+            $model->pgmSceneInfos = pgmSceneInfos::fromMap($map['PgmSceneInfos']);
         }
         if (isset($map['PvwSceneInfos'])) {
             $model->pvwSceneInfos = pvwSceneInfos::fromMap($map['PvwSceneInfos']);
         }
-        if (isset($map['PgmSceneInfos'])) {
-            $model->pgmSceneInfos = pgmSceneInfos::fromMap($map['PgmSceneInfos']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

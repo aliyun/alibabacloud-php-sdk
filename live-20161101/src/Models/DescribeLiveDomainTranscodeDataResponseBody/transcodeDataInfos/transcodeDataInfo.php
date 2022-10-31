@@ -14,18 +14,18 @@ class transcodeDataInfo extends Model
     public $date;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var string
      */
     public $detail;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'date'   => 'Date',
-        'total'  => 'Total',
         'detail' => 'Detail',
+        'total'  => 'Total',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class transcodeDataInfo extends Model
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class transcodeDataInfo extends Model
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

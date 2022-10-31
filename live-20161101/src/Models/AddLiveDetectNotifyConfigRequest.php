@@ -11,7 +11,12 @@ class AddLiveDetectNotifyConfigRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $notifyUrl;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class AddLiveDetectNotifyConfigRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $notifyUrl;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'ownerId'       => 'OwnerId',
         'domainName'    => 'DomainName',
         'notifyUrl'     => 'NotifyUrl',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AddLiveDetectNotifyConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->notifyUrl) {
             $res['NotifyUrl'] = $this->notifyUrl;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AddLiveDetectNotifyConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['NotifyUrl'])) {
             $model->notifyUrl = $map['NotifyUrl'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

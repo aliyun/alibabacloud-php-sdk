@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class sceneInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $sceneId;
+
+    /**
      * @var streamInfos
      */
     public $streamInfos;
@@ -17,15 +22,10 @@ class sceneInfo extends Model
     /**
      * @var string
      */
-    public $sceneId;
-
-    /**
-     * @var string
-     */
     public $streamUrl;
     protected $_name = [
-        'streamInfos' => 'StreamInfos',
         'sceneId'     => 'SceneId',
+        'streamInfos' => 'StreamInfos',
         'streamUrl'   => 'StreamUrl',
     ];
 
@@ -36,11 +36,11 @@ class sceneInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streamInfos) {
-            $res['StreamInfos'] = null !== $this->streamInfos ? $this->streamInfos->toMap() : null;
-        }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->streamInfos) {
+            $res['StreamInfos'] = null !== $this->streamInfos ? $this->streamInfos->toMap() : null;
         }
         if (null !== $this->streamUrl) {
             $res['StreamUrl'] = $this->streamUrl;
@@ -57,11 +57,11 @@ class sceneInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StreamInfos'])) {
-            $model->streamInfos = streamInfos::fromMap($map['StreamInfos']);
-        }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['StreamInfos'])) {
+            $model->streamInfos = streamInfos::fromMap($map['StreamInfos']);
         }
         if (isset($map['StreamUrl'])) {
             $model->streamUrl = $map['StreamUrl'];

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainLimitResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var liveDomainLimitList
      */
     public $liveDomainLimitList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'liveDomainLimitList' => 'LiveDomainLimitList',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLiveDomainLimitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->liveDomainLimitList) {
             $res['LiveDomainLimitList'] = null !== $this->liveDomainLimitList ? $this->liveDomainLimitList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLiveDomainLimitResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LiveDomainLimitList'])) {
             $model->liveDomainLimitList = liveDomainLimitList::fromMap($map['LiveDomainLimitList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

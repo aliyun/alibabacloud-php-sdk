@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetCasterConfigRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $callbackUrl;
 
     /**
      * @var string
@@ -24,19 +24,9 @@ class SetCasterConfigRequest extends Model
     public $casterName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $transcodeConfig;
-
-    /**
-     * @var string
-     */
-    public $recordConfig;
+    public $channelEnable;
 
     /**
      * @var float
@@ -46,17 +36,12 @@ class SetCasterConfigRequest extends Model
     /**
      * @var string
      */
-    public $urgentMaterialId;
+    public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sideOutputUrl;
-
-    /**
-     * @var string
-     */
-    public $callbackUrl;
+    public $ownerId;
 
     /**
      * @var int
@@ -69,23 +54,56 @@ class SetCasterConfigRequest extends Model
     public $programName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $channelEnable;
+    public $recordConfig;
+
+    /**
+     * @var string
+     */
+    public $sideOutputUrl;
+
+    /**
+     * @var string
+     */
+    public $sideOutputUrlList;
+
+    /**
+     * @var string
+     */
+    public $syncGroupsConfig;
+
+    /**
+     * @var string
+     */
+    public $transcodeConfig;
+
+    /**
+     * @var string
+     */
+    public $urgentLiveStreamUrl;
+
+    /**
+     * @var string
+     */
+    public $urgentMaterialId;
     protected $_name = [
-        'ownerId'          => 'OwnerId',
-        'casterId'         => 'CasterId',
-        'casterName'       => 'CasterName',
-        'domainName'       => 'DomainName',
-        'transcodeConfig'  => 'TranscodeConfig',
-        'recordConfig'     => 'RecordConfig',
-        'delay'            => 'Delay',
-        'urgentMaterialId' => 'UrgentMaterialId',
-        'sideOutputUrl'    => 'SideOutputUrl',
-        'callbackUrl'      => 'CallbackUrl',
-        'programEffect'    => 'ProgramEffect',
-        'programName'      => 'ProgramName',
-        'channelEnable'    => 'ChannelEnable',
+        'callbackUrl'         => 'CallbackUrl',
+        'casterId'            => 'CasterId',
+        'casterName'          => 'CasterName',
+        'channelEnable'       => 'ChannelEnable',
+        'delay'               => 'Delay',
+        'domainName'          => 'DomainName',
+        'ownerId'             => 'OwnerId',
+        'programEffect'       => 'ProgramEffect',
+        'programName'         => 'ProgramName',
+        'recordConfig'        => 'RecordConfig',
+        'sideOutputUrl'       => 'SideOutputUrl',
+        'sideOutputUrlList'   => 'SideOutputUrlList',
+        'syncGroupsConfig'    => 'SyncGroupsConfig',
+        'transcodeConfig'     => 'TranscodeConfig',
+        'urgentLiveStreamUrl' => 'UrgentLiveStreamUrl',
+        'urgentMaterialId'    => 'UrgentMaterialId',
     ];
 
     public function validate()
@@ -95,8 +113,8 @@ class SetCasterConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
@@ -104,26 +122,17 @@ class SetCasterConfigRequest extends Model
         if (null !== $this->casterName) {
             $res['CasterName'] = $this->casterName;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->transcodeConfig) {
-            $res['TranscodeConfig'] = $this->transcodeConfig;
-        }
-        if (null !== $this->recordConfig) {
-            $res['RecordConfig'] = $this->recordConfig;
+        if (null !== $this->channelEnable) {
+            $res['ChannelEnable'] = $this->channelEnable;
         }
         if (null !== $this->delay) {
             $res['Delay'] = $this->delay;
         }
-        if (null !== $this->urgentMaterialId) {
-            $res['UrgentMaterialId'] = $this->urgentMaterialId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->sideOutputUrl) {
-            $res['SideOutputUrl'] = $this->sideOutputUrl;
-        }
-        if (null !== $this->callbackUrl) {
-            $res['CallbackUrl'] = $this->callbackUrl;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->programEffect) {
             $res['ProgramEffect'] = $this->programEffect;
@@ -131,8 +140,26 @@ class SetCasterConfigRequest extends Model
         if (null !== $this->programName) {
             $res['ProgramName'] = $this->programName;
         }
-        if (null !== $this->channelEnable) {
-            $res['ChannelEnable'] = $this->channelEnable;
+        if (null !== $this->recordConfig) {
+            $res['RecordConfig'] = $this->recordConfig;
+        }
+        if (null !== $this->sideOutputUrl) {
+            $res['SideOutputUrl'] = $this->sideOutputUrl;
+        }
+        if (null !== $this->sideOutputUrlList) {
+            $res['SideOutputUrlList'] = $this->sideOutputUrlList;
+        }
+        if (null !== $this->syncGroupsConfig) {
+            $res['SyncGroupsConfig'] = $this->syncGroupsConfig;
+        }
+        if (null !== $this->transcodeConfig) {
+            $res['TranscodeConfig'] = $this->transcodeConfig;
+        }
+        if (null !== $this->urgentLiveStreamUrl) {
+            $res['UrgentLiveStreamUrl'] = $this->urgentLiveStreamUrl;
+        }
+        if (null !== $this->urgentMaterialId) {
+            $res['UrgentMaterialId'] = $this->urgentMaterialId;
         }
 
         return $res;
@@ -146,8 +173,8 @@ class SetCasterConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
@@ -155,26 +182,17 @@ class SetCasterConfigRequest extends Model
         if (isset($map['CasterName'])) {
             $model->casterName = $map['CasterName'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['TranscodeConfig'])) {
-            $model->transcodeConfig = $map['TranscodeConfig'];
-        }
-        if (isset($map['RecordConfig'])) {
-            $model->recordConfig = $map['RecordConfig'];
+        if (isset($map['ChannelEnable'])) {
+            $model->channelEnable = $map['ChannelEnable'];
         }
         if (isset($map['Delay'])) {
             $model->delay = $map['Delay'];
         }
-        if (isset($map['UrgentMaterialId'])) {
-            $model->urgentMaterialId = $map['UrgentMaterialId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
-        if (isset($map['SideOutputUrl'])) {
-            $model->sideOutputUrl = $map['SideOutputUrl'];
-        }
-        if (isset($map['CallbackUrl'])) {
-            $model->callbackUrl = $map['CallbackUrl'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProgramEffect'])) {
             $model->programEffect = $map['ProgramEffect'];
@@ -182,8 +200,26 @@ class SetCasterConfigRequest extends Model
         if (isset($map['ProgramName'])) {
             $model->programName = $map['ProgramName'];
         }
-        if (isset($map['ChannelEnable'])) {
-            $model->channelEnable = $map['ChannelEnable'];
+        if (isset($map['RecordConfig'])) {
+            $model->recordConfig = $map['RecordConfig'];
+        }
+        if (isset($map['SideOutputUrl'])) {
+            $model->sideOutputUrl = $map['SideOutputUrl'];
+        }
+        if (isset($map['SideOutputUrlList'])) {
+            $model->sideOutputUrlList = $map['SideOutputUrlList'];
+        }
+        if (isset($map['SyncGroupsConfig'])) {
+            $model->syncGroupsConfig = $map['SyncGroupsConfig'];
+        }
+        if (isset($map['TranscodeConfig'])) {
+            $model->transcodeConfig = $map['TranscodeConfig'];
+        }
+        if (isset($map['UrgentLiveStreamUrl'])) {
+            $model->urgentLiveStreamUrl = $map['UrgentLiveStreamUrl'];
+        }
+        if (isset($map['UrgentMaterialId'])) {
+            $model->urgentMaterialId = $map['UrgentMaterialId'];
         }
 
         return $model;

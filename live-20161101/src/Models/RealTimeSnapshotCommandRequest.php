@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RealTimeSnapshotCommandRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -24,14 +24,9 @@ class RealTimeSnapshotCommandRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $streamName;
+    public $interval;
 
     /**
      * @var int
@@ -41,15 +36,26 @@ class RealTimeSnapshotCommandRequest extends Model
     /**
      * @var int
      */
-    public $interval;
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
+        'appName'    => 'AppName',
         'command'    => 'Command',
         'domainName' => 'DomainName',
-        'appName'    => 'AppName',
-        'streamName' => 'StreamName',
-        'mode'       => 'Mode',
         'interval'   => 'Interval',
+        'mode'       => 'Mode',
+        'ownerId'    => 'OwnerId',
+        'source'     => 'Source',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -59,8 +65,8 @@ class RealTimeSnapshotCommandRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
@@ -68,17 +74,20 @@ class RealTimeSnapshotCommandRequest extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -92,8 +101,8 @@ class RealTimeSnapshotCommandRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
@@ -101,17 +110,20 @@ class RealTimeSnapshotCommandRequest extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

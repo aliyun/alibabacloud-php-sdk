@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetCasterChannelRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $casterId;
@@ -26,24 +21,35 @@ class SetCasterChannelRequest extends Model
     /**
      * @var string
      */
+    public $faceBeauty;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $playStatus;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
      * @var int
      */
     public $seekOffset;
-
-    /**
-     * @var int
-     */
-    public $playStatus;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'casterId'   => 'CasterId',
         'channelId'  => 'ChannelId',
+        'faceBeauty' => 'FaceBeauty',
+        'ownerId'    => 'OwnerId',
+        'playStatus' => 'PlayStatus',
         'resourceId' => 'ResourceId',
         'seekOffset' => 'SeekOffset',
-        'playStatus' => 'PlayStatus',
     ];
 
     public function validate()
@@ -53,23 +59,26 @@ class SetCasterChannelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+        if (null !== $this->faceBeauty) {
+            $res['FaceBeauty'] = $this->faceBeauty;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->playStatus) {
+            $res['PlayStatus'] = $this->playStatus;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->seekOffset) {
             $res['SeekOffset'] = $this->seekOffset;
-        }
-        if (null !== $this->playStatus) {
-            $res['PlayStatus'] = $this->playStatus;
         }
 
         return $res;
@@ -83,23 +92,26 @@ class SetCasterChannelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+        if (isset($map['FaceBeauty'])) {
+            $model->faceBeauty = $map['FaceBeauty'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PlayStatus'])) {
+            $model->playStatus = $map['PlayStatus'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['SeekOffset'])) {
             $model->seekOffset = $map['SeekOffset'];
-        }
-        if (isset($map['PlayStatus'])) {
-            $model->playStatus = $map['PlayStatus'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class failedItems extends Model
     /**
      * @var string
      */
-    public $itemName;
+    public $itemId;
 
     /**
      * @var string
      */
-    public $itemId;
+    public $itemName;
     protected $_name = [
-        'itemName' => 'ItemName',
         'itemId'   => 'ItemId',
+        'itemName' => 'ItemName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class failedItems extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->itemName) {
-            $res['ItemName'] = $this->itemName;
-        }
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
+        }
+        if (null !== $this->itemName) {
+            $res['ItemName'] = $this->itemName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class failedItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ItemName'])) {
-            $model->itemName = $map['ItemName'];
-        }
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
+        }
+        if (isset($map['ItemName'])) {
+            $model->itemName = $map['ItemName'];
         }
 
         return $model;

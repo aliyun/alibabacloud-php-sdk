@@ -17,12 +17,22 @@ class GetMultiRateConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $avFormat;
+
+    /**
+     * @var int
+     */
+    public $code;
 
     /**
      * @var string
      */
-    public $message;
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $groupId;
 
     /**
      * @var string
@@ -37,44 +47,34 @@ class GetMultiRateConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $stream;
-
-    /**
-     * @var string
-     */
-    public $domain;
-
-    /**
-     * @var string
-     */
-    public $avFormat;
-
-    /**
-     * @var int
-     */
-    public $code;
 
     /**
      * @var templatesInfo
      */
     public $templatesInfo;
-
-    /**
-     * @var string
-     */
-    public $groupId;
     protected $_name = [
         'app'           => 'App',
-        'requestId'     => 'RequestId',
-        'message'       => 'Message',
-        'isLazy'        => 'IsLazy',
-        'isTimeAlign'   => 'IsTimeAlign',
-        'stream'        => 'Stream',
-        'domain'        => 'Domain',
         'avFormat'      => 'AvFormat',
         'code'          => 'Code',
-        'templatesInfo' => 'TemplatesInfo',
+        'domain'        => 'Domain',
         'groupId'       => 'GroupId',
+        'isLazy'        => 'IsLazy',
+        'isTimeAlign'   => 'IsTimeAlign',
+        'message'       => 'Message',
+        'requestId'     => 'RequestId',
+        'stream'        => 'Stream',
+        'templatesInfo' => 'TemplatesInfo',
     ];
 
     public function validate()
@@ -87,11 +87,17 @@ class GetMultiRateConfigResponseBody extends Model
         if (null !== $this->app) {
             $res['App'] = $this->app;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->avFormat) {
+            $res['AvFormat'] = $this->avFormat;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->isLazy) {
             $res['IsLazy'] = $this->isLazy;
@@ -99,23 +105,17 @@ class GetMultiRateConfigResponseBody extends Model
         if (null !== $this->isTimeAlign) {
             $res['IsTimeAlign'] = $this->isTimeAlign;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->avFormat) {
-            $res['AvFormat'] = $this->avFormat;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->templatesInfo) {
             $res['TemplatesInfo'] = null !== $this->templatesInfo ? $this->templatesInfo->toMap() : null;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -132,11 +132,17 @@ class GetMultiRateConfigResponseBody extends Model
         if (isset($map['App'])) {
             $model->app = $map['App'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AvFormat'])) {
+            $model->avFormat = $map['AvFormat'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['IsLazy'])) {
             $model->isLazy = $map['IsLazy'];
@@ -144,23 +150,17 @@ class GetMultiRateConfigResponseBody extends Model
         if (isset($map['IsTimeAlign'])) {
             $model->isTimeAlign = $map['IsTimeAlign'];
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['AvFormat'])) {
-            $model->avFormat = $map['AvFormat'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['TemplatesInfo'])) {
             $model->templatesInfo = templatesInfo::fromMap($map['TemplatesInfo']);
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
 
         return $model;

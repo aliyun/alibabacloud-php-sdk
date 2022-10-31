@@ -11,12 +11,12 @@ class channel extends Model
     /**
      * @var string
      */
-    public $rtmpUrl;
+    public $channelId;
 
     /**
      * @var string
      */
-    public $channelId;
+    public $faceBeauty;
 
     /**
      * @var string
@@ -26,11 +26,17 @@ class channel extends Model
     /**
      * @var string
      */
+    public $rtmpUrl;
+
+    /**
+     * @var string
+     */
     public $streamUrl;
     protected $_name = [
-        'rtmpUrl'    => 'RtmpUrl',
         'channelId'  => 'ChannelId',
+        'faceBeauty' => 'FaceBeauty',
         'resourceId' => 'ResourceId',
+        'rtmpUrl'    => 'RtmpUrl',
         'streamUrl'  => 'StreamUrl',
     ];
 
@@ -41,14 +47,17 @@ class channel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rtmpUrl) {
-            $res['RtmpUrl'] = $this->rtmpUrl;
-        }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+        if (null !== $this->faceBeauty) {
+            $res['FaceBeauty'] = $this->faceBeauty;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->rtmpUrl) {
+            $res['RtmpUrl'] = $this->rtmpUrl;
         }
         if (null !== $this->streamUrl) {
             $res['StreamUrl'] = $this->streamUrl;
@@ -65,14 +74,17 @@ class channel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RtmpUrl'])) {
-            $model->rtmpUrl = $map['RtmpUrl'];
-        }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+        if (isset($map['FaceBeauty'])) {
+            $model->faceBeauty = $map['FaceBeauty'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['RtmpUrl'])) {
+            $model->rtmpUrl = $map['RtmpUrl'];
         }
         if (isset($map['StreamUrl'])) {
             $model->streamUrl = $map['StreamUrl'];

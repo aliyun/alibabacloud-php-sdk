@@ -11,21 +11,21 @@ class DeleteCasterComponentResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $casterId;
 
     /**
      * @var string
      */
     public $componentId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'casterId'    => 'CasterId',
         'componentId' => 'ComponentId',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteCasterComponentResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->componentId) {
             $res['ComponentId'] = $this->componentId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteCasterComponentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
         if (isset($map['ComponentId'])) {
             $model->componentId = $map['ComponentId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

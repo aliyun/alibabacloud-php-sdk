@@ -16,12 +16,12 @@ class liveStreamOptimizedFeatureConfig extends Model
     /**
      * @var string
      */
-    public $configValue;
+    public $configStatus;
 
     /**
      * @var string
      */
-    public $configStatus;
+    public $configValue;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class liveStreamOptimizedFeatureConfig extends Model
     public $domainName;
     protected $_name = [
         'configName'   => 'ConfigName',
-        'configValue'  => 'ConfigValue',
         'configStatus' => 'ConfigStatus',
+        'configValue'  => 'ConfigValue',
         'domainName'   => 'DomainName',
     ];
 
@@ -44,11 +44,11 @@ class liveStreamOptimizedFeatureConfig extends Model
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
-        if (null !== $this->configValue) {
-            $res['ConfigValue'] = $this->configValue;
-        }
         if (null !== $this->configStatus) {
             $res['ConfigStatus'] = $this->configStatus;
+        }
+        if (null !== $this->configValue) {
+            $res['ConfigValue'] = $this->configValue;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -68,11 +68,11 @@ class liveStreamOptimizedFeatureConfig extends Model
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
-        if (isset($map['ConfigValue'])) {
-            $model->configValue = $map['ConfigValue'];
-        }
         if (isset($map['ConfigStatus'])) {
             $model->configStatus = $map['ConfigStatus'];
+        }
+        if (isset($map['ConfigValue'])) {
+            $model->configValue = $map['ConfigValue'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];

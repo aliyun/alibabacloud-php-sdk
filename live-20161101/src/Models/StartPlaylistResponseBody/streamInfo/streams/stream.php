@@ -11,11 +11,6 @@ class stream extends Model
     /**
      * @var string
      */
-    public $quality;
-
-    /**
-     * @var string
-     */
     public $pullFlvUrl;
 
     /**
@@ -27,11 +22,16 @@ class stream extends Model
      * @var string
      */
     public $pullRtmpUrl;
+
+    /**
+     * @var string
+     */
+    public $quality;
     protected $_name = [
-        'quality'     => 'Quality',
         'pullFlvUrl'  => 'PullFlvUrl',
         'pullM3U8Url' => 'PullM3U8Url',
         'pullRtmpUrl' => 'PullRtmpUrl',
+        'quality'     => 'Quality',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class stream extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->quality) {
-            $res['Quality'] = $this->quality;
-        }
         if (null !== $this->pullFlvUrl) {
             $res['PullFlvUrl'] = $this->pullFlvUrl;
         }
@@ -52,6 +49,9 @@ class stream extends Model
         }
         if (null !== $this->pullRtmpUrl) {
             $res['PullRtmpUrl'] = $this->pullRtmpUrl;
+        }
+        if (null !== $this->quality) {
+            $res['Quality'] = $this->quality;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class stream extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Quality'])) {
-            $model->quality = $map['Quality'];
-        }
         if (isset($map['PullFlvUrl'])) {
             $model->pullFlvUrl = $map['PullFlvUrl'];
         }
@@ -76,6 +73,9 @@ class stream extends Model
         }
         if (isset($map['PullRtmpUrl'])) {
             $model->pullRtmpUrl = $map['PullRtmpUrl'];
+        }
+        if (isset($map['Quality'])) {
+            $model->quality = $map['Quality'];
         }
 
         return $model;

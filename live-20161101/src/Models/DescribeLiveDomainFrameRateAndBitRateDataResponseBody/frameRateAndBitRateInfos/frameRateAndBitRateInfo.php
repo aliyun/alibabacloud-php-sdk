@@ -16,7 +16,7 @@ class frameRateAndBitRateInfo extends Model
     /**
      * @var float
      */
-    public $videoFrameRate;
+    public $bitRate;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class frameRateAndBitRateInfo extends Model
     /**
      * @var float
      */
-    public $bitRate;
+    public $videoFrameRate;
     protected $_name = [
         'audioFrameRate' => 'AudioFrameRate',
-        'videoFrameRate' => 'VideoFrameRate',
-        'streamUrl'      => 'StreamUrl',
         'bitRate'        => 'BitRate',
+        'streamUrl'      => 'StreamUrl',
+        'videoFrameRate' => 'VideoFrameRate',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class frameRateAndBitRateInfo extends Model
         if (null !== $this->audioFrameRate) {
             $res['AudioFrameRate'] = $this->audioFrameRate;
         }
-        if (null !== $this->videoFrameRate) {
-            $res['VideoFrameRate'] = $this->videoFrameRate;
+        if (null !== $this->bitRate) {
+            $res['BitRate'] = $this->bitRate;
         }
         if (null !== $this->streamUrl) {
             $res['StreamUrl'] = $this->streamUrl;
         }
-        if (null !== $this->bitRate) {
-            $res['BitRate'] = $this->bitRate;
+        if (null !== $this->videoFrameRate) {
+            $res['VideoFrameRate'] = $this->videoFrameRate;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class frameRateAndBitRateInfo extends Model
         if (isset($map['AudioFrameRate'])) {
             $model->audioFrameRate = $map['AudioFrameRate'];
         }
-        if (isset($map['VideoFrameRate'])) {
-            $model->videoFrameRate = $map['VideoFrameRate'];
+        if (isset($map['BitRate'])) {
+            $model->bitRate = $map['BitRate'];
         }
         if (isset($map['StreamUrl'])) {
             $model->streamUrl = $map['StreamUrl'];
         }
-        if (isset($map['BitRate'])) {
-            $model->bitRate = $map['BitRate'];
+        if (isset($map['VideoFrameRate'])) {
+            $model->videoFrameRate = $map['VideoFrameRate'];
         }
 
         return $model;

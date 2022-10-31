@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class recordConfig extends Model
 {
     /**
-     * @var recordFormat
-     */
-    public $recordFormat;
-
-    /**
      * @var string
      */
     public $ossBucket;
@@ -23,10 +18,15 @@ class recordConfig extends Model
      * @var string
      */
     public $ossEndpoint;
+
+    /**
+     * @var recordFormat
+     */
+    public $recordFormat;
     protected $_name = [
-        'recordFormat' => 'RecordFormat',
         'ossBucket'    => 'OssBucket',
         'ossEndpoint'  => 'OssEndpoint',
+        'recordFormat' => 'RecordFormat',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class recordConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->recordFormat) {
-            $res['RecordFormat'] = null !== $this->recordFormat ? $this->recordFormat->toMap() : null;
-        }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+        if (null !== $this->recordFormat) {
+            $res['RecordFormat'] = null !== $this->recordFormat ? $this->recordFormat->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class recordConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RecordFormat'])) {
-            $model->recordFormat = recordFormat::fromMap($map['RecordFormat']);
-        }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+        if (isset($map['RecordFormat'])) {
+            $model->recordFormat = recordFormat::fromMap($map['RecordFormat']);
         }
 
         return $model;

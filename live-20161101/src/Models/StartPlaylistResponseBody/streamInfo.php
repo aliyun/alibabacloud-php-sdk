@@ -17,22 +17,22 @@ class streamInfo extends Model
     /**
      * @var string
      */
+    public $domainName;
+
+    /**
+     * @var string
+     */
     public $streamName;
 
     /**
      * @var streams
      */
     public $streams;
-
-    /**
-     * @var string
-     */
-    public $domainName;
     protected $_name = [
         'appName'    => 'AppName',
+        'domainName' => 'DomainName',
         'streamName' => 'StreamName',
         'streams'    => 'Streams',
-        'domainName' => 'DomainName',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class streamInfo extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
         if (null !== $this->streams) {
             $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class streamInfo extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
         if (isset($map['Streams'])) {
             $model->streams = streams::fromMap($map['Streams']);
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
         }
 
         return $model;

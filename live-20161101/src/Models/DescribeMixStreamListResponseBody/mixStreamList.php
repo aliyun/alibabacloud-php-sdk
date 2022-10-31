@@ -11,32 +11,17 @@ class mixStreamList extends Model
     /**
      * @var string
      */
-    public $mixStreamTemplate;
-
-    /**
-     * @var string
-     */
     public $appName;
 
     /**
      * @var string
      */
-    public $layoutId;
-
-    /**
-     * @var string
-     */
-    public $streamName;
+    public $domainName;
 
     /**
      * @var string
      */
     public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $mixstreamId;
 
     /**
      * @var string
@@ -51,17 +36,32 @@ class mixStreamList extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $layoutId;
+
+    /**
+     * @var string
+     */
+    public $mixStreamTemplate;
+
+    /**
+     * @var string
+     */
+    public $mixstreamId;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'mixStreamTemplate' => 'MixStreamTemplate',
         'appName'           => 'AppName',
-        'layoutId'          => 'LayoutId',
-        'streamName'        => 'StreamName',
+        'domainName'        => 'DomainName',
         'gmtCreate'         => 'GmtCreate',
-        'mixstreamId'       => 'MixstreamId',
         'gmtModified'       => 'GmtModified',
         'inputStreamNumber' => 'InputStreamNumber',
-        'domainName'        => 'DomainName',
+        'layoutId'          => 'LayoutId',
+        'mixStreamTemplate' => 'MixStreamTemplate',
+        'mixstreamId'       => 'MixstreamId',
+        'streamName'        => 'StreamName',
     ];
 
     public function validate()
@@ -71,23 +71,14 @@ class mixStreamList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mixStreamTemplate) {
-            $res['MixStreamTemplate'] = $this->mixStreamTemplate;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->layoutId) {
-            $res['LayoutId'] = $this->layoutId;
-        }
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->mixstreamId) {
-            $res['MixstreamId'] = $this->mixstreamId;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
@@ -95,8 +86,17 @@ class mixStreamList extends Model
         if (null !== $this->inputStreamNumber) {
             $res['InputStreamNumber'] = $this->inputStreamNumber;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->layoutId) {
+            $res['LayoutId'] = $this->layoutId;
+        }
+        if (null !== $this->mixStreamTemplate) {
+            $res['MixStreamTemplate'] = $this->mixStreamTemplate;
+        }
+        if (null !== $this->mixstreamId) {
+            $res['MixstreamId'] = $this->mixstreamId;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -110,23 +110,14 @@ class mixStreamList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MixStreamTemplate'])) {
-            $model->mixStreamTemplate = $map['MixStreamTemplate'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['LayoutId'])) {
-            $model->layoutId = $map['LayoutId'];
-        }
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['MixstreamId'])) {
-            $model->mixstreamId = $map['MixstreamId'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
@@ -134,8 +125,17 @@ class mixStreamList extends Model
         if (isset($map['InputStreamNumber'])) {
             $model->inputStreamNumber = $map['InputStreamNumber'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['LayoutId'])) {
+            $model->layoutId = $map['LayoutId'];
+        }
+        if (isset($map['MixStreamTemplate'])) {
+            $model->mixStreamTemplate = $map['MixStreamTemplate'];
+        }
+        if (isset($map['MixstreamId'])) {
+            $model->mixstreamId = $map['MixstreamId'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

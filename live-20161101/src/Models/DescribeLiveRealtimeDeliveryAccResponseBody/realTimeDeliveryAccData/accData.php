@@ -14,18 +14,18 @@ class accData extends Model
     public $failedNum;
 
     /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
      * @var int
      */
     public $successNum;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
         'failedNum'  => 'FailedNum',
-        'timeStamp'  => 'TimeStamp',
         'successNum' => 'SuccessNum',
+        'timeStamp'  => 'TimeStamp',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class accData extends Model
         if (null !== $this->failedNum) {
             $res['FailedNum'] = $this->failedNum;
         }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->successNum) {
             $res['SuccessNum'] = $this->successNum;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class accData extends Model
         if (isset($map['FailedNum'])) {
             $model->failedNum = $map['FailedNum'];
         }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['SuccessNum'])) {
             $model->successNum = $map['SuccessNum'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

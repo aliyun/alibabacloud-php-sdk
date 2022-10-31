@@ -17,12 +17,12 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $requestId;
 
     /**
      * @var string
@@ -30,8 +30,8 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
     public $timeStamp;
     protected $_name = [
         'bpsDataList' => 'BpsDataList',
-        'requestId'   => 'RequestId',
         'domainName'  => 'DomainName',
+        'requestId'   => 'RequestId',
         'timeStamp'   => 'TimeStamp',
     ];
 
@@ -45,11 +45,11 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
         if (null !== $this->bpsDataList) {
             $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -69,11 +69,11 @@ class DescribeLiveDomainBpsDataByTimeStampResponseBody extends Model
         if (isset($map['BpsDataList'])) {
             $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

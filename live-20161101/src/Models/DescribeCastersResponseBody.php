@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCastersResponseBody extends Model
 {
     /**
+     * @var casterList
+     */
+    public $casterList;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,15 +23,10 @@ class DescribeCastersResponseBody extends Model
      * @var int
      */
     public $total;
-
-    /**
-     * @var casterList
-     */
-    public $casterList;
     protected $_name = [
+        'casterList' => 'CasterList',
         'requestId'  => 'RequestId',
         'total'      => 'Total',
-        'casterList' => 'CasterList',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeCastersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->casterList) {
+            $res['CasterList'] = null !== $this->casterList ? $this->casterList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->casterList) {
-            $res['CasterList'] = null !== $this->casterList ? $this->casterList->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeCastersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CasterList'])) {
+            $model->casterList = casterList::fromMap($map['CasterList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['CasterList'])) {
-            $model->casterList = casterList::fromMap($map['CasterList']);
         }
 
         return $model;

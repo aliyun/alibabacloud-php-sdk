@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class componentLayer extends Model
 {
     /**
-     * @var int
+     * @var float
      */
-    public $transparency;
+    public $heightNormalized;
 
     /**
      * @var positionNormalizeds
@@ -20,24 +20,24 @@ class componentLayer extends Model
     public $positionNormalizeds;
 
     /**
-     * @var float
-     */
-    public $heightNormalized;
-
-    /**
      * @var string
      */
     public $positionRefer;
+
+    /**
+     * @var int
+     */
+    public $transparency;
 
     /**
      * @var float
      */
     public $widthNormalized;
     protected $_name = [
-        'transparency'        => 'Transparency',
-        'positionNormalizeds' => 'PositionNormalizeds',
         'heightNormalized'    => 'HeightNormalized',
+        'positionNormalizeds' => 'PositionNormalizeds',
         'positionRefer'       => 'PositionRefer',
+        'transparency'        => 'Transparency',
         'widthNormalized'     => 'WidthNormalized',
     ];
 
@@ -48,17 +48,17 @@ class componentLayer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->transparency) {
-            $res['Transparency'] = $this->transparency;
+        if (null !== $this->heightNormalized) {
+            $res['HeightNormalized'] = $this->heightNormalized;
         }
         if (null !== $this->positionNormalizeds) {
             $res['PositionNormalizeds'] = null !== $this->positionNormalizeds ? $this->positionNormalizeds->toMap() : null;
         }
-        if (null !== $this->heightNormalized) {
-            $res['HeightNormalized'] = $this->heightNormalized;
-        }
         if (null !== $this->positionRefer) {
             $res['PositionRefer'] = $this->positionRefer;
+        }
+        if (null !== $this->transparency) {
+            $res['Transparency'] = $this->transparency;
         }
         if (null !== $this->widthNormalized) {
             $res['WidthNormalized'] = $this->widthNormalized;
@@ -75,17 +75,17 @@ class componentLayer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Transparency'])) {
-            $model->transparency = $map['Transparency'];
+        if (isset($map['HeightNormalized'])) {
+            $model->heightNormalized = $map['HeightNormalized'];
         }
         if (isset($map['PositionNormalizeds'])) {
             $model->positionNormalizeds = positionNormalizeds::fromMap($map['PositionNormalizeds']);
         }
-        if (isset($map['HeightNormalized'])) {
-            $model->heightNormalized = $map['HeightNormalized'];
-        }
         if (isset($map['PositionRefer'])) {
             $model->positionRefer = $map['PositionRefer'];
+        }
+        if (isset($map['Transparency'])) {
+            $model->transparency = $map['Transparency'];
         }
         if (isset($map['WidthNormalized'])) {
             $model->widthNormalized = $map['WidthNormalized'];

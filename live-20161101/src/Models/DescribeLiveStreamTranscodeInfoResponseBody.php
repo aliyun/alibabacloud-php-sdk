@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveStreamTranscodeInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var domainTranscodeList
      */
     public $domainTranscodeList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'domainTranscodeList' => 'DomainTranscodeList',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLiveStreamTranscodeInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainTranscodeList) {
             $res['DomainTranscodeList'] = null !== $this->domainTranscodeList ? $this->domainTranscodeList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLiveStreamTranscodeInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainTranscodeList'])) {
             $model->domainTranscodeList = domainTranscodeList::fromMap($map['DomainTranscodeList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

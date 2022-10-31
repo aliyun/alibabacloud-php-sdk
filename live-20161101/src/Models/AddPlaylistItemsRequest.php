@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddPlaylistItemsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $casterId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,12 +21,7 @@ class AddPlaylistItemsRequest extends Model
     /**
      * @var string
      */
-    public $casterId;
-
-    /**
-     * @var string
-     */
-    public $programItems;
+    public $programConfig;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class AddPlaylistItemsRequest extends Model
     /**
      * @var string
      */
-    public $programConfig;
+    public $programItems;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'casterId'      => 'CasterId',
-        'programItems'  => 'ProgramItems',
-        'programId'     => 'ProgramId',
+        'ownerId'       => 'OwnerId',
         'programConfig' => 'ProgramConfig',
+        'programId'     => 'ProgramId',
+        'programItems'  => 'ProgramItems',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class AddPlaylistItemsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
-        if (null !== $this->programItems) {
-            $res['ProgramItems'] = $this->programItems;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->programConfig) {
+            $res['ProgramConfig'] = $this->programConfig;
         }
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
         }
-        if (null !== $this->programConfig) {
-            $res['ProgramConfig'] = $this->programConfig;
+        if (null !== $this->programItems) {
+            $res['ProgramItems'] = $this->programItems;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class AddPlaylistItemsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
-        if (isset($map['ProgramItems'])) {
-            $model->programItems = $map['ProgramItems'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProgramConfig'])) {
+            $model->programConfig = $map['ProgramConfig'];
         }
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
         }
-        if (isset($map['ProgramConfig'])) {
-            $model->programConfig = $map['ProgramConfig'];
+        if (isset($map['ProgramItems'])) {
+            $model->programItems = $map['ProgramItems'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class bpsDataModel extends Model
 {
     /**
+     * @var int
+     */
+    public $bps;
+
+    /**
+     * @var string
+     */
+    public $ispName;
+
+    /**
      * @var string
      */
     public $locationName;
@@ -17,21 +27,11 @@ class bpsDataModel extends Model
      * @var string
      */
     public $timeStamp;
-
-    /**
-     * @var string
-     */
-    public $ispName;
-
-    /**
-     * @var int
-     */
-    public $bps;
     protected $_name = [
+        'bps'          => 'Bps',
+        'ispName'      => 'IspName',
         'locationName' => 'LocationName',
         'timeStamp'    => 'TimeStamp',
-        'ispName'      => 'IspName',
-        'bps'          => 'Bps',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class bpsDataModel extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bps) {
+            $res['Bps'] = $this->bps;
+        }
+        if (null !== $this->ispName) {
+            $res['IspName'] = $this->ispName;
+        }
         if (null !== $this->locationName) {
             $res['LocationName'] = $this->locationName;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->ispName) {
-            $res['IspName'] = $this->ispName;
-        }
-        if (null !== $this->bps) {
-            $res['Bps'] = $this->bps;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class bpsDataModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bps'])) {
+            $model->bps = $map['Bps'];
+        }
+        if (isset($map['IspName'])) {
+            $model->ispName = $map['IspName'];
+        }
         if (isset($map['LocationName'])) {
             $model->locationName = $map['LocationName'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['IspName'])) {
-            $model->ispName = $map['IspName'];
-        }
-        if (isset($map['Bps'])) {
-            $model->bps = $map['Bps'];
         }
 
         return $model;

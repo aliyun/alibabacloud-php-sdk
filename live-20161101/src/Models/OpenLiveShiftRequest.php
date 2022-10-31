@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class OpenLiveShiftRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -19,9 +19,19 @@ class OpenLiveShiftRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $appName;
+    public $duration;
+
+    /**
+     * @var bool
+     */
+    public $ignoreTranscode;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -31,19 +41,15 @@ class OpenLiveShiftRequest extends Model
     /**
      * @var int
      */
-    public $duration;
-
-    /**
-     * @var int
-     */
     public $vision;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
-        'appName'    => 'AppName',
-        'streamName' => 'StreamName',
-        'duration'   => 'Duration',
-        'vision'     => 'Vision',
+        'appName'         => 'AppName',
+        'domainName'      => 'DomainName',
+        'duration'        => 'Duration',
+        'ignoreTranscode' => 'IgnoreTranscode',
+        'ownerId'         => 'OwnerId',
+        'streamName'      => 'StreamName',
+        'vision'          => 'Vision',
     ];
 
     public function validate()
@@ -53,20 +59,23 @@ class OpenLiveShiftRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->ignoreTranscode) {
+            $res['IgnoreTranscode'] = $this->ignoreTranscode;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
         if (null !== $this->vision) {
             $res['Vision'] = $this->vision;
@@ -83,20 +92,23 @@ class OpenLiveShiftRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['IgnoreTranscode'])) {
+            $model->ignoreTranscode = $map['IgnoreTranscode'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
         if (isset($map['Vision'])) {
             $model->vision = $map['Vision'];

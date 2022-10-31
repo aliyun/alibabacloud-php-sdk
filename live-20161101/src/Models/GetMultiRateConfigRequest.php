@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetMultiRateConfigRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $app;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class GetMultiRateConfigRequest extends Model
     /**
      * @var string
      */
-    public $app;
+    public $groupId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $groupId;
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'app'        => 'App',
+        'domainName' => 'DomainName',
         'groupId'    => 'GroupId',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetMultiRateConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->app) {
+            $res['App'] = $this->app;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->app) {
-            $res['App'] = $this->app;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetMultiRateConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['App'])) {
+            $model->app = $map['App'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['App'])) {
-            $model->app = $map['App'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

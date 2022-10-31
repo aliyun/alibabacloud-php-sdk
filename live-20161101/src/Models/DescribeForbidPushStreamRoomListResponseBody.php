@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeForbidPushStreamRoomListResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalNum;
-
-    /**
-     * @var int
-     */
-    public $totalPage;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -28,11 +18,21 @@ class DescribeForbidPushStreamRoomListResponseBody extends Model
      * @var roomList[]
      */
     public $roomList;
+
+    /**
+     * @var int
+     */
+    public $totalNum;
+
+    /**
+     * @var int
+     */
+    public $totalPage;
     protected $_name = [
-        'totalNum'  => 'TotalNum',
-        'totalPage' => 'TotalPage',
         'requestId' => 'RequestId',
         'roomList'  => 'RoomList',
+        'totalNum'  => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
     public function validate()
@@ -42,12 +42,6 @@ class DescribeForbidPushStreamRoomListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,6 +53,12 @@ class DescribeForbidPushStreamRoomListResponseBody extends Model
                     $res['RoomList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -72,12 +72,6 @@ class DescribeForbidPushStreamRoomListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -89,6 +83,12 @@ class DescribeForbidPushStreamRoomListResponseBody extends Model
                     $model->roomList[$n++] = null !== $item ? roomList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

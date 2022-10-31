@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class streamCountInfo extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $type;
-
-    /**
-     * @var streamCountDetails
-     */
-    public $streamCountDetails;
+    public $count;
 
     /**
      * @var int
@@ -25,14 +20,19 @@ class streamCountInfo extends Model
     public $limit;
 
     /**
-     * @var int
+     * @var streamCountDetails
      */
-    public $count;
+    public $streamCountDetails;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'               => 'Type',
-        'streamCountDetails' => 'StreamCountDetails',
-        'limit'              => 'Limit',
         'count'              => 'Count',
+        'limit'              => 'Limit',
+        'streamCountDetails' => 'StreamCountDetails',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class streamCountInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->streamCountDetails) {
-            $res['StreamCountDetails'] = null !== $this->streamCountDetails ? $this->streamCountDetails->toMap() : null;
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->streamCountDetails) {
+            $res['StreamCountDetails'] = null !== $this->streamCountDetails ? $this->streamCountDetails->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class streamCountInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['StreamCountDetails'])) {
-            $model->streamCountDetails = streamCountDetails::fromMap($map['StreamCountDetails']);
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['StreamCountDetails'])) {
+            $model->streamCountDetails = streamCountDetails::fromMap($map['StreamCountDetails']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

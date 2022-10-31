@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveSnapshotDetectPornConfigResponseBody extends Model
 {
     /**
+     * @var liveSnapshotDetectPornConfigList
+     */
+    public $liveSnapshotDetectPornConfigList;
+
+    /**
      * @var string
      */
     public $order;
@@ -17,12 +22,12 @@ class DescribeLiveSnapshotDetectPornConfigResponseBody extends Model
     /**
      * @var int
      */
-    public $totalNum;
+    public $pageNum;
 
     /**
      * @var int
      */
-    public $pageNum;
+    public $pageSize;
 
     /**
      * @var string
@@ -32,25 +37,20 @@ class DescribeLiveSnapshotDetectPornConfigResponseBody extends Model
     /**
      * @var int
      */
-    public $totalPage;
+    public $totalNum;
 
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var liveSnapshotDetectPornConfigList
-     */
-    public $liveSnapshotDetectPornConfigList;
+    public $totalPage;
     protected $_name = [
-        'order'                            => 'Order',
-        'totalNum'                         => 'TotalNum',
-        'pageNum'                          => 'PageNum',
-        'requestId'                        => 'RequestId',
-        'totalPage'                        => 'TotalPage',
-        'pageSize'                         => 'PageSize',
         'liveSnapshotDetectPornConfigList' => 'LiveSnapshotDetectPornConfigList',
+        'order'                            => 'Order',
+        'pageNum'                          => 'PageNum',
+        'pageSize'                         => 'PageSize',
+        'requestId'                        => 'RequestId',
+        'totalNum'                         => 'TotalNum',
+        'totalPage'                        => 'TotalPage',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class DescribeLiveSnapshotDetectPornConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->liveSnapshotDetectPornConfigList) {
+            $res['LiveSnapshotDetectPornConfigList'] = null !== $this->liveSnapshotDetectPornConfigList ? $this->liveSnapshotDetectPornConfigList->toMap() : null;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
-        }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->liveSnapshotDetectPornConfigList) {
-            $res['LiveSnapshotDetectPornConfigList'] = null !== $this->liveSnapshotDetectPornConfigList ? $this->liveSnapshotDetectPornConfigList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class DescribeLiveSnapshotDetectPornConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LiveSnapshotDetectPornConfigList'])) {
+            $model->liveSnapshotDetectPornConfigList = liveSnapshotDetectPornConfigList::fromMap($map['LiveSnapshotDetectPornConfigList']);
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
-        }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['LiveSnapshotDetectPornConfigList'])) {
-            $model->liveSnapshotDetectPornConfigList = liveSnapshotDetectPornConfigList::fromMap($map['LiveSnapshotDetectPornConfigList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

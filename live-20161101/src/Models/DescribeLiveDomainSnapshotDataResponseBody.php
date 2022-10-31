@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveDomainSnapshotDataResponseBody extends Model
 {
     /**
-     * @var snapshotDataInfos
-     */
-    public $snapshotDataInfos;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var snapshotDataInfos
+     */
+    public $snapshotDataInfos;
     protected $_name = [
-        'snapshotDataInfos' => 'SnapshotDataInfos',
         'requestId'         => 'RequestId',
+        'snapshotDataInfos' => 'SnapshotDataInfos',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeLiveDomainSnapshotDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotDataInfos) {
-            $res['SnapshotDataInfos'] = null !== $this->snapshotDataInfos ? $this->snapshotDataInfos->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotDataInfos) {
+            $res['SnapshotDataInfos'] = null !== $this->snapshotDataInfos ? $this->snapshotDataInfos->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeLiveDomainSnapshotDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotDataInfos'])) {
-            $model->snapshotDataInfos = snapshotDataInfos::fromMap($map['SnapshotDataInfos']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotDataInfos'])) {
+            $model->snapshotDataInfos = snapshotDataInfos::fromMap($map['SnapshotDataInfos']);
         }
 
         return $model;

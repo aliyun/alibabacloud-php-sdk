@@ -12,22 +12,17 @@ class liveSnapshotDetectPornConfig extends Model
     /**
      * @var string
      */
-    public $ossObject;
+    public $appName;
 
     /**
      * @var string
      */
-    public $appName;
+    public $domainName;
 
     /**
      * @var int
      */
     public $interval;
-
-    /**
-     * @var scenes
-     */
-    public $scenes;
 
     /**
      * @var string
@@ -37,20 +32,25 @@ class liveSnapshotDetectPornConfig extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $ossEndpoint;
 
     /**
      * @var string
      */
-    public $ossEndpoint;
+    public $ossObject;
+
+    /**
+     * @var scenes
+     */
+    public $scenes;
     protected $_name = [
-        'ossObject'   => 'OssObject',
         'appName'     => 'AppName',
-        'interval'    => 'Interval',
-        'scenes'      => 'Scenes',
-        'ossBucket'   => 'OssBucket',
         'domainName'  => 'DomainName',
+        'interval'    => 'Interval',
+        'ossBucket'   => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'ossObject'   => 'OssObject',
+        'scenes'      => 'Scenes',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class liveSnapshotDetectPornConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ossObject) {
-            $res['OssObject'] = $this->ossObject;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->scenes) {
-            $res['Scenes'] = null !== $this->scenes ? $this->scenes->toMap() : null;
-        }
-        if (null !== $this->ossBucket) {
-            $res['OssBucket'] = $this->ossBucket;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
+        }
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+        if (null !== $this->ossObject) {
+            $res['OssObject'] = $this->ossObject;
+        }
+        if (null !== $this->scenes) {
+            $res['Scenes'] = null !== $this->scenes ? $this->scenes->toMap() : null;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class liveSnapshotDetectPornConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OssObject'])) {
-            $model->ossObject = $map['OssObject'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
-        if (isset($map['Scenes'])) {
-            $model->scenes = scenes::fromMap($map['Scenes']);
-        }
-        if (isset($map['OssBucket'])) {
-            $model->ossBucket = $map['OssBucket'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
+        }
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
+        }
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+        if (isset($map['OssObject'])) {
+            $model->ossObject = $map['OssObject'];
+        }
+        if (isset($map['Scenes'])) {
+            $model->scenes = scenes::fromMap($map['Scenes']);
         }
 
         return $model;

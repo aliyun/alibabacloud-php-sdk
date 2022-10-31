@@ -16,12 +16,12 @@ class liveLazyPullConfig extends Model
     /**
      * @var string
      */
-    public $pullAppName;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $pullProtocol;
+    public $pullAppName;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class liveLazyPullConfig extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $pullProtocol;
     protected $_name = [
         'appName'        => 'AppName',
-        'pullAppName'    => 'PullAppName',
-        'pullProtocol'   => 'PullProtocol',
-        'pullDomainName' => 'PullDomainName',
         'domainName'     => 'DomainName',
+        'pullAppName'    => 'PullAppName',
+        'pullDomainName' => 'PullDomainName',
+        'pullProtocol'   => 'PullProtocol',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class liveLazyPullConfig extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->pullAppName) {
             $res['PullAppName'] = $this->pullAppName;
-        }
-        if (null !== $this->pullProtocol) {
-            $res['PullProtocol'] = $this->pullProtocol;
         }
         if (null !== $this->pullDomainName) {
             $res['PullDomainName'] = $this->pullDomainName;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->pullProtocol) {
+            $res['PullProtocol'] = $this->pullProtocol;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class liveLazyPullConfig extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['PullAppName'])) {
             $model->pullAppName = $map['PullAppName'];
-        }
-        if (isset($map['PullProtocol'])) {
-            $model->pullProtocol = $map['PullProtocol'];
         }
         if (isset($map['PullDomainName'])) {
             $model->pullDomainName = $map['PullDomainName'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['PullProtocol'])) {
+            $model->pullProtocol = $map['PullProtocol'];
         }
 
         return $model;

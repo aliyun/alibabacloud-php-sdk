@@ -15,18 +15,18 @@ class DescribeCasterScenesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $total;
-
-    /**
      * @var sceneList
      */
     public $sceneList;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'requestId' => 'RequestId',
-        'total'     => 'Total',
         'sceneList' => 'SceneList',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeCasterScenesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->sceneList) {
             $res['SceneList'] = null !== $this->sceneList ? $this->sceneList->toMap() : null;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeCasterScenesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['SceneList'])) {
             $model->sceneList = sceneList::fromMap($map['SceneList']);
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

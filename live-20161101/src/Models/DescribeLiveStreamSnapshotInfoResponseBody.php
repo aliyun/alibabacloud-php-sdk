@@ -17,16 +17,16 @@ class DescribeLiveStreamSnapshotInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $nextStartTime;
 
     /**
      * @var string
      */
-    public $nextStartTime;
+    public $requestId;
     protected $_name = [
         'liveStreamSnapshotInfoList' => 'LiveStreamSnapshotInfoList',
-        'requestId'                  => 'RequestId',
         'nextStartTime'              => 'NextStartTime',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeLiveStreamSnapshotInfoResponseBody extends Model
         if (null !== $this->liveStreamSnapshotInfoList) {
             $res['LiveStreamSnapshotInfoList'] = null !== $this->liveStreamSnapshotInfoList ? $this->liveStreamSnapshotInfoList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextStartTime) {
             $res['NextStartTime'] = $this->nextStartTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeLiveStreamSnapshotInfoResponseBody extends Model
         if (isset($map['LiveStreamSnapshotInfoList'])) {
             $model->liveStreamSnapshotInfoList = liveStreamSnapshotInfoList::fromMap($map['LiveStreamSnapshotInfoList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextStartTime'])) {
             $model->nextStartTime = $map['NextStartTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

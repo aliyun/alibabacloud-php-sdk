@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddCasterEpisodeGroupContentRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $clientToken;
@@ -22,10 +17,15 @@ class AddCasterEpisodeGroupContentRequest extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
         'clientToken' => 'ClientToken',
         'content'     => 'Content',
+        'ownerId'     => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class AddCasterEpisodeGroupContentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class AddCasterEpisodeGroupContentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

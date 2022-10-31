@@ -15,18 +15,18 @@ class syncGroup extends Model
     public $hostResourceId;
 
     /**
-     * @var resourceIds
-     */
-    public $resourceIds;
-
-    /**
      * @var int
      */
     public $mode;
+
+    /**
+     * @var resourceIds
+     */
+    public $resourceIds;
     protected $_name = [
         'hostResourceId' => 'HostResourceId',
-        'resourceIds'    => 'ResourceIds',
         'mode'           => 'Mode',
+        'resourceIds'    => 'ResourceIds',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class syncGroup extends Model
         if (null !== $this->hostResourceId) {
             $res['HostResourceId'] = $this->hostResourceId;
         }
-        if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = null !== $this->resourceIds ? $this->resourceIds->toMap() : null;
-        }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = null !== $this->resourceIds ? $this->resourceIds->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class syncGroup extends Model
         if (isset($map['HostResourceId'])) {
             $model->hostResourceId = $map['HostResourceId'];
         }
-        if (isset($map['ResourceIds'])) {
-            $model->resourceIds = resourceIds::fromMap($map['ResourceIds']);
-        }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['ResourceIds'])) {
+            $model->resourceIds = resourceIds::fromMap($map['ResourceIds']);
         }
 
         return $model;

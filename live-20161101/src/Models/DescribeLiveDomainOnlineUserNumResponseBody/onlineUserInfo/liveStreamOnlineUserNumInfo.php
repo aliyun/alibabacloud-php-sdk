@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class liveStreamOnlineUserNumInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $streamName;
-
-    /**
      * @var infos
      */
     public $infos;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'streamName' => 'StreamName',
         'infos'      => 'Infos',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class liveStreamOnlineUserNumInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streamName) {
-            $res['StreamName'] = $this->streamName;
-        }
         if (null !== $this->infos) {
             $res['Infos'] = null !== $this->infos ? $this->infos->toMap() : null;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class liveStreamOnlineUserNumInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StreamName'])) {
-            $model->streamName = $map['StreamName'];
-        }
         if (isset($map['Infos'])) {
             $model->infos = infos::fromMap($map['Infos']);
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

@@ -16,6 +16,16 @@ class domainTranscodeInfo extends Model
     public $customTranscodeParameters;
 
     /**
+     * @var encryptParameters
+     */
+    public $encryptParameters;
+
+    /**
+     * @var bool
+     */
+    public $isLazy;
+
+    /**
      * @var string
      */
     public $transcodeApp;
@@ -23,23 +33,19 @@ class domainTranscodeInfo extends Model
     /**
      * @var string
      */
-    public $transcodeTemplate;
-
-    /**
-     * @var encryptParameters
-     */
-    public $encryptParameters;
+    public $transcodeName;
 
     /**
      * @var string
      */
-    public $transcodeName;
+    public $transcodeTemplate;
     protected $_name = [
         'customTranscodeParameters' => 'CustomTranscodeParameters',
-        'transcodeApp'              => 'TranscodeApp',
-        'transcodeTemplate'         => 'TranscodeTemplate',
         'encryptParameters'         => 'EncryptParameters',
+        'isLazy'                    => 'IsLazy',
+        'transcodeApp'              => 'TranscodeApp',
         'transcodeName'             => 'TranscodeName',
+        'transcodeTemplate'         => 'TranscodeTemplate',
     ];
 
     public function validate()
@@ -52,17 +58,20 @@ class domainTranscodeInfo extends Model
         if (null !== $this->customTranscodeParameters) {
             $res['CustomTranscodeParameters'] = null !== $this->customTranscodeParameters ? $this->customTranscodeParameters->toMap() : null;
         }
-        if (null !== $this->transcodeApp) {
-            $res['TranscodeApp'] = $this->transcodeApp;
-        }
-        if (null !== $this->transcodeTemplate) {
-            $res['TranscodeTemplate'] = $this->transcodeTemplate;
-        }
         if (null !== $this->encryptParameters) {
             $res['EncryptParameters'] = null !== $this->encryptParameters ? $this->encryptParameters->toMap() : null;
         }
+        if (null !== $this->isLazy) {
+            $res['IsLazy'] = $this->isLazy;
+        }
+        if (null !== $this->transcodeApp) {
+            $res['TranscodeApp'] = $this->transcodeApp;
+        }
         if (null !== $this->transcodeName) {
             $res['TranscodeName'] = $this->transcodeName;
+        }
+        if (null !== $this->transcodeTemplate) {
+            $res['TranscodeTemplate'] = $this->transcodeTemplate;
         }
 
         return $res;
@@ -79,17 +88,20 @@ class domainTranscodeInfo extends Model
         if (isset($map['CustomTranscodeParameters'])) {
             $model->customTranscodeParameters = customTranscodeParameters::fromMap($map['CustomTranscodeParameters']);
         }
-        if (isset($map['TranscodeApp'])) {
-            $model->transcodeApp = $map['TranscodeApp'];
-        }
-        if (isset($map['TranscodeTemplate'])) {
-            $model->transcodeTemplate = $map['TranscodeTemplate'];
-        }
         if (isset($map['EncryptParameters'])) {
             $model->encryptParameters = encryptParameters::fromMap($map['EncryptParameters']);
         }
+        if (isset($map['IsLazy'])) {
+            $model->isLazy = $map['IsLazy'];
+        }
+        if (isset($map['TranscodeApp'])) {
+            $model->transcodeApp = $map['TranscodeApp'];
+        }
         if (isset($map['TranscodeName'])) {
             $model->transcodeName = $map['TranscodeName'];
+        }
+        if (isset($map['TranscodeTemplate'])) {
+            $model->transcodeTemplate = $map['TranscodeTemplate'];
         }
 
         return $model;

@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetLiveStreamDelayConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var int
-     */
-    public $hlsDelay;
-
-    /**
-     * @var string
-     */
-    public $hlsLevel;
 
     /**
      * @var int
@@ -41,6 +26,21 @@ class SetLiveStreamDelayConfigRequest extends Model
     /**
      * @var int
      */
+    public $hlsDelay;
+
+    /**
+     * @var string
+     */
+    public $hlsLevel;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $rtmpDelay;
 
     /**
@@ -48,12 +48,12 @@ class SetLiveStreamDelayConfigRequest extends Model
      */
     public $rtmpLevel;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
-        'hlsDelay'   => 'HlsDelay',
-        'hlsLevel'   => 'HlsLevel',
         'flvDelay'   => 'FlvDelay',
         'flvLevel'   => 'FlvLevel',
+        'hlsDelay'   => 'HlsDelay',
+        'hlsLevel'   => 'HlsLevel',
+        'ownerId'    => 'OwnerId',
         'rtmpDelay'  => 'RtmpDelay',
         'rtmpLevel'  => 'RtmpLevel',
     ];
@@ -65,11 +65,14 @@ class SetLiveStreamDelayConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->flvDelay) {
+            $res['FlvDelay'] = $this->flvDelay;
+        }
+        if (null !== $this->flvLevel) {
+            $res['FlvLevel'] = $this->flvLevel;
         }
         if (null !== $this->hlsDelay) {
             $res['HlsDelay'] = $this->hlsDelay;
@@ -77,11 +80,8 @@ class SetLiveStreamDelayConfigRequest extends Model
         if (null !== $this->hlsLevel) {
             $res['HlsLevel'] = $this->hlsLevel;
         }
-        if (null !== $this->flvDelay) {
-            $res['FlvDelay'] = $this->flvDelay;
-        }
-        if (null !== $this->flvLevel) {
-            $res['FlvLevel'] = $this->flvLevel;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->rtmpDelay) {
             $res['RtmpDelay'] = $this->rtmpDelay;
@@ -101,11 +101,14 @@ class SetLiveStreamDelayConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['FlvDelay'])) {
+            $model->flvDelay = $map['FlvDelay'];
+        }
+        if (isset($map['FlvLevel'])) {
+            $model->flvLevel = $map['FlvLevel'];
         }
         if (isset($map['HlsDelay'])) {
             $model->hlsDelay = $map['HlsDelay'];
@@ -113,11 +116,8 @@ class SetLiveStreamDelayConfigRequest extends Model
         if (isset($map['HlsLevel'])) {
             $model->hlsLevel = $map['HlsLevel'];
         }
-        if (isset($map['FlvDelay'])) {
-            $model->flvDelay = $map['FlvDelay'];
-        }
-        if (isset($map['FlvLevel'])) {
-            $model->flvLevel = $map['FlvLevel'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RtmpDelay'])) {
             $model->rtmpDelay = $map['RtmpDelay'];

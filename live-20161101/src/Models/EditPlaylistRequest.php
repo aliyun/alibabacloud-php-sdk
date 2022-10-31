@@ -16,22 +16,22 @@ class EditPlaylistRequest extends Model
     /**
      * @var string
      */
+    public $programConfig;
+
+    /**
+     * @var string
+     */
     public $programId;
 
     /**
      * @var string
      */
     public $programItems;
-
-    /**
-     * @var string
-     */
-    public $programConfig;
     protected $_name = [
         'ownerId'       => 'OwnerId',
+        'programConfig' => 'ProgramConfig',
         'programId'     => 'ProgramId',
         'programItems'  => 'ProgramItems',
-        'programConfig' => 'ProgramConfig',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class EditPlaylistRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->programConfig) {
+            $res['ProgramConfig'] = $this->programConfig;
+        }
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
         }
         if (null !== $this->programItems) {
             $res['ProgramItems'] = $this->programItems;
-        }
-        if (null !== $this->programConfig) {
-            $res['ProgramConfig'] = $this->programConfig;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class EditPlaylistRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ProgramConfig'])) {
+            $model->programConfig = $map['ProgramConfig'];
+        }
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
         }
         if (isset($map['ProgramItems'])) {
             $model->programItems = $map['ProgramItems'];
-        }
-        if (isset($map['ProgramConfig'])) {
-            $model->programConfig = $map['ProgramConfig'];
         }
 
         return $model;

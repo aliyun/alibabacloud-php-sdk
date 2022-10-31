@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateMixStreamRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $mixStreamId;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class UpdateMixStreamRequest extends Model
      * @var string
      */
     public $layoutId;
+
+    /**
+     * @var string
+     */
+    public $mixStreamId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
         'domainName'      => 'DomainName',
-        'mixStreamId'     => 'MixStreamId',
         'inputStreamList' => 'InputStreamList',
         'layoutId'        => 'LayoutId',
+        'mixStreamId'     => 'MixStreamId',
+        'ownerId'         => 'OwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateMixStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->mixStreamId) {
-            $res['MixStreamId'] = $this->mixStreamId;
         }
         if (null !== $this->inputStreamList) {
             $res['InputStreamList'] = $this->inputStreamList;
         }
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
+        }
+        if (null !== $this->mixStreamId) {
+            $res['MixStreamId'] = $this->mixStreamId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateMixStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['MixStreamId'])) {
-            $model->mixStreamId = $map['MixStreamId'];
         }
         if (isset($map['InputStreamList'])) {
             $model->inputStreamList = $map['InputStreamList'];
         }
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
+        }
+        if (isset($map['MixStreamId'])) {
+            $model->mixStreamId = $map['MixStreamId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

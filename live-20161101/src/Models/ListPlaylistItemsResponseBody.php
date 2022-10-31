@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListPlaylistItemsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var programItems[]
      */
     public $programItems;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'programItems' => 'ProgramItems',
+        'requestId'    => 'RequestId',
         'total'        => 'Total',
     ];
 
@@ -36,9 +36,6 @@ class ListPlaylistItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->programItems) {
             $res['ProgramItems'] = [];
             if (null !== $this->programItems && \is_array($this->programItems)) {
@@ -47,6 +44,9 @@ class ListPlaylistItemsResponseBody extends Model
                     $res['ProgramItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -63,9 +63,6 @@ class ListPlaylistItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ProgramItems'])) {
             if (!empty($map['ProgramItems'])) {
                 $model->programItems = [];
@@ -74,6 +71,9 @@ class ListPlaylistItemsResponseBody extends Model
                     $model->programItems[$n++] = null !== $item ? programItems::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

@@ -11,15 +11,15 @@ class ModifyCasterProgramResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $casterId;
 
     /**
      * @var string
      */
-    public $casterId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'casterId'  => 'CasterId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ModifyCasterProgramResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ModifyCasterProgramResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

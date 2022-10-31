@@ -11,15 +11,15 @@ class liveDomainModel extends Model
     /**
      * @var string
      */
-    public $type;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $type;
     protected $_name = [
-        'type'       => 'Type',
         'domainName' => 'DomainName',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class liveDomainModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class liveDomainModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

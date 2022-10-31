@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class recordContentInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var float
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class recordContentInfo extends Model
     /**
      * @var string
      */
+    public $ossEndpoint;
+
+    /**
+     * @var string
+     */
     public $ossObjectPrefix;
 
     /**
      * @var string
      */
-    public $ossEndpoint;
+    public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'startTime'       => 'StartTime',
         'duration'        => 'Duration',
+        'endTime'         => 'EndTime',
         'ossBucket'       => 'OssBucket',
-        'ossObjectPrefix' => 'OssObjectPrefix',
         'ossEndpoint'     => 'OssEndpoint',
+        'ossObjectPrefix' => 'OssObjectPrefix',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class recordContentInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ossBucket) {
             $res['OssBucket'] = $this->ossBucket;
         }
+        if (null !== $this->ossEndpoint) {
+            $res['OssEndpoint'] = $this->ossEndpoint;
+        }
         if (null !== $this->ossObjectPrefix) {
             $res['OssObjectPrefix'] = $this->ossObjectPrefix;
         }
-        if (null !== $this->ossEndpoint) {
-            $res['OssEndpoint'] = $this->ossEndpoint;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class recordContentInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['OssBucket'])) {
             $model->ossBucket = $map['OssBucket'];
         }
+        if (isset($map['OssEndpoint'])) {
+            $model->ossEndpoint = $map['OssEndpoint'];
+        }
         if (isset($map['OssObjectPrefix'])) {
             $model->ossObjectPrefix = $map['OssObjectPrefix'];
         }
-        if (isset($map['OssEndpoint'])) {
-            $model->ossEndpoint = $map['OssEndpoint'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

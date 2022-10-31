@@ -11,7 +11,7 @@ class ModifyCasterEpisodeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $casterId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ModifyCasterEpisodeResponseBody extends Model
     /**
      * @var string
      */
-    public $casterId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'episodeId' => 'EpisodeId',
         'casterId'  => 'CasterId',
+        'episodeId' => 'EpisodeId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ModifyCasterEpisodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->casterId) {
+            $res['CasterId'] = $this->casterId;
         }
         if (null !== $this->episodeId) {
             $res['EpisodeId'] = $this->episodeId;
         }
-        if (null !== $this->casterId) {
-            $res['CasterId'] = $this->casterId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ModifyCasterEpisodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CasterId'])) {
+            $model->casterId = $map['CasterId'];
         }
         if (isset($map['EpisodeId'])) {
             $model->episodeId = $map['EpisodeId'];
         }
-        if (isset($map['CasterId'])) {
-            $model->casterId = $map['CasterId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

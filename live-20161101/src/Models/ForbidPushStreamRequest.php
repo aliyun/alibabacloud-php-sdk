@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ForbidPushStreamRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $appId;
 
     /**
      * @var string
      */
-    public $appId;
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -27,17 +32,12 @@ class ForbidPushStreamRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $endTime;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'appId'    => 'AppId',
+        'endTime'  => 'EndTime',
+        'ownerId'  => 'OwnerId',
         'roomId'   => 'RoomId',
         'userData' => 'UserData',
-        'endTime'  => 'EndTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ForbidPushStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ForbidPushStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

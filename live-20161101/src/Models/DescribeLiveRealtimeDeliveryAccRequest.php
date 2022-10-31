@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLiveRealtimeDeliveryAccRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $startTime;
+    public $domainName;
 
     /**
      * @var string
@@ -31,19 +26,30 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
     /**
      * @var string
      */
+    public $logStore;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $project;
 
     /**
      * @var string
      */
-    public $logStore;
+    public $startTime;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
-        'startTime' => 'StartTime',
-        'endTime'   => 'EndTime',
-        'interval'  => 'Interval',
-        'project'   => 'Project',
-        'logStore'  => 'LogStore',
+        'domainName' => 'DomainName',
+        'endTime'    => 'EndTime',
+        'interval'   => 'Interval',
+        'logStore'   => 'LogStore',
+        'ownerId'    => 'OwnerId',
+        'project'    => 'Project',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -53,11 +59,8 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -65,11 +68,17 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+        if (null !== $this->logStore) {
+            $res['LogStore'] = $this->logStore;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-        if (null !== $this->logStore) {
-            $res['LogStore'] = $this->logStore;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,11 +92,8 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -95,11 +101,17 @@ class DescribeLiveRealtimeDeliveryAccRequest extends Model
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+        if (isset($map['LogStore'])) {
+            $model->logStore = $map['LogStore'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-        if (isset($map['LogStore'])) {
-            $model->logStore = $map['LogStore'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

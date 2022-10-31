@@ -11,12 +11,7 @@ class ResumeLiveStreamRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $appName;
 
     /**
      * @var string
@@ -29,20 +24,25 @@ class ResumeLiveStreamRequest extends Model
     public $liveStreamType;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $appName;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $streamName;
     protected $_name = [
-        'securityToken'  => 'SecurityToken',
-        'ownerId'        => 'OwnerId',
+        'appName'        => 'AppName',
         'domainName'     => 'DomainName',
         'liveStreamType' => 'LiveStreamType',
-        'appName'        => 'AppName',
+        'ownerId'        => 'OwnerId',
+        'securityToken'  => 'SecurityToken',
         'streamName'     => 'StreamName',
     ];
 
@@ -53,11 +53,8 @@ class ResumeLiveStreamRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -65,8 +62,11 @@ class ResumeLiveStreamRequest extends Model
         if (null !== $this->liveStreamType) {
             $res['LiveStreamType'] = $this->liveStreamType;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
@@ -83,11 +83,8 @@ class ResumeLiveStreamRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -95,8 +92,11 @@ class ResumeLiveStreamRequest extends Model
         if (isset($map['LiveStreamType'])) {
             $model->liveStreamType = $map['LiveStreamType'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];

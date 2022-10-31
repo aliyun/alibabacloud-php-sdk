@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpBpsPeakDataResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var describeUpPeakTraffics
      */
     public $describeUpPeakTraffics;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'              => 'RequestId',
         'describeUpPeakTraffics' => 'DescribeUpPeakTraffics',
+        'requestId'              => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeUpBpsPeakDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->describeUpPeakTraffics) {
             $res['DescribeUpPeakTraffics'] = null !== $this->describeUpPeakTraffics ? $this->describeUpPeakTraffics->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeUpBpsPeakDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DescribeUpPeakTraffics'])) {
             $model->describeUpPeakTraffics = describeUpPeakTraffics::fromMap($map['DescribeUpPeakTraffics']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

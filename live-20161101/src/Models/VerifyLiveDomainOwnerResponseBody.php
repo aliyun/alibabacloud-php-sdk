@@ -11,15 +11,15 @@ class VerifyLiveDomainOwnerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $content;
 
     /**
      * @var string
      */
-    public $content;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'content'   => 'Content',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class VerifyLiveDomainOwnerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class VerifyLiveDomainOwnerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

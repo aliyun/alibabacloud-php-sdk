@@ -14,9 +14,14 @@ class config extends Model
     public $appName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $vision;
+    public $domainName;
+
+    /**
+     * @var bool
+     */
+    public $ignoreTranscode;
 
     /**
      * @var string
@@ -24,14 +29,15 @@ class config extends Model
     public $streamName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $domainName;
+    public $vision;
     protected $_name = [
-        'appName'    => 'AppName',
-        'vision'     => 'Vision',
-        'streamName' => 'StreamName',
-        'domainName' => 'DomainName',
+        'appName'         => 'AppName',
+        'domainName'      => 'DomainName',
+        'ignoreTranscode' => 'IgnoreTranscode',
+        'streamName'      => 'StreamName',
+        'vision'          => 'Vision',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class config extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->vision) {
-            $res['Vision'] = $this->vision;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->ignoreTranscode) {
+            $res['IgnoreTranscode'] = $this->ignoreTranscode;
         }
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->vision) {
+            $res['Vision'] = $this->vision;
         }
 
         return $res;
@@ -68,14 +77,17 @@ class config extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['Vision'])) {
-            $model->vision = $map['Vision'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['IgnoreTranscode'])) {
+            $model->ignoreTranscode = $map['IgnoreTranscode'];
         }
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['Vision'])) {
+            $model->vision = $map['Vision'];
         }
 
         return $model;
