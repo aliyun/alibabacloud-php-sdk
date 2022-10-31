@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\CC5G\V20220314\Models;
+namespace AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorGroupsResponseBody\wirelessCloudConnectorGroups;
 
-use AlibabaCloud\SDK\CC5G\V20220314\Models\GetWirelessCloudConnectorResponseBody\netLinks;
 use AlibabaCloud\Tea\Model;
 
-class GetWirelessCloudConnectorResponseBody extends Model
+class wirelessCloudConnectors extends Model
 {
     /**
      * @var string
@@ -40,29 +39,14 @@ class GetWirelessCloudConnectorResponseBody extends Model
     public $description;
 
     /**
-     * @var string[]
-     */
-    public $features;
-
-    /**
      * @var string
      */
     public $name;
 
     /**
-     * @var netLinks[]
-     */
-    public $netLinks;
-
-    /**
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -82,29 +66,20 @@ class GetWirelessCloudConnectorResponseBody extends Model
     /**
      * @var string
      */
-    public $wirelessCloudConnectorGroupId;
-
-    /**
-     * @var string
-     */
     public $wirelessCloudConnectorId;
     protected $_name = [
-        'businessType'                  => 'BusinessType',
-        'cardCount'                     => 'CardCount',
-        'createTime'                    => 'CreateTime',
-        'dataPackageId'                 => 'DataPackageId',
-        'dataPackageType'               => 'DataPackageType',
-        'description'                   => 'Description',
-        'features'                      => 'Features',
-        'name'                          => 'Name',
-        'netLinks'                      => 'NetLinks',
-        'regionId'                      => 'RegionId',
-        'requestId'                     => 'RequestId',
-        'serviceType'                   => 'ServiceType',
-        'status'                        => 'Status',
-        'useCase'                       => 'UseCase',
-        'wirelessCloudConnectorGroupId' => 'WirelessCloudConnectorGroupId',
-        'wirelessCloudConnectorId'      => 'WirelessCloudConnectorId',
+        'businessType'             => 'BusinessType',
+        'cardCount'                => 'CardCount',
+        'createTime'               => 'CreateTime',
+        'dataPackageId'            => 'DataPackageId',
+        'dataPackageType'          => 'DataPackageType',
+        'description'              => 'Description',
+        'name'                     => 'Name',
+        'regionId'                 => 'RegionId',
+        'serviceType'              => 'ServiceType',
+        'status'                   => 'Status',
+        'useCase'                  => 'UseCase',
+        'wirelessCloudConnectorId' => 'WirelessCloudConnectorId',
     ];
 
     public function validate()
@@ -132,26 +107,11 @@ class GetWirelessCloudConnectorResponseBody extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->features) {
-            $res['Features'] = $this->features;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->netLinks) {
-            $res['NetLinks'] = [];
-            if (null !== $this->netLinks && \is_array($this->netLinks)) {
-                $n = 0;
-                foreach ($this->netLinks as $item) {
-                    $res['NetLinks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -161,9 +121,6 @@ class GetWirelessCloudConnectorResponseBody extends Model
         }
         if (null !== $this->useCase) {
             $res['UseCase'] = $this->useCase;
-        }
-        if (null !== $this->wirelessCloudConnectorGroupId) {
-            $res['WirelessCloudConnectorGroupId'] = $this->wirelessCloudConnectorGroupId;
         }
         if (null !== $this->wirelessCloudConnectorId) {
             $res['WirelessCloudConnectorId'] = $this->wirelessCloudConnectorId;
@@ -175,7 +132,7 @@ class GetWirelessCloudConnectorResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetWirelessCloudConnectorResponseBody
+     * @return wirelessCloudConnectors
      */
     public static function fromMap($map = [])
     {
@@ -198,28 +155,11 @@ class GetWirelessCloudConnectorResponseBody extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Features'])) {
-            if (!empty($map['Features'])) {
-                $model->features = $map['Features'];
-            }
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['NetLinks'])) {
-            if (!empty($map['NetLinks'])) {
-                $model->netLinks = [];
-                $n               = 0;
-                foreach ($map['NetLinks'] as $item) {
-                    $model->netLinks[$n++] = null !== $item ? netLinks::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
@@ -229,9 +169,6 @@ class GetWirelessCloudConnectorResponseBody extends Model
         }
         if (isset($map['UseCase'])) {
             $model->useCase = $map['UseCase'];
-        }
-        if (isset($map['WirelessCloudConnectorGroupId'])) {
-            $model->wirelessCloudConnectorGroupId = $map['WirelessCloudConnectorGroupId'];
         }
         if (isset($map['WirelessCloudConnectorId'])) {
             $model->wirelessCloudConnectorId = $map['WirelessCloudConnectorId'];

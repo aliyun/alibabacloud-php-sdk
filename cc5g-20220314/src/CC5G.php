@@ -8,22 +8,34 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\AddDNSAuthorizationRuleRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\AddDNSAuthorizationRuleResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\AddGroupDnsAuthorizationRuleRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\AddGroupDnsAuthorizationRuleResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\AddWirelessCloudConnectorToGroupRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\AddWirelessCloudConnectorToGroupResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\AttachVpcToNetLinkRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\AttachVpcToNetLinkResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateAuthorizationRuleRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateAuthorizationRuleResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateBatchOperateCardsTaskRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateBatchOperateCardsTaskResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateGroupAuthorizationRuleRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateGroupAuthorizationRuleResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateIoTCloudConnectorBackhaulRouteRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateIoTCloudConnectorBackhaulRouteResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateWirelessCloudConnectorGroupRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateWirelessCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\CreateWirelessCloudConnectorResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteAuthorizationRuleRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteAuthorizationRuleResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteBatchOperateCardsTaskRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteBatchOperateCardsTaskResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteGroupAuthorizationRuleRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteGroupAuthorizationRuleResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteIoTCloudConnectorBackhaulRouteRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteIoTCloudConnectorBackhaulRouteResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorGroupRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DeleteWirelessCloudConnectorResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\DetachVpcFromNetLinkRequest;
@@ -54,12 +66,16 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDataPackagesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDiagnoseInfoForSingleCardRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListDiagnoseInfoForSingleCardResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListGroupAuthorizationRulesRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListGroupAuthorizationRulesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListIoTCloudConnectorBackhaulRouteRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListIoTCloudConnectorBackhaulRouteResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListOrdersRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListOrdersResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorGroupsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorGroupsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListWirelessCloudConnectorsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListZonesRequest;
@@ -70,6 +86,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ModifyWirelessCloudConnectorFeatureRe
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ModifyWirelessCloudConnectorFeatureResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\OpenCc5gServiceResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\RemoveWirelessCloudConnectorFromGroupRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\RemoveWirelessCloudConnectorFromGroupResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RevokeNetLinkRequest;
@@ -90,6 +108,12 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateCardRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateCardResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateDNSAuthorizationRuleRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateDNSAuthorizationRuleResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateGroupAuthorizationRuleRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateGroupAuthorizationRuleResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateGroupDnsAuthorizationRuleRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateGroupDnsAuthorizationRuleResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateWirelessCloudConnectorGroupRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateWirelessCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateWirelessCloudConnectorRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\UpdateWirelessCloudConnectorResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -190,6 +214,122 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addDNSAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddGroupDnsAuthorizationRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AddGroupDnsAuthorizationRuleResponse
+     */
+    public function addGroupDnsAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationIp)) {
+            $query['DestinationIp'] = $request->destinationIp;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourceDNSIp)) {
+            $query['SourceDNSIp'] = $request->sourceDNSIp;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGroupDnsAuthorizationRule',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddGroupDnsAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddGroupDnsAuthorizationRuleRequest $request
+     *
+     * @return AddGroupDnsAuthorizationRuleResponse
+     */
+    public function addGroupDnsAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGroupDnsAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddWirelessCloudConnectorToGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AddWirelessCloudConnectorToGroupResponse
+     */
+    public function addWirelessCloudConnectorToGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorIds)) {
+            $query['WirelessCloudConnectorIds'] = $request->wirelessCloudConnectorIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddWirelessCloudConnectorToGroup',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddWirelessCloudConnectorToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddWirelessCloudConnectorToGroupRequest $request
+     *
+     * @return AddWirelessCloudConnectorToGroupResponse
+     */
+    public function addWirelessCloudConnectorToGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addWirelessCloudConnectorToGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -400,6 +540,79 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param CreateGroupAuthorizationRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateGroupAuthorizationRuleResponse
+     */
+    public function createGroupAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationPort)) {
+            $query['DestinationPort'] = $request->destinationPort;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->sourceCidr)) {
+            $query['SourceCidr'] = $request->sourceCidr;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupAuthorizationRule',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGroupAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGroupAuthorizationRuleRequest $request
+     *
+     * @return CreateGroupAuthorizationRuleResponse
+     */
+    public function createGroupAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateIoTCloudConnectorBackhaulRouteRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -519,6 +732,61 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param CreateWirelessCloudConnectorGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateWirelessCloudConnectorGroupResponse
+     */
+    public function createWirelessCloudConnectorGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWirelessCloudConnectorGroup',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWirelessCloudConnectorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWirelessCloudConnectorGroupRequest $request
+     *
+     * @return CreateWirelessCloudConnectorGroupResponse
+     */
+    public function createWirelessCloudConnectorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWirelessCloudConnectorGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteAuthorizationRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -623,6 +891,58 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param DeleteGroupAuthorizationRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteGroupAuthorizationRuleResponse
+     */
+    public function deleteGroupAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroupAuthorizationRule',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGroupAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGroupAuthorizationRuleRequest $request
+     *
+     * @return DeleteGroupAuthorizationRuleResponse
+     */
+    public function deleteGroupAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteIoTCloudConnectorBackhaulRouteRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -721,6 +1041,55 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWirelessCloudConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteWirelessCloudConnectorGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteWirelessCloudConnectorGroupResponse
+     */
+    public function deleteWirelessCloudConnectorGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWirelessCloudConnectorGroup',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWirelessCloudConnectorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteWirelessCloudConnectorGroupRequest $request
+     *
+     * @return DeleteWirelessCloudConnectorGroupResponse
+     */
+    public function deleteWirelessCloudConnectorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWirelessCloudConnectorGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1350,6 +1719,46 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param ListGroupAuthorizationRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListGroupAuthorizationRulesResponse
+     */
+    public function listGroupAuthorizationRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupAuthorizationRules',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGroupAuthorizationRulesRequest $request
+     *
+     * @return ListGroupAuthorizationRulesResponse
+     */
+    public function listGroupAuthorizationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupAuthorizationRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListIoTCloudConnectorBackhaulRouteRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -1467,6 +1876,46 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListWirelessCloudConnectorGroupsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListWirelessCloudConnectorGroupsResponse
+     */
+    public function listWirelessCloudConnectorGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWirelessCloudConnectorGroups',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWirelessCloudConnectorGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListWirelessCloudConnectorGroupsRequest $request
+     *
+     * @return ListWirelessCloudConnectorGroupsResponse
+     */
+    public function listWirelessCloudConnectorGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWirelessCloudConnectorGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -1697,6 +2146,61 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openCc5gServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveWirelessCloudConnectorFromGroupRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RemoveWirelessCloudConnectorFromGroupResponse
+     */
+    public function removeWirelessCloudConnectorFromGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorIds)) {
+            $query['WirelessCloudConnectorIds'] = $request->wirelessCloudConnectorIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveWirelessCloudConnectorFromGroup',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveWirelessCloudConnectorFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveWirelessCloudConnectorFromGroupRequest $request
+     *
+     * @return RemoveWirelessCloudConnectorFromGroupResponse
+     */
+    public function removeWirelessCloudConnectorFromGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeWirelessCloudConnectorFromGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2289,6 +2793,143 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param UpdateGroupAuthorizationRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateGroupAuthorizationRuleResponse
+     */
+    public function updateGroupAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationPort)) {
+            $query['DestinationPort'] = $request->destinationPort;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $query['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->sourceCidr)) {
+            $query['SourceCidr'] = $request->sourceCidr;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroupAuthorizationRule',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGroupAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupAuthorizationRuleRequest $request
+     *
+     * @return UpdateGroupAuthorizationRuleResponse
+     */
+    public function updateGroupAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGroupDnsAuthorizationRuleRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateGroupDnsAuthorizationRuleResponse
+     */
+    public function updateGroupDnsAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationRuleId)) {
+            $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destinationIp)) {
+            $query['DestinationIp'] = $request->destinationIp;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourceDNSIp)) {
+            $query['SourceDNSIp'] = $request->sourceDNSIp;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroupDnsAuthorizationRule',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGroupDnsAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupDnsAuthorizationRuleRequest $request
+     *
+     * @return UpdateGroupDnsAuthorizationRuleResponse
+     */
+    public function updateGroupDnsAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupDnsAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateWirelessCloudConnectorRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2341,5 +2982,60 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWirelessCloudConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateWirelessCloudConnectorGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateWirelessCloudConnectorGroupResponse
+     */
+    public function updateWirelessCloudConnectorGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->wirelessCloudConnectorGroupId)) {
+            $query['WirelessCloudConnectorGroupId'] = $request->wirelessCloudConnectorGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWirelessCloudConnectorGroup',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWirelessCloudConnectorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateWirelessCloudConnectorGroupRequest $request
+     *
+     * @return UpdateWirelessCloudConnectorGroupResponse
+     */
+    public function updateWirelessCloudConnectorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWirelessCloudConnectorGroupWithOptions($request, $runtime);
     }
 }
