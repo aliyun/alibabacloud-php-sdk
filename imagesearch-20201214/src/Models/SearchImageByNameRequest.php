@@ -39,11 +39,6 @@ class SearchImageByNameRequest extends Model
     public $productId;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $start;
@@ -54,7 +49,6 @@ class SearchImageByNameRequest extends Model
         'num'          => 'Num',
         'picName'      => 'PicName',
         'productId'    => 'ProductId',
-        'regionId'     => 'RegionId',
         'start'        => 'Start',
     ];
 
@@ -82,9 +76,6 @@ class SearchImageByNameRequest extends Model
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->start) {
             $res['Start'] = $this->start;
@@ -118,9 +109,6 @@ class SearchImageByNameRequest extends Model
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Start'])) {
             $model->start = $map['Start'];

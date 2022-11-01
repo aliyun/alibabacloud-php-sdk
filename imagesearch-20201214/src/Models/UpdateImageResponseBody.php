@@ -14,8 +14,6 @@ class UpdateImageResponseBody extends Model
     public $code;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $message;

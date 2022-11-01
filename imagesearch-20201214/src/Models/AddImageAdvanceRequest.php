@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class AddImageAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $picContentObject;
-
-    /**
      * @var int
      */
     public $categoryId;
@@ -40,6 +35,11 @@ class AddImageAdvanceRequest extends Model
     public $intAttr;
 
     /**
+     * @var Stream
+     */
+    public $picContentObject;
+
+    /**
      * @var string
      */
     public $picName;
@@ -59,12 +59,12 @@ class AddImageAdvanceRequest extends Model
      */
     public $strAttr;
     protected $_name = [
-        'picContentObject' => 'PicContentObject',
         'categoryId'       => 'CategoryId',
         'crop'             => 'Crop',
         'customContent'    => 'CustomContent',
         'instanceName'     => 'InstanceName',
         'intAttr'          => 'IntAttr',
+        'picContentObject' => 'PicContent',
         'picName'          => 'PicName',
         'productId'        => 'ProductId',
         'region'           => 'Region',
@@ -73,15 +73,11 @@ class AddImageAdvanceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('picContentObject', $this->picContentObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picContentObject) {
-            $res['PicContentObject'] = $this->picContentObject;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -96,6 +92,9 @@ class AddImageAdvanceRequest extends Model
         }
         if (null !== $this->intAttr) {
             $res['IntAttr'] = $this->intAttr;
+        }
+        if (null !== $this->picContentObject) {
+            $res['PicContent'] = $this->picContentObject;
         }
         if (null !== $this->picName) {
             $res['PicName'] = $this->picName;
@@ -121,9 +120,6 @@ class AddImageAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicContentObject'])) {
-            $model->picContentObject = $map['PicContentObject'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
@@ -138,6 +134,9 @@ class AddImageAdvanceRequest extends Model
         }
         if (isset($map['IntAttr'])) {
             $model->intAttr = $map['IntAttr'];
+        }
+        if (isset($map['PicContent'])) {
+            $model->picContentObject = $map['PicContent'];
         }
         if (isset($map['PicName'])) {
             $model->picName = $map['PicName'];

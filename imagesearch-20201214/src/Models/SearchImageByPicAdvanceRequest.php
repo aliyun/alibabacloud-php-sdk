@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class SearchImageByPicAdvanceRequest extends Model
 {
     /**
-     * @var Stream
-     */
-    public $picContentObject;
-
-    /**
      * @var int
      */
     public $categoryId;
@@ -40,42 +35,37 @@ class SearchImageByPicAdvanceRequest extends Model
     public $num;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $region;
+    public $picContentObject;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $region;
 
     /**
      * @var int
      */
     public $start;
     protected $_name = [
-        'picContentObject' => 'PicContentObject',
         'categoryId'       => 'CategoryId',
         'crop'             => 'Crop',
         'filter'           => 'Filter',
         'instanceName'     => 'InstanceName',
         'num'              => 'Num',
+        'picContentObject' => 'PicContent',
         'region'           => 'Region',
-        'regionId'         => 'RegionId',
         'start'            => 'Start',
     ];
 
     public function validate()
     {
-        Model::validateRequired('picContentObject', $this->picContentObject, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picContentObject) {
-            $res['PicContentObject'] = $this->picContentObject;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
@@ -91,11 +81,11 @@ class SearchImageByPicAdvanceRequest extends Model
         if (null !== $this->num) {
             $res['Num'] = $this->num;
         }
+        if (null !== $this->picContentObject) {
+            $res['PicContent'] = $this->picContentObject;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->start) {
             $res['Start'] = $this->start;
@@ -112,9 +102,6 @@ class SearchImageByPicAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicContentObject'])) {
-            $model->picContentObject = $map['PicContentObject'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
@@ -130,11 +117,11 @@ class SearchImageByPicAdvanceRequest extends Model
         if (isset($map['Num'])) {
             $model->num = $map['Num'];
         }
+        if (isset($map['PicContent'])) {
+            $model->picContentObject = $map['PicContent'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Start'])) {
             $model->start = $map['Start'];

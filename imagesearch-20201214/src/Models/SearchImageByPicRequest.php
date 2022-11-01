@@ -44,11 +44,6 @@ class SearchImageByPicRequest extends Model
     public $region;
 
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var int
      */
     public $start;
@@ -60,7 +55,6 @@ class SearchImageByPicRequest extends Model
         'num'          => 'Num',
         'picContent'   => 'PicContent',
         'region'       => 'Region',
-        'regionId'     => 'RegionId',
         'start'        => 'Start',
     ];
 
@@ -91,9 +85,6 @@ class SearchImageByPicRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->start) {
             $res['Start'] = $this->start;
@@ -130,9 +121,6 @@ class SearchImageByPicRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
