@@ -14,12 +14,18 @@ class HTTPTriggerConfig extends Model
     public $authType;
 
     /**
+     * @var bool
+     */
+    public $disableURLInternet;
+
+    /**
      * @var string[]
      */
     public $methods;
     protected $_name = [
-        'authType' => 'authType',
-        'methods'  => 'methods',
+        'authType'           => 'authType',
+        'disableURLInternet' => 'disableURLInternet',
+        'methods'            => 'methods',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class HTTPTriggerConfig extends Model
         $res = [];
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
+        }
+        if (null !== $this->disableURLInternet) {
+            $res['disableURLInternet'] = $this->disableURLInternet;
         }
         if (null !== $this->methods) {
             $res['methods'] = $this->methods;
@@ -49,6 +58,9 @@ class HTTPTriggerConfig extends Model
         $model = new self();
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
+        }
+        if (isset($map['disableURLInternet'])) {
+            $model->disableURLInternet = $map['disableURLInternet'];
         }
         if (isset($map['methods'])) {
             if (!empty($map['methods'])) {

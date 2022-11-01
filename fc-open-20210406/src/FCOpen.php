@@ -359,8 +359,7 @@ class FCOpen extends OpenApiClient
     public function createAliasWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->additionalVersionWeight)) {
             $body['additionalVersionWeight'] = $request->additionalVersionWeight;
         }
@@ -400,7 +399,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'CreateAlias',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/aliases',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -507,13 +506,15 @@ class FCOpen extends OpenApiClient
     public function createFunctionWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->caPort)) {
             $body['caPort'] = $request->caPort;
         }
         if (!Utils::isUnset($request->code)) {
             $body['code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->cpu)) {
+            $body['cpu'] = $request->cpu;
         }
         if (!Utils::isUnset($request->customContainerConfig)) {
             $body['customContainerConfig'] = $request->customContainerConfig;
@@ -529,6 +530,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $body['diskSize'] = $request->diskSize;
         }
         if (!Utils::isUnset($request->environmentVariables)) {
             $body['environmentVariables'] = $request->environmentVariables;
@@ -593,7 +597,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'CreateFunction',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -629,8 +633,7 @@ class FCOpen extends OpenApiClient
     public function createLayerVersionWithOptions($layerName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $body      = [];
+        $body = [];
         if (!Utils::isUnset($request->code)) {
             $body['Code'] = $request->code;
         }
@@ -661,7 +664,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'CreateLayerVersion',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions',
+            'pathname'    => '/2021-04-06/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -782,9 +785,7 @@ class FCOpen extends OpenApiClient
     public function createTriggerWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $body         = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -827,7 +828,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'CreateTrigger',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -863,8 +864,7 @@ class FCOpen extends OpenApiClient
     public function createVpcBindingWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->vpcId)) {
             $body['vpcId'] = $request->vpcId;
         }
@@ -889,7 +889,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'CreateVpcBinding',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/bindings',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -924,8 +924,6 @@ class FCOpen extends OpenApiClient
      */
     public function deleteAliasWithOptions($serviceName, $aliasName, $headers, $runtime)
     {
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $aliasName   = OpenApiUtilClient::getEncodeParam($aliasName);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -949,7 +947,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteAlias',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/aliases/' . OpenApiUtilClient::getEncodeParam($aliasName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -982,7 +980,6 @@ class FCOpen extends OpenApiClient
      */
     public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
     {
-        $domainName  = OpenApiUtilClient::getEncodeParam($domainName);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1003,7 +1000,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteCustomDomain',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'pathname'    => '/2021-04-06/custom-domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1038,9 +1035,7 @@ class FCOpen extends OpenApiClient
      */
     public function deleteFunctionWithOptions($serviceName, $functionName, $headers, $runtime)
     {
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $realHeaders  = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -1063,7 +1058,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteFunction',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1101,9 +1096,7 @@ class FCOpen extends OpenApiClient
     public function deleteFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1128,7 +1121,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteFunctionAsyncInvokeConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-config',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1166,9 +1159,7 @@ class FCOpen extends OpenApiClient
     public function deleteFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1196,7 +1187,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteFunctionOnDemandConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/on-demand-config',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1231,8 +1222,6 @@ class FCOpen extends OpenApiClient
      */
     public function deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
-        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
-        $version     = OpenApiUtilClient::getEncodeParam($version);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1253,7 +1242,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteLayerVersion',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'pathname'    => '/2021-04-06/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions/' . OpenApiUtilClient::getEncodeParam($version) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1286,7 +1275,6 @@ class FCOpen extends OpenApiClient
      */
     public function deleteServiceWithOptions($serviceName, $headers, $runtime)
     {
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1310,7 +1298,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteService',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1345,8 +1333,6 @@ class FCOpen extends OpenApiClient
      */
     public function deleteServiceVersionWithOptions($serviceName, $versionId, $headers, $runtime)
     {
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $versionId   = OpenApiUtilClient::getEncodeParam($versionId);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1367,7 +1353,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteServiceVersion',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions/' . $versionId . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1404,10 +1390,7 @@ class FCOpen extends OpenApiClient
      */
     public function deleteTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime)
     {
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $triggerName  = OpenApiUtilClient::getEncodeParam($triggerName);
-        $realHeaders  = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -1430,7 +1413,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteTrigger',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers/' . OpenApiUtilClient::getEncodeParam($triggerName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1465,8 +1448,6 @@ class FCOpen extends OpenApiClient
      */
     public function deleteVpcBindingWithOptions($serviceName, $vpcId, $headers, $runtime)
     {
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $vpcId       = OpenApiUtilClient::getEncodeParam($vpcId);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1487,7 +1468,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeleteVpcBinding',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings/' . $vpcId . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/bindings/' . OpenApiUtilClient::getEncodeParam($vpcId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1527,10 +1508,7 @@ class FCOpen extends OpenApiClient
     public function deregisterEventSourceWithOptions($serviceName, $functionName, $sourceArn, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $sourceArn    = OpenApiUtilClient::getEncodeParam($sourceArn);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1555,7 +1533,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'DeregisterEventSource',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources/' . $sourceArn . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/event-sources/' . OpenApiUtilClient::getEncodeParam($sourceArn) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1640,8 +1618,6 @@ class FCOpen extends OpenApiClient
      */
     public function getAliasWithOptions($serviceName, $aliasName, $headers, $runtime)
     {
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $aliasName   = OpenApiUtilClient::getEncodeParam($aliasName);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1662,7 +1638,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetAlias',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/aliases/' . OpenApiUtilClient::getEncodeParam($aliasName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1695,7 +1671,6 @@ class FCOpen extends OpenApiClient
      */
     public function getCustomDomainWithOptions($domainName, $headers, $runtime)
     {
-        $domainName  = OpenApiUtilClient::getEncodeParam($domainName);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -1716,7 +1691,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetCustomDomain',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'pathname'    => '/2021-04-06/custom-domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1754,9 +1729,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1781,7 +1754,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetFunction',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1819,9 +1792,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1846,7 +1817,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetFunctionAsyncInvokeConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1884,9 +1855,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionCodeWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1911,7 +1880,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetFunctionCode',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/code',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/code',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1949,9 +1918,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -1976,7 +1943,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetFunctionOnDemandConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/on-demand-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2011,8 +1978,6 @@ class FCOpen extends OpenApiClient
      */
     public function getLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
-        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
-        $version     = OpenApiUtilClient::getEncodeParam($version);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -2033,7 +1998,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetLayerVersion',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'pathname'    => '/2021-04-06/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions/' . OpenApiUtilClient::getEncodeParam($version) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2071,9 +2036,7 @@ class FCOpen extends OpenApiClient
     public function getProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -2098,7 +2061,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetProvisionConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/provision-config',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2193,8 +2156,7 @@ class FCOpen extends OpenApiClient
     public function getServiceWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -2219,7 +2181,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetService',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2259,10 +2221,7 @@ class FCOpen extends OpenApiClient
     public function getStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $invocationId = OpenApiUtilClient::getEncodeParam($invocationId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -2296,7 +2255,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetStatefulAsyncInvocation',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/stateful-async-invocations/' . OpenApiUtilClient::getEncodeParam($invocationId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2333,10 +2292,7 @@ class FCOpen extends OpenApiClient
      */
     public function getTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime)
     {
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $triggerName  = OpenApiUtilClient::getEncodeParam($triggerName);
-        $realHeaders  = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -2356,7 +2312,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'GetTrigger',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers/' . OpenApiUtilClient::getEncodeParam($triggerName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2394,9 +2350,7 @@ class FCOpen extends OpenApiClient
     public function invokeFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -2435,7 +2389,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'InvokeFunction',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/invocations',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/invocations',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2471,8 +2425,7 @@ class FCOpen extends OpenApiClient
     public function listAliasesWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->limit)) {
             $query['limit'] = $request->limit;
         }
@@ -2506,7 +2459,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListAliases',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/aliases',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2612,9 +2565,7 @@ class FCOpen extends OpenApiClient
     public function listEventSourcesWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -2639,7 +2590,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListEventSources',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/event-sources',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2677,9 +2628,7 @@ class FCOpen extends OpenApiClient
     public function listFunctionAsyncInvokeConfigsWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->limit)) {
             $query['limit'] = $request->limit;
         }
@@ -2716,7 +2665,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListFunctionAsyncInvokeConfigs',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-configs',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-configs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2752,8 +2701,7 @@ class FCOpen extends OpenApiClient
     public function listFunctionsWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->limit)) {
             $query['limit'] = $request->limit;
         }
@@ -2790,7 +2738,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListFunctions',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2828,9 +2776,7 @@ class FCOpen extends OpenApiClient
     public function listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->instanceIds)) {
             $query['instanceIds'] = $request->instanceIds;
         }
@@ -2855,7 +2801,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListInstances',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/instances',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2891,8 +2837,7 @@ class FCOpen extends OpenApiClient
     public function listLayerVersionsWithOptions($layerName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->limit)) {
             $query['limit'] = $request->limit;
         }
@@ -2920,7 +2865,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListLayerVersions',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions',
+            'pathname'    => '/2021-04-06/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/versions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3228,8 +3173,7 @@ class FCOpen extends OpenApiClient
     public function listServiceVersionsWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->direction)) {
             $query['direction'] = $request->direction;
         }
@@ -3263,7 +3207,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListServiceVersions',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/versions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3431,9 +3375,7 @@ class FCOpen extends OpenApiClient
     public function listStatefulAsyncInvocationsWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->includePayload)) {
             $query['includePayload'] = $request->includePayload;
         }
@@ -3491,7 +3433,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListStatefulAsyncInvocations',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/stateful-async-invocations',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3591,9 +3533,7 @@ class FCOpen extends OpenApiClient
     public function listTriggersWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->limit)) {
             $query['limit'] = $request->limit;
         }
@@ -3627,7 +3567,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListTriggers',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3660,7 +3600,6 @@ class FCOpen extends OpenApiClient
      */
     public function listVpcBindingsWithOptions($serviceName, $headers, $runtime)
     {
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -3681,7 +3620,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ListVpcBindings',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/bindings',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3717,8 +3656,7 @@ class FCOpen extends OpenApiClient
     public function publishServiceVersionWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -3746,7 +3684,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'PublishServiceVersion',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/versions',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3784,9 +3722,7 @@ class FCOpen extends OpenApiClient
     public function putFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -3825,7 +3761,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'PutFunctionAsyncInvokeConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/async-invoke-config',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3863,9 +3799,7 @@ class FCOpen extends OpenApiClient
     public function putFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -3898,7 +3832,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'PutFunctionOnDemandConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/on-demand-config',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3934,8 +3868,7 @@ class FCOpen extends OpenApiClient
     public function putLayerACLWithOptions($layerName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $query     = [];
+        $query = [];
         if (!Utils::isUnset($request->public_)) {
             $query['public'] = $request->public_;
         }
@@ -3960,7 +3893,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'PutLayerACL',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/layers/' . $layerName . '/acl',
+            'pathname'    => '/2021-04-06/layers/' . OpenApiUtilClient::getEncodeParam($layerName) . '/acl',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3998,9 +3931,7 @@ class FCOpen extends OpenApiClient
     public function putProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -4039,7 +3970,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'PutProvisionConfig',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/provision-config',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4077,9 +4008,7 @@ class FCOpen extends OpenApiClient
     public function registerEventSourceWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -4109,7 +4038,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'RegisterEventSource',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/event-sources',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4142,7 +4071,6 @@ class FCOpen extends OpenApiClient
      */
     public function releaseGPUInstanceWithOptions($instanceId, $headers, $runtime)
     {
-        $instanceId  = OpenApiUtilClient::getEncodeParam($instanceId);
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -4163,7 +4091,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'ReleaseGPUInstance',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/gpuInstances/' . $instanceId . '',
+            'pathname'    => '/2021-04-06/gpuInstances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4203,10 +4131,7 @@ class FCOpen extends OpenApiClient
     public function stopStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $invocationId = OpenApiUtilClient::getEncodeParam($invocationId);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
         }
@@ -4231,7 +4156,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'StopStatefulAsyncInvocation',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/stateful-async-invocations/' . OpenApiUtilClient::getEncodeParam($invocationId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4396,9 +4321,7 @@ class FCOpen extends OpenApiClient
     public function updateAliasWithOptions($serviceName, $aliasName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $aliasName   = OpenApiUtilClient::getEncodeParam($aliasName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->additionalVersionWeight)) {
             $body['additionalVersionWeight'] = $request->additionalVersionWeight;
         }
@@ -4438,7 +4361,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'UpdateAlias',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/aliases/' . OpenApiUtilClient::getEncodeParam($aliasName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4474,8 +4397,7 @@ class FCOpen extends OpenApiClient
     public function updateCustomDomainWithOptions($domainName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $domainName = OpenApiUtilClient::getEncodeParam($domainName);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->certConfig)) {
             $body['certConfig'] = $request->certConfig;
         }
@@ -4509,7 +4431,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'UpdateCustomDomain',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'pathname'    => '/2021-04-06/custom-domains/' . OpenApiUtilClient::getEncodeParam($domainName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4547,9 +4469,7 @@ class FCOpen extends OpenApiClient
     public function updateFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $body         = [];
+        $body = [];
         if (!Utils::isUnset($request->instanceConcurrency)) {
             $body['InstanceConcurrency'] = $request->instanceConcurrency;
         }
@@ -4558,6 +4478,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->code)) {
             $body['code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->cpu)) {
+            $body['cpu'] = $request->cpu;
         }
         if (!Utils::isUnset($request->customContainerConfig)) {
             $body['customContainerConfig'] = $request->customContainerConfig;
@@ -4573,6 +4496,9 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $body['diskSize'] = $request->diskSize;
         }
         if (!Utils::isUnset($request->environmentVariables)) {
             $body['environmentVariables'] = $request->environmentVariables;
@@ -4634,7 +4560,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'UpdateFunction',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4670,8 +4596,7 @@ class FCOpen extends OpenApiClient
     public function updateServiceWithOptions($serviceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -4720,7 +4645,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'UpdateService',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4760,10 +4685,7 @@ class FCOpen extends OpenApiClient
     public function updateTriggerWithOptions($serviceName, $functionName, $triggerName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
-        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
-        $triggerName  = OpenApiUtilClient::getEncodeParam($triggerName);
-        $body         = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -4800,7 +4722,7 @@ class FCOpen extends OpenApiClient
             'action'      => 'UpdateTrigger',
             'version'     => '2021-04-06',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'pathname'    => '/2021-04-06/services/' . OpenApiUtilClient::getEncodeParam($serviceName) . '/functions/' . OpenApiUtilClient::getEncodeParam($functionName) . '/triggers/' . OpenApiUtilClient::getEncodeParam($triggerName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',

@@ -24,6 +24,11 @@ class UpdateFunctionResponseBody extends Model
     public $codeSize;
 
     /**
+     * @var float
+     */
+    public $cpu;
+
+    /**
      * @var string
      */
     public $createdTime;
@@ -52,6 +57,11 @@ class UpdateFunctionResponseBody extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $diskSize;
 
     /**
      * @var string[]
@@ -126,12 +136,14 @@ class UpdateFunctionResponseBody extends Model
         'caPort'                  => 'caPort',
         'codeChecksum'            => 'codeChecksum',
         'codeSize'                => 'codeSize',
+        'cpu'                     => 'cpu',
         'createdTime'             => 'createdTime',
         'customContainerConfig'   => 'customContainerConfig',
         'customDNS'               => 'customDNS',
         'customHealthCheckConfig' => 'customHealthCheckConfig',
         'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
+        'diskSize'                => 'diskSize',
         'environmentVariables'    => 'environmentVariables',
         'functionId'              => 'functionId',
         'functionName'            => 'functionName',
@@ -164,6 +176,9 @@ class UpdateFunctionResponseBody extends Model
         if (null !== $this->codeSize) {
             $res['codeSize'] = $this->codeSize;
         }
+        if (null !== $this->cpu) {
+            $res['cpu'] = $this->cpu;
+        }
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
         }
@@ -181,6 +196,9 @@ class UpdateFunctionResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->diskSize) {
+            $res['diskSize'] = $this->diskSize;
         }
         if (null !== $this->environmentVariables) {
             $res['environmentVariables'] = $this->environmentVariables;
@@ -245,6 +263,9 @@ class UpdateFunctionResponseBody extends Model
         if (isset($map['codeSize'])) {
             $model->codeSize = $map['codeSize'];
         }
+        if (isset($map['cpu'])) {
+            $model->cpu = $map['cpu'];
+        }
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }
@@ -262,6 +283,9 @@ class UpdateFunctionResponseBody extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['diskSize'])) {
+            $model->diskSize = $map['diskSize'];
         }
         if (isset($map['environmentVariables'])) {
             $model->environmentVariables = $map['environmentVariables'];

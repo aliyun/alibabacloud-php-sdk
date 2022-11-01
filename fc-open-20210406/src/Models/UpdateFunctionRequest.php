@@ -24,6 +24,11 @@ class UpdateFunctionRequest extends Model
     public $code;
 
     /**
+     * @var float
+     */
+    public $cpu;
+
+    /**
      * @var CustomContainerConfig
      */
     public $customContainerConfig;
@@ -47,6 +52,11 @@ class UpdateFunctionRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $diskSize;
 
     /**
      * @var string[]
@@ -106,11 +116,13 @@ class UpdateFunctionRequest extends Model
         'instanceConcurrency'     => 'InstanceConcurrency',
         'caPort'                  => 'caPort',
         'code'                    => 'code',
+        'cpu'                     => 'cpu',
         'customContainerConfig'   => 'customContainerConfig',
         'customDNS'               => 'customDNS',
         'customHealthCheckConfig' => 'customHealthCheckConfig',
         'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
+        'diskSize'                => 'diskSize',
         'environmentVariables'    => 'environmentVariables',
         'handler'                 => 'handler',
         'initializationTimeout'   => 'initializationTimeout',
@@ -140,6 +152,9 @@ class UpdateFunctionRequest extends Model
         if (null !== $this->code) {
             $res['code'] = null !== $this->code ? $this->code->toMap() : null;
         }
+        if (null !== $this->cpu) {
+            $res['cpu'] = $this->cpu;
+        }
         if (null !== $this->customContainerConfig) {
             $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toMap() : null;
         }
@@ -154,6 +169,9 @@ class UpdateFunctionRequest extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->diskSize) {
+            $res['diskSize'] = $this->diskSize;
         }
         if (null !== $this->environmentVariables) {
             $res['environmentVariables'] = $this->environmentVariables;
@@ -209,6 +227,9 @@ class UpdateFunctionRequest extends Model
         if (isset($map['code'])) {
             $model->code = Code::fromMap($map['code']);
         }
+        if (isset($map['cpu'])) {
+            $model->cpu = $map['cpu'];
+        }
         if (isset($map['customContainerConfig'])) {
             $model->customContainerConfig = CustomContainerConfig::fromMap($map['customContainerConfig']);
         }
@@ -223,6 +244,9 @@ class UpdateFunctionRequest extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['diskSize'])) {
+            $model->diskSize = $map['diskSize'];
         }
         if (isset($map['environmentVariables'])) {
             $model->environmentVariables = $map['environmentVariables'];
