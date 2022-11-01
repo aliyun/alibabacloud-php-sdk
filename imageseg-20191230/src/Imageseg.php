@@ -695,13 +695,8 @@ class Imageseg extends OpenApiClient
         if (!Utils::isUnset($request->returnForm)) {
             $query['ReturnForm'] = $request->returnForm;
         }
-        $body = [];
-        if (!Utils::isUnset($request->async)) {
-            $body['Async'] = $request->async;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SegmentBody',

@@ -10,11 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class SegmentBodyAdvanceRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
      * @var Stream
      */
     public $imageURLObject;
@@ -24,7 +19,6 @@ class SegmentBodyAdvanceRequest extends Model
      */
     public $returnForm;
     protected $_name = [
-        'async'          => 'Async',
         'imageURLObject' => 'ImageURL',
         'returnForm'     => 'ReturnForm',
     ];
@@ -36,9 +30,6 @@ class SegmentBodyAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
-        }
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
@@ -57,9 +48,6 @@ class SegmentBodyAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
         }
