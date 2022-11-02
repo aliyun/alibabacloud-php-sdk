@@ -111,6 +111,11 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $threatAnalysisCapacity;
+
+    /**
+     * @var int
+     */
     public $userDefinedAlarms;
 
     /**
@@ -133,31 +138,32 @@ class DescribeVersionConfigResponseBody extends Model
      */
     public $webLockAuthCount;
     protected $_name = [
-        'allowPartialBuy'       => 'AllowPartialBuy',
-        'appWhiteList'          => 'AppWhiteList',
-        'appWhiteListAuthCount' => 'AppWhiteListAuthCount',
-        'assetLevel'            => 'AssetLevel',
-        'highestVersion'        => 'HighestVersion',
-        'honeypotCapacity'      => 'HoneypotCapacity',
-        'imageScanCapacity'     => 'ImageScanCapacity',
-        'instanceId'            => 'InstanceId',
-        'isNewContainerVersion' => 'IsNewContainerVersion',
-        'isOverBalance'         => 'IsOverBalance',
-        'isTrialVersion'        => 'IsTrialVersion',
-        'lastTrailEndTime'      => 'LastTrailEndTime',
-        'MVAuthCount'           => 'MVAuthCount',
-        'MVUnusedAuthCount'     => 'MVUnusedAuthCount',
-        'openTime'              => 'OpenTime',
-        'releaseTime'           => 'ReleaseTime',
-        'requestId'             => 'RequestId',
-        'sasLog'                => 'SasLog',
-        'sasScreen'             => 'SasScreen',
-        'slsCapacity'           => 'SlsCapacity',
-        'userDefinedAlarms'     => 'UserDefinedAlarms',
-        'version'               => 'Version',
-        'vmCores'               => 'VmCores',
-        'webLock'               => 'WebLock',
-        'webLockAuthCount'      => 'WebLockAuthCount',
+        'allowPartialBuy'        => 'AllowPartialBuy',
+        'appWhiteList'           => 'AppWhiteList',
+        'appWhiteListAuthCount'  => 'AppWhiteListAuthCount',
+        'assetLevel'             => 'AssetLevel',
+        'highestVersion'         => 'HighestVersion',
+        'honeypotCapacity'       => 'HoneypotCapacity',
+        'imageScanCapacity'      => 'ImageScanCapacity',
+        'instanceId'             => 'InstanceId',
+        'isNewContainerVersion'  => 'IsNewContainerVersion',
+        'isOverBalance'          => 'IsOverBalance',
+        'isTrialVersion'         => 'IsTrialVersion',
+        'lastTrailEndTime'       => 'LastTrailEndTime',
+        'MVAuthCount'            => 'MVAuthCount',
+        'MVUnusedAuthCount'      => 'MVUnusedAuthCount',
+        'openTime'               => 'OpenTime',
+        'releaseTime'            => 'ReleaseTime',
+        'requestId'              => 'RequestId',
+        'sasLog'                 => 'SasLog',
+        'sasScreen'              => 'SasScreen',
+        'slsCapacity'            => 'SlsCapacity',
+        'threatAnalysisCapacity' => 'ThreatAnalysisCapacity',
+        'userDefinedAlarms'      => 'UserDefinedAlarms',
+        'version'                => 'Version',
+        'vmCores'                => 'VmCores',
+        'webLock'                => 'WebLock',
+        'webLockAuthCount'       => 'WebLockAuthCount',
     ];
 
     public function validate()
@@ -226,6 +232,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->slsCapacity) {
             $res['SlsCapacity'] = $this->slsCapacity;
+        }
+        if (null !== $this->threatAnalysisCapacity) {
+            $res['ThreatAnalysisCapacity'] = $this->threatAnalysisCapacity;
         }
         if (null !== $this->userDefinedAlarms) {
             $res['UserDefinedAlarms'] = $this->userDefinedAlarms;
@@ -313,6 +322,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['SlsCapacity'])) {
             $model->slsCapacity = $map['SlsCapacity'];
+        }
+        if (isset($map['ThreatAnalysisCapacity'])) {
+            $model->threatAnalysisCapacity = $map['ThreatAnalysisCapacity'];
         }
         if (isset($map['UserDefinedAlarms'])) {
             $model->userDefinedAlarms = $map['UserDefinedAlarms'];

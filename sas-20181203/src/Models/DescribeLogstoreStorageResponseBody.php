@@ -32,12 +32,18 @@ class DescribeLogstoreStorageResponseBody extends Model
      * @var int
      */
     public $used;
+
+    /**
+     * @var string
+     */
+    public $userProject;
     protected $_name = [
-        'logstore'  => 'Logstore',
-        'preserve'  => 'Preserve',
-        'requestId' => 'RequestId',
-        'ttl'       => 'Ttl',
-        'used'      => 'Used',
+        'logstore'    => 'Logstore',
+        'preserve'    => 'Preserve',
+        'requestId'   => 'RequestId',
+        'ttl'         => 'Ttl',
+        'used'        => 'Used',
+        'userProject' => 'UserProject',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DescribeLogstoreStorageResponseBody extends Model
         }
         if (null !== $this->used) {
             $res['Used'] = $this->used;
+        }
+        if (null !== $this->userProject) {
+            $res['UserProject'] = $this->userProject;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DescribeLogstoreStorageResponseBody extends Model
         }
         if (isset($map['Used'])) {
             $model->used = $map['Used'];
+        }
+        if (isset($map['UserProject'])) {
+            $model->userProject = $map['UserProject'];
         }
 
         return $model;

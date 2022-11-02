@@ -260,6 +260,11 @@ class suspEvents extends Model
      * @var string
      */
     public $uuid;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
     protected $_name = [
         'advanced'              => 'Advanced',
         'alarmEventName'        => 'AlarmEventName',
@@ -311,6 +316,7 @@ class suspEvents extends Model
         'tacticItems'           => 'TacticItems',
         'uniqueInfo'            => 'UniqueInfo',
         'uuid'                  => 'Uuid',
+        'clusterId'             => 'clusterId',
     ];
 
     public function validate()
@@ -487,6 +493,9 @@ class suspEvents extends Model
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
+        }
+        if (null !== $this->clusterId) {
+            $res['clusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -667,6 +676,9 @@ class suspEvents extends Model
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
+        }
+        if (isset($map['clusterId'])) {
+            $model->clusterId = $map['clusterId'];
         }
 
         return $model;

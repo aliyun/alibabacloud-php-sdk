@@ -14,6 +14,11 @@ class DescribeSuspEventsRequest extends Model
     public $alarmUniqueInfo;
 
     /**
+     * @var string[]
+     */
+    public $assetsTypeList;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -149,6 +154,7 @@ class DescribeSuspEventsRequest extends Model
     public $uuids;
     protected $_name = [
         'alarmUniqueInfo'      => 'AlarmUniqueInfo',
+        'assetsTypeList'       => 'AssetsTypeList',
         'clusterId'            => 'ClusterId',
         'containerFieldName'   => 'ContainerFieldName',
         'containerFieldValue'  => 'ContainerFieldValue',
@@ -187,6 +193,9 @@ class DescribeSuspEventsRequest extends Model
         $res = [];
         if (null !== $this->alarmUniqueInfo) {
             $res['AlarmUniqueInfo'] = $this->alarmUniqueInfo;
+        }
+        if (null !== $this->assetsTypeList) {
+            $res['AssetsTypeList'] = $this->assetsTypeList;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -283,6 +292,11 @@ class DescribeSuspEventsRequest extends Model
         $model = new self();
         if (isset($map['AlarmUniqueInfo'])) {
             $model->alarmUniqueInfo = $map['AlarmUniqueInfo'];
+        }
+        if (isset($map['AssetsTypeList'])) {
+            if (!empty($map['AssetsTypeList'])) {
+                $model->assetsTypeList = $map['AssetsTypeList'];
+            }
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];

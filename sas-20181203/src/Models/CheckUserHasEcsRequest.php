@@ -9,23 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckUserHasEcsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $currentPage;
-
-    /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'lang'        => 'Lang',
-        'pageSize'    => 'PageSize',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -35,14 +23,8 @@ class CheckUserHasEcsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -56,14 +38,8 @@ class CheckUserHasEcsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

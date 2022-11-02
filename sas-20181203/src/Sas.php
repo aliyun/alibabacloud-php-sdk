@@ -793,14 +793,8 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -7323,6 +7317,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alarmUniqueInfo)) {
             $query['AlarmUniqueInfo'] = $request->alarmUniqueInfo;
+        }
+        if (!Utils::isUnset($request->assetsTypeList)) {
+            $query['AssetsTypeList'] = $request->assetsTypeList;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
