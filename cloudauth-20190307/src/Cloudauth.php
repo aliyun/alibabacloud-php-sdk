@@ -936,6 +936,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
         }
+        if (!Utils::isUnset($request->voluntaryCustomizedContent)) {
+            $query['VoluntaryCustomizedContent'] = $request->voluntaryCustomizedContent;
+        }
         $body = [];
         if (!Utils::isUnset($request->authId)) {
             $body['AuthId'] = $request->authId;

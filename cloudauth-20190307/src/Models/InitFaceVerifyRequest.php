@@ -122,30 +122,36 @@ class InitFaceVerifyRequest extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $voluntaryCustomizedContent;
     protected $_name = [
-        'authId'                 => 'AuthId',
-        'callbackToken'          => 'CallbackToken',
-        'callbackUrl'            => 'CallbackUrl',
-        'certName'               => 'CertName',
-        'certNo'                 => 'CertNo',
-        'certType'               => 'CertType',
-        'certifyId'              => 'CertifyId',
-        'certifyUrlType'         => 'CertifyUrlType',
-        'crop'                   => 'Crop',
-        'encryptType'            => 'EncryptType',
-        'faceContrastPicture'    => 'FaceContrastPicture',
-        'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
-        'ip'                     => 'Ip',
-        'metaInfo'               => 'MetaInfo',
-        'mobile'                 => 'Mobile',
-        'model'                  => 'Model',
-        'ossBucketName'          => 'OssBucketName',
-        'ossObjectName'          => 'OssObjectName',
-        'outerOrderNo'           => 'OuterOrderNo',
-        'productCode'            => 'ProductCode',
-        'returnUrl'              => 'ReturnUrl',
-        'sceneId'                => 'SceneId',
-        'userId'                 => 'UserId',
+        'authId'                     => 'AuthId',
+        'callbackToken'              => 'CallbackToken',
+        'callbackUrl'                => 'CallbackUrl',
+        'certName'                   => 'CertName',
+        'certNo'                     => 'CertNo',
+        'certType'                   => 'CertType',
+        'certifyId'                  => 'CertifyId',
+        'certifyUrlType'             => 'CertifyUrlType',
+        'crop'                       => 'Crop',
+        'encryptType'                => 'EncryptType',
+        'faceContrastPicture'        => 'FaceContrastPicture',
+        'faceContrastPictureUrl'     => 'FaceContrastPictureUrl',
+        'ip'                         => 'Ip',
+        'metaInfo'                   => 'MetaInfo',
+        'mobile'                     => 'Mobile',
+        'model'                      => 'Model',
+        'ossBucketName'              => 'OssBucketName',
+        'ossObjectName'              => 'OssObjectName',
+        'outerOrderNo'               => 'OuterOrderNo',
+        'productCode'                => 'ProductCode',
+        'returnUrl'                  => 'ReturnUrl',
+        'sceneId'                    => 'SceneId',
+        'userId'                     => 'UserId',
+        'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
     ];
 
     public function validate()
@@ -223,6 +229,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->voluntaryCustomizedContent) {
+            $res['VoluntaryCustomizedContent'] = $this->voluntaryCustomizedContent;
         }
 
         return $res;
@@ -304,6 +313,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['VoluntaryCustomizedContent'])) {
+            $model->voluntaryCustomizedContent = $map['VoluntaryCustomizedContent'];
         }
 
         return $model;
