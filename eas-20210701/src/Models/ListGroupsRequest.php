@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListServicesRequest extends Model
+class ListGroupsRequest extends Model
 {
     /**
      * @var string
@@ -16,34 +16,16 @@ class ListServicesRequest extends Model
     /**
      * @var string
      */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $order;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
-    public $sort;
+    public $pageSize;
     protected $_name = [
         'filter'     => 'Filter',
-        'groupName'  => 'GroupName',
-        'order'      => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'sort'       => 'Sort',
     ];
 
     public function validate()
@@ -56,20 +38,11 @@ class ListServicesRequest extends Model
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->order) {
-            $res['Order'] = $this->order;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
         }
 
         return $res;
@@ -78,7 +51,7 @@ class ListServicesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListServicesRequest
+     * @return ListGroupsRequest
      */
     public static function fromMap($map = [])
     {
@@ -86,20 +59,11 @@ class ListServicesRequest extends Model
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['Order'])) {
-            $model->order = $map['Order'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
         }
 
         return $model;

@@ -34,18 +34,25 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceCronScalerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEventRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEventResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceInstanceWorkerRequest;
@@ -58,6 +65,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartBenchmarkTaskResponse;
@@ -260,9 +269,7 @@ class Eas extends OpenApiClient
     public function createResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->autoRenewal)) {
             $body['AutoRenewal'] = $request->autoRenewal;
         }
@@ -286,7 +293,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateResourceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/instances',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -324,9 +331,7 @@ class Eas extends OpenApiClient
     public function createResourceLogWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->logStore)) {
             $body['LogStore'] = $request->logStore;
         }
@@ -341,7 +346,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateResourceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/log',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/log',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -421,17 +426,15 @@ class Eas extends OpenApiClient
     public function createServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->max)) {
             $body['max'] = $request->max;
         }
         if (!Utils::isUnset($request->min)) {
             $body['min'] = $request->min;
         }
-        if (!Utils::isUnset($request->strategies)) {
-            $body['strategies'] = $request->strategies;
+        if (!Utils::isUnset($request->scaleStrategies)) {
+            $body['scaleStrategies'] = $request->scaleStrategies;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -441,7 +444,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -479,9 +482,7 @@ class Eas extends OpenApiClient
     public function createServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->excludeDates)) {
             $body['ExcludeDates'] = $request->excludeDates;
         }
@@ -496,7 +497,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -534,9 +535,7 @@ class Eas extends OpenApiClient
     public function createServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->ratio)) {
             $body['Ratio'] = $request->ratio;
         }
@@ -551,7 +550,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/mirror',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -586,16 +585,14 @@ class Eas extends OpenApiClient
      */
     public function deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '',
+            'pathname'    => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -630,16 +627,14 @@ class Eas extends OpenApiClient
      */
     public function deleteResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -674,16 +669,14 @@ class Eas extends OpenApiClient
      */
     public function deleteResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteResourceDLink',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/dlink',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/dlink',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -721,9 +714,7 @@ class Eas extends OpenApiClient
     public function deleteResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->allFailed)) {
             $query['AllFailed'] = $request->allFailed;
         }
@@ -738,7 +729,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteResourceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/instances',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -773,16 +764,14 @@ class Eas extends OpenApiClient
      */
     public function deleteResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteResourceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/log',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/log',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -817,16 +806,14 @@ class Eas extends OpenApiClient
      */
     public function deleteServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -861,16 +848,14 @@ class Eas extends OpenApiClient
      */
     public function deleteServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -905,16 +890,14 @@ class Eas extends OpenApiClient
      */
     public function deleteServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -952,9 +935,7 @@ class Eas extends OpenApiClient
     public function deleteServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->instanceList)) {
             $query['InstanceList'] = $request->instanceList;
         }
@@ -966,7 +947,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteServiceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/instances',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1001,16 +982,14 @@ class Eas extends OpenApiClient
      */
     public function deleteServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DeleteServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/mirror',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1045,16 +1024,14 @@ class Eas extends OpenApiClient
      */
     public function describeBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '',
+            'pathname'    => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1066,39 +1043,45 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $TaskName
+     * @param string                             $ClusterId
+     * @param string                             $TaskName
+     * @param DescribeBenchmarkTaskReportRequest $request
      *
      * @return DescribeBenchmarkTaskReportResponse
      */
-    public function describeBenchmarkTaskReport($ClusterId, $TaskName)
+    public function describeBenchmarkTaskReport($ClusterId, $TaskName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $headers, $runtime);
+        return $this->describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $ClusterId
-     * @param string         $TaskName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                             $ClusterId
+     * @param string                             $TaskName
+     * @param DescribeBenchmarkTaskReportRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
      * @return DescribeBenchmarkTaskReportResponse
      */
-    public function describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $headers, $runtime)
+    public function describeBenchmarkTaskReportWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
-        $req       = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->reportType)) {
+            $query['ReportType'] = $request->reportType;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBenchmarkTaskReport',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '/report',
+            'pathname'    => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '/report',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1107,6 +1090,48 @@ class Eas extends OpenApiClient
         ]);
 
         return DescribeBenchmarkTaskReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $GroupName
+     *
+     * @return DescribeGroupResponse
+     */
+    public function describeGroup($ClusterId, $GroupName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeGroupWithOptions($ClusterId, $GroupName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $GroupName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeGroupResponse
+     */
+    public function describeGroupWithOptions($ClusterId, $GroupName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroup',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GroupName) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1133,16 +1158,14 @@ class Eas extends OpenApiClient
      */
     public function describeResourceWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1177,16 +1200,14 @@ class Eas extends OpenApiClient
      */
     public function describeResourceDLinkWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeResourceDLink',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/dlink',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/dlink',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1221,16 +1242,14 @@ class Eas extends OpenApiClient
      */
     public function describeResourceLogWithOptions($ClusterId, $ResourceId, $headers, $runtime)
     {
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeResourceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/log',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1265,16 +1284,14 @@ class Eas extends OpenApiClient
      */
     public function describeServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1309,16 +1326,14 @@ class Eas extends OpenApiClient
      */
     public function describeServiceAutoScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1353,16 +1368,14 @@ class Eas extends OpenApiClient
      */
     public function describeServiceCronScalerWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1371,6 +1384,65 @@ class Eas extends OpenApiClient
         ]);
 
         return DescribeServiceCronScalerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param DescribeServiceEventRequest $request
+     *
+     * @return DescribeServiceEventResponse
+     */
+    public function describeServiceEvent($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $ClusterId
+     * @param string                      $ServiceName
+     * @param DescribeServiceEventRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeServiceEventResponse
+     */
+    public function describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceEvent',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1400,9 +1472,7 @@ class Eas extends OpenApiClient
     public function describeServiceLogWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -1429,7 +1499,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/logs',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/logs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1464,16 +1534,14 @@ class Eas extends OpenApiClient
      */
     public function describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'DescribeServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/mirror',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1485,26 +1553,44 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param ListBenchmarkTaskRequest $request
+     *
      * @return ListBenchmarkTaskResponse
      */
-    public function listBenchmarkTask()
+    public function listBenchmarkTask($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listBenchmarkTaskWithOptions($headers, $runtime);
+        return $this->listBenchmarkTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param ListBenchmarkTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return ListBenchmarkTaskResponse
      */
-    public function listBenchmarkTaskWithOptions($headers, $runtime)
+    public function listBenchmarkTaskWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileter)) {
+            $query['Fileter'] = $request->fileter;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListBenchmarkTask',
@@ -1519,6 +1605,58 @@ class Eas extends OpenApiClient
         ]);
 
         return ListBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGroupsRequest $request
+     *
+     * @return ListGroupsResponse
+     */
+    public function listGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListGroupsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListGroupsResponse
+     */
+    public function listGroupsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroups',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/groups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1550,10 +1688,7 @@ class Eas extends OpenApiClient
     public function listResourceInstanceWorkerWithOptions($ClusterId, $ResourceId, $InstanceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId    = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId   = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $InstanceName = OpenApiUtilClient::getEncodeParam($InstanceName);
-        $query        = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -1568,7 +1703,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListResourceInstanceWorker',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/instance/' . $InstanceName . '/workers',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instance/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '/workers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1606,9 +1741,7 @@ class Eas extends OpenApiClient
     public function listResourceInstancesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
@@ -1626,7 +1759,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListResourceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/instances',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1664,9 +1797,7 @@ class Eas extends OpenApiClient
     public function listResourceServicesWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -1681,7 +1812,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListResourceServices',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/services',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/services',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1768,9 +1899,7 @@ class Eas extends OpenApiClient
     public function listServiceInstancesWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $query       = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -1785,7 +1914,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListServiceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/instances',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1794,6 +1923,59 @@ class Eas extends OpenApiClient
         ]);
 
         return ListServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $ClusterId
+     * @param string                     $ServiceName
+     * @param ListServiceVersionsRequest $request
+     *
+     * @return ListServiceVersionsResponse
+     */
+    public function listServiceVersions($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceVersionsWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $ClusterId
+     * @param string                     $ServiceName
+     * @param ListServiceVersionsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListServiceVersionsResponse
+     */
+    public function listServiceVersionsWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceVersions',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1822,6 +2004,9 @@ class Eas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -1881,9 +2066,7 @@ class Eas extends OpenApiClient
     public function releaseServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->trafficState)) {
             $body['TrafficState'] = $request->trafficState;
         }
@@ -1898,7 +2081,7 @@ class Eas extends OpenApiClient
             'action'      => 'ReleaseService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/release',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/release',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1933,16 +2116,14 @@ class Eas extends OpenApiClient
      */
     public function startBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StartBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '/start',
+            'pathname'    => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '/start',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1977,16 +2158,14 @@ class Eas extends OpenApiClient
      */
     public function startServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StartService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/start',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/start',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2021,16 +2200,14 @@ class Eas extends OpenApiClient
      */
     public function stopBenchmarkTaskWithOptions($ClusterId, $TaskName, $headers, $runtime)
     {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StopBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '/stop',
+            'pathname'    => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2065,16 +2242,14 @@ class Eas extends OpenApiClient
      */
     public function stopServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
     {
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
             'action'      => 'StopService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/stop',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2112,9 +2287,7 @@ class Eas extends OpenApiClient
     public function updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $TaskName  = OpenApiUtilClient::getEncodeParam($TaskName);
-        $req       = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -2122,7 +2295,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . $ClusterId . '/' . $TaskName . '',
+            'pathname'    => '/api/v2/benchmark-tasks/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($TaskName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2160,9 +2333,7 @@ class Eas extends OpenApiClient
     public function updateResourceWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->resourceName)) {
             $body['ResourceName'] = $request->resourceName;
         }
@@ -2174,7 +2345,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2212,9 +2383,7 @@ class Eas extends OpenApiClient
     public function updateResourceDLinkWithOptions($ClusterId, $ResourceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId  = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ResourceId = OpenApiUtilClient::getEncodeParam($ResourceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->destinationCIDRs)) {
             $body['DestinationCIDRs'] = $request->destinationCIDRs;
         }
@@ -2235,7 +2404,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateResourceDLink',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . $ClusterId . '/' . $ResourceId . '/dlink',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/dlink',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2273,9 +2442,7 @@ class Eas extends OpenApiClient
     public function updateServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $req         = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => $request->body,
         ]);
@@ -2283,7 +2450,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2321,17 +2488,15 @@ class Eas extends OpenApiClient
     public function updateServiceAutoScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->max)) {
             $body['max'] = $request->max;
         }
         if (!Utils::isUnset($request->min)) {
             $body['min'] = $request->min;
         }
-        if (!Utils::isUnset($request->strategies)) {
-            $body['strategies'] = $request->strategies;
+        if (!Utils::isUnset($request->scaleStrategies)) {
+            $body['scaleStrategies'] = $request->scaleStrategies;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2341,7 +2506,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/autoscaler',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2379,9 +2544,7 @@ class Eas extends OpenApiClient
     public function updateServiceCronScalerWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->excludeDates)) {
             $body['ExcludeDates'] = $request->excludeDates;
         }
@@ -2396,7 +2559,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/cronscaler',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2434,9 +2597,7 @@ class Eas extends OpenApiClient
     public function updateServiceMirrorWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->ratio)) {
             $body['Ratio'] = $request->ratio;
         }
@@ -2451,7 +2612,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/mirror',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/mirror',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2489,9 +2650,7 @@ class Eas extends OpenApiClient
     public function updateServiceVersionWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $ClusterId   = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $ServiceName = OpenApiUtilClient::getEncodeParam($ServiceName);
-        $body        = [];
+        $body = [];
         if (!Utils::isUnset($request->version)) {
             $body['Version'] = $request->version;
         }
@@ -2503,7 +2662,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceVersion',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . $ClusterId . '/' . $ServiceName . '/version',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/version',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',

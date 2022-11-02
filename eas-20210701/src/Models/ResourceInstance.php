@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ResourceInstance extends Model
 {
     /**
+     * @var string
+     */
+    public $arch;
+
+    /**
      * @var bool
      */
     public $autoRenewal;
@@ -37,6 +42,11 @@ class ResourceInstance extends Model
      * @var int
      */
     public $instanceGpuCount;
+
+    /**
+     * @var string
+     */
+    public $instanceGpuMemory;
 
     /**
      * @var string
@@ -82,13 +92,25 @@ class ResourceInstance extends Model
      * @var string
      */
     public $instanceUsedMemory;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
+        'arch'               => 'Arch',
         'autoRenewal'        => 'AutoRenewal',
         'chargeType'         => 'ChargeType',
         'createTime'         => 'CreateTime',
         'expiredTime'        => 'ExpiredTime',
         'instanceCpuCount'   => 'InstanceCpuCount',
         'instanceGpuCount'   => 'InstanceGpuCount',
+        'instanceGpuMemory'  => 'InstanceGpuMemory',
         'instanceId'         => 'InstanceId',
         'instanceIp'         => 'InstanceIp',
         'instanceMemory'     => 'InstanceMemory',
@@ -98,6 +120,8 @@ class ResourceInstance extends Model
         'instanceUsedCpu'    => 'InstanceUsedCpu',
         'instanceUsedGpu'    => 'InstanceUsedGpu',
         'instanceUsedMemory' => 'InstanceUsedMemory',
+        'region'             => 'Region',
+        'zone'               => 'Zone',
     ];
 
     public function validate()
@@ -107,6 +131,9 @@ class ResourceInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->arch) {
+            $res['Arch'] = $this->arch;
+        }
         if (null !== $this->autoRenewal) {
             $res['AutoRenewal'] = $this->autoRenewal;
         }
@@ -124,6 +151,9 @@ class ResourceInstance extends Model
         }
         if (null !== $this->instanceGpuCount) {
             $res['InstanceGpuCount'] = $this->instanceGpuCount;
+        }
+        if (null !== $this->instanceGpuMemory) {
+            $res['InstanceGpuMemory'] = $this->instanceGpuMemory;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -152,6 +182,12 @@ class ResourceInstance extends Model
         if (null !== $this->instanceUsedMemory) {
             $res['InstanceUsedMemory'] = $this->instanceUsedMemory;
         }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
+        }
 
         return $res;
     }
@@ -164,6 +200,9 @@ class ResourceInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Arch'])) {
+            $model->arch = $map['Arch'];
+        }
         if (isset($map['AutoRenewal'])) {
             $model->autoRenewal = $map['AutoRenewal'];
         }
@@ -181,6 +220,9 @@ class ResourceInstance extends Model
         }
         if (isset($map['InstanceGpuCount'])) {
             $model->instanceGpuCount = $map['InstanceGpuCount'];
+        }
+        if (isset($map['InstanceGpuMemory'])) {
+            $model->instanceGpuMemory = $map['InstanceGpuMemory'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -208,6 +250,12 @@ class ResourceInstance extends Model
         }
         if (isset($map['InstanceUsedMemory'])) {
             $model->instanceUsedMemory = $map['InstanceUsedMemory'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

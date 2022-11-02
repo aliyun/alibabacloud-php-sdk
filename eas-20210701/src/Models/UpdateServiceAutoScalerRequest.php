@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest\strategies;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest\scaleStrategies;
 use AlibabaCloud\Tea\Model;
 
 class UpdateServiceAutoScalerRequest extends Model
@@ -20,13 +20,13 @@ class UpdateServiceAutoScalerRequest extends Model
     public $min;
 
     /**
-     * @var strategies
+     * @var scaleStrategies[]
      */
-    public $strategies;
+    public $scaleStrategies;
     protected $_name = [
-        'max'        => 'max',
-        'min'        => 'min',
-        'strategies' => 'strategies',
+        'max'             => 'max',
+        'min'             => 'min',
+        'scaleStrategies' => 'scaleStrategies',
     ];
 
     public function validate()
@@ -42,8 +42,14 @@ class UpdateServiceAutoScalerRequest extends Model
         if (null !== $this->min) {
             $res['min'] = $this->min;
         }
-        if (null !== $this->strategies) {
-            $res['strategies'] = null !== $this->strategies ? $this->strategies->toMap() : null;
+        if (null !== $this->scaleStrategies) {
+            $res['scaleStrategies'] = [];
+            if (null !== $this->scaleStrategies && \is_array($this->scaleStrategies)) {
+                $n = 0;
+                foreach ($this->scaleStrategies as $item) {
+                    $res['scaleStrategies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -63,8 +69,14 @@ class UpdateServiceAutoScalerRequest extends Model
         if (isset($map['min'])) {
             $model->min = $map['min'];
         }
-        if (isset($map['strategies'])) {
-            $model->strategies = strategies::fromMap($map['strategies']);
+        if (isset($map['scaleStrategies'])) {
+            if (!empty($map['scaleStrategies'])) {
+                $model->scaleStrategies = [];
+                $n                      = 0;
+                foreach ($map['scaleStrategies'] as $item) {
+                    $model->scaleStrategies[$n++] = null !== $item ? scaleStrategies::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

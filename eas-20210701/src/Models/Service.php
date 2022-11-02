@@ -114,6 +114,16 @@ class Service extends Model
     public $resourceAlias;
 
     /**
+     * @var string
+     */
+    public $role;
+
+    /**
+     * @var string
+     */
+    public $roleAttrs;
+
+    /**
      * @var int
      */
     public $runningInstance;
@@ -189,6 +199,8 @@ class Service extends Model
         'requestId'        => 'RequestId',
         'resource'         => 'Resource',
         'resourceAlias'    => 'ResourceAlias',
+        'role'             => 'Role',
+        'roleAttrs'        => 'RoleAttrs',
         'runningInstance'  => 'RunningInstance',
         'serviceConfig'    => 'ServiceConfig',
         'serviceGroup'     => 'ServiceGroup',
@@ -271,6 +283,12 @@ class Service extends Model
         }
         if (null !== $this->resourceAlias) {
             $res['ResourceAlias'] = $this->resourceAlias;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->roleAttrs) {
+            $res['RoleAttrs'] = $this->roleAttrs;
         }
         if (null !== $this->runningInstance) {
             $res['RunningInstance'] = $this->runningInstance;
@@ -379,6 +397,12 @@ class Service extends Model
         }
         if (isset($map['ResourceAlias'])) {
             $model->resourceAlias = $map['ResourceAlias'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['RoleAttrs'])) {
+            $model->roleAttrs = $map['RoleAttrs'];
         }
         if (isset($map['RunningInstance'])) {
             $model->runningInstance = $map['RunningInstance'];

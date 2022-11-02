@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponseBody\tasks;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponseBody\versions;
 use AlibabaCloud\Tea\Model;
 
-class ListBenchmarkTaskResponseBody extends Model
+class ListServiceVersionsResponseBody extends Model
 {
     /**
      * @var int
@@ -25,20 +25,20 @@ class ListBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var tasks[]
-     */
-    public $tasks;
-
-    /**
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var versions[]
+     */
+    public $versions;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'tasks'      => 'Tasks',
         'totalCount' => 'TotalCount',
+        'versions'   => 'Versions',
     ];
 
     public function validate()
@@ -57,17 +57,17 @@ class ListBenchmarkTaskResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->tasks) {
-            $res['Tasks'] = [];
-            if (null !== $this->tasks && \is_array($this->tasks)) {
-                $n = 0;
-                foreach ($this->tasks as $item) {
-                    $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->versions) {
+            $res['Versions'] = [];
+            if (null !== $this->versions && \is_array($this->versions)) {
+                $n = 0;
+                foreach ($this->versions as $item) {
+                    $res['Versions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -76,7 +76,7 @@ class ListBenchmarkTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListBenchmarkTaskResponseBody
+     * @return ListServiceVersionsResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -90,17 +90,17 @@ class ListBenchmarkTaskResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Tasks'])) {
-            if (!empty($map['Tasks'])) {
-                $model->tasks = [];
-                $n            = 0;
-                foreach ($map['Tasks'] as $item) {
-                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['Versions'])) {
+            if (!empty($map['Versions'])) {
+                $model->versions = [];
+                $n               = 0;
+                foreach ($map['Versions'] as $item) {
+                    $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

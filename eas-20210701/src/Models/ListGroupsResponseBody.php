@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
-use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponseBody\tasks;
 use AlibabaCloud\Tea\Model;
 
-class ListBenchmarkTaskResponseBody extends Model
+class ListGroupsResponseBody extends Model
 {
+    /**
+     * @var Group[]
+     */
+    public $groups;
+
     /**
      * @var int
      */
@@ -25,19 +29,14 @@ class ListBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var tasks[]
-     */
-    public $tasks;
-
-    /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
+        'groups'     => 'Groups',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'tasks'      => 'Tasks',
         'totalCount' => 'TotalCount',
     ];
 
@@ -48,6 +47,15 @@ class ListBenchmarkTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groups) {
+            $res['Groups'] = [];
+            if (null !== $this->groups && \is_array($this->groups)) {
+                $n = 0;
+                foreach ($this->groups as $item) {
+                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -56,15 +64,6 @@ class ListBenchmarkTaskResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->tasks) {
-            $res['Tasks'] = [];
-            if (null !== $this->tasks && \is_array($this->tasks)) {
-                $n = 0;
-                foreach ($this->tasks as $item) {
-                    $res['Tasks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -76,11 +75,20 @@ class ListBenchmarkTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListBenchmarkTaskResponseBody
+     * @return ListGroupsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Groups'])) {
+            if (!empty($map['Groups'])) {
+                $model->groups = [];
+                $n             = 0;
+                foreach ($map['Groups'] as $item) {
+                    $model->groups[$n++] = null !== $item ? Group::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -89,15 +97,6 @@ class ListBenchmarkTaskResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Tasks'])) {
-            if (!empty($map['Tasks'])) {
-                $model->tasks = [];
-                $n            = 0;
-                foreach ($map['Tasks'] as $item) {
-                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

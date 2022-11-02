@@ -26,6 +26,11 @@ class DescribeBenchmarkTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $endpoint;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -71,6 +76,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
         'availableAgent' => 'AvailableAgent',
         'callerUid'      => 'CallerUid',
         'desiredAgent'   => 'DesiredAgent',
+        'endpoint'       => 'Endpoint',
         'message'        => 'Message',
         'parentUid'      => 'ParentUid',
         'reason'         => 'Reason',
@@ -97,6 +103,9 @@ class DescribeBenchmarkTaskResponseBody extends Model
         }
         if (null !== $this->desiredAgent) {
             $res['DesiredAgent'] = $this->desiredAgent;
+        }
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -145,6 +154,9 @@ class DescribeBenchmarkTaskResponseBody extends Model
         }
         if (isset($map['DesiredAgent'])) {
             $model->desiredAgent = $map['DesiredAgent'];
+        }
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

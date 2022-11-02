@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskReportResponseBody extends Model
 {
     /**
+     * @var mixed
+     */
+    public $data;
+
+    /**
      * @var string
      */
     public $reportUrl;
@@ -18,6 +23,7 @@ class DescribeBenchmarkTaskReportResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'data'      => 'Data',
         'reportUrl' => 'ReportUrl',
         'requestId' => 'RequestId',
     ];
@@ -29,6 +35,9 @@ class DescribeBenchmarkTaskReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->reportUrl) {
             $res['ReportUrl'] = $this->reportUrl;
         }
@@ -47,6 +56,9 @@ class DescribeBenchmarkTaskReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['ReportUrl'])) {
             $model->reportUrl = $map['ReportUrl'];
         }
