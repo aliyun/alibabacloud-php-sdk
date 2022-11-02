@@ -132,6 +132,11 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
      * @var string
      */
     public $terminationDrainDuration;
+
+    /**
+     * @var string
+     */
+    public $tracing;
     protected $_name = [
         'concurrency'                       => 'Concurrency',
         'excludeIPRanges'                   => 'ExcludeIPRanges',
@@ -158,6 +163,7 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         'sidecarProxyMemoryResourceLimit'   => 'SidecarProxyMemoryResourceLimit',
         'sidecarProxyMemoryResourceRequest' => 'SidecarProxyMemoryResourceRequest',
         'terminationDrainDuration'          => 'TerminationDrainDuration',
+        'tracing'                           => 'Tracing',
     ];
 
     public function validate()
@@ -241,6 +247,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (null !== $this->terminationDrainDuration) {
             $res['TerminationDrainDuration'] = $this->terminationDrainDuration;
+        }
+        if (null !== $this->tracing) {
+            $res['Tracing'] = $this->tracing;
         }
 
         return $res;
@@ -328,6 +337,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (isset($map['TerminationDrainDuration'])) {
             $model->terminationDrainDuration = $map['TerminationDrainDuration'];
+        }
+        if (isset($map['Tracing'])) {
+            $model->tracing = $map['Tracing'];
         }
 
         return $model;

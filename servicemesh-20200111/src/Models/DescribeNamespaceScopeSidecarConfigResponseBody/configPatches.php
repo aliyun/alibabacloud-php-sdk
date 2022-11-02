@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarC
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyInitResourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyResourceLimit;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\sidecarProxyResourceRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponseBody\configPatches\tracing;
 use AlibabaCloud\Tea\Model;
 
 class configPatches extends Model
@@ -97,6 +98,11 @@ class configPatches extends Model
      * @var string
      */
     public $terminationDrainDuration;
+
+    /**
+     * @var tracing
+     */
+    public $tracing;
     protected $_name = [
         'concurrency'                     => 'Concurrency',
         'excludeInboundPorts'             => 'ExcludeInboundPorts',
@@ -115,6 +121,7 @@ class configPatches extends Model
         'sidecarProxyResourceLimit'       => 'SidecarProxyResourceLimit',
         'sidecarProxyResourceRequest'     => 'SidecarProxyResourceRequest',
         'terminationDrainDuration'        => 'TerminationDrainDuration',
+        'tracing'                         => 'Tracing',
     ];
 
     public function validate()
@@ -174,6 +181,9 @@ class configPatches extends Model
         }
         if (null !== $this->terminationDrainDuration) {
             $res['TerminationDrainDuration'] = $this->terminationDrainDuration;
+        }
+        if (null !== $this->tracing) {
+            $res['Tracing'] = null !== $this->tracing ? $this->tracing->toMap() : null;
         }
 
         return $res;
@@ -237,6 +247,9 @@ class configPatches extends Model
         }
         if (isset($map['TerminationDrainDuration'])) {
             $model->terminationDrainDuration = $map['TerminationDrainDuration'];
+        }
+        if (isset($map['Tracing'])) {
+            $model->tracing = tracing::fromMap($map['Tracing']);
         }
 
         return $model;

@@ -84,6 +84,11 @@ class UpdateMeshFeatureRequest extends Model
     public $cniExcludeNamespaces;
 
     /**
+     * @var int
+     */
+    public $concurrency;
+
+    /**
      * @var bool
      */
     public $configSourceEnabled;
@@ -176,6 +181,11 @@ class UpdateMeshFeatureRequest extends Model
     /**
      * @var bool
      */
+    public $holdApplicationUntilProxyStarts;
+
+    /**
+     * @var bool
+     */
     public $http10Enabled;
 
     /**
@@ -187,6 +197,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var string
      */
     public $includeInboundPorts;
+
+    /**
+     * @var string
+     */
+    public $includeOutboundPorts;
 
     /**
      * @var bool
@@ -212,6 +227,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var bool
      */
     public $localityLoadBalancing;
+
+    /**
+     * @var string
+     */
+    public $logLevel;
 
     /**
      * @var bool
@@ -354,6 +374,11 @@ class UpdateMeshFeatureRequest extends Model
     public $proxyRequestMemory;
 
     /**
+     * @var string
+     */
+    public $proxyStatsMatcher;
+
+    /**
      * @var bool
      */
     public $redisFilterEnabled;
@@ -402,6 +427,16 @@ class UpdateMeshFeatureRequest extends Model
      * @var bool
      */
     public $thriftFilterEnabled;
+
+    /**
+     * @var string
+     */
+    public $traceCustomTags;
+
+    /**
+     * @var string
+     */
+    public $traceMaxPathTagLength;
 
     /**
      * @var float
@@ -453,6 +488,7 @@ class UpdateMeshFeatureRequest extends Model
         'clusterSpec'                     => 'ClusterSpec',
         'cniEnabled'                      => 'CniEnabled',
         'cniExcludeNamespaces'            => 'CniExcludeNamespaces',
+        'concurrency'                     => 'Concurrency',
         'configSourceEnabled'             => 'ConfigSourceEnabled',
         'configSourceNacosID'             => 'ConfigSourceNacosID',
         'customizedPrometheus'            => 'CustomizedPrometheus',
@@ -471,14 +507,17 @@ class UpdateMeshFeatureRequest extends Model
         'filterGatewayClusterConfig'      => 'FilterGatewayClusterConfig',
         'gatewayAPIEnabled'               => 'GatewayAPIEnabled',
         'globalRateLimitEnabled'          => 'GlobalRateLimitEnabled',
+        'holdApplicationUntilProxyStarts' => 'HoldApplicationUntilProxyStarts',
         'http10Enabled'                   => 'Http10Enabled',
         'includeIPRanges'                 => 'IncludeIPRanges',
         'includeInboundPorts'             => 'IncludeInboundPorts',
+        'includeOutboundPorts'            => 'IncludeOutboundPorts',
         'integrateKiali'                  => 'IntegrateKiali',
         'kialiEnabled'                    => 'KialiEnabled',
         'lifecycle'                       => 'Lifecycle',
         'localityLBConf'                  => 'LocalityLBConf',
         'localityLoadBalancing'           => 'LocalityLoadBalancing',
+        'logLevel'                        => 'LogLevel',
         'MSEEnabled'                      => 'MSEEnabled',
         'multiBufferEnabled'              => 'MultiBufferEnabled',
         'multiBufferPollDelay'            => 'MultiBufferPollDelay',
@@ -507,6 +546,7 @@ class UpdateMeshFeatureRequest extends Model
         'proxyLimitMemory'                => 'ProxyLimitMemory',
         'proxyRequestCPU'                 => 'ProxyRequestCPU',
         'proxyRequestMemory'              => 'ProxyRequestMemory',
+        'proxyStatsMatcher'               => 'ProxyStatsMatcher',
         'redisFilterEnabled'              => 'RedisFilterEnabled',
         'serviceMeshId'                   => 'ServiceMeshId',
         'sidecarInjectorLimitCPU'         => 'SidecarInjectorLimitCPU',
@@ -517,6 +557,8 @@ class UpdateMeshFeatureRequest extends Model
         'telemetry'                       => 'Telemetry',
         'terminationDrainDuration'        => 'TerminationDrainDuration',
         'thriftFilterEnabled'             => 'ThriftFilterEnabled',
+        'traceCustomTags'                 => 'TraceCustomTags',
+        'traceMaxPathTagLength'           => 'TraceMaxPathTagLength',
         'traceSampling'                   => 'TraceSampling',
         'tracing'                         => 'Tracing',
         'tracingOnExtZipkinLimitCPU'      => 'TracingOnExtZipkinLimitCPU',
@@ -578,6 +620,9 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->cniExcludeNamespaces) {
             $res['CniExcludeNamespaces'] = $this->cniExcludeNamespaces;
         }
+        if (null !== $this->concurrency) {
+            $res['Concurrency'] = $this->concurrency;
+        }
         if (null !== $this->configSourceEnabled) {
             $res['ConfigSourceEnabled'] = $this->configSourceEnabled;
         }
@@ -632,6 +677,9 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->globalRateLimitEnabled) {
             $res['GlobalRateLimitEnabled'] = $this->globalRateLimitEnabled;
         }
+        if (null !== $this->holdApplicationUntilProxyStarts) {
+            $res['HoldApplicationUntilProxyStarts'] = $this->holdApplicationUntilProxyStarts;
+        }
         if (null !== $this->http10Enabled) {
             $res['Http10Enabled'] = $this->http10Enabled;
         }
@@ -640,6 +688,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->includeInboundPorts) {
             $res['IncludeInboundPorts'] = $this->includeInboundPorts;
+        }
+        if (null !== $this->includeOutboundPorts) {
+            $res['IncludeOutboundPorts'] = $this->includeOutboundPorts;
         }
         if (null !== $this->integrateKiali) {
             $res['IntegrateKiali'] = $this->integrateKiali;
@@ -655,6 +706,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->localityLoadBalancing) {
             $res['LocalityLoadBalancing'] = $this->localityLoadBalancing;
+        }
+        if (null !== $this->logLevel) {
+            $res['LogLevel'] = $this->logLevel;
         }
         if (null !== $this->MSEEnabled) {
             $res['MSEEnabled'] = $this->MSEEnabled;
@@ -740,6 +794,9 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->proxyRequestMemory) {
             $res['ProxyRequestMemory'] = $this->proxyRequestMemory;
         }
+        if (null !== $this->proxyStatsMatcher) {
+            $res['ProxyStatsMatcher'] = $this->proxyStatsMatcher;
+        }
         if (null !== $this->redisFilterEnabled) {
             $res['RedisFilterEnabled'] = $this->redisFilterEnabled;
         }
@@ -769,6 +826,12 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->thriftFilterEnabled) {
             $res['ThriftFilterEnabled'] = $this->thriftFilterEnabled;
+        }
+        if (null !== $this->traceCustomTags) {
+            $res['TraceCustomTags'] = $this->traceCustomTags;
+        }
+        if (null !== $this->traceMaxPathTagLength) {
+            $res['TraceMaxPathTagLength'] = $this->traceMaxPathTagLength;
         }
         if (null !== $this->traceSampling) {
             $res['TraceSampling'] = $this->traceSampling;
@@ -848,6 +911,9 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['CniExcludeNamespaces'])) {
             $model->cniExcludeNamespaces = $map['CniExcludeNamespaces'];
         }
+        if (isset($map['Concurrency'])) {
+            $model->concurrency = $map['Concurrency'];
+        }
         if (isset($map['ConfigSourceEnabled'])) {
             $model->configSourceEnabled = $map['ConfigSourceEnabled'];
         }
@@ -902,6 +968,9 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['GlobalRateLimitEnabled'])) {
             $model->globalRateLimitEnabled = $map['GlobalRateLimitEnabled'];
         }
+        if (isset($map['HoldApplicationUntilProxyStarts'])) {
+            $model->holdApplicationUntilProxyStarts = $map['HoldApplicationUntilProxyStarts'];
+        }
         if (isset($map['Http10Enabled'])) {
             $model->http10Enabled = $map['Http10Enabled'];
         }
@@ -910,6 +979,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['IncludeInboundPorts'])) {
             $model->includeInboundPorts = $map['IncludeInboundPorts'];
+        }
+        if (isset($map['IncludeOutboundPorts'])) {
+            $model->includeOutboundPorts = $map['IncludeOutboundPorts'];
         }
         if (isset($map['IntegrateKiali'])) {
             $model->integrateKiali = $map['IntegrateKiali'];
@@ -925,6 +997,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['LocalityLoadBalancing'])) {
             $model->localityLoadBalancing = $map['LocalityLoadBalancing'];
+        }
+        if (isset($map['LogLevel'])) {
+            $model->logLevel = $map['LogLevel'];
         }
         if (isset($map['MSEEnabled'])) {
             $model->MSEEnabled = $map['MSEEnabled'];
@@ -1010,6 +1085,9 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['ProxyRequestMemory'])) {
             $model->proxyRequestMemory = $map['ProxyRequestMemory'];
         }
+        if (isset($map['ProxyStatsMatcher'])) {
+            $model->proxyStatsMatcher = $map['ProxyStatsMatcher'];
+        }
         if (isset($map['RedisFilterEnabled'])) {
             $model->redisFilterEnabled = $map['RedisFilterEnabled'];
         }
@@ -1039,6 +1117,12 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['ThriftFilterEnabled'])) {
             $model->thriftFilterEnabled = $map['ThriftFilterEnabled'];
+        }
+        if (isset($map['TraceCustomTags'])) {
+            $model->traceCustomTags = $map['TraceCustomTags'];
+        }
+        if (isset($map['TraceMaxPathTagLength'])) {
+            $model->traceMaxPathTagLength = $map['TraceMaxPathTagLength'];
         }
         if (isset($map['TraceSampling'])) {
             $model->traceSampling = $map['TraceSampling'];

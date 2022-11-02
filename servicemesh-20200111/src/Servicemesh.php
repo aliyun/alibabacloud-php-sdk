@@ -4034,6 +4034,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->cniExcludeNamespaces)) {
             $body['CniExcludeNamespaces'] = $request->cniExcludeNamespaces;
         }
+        if (!Utils::isUnset($request->concurrency)) {
+            $body['Concurrency'] = $request->concurrency;
+        }
         if (!Utils::isUnset($request->configSourceEnabled)) {
             $body['ConfigSourceEnabled'] = $request->configSourceEnabled;
         }
@@ -4088,6 +4091,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->globalRateLimitEnabled)) {
             $body['GlobalRateLimitEnabled'] = $request->globalRateLimitEnabled;
         }
+        if (!Utils::isUnset($request->holdApplicationUntilProxyStarts)) {
+            $body['HoldApplicationUntilProxyStarts'] = $request->holdApplicationUntilProxyStarts;
+        }
         if (!Utils::isUnset($request->http10Enabled)) {
             $body['Http10Enabled'] = $request->http10Enabled;
         }
@@ -4096,6 +4102,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->includeInboundPorts)) {
             $body['IncludeInboundPorts'] = $request->includeInboundPorts;
+        }
+        if (!Utils::isUnset($request->includeOutboundPorts)) {
+            $body['IncludeOutboundPorts'] = $request->includeOutboundPorts;
         }
         if (!Utils::isUnset($request->integrateKiali)) {
             $body['IntegrateKiali'] = $request->integrateKiali;
@@ -4111,6 +4120,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->localityLoadBalancing)) {
             $body['LocalityLoadBalancing'] = $request->localityLoadBalancing;
+        }
+        if (!Utils::isUnset($request->logLevel)) {
+            $body['LogLevel'] = $request->logLevel;
         }
         if (!Utils::isUnset($request->MSEEnabled)) {
             $body['MSEEnabled'] = $request->MSEEnabled;
@@ -4196,6 +4208,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->proxyRequestMemory)) {
             $body['ProxyRequestMemory'] = $request->proxyRequestMemory;
         }
+        if (!Utils::isUnset($request->proxyStatsMatcher)) {
+            $body['ProxyStatsMatcher'] = $request->proxyStatsMatcher;
+        }
         if (!Utils::isUnset($request->redisFilterEnabled)) {
             $body['RedisFilterEnabled'] = $request->redisFilterEnabled;
         }
@@ -4225,6 +4240,12 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->thriftFilterEnabled)) {
             $body['ThriftFilterEnabled'] = $request->thriftFilterEnabled;
+        }
+        if (!Utils::isUnset($request->traceCustomTags)) {
+            $body['TraceCustomTags'] = $request->traceCustomTags;
+        }
+        if (!Utils::isUnset($request->traceMaxPathTagLength)) {
+            $body['TraceMaxPathTagLength'] = $request->traceMaxPathTagLength;
         }
         if (!Utils::isUnset($request->traceSampling)) {
             $body['TraceSampling'] = $request->traceSampling;
@@ -4361,6 +4382,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->terminationDrainDuration)) {
             $body['TerminationDrainDuration'] = $request->terminationDrainDuration;
+        }
+        if (!Utils::isUnset($request->tracing)) {
+            $body['Tracing'] = $request->tracing;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
