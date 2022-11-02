@@ -52,6 +52,11 @@ class jobConfigInfo extends Model
     public $jobMonitorInfo;
 
     /**
+     * @var string
+     */
+    public $jobType;
+
+    /**
      * @var mapTaskXAttrs
      */
     public $mapTaskXAttrs;
@@ -85,6 +90,11 @@ class jobConfigInfo extends Model
      * @var timeConfig
      */
     public $timeConfig;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'attemptInterval' => 'AttemptInterval',
         'className'       => 'ClassName',
@@ -94,6 +104,7 @@ class jobConfigInfo extends Model
         'jarUrl'          => 'JarUrl',
         'jobId'           => 'JobId',
         'jobMonitorInfo'  => 'JobMonitorInfo',
+        'jobType'         => 'JobType',
         'mapTaskXAttrs'   => 'MapTaskXAttrs',
         'maxAttempt'      => 'MaxAttempt',
         'maxConcurrency'  => 'MaxConcurrency',
@@ -101,6 +112,7 @@ class jobConfigInfo extends Model
         'parameters'      => 'Parameters',
         'status'          => 'Status',
         'timeConfig'      => 'TimeConfig',
+        'XAttrs'          => 'XAttrs',
     ];
 
     public function validate()
@@ -134,6 +146,9 @@ class jobConfigInfo extends Model
         if (null !== $this->jobMonitorInfo) {
             $res['JobMonitorInfo'] = null !== $this->jobMonitorInfo ? $this->jobMonitorInfo->toMap() : null;
         }
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
+        }
         if (null !== $this->mapTaskXAttrs) {
             $res['MapTaskXAttrs'] = null !== $this->mapTaskXAttrs ? $this->mapTaskXAttrs->toMap() : null;
         }
@@ -154,6 +169,9 @@ class jobConfigInfo extends Model
         }
         if (null !== $this->timeConfig) {
             $res['TimeConfig'] = null !== $this->timeConfig ? $this->timeConfig->toMap() : null;
+        }
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
         }
 
         return $res;
@@ -191,6 +209,9 @@ class jobConfigInfo extends Model
         if (isset($map['JobMonitorInfo'])) {
             $model->jobMonitorInfo = jobMonitorInfo::fromMap($map['JobMonitorInfo']);
         }
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
+        }
         if (isset($map['MapTaskXAttrs'])) {
             $model->mapTaskXAttrs = mapTaskXAttrs::fromMap($map['MapTaskXAttrs']);
         }
@@ -211,6 +232,9 @@ class jobConfigInfo extends Model
         }
         if (isset($map['TimeConfig'])) {
             $model->timeConfig = timeConfig::fromMap($map['TimeConfig']);
+        }
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;
