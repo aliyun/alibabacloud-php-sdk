@@ -6,14 +6,103 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceGroupRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseRuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseRuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseTemplateRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDefenseTemplateResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateMajorProtectionBlackIpResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceCompatibleRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceCompatibleResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceExtendRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceExtendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseRuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseTemplateRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseTemplateResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRulesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseRulesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseTemplateResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowChartRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowChartResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopUrlResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeInstanceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourcePortRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourcePortResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResponseCodeTrendGraphRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResponseCodeTrendGraphResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleGroupsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleGroupsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopClientIpRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopClientIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopResourceRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopResourceResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopRuleIdRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopRuleIdResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopTuleTypeRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopTuleTypeResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitUasResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -80,6 +169,286 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param ClearMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ClearMajorProtectionBlackIpResponse
+     */
+    public function clearMajorProtectionBlackIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClearMajorProtectionBlackIp',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClearMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClearMajorProtectionBlackIpRequest $request
+     *
+     * @return ClearMajorProtectionBlackIpResponse
+     */
+    public function clearMajorProtectionBlackIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clearMajorProtectionBlackIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDefenseResourceGroupResponse
+     */
+    public function createDefenseResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addList)) {
+            $query['AddList'] = $request->addList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDefenseResourceGroup',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDefenseResourceGroupRequest $request
+     *
+     * @return CreateDefenseResourceGroupResponse
+     */
+    public function createDefenseResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDefenseResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDefenseRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDefenseRuleResponse
+     */
+    public function createDefenseRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $query['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDefenseRule',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDefenseRuleRequest $request
+     *
+     * @return CreateDefenseRuleResponse
+     */
+    public function createDefenseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDefenseTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDefenseTemplateResponse
+     */
+    public function createDefenseTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $query['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateOrigin)) {
+            $query['TemplateOrigin'] = $request->templateOrigin;
+        }
+        if (!Utils::isUnset($request->templateStatus)) {
+            $query['TemplateStatus'] = $request->templateStatus;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDefenseTemplate',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDefenseTemplateRequest $request
+     *
+     * @return CreateDefenseTemplateResponse
+     */
+    public function createDefenseTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDefenseTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDomainRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomainWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listen)) {
+            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->listen), 'Listen', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->redirect)) {
+            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->redirect), 'Redirect', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accessType)) {
+            $query['AccessType'] = $request->accessType;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->listenShrink)) {
+            $query['Listen'] = $request->listenShrink;
+        }
+        if (!Utils::isUnset($request->redirectShrink)) {
+            $query['Redirect'] = $request->redirectShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomain',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMajorProtectionBlackIpRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -138,6 +507,753 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DeleteDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteDefenseResourceGroupResponse
+     */
+    public function deleteDefenseResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDefenseResourceGroup',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDefenseResourceGroupRequest $request
+     *
+     * @return DeleteDefenseResourceGroupResponse
+     */
+    public function deleteDefenseResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDefenseResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDefenseRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDefenseRuleResponse
+     */
+    public function deleteDefenseRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleIds)) {
+            $query['RuleIds'] = $request->ruleIds;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDefenseRule',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDefenseRuleRequest $request
+     *
+     * @return DeleteDefenseRuleResponse
+     */
+    public function deleteDefenseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDefenseTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDefenseTemplateResponse
+     */
+    public function deleteDefenseTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDefenseTemplate',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDefenseTemplateRequest $request
+     *
+     * @return DeleteDefenseTemplateResponse
+     */
+    public function deleteDefenseTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDefenseTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteMajorProtectionBlackIpResponse
+     */
+    public function deleteMajorProtectionBlackIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ipList)) {
+            $query['IpList'] = $request->ipList;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMajorProtectionBlackIp',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMajorProtectionBlackIpRequest $request
+     *
+     * @return DeleteMajorProtectionBlackIpResponse
+     */
+    public function deleteMajorProtectionBlackIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMajorProtectionBlackIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDefenseResourceGroupResponse
+     */
+    public function describeDefenseResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResourceGroup',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourceGroupRequest $request
+     *
+     * @return DescribeDefenseResourceGroupResponse
+     */
+    public function describeDefenseResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseResourcesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDefenseResourcesResponse
+     */
+    public function describeDefenseResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseResourcesRequest $request
+     *
+     * @return DescribeDefenseResourcesResponse
+     */
+    public function describeDefenseResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDefenseRuleResponse
+     */
+    public function describeDefenseRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseRule',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseRuleRequest $request
+     *
+     * @return DescribeDefenseRuleResponse
+     */
+    public function describeDefenseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDefenseRulesResponse
+     */
+    public function describeDefenseRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseRules',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseRulesRequest $request
+     *
+     * @return DescribeDefenseRulesResponse
+     */
+    public function describeDefenseRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDefenseTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDefenseTemplateResponse
+     */
+    public function describeDefenseTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefenseTemplate',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefenseTemplateRequest $request
+     *
+     * @return DescribeDefenseTemplateResponse
+     */
+    public function describeDefenseTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefenseTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDomainDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDomainDetailResponse
+     */
+    public function describeDomainDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainDetail',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainDetailRequest $request
+     *
+     * @return DescribeDomainDetailResponse
+     */
+    public function describeDomainDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
+     */
+    public function describeDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backend)) {
+            $query['Backend'] = $request->backend;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomains',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
+     */
+    public function describeDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFlowChartRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFlowChartResponse
+     */
+    public function describeFlowChartWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowChart',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFlowChartResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFlowChartRequest $request
+     *
+     * @return DescribeFlowChartResponse
+     */
+    public function describeFlowChart($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowChartWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFlowTopResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeFlowTopResourceResponse
+     */
+    public function describeFlowTopResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowTopResource',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFlowTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFlowTopResourceRequest $request
+     *
+     * @return DescribeFlowTopResourceResponse
+     */
+    public function describeFlowTopResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowTopResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeFlowTopUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeFlowTopUrlResponse
+     */
+    public function describeFlowTopUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowTopUrl',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeFlowTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeFlowTopUrlRequest $request
+     *
+     * @return DescribeFlowTopUrlResponse
+     */
+    public function describeFlowTopUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFlowTopUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -184,26 +1300,41 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceCompatibleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeMajorProtectionBlackIpsRequest $request
+     * @param RuntimeOptions                         $runtime
      *
-     * @return DescribeInstanceCompatibleResponse
+     * @return DescribeMajorProtectionBlackIpsResponse
      */
-    public function describeInstanceCompatibleWithOptions($request, $runtime)
+    public function describeMajorProtectionBlackIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->ipLike)) {
+            $query['IpLike'] = $request->ipLike;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceCompatible',
+            'action'      => 'DescribeMajorProtectionBlackIps',
             'version'     => '2021-10-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -214,45 +1345,577 @@ class Wafopenapi extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceCompatibleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMajorProtectionBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceCompatibleRequest $request
+     * @param DescribeMajorProtectionBlackIpsRequest $request
      *
-     * @return DescribeInstanceCompatibleResponse
+     * @return DescribeMajorProtectionBlackIpsResponse
      */
-    public function describeInstanceCompatible($request)
+    public function describeMajorProtectionBlackIps($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeInstanceCompatibleWithOptions($request, $runtime);
+        return $this->describeMajorProtectionBlackIpsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeInstanceExtendRequest $request
+     * @param DescribePeakTrendRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribePeakTrendResponse
+     */
+    public function describePeakTrendWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePeakTrend',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePeakTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePeakTrendRequest $request
+     *
+     * @return DescribePeakTrendResponse
+     */
+    public function describePeakTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePeakTrendWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourceLogStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeResourceLogStatusResponse
+     */
+    public function describeResourceLogStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourceLogStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourceLogStatusRequest $request
+     *
+     * @return DescribeResourceLogStatusResponse
+     */
+    public function describeResourceLogStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceLogStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResourcePortRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeResourcePortResponse
+     */
+    public function describeResourcePortWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resourceInstanceId)) {
+            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResourcePort',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResourcePortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResourcePortRequest $request
+     *
+     * @return DescribeResourcePortResponse
+     */
+    public function describeResourcePort($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourcePortWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeResponseCodeTrendGraphRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResponseCodeTrendGraphResponse
+     */
+    public function describeResponseCodeTrendGraphWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeResponseCodeTrendGraph',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeResponseCodeTrendGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeResponseCodeTrendGraphRequest $request
+     *
+     * @return DescribeResponseCodeTrendGraphResponse
+     */
+    public function describeResponseCodeTrendGraph($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResponseCodeTrendGraphWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRuleGroupsResponse
+     */
+    public function describeRuleGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchType)) {
+            $query['SearchType'] = $request->searchType;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $query['SearchValue'] = $request->searchValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleGroups',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRuleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRuleGroupsRequest $request
+     *
+     * @return DescribeRuleGroupsResponse
+     */
+    public function describeRuleGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleHitsTopClientIpRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRuleHitsTopClientIpResponse
+     */
+    public function describeRuleHitsTopClientIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleHitsTopClientIp',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRuleHitsTopClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRuleHitsTopClientIpRequest $request
+     *
+     * @return DescribeRuleHitsTopClientIpResponse
+     */
+    public function describeRuleHitsTopClientIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleHitsTopClientIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleHitsTopResourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRuleHitsTopResourceResponse
+     */
+    public function describeRuleHitsTopResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleHitsTopResource',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRuleHitsTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRuleHitsTopResourceRequest $request
+     *
+     * @return DescribeRuleHitsTopResourceResponse
+     */
+    public function describeRuleHitsTopResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleHitsTopResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleHitsTopRuleIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRuleHitsTopRuleIdResponse
+     */
+    public function describeRuleHitsTopRuleIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleHitsTopRuleId',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRuleHitsTopRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRuleHitsTopRuleIdRequest $request
+     *
+     * @return DescribeRuleHitsTopRuleIdResponse
+     */
+    public function describeRuleHitsTopRuleId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleHitsTopRuleIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleHitsTopTuleTypeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRuleHitsTopTuleTypeResponse
+     */
+    public function describeRuleHitsTopTuleTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleHitsTopTuleType',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRuleHitsTopTuleTypeRequest $request
+     *
+     * @return DescribeRuleHitsTopTuleTypeResponse
+     */
+    public function describeRuleHitsTopTuleType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleHitsTopTuleTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleHitsTopUaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRuleHitsTopUaResponse
+     */
+    public function describeRuleHitsTopUaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRuleHitsTopUa',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRuleHitsTopUaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRuleHitsTopUaRequest $request
+     *
+     * @return DescribeRuleHitsTopUaResponse
+     */
+    public function describeRuleHitsTopUa($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleHitsTopUaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRuleHitsTopUrlRequest $request
      * @param RuntimeOptions                $runtime
      *
-     * @return DescribeInstanceExtendResponse
+     * @return DescribeRuleHitsTopUrlResponse
      */
-    public function describeInstanceExtendWithOptions($request, $runtime)
+    public function describeRuleHitsTopUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->edition)) {
-            $query['Edition'] = $request->edition;
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->ruleType)) {
+            $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceExtend',
+            'action'      => 'DescribeRuleHitsTopUrl',
             'version'     => '2021-10-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -263,18 +1926,705 @@ class Wafopenapi extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceExtendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceExtendRequest $request
+     * @param DescribeRuleHitsTopUrlRequest $request
      *
-     * @return DescribeInstanceExtendResponse
+     * @return DescribeRuleHitsTopUrlResponse
      */
-    public function describeInstanceExtend($request)
+    public function describeRuleHitsTopUrl($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeInstanceExtendWithOptions($request, $runtime);
+        return $this->describeRuleHitsTopUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTemplateResourcesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeTemplateResourcesResponse
+     */
+    public function describeTemplateResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplateResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTemplateResourcesRequest $request
+     *
+     * @return DescribeTemplateResourcesResponse
+     */
+    public function describeTemplateResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTemplateResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVisitTopIpRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeVisitTopIpResponse
+     */
+    public function describeVisitTopIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVisitTopIp',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVisitTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVisitTopIpRequest $request
+     *
+     * @return DescribeVisitTopIpResponse
+     */
+    public function describeVisitTopIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVisitTopIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVisitUasRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeVisitUasResponse
+     */
+    public function describeVisitUasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVisitUas',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVisitUasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVisitUasRequest $request
+     *
+     * @return DescribeVisitUasResponse
+     */
+    public function describeVisitUas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVisitUasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWafSourceIpSegmentRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeWafSourceIpSegmentResponse
+     */
+    public function describeWafSourceIpSegmentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWafSourceIpSegment',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWafSourceIpSegmentRequest $request
+     *
+     * @return DescribeWafSourceIpSegmentResponse
+     */
+    public function describeWafSourceIpSegment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWafSourceIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDefenseResourceGroupResponse
+     */
+    public function modifyDefenseResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->addList)) {
+            $query['AddList'] = $request->addList;
+        }
+        if (!Utils::isUnset($request->deleteList)) {
+            $query['DeleteList'] = $request->deleteList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefenseResourceGroup',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDefenseResourceGroupRequest $request
+     *
+     * @return ModifyDefenseResourceGroupResponse
+     */
+    public function modifyDefenseResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDefenseResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDefenseRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyDefenseRuleResponse
+     */
+    public function modifyDefenseRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defenseScene)) {
+            $query['DefenseScene'] = $request->defenseScene;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefenseRule',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDefenseRuleRequest $request
+     *
+     * @return ModifyDefenseRuleResponse
+     */
+    public function modifyDefenseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDefenseRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDefenseRuleStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyDefenseRuleStatusResponse
+     */
+    public function modifyDefenseRuleStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleStatus)) {
+            $query['RuleStatus'] = $request->ruleStatus;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefenseRuleStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDefenseRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDefenseRuleStatusRequest $request
+     *
+     * @return ModifyDefenseRuleStatusResponse
+     */
+    public function modifyDefenseRuleStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDefenseRuleStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDefenseTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDefenseTemplateResponse
+     */
+    public function modifyDefenseTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefenseTemplate',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDefenseTemplateRequest $request
+     *
+     * @return ModifyDefenseTemplateResponse
+     */
+    public function modifyDefenseTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDefenseTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDefenseTemplateStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDefenseTemplateStatusResponse
+     */
+    public function modifyDefenseTemplateStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateStatus)) {
+            $query['TemplateStatus'] = $request->templateStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefenseTemplateStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDefenseTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDefenseTemplateStatusRequest $request
+     *
+     * @return ModifyDefenseTemplateStatusResponse
+     */
+    public function modifyDefenseTemplateStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDefenseTemplateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDomainRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyDomainResponse
+     */
+    public function modifyDomainWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listen)) {
+            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->listen), 'Listen', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->redirect)) {
+            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->redirect), 'Redirect', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accessType)) {
+            $query['AccessType'] = $request->accessType;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->listenShrink)) {
+            $query['Listen'] = $request->listenShrink;
+        }
+        if (!Utils::isUnset($request->redirectShrink)) {
+            $query['Redirect'] = $request->redirectShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDomain',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDomainRequest $request
+     *
+     * @return ModifyDomainResponse
+     */
+    public function modifyDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyMajorProtectionBlackIpResponse
+     */
+    public function modifyMajorProtectionBlackIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->expiredTime)) {
+            $query['ExpiredTime'] = $request->expiredTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ipList)) {
+            $query['IpList'] = $request->ipList;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMajorProtectionBlackIp',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMajorProtectionBlackIpRequest $request
+     *
+     * @return ModifyMajorProtectionBlackIpResponse
+     */
+    public function modifyMajorProtectionBlackIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMajorProtectionBlackIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyResourceLogStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyResourceLogStatusResponse
+     */
+    public function modifyResourceLogStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyResourceLogStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyResourceLogStatusRequest $request
+     *
+     * @return ModifyResourceLogStatusResponse
+     */
+    public function modifyResourceLogStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyResourceLogStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyTemplateResourcesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyTemplateResourcesResponse
+     */
+    public function modifyTemplateResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bindResourceGroups)) {
+            $query['BindResourceGroups'] = $request->bindResourceGroups;
+        }
+        if (!Utils::isUnset($request->bindResources)) {
+            $query['BindResources'] = $request->bindResources;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->unbindResourceGroups)) {
+            $query['UnbindResourceGroups'] = $request->unbindResourceGroups;
+        }
+        if (!Utils::isUnset($request->unbindResources)) {
+            $query['UnbindResources'] = $request->unbindResources;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTemplateResources',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTemplateResourcesRequest $request
+     *
+     * @return ModifyTemplateResourcesResponse
+     */
+    public function modifyTemplateResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTemplateResourcesWithOptions($request, $runtime);
     }
 }

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateMajorProtectionBlackIpRequest extends Model
 {
     /**
-     * @description 防护对象1domain 	描述信息。
-     *
      * @var string
      */
     public $description;

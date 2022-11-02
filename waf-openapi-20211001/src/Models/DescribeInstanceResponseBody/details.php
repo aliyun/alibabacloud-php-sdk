@@ -14,281 +14,251 @@ class details extends Model
     public $aclRuleMaxIpCount;
 
     /**
-     * @description 支持扫描防护
-     *
      * @var bool
      */
     public $antiScan;
 
     /**
-     * @description 扫描防护模板数
-     *
      * @var int
      */
     public $antiScanTemplateMaxCount;
 
     /**
-     * @description 最大回源数
-     *
      * @var int
      */
     public $backendMaxCount;
 
     /**
-     * @description 基础防护
-     *
      * @var bool
      */
     public $baseWafGroup;
 
     /**
-     * @description 基础防护规则
-     *
      * @var int
      */
     public $baseWafGroupRuleInTemplateMaxCount;
 
     /**
-     * @description 基础防护规则最大数量
-     *
      * @var int
      */
     public $baseWafGroupRuleTemplateMaxCount;
 
     /**
-     * @description 最大可添加CNAME数
-     *
+     * @var bool
+     */
+    public $bot;
+
+    /**
+     * @var string
+     */
+    public $botApp;
+
+    /**
+     * @var int
+     */
+    public $botTemplateMaxCount;
+
+    /**
+     * @var string
+     */
+    public $botWeb;
+
+    /**
      * @var int
      */
     public $cnameResourceMaxCount;
 
     /**
-     * @description 支持自定义响应
-     *
      * @var bool
      */
     public $customResponse;
 
     /**
-     * @description 自定义响应模板包含规则数
-     *
      * @var int
      */
     public $customResponseRuleInTemplateMaxCount;
 
     /**
-     * @description 自定义响应模板数
-     *
      * @var int
      */
     public $customResponseTemplateMaxCount;
 
     /**
-     * @description 支持自定义规则
-     *
      * @var bool
      */
     public $customRule;
 
     /**
-     * @description 包含字符串
-     *
      * @var string
      */
     public $customRuleAction;
 
     /**
-     * @description 自定义规则匹配条件
-     *
      * @var string
      */
     public $customRuleCondition;
 
     /**
-     * @description 自定义规则模板包含规则数
-     *
      * @var int
      */
     public $customRuleInTemplateMaxCount;
 
     /**
-     * @description 自定义规则限速对象
-     *
      * @var string
      */
     public $customRuleRatelimitor;
 
     /**
-     * @description 自定义规则模板数
-     *
      * @var int
      */
     public $customRuleTemplateMaxCount;
 
     /**
-     * @description 最大防护组数量
-     *
      * @var int
      */
     public $defenseGroupMaxCount;
 
     /**
-     * @description 一个防护组内最大包含对象数量
-     *
      * @var int
      */
     public $defenseObjectInGroupMaxCount;
 
     /**
-     * @description 一个模板内关联对象的最大数量
-     *
      * @var int
      */
     public $defenseObjectInTemplateMaxCount;
 
     /**
-     * @description 最大防护对象数量
-     *
      * @var int
      */
     public $defenseObjectMaxCount;
 
     /**
-     * @description 独享IP
-     *
+     * @var bool
+     */
+    public $dlp;
+
+    /**
+     * @var int
+     */
+    public $dlpRuleInTemplateMaxCount;
+
+    /**
+     * @var int
+     */
+    public $dlpTemplateMaxCount;
+
+    /**
      * @var bool
      */
     public $exclusiveIp;
 
     /**
-     * @description Gslb
-     *
      * @var bool
      */
     public $gslb;
 
     /**
-     * @description HTTP端口可用范围
-     *
      * @var string
      */
     public $httpPorts;
 
     /**
-     * @description HTTPS端口可用范围
-     *
      * @var string
      */
     public $httpsPorts;
 
     /**
-     * @description 支持IP黑名单
-     *
      * @var bool
      */
     public $ipBlacklist;
 
     /**
-     * @description IP黑名单规则包含IP数
-     *
      * @var int
      */
     public $ipBlacklistIpInRuleMaxCount;
 
     /**
-     * @description IP黑名单模板包含规则数
-     *
      * @var int
      */
     public $ipBlacklistRuleInTemplateMaxCount;
 
     /**
-     * @description /黑名单模板数
-     *
      * @var int
      */
     public $ipBlacklistTemplateMaxCount;
 
     /**
-     * @description Ipv6
-     *
      * @var bool
      */
     public $ipv6;
 
     /**
-     * @description 日志服务是否开启
-     *
      * @var bool
      */
     public $logService;
 
     /**
-     * @description 是否支持重保
-     *
      * @var bool
      */
     public $majorProtection;
 
     /**
-     * @description 重保模板的最大数量
-     *
      * @var int
      */
     public $majorProtectionTemplateMaxCount;
 
     /**
-     * @description 海量IP单次上传文件IP的最大数量
-     *
+     * @var bool
+     */
+    public $tamperproof;
+
+    /**
+     * @var int
+     */
+    public $tamperproofRuleInTemplateMaxCount;
+
+    /**
+     * @var int
+     */
+    public $tamperproofTemplateMaxCount;
+
+    /**
      * @var int
      */
     public $vastIpBlacklistInFileMaxCount;
 
     /**
-     * @description 海量IP单次页面操作的最大数量
-     *
      * @var int
      */
     public $vastIpBlacklistInOperationMaxCount;
 
     /**
-     * @description 海量IP的最大数量（单用户）
-     *
      * @var int
      */
     public $vastIpBlacklistMaxCount;
 
     /**
-     * @description 是否支持白名单
-     *
      * @var bool
      */
     public $whitelist;
 
     /**
-     * @description 白名单规则匹配条件
-     *
      * @var string
      */
     public $whitelistLogical;
 
     /**
-     * @description 白名单规则匹配条件
-     *
      * @var string
      */
     public $whitelistRuleCondition;
 
     /**
-     * @description 白名单模板包含规则数
-     *
      * @var int
      */
     public $whitelistRuleInTemplateMaxCount;
 
     /**
-     * @description 白名单模板数
-     *
      * @var int
      */
     public $whitelistTemplateMaxCount;
@@ -300,6 +270,10 @@ class details extends Model
         'baseWafGroup'                         => 'BaseWafGroup',
         'baseWafGroupRuleInTemplateMaxCount'   => 'BaseWafGroupRuleInTemplateMaxCount',
         'baseWafGroupRuleTemplateMaxCount'     => 'BaseWafGroupRuleTemplateMaxCount',
+        'bot'                                  => 'Bot',
+        'botApp'                               => 'BotApp',
+        'botTemplateMaxCount'                  => 'BotTemplateMaxCount',
+        'botWeb'                               => 'BotWeb',
         'cnameResourceMaxCount'                => 'CnameResourceMaxCount',
         'customResponse'                       => 'CustomResponse',
         'customResponseRuleInTemplateMaxCount' => 'CustomResponseRuleInTemplateMaxCount',
@@ -314,6 +288,9 @@ class details extends Model
         'defenseObjectInGroupMaxCount'         => 'DefenseObjectInGroupMaxCount',
         'defenseObjectInTemplateMaxCount'      => 'DefenseObjectInTemplateMaxCount',
         'defenseObjectMaxCount'                => 'DefenseObjectMaxCount',
+        'dlp'                                  => 'Dlp',
+        'dlpRuleInTemplateMaxCount'            => 'DlpRuleInTemplateMaxCount',
+        'dlpTemplateMaxCount'                  => 'DlpTemplateMaxCount',
         'exclusiveIp'                          => 'ExclusiveIp',
         'gslb'                                 => 'Gslb',
         'httpPorts'                            => 'HttpPorts',
@@ -326,6 +303,9 @@ class details extends Model
         'logService'                           => 'LogService',
         'majorProtection'                      => 'MajorProtection',
         'majorProtectionTemplateMaxCount'      => 'MajorProtectionTemplateMaxCount',
+        'tamperproof'                          => 'Tamperproof',
+        'tamperproofRuleInTemplateMaxCount'    => 'TamperproofRuleInTemplateMaxCount',
+        'tamperproofTemplateMaxCount'          => 'TamperproofTemplateMaxCount',
         'vastIpBlacklistInFileMaxCount'        => 'VastIpBlacklistInFileMaxCount',
         'vastIpBlacklistInOperationMaxCount'   => 'VastIpBlacklistInOperationMaxCount',
         'vastIpBlacklistMaxCount'              => 'VastIpBlacklistMaxCount',
@@ -363,6 +343,18 @@ class details extends Model
         }
         if (null !== $this->baseWafGroupRuleTemplateMaxCount) {
             $res['BaseWafGroupRuleTemplateMaxCount'] = $this->baseWafGroupRuleTemplateMaxCount;
+        }
+        if (null !== $this->bot) {
+            $res['Bot'] = $this->bot;
+        }
+        if (null !== $this->botApp) {
+            $res['BotApp'] = $this->botApp;
+        }
+        if (null !== $this->botTemplateMaxCount) {
+            $res['BotTemplateMaxCount'] = $this->botTemplateMaxCount;
+        }
+        if (null !== $this->botWeb) {
+            $res['BotWeb'] = $this->botWeb;
         }
         if (null !== $this->cnameResourceMaxCount) {
             $res['CnameResourceMaxCount'] = $this->cnameResourceMaxCount;
@@ -406,6 +398,15 @@ class details extends Model
         if (null !== $this->defenseObjectMaxCount) {
             $res['DefenseObjectMaxCount'] = $this->defenseObjectMaxCount;
         }
+        if (null !== $this->dlp) {
+            $res['Dlp'] = $this->dlp;
+        }
+        if (null !== $this->dlpRuleInTemplateMaxCount) {
+            $res['DlpRuleInTemplateMaxCount'] = $this->dlpRuleInTemplateMaxCount;
+        }
+        if (null !== $this->dlpTemplateMaxCount) {
+            $res['DlpTemplateMaxCount'] = $this->dlpTemplateMaxCount;
+        }
         if (null !== $this->exclusiveIp) {
             $res['ExclusiveIp'] = $this->exclusiveIp;
         }
@@ -441,6 +442,15 @@ class details extends Model
         }
         if (null !== $this->majorProtectionTemplateMaxCount) {
             $res['MajorProtectionTemplateMaxCount'] = $this->majorProtectionTemplateMaxCount;
+        }
+        if (null !== $this->tamperproof) {
+            $res['Tamperproof'] = $this->tamperproof;
+        }
+        if (null !== $this->tamperproofRuleInTemplateMaxCount) {
+            $res['TamperproofRuleInTemplateMaxCount'] = $this->tamperproofRuleInTemplateMaxCount;
+        }
+        if (null !== $this->tamperproofTemplateMaxCount) {
+            $res['TamperproofTemplateMaxCount'] = $this->tamperproofTemplateMaxCount;
         }
         if (null !== $this->vastIpBlacklistInFileMaxCount) {
             $res['VastIpBlacklistInFileMaxCount'] = $this->vastIpBlacklistInFileMaxCount;
@@ -499,6 +509,18 @@ class details extends Model
         if (isset($map['BaseWafGroupRuleTemplateMaxCount'])) {
             $model->baseWafGroupRuleTemplateMaxCount = $map['BaseWafGroupRuleTemplateMaxCount'];
         }
+        if (isset($map['Bot'])) {
+            $model->bot = $map['Bot'];
+        }
+        if (isset($map['BotApp'])) {
+            $model->botApp = $map['BotApp'];
+        }
+        if (isset($map['BotTemplateMaxCount'])) {
+            $model->botTemplateMaxCount = $map['BotTemplateMaxCount'];
+        }
+        if (isset($map['BotWeb'])) {
+            $model->botWeb = $map['BotWeb'];
+        }
         if (isset($map['CnameResourceMaxCount'])) {
             $model->cnameResourceMaxCount = $map['CnameResourceMaxCount'];
         }
@@ -541,6 +563,15 @@ class details extends Model
         if (isset($map['DefenseObjectMaxCount'])) {
             $model->defenseObjectMaxCount = $map['DefenseObjectMaxCount'];
         }
+        if (isset($map['Dlp'])) {
+            $model->dlp = $map['Dlp'];
+        }
+        if (isset($map['DlpRuleInTemplateMaxCount'])) {
+            $model->dlpRuleInTemplateMaxCount = $map['DlpRuleInTemplateMaxCount'];
+        }
+        if (isset($map['DlpTemplateMaxCount'])) {
+            $model->dlpTemplateMaxCount = $map['DlpTemplateMaxCount'];
+        }
         if (isset($map['ExclusiveIp'])) {
             $model->exclusiveIp = $map['ExclusiveIp'];
         }
@@ -576,6 +607,15 @@ class details extends Model
         }
         if (isset($map['MajorProtectionTemplateMaxCount'])) {
             $model->majorProtectionTemplateMaxCount = $map['MajorProtectionTemplateMaxCount'];
+        }
+        if (isset($map['Tamperproof'])) {
+            $model->tamperproof = $map['Tamperproof'];
+        }
+        if (isset($map['TamperproofRuleInTemplateMaxCount'])) {
+            $model->tamperproofRuleInTemplateMaxCount = $map['TamperproofRuleInTemplateMaxCount'];
+        }
+        if (isset($map['TamperproofTemplateMaxCount'])) {
+            $model->tamperproofTemplateMaxCount = $map['TamperproofTemplateMaxCount'];
         }
         if (isset($map['VastIpBlacklistInFileMaxCount'])) {
             $model->vastIpBlacklistInFileMaxCount = $map['VastIpBlacklistInFileMaxCount'];
