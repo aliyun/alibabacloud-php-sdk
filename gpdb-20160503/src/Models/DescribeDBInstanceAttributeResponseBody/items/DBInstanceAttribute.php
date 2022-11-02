@@ -140,6 +140,11 @@ class DBInstanceAttribute extends Model
     public $hostType;
 
     /**
+     * @var int
+     */
+    public $idleTime;
+
+    /**
      * @var string
      */
     public $instanceNetworkType;
@@ -242,6 +247,16 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $serverlessMode;
+
+    /**
+     * @var int
+     */
+    public $serverlessResource;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -315,6 +330,7 @@ class DBInstanceAttribute extends Model
         'engineVersion'         => 'EngineVersion',
         'expireTime'            => 'ExpireTime',
         'hostType'              => 'HostType',
+        'idleTime'              => 'IdleTime',
         'instanceNetworkType'   => 'InstanceNetworkType',
         'lockMode'              => 'LockMode',
         'lockReason'            => 'LockReason',
@@ -335,6 +351,8 @@ class DBInstanceAttribute extends Model
         'securityIPList'        => 'SecurityIPList',
         'segNodeNum'            => 'SegNodeNum',
         'segmentCounts'         => 'SegmentCounts',
+        'serverlessMode'        => 'ServerlessMode',
+        'serverlessResource'    => 'ServerlessResource',
         'startTime'             => 'StartTime',
         'storagePerNode'        => 'StoragePerNode',
         'storageSize'           => 'StorageSize',
@@ -432,6 +450,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->hostType) {
             $res['HostType'] = $this->hostType;
         }
+        if (null !== $this->idleTime) {
+            $res['IdleTime'] = $this->idleTime;
+        }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
@@ -491,6 +512,12 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->segmentCounts) {
             $res['SegmentCounts'] = $this->segmentCounts;
+        }
+        if (null !== $this->serverlessMode) {
+            $res['ServerlessMode'] = $this->serverlessMode;
+        }
+        if (null !== $this->serverlessResource) {
+            $res['ServerlessResource'] = $this->serverlessResource;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -612,6 +639,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['HostType'])) {
             $model->hostType = $map['HostType'];
         }
+        if (isset($map['IdleTime'])) {
+            $model->idleTime = $map['IdleTime'];
+        }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
@@ -671,6 +701,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['SegmentCounts'])) {
             $model->segmentCounts = $map['SegmentCounts'];
+        }
+        if (isset($map['ServerlessMode'])) {
+            $model->serverlessMode = $map['ServerlessMode'];
+        }
+        if (isset($map['ServerlessResource'])) {
+            $model->serverlessResource = $map['ServerlessResource'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

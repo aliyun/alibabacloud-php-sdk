@@ -112,6 +112,11 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $serverlessMode;
+
+    /**
+     * @var string
+     */
     public $storageSize;
 
     /**
@@ -159,6 +164,7 @@ class DBInstance extends Model
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'segNodeNum'            => 'SegNodeNum',
+        'serverlessMode'        => 'ServerlessMode',
         'storageSize'           => 'StorageSize',
         'storageType'           => 'StorageType',
         'tags'                  => 'Tags',
@@ -233,6 +239,9 @@ class DBInstance extends Model
         }
         if (null !== $this->segNodeNum) {
             $res['SegNodeNum'] = $this->segNodeNum;
+        }
+        if (null !== $this->serverlessMode) {
+            $res['ServerlessMode'] = $this->serverlessMode;
         }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
@@ -323,6 +332,9 @@ class DBInstance extends Model
         }
         if (isset($map['SegNodeNum'])) {
             $model->segNodeNum = $map['SegNodeNum'];
+        }
+        if (isset($map['ServerlessMode'])) {
+            $model->serverlessMode = $map['ServerlessMode'];
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];

@@ -55,6 +55,11 @@ class CreateDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @var int
+     */
+    public $idleTime;
+
+    /**
      * @var string
      */
     public $instanceNetworkType;
@@ -115,6 +120,16 @@ class CreateDBInstanceRequest extends Model
     public $segStorageType;
 
     /**
+     * @var string
+     */
+    public $serverlessMode;
+
+    /**
+     * @var int
+     */
+    public $serverlessResource;
+
+    /**
      * @var int
      */
     public $storageSize;
@@ -158,6 +173,7 @@ class CreateDBInstanceRequest extends Model
         'DBInstanceMode'        => 'DBInstanceMode',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
+        'idleTime'              => 'IdleTime',
         'instanceNetworkType'   => 'InstanceNetworkType',
         'instanceSpec'          => 'InstanceSpec',
         'masterNodeNum'         => 'MasterNodeNum',
@@ -170,6 +186,8 @@ class CreateDBInstanceRequest extends Model
         'securityIPList'        => 'SecurityIPList',
         'segNodeNum'            => 'SegNodeNum',
         'segStorageType'        => 'SegStorageType',
+        'serverlessMode'        => 'ServerlessMode',
+        'serverlessResource'    => 'ServerlessResource',
         'storageSize'           => 'StorageSize',
         'storageType'           => 'StorageType',
         'tag'                   => 'Tag',
@@ -213,6 +231,9 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
+        if (null !== $this->idleTime) {
+            $res['IdleTime'] = $this->idleTime;
+        }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
@@ -248,6 +269,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->segStorageType) {
             $res['SegStorageType'] = $this->segStorageType;
+        }
+        if (null !== $this->serverlessMode) {
+            $res['ServerlessMode'] = $this->serverlessMode;
+        }
+        if (null !== $this->serverlessResource) {
+            $res['ServerlessResource'] = $this->serverlessResource;
         }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
@@ -315,6 +342,9 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
+        if (isset($map['IdleTime'])) {
+            $model->idleTime = $map['IdleTime'];
+        }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
@@ -350,6 +380,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['SegStorageType'])) {
             $model->segStorageType = $map['SegStorageType'];
+        }
+        if (isset($map['ServerlessMode'])) {
+            $model->serverlessMode = $map['ServerlessMode'];
+        }
+        if (isset($map['ServerlessResource'])) {
+            $model->serverlessResource = $map['ServerlessResource'];
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];

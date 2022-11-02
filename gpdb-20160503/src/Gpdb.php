@@ -129,6 +129,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLInfoRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLInfoResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
@@ -493,6 +497,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
         }
+        if (!Utils::isUnset($request->idleTime)) {
+            $query['IdleTime'] = $request->idleTime;
+        }
         if (!Utils::isUnset($request->instanceNetworkType)) {
             $query['InstanceNetworkType'] = $request->instanceNetworkType;
         }
@@ -528,6 +535,12 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->segStorageType)) {
             $query['SegStorageType'] = $request->segStorageType;
+        }
+        if (!Utils::isUnset($request->serverlessMode)) {
+            $query['ServerlessMode'] = $request->serverlessMode;
+        }
+        if (!Utils::isUnset($request->serverlessResource)) {
+            $query['ServerlessResource'] = $request->serverlessResource;
         }
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
@@ -3756,6 +3769,125 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWaitingSQLInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeWaitingSQLInfoResponse
+     */
+    public function describeWaitingSQLInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->PID)) {
+            $query['PID'] = $request->PID;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWaitingSQLInfo',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWaitingSQLInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWaitingSQLInfoRequest $request
+     *
+     * @return DescribeWaitingSQLInfoResponse
+     */
+    public function describeWaitingSQLInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWaitingSQLInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWaitingSQLRecordsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeWaitingSQLRecordsResponse
+     */
+    public function describeWaitingSQLRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryCondition)) {
+            $query['QueryCondition'] = $request->queryCondition;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWaitingSQLRecords',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWaitingSQLRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWaitingSQLRecordsRequest $request
+     *
+     * @return DescribeWaitingSQLRecordsResponse
+     */
+    public function describeWaitingSQLRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWaitingSQLRecordsWithOptions($request, $runtime);
     }
 
     /**
