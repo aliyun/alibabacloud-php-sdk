@@ -71,11 +71,6 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @var string
      */
-    public $messageType;
-
-    /**
-     * @var string
-     */
     public $proto;
 
     /**
@@ -110,7 +105,6 @@ class ModifyControlPolicyRequest extends Model
         'destinationType'     => 'DestinationType',
         'direction'           => 'Direction',
         'lang'                => 'Lang',
-        'messageType'         => 'MessageType',
         'proto'               => 'Proto',
         'release'             => 'Release',
         'source'              => 'Source',
@@ -160,9 +154,6 @@ class ModifyControlPolicyRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->messageType) {
-            $res['MessageType'] = $this->messageType;
         }
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
@@ -228,9 +219,6 @@ class ModifyControlPolicyRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['MessageType'])) {
-            $model->messageType = $map['MessageType'];
         }
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];

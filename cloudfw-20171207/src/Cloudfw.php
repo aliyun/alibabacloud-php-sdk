@@ -2311,9 +2311,6 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
-        }
         if (!Utils::isUnset($request->proto)) {
             $query['Proto'] = $request->proto;
         }
