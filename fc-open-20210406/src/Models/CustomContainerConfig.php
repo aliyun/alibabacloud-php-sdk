@@ -32,12 +32,18 @@ class CustomContainerConfig extends Model
      * @var string
      */
     public $instanceID;
+
+    /**
+     * @var bool
+     */
+    public $webServerMode;
     protected $_name = [
         'accelerationType' => 'accelerationType',
         'args'             => 'args',
         'command'          => 'command',
         'image'            => 'image',
         'instanceID'       => 'instanceID',
+        'webServerMode'    => 'webServerMode',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class CustomContainerConfig extends Model
         }
         if (null !== $this->instanceID) {
             $res['instanceID'] = $this->instanceID;
+        }
+        if (null !== $this->webServerMode) {
+            $res['webServerMode'] = $this->webServerMode;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class CustomContainerConfig extends Model
         }
         if (isset($map['instanceID'])) {
             $model->instanceID = $map['instanceID'];
+        }
+        if (isset($map['webServerMode'])) {
+            $model->webServerMode = $map['webServerMode'];
         }
 
         return $model;
