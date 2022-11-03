@@ -11,6 +11,11 @@ class CorpTokenRequest extends Model
     /**
      * @var string
      */
+    public $appSecret;
+
+    /**
+     * @var string
+     */
     public $corpId;
 
     /**
@@ -18,8 +23,9 @@ class CorpTokenRequest extends Model
      */
     public $type;
     protected $_name = [
-        'corpId' => 'corp_id',
-        'type'   => 'type',
+        'appSecret' => 'app_secret',
+        'corpId'    => 'corp_id',
+        'type'      => 'type',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class CorpTokenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appSecret) {
+            $res['app_secret'] = $this->appSecret;
+        }
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
         }
@@ -47,6 +56,9 @@ class CorpTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['app_secret'])) {
+            $model->appSecret = $map['app_secret'];
+        }
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
         }
