@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ChangeApplicationInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ChangeApplicationInfoResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\ChargeFlowRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\ChargeFlowResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\CreateApplicationInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\CreateApplicationInfoResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetAliyunXgipTokenResponse;
@@ -21,10 +23,15 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageStatisticRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetFreeFlowUsageStatisticResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetInventoryInfoRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetInventoryInfoResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetItemInstListRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetItemInstListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetItemListRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetItemListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderFreeFlowProductStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderFreeFlowProductStatusResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetOrderItemListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosFlowUsageRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosFlowUsageResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\GetQosUsageStatisticRequest;
@@ -43,8 +50,16 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderFreeFlowProductRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderFreeFlowProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderQosProductRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\OrderQosProductResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\QueryOrderListRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\QueryOrderListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkChargeFlowRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkChargeFlowResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetInventoryInfoRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetInventoryInfoResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetItemInstListRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetItemInstListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkOrderQosProductRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkOrderQosProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkValidateStatusRequest;
@@ -53,6 +68,8 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidateStatusRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidateStatusResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidControllerAuthorRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidControllerAuthorResponse;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidFlowRequest;
+use AlibabaCloud\SDK\XgipPop\V20220520\Models\ValidFlowResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -149,6 +166,58 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeApplicationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChargeFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ChargeFlowResponse
+     */
+    public function chargeFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->itemCode)) {
+            $query['ItemCode'] = $request->itemCode;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->UId)) {
+            $query['UId'] = $request->UId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChargeFlow',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChargeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChargeFlowRequest $request
+     *
+     * @return ChargeFlowResponse
+     */
+    public function chargeFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chargeFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -440,6 +509,86 @@ class XgipPop extends OpenApiClient
     }
 
     /**
+     * @param GetInventoryInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetInventoryInfoResponse
+     */
+    public function getInventoryInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInventoryInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInventoryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInventoryInfoRequest $request
+     *
+     * @return GetInventoryInfoResponse
+     */
+    public function getInventoryInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInventoryInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetItemInstListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetItemInstListResponse
+     */
+    public function getItemInstListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetItemInstList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetItemInstListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetItemInstListRequest $request
+     *
+     * @return GetItemInstListResponse
+     */
+    public function getItemInstList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getItemInstListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetItemListRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -517,6 +666,39 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOrderFreeFlowProductStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOrderItemListResponse
+     */
+    public function getOrderItemListWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetOrderItemList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOrderItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetOrderItemListResponse
+     */
+    public function getOrderItemList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOrderItemListWithOptions($runtime);
     }
 
     /**
@@ -1002,6 +1184,46 @@ class XgipPop extends OpenApiClient
     }
 
     /**
+     * @param QueryOrderListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryOrderListResponse
+     */
+    public function queryOrderListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrderList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrderListRequest $request
+     *
+     * @return QueryOrderListResponse
+     */
+    public function queryOrderList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOrderListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveApplicationInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1057,6 +1279,144 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveApplicationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SdkChargeFlowRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SdkChargeFlowResponse
+     */
+    public function sdkChargeFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->channelCode)) {
+            $query['ChannelCode'] = $request->channelCode;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->itemCode)) {
+            $query['ItemCode'] = $request->itemCode;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->outBizNo)) {
+            $query['OutBizNo'] = $request->outBizNo;
+        }
+        if (!Utils::isUnset($request->UId)) {
+            $query['UId'] = $request->UId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkChargeFlow',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SdkChargeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SdkChargeFlowRequest $request
+     *
+     * @return SdkChargeFlowResponse
+     */
+    public function sdkChargeFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sdkChargeFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SdkGetInventoryInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SdkGetInventoryInfoResponse
+     */
+    public function sdkGetInventoryInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkGetInventoryInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SdkGetInventoryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SdkGetInventoryInfoRequest $request
+     *
+     * @return SdkGetInventoryInfoResponse
+     */
+    public function sdkGetInventoryInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sdkGetInventoryInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SdkGetItemInstListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SdkGetItemInstListResponse
+     */
+    public function sdkGetItemInstListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkGetItemInstList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SdkGetItemInstListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SdkGetItemInstListRequest $request
+     *
+     * @return SdkGetItemInstListResponse
+     */
+    public function sdkGetItemInstList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sdkGetItemInstListWithOptions($request, $runtime);
     }
 
     /**
@@ -1225,6 +1585,46 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->validControllerAuthorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ValidFlowRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ValidFlowResponse
+     */
+    public function validFlowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidFlow',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ValidFlowRequest $request
+     *
+     * @return ValidFlowResponse
+     */
+    public function validFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validFlowWithOptions($request, $runtime);
     }
 
     /**
