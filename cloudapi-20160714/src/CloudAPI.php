@@ -277,6 +277,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyTrafficControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyVpcAccessAndUpdateApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyVpcAccessAndUpdateApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\OpenApiGatewayServiceResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\QueryRequestLogsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\QueryRequestLogsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ReactivateDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ReactivateDomainResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\RemoveAccessControlListEntryRequest;
@@ -7854,6 +7856,52 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openApiGatewayServiceWithOptions($runtime);
+    }
+
+    /**
+     * @param QueryRequestLogsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryRequestLogsResponse
+     */
+    public function queryRequestLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestLogId)) {
+            $query['RequestLogId'] = $request->requestLogId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRequestLogs',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryRequestLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryRequestLogsRequest $request
+     *
+     * @return QueryRequestLogsResponse
+     */
+    public function queryRequestLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRequestLogsWithOptions($request, $runtime);
     }
 
     /**
