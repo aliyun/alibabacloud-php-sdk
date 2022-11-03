@@ -16,6 +16,12 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHCertificateWithExtensionRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHCertificateWithExtensionResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertRequest;
@@ -24,6 +30,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseRequest;
@@ -32,6 +40,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertRequest;
@@ -395,6 +405,213 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param CreateWHCertificateWithExtensionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateWHCertificateWithExtensionResponse
+     */
+    public function createWHCertificateWithExtensionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
+        }
+        if (!Utils::isUnset($request->algorithmKeySize)) {
+            $query['AlgorithmKeySize'] = $request->algorithmKeySize;
+        }
+        if (!Utils::isUnset($request->aliasName)) {
+            $query['AliasName'] = $request->aliasName;
+        }
+        if (!Utils::isUnset($request->appendCrl)) {
+            $query['AppendCrl'] = $request->appendCrl;
+        }
+        if (!Utils::isUnset($request->basicConstraintsCritical)) {
+            $query['BasicConstraintsCritical'] = $request->basicConstraintsCritical;
+        }
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->csrPemString)) {
+            $query['CsrPemString'] = $request->csrPemString;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->sans)) {
+            $query['Sans'] = $request->sans;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWHCertificateWithExtension',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWHCertificateWithExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWHCertificateWithExtensionRequest $request
+     *
+     * @return CreateWHCertificateWithExtensionResponse
+     */
+    public function createWHCertificateWithExtension($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWHCertificateWithExtensionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateWHClientCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateWHClientCertificateResponse
+     */
+    public function createWHClientCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
+        }
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->sanType)) {
+            $query['SanType'] = $request->sanType;
+        }
+        if (!Utils::isUnset($request->sanValue)) {
+            $query['SanValue'] = $request->sanValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWHClientCertificate',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWHClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateWHClientCertificateRequest $request
+     *
+     * @return CreateWHClientCertificateResponse
+     */
+    public function createWHClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWHClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DecryptRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return DecryptResponse
+     */
+    public function decryptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Decrypt',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DecryptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DecryptRequest $request
+     *
+     * @return DecryptResponse
+     */
+    public function decrypt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->decryptWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCertificateRequestRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -564,6 +781,58 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePackageStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EncryptRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return EncryptResponse
+     */
+    public function encryptWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $query['CertIdentifier'] = $request->certIdentifier;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->plaintext)) {
+            $query['Plaintext'] = $request->plaintext;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Encrypt',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EncryptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EncryptRequest $request
+     *
+     * @return EncryptResponse
+     */
+    public function encrypt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->encryptWithOptions($request, $runtime);
     }
 
     /**
@@ -775,6 +1044,49 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewCertificateOrderForPackageRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevokeWHClientCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RevokeWHClientCertificateResponse
+     */
+    public function revokeWHClientCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeWHClientCertificate',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeWHClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevokeWHClientCertificateRequest $request
+     *
+     * @return RevokeWHClientCertificateResponse
+     */
+    public function revokeWHClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeWHClientCertificateWithOptions($request, $runtime);
     }
 
     /**
