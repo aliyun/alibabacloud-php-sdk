@@ -95,6 +95,7 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppGroupMetricsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppGroupMetricsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppGroupsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppGroupsResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppGroupsShrinkRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListDataCollectionsRequest;
@@ -3438,15 +3439,20 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * @param ListAppGroupsRequest $request
+     * @param ListAppGroupsRequest $tmpReq
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
      * @return ListAppGroupsResponse
      */
-    public function listAppGroupsWithOptions($request, $headers, $runtime)
+    public function listAppGroupsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListAppGroupsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->instanceId)) {
             $query['instanceId'] = $request->instanceId;
@@ -3465,6 +3471,9 @@ class OpenSearch extends OpenApiClient
         }
         if (!Utils::isUnset($request->sortBy)) {
             $query['sortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['tags'] = $request->tagsShrink;
         }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;

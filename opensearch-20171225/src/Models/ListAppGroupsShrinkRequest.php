@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\OpenSearch\V20171225\Models;
 
-use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListAppGroupsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
-class ListAppGroupsRequest extends Model
+class ListAppGroupsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -40,9 +39,9 @@ class ListAppGroupsRequest extends Model
     public $sortBy;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
 
     /**
      * @var string
@@ -55,7 +54,7 @@ class ListAppGroupsRequest extends Model
         'pageSize'        => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
         'sortBy'          => 'sortBy',
-        'tags'            => 'tags',
+        'tagsShrink'      => 'tags',
         'type'            => 'type',
     ];
 
@@ -84,14 +83,8 @@ class ListAppGroupsRequest extends Model
         if (null !== $this->sortBy) {
             $res['sortBy'] = $this->sortBy;
         }
-        if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['tags'] = $this->tagsShrink;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -103,7 +96,7 @@ class ListAppGroupsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListAppGroupsRequest
+     * @return ListAppGroupsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -127,13 +120,7 @@ class ListAppGroupsRequest extends Model
             $model->sortBy = $map['sortBy'];
         }
         if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tagsShrink = $map['tags'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
