@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $buyerTags;
+
+    /**
+     * @var string
+     */
     public $cateName;
 
     /**
@@ -53,6 +58,7 @@ class data extends Model
      */
     public $title;
     protected $_name = [
+        'buyerTags'    => 'BuyerTags',
         'cateName'     => 'CateName',
         'color'        => 'Color',
         'images'       => 'Images',
@@ -71,6 +77,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buyerTags) {
+            $res['BuyerTags'] = $this->buyerTags;
+        }
         if (null !== $this->cateName) {
             $res['CateName'] = $this->cateName;
         }
@@ -110,6 +119,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuyerTags'])) {
+            $model->buyerTags = $map['BuyerTags'];
+        }
         if (isset($map['CateName'])) {
             $model->cateName = $map['CateName'];
         }

@@ -9,11 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetStyleTopRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
     public $cateIds;
+
+    /**
+     * @var int
+     */
+    public $pageIndex;
 
     /**
      * @var int
@@ -26,6 +29,7 @@ class GetStyleTopRequest extends Model
     public $timeDisplay;
     protected $_name = [
         'cateIds'     => 'CateIds',
+        'pageIndex'   => 'PageIndex',
         'sortOrder'   => 'SortOrder',
         'timeDisplay' => 'TimeDisplay',
     ];
@@ -39,6 +43,9 @@ class GetStyleTopRequest extends Model
         $res = [];
         if (null !== $this->cateIds) {
             $res['CateIds'] = $this->cateIds;
+        }
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
@@ -60,6 +67,9 @@ class GetStyleTopRequest extends Model
         $model = new self();
         if (isset($map['CateIds'])) {
             $model->cateIds = $map['CateIds'];
+        }
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];

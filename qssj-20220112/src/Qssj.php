@@ -467,6 +467,9 @@ class Qssj extends OpenApiClient
         if (!Utils::isUnset($request->cateIds)) {
             $body['CateIds'] = $request->cateIds;
         }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $body['PageIndex'] = $request->pageIndex;
+        }
         if (!Utils::isUnset($request->sortOrder)) {
             $body['SortOrder'] = $request->sortOrder;
         }

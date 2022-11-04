@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetStyleTopResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $code;
