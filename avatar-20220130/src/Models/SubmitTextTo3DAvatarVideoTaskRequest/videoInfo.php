@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class videoInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $backgroundImageUrl;
+
+    /**
      * @var bool
      */
     public $isAlpha;
@@ -23,9 +28,10 @@ class videoInfo extends Model
      */
     public $resolution;
     protected $_name = [
-        'isAlpha'     => 'IsAlpha',
-        'isSubtitles' => 'IsSubtitles',
-        'resolution'  => 'Resolution',
+        'backgroundImageUrl' => 'BackgroundImageUrl',
+        'isAlpha'            => 'IsAlpha',
+        'isSubtitles'        => 'IsSubtitles',
+        'resolution'         => 'Resolution',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class videoInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backgroundImageUrl) {
+            $res['BackgroundImageUrl'] = $this->backgroundImageUrl;
+        }
         if (null !== $this->isAlpha) {
             $res['IsAlpha'] = $this->isAlpha;
         }
@@ -56,6 +65,9 @@ class videoInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackgroundImageUrl'])) {
+            $model->backgroundImageUrl = $map['BackgroundImageUrl'];
+        }
         if (isset($map['IsAlpha'])) {
             $model->isAlpha = $map['IsAlpha'];
         }
