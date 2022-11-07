@@ -59,6 +59,11 @@ class CreateWHCertificateWithExtensionRequest extends Model
     public $csrPemString;
 
     /**
+     * @var int
+     */
+    public $immediately;
+
+    /**
      * @var string
      */
     public $locality;
@@ -98,6 +103,7 @@ class CreateWHCertificateWithExtensionRequest extends Model
         'commonName'               => 'CommonName',
         'countryCode'              => 'CountryCode',
         'csrPemString'             => 'CsrPemString',
+        'immediately'              => 'Immediately',
         'locality'                 => 'Locality',
         'organization'             => 'Organization',
         'organizationUnit'         => 'OrganizationUnit',
@@ -142,6 +148,9 @@ class CreateWHCertificateWithExtensionRequest extends Model
         }
         if (null !== $this->csrPemString) {
             $res['CsrPemString'] = $this->csrPemString;
+        }
+        if (null !== $this->immediately) {
+            $res['Immediately'] = $this->immediately;
         }
         if (null !== $this->locality) {
             $res['Locality'] = $this->locality;
@@ -202,6 +211,9 @@ class CreateWHCertificateWithExtensionRequest extends Model
         }
         if (isset($map['CsrPemString'])) {
             $model->csrPemString = $map['CsrPemString'];
+        }
+        if (isset($map['Immediately'])) {
+            $model->immediately = $map['Immediately'];
         }
         if (isset($map['Locality'])) {
             $model->locality = $map['Locality'];

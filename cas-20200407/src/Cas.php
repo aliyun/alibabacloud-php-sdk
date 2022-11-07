@@ -444,6 +444,9 @@ class Cas extends OpenApiClient
         if (!Utils::isUnset($request->csrPemString)) {
             $query['CsrPemString'] = $request->csrPemString;
         }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
         if (!Utils::isUnset($request->locality)) {
             $query['Locality'] = $request->locality;
         }
@@ -514,11 +517,29 @@ class Cas extends OpenApiClient
         if (!Utils::isUnset($request->commonName)) {
             $query['CommonName'] = $request->commonName;
         }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
         if (!Utils::isUnset($request->csr)) {
             $query['Csr'] = $request->csr;
         }
         if (!Utils::isUnset($request->days)) {
             $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
         }
         if (!Utils::isUnset($request->parentIdentifier)) {
             $query['ParentIdentifier'] = $request->parentIdentifier;
@@ -528,6 +549,12 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->sanValue)) {
             $query['SanValue'] = $request->sanValue;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
