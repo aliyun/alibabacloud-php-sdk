@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddRepositoryMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddWebhookResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateFlowTagGroupRequest;
@@ -33,10 +35,18 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSshKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemCommentRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemCommentResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemEstimateRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemEstimateResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRecordRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRecordResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteBranchRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteFlowTagGroupResponse;
@@ -46,11 +56,19 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemCommentRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemCommentResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCodeupOrganizationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetCustomFieldOptionRequest;
@@ -80,7 +98,11 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetSprintInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemCommentListResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemRelationsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemRelationsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemTimeTypeListResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
@@ -111,8 +133,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectTemplatesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectTemplatesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectWorkitemTypesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProtectedBranchesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListProtectedBranchesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoriesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoriesResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedRequest;
@@ -180,6 +206,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemCommentRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemCommentResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -355,6 +383,65 @@ class Devops extends OpenApiClient
         ]);
 
         return AddWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $repositoryId
+     * @param CreateBranchRequest $request
+     *
+     * @return CreateBranchResponse
+     */
+    public function createBranch($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $repositoryId
+     * @param CreateBranchRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateBranchResponse
+     */
+    public function createBranchWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->branchName)) {
+            $body['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->ref)) {
+            $body['ref'] = $request->ref;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBranch',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBranchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1176,6 +1263,189 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                       $organizationId
+     * @param CreateWorkitemCommentRequest $request
+     *
+     * @return CreateWorkitemCommentResponse
+     */
+    public function createWorkitemComment($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param CreateWorkitemCommentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateWorkitemCommentResponse
+     */
+    public function createWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->formatType)) {
+            $body['formatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $body['parentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->workitemIdentifier)) {
+            $body['workitemIdentifier'] = $request->workitemIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWorkitemComment',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/comment',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $organizationId
+     * @param CreateWorkitemEstimateRequest $request
+     *
+     * @return CreateWorkitemEstimateResponse
+     */
+    public function createWorkitemEstimate($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkitemEstimateWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $organizationId
+     * @param CreateWorkitemEstimateRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWorkitemEstimateResponse
+     */
+    public function createWorkitemEstimateWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->recordUserIdentifier)) {
+            $body['recordUserIdentifier'] = $request->recordUserIdentifier;
+        }
+        if (!Utils::isUnset($request->spentTime)) {
+            $body['spentTime'] = $request->spentTime;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->workitemIdentifier)) {
+            $body['workitemIdentifier'] = $request->workitemIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWorkitemEstimate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/estimate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWorkitemEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param CreateWorkitemRecordRequest $request
+     *
+     * @return CreateWorkitemRecordResponse
+     */
+    public function createWorkitemRecord($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param CreateWorkitemRecordRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateWorkitemRecordResponse
+     */
+    public function createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->actualTime)) {
+            $body['actualTime'] = $request->actualTime;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->gmtEnd)) {
+            $body['gmtEnd'] = $request->gmtEnd;
+        }
+        if (!Utils::isUnset($request->gmtStart)) {
+            $body['gmtStart'] = $request->gmtStart;
+        }
+        if (!Utils::isUnset($request->recordUserIdentifier)) {
+            $body['recordUserIdentifier'] = $request->recordUserIdentifier;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->workitemIdentifier)) {
+            $body['workitemIdentifier'] = $request->workitemIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWorkitemRecord',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/record',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWorkitemRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param CreateWorkspaceRequest $request
      *
      * @return CreateWorkspaceResponse
@@ -1240,6 +1510,60 @@ class Devops extends OpenApiClient
         ]);
 
         return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $repositoryId
+     * @param DeleteBranchRequest $request
+     *
+     * @return DeleteBranchResponse
+     */
+    public function deleteBranch($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string              $repositoryId
+     * @param DeleteBranchRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBranchResponse
+     */
+    public function deleteBranchWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->branchName)) {
+            $query['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBranch',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches/delete',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBranchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1561,6 +1885,59 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                       $repositoryId
+     * @param string                       $protectedBranchId
+     * @param DeleteProtectedBranchRequest $request
+     *
+     * @return DeleteProtectedBranchResponse
+     */
+    public function deleteProtectedBranch($repositoryId, $protectedBranchId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteProtectedBranchWithOptions($repositoryId, $protectedBranchId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $repositoryId
+     * @param string                       $protectedBranchId
+     * @param DeleteProtectedBranchRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteProtectedBranchResponse
+     */
+    public function deleteProtectedBranchWithOptions($repositoryId, $protectedBranchId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProtectedBranch',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches/' . OpenApiUtilClient::getEncodeParam($protectedBranchId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteProtectedBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                  $repositoryId
      * @param DeleteRepositoryRequest $request
      *
@@ -1705,6 +2082,105 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                          $organizationId
+     * @param DeleteWorkitemAllCommentRequest $request
+     *
+     * @return DeleteWorkitemAllCommentResponse
+     */
+    public function deleteWorkitemAllComment($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkitemAllCommentWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param DeleteWorkitemAllCommentRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteWorkitemAllCommentResponse
+     */
+    public function deleteWorkitemAllCommentWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWorkitemAllComment',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/deleteAllComment',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWorkitemAllCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param DeleteWorkitemCommentRequest $request
+     *
+     * @return DeleteWorkitemCommentResponse
+     */
+    public function deleteWorkitemComment($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param DeleteWorkitemCommentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteWorkitemCommentResponse
+     */
+    public function deleteWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->commentId)) {
+            $body['commentId'] = $request->commentId;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $body['identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWorkitemComment',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/deleteComent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $workspaceId
      *
      * @return FrozenWorkspaceResponse
@@ -1742,6 +2218,60 @@ class Devops extends OpenApiClient
         ]);
 
         return FrozenWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $repositoryId
+     * @param GetBranchInfoRequest $request
+     *
+     * @return GetBranchInfoResponse
+     */
+    public function getBranchInfo($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getBranchInfoWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $repositoryId
+     * @param GetBranchInfoRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetBranchInfoResponse
+     */
+    public function getBranchInfoWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->branchName)) {
+            $query['branchName'] = $request->branchName;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBranchInfo',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBranchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2792,6 +3322,138 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string $organizationId
+     * @param string $workitemId
+     *
+     * @return GetWorkitemCommentListResponse
+     */
+    public function getWorkitemCommentList($organizationId, $workitemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $workitemId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkitemCommentListResponse
+     */
+    public function getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkitemCommentList',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/commentList',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorkitemCommentListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param string                      $workitemId
+     * @param GetWorkitemRelationsRequest $request
+     *
+     * @return GetWorkitemRelationsResponse
+     */
+    public function getWorkitemRelations($organizationId, $workitemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkitemRelationsWithOptions($organizationId, $workitemId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $organizationId
+     * @param string                      $workitemId
+     * @param GetWorkitemRelationsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetWorkitemRelationsResponse
+     */
+    public function getWorkitemRelationsWithOptions($organizationId, $workitemId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->relationType)) {
+            $query['relationType'] = $request->relationType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkitemRelations',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/getRelations',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorkitemRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     *
+     * @return GetWorkitemTimeTypeListResponse
+     */
+    public function getWorkitemTimeTypeList($organizationId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkitemTimeTypeListResponse
+     */
+    public function getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkitemTimeTypeList',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/type/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorkitemTimeTypeListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $workspaceId
      *
      * @return GetWorkspaceResponse
@@ -3649,6 +4311,57 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                       $repositoryId
+     * @param ListProtectedBranchesRequest $request
+     *
+     * @return ListProtectedBranchesResponse
+     */
+    public function listProtectedBranches($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $repositoryId
+     * @param ListProtectedBranchesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListProtectedBranchesResponse
+     */
+    public function listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProtectedBranches',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param ListRepositoriesRequest $request
      *
      * @return ListRepositoriesResponse
@@ -3713,6 +4426,69 @@ class Devops extends OpenApiClient
         ]);
 
         return ListRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $repositoryId
+     * @param ListRepositoryBranchesRequest $request
+     *
+     * @return ListRepositoryBranchesResponse
+     */
+    public function listRepositoryBranches($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRepositoryBranchesWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $repositoryId
+     * @param ListRepositoryBranchesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListRepositoryBranchesResponse
+     */
+    public function listRepositoryBranchesWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRepositoryBranches',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRepositoryBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6009,5 +6785,62 @@ class Devops extends OpenApiClient
         ]);
 
         return UpdateWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param UpdateWorkitemCommentRequest $request
+     *
+     * @return UpdateWorkitemCommentResponse
+     */
+    public function updateWorkitemComment($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $organizationId
+     * @param UpdateWorkitemCommentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateWorkitemCommentResponse
+     */
+    public function updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->commentId)) {
+            $body['commentId'] = $request->commentId;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->formatType)) {
+            $body['formatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->workitemIdentifier)) {
+            $body['workitemIdentifier'] = $request->workitemIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWorkitemComment',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/commentUpdate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
