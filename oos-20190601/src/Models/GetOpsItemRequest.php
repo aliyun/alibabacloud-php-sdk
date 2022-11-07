@@ -6,26 +6,20 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValidateTemplateContentRequest extends Model
+class GetOpsItemRequest extends Model
 {
     /**
      * @var string
      */
-    public $content;
+    public $opsItemId;
 
     /**
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $templateURL;
     protected $_name = [
-        'content'     => 'Content',
-        'regionId'    => 'RegionId',
-        'templateURL' => 'TemplateURL',
+        'opsItemId' => 'OpsItemId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class ValidateTemplateContentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->opsItemId) {
+            $res['OpsItemId'] = $this->opsItemId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
         }
 
         return $res;
@@ -51,19 +42,16 @@ class ValidateTemplateContentRequest extends Model
     /**
      * @param array $map
      *
-     * @return ValidateTemplateContentRequest
+     * @return GetOpsItemRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['OpsItemId'])) {
+            $model->opsItemId = $map['OpsItemId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
         }
 
         return $model;

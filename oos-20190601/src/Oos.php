@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateOpsItemRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateOpsItemResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateOpsItemShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterShrinkRequest;
@@ -63,6 +66,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\GetExecutionTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetExecutionTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetInventorySchemaRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetInventorySchemaResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetOpsItemRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetOpsItemResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetParametersByPathRequest;
@@ -101,6 +106,9 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchStatesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInventoryEntriesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInventoryEntriesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListOpsItemsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListOpsItemsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListOpsItemsShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParametersShrinkRequest;
@@ -158,6 +166,9 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateOpsItemRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateOpsItemResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateOpsItemShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineRequest;
@@ -490,6 +501,90 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOpsItemRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateOpsItemResponse
+     */
+    public function createOpsItemWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateOpsItemShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedupString)) {
+            $query['DedupString'] = $request->dedupString;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $query['Severity'] = $request->severity;
+        }
+        if (!Utils::isUnset($request->solutions)) {
+            $query['Solutions'] = $request->solutions;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOpsItem',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOpsItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOpsItemRequest $request
+     *
+     * @return CreateOpsItemResponse
+     */
+    public function createOpsItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpsItemWithOptions($request, $runtime);
     }
 
     /**
@@ -1614,6 +1709,52 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param GetOpsItemRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetOpsItemResponse
+     */
+    public function getOpsItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->opsItemId)) {
+            $query['OpsItemId'] = $request->opsItemId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOpsItem',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOpsItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOpsItemRequest $request
+     *
+     * @return GetOpsItemResponse
+     */
+    public function getOpsItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOpsItemWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetParameterRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2146,6 +2287,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
+        if (!Utils::isUnset($request->resourceProduct)) {
+            $query['ResourceProduct'] = $request->resourceProduct;
+        }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
@@ -2620,6 +2764,72 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInventoryEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOpsItemsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListOpsItemsResponse
+     */
+    public function listOpsItemsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListOpsItemsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceTags)) {
+            $request->resourceTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTags, 'ResourceTags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceTagsShrink)) {
+            $query['ResourceTags'] = $request->resourceTagsShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOpsItems',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOpsItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOpsItemsRequest $request
+     *
+     * @return ListOpsItemsResponse
+     */
+    public function listOpsItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOpsItemsWithOptions($request, $runtime);
     }
 
     /**
@@ -3756,6 +3966,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
         }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
         if (!Utils::isUnset($request->templateVersion)) {
             $query['TemplateVersion'] = $request->templateVersion;
         }
@@ -4129,6 +4342,96 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @param UpdateOpsItemRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateOpsItemResponse
+     */
+    public function updateOpsItemWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateOpsItemShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedupString)) {
+            $query['DedupString'] = $request->dedupString;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->opsItemId)) {
+            $query['OpsItemId'] = $request->opsItemId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $query['Severity'] = $request->severity;
+        }
+        if (!Utils::isUnset($request->solutions)) {
+            $query['Solutions'] = $request->solutions;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOpsItem',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOpsItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateOpsItemRequest $request
+     *
+     * @return UpdateOpsItemResponse
+     */
+    public function updateOpsItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOpsItemWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateParameterRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4463,6 +4766,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

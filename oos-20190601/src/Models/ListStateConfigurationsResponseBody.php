@@ -12,6 +12,11 @@ class ListStateConfigurationsResponseBody extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -19,6 +24,7 @@ class ListStateConfigurationsResponseBody extends Model
      */
     public $stateConfigurations;
     protected $_name = [
+        'nextToken'           => 'NextToken',
         'requestId'           => 'RequestId',
         'stateConfigurations' => 'StateConfigurations',
     ];
@@ -30,6 +36,9 @@ class ListStateConfigurationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,6 +63,9 @@ class ListStateConfigurationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

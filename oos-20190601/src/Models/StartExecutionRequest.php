@@ -71,6 +71,11 @@ class StartExecutionRequest extends Model
     /**
      * @var string
      */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
     public $templateVersion;
     protected $_name = [
         'clientToken'       => 'ClientToken',
@@ -85,6 +90,7 @@ class StartExecutionRequest extends Model
         'tags'              => 'Tags',
         'templateContent'   => 'TemplateContent',
         'templateName'      => 'TemplateName',
+        'templateURL'       => 'TemplateURL',
         'templateVersion'   => 'TemplateVersion',
     ];
 
@@ -130,6 +136,9 @@ class StartExecutionRequest extends Model
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
@@ -181,6 +190,9 @@ class StartExecutionRequest extends Model
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];

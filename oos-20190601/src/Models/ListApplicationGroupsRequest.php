@@ -46,6 +46,11 @@ class ListApplicationGroupsRequest extends Model
     /**
      * @var string
      */
+    public $resourceProduct;
+
+    /**
+     * @var string
+     */
     public $resourceType;
     protected $_name = [
         'applicationName' => 'ApplicationName',
@@ -55,6 +60,7 @@ class ListApplicationGroupsRequest extends Model
         'product'         => 'Product',
         'regionId'        => 'RegionId',
         'resourceId'      => 'ResourceId',
+        'resourceProduct' => 'ResourceProduct',
         'resourceType'    => 'ResourceType',
     ];
 
@@ -85,6 +91,9 @@ class ListApplicationGroupsRequest extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceProduct) {
+            $res['ResourceProduct'] = $this->resourceProduct;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -121,6 +130,9 @@ class ListApplicationGroupsRequest extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceProduct'])) {
+            $model->resourceProduct = $map['ResourceProduct'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
