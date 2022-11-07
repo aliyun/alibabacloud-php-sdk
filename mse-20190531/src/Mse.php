@@ -50,6 +50,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
@@ -1793,6 +1797,182 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNacosServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOrUpdateSwimmingLaneRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOrUpdateSwimmingLaneResponse
+     */
+    public function createOrUpdateSwimmingLaneWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->enableRules)) {
+            $query['EnableRules'] = $request->enableRules;
+        }
+        if (!Utils::isUnset($request->entryRule)) {
+            $query['EntryRule'] = $request->entryRule;
+        }
+        if (!Utils::isUnset($request->entryRules)) {
+            $query['EntryRules'] = $request->entryRules;
+        }
+        if (!Utils::isUnset($request->gmtCreate)) {
+            $query['GmtCreate'] = $request->gmtCreate;
+        }
+        if (!Utils::isUnset($request->gmtModified)) {
+            $query['GmtModified'] = $request->gmtModified;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->licenseKey)) {
+            $query['LicenseKey'] = $request->licenseKey;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrUpdateSwimmingLane',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrUpdateSwimmingLaneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrUpdateSwimmingLaneRequest $request
+     *
+     * @return CreateOrUpdateSwimmingLaneResponse
+     */
+    public function createOrUpdateSwimmingLane($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrUpdateSwimmingLaneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateOrUpdateSwimmingLaneGroupResponse
+     */
+    public function createOrUpdateSwimmingLaneGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appIds)) {
+            $query['AppIds'] = $request->appIds;
+        }
+        if (!Utils::isUnset($request->dbGrayEnable)) {
+            $query['DbGrayEnable'] = $request->dbGrayEnable;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->entryApp)) {
+            $query['EntryApp'] = $request->entryApp;
+        }
+        if (!Utils::isUnset($request->gmtCreate)) {
+            $query['GmtCreate'] = $request->gmtCreate;
+        }
+        if (!Utils::isUnset($request->gmtModified)) {
+            $query['GmtModified'] = $request->gmtModified;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->licenseKey)) {
+            $query['LicenseKey'] = $request->licenseKey;
+        }
+        if (!Utils::isUnset($request->messageQueueFilterSide)) {
+            $query['MessageQueueFilterSide'] = $request->messageQueueFilterSide;
+        }
+        if (!Utils::isUnset($request->messageQueueGrayEnable)) {
+            $query['MessageQueueGrayEnable'] = $request->messageQueueGrayEnable;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrUpdateSwimmingLaneGroup',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrUpdateSwimmingLaneGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $request
+     *
+     * @return CreateOrUpdateSwimmingLaneGroupResponse
+     */
+    public function createOrUpdateSwimmingLaneGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrUpdateSwimmingLaneGroupWithOptions($request, $runtime);
     }
 
     /**
