@@ -1,0 +1,33 @@
+{
+  "name": "alibabacloud/cloudphone-20201230",
+  "description": "Alibaba Cloud cloudphone (20201230) SDK Library for PHP",
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Alibaba Cloud SDK",
+      "email": "sdk-team@alibabacloud.com"
+    }
+  ],
+  "require": {
+    "php": ">5.5",
+    "alibabacloud/tea-utils": "^0.2.16",
+    "alibabacloud/darabonba-openapi": "^0.2.7",
+    "alibabacloud/openapi-util": "^0.1.10",
+    "alibabacloud/endpoint-util": "^0.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "AlibabaCloud\\SDK\\Cloudphone\\V20201230\\": "src"
+    }
+  },
+  "scripts": {
+    "fixer": "php-cs-fixer fix ./"
+  },
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "optimize-autoloader": true
+  },
+  "prefer-stable": true
+}
