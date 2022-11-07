@@ -36,6 +36,11 @@ class filterParams extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $vpc;
     protected $_name = [
         'gatewayType'     => 'GatewayType',
@@ -43,6 +48,7 @@ class filterParams extends Model
         'instanceId'      => 'InstanceId',
         'mseTag'          => 'MseTag',
         'name'            => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
         'vpc'             => 'Vpc',
     ];
 
@@ -67,6 +73,9 @@ class filterParams extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->vpc) {
             $res['Vpc'] = $this->vpc;
@@ -97,6 +106,9 @@ class filterParams extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Vpc'])) {
             $model->vpc = $map['Vpc'];

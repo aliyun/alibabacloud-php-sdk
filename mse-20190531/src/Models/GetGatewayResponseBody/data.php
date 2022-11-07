@@ -78,6 +78,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroup;
 
     /**
@@ -128,6 +133,7 @@ class data extends Model
         'primaryUser'      => 'PrimaryUser',
         'region'           => 'Region',
         'replica'          => 'Replica',
+        'resourceGroupId'  => 'ResourceGroupId',
         'securityGroup'    => 'SecurityGroup',
         'spec'             => 'Spec',
         'status'           => 'Status',
@@ -183,6 +189,9 @@ class data extends Model
         }
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
@@ -258,6 +267,9 @@ class data extends Model
         }
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];

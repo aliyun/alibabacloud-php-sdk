@@ -122,6 +122,11 @@ class result extends Model
     public $replica;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var bool
      */
     public $rollBack;
@@ -188,6 +193,7 @@ class result extends Model
         'primaryUser'     => 'PrimaryUser',
         'region'          => 'Region',
         'replica'         => 'Replica',
+        'resourceGroupId' => 'ResourceGroupId',
         'rollBack'        => 'RollBack',
         'slb'             => 'Slb',
         'spec'            => 'Spec',
@@ -277,6 +283,9 @@ class result extends Model
         }
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->rollBack) {
             $res['RollBack'] = $this->rollBack;
@@ -394,6 +403,9 @@ class result extends Model
         }
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RollBack'])) {
             $model->rollBack = $map['RollBack'];

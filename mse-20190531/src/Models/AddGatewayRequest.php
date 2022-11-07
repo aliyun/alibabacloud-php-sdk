@@ -57,6 +57,11 @@ class AddGatewayRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $slbSpec;
 
     /**
@@ -98,6 +103,7 @@ class AddGatewayRequest extends Model
         'name'                       => 'Name',
         'region'                     => 'Region',
         'replica'                    => 'Replica',
+        'resourceGroupId'            => 'ResourceGroupId',
         'slbSpec'                    => 'SlbSpec',
         'spec'                       => 'Spec',
         'tag'                        => 'Tag',
@@ -140,6 +146,9 @@ class AddGatewayRequest extends Model
         }
         if (null !== $this->replica) {
             $res['Replica'] = $this->replica;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->slbSpec) {
             $res['SlbSpec'] = $this->slbSpec;
@@ -206,6 +215,9 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['Replica'])) {
             $model->replica = $map['Replica'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SlbSpec'])) {
             $model->slbSpec = $map['SlbSpec'];
