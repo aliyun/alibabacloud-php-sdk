@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Viapiregen\V20211119\Models;
 
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDataReflowDatasResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DebugServiceResponseBody extends Model
+class ListDataReflowDatasResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
     public $data;
 
@@ -30,7 +31,7 @@ class DebugServiceResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -42,13 +43,13 @@ class DebugServiceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DebugServiceResponseBody
+     * @return ListDataReflowDatasResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -14,9 +14,9 @@ class CreateTrainTaskRequest extends Model
     public $advancedParameters;
 
     /**
-     * @var int
+     * @var string
      */
-    public $datasetId;
+    public $datasetIds;
 
     /**
      * @var string
@@ -24,14 +24,19 @@ class CreateTrainTaskRequest extends Model
     public $description;
 
     /**
-     * @var int
+     * @var string
      */
-    public $labelId;
+    public $labelIds;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $preTrainTaskId;
 
     /**
      * @var string
@@ -44,10 +49,11 @@ class CreateTrainTaskRequest extends Model
     public $workspaceId;
     protected $_name = [
         'advancedParameters' => 'AdvancedParameters',
-        'datasetId'          => 'DatasetId',
+        'datasetIds'         => 'DatasetIds',
         'description'        => 'Description',
-        'labelId'            => 'LabelId',
+        'labelIds'           => 'LabelIds',
         'name'               => 'Name',
+        'preTrainTaskId'     => 'PreTrainTaskId',
         'trainMode'          => 'TrainMode',
         'workspaceId'        => 'WorkspaceId',
     ];
@@ -62,17 +68,20 @@ class CreateTrainTaskRequest extends Model
         if (null !== $this->advancedParameters) {
             $res['AdvancedParameters'] = $this->advancedParameters;
         }
-        if (null !== $this->datasetId) {
-            $res['DatasetId'] = $this->datasetId;
+        if (null !== $this->datasetIds) {
+            $res['DatasetIds'] = $this->datasetIds;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->labelId) {
-            $res['LabelId'] = $this->labelId;
+        if (null !== $this->labelIds) {
+            $res['LabelIds'] = $this->labelIds;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->preTrainTaskId) {
+            $res['PreTrainTaskId'] = $this->preTrainTaskId;
         }
         if (null !== $this->trainMode) {
             $res['TrainMode'] = $this->trainMode;
@@ -95,17 +104,20 @@ class CreateTrainTaskRequest extends Model
         if (isset($map['AdvancedParameters'])) {
             $model->advancedParameters = $map['AdvancedParameters'];
         }
-        if (isset($map['DatasetId'])) {
-            $model->datasetId = $map['DatasetId'];
+        if (isset($map['DatasetIds'])) {
+            $model->datasetIds = $map['DatasetIds'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['LabelId'])) {
-            $model->labelId = $map['LabelId'];
+        if (isset($map['LabelIds'])) {
+            $model->labelIds = $map['LabelIds'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PreTrainTaskId'])) {
+            $model->preTrainTaskId = $map['PreTrainTaskId'];
         }
         if (isset($map['TrainMode'])) {
             $model->trainMode = $map['TrainMode'];

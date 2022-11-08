@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Viapiregen\V20211119\Models;
+namespace AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDataReflowDatasResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class ListTrainTasksRequest extends Model
+class data extends Model
 {
     /**
      * @var int
@@ -14,24 +14,30 @@ class ListTrainTasksRequest extends Model
     public $currentPage;
 
     /**
+     * @var mixed[][]
+     */
+    public $elements;
+
+    /**
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $totalCount;
 
     /**
      * @var int
      */
-    public $workspaceId;
+    public $totalPage;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'elements'    => 'Elements',
         'pageSize'    => 'PageSize',
-        'status'      => 'Status',
-        'workspaceId' => 'WorkspaceId',
+        'totalCount'  => 'TotalCount',
+        'totalPage'   => 'TotalPage',
     ];
 
     public function validate()
@@ -44,14 +50,17 @@ class ListTrainTasksRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+        if (null !== $this->elements) {
+            $res['Elements'] = $this->elements;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
-        if (null !== $this->workspaceId) {
-            $res['WorkspaceId'] = $this->workspaceId;
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -60,7 +69,7 @@ class ListTrainTasksRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListTrainTasksRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +77,19 @@ class ListTrainTasksRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+        if (isset($map['Elements'])) {
+            if (!empty($map['Elements'])) {
+                $model->elements = $map['Elements'];
+            }
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
-        if (isset($map['WorkspaceId'])) {
-            $model->workspaceId = $map['WorkspaceId'];
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

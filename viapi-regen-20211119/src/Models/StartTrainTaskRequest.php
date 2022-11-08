@@ -17,9 +17,15 @@ class StartTrainTaskRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var int
+     */
+    public $relyOnTaskId;
     protected $_name = [
         'forceStartFlag' => 'ForceStartFlag',
         'id'             => 'Id',
+        'relyOnTaskId'   => 'RelyOnTaskId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class StartTrainTaskRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->relyOnTaskId) {
+            $res['RelyOnTaskId'] = $this->relyOnTaskId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class StartTrainTaskRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['RelyOnTaskId'])) {
+            $model->relyOnTaskId = $map['RelyOnTaskId'];
         }
 
         return $model;

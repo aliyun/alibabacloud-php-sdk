@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceResponseBody;
 
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceResponseBody\data\dataReflowInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var dataReflowInfo
+     */
+    public $dataReflowInfo;
+
     /**
      * @var string
      */
@@ -63,6 +69,7 @@ class data extends Model
      */
     public $status;
     protected $_name = [
+        'dataReflowInfo'     => 'DataReflowInfo',
         'errorcodes'         => 'Errorcodes',
         'gmtCreate'          => 'GmtCreate',
         'id'                 => 'Id',
@@ -83,6 +90,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataReflowInfo) {
+            $res['DataReflowInfo'] = null !== $this->dataReflowInfo ? $this->dataReflowInfo->toMap() : null;
+        }
         if (null !== $this->errorcodes) {
             $res['Errorcodes'] = $this->errorcodes;
         }
@@ -128,6 +138,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataReflowInfo'])) {
+            $model->dataReflowInfo = dataReflowInfo::fromMap($map['DataReflowInfo']);
+        }
         if (isset($map['Errorcodes'])) {
             $model->errorcodes = $map['Errorcodes'];
         }

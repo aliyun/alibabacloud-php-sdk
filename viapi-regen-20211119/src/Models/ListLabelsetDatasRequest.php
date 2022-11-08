@@ -14,6 +14,11 @@ class ListLabelsetDatasRequest extends Model
     public $currentPage;
 
     /**
+     * @var bool
+     */
+    public $isAbandon;
+
+    /**
      * @var int
      */
     public $labelId;
@@ -39,6 +44,7 @@ class ListLabelsetDatasRequest extends Model
     public $value;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'isAbandon'   => 'IsAbandon',
         'labelId'     => 'LabelId',
         'name'        => 'Name',
         'operation'   => 'Operation',
@@ -55,6 +61,9 @@ class ListLabelsetDatasRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->isAbandon) {
+            $res['IsAbandon'] = $this->isAbandon;
         }
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
@@ -85,6 +94,9 @@ class ListLabelsetDatasRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['IsAbandon'])) {
+            $model->isAbandon = $map['IsAbandon'];
         }
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];

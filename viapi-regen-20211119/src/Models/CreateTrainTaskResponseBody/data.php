@@ -59,6 +59,16 @@ class data extends Model
     public $modelId;
 
     /**
+     * @var int
+     */
+    public $relyOnTaskId;
+
+    /**
+     * @var string
+     */
+    public $relyOnTaskName;
+
+    /**
      * @var string
      */
     public $taskName;
@@ -83,6 +93,8 @@ class data extends Model
         'labelName'          => 'LabelName',
         'modelEffect'        => 'ModelEffect',
         'modelId'            => 'ModelId',
+        'relyOnTaskId'       => 'RelyOnTaskId',
+        'relyOnTaskName'     => 'RelyOnTaskName',
         'taskName'           => 'TaskName',
         'trainMode'          => 'TrainMode',
         'trainStatus'        => 'TrainStatus',
@@ -124,6 +136,12 @@ class data extends Model
         }
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
+        }
+        if (null !== $this->relyOnTaskId) {
+            $res['RelyOnTaskId'] = $this->relyOnTaskId;
+        }
+        if (null !== $this->relyOnTaskName) {
+            $res['RelyOnTaskName'] = $this->relyOnTaskName;
         }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
@@ -175,6 +193,12 @@ class data extends Model
         }
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
+        }
+        if (isset($map['RelyOnTaskId'])) {
+            $model->relyOnTaskId = $map['RelyOnTaskId'];
+        }
+        if (isset($map['RelyOnTaskName'])) {
+            $model->relyOnTaskName = $map['RelyOnTaskName'];
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];

@@ -19,20 +19,19 @@ class CustomizeClassifyImageAdvanceRequest extends Model
      */
     public $serviceId;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrlObject',
+        'imageUrlObject' => 'ImageUrl',
         'serviceId'      => 'ServiceId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('imageUrlObject', $this->imageUrlObject, true);
     }
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->imageUrlObject) {
-            $res['ImageUrlObject'] = $this->imageUrlObject;
+            $res['ImageUrl'] = $this->imageUrlObject;
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -49,8 +48,8 @@ class CustomizeClassifyImageAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrlObject'])) {
-            $model->imageUrlObject = $map['ImageUrlObject'];
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrlObject = $map['ImageUrl'];
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];

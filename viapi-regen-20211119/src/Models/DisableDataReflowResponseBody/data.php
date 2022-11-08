@@ -2,25 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Viapiregen\V20211119\Models;
+namespace AlibabaCloud\SDK\Viapiregen\V20211119\Models\DisableDataReflowResponseBody;
 
 use AlibabaCloud\Tea\Model;
-use GuzzleHttp\Psr7\Stream;
 
-class CustomizeDetectImageAdvanceRequest extends Model
+class data extends Model
 {
     /**
-     * @var Stream
+     * @var bool
      */
-    public $imageUrlObject;
+    public $enableDataReflowFlag;
 
     /**
-     * @var string
+     * @var int
      */
     public $serviceId;
     protected $_name = [
-        'imageUrlObject' => 'ImageUrl',
-        'serviceId'      => 'ServiceId',
+        'enableDataReflowFlag' => 'EnableDataReflowFlag',
+        'serviceId'            => 'ServiceId',
     ];
 
     public function validate()
@@ -30,8 +29,8 @@ class CustomizeDetectImageAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrlObject) {
-            $res['ImageUrl'] = $this->imageUrlObject;
+        if (null !== $this->enableDataReflowFlag) {
+            $res['EnableDataReflowFlag'] = $this->enableDataReflowFlag;
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -43,13 +42,13 @@ class CustomizeDetectImageAdvanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CustomizeDetectImageAdvanceRequest
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrlObject = $map['ImageUrl'];
+        if (isset($map['EnableDataReflowFlag'])) {
+            $model->enableDataReflowFlag = $map['EnableDataReflowFlag'];
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];

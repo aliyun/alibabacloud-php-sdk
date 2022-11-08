@@ -29,6 +29,11 @@ class CreateLabelsetRequest extends Model
     public $objectKey;
 
     /**
+     * @var int
+     */
+    public $preLabelId;
+
+    /**
      * @var string
      */
     public $tagSettings;
@@ -52,6 +57,7 @@ class CreateLabelsetRequest extends Model
         'description' => 'Description',
         'name'        => 'Name',
         'objectKey'   => 'ObjectKey',
+        'preLabelId'  => 'PreLabelId',
         'tagSettings' => 'TagSettings',
         'tagUserList' => 'TagUserList',
         'type'        => 'Type',
@@ -76,6 +82,9 @@ class CreateLabelsetRequest extends Model
         }
         if (null !== $this->objectKey) {
             $res['ObjectKey'] = $this->objectKey;
+        }
+        if (null !== $this->preLabelId) {
+            $res['PreLabelId'] = $this->preLabelId;
         }
         if (null !== $this->tagSettings) {
             $res['TagSettings'] = $this->tagSettings;
@@ -112,6 +121,9 @@ class CreateLabelsetRequest extends Model
         }
         if (isset($map['ObjectKey'])) {
             $model->objectKey = $map['ObjectKey'];
+        }
+        if (isset($map['PreLabelId'])) {
+            $model->preLabelId = $map['PreLabelId'];
         }
         if (isset($map['TagSettings'])) {
             $model->tagSettings = $map['TagSettings'];

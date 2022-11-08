@@ -22,10 +22,16 @@ class ListLabelsetsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'datasetId'   => 'DatasetId',
         'pageSize'    => 'PageSize',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class ListLabelsetsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class ListLabelsetsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -39,17 +39,35 @@ class data extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $subTaskPackageSize;
+
+    /**
+     * @var string
+     */
+    public $tagUserList;
+
+    /**
+     * @var string
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'description' => 'Description',
-        'gmtCreate'   => 'GmtCreate',
-        'id'          => 'Id',
-        'labelType'   => 'LabelType',
-        'name'        => 'Name',
-        'status'      => 'Status',
-        'total'       => 'Total',
+        'description'        => 'Description',
+        'gmtCreate'          => 'GmtCreate',
+        'id'                 => 'Id',
+        'labelType'          => 'LabelType',
+        'name'               => 'Name',
+        'status'             => 'Status',
+        'subTaskPackageSize' => 'SubTaskPackageSize',
+        'tagUserList'        => 'TagUserList',
+        'tags'               => 'Tags',
+        'total'              => 'Total',
     ];
 
     public function validate()
@@ -76,6 +94,15 @@ class data extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->subTaskPackageSize) {
+            $res['SubTaskPackageSize'] = $this->subTaskPackageSize;
+        }
+        if (null !== $this->tagUserList) {
+            $res['TagUserList'] = $this->tagUserList;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -109,6 +136,15 @@ class data extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SubTaskPackageSize'])) {
+            $model->subTaskPackageSize = $map['SubTaskPackageSize'];
+        }
+        if (isset($map['TagUserList'])) {
+            $model->tagUserList = $map['TagUserList'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

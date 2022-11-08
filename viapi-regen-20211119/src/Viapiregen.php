@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeInstanceSegmentImageRe
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CustomizeInstanceSegmentImageResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DebugServiceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DebugServiceResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteDataReflowDataRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteDataReflowDataResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteLabelsetDataRequest;
@@ -47,10 +49,16 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteTrainTaskRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteTrainTaskResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteWorkspaceResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DisableDataReflowRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DisableDataReflowResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadFileNameListRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadFileNameListResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadLabelFileRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadLabelFileResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\EnableDataReflowRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\EnableDataReflowResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ExportDataReflowDataListRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ExportDataReflowDataListResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetDiffCountLabelsetAndDatasetRequest;
@@ -71,6 +79,8 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetUploadPolicyRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetUploadPolicyResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetWorkspaceResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDataReflowDatasRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDataReflowDatasResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDatasetDatasRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDatasetDatasResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDatasetsRequest;
@@ -106,9 +116,9 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateTrainTaskResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\UpdateWorkspaceResponse;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -277,6 +287,9 @@ class Viapiregen extends OpenApiClient
         if (!Utils::isUnset($request->objectKey)) {
             $body['ObjectKey'] = $request->objectKey;
         }
+        if (!Utils::isUnset($request->preLabelId)) {
+            $body['PreLabelId'] = $request->preLabelId;
+        }
         if (!Utils::isUnset($request->tagSettings)) {
             $body['TagSettings'] = $request->tagSettings;
         }
@@ -430,17 +443,20 @@ class Viapiregen extends OpenApiClient
         if (!Utils::isUnset($request->advancedParameters)) {
             $body['AdvancedParameters'] = $request->advancedParameters;
         }
-        if (!Utils::isUnset($request->datasetId)) {
-            $body['DatasetId'] = $request->datasetId;
+        if (!Utils::isUnset($request->datasetIds)) {
+            $body['DatasetIds'] = $request->datasetIds;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->labelId)) {
-            $body['LabelId'] = $request->labelId;
+        if (!Utils::isUnset($request->labelIds)) {
+            $body['LabelIds'] = $request->labelIds;
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->preTrainTaskId)) {
+            $body['PreTrainTaskId'] = $request->preTrainTaskId;
         }
         if (!Utils::isUnset($request->trainMode)) {
             $body['TrainMode'] = $request->trainMode;
@@ -624,28 +640,28 @@ class Viapiregen extends OpenApiClient
         OpenApiUtilClient::convert($request, $customizeClassifyImageReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $customizeClassifyImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $customizeClassifyImageReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->customizeClassifyImageWithOptions($customizeClassifyImageReq, $runtime);
@@ -748,28 +764,28 @@ class Viapiregen extends OpenApiClient
         OpenApiUtilClient::convert($request, $customizeDetectImageReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $customizeDetectImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $customizeDetectImageReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->customizeDetectImageWithOptions($customizeDetectImageReq, $runtime);
@@ -872,28 +888,28 @@ class Viapiregen extends OpenApiClient
         OpenApiUtilClient::convert($request, $customizeInstanceSegmentImageReq);
         if (!Utils::isUnset($request->imageUrlObject)) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->endpoint, $authResponse->useAccelerate, $this->_endpointType);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
-                'filename'    => $authResponse->objectKey,
+                'filename'    => $authResponse->body->objectKey,
                 'content'     => $request->imageUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->accessKeyId,
-                'policy'              => $authResponse->encodedPolicy,
-                'signature'           => $authResponse->signature,
-                'key'                 => $authResponse->objectKey,
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
                 'file'                => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->bucket,
+                'bucketName' => $authResponse->body->bucket,
                 'header'     => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
-            $customizeInstanceSegmentImageReq->imageUrl = 'http://' . $authResponse->bucket . '.' . $authResponse->endpoint . '/' . $authResponse->objectKey . '';
+            $customizeInstanceSegmentImageReq->imageUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
         }
 
         return $this->customizeInstanceSegmentImageWithOptions($customizeInstanceSegmentImageReq, $runtime);
@@ -943,6 +959,52 @@ class Viapiregen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->debugServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDataReflowDataRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDataReflowDataResponse
+     */
+    public function deleteDataReflowDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataReflowData',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataReflowDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDataReflowDataRequest $request
+     *
+     * @return DeleteDataReflowDataResponse
+     */
+    public function deleteDataReflowData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataReflowDataWithOptions($request, $runtime);
     }
 
     /**
@@ -1207,6 +1269,49 @@ class Viapiregen extends OpenApiClient
     }
 
     /**
+     * @param DisableDataReflowRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableDataReflowResponse
+     */
+    public function disableDataReflowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDataReflow',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableDataReflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableDataReflowRequest $request
+     *
+     * @return DisableDataReflowResponse
+     */
+    public function disableDataReflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDataReflowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DownloadFileNameListRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1293,6 +1398,113 @@ class Viapiregen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadLabelFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableDataReflowRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableDataReflowResponse
+     */
+    public function enableDataReflowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dataReflowOssPath)) {
+            $body['DataReflowOssPath'] = $request->dataReflowOssPath;
+        }
+        if (!Utils::isUnset($request->dataReflowRate)) {
+            $body['DataReflowRate'] = $request->dataReflowRate;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDataReflow',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDataReflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableDataReflowRequest $request
+     *
+     * @return EnableDataReflowResponse
+     */
+    public function enableDataReflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDataReflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExportDataReflowDataListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ExportDataReflowDataListResponse
+     */
+    public function exportDataReflowDataListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $body['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportDataReflowDataList',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportDataReflowDataListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExportDataReflowDataListRequest $request
+     *
+     * @return ExportDataReflowDataListResponse
+     */
+    public function exportDataReflowDataList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportDataReflowDataListWithOptions($request, $runtime);
     }
 
     /**
@@ -1732,6 +1944,67 @@ class Viapiregen extends OpenApiClient
     }
 
     /**
+     * @param ListDataReflowDatasRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataReflowDatasResponse
+     */
+    public function listDataReflowDatasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->category)) {
+            $body['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->imageName)) {
+            $body['ImageName'] = $request->imageName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataReflowDatas',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataReflowDatasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDataReflowDatasRequest $request
+     *
+     * @return ListDataReflowDatasResponse
+     */
+    public function listDataReflowDatas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataReflowDatasWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDatasetDatasRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1845,6 +2118,9 @@ class Viapiregen extends OpenApiClient
         if (!Utils::isUnset($request->currentPage)) {
             $body['CurrentPage'] = $request->currentPage;
         }
+        if (!Utils::isUnset($request->isAbandon)) {
+            $body['IsAbandon'] = $request->isAbandon;
+        }
         if (!Utils::isUnset($request->labelId)) {
             $body['LabelId'] = $request->labelId;
         }
@@ -1908,6 +2184,9 @@ class Viapiregen extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -2009,6 +2288,9 @@ class Viapiregen extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
@@ -2197,6 +2479,9 @@ class Viapiregen extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->relyOnTaskId)) {
+            $body['RelyOnTaskId'] = $request->relyOnTaskId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2384,6 +2669,9 @@ class Viapiregen extends OpenApiClient
         if (!Utils::isUnset($request->objectKey)) {
             $body['ObjectKey'] = $request->objectKey;
         }
+        if (!Utils::isUnset($request->tagUserList)) {
+            $body['TagUserList'] = $request->tagUserList;
+        }
         if (!Utils::isUnset($request->userOssUrl)) {
             $body['UserOssUrl'] = $request->userOssUrl;
         }
@@ -2485,14 +2773,29 @@ class Viapiregen extends OpenApiClient
         if (!Utils::isUnset($request->advancedParameters)) {
             $body['AdvancedParameters'] = $request->advancedParameters;
         }
+        if (!Utils::isUnset($request->datasetIds)) {
+            $body['DatasetIds'] = $request->datasetIds;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->labelIds)) {
+            $body['LabelIds'] = $request->labelIds;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->preTrainTaskFlag)) {
+            $body['PreTrainTaskFlag'] = $request->preTrainTaskFlag;
+        }
+        if (!Utils::isUnset($request->preTrainTaskId)) {
+            $body['PreTrainTaskId'] = $request->preTrainTaskId;
+        }
+        if (!Utils::isUnset($request->trainMode)) {
+            $body['TrainMode'] = $request->trainMode;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

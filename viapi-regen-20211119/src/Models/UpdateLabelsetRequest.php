@@ -31,12 +31,18 @@ class UpdateLabelsetRequest extends Model
     /**
      * @var string
      */
+    public $tagUserList;
+
+    /**
+     * @var string
+     */
     public $userOssUrl;
     protected $_name = [
         'description' => 'Description',
         'id'          => 'Id',
         'name'        => 'Name',
         'objectKey'   => 'ObjectKey',
+        'tagUserList' => 'TagUserList',
         'userOssUrl'  => 'UserOssUrl',
     ];
 
@@ -58,6 +64,9 @@ class UpdateLabelsetRequest extends Model
         }
         if (null !== $this->objectKey) {
             $res['ObjectKey'] = $this->objectKey;
+        }
+        if (null !== $this->tagUserList) {
+            $res['TagUserList'] = $this->tagUserList;
         }
         if (null !== $this->userOssUrl) {
             $res['UserOssUrl'] = $this->userOssUrl;
@@ -85,6 +94,9 @@ class UpdateLabelsetRequest extends Model
         }
         if (isset($map['ObjectKey'])) {
             $model->objectKey = $map['ObjectKey'];
+        }
+        if (isset($map['TagUserList'])) {
+            $model->tagUserList = $map['TagUserList'];
         }
         if (isset($map['UserOssUrl'])) {
             $model->userOssUrl = $map['UserOssUrl'];
