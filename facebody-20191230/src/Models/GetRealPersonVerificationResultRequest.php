@@ -11,14 +11,8 @@ class GetRealPersonVerificationResultRequest extends Model
     /**
      * @var string
      */
-    public $materialHash;
-
-    /**
-     * @var string
-     */
     public $verificationToken;
     protected $_name = [
-        'materialHash'      => 'MaterialHash',
         'verificationToken' => 'VerificationToken',
     ];
 
@@ -29,9 +23,6 @@ class GetRealPersonVerificationResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->materialHash) {
-            $res['MaterialHash'] = $this->materialHash;
-        }
         if (null !== $this->verificationToken) {
             $res['VerificationToken'] = $this->verificationToken;
         }
@@ -47,9 +38,6 @@ class GetRealPersonVerificationResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaterialHash'])) {
-            $model->materialHash = $map['MaterialHash'];
-        }
         if (isset($map['VerificationToken'])) {
             $model->verificationToken = $map['VerificationToken'];
         }
