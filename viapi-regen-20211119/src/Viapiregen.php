@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DisableDataReflowRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DisableDataReflowResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadDatasetRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadDatasetResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadFileNameListRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadFileNameListResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\DownloadLabelFileRequest;
@@ -67,6 +69,12 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetLabelDetailRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetLabelDetailResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetLabelsetRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetLabelsetResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceInvokeRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceInvokeResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceInvokeShrinkRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceQpsRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceQpsResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceQpsShrinkRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetServiceResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetTrainModelRequest;
@@ -1312,6 +1320,49 @@ class Viapiregen extends OpenApiClient
     }
 
     /**
+     * @param DownloadDatasetRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DownloadDatasetResponse
+     */
+    public function downloadDatasetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $body['DatasetId'] = $request->datasetId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadDataset',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadDatasetRequest $request
+     *
+     * @return DownloadDatasetResponse
+     */
+    public function downloadDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadDatasetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DownloadFileNameListRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1720,6 +1771,120 @@ class Viapiregen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceInvokeRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetServiceInvokeResponse
+     */
+    public function getServiceInvokeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceInvokeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->callerParentIdList)) {
+            $request->callerParentIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callerParentIdList, 'CallerParentIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->callerParentIdListShrink)) {
+            $body['CallerParentIdList'] = $request->callerParentIdListShrink;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceInvoke',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceInvokeRequest $request
+     *
+     * @return GetServiceInvokeResponse
+     */
+    public function getServiceInvoke($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceInvokeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceQpsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetServiceQpsResponse
+     */
+    public function getServiceQpsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceQpsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->callerParentIdList)) {
+            $request->callerParentIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->callerParentIdList, 'CallerParentIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->callerParentIdListShrink)) {
+            $body['CallerParentIdList'] = $request->callerParentIdListShrink;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceQps',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceQpsRequest $request
+     *
+     * @return GetServiceQpsResponse
+     */
+    public function getServiceQps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceQpsWithOptions($request, $runtime);
     }
 
     /**
