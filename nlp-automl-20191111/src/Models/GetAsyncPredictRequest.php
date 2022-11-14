@@ -12,14 +12,8 @@ class GetAsyncPredictRequest extends Model
      * @var int
      */
     public $asyncPredictId;
-
-    /**
-     * @var string
-     */
-    public $product;
     protected $_name = [
         'asyncPredictId' => 'AsyncPredictId',
-        'product'        => 'Product',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class GetAsyncPredictRequest extends Model
         $res = [];
         if (null !== $this->asyncPredictId) {
             $res['AsyncPredictId'] = $this->asyncPredictId;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class GetAsyncPredictRequest extends Model
         $model = new self();
         if (isset($map['AsyncPredictId'])) {
             $model->asyncPredictId = $map['AsyncPredictId'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
         }
 
         return $model;

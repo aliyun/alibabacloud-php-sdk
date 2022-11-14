@@ -11,27 +11,21 @@ class RunPreTrainServiceRequest extends Model
     /**
      * @var string
      */
+    public $predictContent;
+
+    /**
+     * @var string
+     */
     public $serviceName;
 
     /**
      * @var string
      */
     public $serviceVersion;
-
-    /**
-     * @var string
-     */
-    public $predictContent;
-
-    /**
-     * @var string
-     */
-    public $product;
     protected $_name = [
+        'predictContent' => 'PredictContent',
         'serviceName'    => 'ServiceName',
         'serviceVersion' => 'ServiceVersion',
-        'predictContent' => 'PredictContent',
-        'product'        => 'Product',
     ];
 
     public function validate()
@@ -41,17 +35,14 @@ class RunPreTrainServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->predictContent) {
+            $res['PredictContent'] = $this->predictContent;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
-        }
-        if (null !== $this->predictContent) {
-            $res['PredictContent'] = $this->predictContent;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
         }
 
         return $res;
@@ -65,17 +56,14 @@ class RunPreTrainServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PredictContent'])) {
+            $model->predictContent = $map['PredictContent'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
-        }
-        if (isset($map['PredictContent'])) {
-            $model->predictContent = $map['PredictContent'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
         }
 
         return $model;

@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetPredictResultRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $modelId;
-
-    /**
      * @var string
      */
     public $content;
-
-    /**
-     * @var string
-     */
-    public $modelVersion;
 
     /**
      * @var string
@@ -31,19 +21,23 @@ class GetPredictResultRequest extends Model
     /**
      * @var int
      */
-    public $topK;
+    public $modelId;
 
     /**
      * @var string
      */
-    public $product;
+    public $modelVersion;
+
+    /**
+     * @var int
+     */
+    public $topK;
     protected $_name = [
-        'modelId'      => 'ModelId',
         'content'      => 'Content',
-        'modelVersion' => 'ModelVersion',
         'detailTag'    => 'DetailTag',
+        'modelId'      => 'ModelId',
+        'modelVersion' => 'ModelVersion',
         'topK'         => 'TopK',
-        'product'      => 'Product',
     ];
 
     public function validate()
@@ -53,23 +47,20 @@ class GetPredictResultRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelId) {
-            $res['ModelId'] = $this->modelId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
-        }
-        if (null !== $this->modelVersion) {
-            $res['ModelVersion'] = $this->modelVersion;
         }
         if (null !== $this->detailTag) {
             $res['DetailTag'] = $this->detailTag;
         }
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
+        }
+        if (null !== $this->modelVersion) {
+            $res['ModelVersion'] = $this->modelVersion;
+        }
         if (null !== $this->topK) {
             $res['TopK'] = $this->topK;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
         }
 
         return $res;
@@ -83,23 +74,20 @@ class GetPredictResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelId'])) {
-            $model->modelId = $map['ModelId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
-        }
-        if (isset($map['ModelVersion'])) {
-            $model->modelVersion = $map['ModelVersion'];
         }
         if (isset($map['DetailTag'])) {
             $model->detailTag = $map['DetailTag'];
         }
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
+        }
+        if (isset($map['ModelVersion'])) {
+            $model->modelVersion = $map['ModelVersion'];
+        }
         if (isset($map['TopK'])) {
             $model->topK = $map['TopK'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateAsyncPredictResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $asyncPredictId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'asyncPredictId' => 'AsyncPredictId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateAsyncPredictResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->asyncPredictId) {
             $res['AsyncPredictId'] = $this->asyncPredictId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateAsyncPredictResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AsyncPredictId'])) {
             $model->asyncPredictId = $map['AsyncPredictId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

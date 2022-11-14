@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateAsyncPredictRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $modelId;
-
-    /**
      * @var string
      */
     public $content;
@@ -21,17 +16,17 @@ class CreateAsyncPredictRequest extends Model
     /**
      * @var string
      */
-    public $modelVersion;
+    public $detailTag;
 
     /**
      * @var string
      */
-    public $detailTag;
+    public $fetchContent;
 
     /**
-     * @var int
+     * @var string
      */
-    public $topK;
+    public $fileContent;
 
     /**
      * @var string
@@ -44,30 +39,41 @@ class CreateAsyncPredictRequest extends Model
     public $fileUrl;
 
     /**
-     * @var string
+     * @var int
      */
-    public $fileContent;
+    public $modelId;
 
     /**
      * @var string
      */
-    public $fetchContent;
+    public $modelVersion;
 
     /**
      * @var string
      */
-    public $product;
+    public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $serviceVersion;
+
+    /**
+     * @var int
+     */
+    public $topK;
     protected $_name = [
-        'modelId'      => 'ModelId',
-        'content'      => 'Content',
-        'modelVersion' => 'ModelVersion',
-        'detailTag'    => 'DetailTag',
-        'topK'         => 'TopK',
-        'fileType'     => 'FileType',
-        'fileUrl'      => 'FileUrl',
-        'fileContent'  => 'FileContent',
-        'fetchContent' => 'FetchContent',
-        'product'      => 'Product',
+        'content'        => 'Content',
+        'detailTag'      => 'DetailTag',
+        'fetchContent'   => 'FetchContent',
+        'fileContent'    => 'FileContent',
+        'fileType'       => 'FileType',
+        'fileUrl'        => 'FileUrl',
+        'modelId'        => 'ModelId',
+        'modelVersion'   => 'ModelVersion',
+        'serviceName'    => 'ServiceName',
+        'serviceVersion' => 'ServiceVersion',
+        'topK'           => 'TopK',
     ];
 
     public function validate()
@@ -77,20 +83,17 @@ class CreateAsyncPredictRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelId) {
-            $res['ModelId'] = $this->modelId;
-        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
-        }
-        if (null !== $this->modelVersion) {
-            $res['ModelVersion'] = $this->modelVersion;
         }
         if (null !== $this->detailTag) {
             $res['DetailTag'] = $this->detailTag;
         }
-        if (null !== $this->topK) {
-            $res['TopK'] = $this->topK;
+        if (null !== $this->fetchContent) {
+            $res['FetchContent'] = $this->fetchContent;
+        }
+        if (null !== $this->fileContent) {
+            $res['FileContent'] = $this->fileContent;
         }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
@@ -98,14 +101,20 @@ class CreateAsyncPredictRequest extends Model
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->fileContent) {
-            $res['FileContent'] = $this->fileContent;
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
-        if (null !== $this->fetchContent) {
-            $res['FetchContent'] = $this->fetchContent;
+        if (null !== $this->modelVersion) {
+            $res['ModelVersion'] = $this->modelVersion;
         }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
+        }
+        if (null !== $this->topK) {
+            $res['TopK'] = $this->topK;
         }
 
         return $res;
@@ -119,20 +128,17 @@ class CreateAsyncPredictRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelId'])) {
-            $model->modelId = $map['ModelId'];
-        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
-        }
-        if (isset($map['ModelVersion'])) {
-            $model->modelVersion = $map['ModelVersion'];
         }
         if (isset($map['DetailTag'])) {
             $model->detailTag = $map['DetailTag'];
         }
-        if (isset($map['TopK'])) {
-            $model->topK = $map['TopK'];
+        if (isset($map['FetchContent'])) {
+            $model->fetchContent = $map['FetchContent'];
+        }
+        if (isset($map['FileContent'])) {
+            $model->fileContent = $map['FileContent'];
         }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
@@ -140,14 +146,20 @@ class CreateAsyncPredictRequest extends Model
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }
-        if (isset($map['FileContent'])) {
-            $model->fileContent = $map['FileContent'];
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
-        if (isset($map['FetchContent'])) {
-            $model->fetchContent = $map['FetchContent'];
+        if (isset($map['ModelVersion'])) {
+            $model->modelVersion = $map['ModelVersion'];
         }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['TopK'])) {
+            $model->topK = $map['TopK'];
         }
 
         return $model;
