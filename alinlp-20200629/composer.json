@@ -11,9 +11,9 @@
   ],
   "require": {
     "php": ">5.5",
-    "alibabacloud/tea-utils": "^0.2.0",
-    "alibabacloud/darabonba-openapi": "^0.2.5",
-    "alibabacloud/openapi-util": "^0.1.10",
+    "alibabacloud/tea-utils": "^0.2.16",
+    "alibabacloud/darabonba-openapi": "^0.2.7",
+    "alibabacloud/openapi-util": "^0.2.0",
     "alibabacloud/endpoint-util": "^0.1.0"
   },
   "autoload": {

@@ -6,26 +6,20 @@ namespace AlibabaCloud\SDK\Alinlp\V20200629\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetKeywordChEcomRequest extends Model
+class ADClockRequest extends Model
 {
     /**
      * @var string
      */
-    public $apiVersion;
+    public $params;
 
     /**
      * @var string
      */
     public $serviceCode;
-
-    /**
-     * @var string
-     */
-    public $text;
     protected $_name = [
-        'apiVersion'  => 'ApiVersion',
+        'params'      => 'Params',
         'serviceCode' => 'ServiceCode',
-        'text'        => 'Text',
     ];
 
     public function validate()
@@ -35,14 +29,11 @@ class GetKeywordChEcomRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->apiVersion) {
-            $res['ApiVersion'] = $this->apiVersion;
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
-        }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
         }
 
         return $res;
@@ -51,19 +42,16 @@ class GetKeywordChEcomRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetKeywordChEcomRequest
+     * @return ADClockRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApiVersion'])) {
-            $model->apiVersion = $map['ApiVersion'];
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
-        }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
         }
 
         return $model;
