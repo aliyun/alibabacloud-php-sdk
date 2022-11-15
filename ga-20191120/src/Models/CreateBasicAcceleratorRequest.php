@@ -52,6 +52,11 @@ class CreateBasicAcceleratorRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'autoPay'              => 'AutoPay',
         'autoRenew'            => 'AutoRenew',
@@ -62,6 +67,7 @@ class CreateBasicAcceleratorRequest extends Model
         'duration'             => 'Duration',
         'pricingCycle'         => 'PricingCycle',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class CreateBasicAcceleratorRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class CreateBasicAcceleratorRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

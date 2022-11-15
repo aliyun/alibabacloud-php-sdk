@@ -67,6 +67,11 @@ class CreateAcceleratorRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $spec;
     protected $_name = [
         'autoPay'              => 'AutoPay',
@@ -80,6 +85,7 @@ class CreateAcceleratorRequest extends Model
         'name'                 => 'Name',
         'pricingCycle'         => 'PricingCycle',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'spec'                 => 'Spec',
     ];
 
@@ -122,6 +128,9 @@ class CreateAcceleratorRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -170,6 +179,9 @@ class CreateAcceleratorRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

@@ -86,6 +86,11 @@ class CreateBandwidthPackageRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'autoPay'                => 'AutoPay',
@@ -103,6 +108,7 @@ class CreateBandwidthPackageRequest extends Model
         'pricingCycle'           => 'PricingCycle',
         'ratio'                  => 'Ratio',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'type'                   => 'Type',
     ];
 
@@ -157,6 +163,9 @@ class CreateBandwidthPackageRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -217,6 +226,9 @@ class CreateBandwidthPackageRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

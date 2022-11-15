@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesResponseBody;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesResponseBody\bandwidthPackages\tags;
 use AlibabaCloud\Tea\Model;
 
 class bandwidthPackages extends Model
@@ -81,7 +82,17 @@ class bandwidthPackages extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $state;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -102,7 +113,9 @@ class bandwidthPackages extends Model
         'name'                   => 'Name',
         'ratio'                  => 'Ratio',
         'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
         'state'                  => 'State',
+        'tags'                   => 'Tags',
         'type'                   => 'Type',
     ];
 
@@ -155,8 +168,20 @@ class bandwidthPackages extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -217,8 +242,20 @@ class bandwidthPackages extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

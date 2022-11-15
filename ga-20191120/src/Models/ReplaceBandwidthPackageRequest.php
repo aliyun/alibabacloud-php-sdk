@@ -11,6 +11,11 @@ class ReplaceBandwidthPackageRequest extends Model
     /**
      * @var string
      */
+    public $acceleratorId;
+
+    /**
+     * @var string
+     */
     public $bandwidthPackageId;
 
     /**
@@ -23,6 +28,7 @@ class ReplaceBandwidthPackageRequest extends Model
      */
     public $targetBandwidthPackageId;
     protected $_name = [
+        'acceleratorId'            => 'AcceleratorId',
         'bandwidthPackageId'       => 'BandwidthPackageId',
         'regionId'                 => 'RegionId',
         'targetBandwidthPackageId' => 'TargetBandwidthPackageId',
@@ -35,6 +41,9 @@ class ReplaceBandwidthPackageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
@@ -56,6 +65,9 @@ class ReplaceBandwidthPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }

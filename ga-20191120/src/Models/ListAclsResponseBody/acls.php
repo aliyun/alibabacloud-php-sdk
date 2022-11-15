@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsResponseBody;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsResponseBody\acls\tags;
 use AlibabaCloud\Tea\Model;
 
 class acls extends Model
@@ -27,11 +28,23 @@ class acls extends Model
      * @var string
      */
     public $addressIPVersion;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'aclId'            => 'AclId',
         'aclName'          => 'AclName',
         'aclStatus'        => 'AclStatus',
         'addressIPVersion' => 'AddressIPVersion',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'tags'             => 'Tags',
     ];
 
     public function validate()
@@ -52,6 +65,18 @@ class acls extends Model
         }
         if (null !== $this->addressIPVersion) {
             $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -76,6 +101,18 @@ class acls extends Model
         }
         if (isset($map['AddressIPVersion'])) {
             $model->addressIPVersion = $map['AddressIPVersion'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

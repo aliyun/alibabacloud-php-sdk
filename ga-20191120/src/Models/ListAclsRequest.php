@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListAclsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListAclsRequest extends Model
@@ -37,13 +38,25 @@ class ListAclsRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'aclIds'      => 'AclIds',
-        'aclName'     => 'AclName',
-        'clientToken' => 'ClientToken',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'regionId'    => 'RegionId',
+        'aclIds'          => 'AclIds',
+        'aclName'         => 'AclName',
+        'clientToken'     => 'ClientToken',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -70,6 +83,18 @@ class ListAclsRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -102,6 +127,18 @@ class ListAclsRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

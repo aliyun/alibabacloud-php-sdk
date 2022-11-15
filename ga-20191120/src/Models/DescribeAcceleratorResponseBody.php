@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\basicBandwidthPackage;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\crossDomainBandwidthPackage;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\ipSetConfig;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeAcceleratorResponseBody extends Model
@@ -94,6 +95,11 @@ class DescribeAcceleratorResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $secondDnsName;
 
     /**
@@ -105,6 +111,11 @@ class DescribeAcceleratorResponseBody extends Model
      * @var string
      */
     public $state;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
         'bandwidthBillingType'        => 'BandwidthBillingType',
@@ -122,9 +133,11 @@ class DescribeAcceleratorResponseBody extends Model
         'name'                        => 'Name',
         'regionId'                    => 'RegionId',
         'requestId'                   => 'RequestId',
+        'resourceGroupId'             => 'ResourceGroupId',
         'secondDnsName'               => 'SecondDnsName',
         'spec'                        => 'Spec',
         'state'                       => 'State',
+        'tags'                        => 'Tags',
     ];
 
     public function validate()
@@ -182,6 +195,9 @@ class DescribeAcceleratorResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->secondDnsName) {
             $res['SecondDnsName'] = $this->secondDnsName;
         }
@@ -190,6 +206,15 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -251,6 +276,9 @@ class DescribeAcceleratorResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SecondDnsName'])) {
             $model->secondDnsName = $map['SecondDnsName'];
         }
@@ -259,6 +287,15 @@ class DescribeAcceleratorResponseBody extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

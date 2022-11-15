@@ -22,10 +22,16 @@ class certificates extends Model
      * @var bool
      */
     public $isDefault;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'certificateId' => 'CertificateId',
         'domain'        => 'Domain',
         'isDefault'     => 'IsDefault',
+        'state'         => 'State',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class certificates extends Model
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class certificates extends Model
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;
