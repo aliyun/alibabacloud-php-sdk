@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Story extends Model
 {
     /**
+     * @var Address[]
+     */
+    public $addresses;
+
+    /**
      * @var File
      */
     public $cover;
@@ -93,6 +98,7 @@ class Story extends Model
      */
     public $updateTime;
     protected $_name = [
+        'addresses'        => 'Addresses',
         'cover'            => 'Cover',
         'createTime'       => 'CreateTime',
         'customId'         => 'CustomId',
@@ -119,6 +125,15 @@ class Story extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addresses) {
+            $res['Addresses'] = [];
+            if (null !== $this->addresses && \is_array($this->addresses)) {
+                $n = 0;
+                foreach ($this->addresses as $item) {
+                    $res['Addresses'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->cover) {
             $res['Cover'] = null !== $this->cover ? $this->cover->toMap() : null;
         }
@@ -188,6 +203,15 @@ class Story extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Addresses'])) {
+            if (!empty($map['Addresses'])) {
+                $model->addresses = [];
+                $n                = 0;
+                foreach ($map['Addresses'] as $item) {
+                    $model->addresses[$n++] = null !== $item ? Address::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Cover'])) {
             $model->cover = File::fromMap($map['Cover']);
         }

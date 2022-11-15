@@ -11,6 +11,11 @@ class CreateStoryShrinkRequest extends Model
     /**
      * @var string
      */
+    public $addressShrink;
+
+    /**
+     * @var string
+     */
     public $customId;
 
     /**
@@ -83,6 +88,7 @@ class CreateStoryShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'addressShrink'      => 'Address',
         'customId'           => 'CustomId',
         'customLabelsShrink' => 'CustomLabels',
         'datasetName'        => 'DatasetName',
@@ -107,6 +113,9 @@ class CreateStoryShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressShrink) {
+            $res['Address'] = $this->addressShrink;
+        }
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
@@ -164,6 +173,9 @@ class CreateStoryShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Address'])) {
+            $model->addressShrink = $map['Address'];
+        }
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }

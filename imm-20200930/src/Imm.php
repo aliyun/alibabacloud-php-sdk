@@ -26,6 +26,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\BatchIndexFileMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\BatchUpdateFileMetaShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateArchiveFileInspectionTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCompressPointCloudTaskRequest;
@@ -36,9 +39,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskShrinkRequest;
@@ -48,6 +48,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClustersMergingTaskShrinkR
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileCompressionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileCompressionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileCompressionTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskShrinkRequest;
@@ -77,6 +80,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteFileMetaResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteLocationDateClusterRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteLocationDateClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DeleteStoryRequest;
@@ -154,6 +159,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\MergeFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryFigureClustersShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\QueryLocationDateClustersShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\QueryStoriesShrinkRequest;
@@ -180,12 +188,14 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFigureClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateFileMetaShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateLocationDateClusterRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateLocationDateClusterResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateLocationDateClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -240,7 +250,7 @@ class Imm extends OpenApiClient
         $request = new AddImageMosaicShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->targets)) {
             $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
@@ -620,6 +630,72 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateArchiveFileInspectionTaskRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateArchiveFileInspectionTaskResponse
+     */
+    public function createArchiveFileInspectionTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateArchiveFileInspectionTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->targetURI)) {
+            $query['TargetURI'] = $request->targetURI;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateArchiveFileInspectionTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateArchiveFileInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateArchiveFileInspectionTaskRequest $request
+     *
+     * @return CreateArchiveFileInspectionTaskResponse
+     */
+    public function createArchiveFileInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createArchiveFileInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBindingRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -680,13 +756,13 @@ class Imm extends OpenApiClient
         $request = new CreateCompressPointCloudTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->kdtreeOption)) {
-            $request->kdtreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->kdtreeOption), 'KdtreeOption', 'json');
+            $request->kdtreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kdtreeOption, 'KdtreeOption', 'json');
         }
         if (!Utils::isUnset($tmpReq->octreeOption)) {
-            $request->octreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->octreeOption), 'OctreeOption', 'json');
+            $request->octreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->octreeOption, 'OctreeOption', 'json');
         }
         if (!Utils::isUnset($tmpReq->pointCloudFields)) {
             $request->pointCloudFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pointCloudFields, 'PointCloudFields', 'json');
@@ -773,7 +849,7 @@ class Imm extends OpenApiClient
         $request = new CreateCustomizedStoryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->cover)) {
-            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->cover), 'Cover', 'json');
+            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cover, 'Cover', 'json');
         }
         if (!Utils::isUnset($tmpReq->customLabels)) {
             $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
@@ -901,72 +977,6 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDatasetWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDetectVideoLabelsTaskRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CreateDetectVideoLabelsTaskResponse
-     */
-    public function createDetectVideoLabelsTaskWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateDetectVideoLabelsTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
-        }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
-        }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
-        }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
-        }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDetectVideoLabelsTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateDetectVideoLabelsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateDetectVideoLabelsTaskRequest $request
-     *
-     * @return CreateDetectVideoLabelsTaskResponse
-     */
-    public function createDetectVideoLabelsTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDetectVideoLabelsTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1107,7 +1117,7 @@ class Imm extends OpenApiClient
         $request = new CreateFileCompressionTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
@@ -1171,6 +1181,81 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateFileUncompressionTaskRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateFileUncompressionTaskResponse
+     */
+    public function createFileUncompressionTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateFileUncompressionTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->selectedFiles)) {
+            $request->selectedFilesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->selectedFiles, 'SelectedFiles', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->selectedFilesShrink)) {
+            $query['SelectedFiles'] = $request->selectedFilesShrink;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $query['Target'] = $request->targetShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFileUncompressionTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFileUncompressionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFileUncompressionTaskRequest $request
+     *
+     * @return CreateFileUncompressionTaskResponse
+     */
+    public function createFileUncompressionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileUncompressionTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateImageModerationTaskRequest $tmpReq
      * @param RuntimeOptions                   $runtime
      *
@@ -1182,7 +1267,7 @@ class Imm extends OpenApiClient
         $request = new CreateImageModerationTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->scenes)) {
             $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
@@ -1263,7 +1348,7 @@ class Imm extends OpenApiClient
         $request = new CreateImageSplicingTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
@@ -1359,7 +1444,7 @@ class Imm extends OpenApiClient
         $request = new CreateImageToPDFTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
@@ -1431,7 +1516,7 @@ class Imm extends OpenApiClient
         $request = new CreateMediaConvertTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->sources)) {
             $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
@@ -1506,13 +1591,13 @@ class Imm extends OpenApiClient
         $request = new CreateOfficeConversionTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         if (!Utils::isUnset($tmpReq->trimPolicy)) {
-            $request->trimPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->trimPolicy), 'TrimPolicy', 'json');
+            $request->trimPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trimPolicy, 'TrimPolicy', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -1725,6 +1810,9 @@ class Imm extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateStoryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->address)) {
+            $request->addressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->address, 'Address', 'json');
+        }
         if (!Utils::isUnset($tmpReq->customLabels)) {
             $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
@@ -1739,6 +1827,9 @@ class Imm extends OpenApiClient
             $query['UserData'] = $request->userData;
         }
         $body = [];
+        if (!Utils::isUnset($request->addressShrink)) {
+            $body['Address'] = $request->addressShrink;
+        }
         if (!Utils::isUnset($request->customId)) {
             $body['CustomId'] = $request->customId;
         }
@@ -1821,7 +1912,7 @@ class Imm extends OpenApiClient
         $request = new CreateVideoModerationTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->scenes)) {
             $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
@@ -2038,6 +2129,57 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param DeleteLocationDateClusterRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteLocationDateClusterResponse
+     */
+    public function deleteLocationDateClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->objectId)) {
+            $body['ObjectId'] = $request->objectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLocationDateCluster',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLocationDateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLocationDateClusterRequest $request
+     *
+     * @return DeleteLocationDateClusterResponse
+     */
+    public function deleteLocationDateCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLocationDateClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteProjectRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2184,7 +2326,7 @@ class Imm extends OpenApiClient
         $request = new DetectImageBodiesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -2241,7 +2383,7 @@ class Imm extends OpenApiClient
         $request = new DetectImageCodesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -2295,7 +2437,7 @@ class Imm extends OpenApiClient
         $request = new DetectImageCroppingShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->aspectRatios)) {
@@ -2352,7 +2494,7 @@ class Imm extends OpenApiClient
         $request = new DetectImageFacesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -2406,7 +2548,7 @@ class Imm extends OpenApiClient
         $request = new DetectImageLabelsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -2463,7 +2605,7 @@ class Imm extends OpenApiClient
         $request = new DetectImageScoreShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -2863,7 +3005,7 @@ class Imm extends OpenApiClient
         $request = new GetMediaMetaShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -3104,7 +3246,7 @@ class Imm extends OpenApiClient
         $request = new GetVideoPlaylistShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
             $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
@@ -3185,16 +3327,16 @@ class Imm extends OpenApiClient
         $request = new GetWebofficeURLShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         if (!Utils::isUnset($tmpReq->permission)) {
-            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->permission), 'Permission', 'json');
+            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permission, 'Permission', 'json');
         }
         if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->user), 'User', 'json');
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
         if (!Utils::isUnset($tmpReq->watermark)) {
-            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->watermark), 'Watermark', 'json');
+            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->cachePreview)) {
@@ -3284,7 +3426,7 @@ class Imm extends OpenApiClient
         $request = new IndexFileMetaShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->file)) {
-            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
+            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
@@ -3537,10 +3679,10 @@ class Imm extends OpenApiClient
         $request = new ListTasksShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->endTimeRange)) {
-            $request->endTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->endTimeRange), 'EndTimeRange', 'json');
+            $request->endTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->endTimeRange, 'EndTimeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->startTimeRange)) {
-            $request->startTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->startTimeRange), 'StartTimeRange', 'json');
+            $request->startTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startTimeRange, 'StartTimeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->taskTypes)) {
             $request->taskTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskTypes, 'TaskTypes', 'json');
@@ -3618,7 +3760,7 @@ class Imm extends OpenApiClient
         $request = new LiveTranscodingShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->credentialConfigShrink)) {
@@ -3739,10 +3881,10 @@ class Imm extends OpenApiClient
         $request = new QueryFigureClustersShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->createTimeRange)) {
-            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->createTimeRange), 'CreateTimeRange', 'json');
+            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->updateTimeRange)) {
-            $request->updateTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->updateTimeRange), 'UpdateTimeRange', 'json');
+            $request->updateTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateTimeRange, 'UpdateTimeRange', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->createTimeRangeShrink)) {
@@ -3803,6 +3945,111 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param QueryLocationDateClustersRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryLocationDateClustersResponse
+     */
+    public function queryLocationDateClustersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryLocationDateClustersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->address)) {
+            $request->addressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->address, 'Address', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->createTimeRange)) {
+            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->locationDateClusterEndTimeRange)) {
+            $request->locationDateClusterEndTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterEndTimeRange, 'LocationDateClusterEndTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->locationDateClusterLevels)) {
+            $request->locationDateClusterLevelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterLevels, 'LocationDateClusterLevels', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->locationDateClusterStartTimeRange)) {
+            $request->locationDateClusterStartTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterStartTimeRange, 'LocationDateClusterStartTimeRange', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->updateTimeRange)) {
+            $request->updateTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateTimeRange, 'UpdateTimeRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->addressShrink)) {
+            $query['Address'] = $request->addressShrink;
+        }
+        if (!Utils::isUnset($request->createTimeRangeShrink)) {
+            $query['CreateTimeRange'] = $request->createTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->customLabels)) {
+            $query['CustomLabels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->locationDateClusterEndTimeRangeShrink)) {
+            $query['LocationDateClusterEndTimeRange'] = $request->locationDateClusterEndTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->locationDateClusterLevelsShrink)) {
+            $query['LocationDateClusterLevels'] = $request->locationDateClusterLevelsShrink;
+        }
+        if (!Utils::isUnset($request->locationDateClusterStartTimeRangeShrink)) {
+            $query['LocationDateClusterStartTimeRange'] = $request->locationDateClusterStartTimeRangeShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->updateTimeRangeShrink)) {
+            $query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryLocationDateClusters',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryLocationDateClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryLocationDateClustersRequest $request
+     *
+     * @return QueryLocationDateClustersResponse
+     */
+    public function queryLocationDateClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryLocationDateClustersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryStoriesRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
@@ -3814,16 +4061,16 @@ class Imm extends OpenApiClient
         $request = new QueryStoriesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->createTimeRange)) {
-            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->createTimeRange), 'CreateTimeRange', 'json');
+            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->figureClusterIds)) {
             $request->figureClusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->figureClusterIds, 'FigureClusterIds', 'json');
         }
         if (!Utils::isUnset($tmpReq->storyEndTimeRange)) {
-            $request->storyEndTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->storyEndTimeRange), 'StoryEndTimeRange', 'json');
+            $request->storyEndTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storyEndTimeRange, 'StoryEndTimeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->storyStartTimeRange)) {
-            $request->storyStartTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->storyStartTimeRange), 'StoryStartTimeRange', 'json');
+            $request->storyStartTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storyStartTimeRange, 'StoryStartTimeRange', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->createTimeRangeShrink)) {
@@ -3916,7 +4163,7 @@ class Imm extends OpenApiClient
         $request = new RefreshWebofficeTokenShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->credentialConfig), 'CredentialConfig', 'json');
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->accessToken)) {
@@ -4137,7 +4384,7 @@ class Imm extends OpenApiClient
             $request->aggregationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregations, 'Aggregations', 'json');
         }
         if (!Utils::isUnset($tmpReq->query)) {
-            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->query), 'Query', 'json');
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
         if (!Utils::isUnset($tmpReq->withFields)) {
             $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
@@ -4331,7 +4578,7 @@ class Imm extends OpenApiClient
         $request = new UpdateFigureClusterShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->figureCluster)) {
-            $request->figureClusterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->figureCluster), 'FigureCluster', 'json');
+            $request->figureClusterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->figureCluster, 'FigureCluster', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
@@ -4385,7 +4632,7 @@ class Imm extends OpenApiClient
         $request = new UpdateFileMetaShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->file)) {
-            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->file), 'File', 'json');
+            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->datasetName)) {
@@ -4425,6 +4672,69 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFileMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateLocationDateClusterRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateLocationDateClusterResponse
+     */
+    public function updateLocationDateClusterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateLocationDateClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customLabels)) {
+            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->customId)) {
+            $query['CustomId'] = $request->customId;
+        }
+        if (!Utils::isUnset($request->customLabelsShrink)) {
+            $query['CustomLabels'] = $request->customLabelsShrink;
+        }
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->objectId)) {
+            $query['ObjectId'] = $request->objectId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLocationDateCluster',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateLocationDateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLocationDateClusterRequest $request
+     *
+     * @return UpdateLocationDateClusterResponse
+     */
+    public function updateLocationDateCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLocationDateClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -4515,7 +4825,7 @@ class Imm extends OpenApiClient
         $request = new UpdateStoryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->cover)) {
-            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->cover), 'Cover', 'json');
+            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cover, 'Cover', 'json');
         }
         if (!Utils::isUnset($tmpReq->customLabels)) {
             $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');

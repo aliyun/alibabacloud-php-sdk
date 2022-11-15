@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateStoryRequest extends Model
 {
     /**
+     * @var AddressForStory
+     */
+    public $address;
+
+    /**
      * @var string
      */
     public $customId;
@@ -83,6 +88,7 @@ class CreateStoryRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'address'         => 'Address',
         'customId'        => 'CustomId',
         'customLabels'    => 'CustomLabels',
         'datasetName'     => 'DatasetName',
@@ -107,6 +113,9 @@ class CreateStoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->address) {
+            $res['Address'] = null !== $this->address ? $this->address->toMap() : null;
+        }
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
@@ -164,6 +173,9 @@ class CreateStoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Address'])) {
+            $model->address = AddressForStory::fromMap($map['Address']);
+        }
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }
