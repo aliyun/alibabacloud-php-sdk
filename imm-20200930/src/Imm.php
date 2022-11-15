@@ -39,6 +39,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDetectVideoLabelsTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFigureClusteringTaskShrinkRequest;
@@ -60,6 +63,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageSplicingTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageToPDFTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageToPDFTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageToPDFTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateLocationDateClusteringTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateLocationDateClusteringTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateLocationDateClusteringTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskShrinkRequest;
@@ -71,6 +77,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateStoryShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoLabelClassificationTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateVideoModerationTaskShrinkRequest;
@@ -131,6 +140,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoLabelClassificationResultResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetVideoPlaylistShrinkRequest;
@@ -980,6 +991,72 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateDetectVideoLabelsTaskRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateDetectVideoLabelsTaskResponse
+     */
+    public function createDetectVideoLabelsTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDetectVideoLabelsTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDetectVideoLabelsTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDetectVideoLabelsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDetectVideoLabelsTaskRequest $request
+     *
+     * @return CreateDetectVideoLabelsTaskResponse
+     */
+    public function createDetectVideoLabelsTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDetectVideoLabelsTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateFigureClusteringTaskRequest $tmpReq
      * @param RuntimeOptions                    $runtime
      *
@@ -1505,6 +1582,78 @@ class Imm extends OpenApiClient
     }
 
     /**
+     * @param CreateLocationDateClusteringTaskRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateLocationDateClusteringTaskResponse
+     */
+    public function createLocationDateClusteringTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateLocationDateClusteringTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dateOptions)) {
+            $request->dateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dateOptions, 'DateOptions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->locationOptions)) {
+            $request->locationOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationOptions, 'LocationOptions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->datasetName)) {
+            $query['DatasetName'] = $request->datasetName;
+        }
+        if (!Utils::isUnset($request->dateOptionsShrink)) {
+            $query['DateOptions'] = $request->dateOptionsShrink;
+        }
+        if (!Utils::isUnset($request->locationOptionsShrink)) {
+            $query['LocationOptions'] = $request->locationOptionsShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLocationDateClusteringTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLocationDateClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLocationDateClusteringTaskRequest $request
+     *
+     * @return CreateLocationDateClusteringTaskResponse
+     */
+    public function createLocationDateClusteringTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLocationDateClusteringTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMediaConvertTaskRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
@@ -1898,6 +2047,72 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createStoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateVideoLabelClassificationTaskRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateVideoLabelClassificationTaskResponse
+     */
+    public function createVideoLabelClassificationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateVideoLabelClassificationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->credentialConfig)) {
+            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->credentialConfigShrink)) {
+            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVideoLabelClassificationTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVideoLabelClassificationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVideoLabelClassificationTaskRequest $request
+     *
+     * @return CreateVideoLabelClassificationTaskResponse
+     */
+    public function createVideoLabelClassificationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVideoLabelClassificationTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3232,6 +3447,55 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVideoLabelClassificationResultRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetVideoLabelClassificationResultResponse
+     */
+    public function getVideoLabelClassificationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoLabelClassificationResult',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVideoLabelClassificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVideoLabelClassificationResultRequest $request
+     *
+     * @return GetVideoLabelClassificationResultResponse
+     */
+    public function getVideoLabelClassificationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoLabelClassificationResultWithOptions($request, $runtime);
     }
 
     /**
