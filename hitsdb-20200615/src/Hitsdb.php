@@ -20,8 +20,12 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ModifyInstancePayTypeResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\RenewLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UntagResourcesRequest;
@@ -128,8 +132,20 @@ class Hitsdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->arbiterVSwitchId)) {
+            $query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
+        }
+        if (!Utils::isUnset($request->arbiterZoneId)) {
+            $query['ArbiterZoneId'] = $request->arbiterZoneId;
+        }
+        if (!Utils::isUnset($request->archVersion)) {
+            $query['ArchVersion'] = $request->archVersion;
+        }
         if (!Utils::isUnset($request->coldStorage)) {
             $query['ColdStorage'] = $request->coldStorage;
+        }
+        if (!Utils::isUnset($request->coreSingleStorage)) {
+            $query['CoreSingleStorage'] = $request->coreSingleStorage;
         }
         if (!Utils::isUnset($request->coreSpec)) {
             $query['CoreSpec'] = $request->coreSpec;
@@ -158,6 +174,21 @@ class Hitsdb extends OpenApiClient
         if (!Utils::isUnset($request->lindormSpec)) {
             $query['LindormSpec'] = $request->lindormSpec;
         }
+        if (!Utils::isUnset($request->logDiskCategory)) {
+            $query['LogDiskCategory'] = $request->logDiskCategory;
+        }
+        if (!Utils::isUnset($request->logNum)) {
+            $query['LogNum'] = $request->logNum;
+        }
+        if (!Utils::isUnset($request->logSingleStorage)) {
+            $query['LogSingleStorage'] = $request->logSingleStorage;
+        }
+        if (!Utils::isUnset($request->logSpec)) {
+            $query['LogSpec'] = $request->logSpec;
+        }
+        if (!Utils::isUnset($request->multiZoneCombination)) {
+            $query['MultiZoneCombination'] = $request->multiZoneCombination;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -169,6 +200,12 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->pricingCycle)) {
             $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->primaryVSwitchId)) {
+            $query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
+        }
+        if (!Utils::isUnset($request->primaryZoneId)) {
+            $query['PrimaryZoneId'] = $request->primaryZoneId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -190,6 +227,12 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->solrSpec)) {
             $query['SolrSpec'] = $request->solrSpec;
+        }
+        if (!Utils::isUnset($request->standbyVSwitchId)) {
+            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        }
+        if (!Utils::isUnset($request->standbyZoneId)) {
+            $query['StandbyZoneId'] = $request->standbyZoneId;
         }
         if (!Utils::isUnset($request->tsdbNum)) {
             $query['TsdbNum'] = $request->tsdbNum;
@@ -624,6 +667,73 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstancePayTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyInstancePayTypeResponse
+     */
+    public function modifyInstancePayTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstancePayType',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstancePayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstancePayTypeRequest $request
+     *
+     * @return ModifyInstancePayTypeResponse
+     */
+    public function modifyInstancePayType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstancePayTypeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReleaseLindormInstanceRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -679,6 +789,73 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseLindormInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewLindormInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RenewLindormInstanceResponse
+     */
+    public function renewLindormInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewLindormInstance',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewLindormInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewLindormInstanceRequest $request
+     *
+     * @return RenewLindormInstanceResponse
+     */
+    public function renewLindormInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewLindormInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -895,11 +1072,8 @@ class Hitsdb extends OpenApiClient
         if (!Utils::isUnset($request->coldStorage)) {
             $query['ColdStorage'] = $request->coldStorage;
         }
-        if (!Utils::isUnset($request->coreNum)) {
-            $query['CoreNum'] = $request->coreNum;
-        }
-        if (!Utils::isUnset($request->coreSpec)) {
-            $query['CoreSpec'] = $request->coreSpec;
+        if (!Utils::isUnset($request->coreSingleStorage)) {
+            $query['CoreSingleStorage'] = $request->coreSingleStorage;
         }
         if (!Utils::isUnset($request->filestoreNum)) {
             $query['FilestoreNum'] = $request->filestoreNum;
@@ -915,6 +1089,15 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->lindormSpec)) {
             $query['LindormSpec'] = $request->lindormSpec;
+        }
+        if (!Utils::isUnset($request->logNum)) {
+            $query['LogNum'] = $request->logNum;
+        }
+        if (!Utils::isUnset($request->logSingleStorage)) {
+            $query['LogSingleStorage'] = $request->logSingleStorage;
+        }
+        if (!Utils::isUnset($request->logSpec)) {
+            $query['LogSpec'] = $request->logSpec;
         }
         if (!Utils::isUnset($request->ltsCoreNum)) {
             $query['LtsCoreNum'] = $request->ltsCoreNum;

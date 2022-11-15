@@ -15,6 +15,16 @@ class GetLindormInstanceResponseBody extends Model
     public $aliUid;
 
     /**
+     * @var string
+     */
+    public $arbiterVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $arbiterZoneId;
+
+    /**
      * @var bool
      */
     public $autoRenew;
@@ -23,6 +33,26 @@ class GetLindormInstanceResponseBody extends Model
      * @var int
      */
     public $coldStorage;
+
+    /**
+     * @var string
+     */
+    public $coreDiskCategory;
+
+    /**
+     * @var int
+     */
+    public $coreNum;
+
+    /**
+     * @var int
+     */
+    public $coreSingleStorage;
+
+    /**
+     * @var string
+     */
+    public $coreSpec;
 
     /**
      * @var int
@@ -127,6 +157,26 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $logDiskCategory;
+
+    /**
+     * @var int
+     */
+    public $logNum;
+
+    /**
+     * @var int
+     */
+    public $logSingleStorage;
+
+    /**
+     * @var string
+     */
+    public $logSpec;
+
+    /**
+     * @var string
+     */
     public $maintainEndTime;
 
     /**
@@ -137,12 +187,27 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $multiZoneCombination;
+
+    /**
+     * @var string
+     */
     public $networkType;
 
     /**
      * @var string
      */
     public $payType;
+
+    /**
+     * @var string
+     */
+    public $primaryVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $primaryZoneId;
 
     /**
      * @var string
@@ -167,6 +232,16 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $standbyVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $standbyZoneId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -179,40 +254,55 @@ class GetLindormInstanceResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
-        'aliUid'              => 'AliUid',
-        'autoRenew'           => 'AutoRenew',
-        'coldStorage'         => 'ColdStorage',
-        'createMilliseconds'  => 'CreateMilliseconds',
-        'createTime'          => 'CreateTime',
-        'deletionProtection'  => 'DeletionProtection',
-        'diskCategory'        => 'DiskCategory',
-        'diskThreshold'       => 'DiskThreshold',
-        'diskUsage'           => 'DiskUsage',
-        'enableCdc'           => 'EnableCdc',
-        'enableCompute'       => 'EnableCompute',
-        'enableKms'           => 'EnableKms',
-        'enableSSL'           => 'EnableSSL',
-        'enableShs'           => 'EnableShs',
-        'enableStream'        => 'EnableStream',
-        'engineList'          => 'EngineList',
-        'engineType'          => 'EngineType',
-        'expireTime'          => 'ExpireTime',
-        'expiredMilliseconds' => 'ExpiredMilliseconds',
-        'instanceAlias'       => 'InstanceAlias',
-        'instanceId'          => 'InstanceId',
-        'instanceStatus'      => 'InstanceStatus',
-        'instanceStorage'     => 'InstanceStorage',
-        'maintainEndTime'     => 'MaintainEndTime',
-        'maintainStartTime'   => 'MaintainStartTime',
-        'networkType'         => 'NetworkType',
-        'payType'             => 'PayType',
-        'regionId'            => 'RegionId',
-        'requestId'           => 'RequestId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'serviceType'         => 'ServiceType',
-        'vpcId'               => 'VpcId',
-        'vswitchId'           => 'VswitchId',
-        'zoneId'              => 'ZoneId',
+        'aliUid'               => 'AliUid',
+        'arbiterVSwitchId'     => 'ArbiterVSwitchId',
+        'arbiterZoneId'        => 'ArbiterZoneId',
+        'autoRenew'            => 'AutoRenew',
+        'coldStorage'          => 'ColdStorage',
+        'coreDiskCategory'     => 'CoreDiskCategory',
+        'coreNum'              => 'CoreNum',
+        'coreSingleStorage'    => 'CoreSingleStorage',
+        'coreSpec'             => 'CoreSpec',
+        'createMilliseconds'   => 'CreateMilliseconds',
+        'createTime'           => 'CreateTime',
+        'deletionProtection'   => 'DeletionProtection',
+        'diskCategory'         => 'DiskCategory',
+        'diskThreshold'        => 'DiskThreshold',
+        'diskUsage'            => 'DiskUsage',
+        'enableCdc'            => 'EnableCdc',
+        'enableCompute'        => 'EnableCompute',
+        'enableKms'            => 'EnableKms',
+        'enableSSL'            => 'EnableSSL',
+        'enableShs'            => 'EnableShs',
+        'enableStream'         => 'EnableStream',
+        'engineList'           => 'EngineList',
+        'engineType'           => 'EngineType',
+        'expireTime'           => 'ExpireTime',
+        'expiredMilliseconds'  => 'ExpiredMilliseconds',
+        'instanceAlias'        => 'InstanceAlias',
+        'instanceId'           => 'InstanceId',
+        'instanceStatus'       => 'InstanceStatus',
+        'instanceStorage'      => 'InstanceStorage',
+        'logDiskCategory'      => 'LogDiskCategory',
+        'logNum'               => 'LogNum',
+        'logSingleStorage'     => 'LogSingleStorage',
+        'logSpec'              => 'LogSpec',
+        'maintainEndTime'      => 'MaintainEndTime',
+        'maintainStartTime'    => 'MaintainStartTime',
+        'multiZoneCombination' => 'MultiZoneCombination',
+        'networkType'          => 'NetworkType',
+        'payType'              => 'PayType',
+        'primaryVSwitchId'     => 'PrimaryVSwitchId',
+        'primaryZoneId'        => 'PrimaryZoneId',
+        'regionId'             => 'RegionId',
+        'requestId'            => 'RequestId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'serviceType'          => 'ServiceType',
+        'standbyVSwitchId'     => 'StandbyVSwitchId',
+        'standbyZoneId'        => 'StandbyZoneId',
+        'vpcId'                => 'VpcId',
+        'vswitchId'            => 'VswitchId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -225,11 +315,29 @@ class GetLindormInstanceResponseBody extends Model
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+        if (null !== $this->arbiterVSwitchId) {
+            $res['ArbiterVSwitchId'] = $this->arbiterVSwitchId;
+        }
+        if (null !== $this->arbiterZoneId) {
+            $res['ArbiterZoneId'] = $this->arbiterZoneId;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->coldStorage) {
             $res['ColdStorage'] = $this->coldStorage;
+        }
+        if (null !== $this->coreDiskCategory) {
+            $res['CoreDiskCategory'] = $this->coreDiskCategory;
+        }
+        if (null !== $this->coreNum) {
+            $res['CoreNum'] = $this->coreNum;
+        }
+        if (null !== $this->coreSingleStorage) {
+            $res['CoreSingleStorage'] = $this->coreSingleStorage;
+        }
+        if (null !== $this->coreSpec) {
+            $res['CoreSpec'] = $this->coreSpec;
         }
         if (null !== $this->createMilliseconds) {
             $res['CreateMilliseconds'] = $this->createMilliseconds;
@@ -297,17 +405,38 @@ class GetLindormInstanceResponseBody extends Model
         if (null !== $this->instanceStorage) {
             $res['InstanceStorage'] = $this->instanceStorage;
         }
+        if (null !== $this->logDiskCategory) {
+            $res['LogDiskCategory'] = $this->logDiskCategory;
+        }
+        if (null !== $this->logNum) {
+            $res['LogNum'] = $this->logNum;
+        }
+        if (null !== $this->logSingleStorage) {
+            $res['LogSingleStorage'] = $this->logSingleStorage;
+        }
+        if (null !== $this->logSpec) {
+            $res['LogSpec'] = $this->logSpec;
+        }
         if (null !== $this->maintainEndTime) {
             $res['MaintainEndTime'] = $this->maintainEndTime;
         }
         if (null !== $this->maintainStartTime) {
             $res['MaintainStartTime'] = $this->maintainStartTime;
         }
+        if (null !== $this->multiZoneCombination) {
+            $res['MultiZoneCombination'] = $this->multiZoneCombination;
+        }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->primaryVSwitchId) {
+            $res['PrimaryVSwitchId'] = $this->primaryVSwitchId;
+        }
+        if (null !== $this->primaryZoneId) {
+            $res['PrimaryZoneId'] = $this->primaryZoneId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -320,6 +449,12 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->standbyVSwitchId) {
+            $res['StandbyVSwitchId'] = $this->standbyVSwitchId;
+        }
+        if (null !== $this->standbyZoneId) {
+            $res['StandbyZoneId'] = $this->standbyZoneId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -345,11 +480,29 @@ class GetLindormInstanceResponseBody extends Model
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+        if (isset($map['ArbiterVSwitchId'])) {
+            $model->arbiterVSwitchId = $map['ArbiterVSwitchId'];
+        }
+        if (isset($map['ArbiterZoneId'])) {
+            $model->arbiterZoneId = $map['ArbiterZoneId'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['ColdStorage'])) {
             $model->coldStorage = $map['ColdStorage'];
+        }
+        if (isset($map['CoreDiskCategory'])) {
+            $model->coreDiskCategory = $map['CoreDiskCategory'];
+        }
+        if (isset($map['CoreNum'])) {
+            $model->coreNum = $map['CoreNum'];
+        }
+        if (isset($map['CoreSingleStorage'])) {
+            $model->coreSingleStorage = $map['CoreSingleStorage'];
+        }
+        if (isset($map['CoreSpec'])) {
+            $model->coreSpec = $map['CoreSpec'];
         }
         if (isset($map['CreateMilliseconds'])) {
             $model->createMilliseconds = $map['CreateMilliseconds'];
@@ -417,17 +570,38 @@ class GetLindormInstanceResponseBody extends Model
         if (isset($map['InstanceStorage'])) {
             $model->instanceStorage = $map['InstanceStorage'];
         }
+        if (isset($map['LogDiskCategory'])) {
+            $model->logDiskCategory = $map['LogDiskCategory'];
+        }
+        if (isset($map['LogNum'])) {
+            $model->logNum = $map['LogNum'];
+        }
+        if (isset($map['LogSingleStorage'])) {
+            $model->logSingleStorage = $map['LogSingleStorage'];
+        }
+        if (isset($map['LogSpec'])) {
+            $model->logSpec = $map['LogSpec'];
+        }
         if (isset($map['MaintainEndTime'])) {
             $model->maintainEndTime = $map['MaintainEndTime'];
         }
         if (isset($map['MaintainStartTime'])) {
             $model->maintainStartTime = $map['MaintainStartTime'];
         }
+        if (isset($map['MultiZoneCombination'])) {
+            $model->multiZoneCombination = $map['MultiZoneCombination'];
+        }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['PrimaryVSwitchId'])) {
+            $model->primaryVSwitchId = $map['PrimaryVSwitchId'];
+        }
+        if (isset($map['PrimaryZoneId'])) {
+            $model->primaryZoneId = $map['PrimaryZoneId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -440,6 +614,12 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['StandbyVSwitchId'])) {
+            $model->standbyVSwitchId = $map['StandbyVSwitchId'];
+        }
+        if (isset($map['StandbyZoneId'])) {
+            $model->standbyZoneId = $map['StandbyZoneId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

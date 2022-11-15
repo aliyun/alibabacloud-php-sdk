@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateLindormInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $arbiterVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $arbiterZoneId;
+
+    /**
+     * @var string
+     */
+    public $archVersion;
+
+    /**
      * @var int
      */
     public $coldStorage;
+
+    /**
+     * @var int
+     */
+    public $coreSingleStorage;
 
     /**
      * @var string
@@ -61,6 +81,31 @@ class CreateLindormInstanceRequest extends Model
     /**
      * @var string
      */
+    public $logDiskCategory;
+
+    /**
+     * @var int
+     */
+    public $logNum;
+
+    /**
+     * @var int
+     */
+    public $logSingleStorage;
+
+    /**
+     * @var string
+     */
+    public $logSpec;
+
+    /**
+     * @var string
+     */
+    public $multiZoneCombination;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -77,6 +122,16 @@ class CreateLindormInstanceRequest extends Model
      * @var string
      */
     public $pricingCycle;
+
+    /**
+     * @var string
+     */
+    public $primaryVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $primaryZoneId;
 
     /**
      * @var string
@@ -114,6 +169,16 @@ class CreateLindormInstanceRequest extends Model
     public $solrSpec;
 
     /**
+     * @var string
+     */
+    public $standbyVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $standbyZoneId;
+
+    /**
      * @var int
      */
     public $tsdbNum;
@@ -138,7 +203,11 @@ class CreateLindormInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'arbiterVSwitchId'     => 'ArbiterVSwitchId',
+        'arbiterZoneId'        => 'ArbiterZoneId',
+        'archVersion'          => 'ArchVersion',
         'coldStorage'          => 'ColdStorage',
+        'coreSingleStorage'    => 'CoreSingleStorage',
         'coreSpec'             => 'CoreSpec',
         'diskCategory'         => 'DiskCategory',
         'duration'             => 'Duration',
@@ -148,10 +217,17 @@ class CreateLindormInstanceRequest extends Model
         'instanceStorage'      => 'InstanceStorage',
         'lindormNum'           => 'LindormNum',
         'lindormSpec'          => 'LindormSpec',
+        'logDiskCategory'      => 'LogDiskCategory',
+        'logNum'               => 'LogNum',
+        'logSingleStorage'     => 'LogSingleStorage',
+        'logSpec'              => 'LogSpec',
+        'multiZoneCombination' => 'MultiZoneCombination',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'payType'              => 'PayType',
         'pricingCycle'         => 'PricingCycle',
+        'primaryVSwitchId'     => 'PrimaryVSwitchId',
+        'primaryZoneId'        => 'PrimaryZoneId',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -159,6 +235,8 @@ class CreateLindormInstanceRequest extends Model
         'securityToken'        => 'SecurityToken',
         'solrNum'              => 'SolrNum',
         'solrSpec'             => 'SolrSpec',
+        'standbyVSwitchId'     => 'StandbyVSwitchId',
+        'standbyZoneId'        => 'StandbyZoneId',
         'tsdbNum'              => 'TsdbNum',
         'tsdbSpec'             => 'TsdbSpec',
         'VPCId'                => 'VPCId',
@@ -173,8 +251,20 @@ class CreateLindormInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->arbiterVSwitchId) {
+            $res['ArbiterVSwitchId'] = $this->arbiterVSwitchId;
+        }
+        if (null !== $this->arbiterZoneId) {
+            $res['ArbiterZoneId'] = $this->arbiterZoneId;
+        }
+        if (null !== $this->archVersion) {
+            $res['ArchVersion'] = $this->archVersion;
+        }
         if (null !== $this->coldStorage) {
             $res['ColdStorage'] = $this->coldStorage;
+        }
+        if (null !== $this->coreSingleStorage) {
+            $res['CoreSingleStorage'] = $this->coreSingleStorage;
         }
         if (null !== $this->coreSpec) {
             $res['CoreSpec'] = $this->coreSpec;
@@ -203,6 +293,21 @@ class CreateLindormInstanceRequest extends Model
         if (null !== $this->lindormSpec) {
             $res['LindormSpec'] = $this->lindormSpec;
         }
+        if (null !== $this->logDiskCategory) {
+            $res['LogDiskCategory'] = $this->logDiskCategory;
+        }
+        if (null !== $this->logNum) {
+            $res['LogNum'] = $this->logNum;
+        }
+        if (null !== $this->logSingleStorage) {
+            $res['LogSingleStorage'] = $this->logSingleStorage;
+        }
+        if (null !== $this->logSpec) {
+            $res['LogSpec'] = $this->logSpec;
+        }
+        if (null !== $this->multiZoneCombination) {
+            $res['MultiZoneCombination'] = $this->multiZoneCombination;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -214,6 +319,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
+        }
+        if (null !== $this->primaryVSwitchId) {
+            $res['PrimaryVSwitchId'] = $this->primaryVSwitchId;
+        }
+        if (null !== $this->primaryZoneId) {
+            $res['PrimaryZoneId'] = $this->primaryZoneId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -235,6 +346,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (null !== $this->solrSpec) {
             $res['SolrSpec'] = $this->solrSpec;
+        }
+        if (null !== $this->standbyVSwitchId) {
+            $res['StandbyVSwitchId'] = $this->standbyVSwitchId;
+        }
+        if (null !== $this->standbyZoneId) {
+            $res['StandbyZoneId'] = $this->standbyZoneId;
         }
         if (null !== $this->tsdbNum) {
             $res['TsdbNum'] = $this->tsdbNum;
@@ -263,8 +380,20 @@ class CreateLindormInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArbiterVSwitchId'])) {
+            $model->arbiterVSwitchId = $map['ArbiterVSwitchId'];
+        }
+        if (isset($map['ArbiterZoneId'])) {
+            $model->arbiterZoneId = $map['ArbiterZoneId'];
+        }
+        if (isset($map['ArchVersion'])) {
+            $model->archVersion = $map['ArchVersion'];
+        }
         if (isset($map['ColdStorage'])) {
             $model->coldStorage = $map['ColdStorage'];
+        }
+        if (isset($map['CoreSingleStorage'])) {
+            $model->coreSingleStorage = $map['CoreSingleStorage'];
         }
         if (isset($map['CoreSpec'])) {
             $model->coreSpec = $map['CoreSpec'];
@@ -293,6 +422,21 @@ class CreateLindormInstanceRequest extends Model
         if (isset($map['LindormSpec'])) {
             $model->lindormSpec = $map['LindormSpec'];
         }
+        if (isset($map['LogDiskCategory'])) {
+            $model->logDiskCategory = $map['LogDiskCategory'];
+        }
+        if (isset($map['LogNum'])) {
+            $model->logNum = $map['LogNum'];
+        }
+        if (isset($map['LogSingleStorage'])) {
+            $model->logSingleStorage = $map['LogSingleStorage'];
+        }
+        if (isset($map['LogSpec'])) {
+            $model->logSpec = $map['LogSpec'];
+        }
+        if (isset($map['MultiZoneCombination'])) {
+            $model->multiZoneCombination = $map['MultiZoneCombination'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -304,6 +448,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
+        }
+        if (isset($map['PrimaryVSwitchId'])) {
+            $model->primaryVSwitchId = $map['PrimaryVSwitchId'];
+        }
+        if (isset($map['PrimaryZoneId'])) {
+            $model->primaryZoneId = $map['PrimaryZoneId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -325,6 +475,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (isset($map['SolrSpec'])) {
             $model->solrSpec = $map['SolrSpec'];
+        }
+        if (isset($map['StandbyVSwitchId'])) {
+            $model->standbyVSwitchId = $map['StandbyVSwitchId'];
+        }
+        if (isset($map['StandbyZoneId'])) {
+            $model->standbyZoneId = $map['StandbyZoneId'];
         }
         if (isset($map['TsdbNum'])) {
             $model->tsdbNum = $map['TsdbNum'];

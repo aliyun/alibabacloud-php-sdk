@@ -21,12 +21,7 @@ class UpgradeLindormInstanceRequest extends Model
     /**
      * @var int
      */
-    public $coreNum;
-
-    /**
-     * @var string
-     */
-    public $coreSpec;
+    public $coreSingleStorage;
 
     /**
      * @var int
@@ -52,6 +47,21 @@ class UpgradeLindormInstanceRequest extends Model
      * @var string
      */
     public $lindormSpec;
+
+    /**
+     * @var int
+     */
+    public $logNum;
+
+    /**
+     * @var int
+     */
+    public $logSingleStorage;
+
+    /**
+     * @var string
+     */
+    public $logSpec;
 
     /**
      * @var int
@@ -135,13 +145,15 @@ class UpgradeLindormInstanceRequest extends Model
     protected $_name = [
         'clusterStorage'       => 'ClusterStorage',
         'coldStorage'          => 'ColdStorage',
-        'coreNum'              => 'CoreNum',
-        'coreSpec'             => 'CoreSpec',
+        'coreSingleStorage'    => 'CoreSingleStorage',
         'filestoreNum'         => 'FilestoreNum',
         'filestoreSpec'        => 'FilestoreSpec',
         'instanceId'           => 'InstanceId',
         'lindormNum'           => 'LindormNum',
         'lindormSpec'          => 'LindormSpec',
+        'logNum'               => 'LogNum',
+        'logSingleStorage'     => 'LogSingleStorage',
+        'logSpec'              => 'LogSpec',
         'ltsCoreNum'           => 'LtsCoreNum',
         'ltsCoreSpec'          => 'LtsCoreSpec',
         'ownerAccount'         => 'OwnerAccount',
@@ -173,11 +185,8 @@ class UpgradeLindormInstanceRequest extends Model
         if (null !== $this->coldStorage) {
             $res['ColdStorage'] = $this->coldStorage;
         }
-        if (null !== $this->coreNum) {
-            $res['CoreNum'] = $this->coreNum;
-        }
-        if (null !== $this->coreSpec) {
-            $res['CoreSpec'] = $this->coreSpec;
+        if (null !== $this->coreSingleStorage) {
+            $res['CoreSingleStorage'] = $this->coreSingleStorage;
         }
         if (null !== $this->filestoreNum) {
             $res['FilestoreNum'] = $this->filestoreNum;
@@ -193,6 +202,15 @@ class UpgradeLindormInstanceRequest extends Model
         }
         if (null !== $this->lindormSpec) {
             $res['LindormSpec'] = $this->lindormSpec;
+        }
+        if (null !== $this->logNum) {
+            $res['LogNum'] = $this->logNum;
+        }
+        if (null !== $this->logSingleStorage) {
+            $res['LogSingleStorage'] = $this->logSingleStorage;
+        }
+        if (null !== $this->logSpec) {
+            $res['LogSpec'] = $this->logSpec;
         }
         if (null !== $this->ltsCoreNum) {
             $res['LtsCoreNum'] = $this->ltsCoreNum;
@@ -260,11 +278,8 @@ class UpgradeLindormInstanceRequest extends Model
         if (isset($map['ColdStorage'])) {
             $model->coldStorage = $map['ColdStorage'];
         }
-        if (isset($map['CoreNum'])) {
-            $model->coreNum = $map['CoreNum'];
-        }
-        if (isset($map['CoreSpec'])) {
-            $model->coreSpec = $map['CoreSpec'];
+        if (isset($map['CoreSingleStorage'])) {
+            $model->coreSingleStorage = $map['CoreSingleStorage'];
         }
         if (isset($map['FilestoreNum'])) {
             $model->filestoreNum = $map['FilestoreNum'];
@@ -280,6 +295,15 @@ class UpgradeLindormInstanceRequest extends Model
         }
         if (isset($map['LindormSpec'])) {
             $model->lindormSpec = $map['LindormSpec'];
+        }
+        if (isset($map['LogNum'])) {
+            $model->logNum = $map['LogNum'];
+        }
+        if (isset($map['LogSingleStorage'])) {
+            $model->logSingleStorage = $map['LogSingleStorage'];
+        }
+        if (isset($map['LogSpec'])) {
+            $model->logSpec = $map['LogSpec'];
         }
         if (isset($map['LtsCoreNum'])) {
             $model->ltsCoreNum = $map['LtsCoreNum'];
