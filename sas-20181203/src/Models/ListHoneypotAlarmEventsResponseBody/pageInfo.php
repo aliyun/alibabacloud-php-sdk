@@ -19,16 +19,6 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @var string
-     */
-    public $lastRowKey;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var int
      */
     public $pageSize;
@@ -40,8 +30,6 @@ class pageInfo extends Model
     protected $_name = [
         'count'       => 'Count',
         'currentPage' => 'CurrentPage',
-        'lastRowKey'  => 'LastRowKey',
-        'nextToken'   => 'NextToken',
         'pageSize'    => 'PageSize',
         'totalCount'  => 'TotalCount',
     ];
@@ -58,12 +46,6 @@ class pageInfo extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
-        }
-        if (null !== $this->lastRowKey) {
-            $res['LastRowKey'] = $this->lastRowKey;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -88,12 +70,6 @@ class pageInfo extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
-        }
-        if (isset($map['LastRowKey'])) {
-            $model->lastRowKey = $map['LastRowKey'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

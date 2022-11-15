@@ -103,6 +103,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudCenterInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCloudProductFieldStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonOverallConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonOverallConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonTargetResultListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonTargetResultListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeConcernNecessityResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerStatisticsRequest;
@@ -175,6 +177,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOfflineMachinesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOfflineMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOnceTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOnceTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyCountRequest;
@@ -3163,6 +3167,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeCommonTargetResultListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeCommonTargetResultListResponse
+     */
+    public function describeCommonTargetResultListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCommonTargetResultList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCommonTargetResultListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommonTargetResultListRequest $request
+     *
+     * @return DescribeCommonTargetResultListResponse
+     */
+    public function describeCommonTargetResultList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommonTargetResultListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeConcernNecessityRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5248,6 +5298,70 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNoticeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOfflineMachinesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeOfflineMachinesResponse
+     */
+    public function describeOfflineMachinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionIdStr)) {
+            $query['RegionIdStr'] = $request->regionIdStr;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOfflineMachines',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOfflineMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOfflineMachinesRequest $request
+     *
+     * @return DescribeOfflineMachinesResponse
+     */
+    public function describeOfflineMachines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOfflineMachinesWithOptions($request, $runtime);
     }
 
     /**
