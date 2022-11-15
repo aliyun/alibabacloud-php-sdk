@@ -96,6 +96,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListWithMetircsRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListWithMetircsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
@@ -318,7 +320,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -657,16 +658,16 @@ class Mse extends OpenApiClient
         $request = new AddGatewayRouteShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->directResponseJSON)) {
-            $request->directResponseJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->directResponseJSON), 'DirectResponseJSON', 'json');
+            $request->directResponseJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->directResponseJSON, 'DirectResponseJSON', 'json');
         }
         if (!Utils::isUnset($tmpReq->fallbackServices)) {
             $request->fallbackServicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fallbackServices, 'FallbackServices', 'json');
         }
         if (!Utils::isUnset($tmpReq->predicates)) {
-            $request->predicatesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->predicates), 'Predicates', 'json');
+            $request->predicatesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->predicates, 'Predicates', 'json');
         }
         if (!Utils::isUnset($tmpReq->redirectJSON)) {
-            $request->redirectJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->redirectJSON), 'RedirectJSON', 'json');
+            $request->redirectJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirectJSON, 'RedirectJSON', 'json');
         }
         if (!Utils::isUnset($tmpReq->services)) {
             $request->servicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->services, 'Services', 'json');
@@ -1064,7 +1065,7 @@ class Mse extends OpenApiClient
             $request->groupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupList, 'GroupList', 'json');
         }
         if (!Utils::isUnset($tmpReq->ingressOptionsRequest)) {
-            $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ingressOptionsRequest), 'IngressOptionsRequest', 'json');
+            $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ingressOptionsRequest, 'IngressOptionsRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->pathList)) {
             $request->pathListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pathList, 'PathList', 'json');
@@ -3132,6 +3133,67 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param GetApplicationListWithMetircsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetApplicationListWithMetircsResponse
+     */
+    public function getApplicationListWithMetircsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplicationListWithMetircs',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationListWithMetircsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetApplicationListWithMetircsRequest $request
+     *
+     * @return GetApplicationListWithMetircsResponse
+     */
+    public function getApplicationListWithMetircs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationListWithMetircsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBlackWhiteListRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4854,7 +4916,7 @@ class Mse extends OpenApiClient
         $request = new ListGatewayShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->filterParams)) {
-            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->filterParams), 'FilterParams', 'json');
+            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterParams, 'FilterParams', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -4966,7 +5028,7 @@ class Mse extends OpenApiClient
         $request = new ListGatewayRouteShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->filterParams)) {
-            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->filterParams), 'FilterParams', 'json');
+            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterParams, 'FilterParams', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -5029,7 +5091,7 @@ class Mse extends OpenApiClient
         $request = new ListGatewayServiceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->filterParams)) {
-            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->filterParams), 'FilterParams', 'json');
+            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterParams, 'FilterParams', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -7348,7 +7410,7 @@ class Mse extends OpenApiClient
         $request = new UpdateGatewayOptionShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->gatewayOption)) {
-            $request->gatewayOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayOption), 'GatewayOption', 'json');
+            $request->gatewayOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->gatewayOption, 'GatewayOption', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -7405,16 +7467,16 @@ class Mse extends OpenApiClient
         $request = new UpdateGatewayRouteShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->directResponseJSON)) {
-            $request->directResponseJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->directResponseJSON), 'DirectResponseJSON', 'json');
+            $request->directResponseJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->directResponseJSON, 'DirectResponseJSON', 'json');
         }
         if (!Utils::isUnset($tmpReq->fallbackServices)) {
             $request->fallbackServicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fallbackServices, 'FallbackServices', 'json');
         }
         if (!Utils::isUnset($tmpReq->predicates)) {
-            $request->predicatesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->predicates), 'Predicates', 'json');
+            $request->predicatesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->predicates, 'Predicates', 'json');
         }
         if (!Utils::isUnset($tmpReq->redirectJSON)) {
-            $request->redirectJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->redirectJSON), 'RedirectJSON', 'json');
+            $request->redirectJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirectJSON, 'RedirectJSON', 'json');
         }
         if (!Utils::isUnset($tmpReq->services)) {
             $request->servicesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->services, 'Services', 'json');
@@ -7507,7 +7569,7 @@ class Mse extends OpenApiClient
         $request = new UpdateGatewayRouteCORSShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->corsJSON)) {
-            $request->corsJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->corsJSON), 'CorsJSON', 'json');
+            $request->corsJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->corsJSON, 'CorsJSON', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -7677,7 +7739,7 @@ class Mse extends OpenApiClient
         $request = new UpdateGatewayRouteRetryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->retryJSON)) {
-            $request->retryJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->retryJSON), 'RetryJSON', 'json');
+            $request->retryJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retryJSON, 'RetryJSON', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -7737,7 +7799,7 @@ class Mse extends OpenApiClient
         $request = new UpdateGatewayRouteTimeoutShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->timeoutJSON)) {
-            $request->timeoutJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->timeoutJSON), 'TimeoutJSON', 'json');
+            $request->timeoutJSONShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timeoutJSON, 'TimeoutJSON', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -7849,7 +7911,7 @@ class Mse extends OpenApiClient
         $request = new UpdateGatewayServiceTrafficPolicyShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->gatewayTrafficPolicy)) {
-            $request->gatewayTrafficPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayTrafficPolicy), 'GatewayTrafficPolicy', 'json');
+            $request->gatewayTrafficPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->gatewayTrafficPolicy, 'GatewayTrafficPolicy', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
@@ -8532,7 +8594,7 @@ class Mse extends OpenApiClient
         $request = new UpdateServiceSourceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->ingressOptionsRequest)) {
-            $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ingressOptionsRequest), 'IngressOptionsRequest', 'json');
+            $request->ingressOptionsRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ingressOptionsRequest, 'IngressOptionsRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->pathList)) {
             $request->pathListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pathList, 'PathList', 'json');
