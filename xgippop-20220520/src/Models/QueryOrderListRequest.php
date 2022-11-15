@@ -29,6 +29,16 @@ class QueryOrderListRequest extends Model
     public $mobile;
 
     /**
+     * @var string
+     */
+    public $orderTime;
+
+    /**
+     * @var string
+     */
+    public $outBizNo;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -42,6 +52,8 @@ class QueryOrderListRequest extends Model
         'instanceId' => 'InstanceId',
         'itemCode'   => 'ItemCode',
         'mobile'     => 'Mobile',
+        'orderTime'  => 'OrderTime',
+        'outBizNo'   => 'OutBizNo',
         'pageSize'   => 'PageSize',
         'UId'        => 'UId',
     ];
@@ -64,6 +76,12 @@ class QueryOrderListRequest extends Model
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->orderTime) {
+            $res['OrderTime'] = $this->orderTime;
+        }
+        if (null !== $this->outBizNo) {
+            $res['OutBizNo'] = $this->outBizNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -94,6 +112,12 @@ class QueryOrderListRequest extends Model
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['OrderTime'])) {
+            $model->orderTime = $map['OrderTime'];
+        }
+        if (isset($map['OutBizNo'])) {
+            $model->outBizNo = $map['OutBizNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

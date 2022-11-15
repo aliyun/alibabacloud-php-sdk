@@ -11,20 +11,26 @@ class data extends Model
     /**
      * @var string
      */
+    public $bizCode;
+
+    /**
+     * @var string
+     */
+    public $customerFlowOrderId;
+
+    /**
+     * @var string
+     */
     public $customerFlowRequestId;
 
     /**
      * @var string
      */
-    public $mobile;
-
-    /**
-     * @var bool
-     */
     public $status;
     protected $_name = [
+        'bizCode'               => 'BizCode',
+        'customerFlowOrderId'   => 'CustomerFlowOrderId',
         'customerFlowRequestId' => 'CustomerFlowRequestId',
-        'mobile'                => 'Mobile',
         'status'                => 'Status',
     ];
 
@@ -35,11 +41,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizCode) {
+            $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->customerFlowOrderId) {
+            $res['CustomerFlowOrderId'] = $this->customerFlowOrderId;
+        }
         if (null !== $this->customerFlowRequestId) {
             $res['CustomerFlowRequestId'] = $this->customerFlowRequestId;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -56,11 +65,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizCode'])) {
+            $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['CustomerFlowOrderId'])) {
+            $model->customerFlowOrderId = $map['CustomerFlowOrderId'];
+        }
         if (isset($map['CustomerFlowRequestId'])) {
             $model->customerFlowRequestId = $map['CustomerFlowRequestId'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

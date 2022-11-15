@@ -54,12 +54,8 @@ use AlibabaCloud\SDK\XgipPop\V20220520\Models\QueryOrderListRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\QueryOrderListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SaveApplicationInfoResponse;
-use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkChargeFlowRequest;
-use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkChargeFlowResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetInventoryInfoRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetInventoryInfoResponse;
-use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetItemInstListRequest;
-use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkGetItemInstListResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkOrderQosProductRequest;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkOrderQosProductResponse;
 use AlibabaCloud\SDK\XgipPop\V20220520\Models\SdkValidateStatusRequest;
@@ -178,6 +174,9 @@ class XgipPop extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->channelCode)) {
+            $query['ChannelCode'] = $request->channelCode;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -186,6 +185,12 @@ class XgipPop extends OpenApiClient
         }
         if (!Utils::isUnset($request->mobile)) {
             $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->orderTime)) {
+            $query['OrderTime'] = $request->orderTime;
+        }
+        if (!Utils::isUnset($request->outBizNo)) {
+            $query['OutBizNo'] = $request->outBizNo;
         }
         if (!Utils::isUnset($request->UId)) {
             $query['UId'] = $request->UId;
@@ -1282,64 +1287,6 @@ class XgipPop extends OpenApiClient
     }
 
     /**
-     * @param SdkChargeFlowRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SdkChargeFlowResponse
-     */
-    public function sdkChargeFlowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelCode)) {
-            $query['ChannelCode'] = $request->channelCode;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->itemCode)) {
-            $query['ItemCode'] = $request->itemCode;
-        }
-        if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
-        }
-        if (!Utils::isUnset($request->outBizNo)) {
-            $query['OutBizNo'] = $request->outBizNo;
-        }
-        if (!Utils::isUnset($request->UId)) {
-            $query['UId'] = $request->UId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SdkChargeFlow',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SdkChargeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SdkChargeFlowRequest $request
-     *
-     * @return SdkChargeFlowResponse
-     */
-    public function sdkChargeFlow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sdkChargeFlowWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SdkGetInventoryInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1377,46 +1324,6 @@ class XgipPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sdkGetInventoryInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SdkGetItemInstListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SdkGetItemInstListResponse
-     */
-    public function sdkGetItemInstListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SdkGetItemInstList',
-            'version'     => '2022-05-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SdkGetItemInstListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SdkGetItemInstListRequest $request
-     *
-     * @return SdkGetItemInstListResponse
-     */
-    public function sdkGetItemInstList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sdkGetItemInstListWithOptions($request, $runtime);
     }
 
     /**

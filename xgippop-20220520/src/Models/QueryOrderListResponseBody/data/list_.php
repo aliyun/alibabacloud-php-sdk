@@ -41,6 +41,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $outBizNo;
+
+    /**
+     * @var string
+     */
     public $productId;
 
     /**
@@ -59,6 +64,7 @@ class list_ extends Model
         'operator'    => 'Operator',
         'orderId'     => 'OrderId',
         'orderTime'   => 'OrderTime',
+        'outBizNo'    => 'OutBizNo',
         'productId'   => 'ProductId',
         'productName' => 'ProductName',
         'status'      => 'Status',
@@ -88,6 +94,9 @@ class list_ extends Model
         }
         if (null !== $this->orderTime) {
             $res['OrderTime'] = $this->orderTime;
+        }
+        if (null !== $this->outBizNo) {
+            $res['OutBizNo'] = $this->outBizNo;
         }
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
@@ -127,6 +136,9 @@ class list_ extends Model
         }
         if (isset($map['OrderTime'])) {
             $model->orderTime = $map['OrderTime'];
+        }
+        if (isset($map['OutBizNo'])) {
+            $model->outBizNo = $map['OutBizNo'];
         }
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];

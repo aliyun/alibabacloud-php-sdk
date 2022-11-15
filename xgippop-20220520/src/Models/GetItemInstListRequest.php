@@ -34,6 +34,11 @@ class GetItemInstListRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $UId;
@@ -43,6 +48,7 @@ class GetItemInstListRequest extends Model
         'itemCode'   => 'ItemCode',
         'mobile'     => 'Mobile',
         'pageSize'   => 'PageSize',
+        'status'     => 'Status',
         'UId'        => 'UId',
     ];
 
@@ -67,6 +73,9 @@ class GetItemInstListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->UId) {
             $res['UId'] = $this->UId;
@@ -97,6 +106,9 @@ class GetItemInstListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['UId'])) {
             $model->UId = $map['UId'];

@@ -11,6 +11,11 @@ class ChargeFlowRequest extends Model
     /**
      * @var string
      */
+    public $channelCode;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -24,14 +29,27 @@ class ChargeFlowRequest extends Model
     public $mobile;
 
     /**
+     * @var string
+     */
+    public $orderTime;
+
+    /**
+     * @var string
+     */
+    public $outBizNo;
+
+    /**
      * @var int
      */
     public $UId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'itemCode'   => 'ItemCode',
-        'mobile'     => 'Mobile',
-        'UId'        => 'UId',
+        'channelCode' => 'ChannelCode',
+        'instanceId'  => 'InstanceId',
+        'itemCode'    => 'ItemCode',
+        'mobile'      => 'Mobile',
+        'orderTime'   => 'OrderTime',
+        'outBizNo'    => 'OutBizNo',
+        'UId'         => 'UId',
     ];
 
     public function validate()
@@ -41,6 +59,9 @@ class ChargeFlowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelCode) {
+            $res['ChannelCode'] = $this->channelCode;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,6 +70,12 @@ class ChargeFlowRequest extends Model
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->orderTime) {
+            $res['OrderTime'] = $this->orderTime;
+        }
+        if (null !== $this->outBizNo) {
+            $res['OutBizNo'] = $this->outBizNo;
         }
         if (null !== $this->UId) {
             $res['UId'] = $this->UId;
@@ -65,6 +92,9 @@ class ChargeFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelCode'])) {
+            $model->channelCode = $map['ChannelCode'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,6 +103,12 @@ class ChargeFlowRequest extends Model
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['OrderTime'])) {
+            $model->orderTime = $map['OrderTime'];
+        }
+        if (isset($map['OutBizNo'])) {
+            $model->outBizNo = $map['OutBizNo'];
         }
         if (isset($map['UId'])) {
             $model->UId = $map['UId'];
