@@ -14,7 +14,7 @@ class StopSingleCardRequest extends Model
     public $iccid;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $optMsisdns;
     protected $_name = [
@@ -51,7 +51,9 @@ class StopSingleCardRequest extends Model
             $model->iccid = $map['Iccid'];
         }
         if (isset($map['OptMsisdns'])) {
-            $model->optMsisdns = $map['OptMsisdns'];
+            if (!empty($map['OptMsisdns'])) {
+                $model->optMsisdns = $map['OptMsisdns'];
+            }
         }
 
         return $model;

@@ -17,6 +17,16 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $apnName;
+
+    /**
+     * @var string
+     */
+    public $apnRegion;
+
+    /**
+     * @var string
+     */
     public $billingCycle;
 
     /**
@@ -115,11 +125,18 @@ class list_ extends Model
     public $poolNo;
 
     /**
+     * @var int
+     */
+    public $resourceQuantity;
+
+    /**
      * @var string
      */
     public $vendor;
     protected $_name = [
         'aliFee'            => 'AliFee',
+        'apnName'           => 'ApnName',
+        'apnRegion'         => 'ApnRegion',
         'billingCycle'      => 'BillingCycle',
         'buyNum'            => 'BuyNum',
         'cardPayCount'      => 'CardPayCount',
@@ -140,6 +157,7 @@ class list_ extends Model
         'poolCapacity'      => 'PoolCapacity',
         'poolCapacityUnit'  => 'PoolCapacityUnit',
         'poolNo'            => 'PoolNo',
+        'resourceQuantity'  => 'ResourceQuantity',
         'vendor'            => 'Vendor',
     ];
 
@@ -152,6 +170,12 @@ class list_ extends Model
         $res = [];
         if (null !== $this->aliFee) {
             $res['AliFee'] = $this->aliFee;
+        }
+        if (null !== $this->apnName) {
+            $res['ApnName'] = $this->apnName;
+        }
+        if (null !== $this->apnRegion) {
+            $res['ApnRegion'] = $this->apnRegion;
         }
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
@@ -213,6 +237,9 @@ class list_ extends Model
         if (null !== $this->poolNo) {
             $res['PoolNo'] = $this->poolNo;
         }
+        if (null !== $this->resourceQuantity) {
+            $res['ResourceQuantity'] = $this->resourceQuantity;
+        }
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -230,6 +257,12 @@ class list_ extends Model
         $model = new self();
         if (isset($map['AliFee'])) {
             $model->aliFee = $map['AliFee'];
+        }
+        if (isset($map['ApnName'])) {
+            $model->apnName = $map['ApnName'];
+        }
+        if (isset($map['ApnRegion'])) {
+            $model->apnRegion = $map['ApnRegion'];
         }
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
@@ -292,6 +325,9 @@ class list_ extends Model
         }
         if (isset($map['PoolNo'])) {
             $model->poolNo = $map['PoolNo'];
+        }
+        if (isset($map['ResourceQuantity'])) {
+            $model->resourceQuantity = $map['ResourceQuantity'];
         }
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
