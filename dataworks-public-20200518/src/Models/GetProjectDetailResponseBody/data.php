@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetProjectDetailResponseBody;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetProjectDetailResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -17,6 +18,11 @@ class data extends Model
      * @var int
      */
     public $developmentType;
+
+    /**
+     * @var bool
+     */
+    public $disableDevelopment;
 
     /**
      * @var string[]
@@ -37,6 +43,11 @@ class data extends Model
      * @var int
      */
     public $isAllowDownload;
+
+    /**
+     * @var int
+     */
+    public $isDefault;
 
     /**
      * @var string
@@ -79,6 +90,11 @@ class data extends Model
     public $residentArea;
 
     /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
      * @var int
      */
     public $schedulerMaxRetryTimes;
@@ -96,14 +112,31 @@ class data extends Model
     /**
      * @var int
      */
+    public $tablePrivacyMode;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @var int
+     */
     public $tenantId;
+
+    /**
+     * @var bool
+     */
+    public $useProxyOdpsAccount;
     protected $_name = [
         'defaultDiResourceGroupIdentifier' => 'DefaultDiResourceGroupIdentifier',
         'developmentType'                  => 'DevelopmentType',
+        'disableDevelopment'               => 'DisableDevelopment',
         'envTypes'                         => 'EnvTypes',
         'gmtCreate'                        => 'GmtCreate',
         'gmtModified'                      => 'GmtModified',
         'isAllowDownload'                  => 'IsAllowDownload',
+        'isDefault'                        => 'IsDefault',
         'projectDescription'               => 'ProjectDescription',
         'projectId'                        => 'ProjectId',
         'projectIdentifier'                => 'ProjectIdentifier',
@@ -112,10 +145,14 @@ class data extends Model
         'projectOwnerBaseId'               => 'ProjectOwnerBaseId',
         'protectedMode'                    => 'ProtectedMode',
         'residentArea'                     => 'ResidentArea',
+        'resourceManagerResourceGroupId'   => 'ResourceManagerResourceGroupId',
         'schedulerMaxRetryTimes'           => 'SchedulerMaxRetryTimes',
         'schedulerRetryInterval'           => 'SchedulerRetryInterval',
         'status'                           => 'Status',
+        'tablePrivacyMode'                 => 'TablePrivacyMode',
+        'tags'                             => 'Tags',
         'tenantId'                         => 'TenantId',
+        'useProxyOdpsAccount'              => 'UseProxyOdpsAccount',
     ];
 
     public function validate()
@@ -131,6 +168,9 @@ class data extends Model
         if (null !== $this->developmentType) {
             $res['DevelopmentType'] = $this->developmentType;
         }
+        if (null !== $this->disableDevelopment) {
+            $res['DisableDevelopment'] = $this->disableDevelopment;
+        }
         if (null !== $this->envTypes) {
             $res['EnvTypes'] = $this->envTypes;
         }
@@ -142,6 +182,9 @@ class data extends Model
         }
         if (null !== $this->isAllowDownload) {
             $res['IsAllowDownload'] = $this->isAllowDownload;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->projectDescription) {
             $res['ProjectDescription'] = $this->projectDescription;
@@ -167,6 +210,9 @@ class data extends Model
         if (null !== $this->residentArea) {
             $res['ResidentArea'] = $this->residentArea;
         }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
         if (null !== $this->schedulerMaxRetryTimes) {
             $res['SchedulerMaxRetryTimes'] = $this->schedulerMaxRetryTimes;
         }
@@ -176,8 +222,23 @@ class data extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->tablePrivacyMode) {
+            $res['TablePrivacyMode'] = $this->tablePrivacyMode;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->useProxyOdpsAccount) {
+            $res['UseProxyOdpsAccount'] = $this->useProxyOdpsAccount;
         }
 
         return $res;
@@ -197,6 +258,9 @@ class data extends Model
         if (isset($map['DevelopmentType'])) {
             $model->developmentType = $map['DevelopmentType'];
         }
+        if (isset($map['DisableDevelopment'])) {
+            $model->disableDevelopment = $map['DisableDevelopment'];
+        }
         if (isset($map['EnvTypes'])) {
             if (!empty($map['EnvTypes'])) {
                 $model->envTypes = $map['EnvTypes'];
@@ -210,6 +274,9 @@ class data extends Model
         }
         if (isset($map['IsAllowDownload'])) {
             $model->isAllowDownload = $map['IsAllowDownload'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['ProjectDescription'])) {
             $model->projectDescription = $map['ProjectDescription'];
@@ -235,6 +302,9 @@ class data extends Model
         if (isset($map['ResidentArea'])) {
             $model->residentArea = $map['ResidentArea'];
         }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
         if (isset($map['SchedulerMaxRetryTimes'])) {
             $model->schedulerMaxRetryTimes = $map['SchedulerMaxRetryTimes'];
         }
@@ -244,8 +314,23 @@ class data extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['TablePrivacyMode'])) {
+            $model->tablePrivacyMode = $map['TablePrivacyMode'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['UseProxyOdpsAccount'])) {
+            $model->useProxyOdpsAccount = $map['UseProxyOdpsAccount'];
         }
 
         return $model;

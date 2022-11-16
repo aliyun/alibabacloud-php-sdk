@@ -107,6 +107,11 @@ class data extends Model
      * @var bool
      */
     public $useflag;
+
+    /**
+     * @var string[]
+     */
+    public $webhooks;
     protected $_name = [
         'alertInterval' => 'AlertInterval',
         'alertMethods'  => 'AlertMethods',
@@ -127,6 +132,7 @@ class data extends Model
         'remindUnit'    => 'RemindUnit',
         'robots'        => 'Robots',
         'useflag'       => 'Useflag',
+        'webhooks'      => 'Webhooks',
     ];
 
     public function validate()
@@ -222,6 +228,9 @@ class data extends Model
         }
         if (null !== $this->useflag) {
             $res['Useflag'] = $this->useflag;
+        }
+        if (null !== $this->webhooks) {
+            $res['Webhooks'] = $this->webhooks;
         }
 
         return $res;
@@ -325,6 +334,11 @@ class data extends Model
         }
         if (isset($map['Useflag'])) {
             $model->useflag = $map['Useflag'];
+        }
+        if (isset($map['Webhooks'])) {
+            if (!empty($map['Webhooks'])) {
+                $model->webhooks = $map['Webhooks'];
+            }
         }
 
         return $model;

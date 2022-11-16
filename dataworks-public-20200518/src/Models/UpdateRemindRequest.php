@@ -92,6 +92,11 @@ class UpdateRemindRequest extends Model
      * @var bool
      */
     public $useFlag;
+
+    /**
+     * @var string
+     */
+    public $webhooks;
     protected $_name = [
         'alertInterval' => 'AlertInterval',
         'alertMethods'  => 'AlertMethods',
@@ -110,6 +115,7 @@ class UpdateRemindRequest extends Model
         'remindUnit'    => 'RemindUnit',
         'robotUrls'     => 'RobotUrls',
         'useFlag'       => 'UseFlag',
+        'webhooks'      => 'Webhooks',
     ];
 
     public function validate()
@@ -169,6 +175,9 @@ class UpdateRemindRequest extends Model
         }
         if (null !== $this->useFlag) {
             $res['UseFlag'] = $this->useFlag;
+        }
+        if (null !== $this->webhooks) {
+            $res['Webhooks'] = $this->webhooks;
         }
 
         return $res;
@@ -232,6 +241,9 @@ class UpdateRemindRequest extends Model
         }
         if (isset($map['UseFlag'])) {
             $model->useFlag = $map['UseFlag'];
+        }
+        if (isset($map['Webhooks'])) {
+            $model->webhooks = $map['Webhooks'];
         }
 
         return $model;

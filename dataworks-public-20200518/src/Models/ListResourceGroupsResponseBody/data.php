@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsResponseBody;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -59,6 +60,11 @@ class data extends Model
     public $resourceGroupType;
 
     /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
      * @var int
      */
     public $sequence;
@@ -74,6 +80,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $tenantId;
@@ -83,21 +94,23 @@ class data extends Model
      */
     public $updateTime;
     protected $_name = [
-        'bizExtKey'         => 'BizExtKey',
-        'cluster'           => 'Cluster',
-        'createTime'        => 'CreateTime',
-        'enableKp'          => 'EnableKp',
-        'id'                => 'Id',
-        'identifier'        => 'Identifier',
-        'isDefault'         => 'IsDefault',
-        'mode'              => 'Mode',
-        'name'              => 'Name',
-        'resourceGroupType' => 'ResourceGroupType',
-        'sequence'          => 'Sequence',
-        'specs'             => 'Specs',
-        'status'            => 'Status',
-        'tenantId'          => 'TenantId',
-        'updateTime'        => 'UpdateTime',
+        'bizExtKey'                      => 'BizExtKey',
+        'cluster'                        => 'Cluster',
+        'createTime'                     => 'CreateTime',
+        'enableKp'                       => 'EnableKp',
+        'id'                             => 'Id',
+        'identifier'                     => 'Identifier',
+        'isDefault'                      => 'IsDefault',
+        'mode'                           => 'Mode',
+        'name'                           => 'Name',
+        'resourceGroupType'              => 'ResourceGroupType',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'sequence'                       => 'Sequence',
+        'specs'                          => 'Specs',
+        'status'                         => 'Status',
+        'tags'                           => 'Tags',
+        'tenantId'                       => 'TenantId',
+        'updateTime'                     => 'UpdateTime',
     ];
 
     public function validate()
@@ -137,6 +150,9 @@ class data extends Model
         if (null !== $this->resourceGroupType) {
             $res['ResourceGroupType'] = $this->resourceGroupType;
         }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
         if (null !== $this->sequence) {
             $res['Sequence'] = $this->sequence;
         }
@@ -145,6 +161,15 @@ class data extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -194,6 +219,9 @@ class data extends Model
         if (isset($map['ResourceGroupType'])) {
             $model->resourceGroupType = $map['ResourceGroupType'];
         }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
         if (isset($map['Sequence'])) {
             $model->sequence = $map['Sequence'];
         }
@@ -202,6 +230,15 @@ class data extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

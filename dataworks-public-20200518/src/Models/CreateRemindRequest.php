@@ -82,6 +82,11 @@ class CreateRemindRequest extends Model
      * @var string
      */
     public $robotUrls;
+
+    /**
+     * @var string
+     */
+    public $webhooks;
     protected $_name = [
         'alertInterval' => 'AlertInterval',
         'alertMethods'  => 'AlertMethods',
@@ -98,6 +103,7 @@ class CreateRemindRequest extends Model
         'remindType'    => 'RemindType',
         'remindUnit'    => 'RemindUnit',
         'robotUrls'     => 'RobotUrls',
+        'webhooks'      => 'Webhooks',
     ];
 
     public function validate()
@@ -151,6 +157,9 @@ class CreateRemindRequest extends Model
         }
         if (null !== $this->robotUrls) {
             $res['RobotUrls'] = $this->robotUrls;
+        }
+        if (null !== $this->webhooks) {
+            $res['Webhooks'] = $this->webhooks;
         }
 
         return $res;
@@ -208,6 +217,9 @@ class CreateRemindRequest extends Model
         }
         if (isset($map['RobotUrls'])) {
             $model->robotUrls = $map['RobotUrls'];
+        }
+        if (isset($map['Webhooks'])) {
+            $model->webhooks = $map['Webhooks'];
         }
 
         return $model;

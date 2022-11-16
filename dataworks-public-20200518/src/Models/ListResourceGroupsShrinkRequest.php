@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
-class ListResourceGroupsRequest extends Model
+class ListResourceGroupsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -30,15 +29,15 @@ class ListResourceGroupsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
     protected $_name = [
         'bizExtKey'                      => 'BizExtKey',
         'keyword'                        => 'Keyword',
         'resourceGroupType'              => 'ResourceGroupType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tags'                           => 'Tags',
+        'tagsShrink'                     => 'Tags',
     ];
 
     public function validate()
@@ -60,14 +59,8 @@ class ListResourceGroupsRequest extends Model
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         return $res;
@@ -76,7 +69,7 @@ class ListResourceGroupsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListResourceGroupsRequest
+     * @return ListResourceGroupsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -94,13 +87,7 @@ class ListResourceGroupsRequest extends Model
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         return $model;

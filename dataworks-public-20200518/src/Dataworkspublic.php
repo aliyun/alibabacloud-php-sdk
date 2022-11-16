@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaTableResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBaselineRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBaselineResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateConnectionRequest;
@@ -75,6 +77,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateUdfFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateUdfFileResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteBaselineRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteBaselineResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteConnectionRequest;
@@ -131,6 +135,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineKeyPathRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineKeyPathResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBaselineStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetBusinessRequest;
@@ -157,8 +163,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncInstanceInfoResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskMetricInfoRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskMetricInfoResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetExtensionRequest;
@@ -268,6 +272,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListAlertMessagesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListAlertMessagesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselineConfigsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselineConfigsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselinesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselinesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselineStatusesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBaselineStatusesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListBusinessRequest;
@@ -276,10 +282,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCalcEnginesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCalcEnginesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListConnectionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListConnectionsResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCurrentTasksForResourceGroupRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCurrentTasksForResourceGroupResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCurrentUsageForResourceGroupRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCurrentUsageForResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthoritiesRequest;
@@ -304,6 +306,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEnabledExtensionsForProjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEnabledExtensionsForProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesRequest;
@@ -314,8 +318,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFileVersionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFileVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFoldersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFoldersResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListHistoryTasksForResourceGroupRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListHistoryTasksForResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInnerNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInnerNodesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceAmountRequest;
@@ -352,6 +354,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListProjectsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByEntityRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByEntityResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListQualityResultsByRuleRequest;
@@ -364,6 +367,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRemindsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListRemindsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListResourceGroupsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftPersonnelsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListShiftSchedulesRequest;
@@ -376,8 +380,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListUsageForResourceGroupRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListUsageForResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiRequest;
@@ -436,6 +438,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceR
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenErrorTimesInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenErrorTimesInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateConnectionRequest;
@@ -914,6 +919,70 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkMetaTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBaselineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateBaselineResponse
+     */
+    public function createBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->alertMarginThreshold)) {
+            $body['AlertMarginThreshold'] = $request->alertMarginThreshold;
+        }
+        if (!Utils::isUnset($request->baselineName)) {
+            $body['BaselineName'] = $request->baselineName;
+        }
+        if (!Utils::isUnset($request->baselineType)) {
+            $body['BaselineType'] = $request->baselineType;
+        }
+        if (!Utils::isUnset($request->overtimeSettings)) {
+            $body['OvertimeSettings'] = $request->overtimeSettings;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $body['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBaseline',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBaselineRequest $request
+     *
+     * @return CreateBaselineResponse
+     */
+    public function createBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBaselineWithOptions($request, $runtime);
     }
 
     /**
@@ -2463,6 +2532,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->robotUrls)) {
             $body['RobotUrls'] = $request->robotUrls;
         }
+        if (!Utils::isUnset($request->webhooks)) {
+            $body['Webhooks'] = $request->webhooks;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -2773,6 +2845,52 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUdfFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBaselineRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteBaselineResponse
+     */
+    public function deleteBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBaseline',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBaselineRequest $request
+     *
+     * @return DeleteBaselineResponse
+     */
+    public function deleteBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBaselineWithOptions($request, $runtime);
     }
 
     /**
@@ -4032,6 +4150,52 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param GetBaselineRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetBaselineResponse
+     */
+    public function getBaselineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBaseline',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBaselineRequest $request
+     *
+     * @return GetBaselineResponse
+     */
+    public function getBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBaselineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBaselineConfigRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4357,46 +4521,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDISyncTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDISyncTaskMetricInfoRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetDISyncTaskMetricInfoResponse
-     */
-    public function getDISyncTaskMetricInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDISyncTaskMetricInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDISyncTaskMetricInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetDISyncTaskMetricInfoRequest $request
-     *
-     * @return GetDISyncTaskMetricInfoResponse
-     */
-    public function getDISyncTaskMetricInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDISyncTaskMetricInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -7456,6 +7580,73 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListBaselinesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListBaselinesResponse
+     */
+    public function listBaselinesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->baselineTypes)) {
+            $body['BaselineTypes'] = $request->baselineTypes;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $body['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->projectEnv)) {
+            $body['ProjectEnv'] = $request->projectEnv;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->searchText)) {
+            $body['SearchText'] = $request->searchText;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBaselines',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBaselinesRequest $request
+     *
+     * @return ListBaselinesResponse
+     */
+    public function listBaselines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBaselinesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListBusinessRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -7606,107 +7797,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listConnectionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCurrentTasksForResourceGroupRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ListCurrentTasksForResourceGroupResponse
-     */
-    public function listCurrentTasksForResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
-        }
-        if (!Utils::isUnset($request->resourceGroupIdentifier)) {
-            $body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListCurrentTasksForResourceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListCurrentTasksForResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListCurrentTasksForResourceGroupRequest $request
-     *
-     * @return ListCurrentTasksForResourceGroupResponse
-     */
-    public function listCurrentTasksForResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCurrentTasksForResourceGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCurrentUsageForResourceGroupRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ListCurrentUsageForResourceGroupResponse
-     */
-    public function listCurrentUsageForResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
-        }
-        if (!Utils::isUnset($request->resourceGroupIdentifier)) {
-            $body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListCurrentUsageForResourceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListCurrentUsageForResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListCurrentUsageForResourceGroupRequest $request
-     *
-     * @return ListCurrentUsageForResourceGroupResponse
-     */
-    public function listCurrentUsageForResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCurrentUsageForResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -8356,6 +8446,55 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListEnabledExtensionsForProjectRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListEnabledExtensionsForProjectResponse
+     */
+    public function listEnabledExtensionsForProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->eventCode)) {
+            $body['EventCode'] = $request->eventCode;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEnabledExtensionsForProject',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEnabledExtensionsForProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEnabledExtensionsForProjectRequest $request
+     *
+     * @return ListEnabledExtensionsForProjectResponse
+     */
+    public function listEnabledExtensionsForProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnabledExtensionsForProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListExtensionsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -8364,8 +8503,14 @@ class Dataworkspublic extends OpenApiClient
     public function listExtensionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -8373,7 +8518,7 @@ class Dataworkspublic extends OpenApiClient
             'version'     => '2020-05-18',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -8631,64 +8776,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFoldersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListHistoryTasksForResourceGroupRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ListHistoryTasksForResourceGroupResponse
-     */
-    public function listHistoryTasksForResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
-        }
-        if (!Utils::isUnset($request->resourceGroupIdentifier)) {
-            $body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListHistoryTasksForResourceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListHistoryTasksForResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListHistoryTasksForResourceGroupRequest $request
-     *
-     * @return ListHistoryTasksForResourceGroupResponse
-     */
-    public function listHistoryTasksForResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listHistoryTasksForResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -9579,20 +9666,31 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
+     * @param ListProjectsRequest $tmpReq
      * @param RuntimeOptions      $runtime
      *
      * @return ListProjectsResponse
      */
-    public function listProjectsWithOptions($request, $runtime)
+    public function listProjectsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9912,14 +10010,19 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $request
+     * @param ListResourceGroupsRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return ListResourceGroupsResponse
      */
-    public function listResourceGroupsWithOptions($request, $runtime)
+    public function listResourceGroupsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListResourceGroupsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->bizExtKey)) {
             $query['BizExtKey'] = $request->bizExtKey;
@@ -9929,6 +10032,12 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupType)) {
             $query['ResourceGroupType'] = $request->resourceGroupType;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -10255,58 +10364,6 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTopicsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListUsageForResourceGroupRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListUsageForResourceGroupResponse
-     */
-    public function listUsageForResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
-        }
-        if (!Utils::isUnset($request->resourceGroupIdentifier)) {
-            $body['ResourceGroupIdentifier'] = $request->resourceGroupIdentifier;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListUsageForResourceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListUsageForResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListUsageForResourceGroupRequest $request
-     *
-     * @return ListUsageForResourceGroupResponse
-     */
-    public function listUsageForResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listUsageForResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -11799,6 +11856,93 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param UpdateBaselineRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateBaselineResponse
+     */
+    public function updateBaselineWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBaselineShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alertSettings)) {
+            $request->alertSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertSettings, 'AlertSettings', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->overtimeSettings)) {
+            $request->overtimeSettingsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->overtimeSettings, 'OvertimeSettings', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->alertEnabled)) {
+            $body['AlertEnabled'] = $request->alertEnabled;
+        }
+        if (!Utils::isUnset($request->alertMarginThreshold)) {
+            $body['AlertMarginThreshold'] = $request->alertMarginThreshold;
+        }
+        if (!Utils::isUnset($request->alertSettingsShrink)) {
+            $body['AlertSettings'] = $request->alertSettingsShrink;
+        }
+        if (!Utils::isUnset($request->baselineId)) {
+            $body['BaselineId'] = $request->baselineId;
+        }
+        if (!Utils::isUnset($request->baselineName)) {
+            $body['BaselineName'] = $request->baselineName;
+        }
+        if (!Utils::isUnset($request->baselineType)) {
+            $body['BaselineType'] = $request->baselineType;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->overtimeSettingsShrink)) {
+            $body['OvertimeSettings'] = $request->overtimeSettingsShrink;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->removeTaskIds)) {
+            $body['RemoveTaskIds'] = $request->removeTaskIds;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $body['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBaseline',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBaselineRequest $request
+     *
+     * @return UpdateBaselineResponse
+     */
+    public function updateBaseline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBaselineWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateBusinessRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -12865,6 +13009,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->useFlag)) {
             $body['UseFlag'] = $request->useFlag;
+        }
+        if (!Utils::isUnset($request->webhooks)) {
+            $body['Webhooks'] = $request->webhooks;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
