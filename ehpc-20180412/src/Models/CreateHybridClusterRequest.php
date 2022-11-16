@@ -7,7 +7,9 @@ namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\application;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\ecsOrder;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\nodes;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\openldapPar;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\postInstallScript;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\winAdPar;
 use AlibabaCloud\Tea\Model;
 
 class CreateHybridClusterRequest extends Model
@@ -118,6 +120,11 @@ class CreateHybridClusterRequest extends Model
     public $onPremiseVolumeRemotePath;
 
     /**
+     * @var openldapPar
+     */
+    public $openldapPar;
+
+    /**
      * @var string
      */
     public $osTag;
@@ -126,6 +133,11 @@ class CreateHybridClusterRequest extends Model
      * @var string
      */
     public $password;
+
+    /**
+     * @var string
+     */
+    public $plugin;
 
     /**
      * @var postInstallScript[]
@@ -188,6 +200,11 @@ class CreateHybridClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @var winAdPar
+     */
+    public $winAdPar;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -213,8 +230,10 @@ class CreateHybridClusterRequest extends Model
         'onPremiseVolumeMountPoint' => 'OnPremiseVolumeMountPoint',
         'onPremiseVolumeProtocol'   => 'OnPremiseVolumeProtocol',
         'onPremiseVolumeRemotePath' => 'OnPremiseVolumeRemotePath',
+        'openldapPar'               => 'OpenldapPar',
         'osTag'                     => 'OsTag',
         'password'                  => 'Password',
+        'plugin'                    => 'Plugin',
         'postInstallScript'         => 'PostInstallScript',
         'remoteDirectory'           => 'RemoteDirectory',
         'resourceGroupId'           => 'ResourceGroupId',
@@ -227,6 +246,7 @@ class CreateHybridClusterRequest extends Model
         'volumeProtocol'            => 'VolumeProtocol',
         'volumeType'                => 'VolumeType',
         'vpcId'                     => 'VpcId',
+        'winAdPar'                  => 'WinAdPar',
         'zoneId'                    => 'ZoneId',
     ];
 
@@ -312,11 +332,17 @@ class CreateHybridClusterRequest extends Model
         if (null !== $this->onPremiseVolumeRemotePath) {
             $res['OnPremiseVolumeRemotePath'] = $this->onPremiseVolumeRemotePath;
         }
+        if (null !== $this->openldapPar) {
+            $res['OpenldapPar'] = null !== $this->openldapPar ? $this->openldapPar->toMap() : null;
+        }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->plugin) {
+            $res['Plugin'] = $this->plugin;
         }
         if (null !== $this->postInstallScript) {
             $res['PostInstallScript'] = [];
@@ -359,6 +385,9 @@ class CreateHybridClusterRequest extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->winAdPar) {
+            $res['WinAdPar'] = null !== $this->winAdPar ? $this->winAdPar->toMap() : null;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -450,11 +479,17 @@ class CreateHybridClusterRequest extends Model
         if (isset($map['OnPremiseVolumeRemotePath'])) {
             $model->onPremiseVolumeRemotePath = $map['OnPremiseVolumeRemotePath'];
         }
+        if (isset($map['OpenldapPar'])) {
+            $model->openldapPar = openldapPar::fromMap($map['OpenldapPar']);
+        }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['Plugin'])) {
+            $model->plugin = $map['Plugin'];
         }
         if (isset($map['PostInstallScript'])) {
             if (!empty($map['PostInstallScript'])) {
@@ -497,6 +532,9 @@ class CreateHybridClusterRequest extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['WinAdPar'])) {
+            $model->winAdPar = winAdPar::fromMap($map['WinAdPar']);
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
