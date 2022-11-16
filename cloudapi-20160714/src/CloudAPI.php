@@ -235,6 +235,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\EnableInstanceAccessControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\EnableInstanceAccessControlResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportSwaggerShrinkRequest;
@@ -6512,6 +6514,78 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableInstanceAccessControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportOASRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ImportOASResponse
+     */
+    public function importOASWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->backendName)) {
+            $query['BackendName'] = $request->backendName;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->ignoreWarning)) {
+            $query['IgnoreWarning'] = $request->ignoreWarning;
+        }
+        if (!Utils::isUnset($request->OASVersion)) {
+            $query['OASVersion'] = $request->OASVersion;
+        }
+        if (!Utils::isUnset($request->overwrite)) {
+            $query['Overwrite'] = $request->overwrite;
+        }
+        if (!Utils::isUnset($request->requestMode)) {
+            $query['RequestMode'] = $request->requestMode;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->skipDryRun)) {
+            $query['SkipDryRun'] = $request->skipDryRun;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportOAS',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportOASResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportOASRequest $request
+     *
+     * @return ImportOASResponse
+     */
+    public function importOAS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importOASWithOptions($request, $runtime);
     }
 
     /**
