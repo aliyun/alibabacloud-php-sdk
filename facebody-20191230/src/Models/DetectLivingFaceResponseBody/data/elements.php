@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
+     * @var int
+     */
+    public $faceNumber;
+
+    /**
      * @var string
      */
     public $imageURL;
@@ -24,9 +29,10 @@ class elements extends Model
      */
     public $taskId;
     protected $_name = [
-        'imageURL' => 'ImageURL',
-        'results'  => 'Results',
-        'taskId'   => 'TaskId',
+        'faceNumber' => 'FaceNumber',
+        'imageURL'   => 'ImageURL',
+        'results'    => 'Results',
+        'taskId'     => 'TaskId',
     ];
 
     public function validate()
@@ -36,6 +42,9 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faceNumber) {
+            $res['FaceNumber'] = $this->faceNumber;
+        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
@@ -63,6 +72,9 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceNumber'])) {
+            $model->faceNumber = $map['FaceNumber'];
+        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }

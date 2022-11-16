@@ -89,8 +89,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractFingerPrintResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttrAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttributeResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttrRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ExtractPedestrianFeatureAttrResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\FaceBeautyAdvanceRequest;
@@ -187,6 +185,7 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
@@ -671,7 +670,7 @@ class Facebody extends OpenApiClient
         $request = new BeautifyBodyShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->ageRange)) {
-            $request->ageRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ageRange, 'AgeRange', 'json');
+            $request->ageRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ageRange), 'AgeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->bodyBoxes)) {
             $request->bodyBoxesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bodyBoxes, 'BodyBoxes', 'json');
@@ -3252,55 +3251,6 @@ class Facebody extends OpenApiClient
         }
 
         return $this->extractPedestrianFeatureAttrWithOptions($extractPedestrianFeatureAttrReq, $runtime);
-    }
-
-    /**
-     * @param ExtractPedestrianFeatureAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ExtractPedestrianFeatureAttributeResponse
-     */
-    public function extractPedestrianFeatureAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->imageURL)) {
-            $body['ImageURL'] = $request->imageURL;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            $body['Mode'] = $request->mode;
-        }
-        if (!Utils::isUnset($request->urlList)) {
-            $body['UrlList'] = $request->urlList;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExtractPedestrianFeatureAttribute',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ExtractPedestrianFeatureAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ExtractPedestrianFeatureAttributeRequest $request
-     *
-     * @return ExtractPedestrianFeatureAttributeResponse
-     */
-    public function extractPedestrianFeatureAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->extractPedestrianFeatureAttributeWithOptions($request, $runtime);
     }
 
     /**

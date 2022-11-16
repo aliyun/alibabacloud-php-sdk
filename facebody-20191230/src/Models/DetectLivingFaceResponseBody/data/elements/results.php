@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements;
 
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements\results\frames;
+use AlibabaCloud\SDK\Facebody\V20191230\Models\DetectLivingFaceResponseBody\data\elements\results\rect;
 use AlibabaCloud\Tea\Model;
 
 class results extends Model
@@ -20,19 +21,31 @@ class results extends Model
     public $label;
 
     /**
+     * @var string
+     */
+    public $messageTips;
+
+    /**
      * @var float
      */
     public $rate;
+
+    /**
+     * @var rect
+     */
+    public $rect;
 
     /**
      * @var string
      */
     public $suggestion;
     protected $_name = [
-        'frames'     => 'Frames',
-        'label'      => 'Label',
-        'rate'       => 'Rate',
-        'suggestion' => 'Suggestion',
+        'frames'      => 'Frames',
+        'label'       => 'Label',
+        'messageTips' => 'MessageTips',
+        'rate'        => 'Rate',
+        'rect'        => 'Rect',
+        'suggestion'  => 'Suggestion',
     ];
 
     public function validate()
@@ -54,8 +67,14 @@ class results extends Model
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+        if (null !== $this->messageTips) {
+            $res['MessageTips'] = $this->messageTips;
+        }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
+        }
+        if (null !== $this->rect) {
+            $res['Rect'] = null !== $this->rect ? $this->rect->toMap() : null;
         }
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
@@ -84,8 +103,14 @@ class results extends Model
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+        if (isset($map['MessageTips'])) {
+            $model->messageTips = $map['MessageTips'];
+        }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
+        }
+        if (isset($map['Rect'])) {
+            $model->rect = rect::fromMap($map['Rect']);
         }
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
