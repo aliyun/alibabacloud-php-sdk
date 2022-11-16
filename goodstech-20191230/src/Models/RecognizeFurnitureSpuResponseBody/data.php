@@ -11,20 +11,20 @@ class data extends Model
     /**
      * @var string
      */
-    public $predCateId;
+    public $predCate;
 
     /**
      * @var string
      */
-    public $predCate;
+    public $predCateId;
 
     /**
      * @var float
      */
     public $predProbability;
     protected $_name = [
-        'predCateId'      => 'PredCateId',
         'predCate'        => 'PredCate',
+        'predCateId'      => 'PredCateId',
         'predProbability' => 'PredProbability',
     ];
 
@@ -35,11 +35,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->predCateId) {
-            $res['PredCateId'] = $this->predCateId;
-        }
         if (null !== $this->predCate) {
             $res['PredCate'] = $this->predCate;
+        }
+        if (null !== $this->predCateId) {
+            $res['PredCateId'] = $this->predCateId;
         }
         if (null !== $this->predProbability) {
             $res['PredProbability'] = $this->predProbability;
@@ -56,11 +56,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PredCateId'])) {
-            $model->predCateId = $map['PredCateId'];
-        }
         if (isset($map['PredCate'])) {
             $model->predCate = $map['PredCate'];
+        }
+        if (isset($map['PredCateId'])) {
+            $model->predCateId = $map['PredCateId'];
         }
         if (isset($map['PredProbability'])) {
             $model->predProbability = $map['PredProbability'];

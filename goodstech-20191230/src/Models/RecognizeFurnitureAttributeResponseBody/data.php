@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $predStyle;
-
-    /**
      * @var float
      */
     public $predProbability;
@@ -21,10 +16,15 @@ class data extends Model
     /**
      * @var string
      */
+    public $predStyle;
+
+    /**
+     * @var string
+     */
     public $predStyleId;
     protected $_name = [
-        'predStyle'       => 'PredStyle',
         'predProbability' => 'PredProbability',
+        'predStyle'       => 'PredStyle',
         'predStyleId'     => 'PredStyleId',
     ];
 
@@ -35,11 +35,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->predStyle) {
-            $res['PredStyle'] = $this->predStyle;
-        }
         if (null !== $this->predProbability) {
             $res['PredProbability'] = $this->predProbability;
+        }
+        if (null !== $this->predStyle) {
+            $res['PredStyle'] = $this->predStyle;
         }
         if (null !== $this->predStyleId) {
             $res['PredStyleId'] = $this->predStyleId;
@@ -56,11 +56,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PredStyle'])) {
-            $model->predStyle = $map['PredStyle'];
-        }
         if (isset($map['PredProbability'])) {
             $model->predProbability = $map['PredProbability'];
+        }
+        if (isset($map['PredStyle'])) {
+            $model->predStyle = $map['PredStyle'];
         }
         if (isset($map['PredStyleId'])) {
             $model->predStyleId = $map['PredStyleId'];

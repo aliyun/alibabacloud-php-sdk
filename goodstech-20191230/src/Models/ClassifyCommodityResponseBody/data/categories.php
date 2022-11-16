@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class categories extends Model
 {
     /**
-     * @var float
-     */
-    public $score;
-
-    /**
      * @var string
      */
     public $categoryId;
@@ -22,10 +17,15 @@ class categories extends Model
      * @var string
      */
     public $categoryName;
+
+    /**
+     * @var float
+     */
+    public $score;
     protected $_name = [
-        'score'        => 'Score',
         'categoryId'   => 'CategoryId',
         'categoryName' => 'CategoryName',
+        'score'        => 'Score',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class categories extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class categories extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;
