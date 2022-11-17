@@ -282,8 +282,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PushObjectCacheRequest;
@@ -7422,55 +7420,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyRealtimeLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param OpenCdnServiceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return OpenCdnServiceResponse
-     */
-    public function openCdnServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->internetChargeType)) {
-            $query['InternetChargeType'] = $request->internetChargeType;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenCdnService',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param OpenCdnServiceRequest $request
-     *
-     * @return OpenCdnServiceResponse
-     */
-    public function openCdnService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openCdnServiceWithOptions($request, $runtime);
     }
 
     /**
