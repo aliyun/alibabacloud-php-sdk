@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UploadPCACertResponseBody extends Model
+class GetCertWarehouseQuotaResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $identifier;
+    public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $totalQuota;
+
+    /**
+     * @var int
+     */
+    public $useCount;
     protected $_name = [
-        'identifier' => 'Identifier',
         'requestId'  => 'RequestId',
+        'totalQuota' => 'TotalQuota',
+        'useCount'   => 'UseCount',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class UploadPCACertResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->identifier) {
-            $res['Identifier'] = $this->identifier;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalQuota) {
+            $res['TotalQuota'] = $this->totalQuota;
+        }
+        if (null !== $this->useCount) {
+            $res['UseCount'] = $this->useCount;
         }
 
         return $res;
@@ -42,16 +51,19 @@ class UploadPCACertResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UploadPCACertResponseBody
+     * @return GetCertWarehouseQuotaResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Identifier'])) {
-            $model->identifier = $map['Identifier'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalQuota'])) {
+            $model->totalQuota = $map['TotalQuota'];
+        }
+        if (isset($map['UseCount'])) {
+            $model->useCount = $map['UseCount'];
         }
 
         return $model;

@@ -26,6 +26,11 @@ class ListCertRequest extends Model
     /**
      * @var string
      */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -36,6 +41,7 @@ class ListCertRequest extends Model
         'currentPage' => 'CurrentPage',
         'keyWord'     => 'KeyWord',
         'showSize'    => 'ShowSize',
+        'sourceType'  => 'SourceType',
         'status'      => 'Status',
         'warehouseId' => 'WarehouseId',
     ];
@@ -55,6 +61,9 @@ class ListCertRequest extends Model
         }
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -82,6 +91,9 @@ class ListCertRequest extends Model
         }
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

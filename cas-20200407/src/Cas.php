@@ -16,8 +16,6 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestResponse;
-use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHCertificateWithExtensionRequest;
-use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHCertificateWithExtensionResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptRequest;
@@ -32,6 +30,7 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseRequest;
@@ -405,97 +404,6 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateWHCertificateWithExtensionRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return CreateWHCertificateWithExtensionResponse
-     */
-    public function createWHCertificateWithExtensionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->afterTime)) {
-            $query['AfterTime'] = $request->afterTime;
-        }
-        if (!Utils::isUnset($request->algorithmKeySize)) {
-            $query['AlgorithmKeySize'] = $request->algorithmKeySize;
-        }
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
-        }
-        if (!Utils::isUnset($request->appendCrl)) {
-            $query['AppendCrl'] = $request->appendCrl;
-        }
-        if (!Utils::isUnset($request->basicConstraintsCritical)) {
-            $query['BasicConstraintsCritical'] = $request->basicConstraintsCritical;
-        }
-        if (!Utils::isUnset($request->beforeTime)) {
-            $query['BeforeTime'] = $request->beforeTime;
-        }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
-        }
-        if (!Utils::isUnset($request->commonName)) {
-            $query['CommonName'] = $request->commonName;
-        }
-        if (!Utils::isUnset($request->countryCode)) {
-            $query['CountryCode'] = $request->countryCode;
-        }
-        if (!Utils::isUnset($request->csrPemString)) {
-            $query['CsrPemString'] = $request->csrPemString;
-        }
-        if (!Utils::isUnset($request->immediately)) {
-            $query['Immediately'] = $request->immediately;
-        }
-        if (!Utils::isUnset($request->locality)) {
-            $query['Locality'] = $request->locality;
-        }
-        if (!Utils::isUnset($request->organization)) {
-            $query['Organization'] = $request->organization;
-        }
-        if (!Utils::isUnset($request->organizationUnit)) {
-            $query['OrganizationUnit'] = $request->organizationUnit;
-        }
-        if (!Utils::isUnset($request->parentIdentifier)) {
-            $query['ParentIdentifier'] = $request->parentIdentifier;
-        }
-        if (!Utils::isUnset($request->sans)) {
-            $query['Sans'] = $request->sans;
-        }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateWHCertificateWithExtension',
-            'version'     => '2020-04-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateWHCertificateWithExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateWHCertificateWithExtensionRequest $request
-     *
-     * @return CreateWHCertificateWithExtensionResponse
-     */
-    public function createWHCertificateWithExtension($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWHCertificateWithExtensionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateWHClientCertificateRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -863,6 +771,39 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCertWarehouseQuotaResponse
+     */
+    public function getCertWarehouseQuotaWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetCertWarehouseQuota',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCertWarehouseQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetCertWarehouseQuotaResponse
+     */
+    public function getCertWarehouseQuota()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertWarehouseQuotaWithOptions($runtime);
+    }
+
+    /**
      * @param ListCertRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -880,6 +821,9 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->showSize)) {
             $query['ShowSize'] = $request->showSize;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
