@@ -287,6 +287,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCanaryEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRoutineCodeRevisionRequest;
@@ -7754,6 +7756,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnsecServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRDDomainConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRDDomainConfigResponse
+     */
+    public function describeRDDomainConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRDDomainConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRDDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRDDomainConfigRequest $request
+     *
+     * @return DescribeRDDomainConfigResponse
+     */
+    public function describeRDDomainConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRDDomainConfigWithOptions($request, $runtime);
     }
 
     /**
