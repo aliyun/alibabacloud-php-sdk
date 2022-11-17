@@ -1,3 +1,6 @@
+2022-11-17 Version: 5.2.7
+- Generated php 2018-07-13 for Ft.
+
 2022-08-18 Version: 5.2.6
 - AMP version.
 
