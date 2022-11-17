@@ -9,43 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CorrectAddressResponse extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $headers;
+    public $data;
 
     /**
-     * @var int
+     * @var string
      */
-    public $statusCode;
-
-    /**
-     * @var CorrectAddressResponseBody
-     */
-    public $body;
+    public $requestId;
     protected $_name = [
-        'headers'    => 'headers',
-        'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'data'      => 'Data',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('data', $this->data, true);
+        Model::validateRequired('requestId', $this->requestId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
-        if (null !== $this->statusCode) {
-            $res['statusCode'] = $this->statusCode;
-        }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,14 +49,11 @@ class CorrectAddressResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
-        if (isset($map['statusCode'])) {
-            $model->statusCode = $map['statusCode'];
-        }
-        if (isset($map['body'])) {
-            $model->body = CorrectAddressResponseBody::fromMap($map['body']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

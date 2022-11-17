@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Addresspurification\V20191118;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Addresspurification\V20191118\Models\CorrectAddressRequest;
 use AlibabaCloud\SDK\Addresspurification\V20191118\Models\CorrectAddressResponse;
 use AlibabaCloud\SDK\Addresspurification\V20191118\Models\ExtractAddressRequest;
@@ -22,13 +21,12 @@ use AlibabaCloud\SDK\Addresspurification\V20191118\Models\GetZipcodeRequest;
 use AlibabaCloud\SDK\Addresspurification\V20191118\Models\GetZipcodeResponse;
 use AlibabaCloud\SDK\Addresspurification\V20191118\Models\StructureAddressRequest;
 use AlibabaCloud\SDK\Addresspurification\V20191118\Models\StructureAddressResponse;
+use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\Models\Params;
-use Darabonba\OpenApi\OpenApiClient;
 
-class Addresspurification extends OpenApiClient
+class Addresspurification extends Rpc
 {
     public function __construct($config)
     {
@@ -36,29 +34,6 @@ class Addresspurification extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('address-purification', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
-    }
-
-    /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
-    {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
-
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
@@ -70,41 +45,8 @@ class Addresspurification extends OpenApiClient
     public function correctAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CorrectAddress',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CorrectAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CorrectAddressResponse::fromMap($this->doRequest('CorrectAddress', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -128,41 +70,8 @@ class Addresspurification extends OpenApiClient
     public function extractAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExtractAddress',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ExtractAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExtractAddressResponse::fromMap($this->doRequest('ExtractAddress', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -186,41 +95,8 @@ class Addresspurification extends OpenApiClient
     public function extractNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExtractName',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ExtractNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExtractNameResponse::fromMap($this->doRequest('ExtractName', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -244,41 +120,8 @@ class Addresspurification extends OpenApiClient
     public function extractPhoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExtractPhone',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ExtractPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExtractPhoneResponse::fromMap($this->doRequest('ExtractPhone', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -302,41 +145,8 @@ class Addresspurification extends OpenApiClient
     public function getAddressDivisionCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAddressDivisionCode',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetAddressDivisionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAddressDivisionCodeResponse::fromMap($this->doRequest('GetAddressDivisionCode', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -360,41 +170,8 @@ class Addresspurification extends OpenApiClient
     public function getAddressSimilarityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAddressSimilarity',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetAddressSimilarityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAddressSimilarityResponse::fromMap($this->doRequest('GetAddressSimilarity', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -418,41 +195,8 @@ class Addresspurification extends OpenApiClient
     public function getZipcodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetZipcode',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetZipcodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetZipcodeResponse::fromMap($this->doRequest('GetZipcode', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -476,41 +220,8 @@ class Addresspurification extends OpenApiClient
     public function structureAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $body['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->defaultCity)) {
-            $body['DefaultCity'] = $request->defaultCity;
-        }
-        if (!Utils::isUnset($request->defaultDistrict)) {
-            $body['DefaultDistrict'] = $request->defaultDistrict;
-        }
-        if (!Utils::isUnset($request->defaultProvince)) {
-            $body['DefaultProvince'] = $request->defaultProvince;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'StructureAddress',
-            'version'     => '2019-11-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return StructureAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StructureAddressResponse::fromMap($this->doRequest('StructureAddress', 'HTTPS', 'POST', '2019-11-18', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -523,5 +234,28 @@ class Addresspurification extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->structureAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 }
