@@ -73,8 +73,6 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmCodeRevisionRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmCodeRevisionResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteWasmResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsRequest;
@@ -307,15 +305,9 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmUserInfoRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeWasmUserInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditWasmConfRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditWasmConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
@@ -2271,57 +2263,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWasmWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteWasmCodeRevisionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteWasmCodeRevisionResponse
-     */
-    public function deleteWasmCodeRevisionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->selectCodeRevision)) {
-            $body['SelectCodeRevision'] = $request->selectCodeRevision;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteWasmCodeRevision',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteWasmCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteWasmCodeRevisionRequest $request
-     *
-     * @return DeleteWasmCodeRevisionResponse
-     */
-    public function deleteWasmCodeRevision($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWasmCodeRevisionWithOptions($request, $runtime);
     }
 
     /**
@@ -8102,9 +8043,6 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8228,97 +8166,6 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeWasmRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeWasmResponse
-     */
-    public function describeWasmWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWasm',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeWasmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeWasmRequest $request
-     *
-     * @return DescribeWasmResponse
-     */
-    public function describeWasm($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWasmWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeWasmUserInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeWasmUserInfoResponse
-     */
-    public function describeWasmUserInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWasmUserInfo',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeWasmUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeWasmUserInfoRequest $request
-     *
-     * @return DescribeWasmUserInfoResponse
-     */
-    public function describeWasmUserInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWasmUserInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param EditRoutineConfRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
@@ -8375,57 +8222,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->editRoutineConfWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EditWasmConfRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return EditWasmConfResponse
-     */
-    public function editWasmConfWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'EditWasmConf',
-            'version'     => '2018-01-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return EditWasmConfResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param EditWasmConfRequest $request
-     *
-     * @return EditWasmConfResponse
-     */
-    public function editWasmConf($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->editWasmConfWithOptions($request, $runtime);
     }
 
     /**
