@@ -48,9 +48,6 @@ class CorrectAddressRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('appKey', $this->appKey, true);
-        Model::validateRequired('serviceCode', $this->serviceCode, true);
-        Model::validateRequired('text', $this->text, true);
     }
 
     public function toMap()
