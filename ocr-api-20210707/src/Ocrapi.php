@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeIdcardRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeIdcardResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInternationalBusinessLicenseRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInternationalBusinessLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInternationalIdcardRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInternationalIdcardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeInvoiceRequest;
@@ -1963,6 +1965,54 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeIdcardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeInternationalBusinessLicenseRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RecognizeInternationalBusinessLicenseResponse
+     */
+    public function recognizeInternationalBusinessLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeInternationalBusinessLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeInternationalBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeInternationalBusinessLicenseRequest $request
+     *
+     * @return RecognizeInternationalBusinessLicenseResponse
+     */
+    public function recognizeInternationalBusinessLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeInternationalBusinessLicenseWithOptions($request, $runtime);
     }
 
     /**
