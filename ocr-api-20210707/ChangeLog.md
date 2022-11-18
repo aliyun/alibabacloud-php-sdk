@@ -1,3 +1,6 @@
+2022-11-18 Version: 1.1.12
+- Generated php 2021-07-07 for ocr-api.
+
 2022-11-17 Version: 1.1.11
 - RecognizeInternationalBusinessLicense.
 
