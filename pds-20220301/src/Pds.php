@@ -2240,33 +2240,29 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                         $domainId
      * @param GetVideoPreviewPlayMetaRequest $request
      *
      * @return GetVideoPreviewPlayMetaResponse
      */
-    public function getVideoPreviewPlayMeta($domainId, $request)
+    public function getVideoPreviewPlayMeta($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getVideoPreviewPlayMetaWithOptions($domainId, $request, $headers, $runtime);
+        return $this->getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string                         $domainId
      * @param GetVideoPreviewPlayMetaRequest $request
      * @param string[]                       $headers
      * @param RuntimeOptions                 $runtime
      *
      * @return GetVideoPreviewPlayMetaResponse
      */
-    public function getVideoPreviewPlayMetaWithOptions($domainId, $request, $headers, $runtime)
+    public function getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap              = [];
-        $hostMap['domain_id'] = $domainId;
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->category)) {
             $body['category'] = $request->category;
         }
@@ -2280,7 +2276,6 @@ class Pds extends OpenApiClient
             $body['share_id'] = $request->shareId;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
