@@ -6,9 +6,6 @@ namespace AlibabaCloud\SDK\Facebody\V20191230;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\AddBodyTraceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\AddBodyTraceResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\AddBodyTraceShrinkRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceEntityRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\AddFaceEntityResponse;
@@ -36,16 +33,8 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\CompareFaceResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CountCrowdResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyDbRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyDbResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyPersonRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateFaceDbRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\CreateFaceDbResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteBodyDbRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteBodyDbResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteBodyPersonRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteFaceDbRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteFaceDbResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\DeleteFaceEntityRequest;
@@ -111,8 +100,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanSketchStyleRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenerateHumanSketchStyleResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenRealPersonVerificationTokenRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GenRealPersonVerificationTokenResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\GetBodyPersonRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\GetBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetFaceEntityResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\GetRealPersonVerificationResultRequest;
@@ -123,10 +110,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\HandPostureResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\LiquifyFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\LiquifyFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\LiquifyFaceResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyDbsRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyDbsResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\ListBodyPersonResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceDbsRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceDbsResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\ListFaceEntitiesRequest;
@@ -163,10 +146,6 @@ use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchBodyResponse;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchSkinAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchSkinRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\RetouchSkinResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceAdvanceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceRequest;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceResponse;
-use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchBodyTraceShrinkRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchFaceAdvanceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchFaceRequest;
 use AlibabaCloud\SDK\Facebody\V20191230\Models\SearchFaceResponse;
@@ -185,7 +164,6 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
@@ -224,63 +202,6 @@ class Facebody extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
-     * @param AddBodyTraceRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return AddBodyTraceResponse
-     */
-    public function addBodyTraceWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new AddBodyTraceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->images)) {
-            $request->imagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $body['DbId'] = $request->dbId;
-        }
-        if (!Utils::isUnset($request->extraData)) {
-            $body['ExtraData'] = $request->extraData;
-        }
-        if (!Utils::isUnset($request->imagesShrink)) {
-            $body['Images'] = $request->imagesShrink;
-        }
-        if (!Utils::isUnset($request->personId)) {
-            $body['PersonId'] = $request->personId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddBodyTrace',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddBodyTraceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param AddBodyTraceRequest $request
-     *
-     * @return AddBodyTraceResponse
-     */
-    public function addBodyTrace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addBodyTraceWithOptions($request, $runtime);
     }
 
     /**
@@ -670,7 +591,7 @@ class Facebody extends OpenApiClient
         $request = new BeautifyBodyShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->ageRange)) {
-            $request->ageRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->ageRange), 'AgeRange', 'json');
+            $request->ageRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ageRange, 'AgeRange', 'json');
         }
         if (!Utils::isUnset($tmpReq->bodyBoxes)) {
             $request->bodyBoxesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bodyBoxes, 'BodyBoxes', 'json');
@@ -1351,95 +1272,6 @@ class Facebody extends OpenApiClient
     }
 
     /**
-     * @param CreateBodyDbRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateBodyDbResponse
-     */
-    public function createBodyDbWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateBodyDb',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateBodyDbResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateBodyDbRequest $request
-     *
-     * @return CreateBodyDbResponse
-     */
-    public function createBodyDb($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBodyDbWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateBodyPersonRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateBodyPersonResponse
-     */
-    public function createBodyPersonWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $body['DbId'] = $request->dbId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateBodyPerson',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateBodyPersonResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateBodyPersonRequest $request
-     *
-     * @return CreateBodyPersonResponse
-     */
-    public function createBodyPerson($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBodyPersonWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateFaceDbRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1480,95 +1312,6 @@ class Facebody extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFaceDbWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBodyDbRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteBodyDbResponse
-     */
-    public function deleteBodyDbWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBodyDb',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteBodyDbResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteBodyDbRequest $request
-     *
-     * @return DeleteBodyDbResponse
-     */
-    public function deleteBodyDb($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBodyDbWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteBodyPersonRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteBodyPersonResponse
-     */
-    public function deleteBodyPersonWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $body['DbId'] = $request->dbId;
-        }
-        if (!Utils::isUnset($request->personId)) {
-            $body['PersonId'] = $request->personId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBodyPerson',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteBodyPersonResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteBodyPersonRequest $request
-     *
-     * @return DeleteBodyPersonResponse
-     */
-    public function deleteBodyPerson($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteBodyPersonWithOptions($request, $runtime);
     }
 
     /**
@@ -4065,46 +3808,6 @@ class Facebody extends OpenApiClient
     }
 
     /**
-     * @param GetBodyPersonRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetBodyPersonResponse
-     */
-    public function getBodyPersonWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBodyPerson',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetBodyPersonResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetBodyPersonRequest $request
-     *
-     * @return GetBodyPersonResponse
-     */
-    public function getBodyPerson($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getBodyPersonWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetFaceEntityRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -4436,86 +4139,6 @@ class Facebody extends OpenApiClient
         }
 
         return $this->liquifyFaceWithOptions($liquifyFaceReq, $runtime);
-    }
-
-    /**
-     * @param ListBodyDbsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListBodyDbsResponse
-     */
-    public function listBodyDbsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListBodyDbs',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListBodyDbsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListBodyDbsRequest $request
-     *
-     * @return ListBodyDbsResponse
-     */
-    public function listBodyDbs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBodyDbsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBodyPersonRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ListBodyPersonResponse
-     */
-    public function listBodyPersonWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListBodyPerson',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListBodyPersonResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListBodyPersonRequest $request
-     *
-     * @return ListBodyPersonResponse
-     */
-    public function listBodyPerson($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBodyPersonWithOptions($request, $runtime);
     }
 
     /**
@@ -5952,149 +5575,6 @@ class Facebody extends OpenApiClient
         }
 
         return $this->retouchSkinWithOptions($retouchSkinReq, $runtime);
-    }
-
-    /**
-     * @param SearchBodyTraceRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SearchBodyTraceResponse
-     */
-    public function searchBodyTraceWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SearchBodyTraceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->images)) {
-            $request->imagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->dbId)) {
-            $body['DbId'] = $request->dbId;
-        }
-        if (!Utils::isUnset($request->imagesShrink)) {
-            $body['Images'] = $request->imagesShrink;
-        }
-        if (!Utils::isUnset($request->limit)) {
-            $body['Limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->minScore)) {
-            $body['MinScore'] = $request->minScore;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SearchBodyTrace',
-            'version'     => '2019-12-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SearchBodyTraceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SearchBodyTraceRequest $request
-     *
-     * @return SearchBodyTraceResponse
-     */
-    public function searchBodyTrace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->searchBodyTraceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SearchBodyTraceAdvanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SearchBodyTraceResponse
-     */
-    public function searchBodyTraceAdvance($request, $runtime)
-    {
-        // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
-        $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
-            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
-        }
-        if (Utils::isUnset($credentialType)) {
-            $credentialType = 'access_key';
-        }
-        $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $authClient  = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'facebody',
-            'regionId' => $this->_regionId,
-        ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
-        ]);
-        $ossClient     = null;
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
-        $searchBodyTraceReq = new SearchBodyTraceRequest([]);
-        OpenApiUtilClient::convert($request, $searchBodyTraceReq);
-        if (!Utils::isUnset($request->images)) {
-            $i = 0;
-            foreach ($request->images as $item0) {
-                if (!Utils::isUnset($item0->imageURLObject)) {
-                    $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-                    $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-                    $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-                    $ossClient              = new OSS($ossConfig);
-                    $fileObj                = new FileField([
-                        'filename'    => $authResponse->body->objectKey,
-                        'content'     => $item0->imageURLObject,
-                        'contentType' => '',
-                    ]);
-                    $ossHeader = new header([
-                        'accessKeyId'         => $authResponse->body->accessKeyId,
-                        'policy'              => $authResponse->body->encodedPolicy,
-                        'signature'           => $authResponse->body->signature,
-                        'key'                 => $authResponse->body->objectKey,
-                        'file'                => $fileObj,
-                        'successActionStatus' => '201',
-                    ]);
-                    $uploadRequest = new PostObjectRequest([
-                        'bucketName' => $authResponse->body->bucket,
-                        'header'     => $ossHeader,
-                    ]);
-                    $ossClient->postObject($uploadRequest, $ossRuntime);
-                    $tmp           = @$searchBodyTraceReq->images[${$i}];
-                    $tmp->imageURL = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
-                    $i             = $i + 1;
-                }
-            }
-        }
-        $searchBodyTraceResp = $this->searchBodyTraceWithOptions($searchBodyTraceReq, $runtime);
-
-        return $searchBodyTraceResp;
     }
 
     /**
