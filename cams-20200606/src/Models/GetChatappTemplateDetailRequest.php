@@ -11,6 +11,11 @@ class GetChatappTemplateDetailRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $custWabaId;
 
     /**
@@ -28,6 +33,7 @@ class GetChatappTemplateDetailRequest extends Model
      */
     public $templateCode;
     protected $_name = [
+        'custSpaceId'  => 'CustSpaceId',
         'custWabaId'   => 'CustWabaId',
         'isvCode'      => 'IsvCode',
         'language'     => 'Language',
@@ -41,6 +47,9 @@ class GetChatappTemplateDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
+        }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
         }
@@ -65,6 +74,9 @@ class GetChatappTemplateDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
+        }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];
         }

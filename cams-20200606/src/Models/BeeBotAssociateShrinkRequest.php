@@ -16,6 +16,11 @@ class BeeBotAssociateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $isvCode;
 
     /**
@@ -39,6 +44,7 @@ class BeeBotAssociateShrinkRequest extends Model
     public $utterance;
     protected $_name = [
         'chatBotInstanceId' => 'ChatBotInstanceId',
+        'custSpaceId'       => 'CustSpaceId',
         'isvCode'           => 'IsvCode',
         'perspectiveShrink' => 'Perspective',
         'recommendNum'      => 'RecommendNum',
@@ -55,6 +61,9 @@ class BeeBotAssociateShrinkRequest extends Model
         $res = [];
         if (null !== $this->chatBotInstanceId) {
             $res['ChatBotInstanceId'] = $this->chatBotInstanceId;
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
@@ -85,6 +94,9 @@ class BeeBotAssociateShrinkRequest extends Model
         $model = new self();
         if (isset($map['ChatBotInstanceId'])) {
             $model->chatBotInstanceId = $map['ChatBotInstanceId'];
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];

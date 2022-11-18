@@ -17,6 +17,11 @@ class ModifyChatappTemplateRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $custWabaId;
 
     /**
@@ -40,6 +45,7 @@ class ModifyChatappTemplateRequest extends Model
     public $templateCode;
     protected $_name = [
         'components'   => 'Components',
+        'custSpaceId'  => 'CustSpaceId',
         'custWabaId'   => 'CustWabaId',
         'example'      => 'Example',
         'isvCode'      => 'IsvCode',
@@ -62,6 +68,9 @@ class ModifyChatappTemplateRequest extends Model
                     $res['Components'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
@@ -98,6 +107,9 @@ class ModifyChatappTemplateRequest extends Model
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];

@@ -17,6 +17,11 @@ class SendChatappMassMessageRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $custWabaId;
 
     /**
@@ -60,6 +65,7 @@ class SendChatappMassMessageRequest extends Model
     public $templateCode;
     protected $_name = [
         'channelType'     => 'ChannelType',
+        'custSpaceId'     => 'CustSpaceId',
         'custWabaId'      => 'CustWabaId',
         'fallBackContent' => 'FallBackContent',
         'fallBackId'      => 'FallBackId',
@@ -80,6 +86,9 @@ class SendChatappMassMessageRequest extends Model
         $res = [];
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
@@ -128,6 +137,9 @@ class SendChatappMassMessageRequest extends Model
         $model = new self();
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];

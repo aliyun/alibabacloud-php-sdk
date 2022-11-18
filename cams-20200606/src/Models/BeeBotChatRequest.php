@@ -16,6 +16,11 @@ class BeeBotChatRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $intentName;
 
     /**
@@ -59,6 +64,7 @@ class BeeBotChatRequest extends Model
     public $vendorParam;
     protected $_name = [
         'chatBotInstanceId' => 'ChatBotInstanceId',
+        'custSpaceId'       => 'CustSpaceId',
         'intentName'        => 'IntentName',
         'isvCode'           => 'IsvCode',
         'knowledgeId'       => 'KnowledgeId',
@@ -79,6 +85,9 @@ class BeeBotChatRequest extends Model
         $res = [];
         if (null !== $this->chatBotInstanceId) {
             $res['ChatBotInstanceId'] = $this->chatBotInstanceId;
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->intentName) {
             $res['IntentName'] = $this->intentName;
@@ -121,6 +130,9 @@ class BeeBotChatRequest extends Model
         $model = new self();
         if (isset($map['ChatBotInstanceId'])) {
             $model->chatBotInstanceId = $map['ChatBotInstanceId'];
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['IntentName'])) {
             $model->intentName = $map['IntentName'];

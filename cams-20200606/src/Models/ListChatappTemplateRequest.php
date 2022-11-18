@@ -17,6 +17,11 @@ class ListChatappTemplateRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $custWabaId;
 
     /**
@@ -40,6 +45,7 @@ class ListChatappTemplateRequest extends Model
     public $page;
     protected $_name = [
         'auditStatus' => 'AuditStatus',
+        'custSpaceId' => 'CustSpaceId',
         'custWabaId'  => 'CustWabaId',
         'isvCode'     => 'IsvCode',
         'language'    => 'Language',
@@ -56,6 +62,9 @@ class ListChatappTemplateRequest extends Model
         $res = [];
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
@@ -86,6 +95,9 @@ class ListChatappTemplateRequest extends Model
         $model = new self();
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];

@@ -16,6 +16,11 @@ class ModifyChatappTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $custWabaId;
 
     /**
@@ -39,6 +44,7 @@ class ModifyChatappTemplateShrinkRequest extends Model
     public $templateCode;
     protected $_name = [
         'componentsShrink' => 'Components',
+        'custSpaceId'      => 'CustSpaceId',
         'custWabaId'       => 'CustWabaId',
         'exampleShrink'    => 'Example',
         'isvCode'          => 'IsvCode',
@@ -55,6 +61,9 @@ class ModifyChatappTemplateShrinkRequest extends Model
         $res = [];
         if (null !== $this->componentsShrink) {
             $res['Components'] = $this->componentsShrink;
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
@@ -85,6 +94,9 @@ class ModifyChatappTemplateShrinkRequest extends Model
         $model = new self();
         if (isset($map['Components'])) {
             $model->componentsShrink = $map['Components'];
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];

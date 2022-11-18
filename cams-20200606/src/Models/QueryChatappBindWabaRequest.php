@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteChatappTemplateRequest extends Model
+class QueryChatappBindWabaRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,10 @@ class DeleteChatappTemplateRequest extends Model
     /**
      * @var string
      */
-    public $custWabaId;
-
-    /**
-     * @var string
-     */
     public $isvCode;
-
-    /**
-     * @var string
-     */
-    public $templateCode;
     protected $_name = [
-        'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
-        'isvCode'      => 'IsvCode',
-        'templateCode' => 'TemplateCode',
+        'custSpaceId' => 'CustSpaceId',
+        'isvCode'     => 'IsvCode',
     ];
 
     public function validate()
@@ -44,14 +32,8 @@ class DeleteChatappTemplateRequest extends Model
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
-        if (null !== $this->custWabaId) {
-            $res['CustWabaId'] = $this->custWabaId;
-        }
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
-        }
-        if (null !== $this->templateCode) {
-            $res['TemplateCode'] = $this->templateCode;
         }
 
         return $res;
@@ -60,7 +42,7 @@ class DeleteChatappTemplateRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteChatappTemplateRequest
+     * @return QueryChatappBindWabaRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +50,8 @@ class DeleteChatappTemplateRequest extends Model
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
-        if (isset($map['CustWabaId'])) {
-            $model->custWabaId = $map['CustWabaId'];
-        }
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
-        }
-        if (isset($map['TemplateCode'])) {
-            $model->templateCode = $map['TemplateCode'];
         }
 
         return $model;

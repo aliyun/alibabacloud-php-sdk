@@ -16,6 +16,11 @@ class SendChatappMassMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
     public $custWabaId;
 
     /**
@@ -59,6 +64,7 @@ class SendChatappMassMessageShrinkRequest extends Model
     public $templateCode;
     protected $_name = [
         'channelType'      => 'ChannelType',
+        'custSpaceId'      => 'CustSpaceId',
         'custWabaId'       => 'CustWabaId',
         'fallBackContent'  => 'FallBackContent',
         'fallBackId'       => 'FallBackId',
@@ -79,6 +85,9 @@ class SendChatappMassMessageShrinkRequest extends Model
         $res = [];
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
+        }
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
         }
         if (null !== $this->custWabaId) {
             $res['CustWabaId'] = $this->custWabaId;
@@ -121,6 +130,9 @@ class SendChatappMassMessageShrinkRequest extends Model
         $model = new self();
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
+        }
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
         }
         if (isset($map['CustWabaId'])) {
             $model->custWabaId = $map['CustWabaId'];

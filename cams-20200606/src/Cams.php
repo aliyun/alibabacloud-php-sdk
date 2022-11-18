@@ -25,13 +25,16 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappBindWabaResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -88,6 +91,9 @@ class Cams extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->chatBotInstanceId)) {
             $body['ChatBotInstanceId'] = $request->chatBotInstanceId;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->isvCode)) {
             $body['IsvCode'] = $request->isvCode;
@@ -154,6 +160,9 @@ class Cams extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->chatBotInstanceId)) {
             $body['ChatBotInstanceId'] = $request->chatBotInstanceId;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->intentName)) {
             $body['IntentName'] = $request->intentName;
@@ -229,6 +238,10 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($tmpReq->example)) {
             $request->exampleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->example, 'Example', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
         $body = [];
         if (!Utils::isUnset($request->category)) {
             $body['Category'] = $request->category;
@@ -255,7 +268,8 @@ class Cams extends OpenApiClient
             $body['TemplateType'] = $request->templateType;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateChatappTemplate',
@@ -294,6 +308,9 @@ class Cams extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
         if (!Utils::isUnset($request->custWabaId)) {
             $query['CustWabaId'] = $request->custWabaId;
         }
@@ -343,6 +360,9 @@ class Cams extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
         if (!Utils::isUnset($request->custWabaId)) {
             $query['CustWabaId'] = $request->custWabaId;
         }
@@ -397,11 +417,14 @@ class Cams extends OpenApiClient
         $request = new ListChatappTemplateShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->page), 'Page', 'json');
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->auditStatus)) {
             $query['AuditStatus'] = $request->auditStatus;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->custWabaId)) {
             $query['CustWabaId'] = $request->custWabaId;
@@ -469,6 +492,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->componentsShrink)) {
             $body['Components'] = $request->componentsShrink;
         }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
         if (!Utils::isUnset($request->custWabaId)) {
             $body['CustWabaId'] = $request->custWabaId;
         }
@@ -515,6 +541,98 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param QueryChatappBindWabaRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryChatappBindWabaResponse
+     */
+    public function queryChatappBindWabaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryChatappBindWaba',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryChatappBindWabaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryChatappBindWabaRequest $request
+     *
+     * @return QueryChatappBindWabaResponse
+     */
+    public function queryChatappBindWaba($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryChatappBindWabaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryChatappPhoneNumbersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryChatappPhoneNumbersResponse
+     */
+    public function queryChatappPhoneNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryChatappPhoneNumbers',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryChatappPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryChatappPhoneNumbersRequest $request
+     *
+     * @return QueryChatappPhoneNumbersResponse
+     */
+    public function queryChatappPhoneNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryChatappPhoneNumbersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendChatappMassMessageRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
@@ -531,6 +649,9 @@ class Cams extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->channelType)) {
             $body['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->custWabaId)) {
             $body['CustWabaId'] = $request->custWabaId;
@@ -616,6 +737,9 @@ class Cams extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->channelType)) {
             $body['ChannelType'] = $request->channelType;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->custWabaId)) {
             $body['CustWabaId'] = $request->custWabaId;
