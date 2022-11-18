@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetGlobalAppRequest extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本
-     *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 查询字段信息：appVersions，regionIds，dag
-     *
      * @var string[]
      */
     public $attributes;
 
     /**
-     * @description 应用可用区域
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description 命名空间
-     *
      * @var string
      */
     public $namespaceName;

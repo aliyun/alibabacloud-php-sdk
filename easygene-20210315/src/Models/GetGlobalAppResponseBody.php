@@ -11,162 +11,116 @@ use AlibabaCloud\Tea\Model;
 class GetGlobalAppResponseBody extends Model
 {
     /**
-     * @description 默认版本
-     *
      * @var string
      */
     public $appDefaultVersion;
 
     /**
-     * @description 应用描述
-     *
      * @var string
      */
     public $appDescription;
 
     /**
-     * @description 应用的描述文件内容
-     *
      * @var appDescriptorFiles[]
      */
     public $appDescriptorFiles;
 
     /**
-     * @description 应用描述语言标准
-     *
      * @var string
      */
     public $appDescriptorType;
 
     /**
-     * @description 应用计费说明
-     *
      * @var string
      */
     public $appFee;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用权限
-     *
      * @var string
      */
     public $appScope;
 
     /**
-     * @description 应用类型
-     *
      * @var string
      */
     public $appType;
 
     /**
-     * @description 应用版本
-     *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 应用的所有版本列表
-     *
      * @var appVersions[]
      */
     public $appVersions;
 
     /**
-     * @description 应用所属分类
-     *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description 应用的备注信息
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description 应用联系人信息
-     *
      * @var string
      */
     public $contact;
 
     /**
-     * @description 应用的DAG信息
-     *
      * @var string
      */
     public $DAG;
 
     /**
-     * @description 应用的帮助文档
-     *
      * @var string
      */
     public $document;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description 应用主页信息
-     *
      * @var string[]
      */
     public $links;
 
     /**
-     * @description 应用支持的区域
-     *
      * @var string[]
      */
     public $locations;
 
     /**
-     * @description 命名空间名称
-     *
      * @var string
      */
     public $namespaceName;
 
     /**
-     * @description 应用收藏置顶标记
-     *
      * @var bool
      */
     public $pinned;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 应用所属工具合集
-     *
      * @var string
      */
     public $toolkit;

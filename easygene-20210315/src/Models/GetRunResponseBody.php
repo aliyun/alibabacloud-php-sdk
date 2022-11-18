@@ -10,190 +10,136 @@ use AlibabaCloud\Tea\Model;
 class GetRunResponseBody extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 作业信息
-     *
      * @var string
      */
     public $calls;
 
     /**
-     * @description 提交时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 默认runtime值
-     *
      * @var string
      */
     public $defaultRuntime;
 
     /**
-     * @description 任务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 实体对象名称
-     *
      * @var string
      */
     public $entityName;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 任务执行目录
-     *
      * @var string
      */
     public $executeDirectory;
 
     /**
-     * @description 任务配置
-     *
      * @var executeOptions
      */
     public $executeOptions;
 
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $failures;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 任务输入
-     *
      * @var string
      */
     public $inputs;
 
     /**
-     * @description 任务标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 输出拷贝目录
-     *
      * @var string
      */
     public $outputFolder;
 
     /**
-     * @description 任务输出
-     *
      * @var string
      */
     public $outputs;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $runId;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $runName;
 
     /**
-     * @description 应用来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 提交ID
-     *
      * @var string
      */
     public $submissionId;
 
     /**
-     * @description 时序信息
-     *
      * @var string
      */
     public $timing;
 
     /**
-     * @description 用户ID
-     *
      * @var string
      */
     public $user;
 
     /**
-     * @description 工作空间名字
-     *
      * @var string
      */
     public $workspace;

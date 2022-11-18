@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UploadEntityResponseBody extends Model
 {
     /**
-     * @description 表格名称
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

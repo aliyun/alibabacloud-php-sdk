@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetEntityRequest extends Model
 {
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

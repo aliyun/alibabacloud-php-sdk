@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListGlobalAppsResponseBody extends Model
 {
     /**
-     * @description 公共应用集合
-     *
      * @var globalApps[]
      */
     public $globalApps;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 分页数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 翻页Token用来表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 本次请求条件下的数据总量
-     *
      * @var int
      */
     public $totalCount;

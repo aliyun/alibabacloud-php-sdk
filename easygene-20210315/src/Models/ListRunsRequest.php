@@ -9,99 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListRunsRequest extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 实体名称
-     *
      * @var string
      */
     public $entityName;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 是否返回所有任务条数
-     *
      * @var bool
      */
     public $getTotal;
 
     /**
-     * @description 是否逆序
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description 标签选择
-     *
      * @var string
      */
     public $labelSelector;
 
     /**
-     * @description 最大返回个数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 查询起始位置
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序依据
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 搜索ID
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 提交ID
-     *
      * @var string
      */
     public $submissionId;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

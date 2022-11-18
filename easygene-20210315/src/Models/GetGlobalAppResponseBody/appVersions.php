@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class appVersions extends Model
 {
     /**
-     * @description 应用版本
-     *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 版本描述
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $lastModified;

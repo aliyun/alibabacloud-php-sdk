@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DownloadEntityResponseBody extends Model
 {
     /**
-     * @description 下载的表格文件URL
-     *
      * @var string
      */
     public $entityCSVFile;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

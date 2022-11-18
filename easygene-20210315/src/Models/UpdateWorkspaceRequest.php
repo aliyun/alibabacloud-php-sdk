@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkspaceRequest extends Model
 {
     /**
-     * @description 工作空间描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 工作空间内任务生命周期
-     *
      * @var int
      */
     public $jobLifecycle;
 
     /**
-     * @description 工作空间标签
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description 工作空间内Ram角色
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

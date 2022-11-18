@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class appDescriptorFiles extends Model
 {
     /**
-     * @description 应用文件内容的完整性校验码，如MD5值
-     *
      * @var string
      */
     public $checksum;
 
     /**
-     * @description 应用文件内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 应用文件的类型
-     *
      * @var string
      */
     public $fileType;
 
     /**
-     * @description 应用文件的路径，除PRIMARY_DESCRIPTOR外，其他均为相对于PRIMARY_DESCRIPTOR的相对路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 应用文件链接
-     *
      * @var string
      */
     public $url;

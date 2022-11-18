@@ -11,78 +11,56 @@ use AlibabaCloud\Tea\Model;
 class templates extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 模板描述信息
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 应用输入
-     *
      * @var inputsExpression[]
      */
     public $inputsExpression;
 
     /**
-     * @description 标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 最后修改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 应用的输出参数
-     *
      * @var outputsExpression[]
      */
     public $outputsExpression;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $rootEntity;
 
     /**
-     * @description 应用模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

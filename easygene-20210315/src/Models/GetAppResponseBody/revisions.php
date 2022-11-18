@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class revisions extends Model
 {
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 版本号
-     *
      * @var string
      */
     public $revision;
 
     /**
-     * @description 应用当前版本修改
-     *
      * @var string
      */
     public $revisionComment;

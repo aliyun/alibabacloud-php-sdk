@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListSubmissionsRequest extends Model
 {
     /**
-     * @description 逆序
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description 最大返回数目
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description Next Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序依据
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 搜索ID
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

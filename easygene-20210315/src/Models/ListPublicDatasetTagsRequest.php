@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetTagsRequest extends Model
 {
     /**
-     * @description 是否反转
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description 分页数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 翻页Token用来标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序字段:TagName,LastModified
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 标签名中搜索的关键字
-     *
      * @var string
      */
     public $search;

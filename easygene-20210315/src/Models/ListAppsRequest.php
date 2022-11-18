@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ListAppsRequest extends Model
 {
     /**
-     * @description 应用类型
-     *
      * @var string
      */
     public $appType;
 
     /**
-     * @description 是否逆序
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description Label 选择器
-     *
      * @var string
      */
     public $labelSelector;
 
     /**
-     * @description 应用描述语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 最大返回结果数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description Next Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序依据
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 应用范围
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 按照名字匹配
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

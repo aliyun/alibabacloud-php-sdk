@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateShrinkRequest extends Model
 {
     /**
-     * @description 应用的名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用的版本
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 应用模板描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 应用的输入
-     *
      * @var string
      */
     public $inputsExpressionShrink;
 
     /**
-     * @description 应用标签
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description 应用的输出
-     *
      * @var string
      */
     public $outputsExpressionShrink;
 
     /**
-     * @description 根实体类型
-     *
      * @var string
      */
     public $rootEntity;
 
     /**
-     * @description 应用模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

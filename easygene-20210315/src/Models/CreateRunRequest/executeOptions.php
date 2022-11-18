@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class executeOptions extends Model
 {
     /**
-     * @description 使用缓存
-     *
      * @var bool
      */
     public $callCaching;
 
     /**
-     * @description 删除中间结果
-     *
      * @var bool
      */
     public $deleteIntermediateResults;
 
     /**
-     * @description 失败模式
-     *
      * @var string
      */
     public $failureMode;
 
     /**
-     * @description 使用相对输出路径
-     *
      * @var bool
      */
     public $useRelativeOutputPaths;

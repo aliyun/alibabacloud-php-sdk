@@ -10,57 +10,41 @@ use AlibabaCloud\Tea\Model;
 class runs extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本号
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 提交时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 默认运行时
-     *
      * @var string
      */
     public $defaultRuntime;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 实体名称
-     *
      * @var string
      */
     public $entityName;
 
     /**
-     * @description 实体对象ID
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 运行目录
-     *
      * @var string
      */
     public $executeDirectory;
@@ -71,71 +55,51 @@ class runs extends Model
     public $executeOptions;
 
     /**
-     * @description 输入参数
-     *
      * @var string
      */
     public $inputs;
 
     /**
-     * @description 任务标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 区域
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $runId;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $runName;
 
     /**
-     * @description 应用来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 提交ID
-     *
      * @var string
      */
     public $submissionId;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

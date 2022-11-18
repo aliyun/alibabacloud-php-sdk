@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class globalApps extends Model
 {
     /**
-     * @description 应用默认版本
-     *
      * @var string
      */
     public $appDefaultVersion;
 
     /**
-     * @description 应用描述
-     *
      * @var string
      */
     public $appDescription;
 
     /**
-     * @description 应用计费说明
-     *
      * @var string
      */
     public $appFee;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用权限
-     *
      * @var string
      */
     public $appScope;
 
     /**
-     * @description 应用所属分类
-     *
      * @var string[]
      */
     public $categories;
 
     /**
-     * @description 更新时间
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description 应用支持的区域ids
-     *
      * @var string[]
      */
     public $locations;
 
     /**
-     * @description 命名空间名称
-     *
      * @var string
      */
     public $namespaceName;
 
     /**
-     * @description 应用收藏置顶标记
-     *
      * @var bool
      */
     public $pinned;
 
     /**
-     * @description 应用工具合集
-     *
      * @var string
      */
     public $toolkit;

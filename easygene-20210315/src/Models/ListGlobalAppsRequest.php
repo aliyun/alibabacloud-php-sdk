@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListGlobalAppsRequest extends Model
 {
     /**
-     * @description 可见范围
-     *
      * @var string
      */
     public $appScope;
 
     /**
-     * @description 分类
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description 是否倒序，默认倒序排列
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description 区域Id
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description 分页数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 翻页Token用来标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序字段:AppName,LastModified,Used
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 模糊搜索字段：NamesapceName  AppName  Categories AppDescription
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 工具集
-     *
      * @var string
      */
     public $toolkit;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesRequest extends Model
 {
     /**
-     * @description 是否逆序
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description Label 选择器
-     *
      * @var string
      */
     public $labelSelector;
 
     /**
-     * @description 最大返回结果数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 下次查询起始位置
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序依据
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 查找条件
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class outputs extends Model
 {
     /**
-     * @description 帮助信息
-     *
      * @var string
      */
     public $help;
 
     /**
-     * @description 是否必须
-     *
      * @var bool
      */
     public $required;
 
     /**
-     * @description 步骤编号
-     *
      * @var int
      */
     public $stepOrder;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description 参数名称
-     *
      * @var string
      */
     public $variableName;
 
     /**
-     * @description 参数类型
-     *
      * @var string
      */
     public $variableType;
 
     /**
-     * @description 参数值
-     *
      * @var string
      */
     public $variableValue;

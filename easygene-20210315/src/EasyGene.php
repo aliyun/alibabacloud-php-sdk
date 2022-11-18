@@ -115,7 +115,6 @@ use AlibabaCloud\SDK\EasyGene\V20210315\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\UpdateWorkspaceResponse;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\UploadEntityRequest;
 use AlibabaCloud\SDK\EasyGene\V20210315\Models\UploadEntityResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -164,12 +163,15 @@ class EasyGene extends OpenApiClient
     public function abortRunWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['RunId']     = $request->runId;
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->runId)) {
+            $query['RunId'] = $request->runId;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AbortRun',
@@ -179,7 +181,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -207,12 +209,15 @@ class EasyGene extends OpenApiClient
     public function abortSubmissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['SubmissionId'] = $request->submissionId;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->submissionId)) {
+            $query['SubmissionId'] = $request->submissionId;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AbortSubmission',
@@ -222,7 +227,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -250,13 +255,18 @@ class EasyGene extends OpenApiClient
     public function copyPublicEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Dataset']    = $request->dataset;
-        $query['EntityType'] = $request->entityType;
-        $query['Workspace']  = $request->workspace;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dataset)) {
+            $query['Dataset'] = $request->dataset;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CopyPublicEntity',
@@ -266,7 +276,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -302,20 +312,53 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->dependencies)) {
             $request->dependenciesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dependencies, 'Dependencies', 'json');
         }
-        $query                    = [];
-        $query['AppName']         = $request->appName;
-        $query['AppType']         = $request->appType;
-        $query['ClientToken']     = $request->clientToken;
-        $query['Description']     = $request->description;
-        $query['Labels']          = $request->labels;
-        $query['Language']        = $request->language;
-        $query['LanguageVersion'] = $request->languageVersion;
-        $query['Path']            = $request->path;
-        $query['RevisionComment'] = $request->revisionComment;
-        $query['Workspace']       = $request->workspace;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->languageVersion)) {
+            $query['LanguageVersion'] = $request->languageVersion;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->revisionComment)) {
+            $query['RevisionComment'] = $request->revisionComment;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configsShrink)) {
+            $body['Configs'] = $request->configsShrink;
+        }
+        if (!Utils::isUnset($request->definition)) {
+            $body['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->dependenciesShrink)) {
+            $body['Dependencies'] = $request->dependenciesShrink;
+        }
+        if (!Utils::isUnset($request->documentation)) {
+            $body['Documentation'] = $request->documentation;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateApp',
@@ -358,13 +401,23 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->entityItems)) {
             $request->entityItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityItems, 'EntityItems', 'json');
         }
-        $query                = [];
-        $query['ClientToken'] = $request->clientToken;
-        $query['EntityType']  = $request->entityType;
-        $query['Workspace']   = $request->workspace;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->entityItemsShrink)) {
+            $body['EntityItems'] = $request->entityItemsShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEntity',
@@ -405,24 +458,50 @@ class EasyGene extends OpenApiClient
         $request = new CreateRunShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->executeOptions)) {
-            $request->executeOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->executeOptions), 'ExecuteOptions', 'json');
+            $request->executeOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executeOptions, 'ExecuteOptions', 'json');
         }
-        $query                     = [];
-        $query['AppName']          = $request->appName;
-        $query['AppRevision']      = $request->appRevision;
-        $query['ClientToken']      = $request->clientToken;
-        $query['DefaultRuntime']   = $request->defaultRuntime;
-        $query['Description']      = $request->description;
-        $query['ExecuteDirectory'] = $request->executeDirectory;
-        $query['ExecuteOptions']   = $request->executeOptionsShrink;
-        $query['Inputs']           = $request->inputs;
-        $query['Labels']           = $request->labels;
-        $query['OutputFolder']     = $request->outputFolder;
-        $query['RunName']          = $request->runName;
-        $query['Workspace']        = $request->workspace;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appRevision)) {
+            $query['AppRevision'] = $request->appRevision;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->defaultRuntime)) {
+            $query['DefaultRuntime'] = $request->defaultRuntime;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executeDirectory)) {
+            $query['ExecuteDirectory'] = $request->executeDirectory;
+        }
+        if (!Utils::isUnset($request->executeOptionsShrink)) {
+            $query['ExecuteOptions'] = $request->executeOptionsShrink;
+        }
+        if (!Utils::isUnset($request->inputs)) {
+            $query['Inputs'] = $request->inputs;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->outputFolder)) {
+            $query['OutputFolder'] = $request->outputFolder;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->runName)) {
+            $query['RunName'] = $request->runName;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRun',
@@ -432,7 +511,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -465,22 +544,45 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->entityNames)) {
             $request->entityNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityNames, 'EntityNames', 'json');
         }
-        $query                     = [];
-        $query['AppName']          = $request->appName;
-        $query['ClientToken']      = $request->clientToken;
-        $query['DefaultRuntime']   = $request->defaultRuntime;
-        $query['EntityNames']      = $request->entityNamesShrink;
-        $query['EntityType']       = $request->entityType;
-        $query['ExecuteDirectory'] = $request->executeDirectory;
-        $query['ExecuteOptions']   = $request->executeOptions;
-        $query['Inputs']           = $request->inputs;
-        $query['OutputFolder']     = $request->outputFolder;
-        $query['Outputs']          = $request->outputs;
-        $query['Revision']         = $request->revision;
-        $query['Workspace']        = $request->workspace;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->defaultRuntime)) {
+            $query['DefaultRuntime'] = $request->defaultRuntime;
+        }
+        if (!Utils::isUnset($request->entityNamesShrink)) {
+            $query['EntityNames'] = $request->entityNamesShrink;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->executeDirectory)) {
+            $query['ExecuteDirectory'] = $request->executeDirectory;
+        }
+        if (!Utils::isUnset($request->executeOptions)) {
+            $query['ExecuteOptions'] = $request->executeOptions;
+        }
+        if (!Utils::isUnset($request->inputs)) {
+            $query['Inputs'] = $request->inputs;
+        }
+        if (!Utils::isUnset($request->outputFolder)) {
+            $query['OutputFolder'] = $request->outputFolder;
+        }
+        if (!Utils::isUnset($request->outputs)) {
+            $query['Outputs'] = $request->outputs;
+        }
+        if (!Utils::isUnset($request->revision)) {
+            $query['Revision'] = $request->revision;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSubmission',
@@ -490,7 +592,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -526,18 +628,41 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->outputsExpression)) {
             $request->outputsExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outputsExpression, 'OutputsExpression', 'json');
         }
-        $query                 = [];
-        $query['AppName']      = $request->appName;
-        $query['AppRevision']  = $request->appRevision;
-        $query['ClientToken']  = $request->clientToken;
-        $query['Description']  = $request->description;
-        $query['Labels']       = $request->labels;
-        $query['RootEntity']   = $request->rootEntity;
-        $query['TemplateName'] = $request->templateName;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->appRevision)) {
+            $query['AppRevision'] = $request->appRevision;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->rootEntity)) {
+            $query['RootEntity'] = $request->rootEntity;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->inputsExpressionShrink)) {
+            $body['InputsExpression'] = $request->inputsExpressionShrink;
+        }
+        if (!Utils::isUnset($request->outputsExpressionShrink)) {
+            $body['OutputsExpression'] = $request->outputsExpressionShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTemplate',
@@ -575,17 +700,30 @@ class EasyGene extends OpenApiClient
     public function createWorkspaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['ClientToken']  = $request->clientToken;
-        $query['Description']  = $request->description;
-        $query['JobLifecycle'] = $request->jobLifecycle;
-        $query['Labels']       = $request->labels;
-        $query['Role']         = $request->role;
-        $query['Storage']      = $request->storage;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->jobLifecycle)) {
+            $query['JobLifecycle'] = $request->jobLifecycle;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkspace',
@@ -595,7 +733,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -623,13 +761,18 @@ class EasyGene extends OpenApiClient
     public function deleteAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppName']   = $request->appName;
-        $query['Revision']  = $request->revision;
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->revision)) {
+            $query['Revision'] = $request->revision;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteApp',
@@ -639,7 +782,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -672,13 +815,18 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->entityNames)) {
             $request->entityNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityNames, 'EntityNames', 'json');
         }
-        $query                = [];
-        $query['EntityNames'] = $request->entityNamesShrink;
-        $query['EntityType']  = $request->entityType;
-        $query['Workspace']   = $request->workspace;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityNamesShrink)) {
+            $query['EntityNames'] = $request->entityNamesShrink;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteEntityItems',
@@ -688,7 +836,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -716,12 +864,15 @@ class EasyGene extends OpenApiClient
     public function deleteRunWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['RunId']     = $request->runId;
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->runId)) {
+            $query['RunId'] = $request->runId;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRun',
@@ -731,7 +882,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -759,12 +910,15 @@ class EasyGene extends OpenApiClient
     public function deleteSubmissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['SubmissionId'] = $request->submissionId;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->submissionId)) {
+            $query['SubmissionId'] = $request->submissionId;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSubmission',
@@ -774,7 +928,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -802,12 +956,15 @@ class EasyGene extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['TemplateName'] = $request->templateName;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplate',
@@ -817,7 +974,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -845,11 +1002,12 @@ class EasyGene extends OpenApiClient
     public function deleteWorkspaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteWorkspace',
@@ -859,7 +1017,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -892,13 +1050,18 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->entityNames)) {
             $request->entityNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityNames, 'EntityNames', 'json');
         }
-        $query                = [];
-        $query['EntityNames'] = $request->entityNamesShrink;
-        $query['EntityType']  = $request->entityType;
-        $query['Workspace']   = $request->workspace;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityNamesShrink)) {
+            $query['EntityNames'] = $request->entityNamesShrink;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DownloadEntity',
@@ -908,7 +1071,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -936,13 +1099,18 @@ class EasyGene extends OpenApiClient
     public function getAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppName']   = $request->appName;
-        $query['Revision']  = $request->revision;
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->revision)) {
+            $query['Revision'] = $request->revision;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetApp',
@@ -952,7 +1120,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -980,12 +1148,15 @@ class EasyGene extends OpenApiClient
     public function getEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EntityType'] = $request->entityType;
-        $query['Workspace']  = $request->workspace;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetEntity',
@@ -995,7 +1166,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1040,7 +1211,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1085,7 +1256,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1125,7 +1296,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1165,7 +1336,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1205,7 +1376,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1233,12 +1404,15 @@ class EasyGene extends OpenApiClient
     public function getTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['TemplateName'] = $request->templateName;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTemplate',
@@ -1248,7 +1422,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1276,11 +1450,12 @@ class EasyGene extends OpenApiClient
     public function getWorkspaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetWorkspace',
@@ -1290,7 +1465,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1318,13 +1493,18 @@ class EasyGene extends OpenApiClient
     public function importAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query              = [];
-        $query['AppName']   = $request->appName;
-        $query['Source']    = $request->source;
-        $query['Workspace'] = $request->workspace;
-        $req                = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ImportApp',
@@ -1334,7 +1514,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1362,15 +1542,24 @@ class EasyGene extends OpenApiClient
     public function installGlobalAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AppName']          = $request->appName;
-        $query['InstalledAppName'] = $request->installedAppName;
-        $query['NamespaceName']    = $request->namespaceName;
-        $query['Source']           = $request->source;
-        $query['Workspace']        = $request->workspace;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->installedAppName)) {
+            $query['InstalledAppName'] = $request->installedAppName;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'InstallGlobalApp',
@@ -1380,7 +1569,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1408,20 +1597,39 @@ class EasyGene extends OpenApiClient
     public function listAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AppType']       = $request->appType;
-        $query['IsReversed']    = $request->isReversed;
-        $query['LabelSelector'] = $request->labelSelector;
-        $query['Language']      = $request->language;
-        $query['MaxResults']    = $request->maxResults;
-        $query['NextToken']     = $request->nextToken;
-        $query['OrderBy']       = $request->orderBy;
-        $query['Scope']         = $request->scope;
-        $query['Search']        = $request->search;
-        $query['Workspace']     = $request->workspace;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appType)) {
+            $query['AppType'] = $request->appType;
+        }
+        if (!Utils::isUnset($request->isReversed)) {
+            $query['IsReversed'] = $request->isReversed;
+        }
+        if (!Utils::isUnset($request->labelSelector)) {
+            $query['LabelSelector'] = $request->labelSelector;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['Search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListApps',
@@ -1431,7 +1639,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1471,7 +1679,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1511,7 +1719,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1551,7 +1759,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1579,17 +1787,30 @@ class EasyGene extends OpenApiClient
     public function listEntityItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['EntityType'] = $request->entityType;
-        $query['IsReversed'] = $request->isReversed;
-        $query['MaxResults'] = $request->maxResults;
-        $query['NextToken']  = $request->nextToken;
-        $query['OrderBy']    = $request->orderBy;
-        $query['Search']     = $request->search;
-        $query['Workspace']  = $request->workspace;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->isReversed)) {
+            $query['IsReversed'] = $request->isReversed;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['Search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListEntityItems',
@@ -1599,7 +1820,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1639,7 +1860,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1679,7 +1900,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1719,7 +1940,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1759,7 +1980,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1799,7 +2020,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1834,7 +2055,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1872,7 +2093,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1912,7 +2133,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1940,17 +2161,30 @@ class EasyGene extends OpenApiClient
     public function listTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['IsReversed']    = $request->isReversed;
-        $query['LabelSelector'] = $request->labelSelector;
-        $query['MaxResults']    = $request->maxResults;
-        $query['NextToken']     = $request->nextToken;
-        $query['OrderBy']       = $request->orderBy;
-        $query['Search']        = $request->search;
-        $query['Workspace']     = $request->workspace;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->isReversed)) {
+            $query['IsReversed'] = $request->isReversed;
+        }
+        if (!Utils::isUnset($request->labelSelector)) {
+            $query['LabelSelector'] = $request->labelSelector;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['Search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTemplates',
@@ -1960,7 +2194,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2000,7 +2234,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2040,7 +2274,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2068,12 +2302,15 @@ class EasyGene extends OpenApiClient
     public function resumeSubmissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['SubmissionId'] = $request->submissionId;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->submissionId)) {
+            $query['SubmissionId'] = $request->submissionId;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResumeSubmission',
@@ -2083,7 +2320,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2116,12 +2353,20 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->entityItems)) {
             $request->entityItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityItems, 'EntityItems', 'json');
         }
-        $query               = [];
-        $query['EntityType'] = $request->entityType;
-        $query['Workspace']  = $request->workspace;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->entityItemsShrink)) {
+            $body['EntityItems'] = $request->entityItemsShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEntity',
@@ -2164,12 +2409,20 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->entityItems)) {
             $request->entityItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->entityItems, 'EntityItems', 'json');
         }
-        $query               = [];
-        $query['EntityType'] = $request->entityType;
-        $query['Workspace']  = $request->workspace;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->entityItemsShrink)) {
+            $body['EntityItems'] = $request->entityItemsShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEntityItems',
@@ -2215,15 +2468,32 @@ class EasyGene extends OpenApiClient
         if (!Utils::isUnset($tmpReq->outputsExpression)) {
             $request->outputsExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outputsExpression, 'OutputsExpression', 'json');
         }
-        $query                 = [];
-        $query['Description']  = $request->description;
-        $query['Labels']       = $request->labels;
-        $query['RootEntity']   = $request->rootEntity;
-        $query['TemplateName'] = $request->templateName;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->rootEntity)) {
+            $query['RootEntity'] = $request->rootEntity;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->inputsExpressionShrink)) {
+            $body['InputsExpression'] = $request->inputsExpressionShrink;
+        }
+        if (!Utils::isUnset($request->outputsExpressionShrink)) {
+            $body['OutputsExpression'] = $request->outputsExpressionShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -2261,15 +2531,24 @@ class EasyGene extends OpenApiClient
     public function updateWorkspaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                 = [];
-        $query['Description']  = $request->description;
-        $query['JobLifecycle'] = $request->jobLifecycle;
-        $query['Labels']       = $request->labels;
-        $query['Role']         = $request->role;
-        $query['Workspace']    = $request->workspace;
-        $req                   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->jobLifecycle)) {
+            $query['JobLifecycle'] = $request->jobLifecycle;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $query['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkspace',
@@ -2279,7 +2558,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2307,12 +2586,15 @@ class EasyGene extends OpenApiClient
     public function uploadEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['EntityCSVFile'] = $request->entityCSVFile;
-        $query['Workspace']     = $request->workspace;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->entityCSVFile)) {
+            $query['EntityCSVFile'] = $request->entityCSVFile;
+        }
+        if (!Utils::isUnset($request->workspace)) {
+            $query['Workspace'] = $request->workspace;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadEntity',
@@ -2322,7 +2604,7 @@ class EasyGene extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

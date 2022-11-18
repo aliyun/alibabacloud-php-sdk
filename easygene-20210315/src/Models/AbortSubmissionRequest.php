@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AbortSubmissionRequest extends Model
 {
     /**
-     * @description 投递ID
-     *
      * @var string
      */
     public $submissionId;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

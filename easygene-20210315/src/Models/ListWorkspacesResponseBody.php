@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesResponseBody extends Model
 {
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 最大结果数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 下次查询的起始Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回总个数
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description 工作空间数组
-     *
      * @var workspaces[]
      */
     public $workspaces;

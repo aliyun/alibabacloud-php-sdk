@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateEntityShrinkRequest extends Model
 {
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $clientToken;
@@ -21,15 +19,11 @@ class CreateEntityShrinkRequest extends Model
     public $entityItemsShrink;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

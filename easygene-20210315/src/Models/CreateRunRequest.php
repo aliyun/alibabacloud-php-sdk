@@ -10,85 +10,66 @@ use AlibabaCloud\Tea\Model;
 class CreateRunRequest extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本号
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 任务幂等token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 默认运行时
-     *
      * @var string
      */
     public $defaultRuntime;
 
     /**
-     * @description 任务描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 任务执行目录
-     *
      * @var string
      */
     public $executeDirectory;
 
     /**
-     * @description 任务配置
-     *
      * @var executeOptions
      */
     public $executeOptions;
 
     /**
-     * @description 任务输入
-     *
      * @var string
      */
     public $inputs;
 
     /**
-     * @description 任务标签
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description 任务输出拷贝目录
-     *
      * @var string
      */
     public $outputFolder;
 
     /**
-     * @description 任务名称
-     *
+     * @var string
+     */
+    public $role;
+
+    /**
      * @var string
      */
     public $runName;
 
     /**
-     * @description 工作空间名字
-     *
      * @var string
      */
     public $workspace;
@@ -103,6 +84,7 @@ class CreateRunRequest extends Model
         'inputs'           => 'Inputs',
         'labels'           => 'Labels',
         'outputFolder'     => 'OutputFolder',
+        'role'             => 'Role',
         'runName'          => 'RunName',
         'workspace'        => 'Workspace',
     ];
@@ -143,6 +125,9 @@ class CreateRunRequest extends Model
         }
         if (null !== $this->outputFolder) {
             $res['OutputFolder'] = $this->outputFolder;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->runName) {
             $res['RunName'] = $this->runName;
@@ -191,6 +176,9 @@ class CreateRunRequest extends Model
         }
         if (isset($map['OutputFolder'])) {
             $model->outputFolder = $map['OutputFolder'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['RunName'])) {
             $model->runName = $map['RunName'];

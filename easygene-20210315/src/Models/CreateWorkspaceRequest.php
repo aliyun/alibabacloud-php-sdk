@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceRequest extends Model
 {
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 工作空间描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 工作空间任务生命周期
-     *
      * @var int
      */
     public $jobLifecycle;
 
     /**
-     * @description 工作空间标签
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description 工作空间内的ram角色
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 工作空间的OSS工作路径
-     *
      * @var string
      */
     public $storage;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

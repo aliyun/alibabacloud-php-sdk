@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class softwares extends Model
 {
     /**
-     * @description 帮助链接
-     *
      * @var string
      */
     public $helpLink;
 
     /**
-     * @description 最后更新时间
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description 软件可用区域
-     *
      * @var string[]
      */
     public $locations;
 
     /**
-     * @description 限时免费说明
-     *
      * @var string
      */
     public $promotion;
 
     /**
-     * @description 软件默认版本
-     *
      * @var string
      */
     public $softwareDefaultVersion;
 
     /**
-     * @description 软件描述
-     *
      * @var string
      */
     public $softwareDescription;
 
     /**
-     * @description 软件图标链接
-     *
      * @var string
      */
     public $softwareIcon;
 
     /**
-     * @description 软件使用费用
-     *
      * @var float
      */
     public $softwareLicenseFee;
 
     /**
-     * @description 软件长名称
-     *
      * @var string
      */
     public $softwareLongName;
 
     /**
-     * @description 软件名称
-     *
      * @var string
      */
     public $softwareName;
 
     /**
-     * @description 软件所有版本
-     *
      * @var string[]
      */
     public $softwareVersions;

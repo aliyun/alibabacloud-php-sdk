@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class outputsExpression extends Model
 {
     /**
-     * @description 帮助信息
-     *
      * @var string
      */
     public $help;
 
     /**
-     * @description 是否必须参数
-     *
      * @var bool
      */
     public $required;
 
     /**
-     * @description 步骤顺序
-     *
      * @var int
      */
     public $stepOrder;
 
     /**
-     * @description 任务名称
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description 变量名称
-     *
      * @var string
      */
     public $variableName;
 
     /**
-     * @description 变量类型
-     *
      * @var string
      */
     public $variableType;
 
     /**
-     * @description 变量值
-     *
      * @var string
      */
     public $variableValue;

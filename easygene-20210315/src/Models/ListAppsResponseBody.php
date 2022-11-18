@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListAppsResponseBody extends Model
 {
     /**
-     * @description 应用数组
-     *
      * @var apps[]
      */
     public $apps;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 最大返回个数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description Next Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回个数
-     *
      * @var int
      */
     public $totalCount;

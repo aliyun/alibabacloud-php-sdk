@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class entityItems extends Model
 {
     /**
-     * @description 数据元素属性
-     *
      * @var string[]
      */
     public $entityData;
 
     /**
-     * @description 表格数据元素名称
-     *
      * @var string
      */
     public $entityName;

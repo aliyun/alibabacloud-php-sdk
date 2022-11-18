@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CopyPublicEntityRequest extends Model
 {
     /**
-     * @description 数据集名称
-     *
      * @var string
      */
     public $dataset;
 
     /**
-     * @description 表格名称
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 要拷贝到的工作空间
-     *
      * @var string
      */
     public $workspace;

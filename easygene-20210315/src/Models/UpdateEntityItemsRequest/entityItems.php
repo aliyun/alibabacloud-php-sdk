@@ -14,8 +14,6 @@ class entityItems extends Model
     public $entityData;
 
     /**
-     * @description 实体元素名称
-     *
      * @var string
      */
     public $entityName;

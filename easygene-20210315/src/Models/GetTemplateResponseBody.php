@@ -11,99 +11,71 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateResponseBody extends Model
 {
     /**
-     * @description 应用的名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用的版本
-     *
      * @var string
      */
     public $appRevision;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 应用简要描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 应用输入
-     *
      * @var inputsExpression[]
      */
     public $inputsExpression;
 
     /**
-     * @description 应用标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 应用最后修改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 应用的输出参数
-     *
      * @var outputsExpression[]
      */
     public $outputsExpression;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $rootEntity;
 
     /**
-     * @description 应用来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 应用模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

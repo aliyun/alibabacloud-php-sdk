@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class apps extends Model
 {
     /**
-     * @description 默认版本
-     *
      * @var string
      */
     public $appDefaultVersion;
 
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用类型
-     *
      * @var string
      */
     public $appType;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 应用描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 应用描述语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 应用可见范围
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 应用来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 应用所在工作空间
-     *
      * @var string
      */
     public $workspace;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetAppRequest extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 应用版本号
-     *
      * @var string
      */
     public $revision;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ImportAppResponseBody extends Model
 {
     /**
-     * @description 安装后应用名
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 主机 ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 区域名
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

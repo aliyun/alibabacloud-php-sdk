@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class GetPublicDatasetResponseBody extends Model
 {
     /**
-     * @description 关于公共数据集
-     *
      * @var string
      */
     public $about;
 
     /**
-     * @description 公共数据集访问要求
-     *
      * @var string
      */
     public $accessRequirements;
 
     /**
-     * @description 公共数据集版权信息
-     *
      * @var string
      */
     public $copyright;
 
     /**
-     * @description 公共数据集描述
-     *
      * @var string
      */
     public $datasetDescription;
 
     /**
-     * @description 公共数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 最后更新时间
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description 公共数据集可用区域
-     *
      * @var string[]
      */
     public $locations;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 公共数据集标签
-     *
      * @var string[]
      */
     public $tags;
 
     /**
-     * @description 公共数据集更新频率
-     *
      * @var string
      */
     public $updateFrequency;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetPublicDatasetEntityRequest extends Model
 {
     /**
-     * @description 数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 公共数据集所在区域
-     *
      * @var string
      */
     public $location;

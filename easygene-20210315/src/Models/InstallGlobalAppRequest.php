@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class InstallGlobalAppRequest extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 安装后应用名
-     *
      * @var string
      */
     public $installedAppName;
 
     /**
-     * @description 命名空间名称
-     *
      * @var string
      */
     public $namespaceName;
 
     /**
-     * @description 来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

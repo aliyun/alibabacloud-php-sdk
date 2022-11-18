@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateSubmissionShrinkRequest extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 任务幂等token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 默认运行时
-     *
      * @var string
      */
     public $defaultRuntime;
@@ -35,57 +29,41 @@ class CreateSubmissionShrinkRequest extends Model
     public $entityNamesShrink;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 任务执行目录
-     *
      * @var string
      */
     public $executeDirectory;
 
     /**
-     * @description 任务配置
-     *
      * @var string
      */
     public $executeOptions;
 
     /**
-     * @description 任务输入
-     *
      * @var string
      */
     public $inputs;
 
     /**
-     * @description 任务输出拷贝目录
-     *
      * @var string
      */
     public $outputFolder;
 
     /**
-     * @description 任务输出
-     *
      * @var string
      */
     public $outputs;
 
     /**
-     * @description 应用版本号
-     *
      * @var string
      */
     public $revision;
 
     /**
-     * @description 工作空间名字
-     *
      * @var string
      */
     public $workspace;

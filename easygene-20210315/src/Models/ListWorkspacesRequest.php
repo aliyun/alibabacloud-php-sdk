@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspacesRequest extends Model
 {
     /**
-     * @description 逆序
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description Label选择器
-     *
      * @var string
      */
     public $labelSelector;
 
     /**
-     * @description 最多返回数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description NextToken
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序依据
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 搜索字段
-     *
      * @var string
      */
     public $search;

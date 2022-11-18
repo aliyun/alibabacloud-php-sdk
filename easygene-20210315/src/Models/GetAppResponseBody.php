@@ -14,176 +14,126 @@ use AlibabaCloud\Tea\Model;
 class GetAppResponseBody extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $appType;
 
     /**
-     * @description 参考输入
-     *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 应用定义
-     *
      * @var string
      */
     public $definition;
 
     /**
-     * @description 依赖应用
-     *
      * @var dependencies[]
      */
     public $dependencies;
 
     /**
-     * @description 应用简要描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 应用详细文档
-     *
      * @var string
      */
     public $documentation;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 应用输入
-     *
      * @var inputs[]
      */
     public $inputs;
 
     /**
-     * @description 应用标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 应用描述语言
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description 应用描述语言版本
-     *
      * @var string
      */
     public $languageVersion;
 
     /**
-     * @description 应用最后修改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 应用的输出参数
-     *
      * @var outputs[]
      */
     public $outputs;
 
     /**
-     * @description 主WDL路径
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 应用版本号
-     *
      * @var string
      */
     public $revision;
 
     /**
-     * @description 应用当前版本修改
-     *
      * @var string
      */
     public $revisionComment;
 
     /**
-     * @description 应用的所有版本号
-     *
      * @var revisions[]
      */
     public $revisions;
 
     /**
-     * @description 应用可见范围
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 应用来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 应用URL
-     *
      * @var string
      */
     public $URL;
 
     /**
-     * @description 工作流名称
-     *
      * @var string
      */
     public $workflowName;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

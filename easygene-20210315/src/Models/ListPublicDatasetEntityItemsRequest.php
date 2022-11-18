@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetEntityItemsRequest extends Model
 {
     /**
-     * @description 数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 是否反转
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description 公共数据集所在区域
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description 分页数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 翻页Token用来标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序字段
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 实体名中搜索的关键字
-     *
      * @var string
      */
     public $search;

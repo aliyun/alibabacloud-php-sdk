@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetWorkspaceRequest extends Model
 {
     /**
-     * @description 工作空间名字
-     *
      * @var string
      */
     public $workspace;

@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class runStats extends Model
 {
     /**
-     * @description 已取消数量
-     *
      * @var int
      */
     public $aborted;
 
     /**
-     * @description 取消中数量
-     *
      * @var int
      */
     public $aborting;
 
     /**
-     * @description 已失败数量
-     *
      * @var int
      */
     public $failed;
 
     /**
-     * @description 等待中数量
-     *
      * @var int
      */
     public $pending;
 
     /**
-     * @description 运行中数量
-     *
      * @var int
      */
     public $running;
 
     /**
-     * @description 已提交数量
-     *
      * @var int
      */
     public $submitted;
 
     /**
-     * @description 已成功数量
-     *
      * @var int
      */
     public $succeeded;

@@ -9,78 +9,56 @@ use AlibabaCloud\Tea\Model;
 class workspaces extends Model
 {
     /**
-     * @description 工作空间Bucket名字
-     *
      * @var string
      */
     public $bucketName;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 工作空间描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 任务生命周期
-     *
      * @var int
      */
     public $jobLifecycle;
 
     /**
-     * @description 工作空间标签
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @description 最后修改时间
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @description 地域ID
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description RAM Role
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description 工作空间状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description OSS工作路径
-     *
      * @var string
      */
     public $storage;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

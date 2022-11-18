@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetEntityResponseBody extends Model
 {
     /**
-     * @description 属性列数组
-     *
      * @var string[]
      */
     public $attributes;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 实体元素总个数
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

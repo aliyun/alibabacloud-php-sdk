@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ImportAppRequest extends Model
 {
     /**
-     * @description 安装后应用名
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 来源
-     *
      * @var string
      */
     public $source;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

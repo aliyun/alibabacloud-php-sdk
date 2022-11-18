@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPublicDatasetRequest extends Model
 {
     /**
-     * @description 查询的字段名:DatasetNo, DatasetDescription, About, AccessRequirements, Copyright, Tags, UpdateFrequency, Locations, LastModified, RegionIds
-     *
      * @var string[]
      */
     public $attributes;
 
     /**
-     * @description 数据集名称
-     *
      * @var string
      */
     public $datasetName;

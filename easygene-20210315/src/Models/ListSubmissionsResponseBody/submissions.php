@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class submissions extends Model
 {
     /**
-     * @description 提交时间
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 结束时间
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
@@ -36,29 +30,21 @@ class submissions extends Model
     public $runStats;
 
     /**
-     * @description 开始时间
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description 任务状态
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description 提交ID
-     *
      * @var string
      */
     public $submissionId;
 
     /**
-     * @description 工作空间名字
-     *
      * @var string
      */
     public $workspace;

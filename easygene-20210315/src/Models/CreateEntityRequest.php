@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateEntityRequest extends Model
 {
     /**
-     * @description 幂等Token
-     *
      * @var string
      */
     public $clientToken;
@@ -22,15 +20,11 @@ class CreateEntityRequest extends Model
     public $entityItems;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

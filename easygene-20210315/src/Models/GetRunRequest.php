@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetRunRequest extends Model
 {
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $runId;
 
     /**
-     * @description 工作空间名字
-     *
      * @var string
      */
     public $workspace;

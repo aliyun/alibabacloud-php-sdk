@@ -11,50 +11,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
-     * @description 应用模板描述
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description 应用的输入
-     *
      * @var inputsExpression[]
      */
     public $inputsExpression;
 
     /**
-     * @description 应用模板标签
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @description 应用的输出
-     *
      * @var outputsExpression[]
      */
     public $outputsExpression;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $rootEntity;
 
     /**
-     * @description 应用模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

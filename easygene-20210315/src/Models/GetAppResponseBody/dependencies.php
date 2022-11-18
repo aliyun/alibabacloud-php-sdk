@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dependencies extends Model
 {
     /**
-     * @description wdl内容
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description 依赖路径
-     *
      * @var string
      */
     public $path;

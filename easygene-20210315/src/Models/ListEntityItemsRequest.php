@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListEntityItemsRequest extends Model
 {
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 是否逆序
-     *
      * @var bool
      */
     public $isReversed;
 
     /**
-     * @description 最大返回数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 起始查询位置
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 排序条件
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description 搜索条件
-     *
      * @var string
      */
     public $search;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

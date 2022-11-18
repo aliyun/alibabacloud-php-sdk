@@ -10,50 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListPublicDatasetEntitiesResponseBody extends Model
 {
     /**
-     * @description 公共数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 该实体包含的所有类型
-     *
      * @var entities[]
      */
     public $entities;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 分页数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 翻页Token用来表示当前调用返回读取到的位置，空代表数据已经读取完毕
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总记录数
-     *
      * @var int
      */
     public $totalCount;

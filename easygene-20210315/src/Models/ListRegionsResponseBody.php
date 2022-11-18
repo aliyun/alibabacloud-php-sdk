@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListRegionsResponseBody extends Model
 {
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 基因分析平台产品可用地域列表。
-     *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;

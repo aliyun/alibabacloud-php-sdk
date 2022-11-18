@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateResponseBody extends Model
 {
     /**
-     * @description 主机 ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 应用模板名称
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description 工作空间名称
-     *
      * @var string
      */
     public $workspace;

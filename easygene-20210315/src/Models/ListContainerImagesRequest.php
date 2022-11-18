@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListContainerImagesRequest extends Model
 {
     /**
-     * @description 区域
-     *
      * @var string
      */
     public $location;
 
     /**
-     * @description 分页数量
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 翻页Token用来标记当前开始读取的位置，置空表示从头开始
-     *
      * @var string
      */
     public $nextToken;

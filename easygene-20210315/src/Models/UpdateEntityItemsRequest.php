@@ -15,15 +15,11 @@ class UpdateEntityItemsRequest extends Model
     public $entityItems;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

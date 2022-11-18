@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UploadEntityRequest extends Model
 {
     /**
-     * @description 表格文件地址
-     *
      * @var string
      */
     public $entityCSVFile;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

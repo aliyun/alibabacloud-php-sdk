@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class containerImages extends Model
 {
     /**
-     * @description 容器镜像描述
-     *
      * @var string
      */
     public $containerImageDescription;
 
     /**
-     * @description 容器镜像名称
-     *
      * @var string
      */
     public $containerImageName;
 
     /**
-     * @description 容器镜像名称空间名称
-     *
      * @var string
      */
     public $containerImageNamespace;
 
     /**
-     * @description 容器镜像版本
-     *
      * @var string[]
      */
     public $containerImageVersions;
 
     /**
-     * @description 容器镜像仓库名称
-     *
      * @var string
      */
     public $containerRegistry;
 
     /**
-     * @description 最后更新时间
-     *
      * @var string
      */
     public $lastModified;
 
     /**
-     * @description 容器镜像所在区域
-     *
      * @var string
      */
     public $location;

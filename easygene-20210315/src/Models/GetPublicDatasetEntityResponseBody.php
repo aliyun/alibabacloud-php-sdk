@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetPublicDatasetEntityResponseBody extends Model
 {
     /**
-     * @description 实体属性名称列表
-     *
      * @var string[]
      */
     public $attributes;
 
     /**
-     * @description 公共数据集名称
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description 实体类型
-     *
      * @var string
      */
     public $entityType;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 该类型实体总数
-     *
      * @var int
      */
     public $totalCount;

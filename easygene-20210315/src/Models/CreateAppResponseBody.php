@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateAppResponseBody extends Model
 {
     /**
-     * @description 应用名称
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description 主机 ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求 ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 应用版本号
-     *
      * @var string
      */
     public $revision;
 
     /**
-     * @description 工作空间
-     *
      * @var string
      */
     public $workspace;

@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 最大返回结果
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 下次查询Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 应用模板列表
-     *
      * @var templates[]
      */
     public $templates;
 
     /**
-     * @description 返回个数
-     *
      * @var int
      */
     public $totalCount;

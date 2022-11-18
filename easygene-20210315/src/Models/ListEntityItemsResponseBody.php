@@ -10,43 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListEntityItemsResponseBody extends Model
 {
     /**
-     * @description 表格数据元素数组
-     *
      * @var entityItems[]
      */
     public $entityItems;
 
     /**
-     * @description 主机ID
-     *
      * @var string
      */
     public $hostId;
 
     /**
-     * @description 请求的最大结果数
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 下次查询的起始Token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求ID
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回总个数
-     *
      * @var int
      */
     public $totalCount;
