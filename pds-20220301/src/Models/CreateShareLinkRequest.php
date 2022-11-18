@@ -44,7 +44,7 @@ class CreateShareLinkRequest extends Model
     public $expiration;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $fileIdList;
 
@@ -168,7 +168,9 @@ class CreateShareLinkRequest extends Model
             $model->expiration = $map['expiration'];
         }
         if (isset($map['file_id_list'])) {
-            $model->fileIdList = $map['file_id_list'];
+            if (!empty($map['file_id_list'])) {
+                $model->fileIdList = $map['file_id_list'];
+            }
         }
         if (isset($map['preview_limit'])) {
             $model->previewLimit = $map['preview_limit'];

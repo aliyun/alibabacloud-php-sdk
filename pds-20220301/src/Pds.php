@@ -154,8 +154,6 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserResponse;
-use AlibabaCloud\SDK\Pds\V20220301\Models\WalkFileRequest;
-use AlibabaCloud\SDK\Pds\V20220301\Models\WalkFileResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayPds\Client as DarabonbaGatewayPdsClient;
@@ -631,12 +629,6 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->preHash)) {
             $body['pre_hash'] = $request->preHash;
-        }
-        if (!Utils::isUnset($request->proofCode)) {
-            $body['proof_code'] = $request->proofCode;
-        }
-        if (!Utils::isUnset($request->proofVersion)) {
-            $body['proof_version'] = $request->proofVersion;
         }
         if (!Utils::isUnset($request->shareId)) {
             $body['share_id'] = $request->shareId;
@@ -4359,78 +4351,5 @@ class Pds extends OpenApiClient
         ]);
 
         return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param WalkFileRequest $request
-     *
-     * @return WalkFileResponse
-     */
-    public function walkFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->walkFileWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param WalkFileRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
-     *
-     * @return WalkFileResponse
-     */
-    public function walkFileWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->category)) {
-            $body['category'] = $request->category;
-        }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
-        }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
-        }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
-        }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
-        }
-        if (!Utils::isUnset($request->orderDirection)) {
-            $body['order_direction'] = $request->orderDirection;
-        }
-        if (!Utils::isUnset($request->parentFileId)) {
-            $body['parent_file_id'] = $request->parentFileId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'WalkFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/walk',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return WalkFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 }

@@ -24,7 +24,7 @@ class GetVideoPreviewPlayInfoRequest extends Model
     public $fileId;
 
     /**
-     * @var string
+     * @var bool
      */
     public $getWithoutUrl;
 

@@ -92,16 +92,6 @@ class CreateFileRequest extends Model
     /**
      * @var string
      */
-    public $proofCode;
-
-    /**
-     * @var string
-     */
-    public $proofVersion;
-
-    /**
-     * @var string
-     */
     public $shareId;
 
     /**
@@ -140,8 +130,6 @@ class CreateFileRequest extends Model
         'parentFileId'       => 'parent_file_id',
         'partInfoList'       => 'part_info_list',
         'preHash'            => 'pre_hash',
-        'proofCode'          => 'proof_code',
-        'proofVersion'       => 'proof_version',
         'shareId'            => 'share_id',
         'size'               => 'size',
         'type'               => 'type',
@@ -209,12 +197,6 @@ class CreateFileRequest extends Model
         }
         if (null !== $this->preHash) {
             $res['pre_hash'] = $this->preHash;
-        }
-        if (null !== $this->proofCode) {
-            $res['proof_code'] = $this->proofCode;
-        }
-        if (null !== $this->proofVersion) {
-            $res['proof_version'] = $this->proofVersion;
         }
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
@@ -302,12 +284,6 @@ class CreateFileRequest extends Model
         }
         if (isset($map['pre_hash'])) {
             $model->preHash = $map['pre_hash'];
-        }
-        if (isset($map['proof_code'])) {
-            $model->proofCode = $map['proof_code'];
-        }
-        if (isset($map['proof_version'])) {
-            $model->proofVersion = $map['proof_version'];
         }
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
