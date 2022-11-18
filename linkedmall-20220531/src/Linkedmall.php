@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ModifyRefund4DistributionRespon
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ModifyRefund4DistributionShrinkRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryChildDivisionCodeByIdRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryChildDivisionCodeByIdResponse;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionBillDetailRequest;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionBillDetailResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionMallRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionMallResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\QueryDistributionTradeStatusRequest;
@@ -809,6 +811,73 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryChildDivisionCodeByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDistributionBillDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryDistributionBillDetailResponse
+     */
+    public function queryDistributionBillDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->billId)) {
+            $body['BillId'] = $request->billId;
+        }
+        if (!Utils::isUnset($request->billPeriod)) {
+            $body['BillPeriod'] = $request->billPeriod;
+        }
+        if (!Utils::isUnset($request->billStatus)) {
+            $body['BillStatus'] = $request->billStatus;
+        }
+        if (!Utils::isUnset($request->distributionMallId)) {
+            $body['DistributionMallId'] = $request->distributionMallId;
+        }
+        if (!Utils::isUnset($request->distributionMallName)) {
+            $body['DistributionMallName'] = $request->distributionMallName;
+        }
+        if (!Utils::isUnset($request->distributorId)) {
+            $body['DistributorId'] = $request->distributorId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDistributionBillDetail',
+            'version'     => '2022-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDistributionBillDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDistributionBillDetailRequest $request
+     *
+     * @return QueryDistributionBillDetailResponse
+     */
+    public function queryDistributionBillDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDistributionBillDetailWithOptions($request, $runtime);
     }
 
     /**
