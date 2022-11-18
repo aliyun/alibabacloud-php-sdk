@@ -1,3 +1,6 @@
+2022-11-18 Version: 1.0.6
+- ADD QueryDistributionBillDetail .
+
 2022-11-10 Version: 1.0.5
 - ADD QueryDistributionBillDetail .
 
