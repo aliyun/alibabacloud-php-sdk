@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateTopicShrinkRequest extends Model
@@ -54,6 +55,11 @@ class CreateTopicShrinkRequest extends Model
     public $replicationFactor;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $topic;
@@ -67,6 +73,7 @@ class CreateTopicShrinkRequest extends Model
         'regionId'          => 'RegionId',
         'remark'            => 'Remark',
         'replicationFactor' => 'ReplicationFactor',
+        'tag'               => 'Tag',
         'topic'             => 'Topic',
     ];
 
@@ -103,6 +110,15 @@ class CreateTopicShrinkRequest extends Model
         }
         if (null !== $this->replicationFactor) {
             $res['ReplicationFactor'] = $this->replicationFactor;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
@@ -145,6 +161,15 @@ class CreateTopicShrinkRequest extends Model
         }
         if (isset($map['ReplicationFactor'])) {
             $model->replicationFactor = $map['ReplicationFactor'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];

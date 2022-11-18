@@ -126,6 +126,11 @@ class instanceVO extends Model
     public $sslEndPoint;
 
     /**
+     * @var string
+     */
+    public $standardZoneId;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -193,6 +198,7 @@ class instanceVO extends Model
         'specType'                 => 'SpecType',
         'sslDomainEndpoint'        => 'SslDomainEndpoint',
         'sslEndPoint'              => 'SslEndPoint',
+        'standardZoneId'           => 'StandardZoneId',
         'tags'                     => 'Tags',
         'topicNumLimit'            => 'TopicNumLimit',
         'upgradeServiceDetailInfo' => 'UpgradeServiceDetailInfo',
@@ -279,6 +285,9 @@ class instanceVO extends Model
         }
         if (null !== $this->sslEndPoint) {
             $res['SslEndPoint'] = $this->sslEndPoint;
+        }
+        if (null !== $this->standardZoneId) {
+            $res['StandardZoneId'] = $this->standardZoneId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -387,6 +396,9 @@ class instanceVO extends Model
         }
         if (isset($map['SslEndPoint'])) {
             $model->sslEndPoint = $map['SslEndPoint'];
+        }
+        if (isset($map['StandardZoneId'])) {
+            $model->standardZoneId = $map['StandardZoneId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

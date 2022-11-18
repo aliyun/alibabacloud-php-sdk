@@ -35,8 +35,6 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteTopicRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteTopicResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponse;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeNodeStatusRequest;
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeNodeStatusResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListRequest;
@@ -49,6 +47,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetQuotaTipRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetQuotaTipResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusRequest;
@@ -336,6 +336,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->remark)) {
             $query['Remark'] = $request->remark;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -405,6 +408,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->specType)) {
             $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->topicQuota)) {
             $query['TopicQuota'] = $request->topicQuota;
@@ -478,6 +484,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->specType)) {
             $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->topicQuota)) {
             $query['TopicQuota'] = $request->topicQuota;
@@ -608,6 +617,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->replicationFactor)) {
             $query['ReplicationFactor'] = $request->replicationFactor;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->topic)) {
             $query['Topic'] = $request->topic;
@@ -958,52 +970,6 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeStatusRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeNodeStatusResponse
-     */
-    public function describeNodeStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeNodeStatus',
-            'version'     => '2019-09-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeNodeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeNodeStatusRequest $request
-     *
-     * @return DescribeNodeStatusResponse
-     */
-    public function describeNodeStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeNodeStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeSaslUsersRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1289,6 +1255,52 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetQuotaTipRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetQuotaTipResponse
+     */
+    public function getQuotaTipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQuotaTip',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQuotaTipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetQuotaTipRequest $request
+     *
+     * @return GetQuotaTipResponse
+     */
+    public function getQuotaTip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQuotaTipWithOptions($request, $runtime);
     }
 
     /**
@@ -1874,6 +1886,9 @@ class Alikafka extends OpenApiClient
         }
         if (!Utils::isUnset($request->allowedListType)) {
             $query['AllowedListType'] = $request->allowedListType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;

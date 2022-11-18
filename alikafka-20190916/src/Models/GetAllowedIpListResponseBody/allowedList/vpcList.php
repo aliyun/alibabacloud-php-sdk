@@ -11,6 +11,11 @@ class vpcList extends Model
     /**
      * @var string[]
      */
+    public $allowedIpGroup;
+
+    /**
+     * @var string[]
+     */
     public $allowedIpList;
 
     /**
@@ -18,8 +23,9 @@ class vpcList extends Model
      */
     public $portRange;
     protected $_name = [
-        'allowedIpList' => 'AllowedIpList',
-        'portRange'     => 'PortRange',
+        'allowedIpGroup' => 'AllowedIpGroup',
+        'allowedIpList'  => 'AllowedIpList',
+        'portRange'      => 'PortRange',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class vpcList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowedIpGroup) {
+            $res['AllowedIpGroup'] = $this->allowedIpGroup;
+        }
         if (null !== $this->allowedIpList) {
             $res['AllowedIpList'] = $this->allowedIpList;
         }
@@ -47,6 +56,9 @@ class vpcList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowedIpGroup'])) {
+            $model->allowedIpGroup = $map['AllowedIpGroup'];
+        }
         if (isset($map['AllowedIpList'])) {
             if (!empty($map['AllowedIpList'])) {
                 $model->allowedIpList = $map['AllowedIpList'];

@@ -21,6 +21,11 @@ class UpdateAllowedIpRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -40,6 +45,7 @@ class UpdateAllowedIpRequest extends Model
     protected $_name = [
         'allowedListIp'   => 'AllowedListIp',
         'allowedListType' => 'AllowedListType',
+        'description'     => 'Description',
         'instanceId'      => 'InstanceId',
         'portRange'       => 'PortRange',
         'regionId'        => 'RegionId',
@@ -58,6 +64,9 @@ class UpdateAllowedIpRequest extends Model
         }
         if (null !== $this->allowedListType) {
             $res['AllowedListType'] = $this->allowedListType;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -88,6 +97,9 @@ class UpdateAllowedIpRequest extends Model
         }
         if (isset($map['AllowedListType'])) {
             $model->allowedListType = $map['AllowedListType'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

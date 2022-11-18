@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateConsumerGroupRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateConsumerGroupRequest extends Model
@@ -27,11 +28,17 @@ class CreateConsumerGroupRequest extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'consumerId' => 'ConsumerId',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
         'remark'     => 'Remark',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -52,6 +59,15 @@ class CreateConsumerGroupRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -76,6 +92,15 @@ class CreateConsumerGroupRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
