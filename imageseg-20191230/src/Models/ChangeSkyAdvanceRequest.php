@@ -15,12 +15,12 @@ class ChangeSkyAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $replaceImageURL;
+    public $replaceImageURLObject;
     protected $_name = [
-        'imageURLObject'  => 'ImageURL',
-        'replaceImageURL' => 'ReplaceImageURL',
+        'imageURLObject'        => 'ImageURL',
+        'replaceImageURLObject' => 'ReplaceImageURL',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class ChangeSkyAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
-        if (null !== $this->replaceImageURL) {
-            $res['ReplaceImageURL'] = $this->replaceImageURL;
+        if (null !== $this->replaceImageURLObject) {
+            $res['ReplaceImageURL'] = $this->replaceImageURLObject;
         }
 
         return $res;
@@ -52,7 +52,7 @@ class ChangeSkyAdvanceRequest extends Model
             $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['ReplaceImageURL'])) {
-            $model->replaceImageURL = $map['ReplaceImageURL'];
+            $model->replaceImageURLObject = $map['ReplaceImageURL'];
         }
 
         return $model;
