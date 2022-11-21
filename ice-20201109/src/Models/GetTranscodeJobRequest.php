@@ -11,9 +11,9 @@ class GetTranscodeJobRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $parentJobId;
     protected $_name = [
-        'jobId' => 'JobId',
+        'parentJobId' => 'ParentJobId',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class GetTranscodeJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->parentJobId) {
+            $res['ParentJobId'] = $this->parentJobId;
         }
 
         return $res;
@@ -38,8 +38,8 @@ class GetTranscodeJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['ParentJobId'])) {
+            $model->parentJobId = $map['ParentJobId'];
         }
 
         return $model;

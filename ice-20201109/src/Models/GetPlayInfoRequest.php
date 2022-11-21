@@ -11,9 +11,15 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
+    public $inputURL;
+
+    /**
+     * @var string
+     */
     public $mediaId;
     protected $_name = [
-        'mediaId' => 'MediaId',
+        'inputURL' => 'InputURL',
+        'mediaId'  => 'MediaId',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class GetPlayInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->inputURL) {
+            $res['InputURL'] = $this->inputURL;
+        }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -38,6 +47,9 @@ class GetPlayInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InputURL'])) {
+            $model->inputURL = $map['InputURL'];
+        }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

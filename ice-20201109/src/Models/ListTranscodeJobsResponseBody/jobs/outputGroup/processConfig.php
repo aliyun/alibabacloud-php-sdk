@@ -30,6 +30,11 @@ class processConfig extends Model
     public $imageWatermarks;
 
     /**
+     * @var bool
+     */
+    public $isInheritTags;
+
+    /**
      * @var subtitles[]
      */
     public $subtitles;
@@ -47,6 +52,7 @@ class processConfig extends Model
         'combineConfigs'  => 'CombineConfigs',
         'encryption'      => 'Encryption',
         'imageWatermarks' => 'ImageWatermarks',
+        'isInheritTags'   => 'IsInheritTags',
         'subtitles'       => 'Subtitles',
         'textWatermarks'  => 'TextWatermarks',
         'transcode'       => 'Transcode',
@@ -79,6 +85,9 @@ class processConfig extends Model
                     $res['ImageWatermarks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isInheritTags) {
+            $res['IsInheritTags'] = $this->isInheritTags;
         }
         if (null !== $this->subtitles) {
             $res['Subtitles'] = [];
@@ -133,6 +142,9 @@ class processConfig extends Model
                     $model->imageWatermarks[$n++] = null !== $item ? imageWatermarks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsInheritTags'])) {
+            $model->isInheritTags = $map['IsInheritTags'];
         }
         if (isset($map['Subtitles'])) {
             if (!empty($map['Subtitles'])) {

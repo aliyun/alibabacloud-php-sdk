@@ -4,12 +4,18 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\aiRoughData;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\fileInfoList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\mediaBasicInfo;
 use AlibabaCloud\Tea\Model;
 
 class mediaInfo extends Model
 {
+    /**
+     * @var aiRoughData
+     */
+    public $aiRoughData;
+
     /**
      * @var fileInfoList[]
      */
@@ -25,6 +31,7 @@ class mediaInfo extends Model
      */
     public $mediaId;
     protected $_name = [
+        'aiRoughData'    => 'AiRoughData',
         'fileInfoList'   => 'FileInfoList',
         'mediaBasicInfo' => 'MediaBasicInfo',
         'mediaId'        => 'MediaId',
@@ -37,6 +44,9 @@ class mediaInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aiRoughData) {
+            $res['AiRoughData'] = null !== $this->aiRoughData ? $this->aiRoughData->toMap() : null;
+        }
         if (null !== $this->fileInfoList) {
             $res['FileInfoList'] = [];
             if (null !== $this->fileInfoList && \is_array($this->fileInfoList)) {
@@ -64,6 +74,9 @@ class mediaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiRoughData'])) {
+            $model->aiRoughData = aiRoughData::fromMap($map['AiRoughData']);
+        }
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];

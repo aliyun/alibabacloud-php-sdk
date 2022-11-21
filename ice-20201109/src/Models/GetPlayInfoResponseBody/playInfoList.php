@@ -96,6 +96,11 @@ class playInfoList extends Model
     /**
      * @var string
      */
+    public $streamTags;
+
+    /**
+     * @var string
+     */
     public $streamType;
 
     /**
@@ -130,6 +135,7 @@ class playInfoList extends Model
         'playURL'           => 'PlayURL',
         'size'              => 'Size',
         'status'            => 'Status',
+        'streamTags'        => 'StreamTags',
         'streamType'        => 'StreamType',
         'transTemplateType' => 'TransTemplateType',
         'watermarkId'       => 'WatermarkId',
@@ -193,6 +199,9 @@ class playInfoList extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->streamTags) {
+            $res['StreamTags'] = $this->streamTags;
         }
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
@@ -268,6 +277,9 @@ class playInfoList extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StreamTags'])) {
+            $model->streamTags = $map['StreamTags'];
         }
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];

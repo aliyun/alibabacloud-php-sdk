@@ -16,11 +16,6 @@ class ListTranscodeJobsRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
     public $nextPageToken;
 
     /**
@@ -36,6 +31,11 @@ class ListTranscodeJobsRequest extends Model
     /**
      * @var string
      */
+    public $parentJobId;
+
+    /**
+     * @var string
+     */
     public $startOfCreateTime;
 
     /**
@@ -44,10 +44,10 @@ class ListTranscodeJobsRequest extends Model
     public $status;
     protected $_name = [
         'endOfCreateTime'   => 'EndOfCreateTime',
-        'jobId'             => 'JobId',
         'nextPageToken'     => 'NextPageToken',
         'orderBy'           => 'OrderBy',
         'pageSize'          => 'PageSize',
+        'parentJobId'       => 'ParentJobId',
         'startOfCreateTime' => 'StartOfCreateTime',
         'status'            => 'Status',
     ];
@@ -62,9 +62,6 @@ class ListTranscodeJobsRequest extends Model
         if (null !== $this->endOfCreateTime) {
             $res['EndOfCreateTime'] = $this->endOfCreateTime;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
@@ -73,6 +70,9 @@ class ListTranscodeJobsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentJobId) {
+            $res['ParentJobId'] = $this->parentJobId;
         }
         if (null !== $this->startOfCreateTime) {
             $res['StartOfCreateTime'] = $this->startOfCreateTime;
@@ -95,9 +95,6 @@ class ListTranscodeJobsRequest extends Model
         if (isset($map['EndOfCreateTime'])) {
             $model->endOfCreateTime = $map['EndOfCreateTime'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
@@ -106,6 +103,9 @@ class ListTranscodeJobsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentJobId'])) {
+            $model->parentJobId = $map['ParentJobId'];
         }
         if (isset($map['StartOfCreateTime'])) {
             $model->startOfCreateTime = $map['StartOfCreateTime'];

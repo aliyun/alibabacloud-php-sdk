@@ -4,12 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\aiData;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\aiRoughData;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\fileInfoList;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponseBody\mediaInfoList\mediaBasicInfo;
 use AlibabaCloud\Tea\Model;
 
 class mediaInfoList extends Model
 {
+    /**
+     * @var aiData
+     */
+    public $aiData;
+
+    /**
+     * @var aiRoughData
+     */
+    public $aiRoughData;
+
     /**
      * @var fileInfoList[]
      */
@@ -25,6 +37,8 @@ class mediaInfoList extends Model
      */
     public $mediaId;
     protected $_name = [
+        'aiData'         => 'AiData',
+        'aiRoughData'    => 'AiRoughData',
         'fileInfoList'   => 'FileInfoList',
         'mediaBasicInfo' => 'MediaBasicInfo',
         'mediaId'        => 'MediaId',
@@ -37,6 +51,12 @@ class mediaInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aiData) {
+            $res['AiData'] = null !== $this->aiData ? $this->aiData->toMap() : null;
+        }
+        if (null !== $this->aiRoughData) {
+            $res['AiRoughData'] = null !== $this->aiRoughData ? $this->aiRoughData->toMap() : null;
+        }
         if (null !== $this->fileInfoList) {
             $res['FileInfoList'] = [];
             if (null !== $this->fileInfoList && \is_array($this->fileInfoList)) {
@@ -64,6 +84,12 @@ class mediaInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiData'])) {
+            $model->aiData = aiData::fromMap($map['AiData']);
+        }
+        if (isset($map['AiRoughData'])) {
+            $model->aiRoughData = aiRoughData::fromMap($map['AiRoughData']);
+        }
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];

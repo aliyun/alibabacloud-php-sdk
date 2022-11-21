@@ -16,10 +16,16 @@ class output extends Model
     /**
      * @var string
      */
+    public $outputUrl;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
-        'media' => 'Media',
-        'type'  => 'Type',
+        'media'     => 'Media',
+        'outputUrl' => 'OutputUrl',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class output extends Model
         $res = [];
         if (null !== $this->media) {
             $res['Media'] = $this->media;
+        }
+        if (null !== $this->outputUrl) {
+            $res['OutputUrl'] = $this->outputUrl;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -49,6 +58,9 @@ class output extends Model
         $model = new self();
         if (isset($map['Media'])) {
             $model->media = $map['Media'];
+        }
+        if (isset($map['OutputUrl'])) {
+            $model->outputUrl = $map['OutputUrl'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
