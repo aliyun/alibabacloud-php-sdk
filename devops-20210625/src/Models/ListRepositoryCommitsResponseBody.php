@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesResponseBody\result;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class ListRepositoryBranchesResponseBody extends Model
+class ListRepositoryCommitsResponseBody extends Model
 {
     /**
      * @var string
@@ -85,7 +85,7 @@ class ListRepositoryBranchesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListRepositoryBranchesResponseBody
+     * @return ListRepositoryCommitsResponseBody
      */
     public static function fromMap($map = [])
     {

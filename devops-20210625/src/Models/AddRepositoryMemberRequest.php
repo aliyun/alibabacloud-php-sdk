@@ -28,7 +28,7 @@ class AddRepositoryMemberRequest extends Model
      */
     public $organizationId;
     protected $_name = [
-        'accessToken'    => 'AccessToken',
+        'accessToken'    => 'accessToken',
         'accessLevel'    => 'accessLevel',
         'aliyunPks'      => 'aliyunPks',
         'organizationId' => 'organizationId',
@@ -42,7 +42,7 @@ class AddRepositoryMemberRequest extends Model
     {
         $res = [];
         if (null !== $this->accessToken) {
-            $res['AccessToken'] = $this->accessToken;
+            $res['accessToken'] = $this->accessToken;
         }
         if (null !== $this->accessLevel) {
             $res['accessLevel'] = $this->accessLevel;
@@ -65,8 +65,8 @@ class AddRepositoryMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessToken'])) {
-            $model->accessToken = $map['AccessToken'];
+        if (isset($map['accessToken'])) {
+            $model->accessToken = $map['accessToken'];
         }
         if (isset($map['accessLevel'])) {
             $model->accessLevel = $map['accessLevel'];

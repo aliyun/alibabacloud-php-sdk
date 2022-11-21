@@ -2,17 +2,19 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitResponseBody;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponseBody;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\GetFileLastCommitResponseBody\result\signature;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponseBody\result\author;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponseBody\result\committer;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponseBody\result\signature;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @var string
+     * @var author
      */
-    public $authorDate;
+    public $author;
 
     /**
      * @var string
@@ -27,7 +29,22 @@ class result extends Model
     /**
      * @var string
      */
+    public $authoredDate;
+
+    /**
+     * @var int
+     */
+    public $commentsCount;
+
+    /**
+     * @var string
+     */
     public $committedDate;
+
+    /**
+     * @var committer
+     */
+    public $committer;
 
     /**
      * @var string
@@ -74,10 +91,13 @@ class result extends Model
      */
     public $title;
     protected $_name = [
-        'authorDate'     => 'authorDate',
+        'author'         => 'author',
         'authorEmail'    => 'authorEmail',
         'authorName'     => 'authorName',
+        'authoredDate'   => 'authoredDate',
+        'commentsCount'  => 'commentsCount',
         'committedDate'  => 'committedDate',
+        'committer'      => 'committer',
         'committerEmail' => 'committerEmail',
         'committerName'  => 'committerName',
         'createdAt'      => 'createdAt',
@@ -96,8 +116,8 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->authorDate) {
-            $res['authorDate'] = $this->authorDate;
+        if (null !== $this->author) {
+            $res['author'] = null !== $this->author ? $this->author->toMap() : null;
         }
         if (null !== $this->authorEmail) {
             $res['authorEmail'] = $this->authorEmail;
@@ -105,8 +125,17 @@ class result extends Model
         if (null !== $this->authorName) {
             $res['authorName'] = $this->authorName;
         }
+        if (null !== $this->authoredDate) {
+            $res['authoredDate'] = $this->authoredDate;
+        }
+        if (null !== $this->commentsCount) {
+            $res['commentsCount'] = $this->commentsCount;
+        }
         if (null !== $this->committedDate) {
             $res['committedDate'] = $this->committedDate;
+        }
+        if (null !== $this->committer) {
+            $res['committer'] = null !== $this->committer ? $this->committer->toMap() : null;
         }
         if (null !== $this->committerEmail) {
             $res['committerEmail'] = $this->committerEmail;
@@ -147,8 +176,8 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['authorDate'])) {
-            $model->authorDate = $map['authorDate'];
+        if (isset($map['author'])) {
+            $model->author = author::fromMap($map['author']);
         }
         if (isset($map['authorEmail'])) {
             $model->authorEmail = $map['authorEmail'];
@@ -156,8 +185,17 @@ class result extends Model
         if (isset($map['authorName'])) {
             $model->authorName = $map['authorName'];
         }
+        if (isset($map['authoredDate'])) {
+            $model->authoredDate = $map['authoredDate'];
+        }
+        if (isset($map['commentsCount'])) {
+            $model->commentsCount = $map['commentsCount'];
+        }
         if (isset($map['committedDate'])) {
             $model->committedDate = $map['committedDate'];
+        }
+        if (isset($map['committer'])) {
+            $model->committer = committer::fromMap($map['committer']);
         }
         if (isset($map['committerEmail'])) {
             $model->committerEmail = $map['committerEmail'];

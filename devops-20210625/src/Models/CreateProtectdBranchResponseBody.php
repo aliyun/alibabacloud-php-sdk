@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesResponseBody\result;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class ListRepositoryBranchesResponseBody extends Model
+class CreateProtectdBranchResponseBody extends Model
 {
     /**
      * @var string
@@ -25,7 +25,7 @@ class ListRepositoryBranchesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var result[]
+     * @var result
      */
     public $result;
 
@@ -33,18 +33,12 @@ class ListRepositoryBranchesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $total;
     protected $_name = [
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
         'requestId'    => 'requestId',
         'result'       => 'result',
         'success'      => 'success',
-        'total'        => 'total',
     ];
 
     public function validate()
@@ -64,19 +58,10 @@ class ListRepositoryBranchesResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['result'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
-        }
-        if (null !== $this->total) {
-            $res['total'] = $this->total;
         }
 
         return $res;
@@ -85,7 +70,7 @@ class ListRepositoryBranchesResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListRepositoryBranchesResponseBody
+     * @return CreateProtectdBranchResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -100,19 +85,10 @@ class ListRepositoryBranchesResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
         if (isset($map['result'])) {
-            if (!empty($map['result'])) {
-                $model->result = [];
-                $n             = 0;
-                foreach ($map['result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
-                }
-            }
+            $model->result = result::fromMap($map['result']);
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
-        }
-        if (isset($map['total'])) {
-            $model->total = $map['total'];
         }
 
         return $model;

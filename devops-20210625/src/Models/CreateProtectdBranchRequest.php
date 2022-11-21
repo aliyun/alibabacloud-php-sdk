@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest\mergeRequestSetting;
-use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest\testSettingDTO;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest\mergeRequestSetting;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest\testSettingDTO;
 use AlibabaCloud\Tea\Model;
 
-class UpdateProtectedBranchesRequest extends Model
+class CreateProtectdBranchRequest extends Model
 {
     /**
      * @var string
@@ -116,7 +116,7 @@ class UpdateProtectedBranchesRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateProtectedBranchesRequest
+     * @return CreateProtectdBranchRequest
      */
     public static function fromMap($map = [])
     {

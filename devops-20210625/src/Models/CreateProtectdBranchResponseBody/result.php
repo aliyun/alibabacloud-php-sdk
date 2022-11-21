@@ -2,26 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponseBody;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest\mergeRequestSetting;
-use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest\testSettingDTO;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponseBody\result\mergeRequestSetting;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponseBody\result\testSettingDTO;
 use AlibabaCloud\Tea\Model;
 
-class UpdateProtectedBranchesRequest extends Model
+class result extends Model
 {
-    /**
-     * @var string
-     */
-    public $accessToken;
-
     /**
      * @var int[]
      */
     public $allowMergeRoles;
 
     /**
-     * @var string[]
+     * @var int[]
      */
     public $allowMergeUserIds;
 
@@ -31,7 +26,7 @@ class UpdateProtectedBranchesRequest extends Model
     public $allowPushRoles;
 
     /**
-     * @var string[]
+     * @var int[]
      */
     public $allowPushUserIds;
 
@@ -54,13 +49,7 @@ class UpdateProtectedBranchesRequest extends Model
      * @var testSettingDTO
      */
     public $testSettingDTO;
-
-    /**
-     * @var string
-     */
-    public $organizationId;
     protected $_name = [
-        'accessToken'         => 'accessToken',
         'allowMergeRoles'     => 'allowMergeRoles',
         'allowMergeUserIds'   => 'allowMergeUserIds',
         'allowPushRoles'      => 'allowPushRoles',
@@ -69,7 +58,6 @@ class UpdateProtectedBranchesRequest extends Model
         'id'                  => 'id',
         'mergeRequestSetting' => 'mergeRequestSetting',
         'testSettingDTO'      => 'testSettingDTO',
-        'organizationId'      => 'organizationId',
     ];
 
     public function validate()
@@ -79,9 +67,6 @@ class UpdateProtectedBranchesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessToken) {
-            $res['accessToken'] = $this->accessToken;
-        }
         if (null !== $this->allowMergeRoles) {
             $res['allowMergeRoles'] = $this->allowMergeRoles;
         }
@@ -106,9 +91,6 @@ class UpdateProtectedBranchesRequest extends Model
         if (null !== $this->testSettingDTO) {
             $res['testSettingDTO'] = null !== $this->testSettingDTO ? $this->testSettingDTO->toMap() : null;
         }
-        if (null !== $this->organizationId) {
-            $res['organizationId'] = $this->organizationId;
-        }
 
         return $res;
     }
@@ -116,14 +98,11 @@ class UpdateProtectedBranchesRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateProtectedBranchesRequest
+     * @return result
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['accessToken'])) {
-            $model->accessToken = $map['accessToken'];
-        }
         if (isset($map['allowMergeRoles'])) {
             if (!empty($map['allowMergeRoles'])) {
                 $model->allowMergeRoles = $map['allowMergeRoles'];
@@ -155,9 +134,6 @@ class UpdateProtectedBranchesRequest extends Model
         }
         if (isset($map['testSettingDTO'])) {
             $model->testSettingDTO = testSettingDTO::fromMap($map['testSettingDTO']);
-        }
-        if (isset($map['organizationId'])) {
-            $model->organizationId = $map['organizationId'];
         }
 
         return $model;

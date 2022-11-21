@@ -13,7 +13,7 @@ class GetCodeupOrganizationRequest extends Model
      */
     public $accessToken;
     protected $_name = [
-        'accessToken' => 'AccessToken',
+        'accessToken' => 'accessToken',
     ];
 
     public function validate()
@@ -24,7 +24,7 @@ class GetCodeupOrganizationRequest extends Model
     {
         $res = [];
         if (null !== $this->accessToken) {
-            $res['AccessToken'] = $this->accessToken;
+            $res['accessToken'] = $this->accessToken;
         }
 
         return $res;
@@ -38,8 +38,8 @@ class GetCodeupOrganizationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessToken'])) {
-            $model->accessToken = $map['AccessToken'];
+        if (isset($map['accessToken'])) {
+            $model->accessToken = $map['accessToken'];
         }
 
         return $model;

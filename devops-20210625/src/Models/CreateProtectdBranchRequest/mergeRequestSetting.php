@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
 
 use AlibabaCloud\Tea\Model;
 

@@ -2,16 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryWebhookResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class AddWebhookRequest extends Model
+class result extends Model
 {
+    /**
+     * @var bool
+     */
+    public $buildEvents;
+
     /**
      * @var string
      */
-    public $accessToken;
+    public $createdAt;
 
     /**
      * @var string
@@ -24,6 +29,21 @@ class AddWebhookRequest extends Model
     public $enableSslVerification;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var bool
+     */
+    public $issuesEvents;
+
+    /**
+     * @var string
+     */
+    public $lastTestResult;
+
+    /**
      * @var bool
      */
     public $mergeRequestsEvents;
@@ -32,6 +52,11 @@ class AddWebhookRequest extends Model
      * @var bool
      */
     public $noteEvents;
+
+    /**
+     * @var int
+     */
+    public $projectId;
 
     /**
      * @var bool
@@ -51,23 +76,28 @@ class AddWebhookRequest extends Model
     /**
      * @var string
      */
-    public $url;
+    public $type;
 
     /**
      * @var string
      */
-    public $organizationId;
+    public $url;
     protected $_name = [
-        'accessToken'           => 'accessToken',
+        'buildEvents'           => 'buildEvents',
+        'createdAt'             => 'createdAt',
         'description'           => 'description',
         'enableSslVerification' => 'enableSslVerification',
+        'id'                    => 'id',
+        'issuesEvents'          => 'issuesEvents',
+        'lastTestResult'        => 'lastTestResult',
         'mergeRequestsEvents'   => 'mergeRequestsEvents',
         'noteEvents'            => 'noteEvents',
+        'projectId'             => 'projectId',
         'pushEvents'            => 'pushEvents',
         'secretToken'           => 'secretToken',
         'tagPushEvents'         => 'tagPushEvents',
+        'type'                  => 'type',
         'url'                   => 'url',
-        'organizationId'        => 'organizationId',
     ];
 
     public function validate()
@@ -77,8 +107,11 @@ class AddWebhookRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessToken) {
-            $res['accessToken'] = $this->accessToken;
+        if (null !== $this->buildEvents) {
+            $res['buildEvents'] = $this->buildEvents;
+        }
+        if (null !== $this->createdAt) {
+            $res['createdAt'] = $this->createdAt;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -86,11 +119,23 @@ class AddWebhookRequest extends Model
         if (null !== $this->enableSslVerification) {
             $res['enableSslVerification'] = $this->enableSslVerification;
         }
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+        if (null !== $this->issuesEvents) {
+            $res['issuesEvents'] = $this->issuesEvents;
+        }
+        if (null !== $this->lastTestResult) {
+            $res['lastTestResult'] = $this->lastTestResult;
+        }
         if (null !== $this->mergeRequestsEvents) {
             $res['mergeRequestsEvents'] = $this->mergeRequestsEvents;
         }
         if (null !== $this->noteEvents) {
             $res['noteEvents'] = $this->noteEvents;
+        }
+        if (null !== $this->projectId) {
+            $res['projectId'] = $this->projectId;
         }
         if (null !== $this->pushEvents) {
             $res['pushEvents'] = $this->pushEvents;
@@ -101,11 +146,11 @@ class AddWebhookRequest extends Model
         if (null !== $this->tagPushEvents) {
             $res['tagPushEvents'] = $this->tagPushEvents;
         }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
         if (null !== $this->url) {
             $res['url'] = $this->url;
-        }
-        if (null !== $this->organizationId) {
-            $res['organizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -114,13 +159,16 @@ class AddWebhookRequest extends Model
     /**
      * @param array $map
      *
-     * @return AddWebhookRequest
+     * @return result
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['accessToken'])) {
-            $model->accessToken = $map['accessToken'];
+        if (isset($map['buildEvents'])) {
+            $model->buildEvents = $map['buildEvents'];
+        }
+        if (isset($map['createdAt'])) {
+            $model->createdAt = $map['createdAt'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
@@ -128,11 +176,23 @@ class AddWebhookRequest extends Model
         if (isset($map['enableSslVerification'])) {
             $model->enableSslVerification = $map['enableSslVerification'];
         }
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
+        if (isset($map['issuesEvents'])) {
+            $model->issuesEvents = $map['issuesEvents'];
+        }
+        if (isset($map['lastTestResult'])) {
+            $model->lastTestResult = $map['lastTestResult'];
+        }
         if (isset($map['mergeRequestsEvents'])) {
             $model->mergeRequestsEvents = $map['mergeRequestsEvents'];
         }
         if (isset($map['noteEvents'])) {
             $model->noteEvents = $map['noteEvents'];
+        }
+        if (isset($map['projectId'])) {
+            $model->projectId = $map['projectId'];
         }
         if (isset($map['pushEvents'])) {
             $model->pushEvents = $map['pushEvents'];
@@ -143,11 +203,11 @@ class AddWebhookRequest extends Model
         if (isset($map['tagPushEvents'])) {
             $model->tagPushEvents = $map['tagPushEvents'];
         }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
         if (isset($map['url'])) {
             $model->url = $map['url'];
-        }
-        if (isset($map['organizationId'])) {
-            $model->organizationId = $map['organizationId'];
         }
 
         return $model;

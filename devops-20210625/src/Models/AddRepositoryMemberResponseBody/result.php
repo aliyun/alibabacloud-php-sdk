@@ -38,12 +38,12 @@ class result extends Model
      */
     public $state;
     protected $_name = [
-        'accessLevel'  => 'AccessLevel',
-        'avatarUrl'    => 'AvatarUrl',
-        'email'        => 'Email',
-        'externUserId' => 'ExternUserId',
-        'id'           => 'Id',
-        'state'        => 'State',
+        'accessLevel'  => 'accessLevel',
+        'avatarUrl'    => 'avatarUrl',
+        'email'        => 'email',
+        'externUserId' => 'externUserId',
+        'id'           => 'id',
+        'state'        => 'state',
     ];
 
     public function validate()
@@ -54,22 +54,22 @@ class result extends Model
     {
         $res = [];
         if (null !== $this->accessLevel) {
-            $res['AccessLevel'] = $this->accessLevel;
+            $res['accessLevel'] = $this->accessLevel;
         }
         if (null !== $this->avatarUrl) {
-            $res['AvatarUrl'] = $this->avatarUrl;
+            $res['avatarUrl'] = $this->avatarUrl;
         }
         if (null !== $this->email) {
-            $res['Email'] = $this->email;
+            $res['email'] = $this->email;
         }
         if (null !== $this->externUserId) {
-            $res['ExternUserId'] = $this->externUserId;
+            $res['externUserId'] = $this->externUserId;
         }
         if (null !== $this->id) {
-            $res['Id'] = $this->id;
+            $res['id'] = $this->id;
         }
         if (null !== $this->state) {
-            $res['State'] = $this->state;
+            $res['state'] = $this->state;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessLevel'])) {
-            $model->accessLevel = $map['AccessLevel'];
+        if (isset($map['accessLevel'])) {
+            $model->accessLevel = $map['accessLevel'];
         }
-        if (isset($map['AvatarUrl'])) {
-            $model->avatarUrl = $map['AvatarUrl'];
+        if (isset($map['avatarUrl'])) {
+            $model->avatarUrl = $map['avatarUrl'];
         }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
+        if (isset($map['email'])) {
+            $model->email = $map['email'];
         }
-        if (isset($map['ExternUserId'])) {
-            $model->externUserId = $map['ExternUserId'];
+        if (isset($map['externUserId'])) {
+            $model->externUserId = $map['externUserId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
         }
 
         return $model;

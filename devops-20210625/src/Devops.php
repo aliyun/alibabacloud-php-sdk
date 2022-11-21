@@ -24,8 +24,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateResourceMemberRequest;
@@ -60,6 +64,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteProtectedBranchResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryWebhookRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentRequest;
@@ -92,6 +98,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetSprintInfoResponse;
@@ -141,6 +149,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryBranchesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitDiffResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryCommitsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryTreeRequest;
@@ -194,6 +204,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
@@ -276,7 +288,7 @@ class Devops extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->accessToken)) {
-            $query['AccessToken'] = $request->accessToken;
+            $query['accessToken'] = $request->accessToken;
         }
         if (!Utils::isUnset($request->organizationId)) {
             $query['organizationId'] = $request->organizationId;
@@ -335,10 +347,10 @@ class Devops extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->accessToken)) {
-            $query['AccessToken'] = $request->accessToken;
+            $query['accessToken'] = $request->accessToken;
         }
         if (!Utils::isUnset($request->organizationId)) {
-            $query['OrganizationId'] = $request->organizationId;
+            $query['organizationId'] = $request->organizationId;
         }
         $body = [];
         if (!Utils::isUnset($request->description)) {
@@ -751,6 +763,63 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                $organizationId
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipeline($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPipelineWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param CreatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipelineWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->basicInfo)) {
+            $body['basicInfo'] = $request->basicInfo;
+        }
+        if (!Utils::isUnset($request->pipelineYaml)) {
+            $body['pipelineYaml'] = $request->pipelineYaml;
+        }
+        if (!Utils::isUnset($request->settings)) {
+            $body['settings'] = $request->settings;
+        }
+        if (!Utils::isUnset($request->triggerInfo)) {
+            $body['triggerInfo'] = $request->triggerInfo;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePipeline',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                     $organizationId
      * @param CreatePipelineGroupRequest $request
      *
@@ -853,6 +922,83 @@ class Devops extends OpenApiClient
         ]);
 
         return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $repositoryId
+     * @param CreateProtectdBranchRequest $request
+     *
+     * @return CreateProtectdBranchResponse
+     */
+    public function createProtectdBranch($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $repositoryId
+     * @param CreateProtectdBranchRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateProtectdBranchResponse
+     */
+    public function createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->allowMergeRoles)) {
+            $body['allowMergeRoles'] = $request->allowMergeRoles;
+        }
+        if (!Utils::isUnset($request->allowMergeUserIds)) {
+            $body['allowMergeUserIds'] = $request->allowMergeUserIds;
+        }
+        if (!Utils::isUnset($request->allowPushRoles)) {
+            $body['allowPushRoles'] = $request->allowPushRoles;
+        }
+        if (!Utils::isUnset($request->allowPushUserIds)) {
+            $body['allowPushUserIds'] = $request->allowPushUserIds;
+        }
+        if (!Utils::isUnset($request->branch)) {
+            $body['branch'] = $request->branch;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->mergeRequestSetting)) {
+            $body['mergeRequestSetting'] = $request->mergeRequestSetting;
+        }
+        if (!Utils::isUnset($request->testSettingDTO)) {
+            $body['testSettingDTO'] = $request->testSettingDTO;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProtectdBranch',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProtectdBranchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1994,6 +2140,59 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                         $repositoryId
+     * @param string                         $hookId
+     * @param DeleteRepositoryWebhookRequest $request
+     *
+     * @return DeleteRepositoryWebhookResponse
+     */
+    public function deleteRepositoryWebhook($repositoryId, $hookId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRepositoryWebhookWithOptions($repositoryId, $hookId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $repositoryId
+     * @param string                         $hookId
+     * @param DeleteRepositoryWebhookRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteRepositoryWebhookResponse
+     */
+    public function deleteRepositoryWebhookWithOptions($repositoryId, $hookId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRepositoryWebhook',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/hooks/' . OpenApiUtilClient::getEncodeParam($hookId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRepositoryWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
@@ -2301,7 +2500,7 @@ class Devops extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->accessToken)) {
-            $query['AccessToken'] = $request->accessToken;
+            $query['accessToken'] = $request->accessToken;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2470,8 +2669,8 @@ class Devops extends OpenApiClient
         if (!Utils::isUnset($request->accessToken)) {
             $query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->filepath)) {
-            $query['filepath'] = $request->filepath;
+        if (!Utils::isUnset($request->filePath)) {
+            $query['filePath'] = $request->filePath;
         }
         if (!Utils::isUnset($request->organizationId)) {
             $query['organizationId'] = $request->organizationId;
@@ -2953,40 +3152,38 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                  $repositoryId
+     * @param string                  $aliyunPk
      * @param GetProjectMemberRequest $request
      *
      * @return GetProjectMemberResponse
      */
-    public function getProjectMember($request)
+    public function getProjectMember($repositoryId, $aliyunPk, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectMemberWithOptions($request, $headers, $runtime);
+        return $this->getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
     }
 
     /**
+     * @param string                  $repositoryId
+     * @param string                  $aliyunPk
      * @param GetProjectMemberRequest $request
      * @param string[]                $headers
      * @param RuntimeOptions          $runtime
      *
      * @return GetProjectMemberResponse
      */
-    public function getProjectMemberWithOptions($request, $headers, $runtime)
+    public function getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->accessToken)) {
-            $query['AccessToken'] = $request->accessToken;
+            $query['accessToken'] = $request->accessToken;
         }
         if (!Utils::isUnset($request->organizationId)) {
-            $query['OrganizationId'] = $request->organizationId;
-        }
-        if (!Utils::isUnset($request->repositoryId)) {
-            $query['repositoryId'] = $request->repositoryId;
-        }
-        if (!Utils::isUnset($request->userAliyunPk)) {
-            $query['userAliyunPk'] = $request->userAliyunPk;
+            $query['organizationId'] = $request->organizationId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2996,7 +3193,7 @@ class Devops extends OpenApiClient
             'action'      => 'GetProjectMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/member/get',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/get/' . OpenApiUtilClient::getEncodeParam($aliyunPk) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3057,6 +3254,62 @@ class Devops extends OpenApiClient
         ]);
 
         return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $repositoryId
+     * @param string                     $sha
+     * @param GetRepositoryCommitRequest $request
+     *
+     * @return GetRepositoryCommitResponse
+     */
+    public function getRepositoryCommit($repositoryId, $sha, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRepositoryCommitWithOptions($repositoryId, $sha, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $repositoryId
+     * @param string                     $sha
+     * @param GetRepositoryCommitRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRepositoryCommitResponse
+     */
+    public function getRepositoryCommitWithOptions($repositoryId, $sha, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->showSignature)) {
+            $query['showSignature'] = $request->showSignature;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRepositoryCommit',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits/' . OpenApiUtilClient::getEncodeParam($sha) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRepositoryCommitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4545,6 +4798,84 @@ class Devops extends OpenApiClient
         ]);
 
         return ListRepositoryCommitDiffResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $repositoryId
+     * @param ListRepositoryCommitsRequest $request
+     *
+     * @return ListRepositoryCommitsResponse
+     */
+    public function listRepositoryCommits($repositoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRepositoryCommitsWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $repositoryId
+     * @param ListRepositoryCommitsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRepositoryCommitsResponse
+     */
+    public function listRepositoryCommitsWithOptions($repositoryId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['end'] = $request->end;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->refName)) {
+            $query['refName'] = $request->refName;
+        }
+        if (!Utils::isUnset($request->search)) {
+            $query['search'] = $request->search;
+        }
+        if (!Utils::isUnset($request->showCommentsCount)) {
+            $query['showCommentsCount'] = $request->showCommentsCount;
+        }
+        if (!Utils::isUnset($request->showSignature)) {
+            $query['showSignature'] = $request->showSignature;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRepositoryCommits',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRepositoryCommitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6200,6 +6531,63 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                $organizationId
+     * @param UpdatePipelineRequest $request
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipeline($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePipelineWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param UpdatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipelineWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->basicInfo)) {
+            $body['basicInfo'] = $request->basicInfo;
+        }
+        if (!Utils::isUnset($request->pipelineYaml)) {
+            $body['pipelineYaml'] = $request->pipelineYaml;
+        }
+        if (!Utils::isUnset($request->settings)) {
+            $body['settings'] = $request->settings;
+        }
+        if (!Utils::isUnset($request->triggerInfo)) {
+            $body['triggerInfo'] = $request->triggerInfo;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePipeline',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string                        $organizationId
      * @param string                        $pipelineId
      * @param UpdatePipelineBaseInfoRequest $request
@@ -6552,29 +6940,29 @@ class Devops extends OpenApiClient
 
     /**
      * @param string                        $repositoryId
-     * @param string                        $userId
+     * @param string                        $aliyunPk
      * @param UpdateRepositoryMemberRequest $request
      *
      * @return UpdateRepositoryMemberResponse
      */
-    public function updateRepositoryMember($repositoryId, $userId, $request)
+    public function updateRepositoryMember($repositoryId, $aliyunPk, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateRepositoryMemberWithOptions($repositoryId, $userId, $request, $headers, $runtime);
+        return $this->updateRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime);
     }
 
     /**
      * @param string                        $repositoryId
-     * @param string                        $userId
+     * @param string                        $aliyunPk
      * @param UpdateRepositoryMemberRequest $request
      * @param string[]                      $headers
      * @param RuntimeOptions                $runtime
      *
      * @return UpdateRepositoryMemberResponse
      */
-    public function updateRepositoryMemberWithOptions($repositoryId, $userId, $request, $headers, $runtime)
+    public function updateRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
@@ -6609,7 +6997,7 @@ class Devops extends OpenApiClient
             'action'      => 'UpdateRepositoryMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/' . OpenApiUtilClient::getEncodeParam($userId) . '',
+            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/' . OpenApiUtilClient::getEncodeParam($aliyunPk) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',

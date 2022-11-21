@@ -17,21 +17,9 @@ class GetProjectMemberRequest extends Model
      * @var string
      */
     public $organizationId;
-
-    /**
-     * @var int
-     */
-    public $repositoryId;
-
-    /**
-     * @var string
-     */
-    public $userAliyunPk;
     protected $_name = [
-        'accessToken'    => 'AccessToken',
-        'organizationId' => 'OrganizationId',
-        'repositoryId'   => 'repositoryId',
-        'userAliyunPk'   => 'userAliyunPk',
+        'accessToken'    => 'accessToken',
+        'organizationId' => 'organizationId',
     ];
 
     public function validate()
@@ -42,16 +30,10 @@ class GetProjectMemberRequest extends Model
     {
         $res = [];
         if (null !== $this->accessToken) {
-            $res['AccessToken'] = $this->accessToken;
+            $res['accessToken'] = $this->accessToken;
         }
         if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
-        }
-        if (null !== $this->repositoryId) {
-            $res['repositoryId'] = $this->repositoryId;
-        }
-        if (null !== $this->userAliyunPk) {
-            $res['userAliyunPk'] = $this->userAliyunPk;
+            $res['organizationId'] = $this->organizationId;
         }
 
         return $res;
@@ -65,17 +47,11 @@ class GetProjectMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessToken'])) {
-            $model->accessToken = $map['AccessToken'];
+        if (isset($map['accessToken'])) {
+            $model->accessToken = $map['accessToken'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
-        }
-        if (isset($map['repositoryId'])) {
-            $model->repositoryId = $map['repositoryId'];
-        }
-        if (isset($map['userAliyunPk'])) {
-            $model->userAliyunPk = $map['userAliyunPk'];
+        if (isset($map['organizationId'])) {
+            $model->organizationId = $map['organizationId'];
         }
 
         return $model;

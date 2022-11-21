@@ -43,13 +43,13 @@ class result extends Model
      */
     public $userRole;
     protected $_name = [
-        'createdAt'      => 'CreatedAt',
-        'id'             => 'Id',
-        'namespaceId'    => 'NamespaceId',
-        'organizationId' => 'OrganizationId',
-        'path'           => 'Path',
-        'updatedAt'      => 'UpdatedAt',
-        'userRole'       => 'UserRole',
+        'createdAt'      => 'createdAt',
+        'id'             => 'id',
+        'namespaceId'    => 'namespaceId',
+        'organizationId' => 'organizationId',
+        'path'           => 'path',
+        'updatedAt'      => 'updatedAt',
+        'userRole'       => 'userRole',
     ];
 
     public function validate()
@@ -60,25 +60,25 @@ class result extends Model
     {
         $res = [];
         if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
+            $res['createdAt'] = $this->createdAt;
         }
         if (null !== $this->id) {
-            $res['Id'] = $this->id;
+            $res['id'] = $this->id;
         }
         if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
+            $res['namespaceId'] = $this->namespaceId;
         }
         if (null !== $this->organizationId) {
-            $res['OrganizationId'] = $this->organizationId;
+            $res['organizationId'] = $this->organizationId;
         }
         if (null !== $this->path) {
-            $res['Path'] = $this->path;
+            $res['path'] = $this->path;
         }
         if (null !== $this->updatedAt) {
-            $res['UpdatedAt'] = $this->updatedAt;
+            $res['updatedAt'] = $this->updatedAt;
         }
         if (null !== $this->userRole) {
-            $res['UserRole'] = $this->userRole;
+            $res['userRole'] = $this->userRole;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
+        if (isset($map['createdAt'])) {
+            $model->createdAt = $map['createdAt'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
+        if (isset($map['namespaceId'])) {
+            $model->namespaceId = $map['namespaceId'];
         }
-        if (isset($map['OrganizationId'])) {
-            $model->organizationId = $map['OrganizationId'];
+        if (isset($map['organizationId'])) {
+            $model->organizationId = $map['organizationId'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['path'])) {
+            $model->path = $map['path'];
         }
-        if (isset($map['UpdatedAt'])) {
-            $model->updatedAt = $map['UpdatedAt'];
+        if (isset($map['updatedAt'])) {
+            $model->updatedAt = $map['updatedAt'];
         }
-        if (isset($map['UserRole'])) {
-            $model->userRole = $map['UserRole'];
+        if (isset($map['userRole'])) {
+            $model->userRole = $map['userRole'];
         }
 
         return $model;

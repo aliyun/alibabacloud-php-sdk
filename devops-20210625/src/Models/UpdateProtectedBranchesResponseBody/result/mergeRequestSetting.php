@@ -14,7 +14,7 @@ class mergeRequestSetting extends Model
     public $allowMergeRequestRoles;
 
     /**
-     * @var int[]
+     * @var string[]
      */
     public $defaultAssignees;
 
