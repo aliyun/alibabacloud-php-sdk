@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetJobLogRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\GetJobLogResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoRequest;
@@ -2353,6 +2355,46 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIfEcsTypeSupportHtConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetJobLogRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetJobLogResponse
+     */
+    public function getJobLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobLog',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetJobLogRequest $request
+     *
+     * @return GetJobLogResponse
+     */
+    public function getJobLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobLogWithOptions($request, $runtime);
     }
 
     /**
