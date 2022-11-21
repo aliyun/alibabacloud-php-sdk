@@ -15,6 +15,16 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var replicaGroups[]
      */
     public $replicaGroups;
@@ -23,10 +33,18 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'nextToken'     => 'NextToken',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
         'replicaGroups' => 'ReplicaGroups',
         'requestId'     => 'RequestId',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -39,6 +57,12 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->replicaGroups) {
             $res['ReplicaGroups'] = [];
             if (null !== $this->replicaGroups && \is_array($this->replicaGroups)) {
@@ -50,6 +74,9 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -66,6 +93,12 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['ReplicaGroups'])) {
             if (!empty($map['ReplicaGroups'])) {
                 $model->replicaGroups = [];
@@ -77,6 +110,9 @@ class DescribeDiskReplicaGroupsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
