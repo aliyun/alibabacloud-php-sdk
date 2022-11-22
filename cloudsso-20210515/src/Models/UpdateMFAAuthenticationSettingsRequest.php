@@ -17,9 +17,15 @@ class UpdateMFAAuthenticationSettingsRequest extends Model
      * @var string
      */
     public $MFAAuthenticationSettings;
+
+    /**
+     * @var string
+     */
+    public $operationForRiskLogin;
     protected $_name = [
         'directoryId'               => 'DirectoryId',
         'MFAAuthenticationSettings' => 'MFAAuthenticationSettings',
+        'operationForRiskLogin'     => 'OperationForRiskLogin',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class UpdateMFAAuthenticationSettingsRequest extends Model
         }
         if (null !== $this->MFAAuthenticationSettings) {
             $res['MFAAuthenticationSettings'] = $this->MFAAuthenticationSettings;
+        }
+        if (null !== $this->operationForRiskLogin) {
+            $res['OperationForRiskLogin'] = $this->operationForRiskLogin;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class UpdateMFAAuthenticationSettingsRequest extends Model
         }
         if (isset($map['MFAAuthenticationSettings'])) {
             $model->MFAAuthenticationSettings = $map['MFAAuthenticationSettings'];
+        }
+        if (isset($map['OperationForRiskLogin'])) {
+            $model->operationForRiskLogin = $map['OperationForRiskLogin'];
         }
 
         return $model;

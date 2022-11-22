@@ -3054,6 +3054,9 @@ class Cloudsso extends OpenApiClient
         if (!Utils::isUnset($request->MFAAuthenticationSettings)) {
             $query['MFAAuthenticationSettings'] = $request->MFAAuthenticationSettings;
         }
+        if (!Utils::isUnset($request->operationForRiskLogin)) {
+            $query['OperationForRiskLogin'] = $request->operationForRiskLogin;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
