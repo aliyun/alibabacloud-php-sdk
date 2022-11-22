@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupsResponseBody;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupsResponseBody\stackGroups\autoDeployment;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupsResponseBody\stackGroups\tags;
 use AlibabaCloud\Tea\Model;
 
 class stackGroups extends Model
@@ -53,6 +54,11 @@ class stackGroups extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'autoDeployment'        => 'AutoDeployment',
         'description'           => 'Description',
@@ -63,6 +69,7 @@ class stackGroups extends Model
         'stackGroupId'          => 'StackGroupId',
         'stackGroupName'        => 'StackGroupName',
         'status'                => 'Status',
+        'tags'                  => 'Tags',
     ];
 
     public function validate()
@@ -98,6 +105,15 @@ class stackGroups extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -137,6 +153,15 @@ class stackGroups extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

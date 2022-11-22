@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchShrinkRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateTemplateScratchShrinkRequest extends Model
@@ -54,6 +55,11 @@ class CreateTemplateScratchShrinkRequest extends Model
     public $sourceTagShrink;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateScratchType;
@@ -67,6 +73,7 @@ class CreateTemplateScratchShrinkRequest extends Model
         'sourceResourceGroupShrink'  => 'SourceResourceGroup',
         'sourceResourcesShrink'      => 'SourceResources',
         'sourceTagShrink'            => 'SourceTag',
+        'tags'                       => 'Tags',
         'templateScratchType'        => 'TemplateScratchType',
     ];
 
@@ -103,6 +110,15 @@ class CreateTemplateScratchShrinkRequest extends Model
         }
         if (null !== $this->sourceTagShrink) {
             $res['SourceTag'] = $this->sourceTagShrink;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateScratchType) {
             $res['TemplateScratchType'] = $this->templateScratchType;
@@ -145,6 +161,15 @@ class CreateTemplateScratchShrinkRequest extends Model
         }
         if (isset($map['SourceTag'])) {
             $model->sourceTagShrink = $map['SourceTag'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateScratchType'])) {
             $model->templateScratchType = $map['TemplateScratchType'];

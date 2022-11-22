@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponseBody\temp
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponseBody\templateScratches\sourceResourceGroup;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponseBody\templateScratches\sourceResources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponseBody\templateScratches\sourceTag;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponseBody\templateScratches\tags;
 use AlibabaCloud\Tea\Model;
 
 class templateScratches extends Model
@@ -63,6 +64,11 @@ class templateScratches extends Model
     public $statusReason;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateScratchId;
@@ -87,6 +93,7 @@ class templateScratches extends Model
         'sourceTag'            => 'SourceTag',
         'status'               => 'Status',
         'statusReason'         => 'StatusReason',
+        'tags'                 => 'Tags',
         'templateScratchId'    => 'TemplateScratchId',
         'templateScratchType'  => 'TemplateScratchType',
         'updateTime'           => 'UpdateTime',
@@ -140,6 +147,15 @@ class templateScratches extends Model
         }
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateScratchId) {
             $res['TemplateScratchId'] = $this->templateScratchId;
@@ -203,6 +219,15 @@ class templateScratches extends Model
         }
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateScratchId'])) {
             $model->templateScratchId = $map['TemplateScratchId'];

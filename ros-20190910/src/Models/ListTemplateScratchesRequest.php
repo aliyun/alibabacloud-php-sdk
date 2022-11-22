@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListTemplateScratchesRequest extends Model
@@ -29,6 +30,11 @@ class ListTemplateScratchesRequest extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateScratchId;
@@ -42,6 +48,7 @@ class ListTemplateScratchesRequest extends Model
         'pageSize'            => 'PageSize',
         'regionId'            => 'RegionId',
         'status'              => 'Status',
+        'tags'                => 'Tags',
         'templateScratchId'   => 'TemplateScratchId',
         'templateScratchType' => 'TemplateScratchType',
     ];
@@ -64,6 +71,15 @@ class ListTemplateScratchesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateScratchId) {
             $res['TemplateScratchId'] = $this->templateScratchId;
@@ -94,6 +110,15 @@ class ListTemplateScratchesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateScratchId'])) {
             $model->templateScratchId = $map['TemplateScratchId'];

@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest\preferenc
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest\sourceResourceGroup;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest\sourceResources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest\sourceTag;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateTemplateScratchRequest extends Model
@@ -58,6 +59,11 @@ class CreateTemplateScratchRequest extends Model
     public $sourceTag;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateScratchType;
@@ -71,6 +77,7 @@ class CreateTemplateScratchRequest extends Model
         'sourceResourceGroup'  => 'SourceResourceGroup',
         'sourceResources'      => 'SourceResources',
         'sourceTag'            => 'SourceTag',
+        'tags'                 => 'Tags',
         'templateScratchType'  => 'TemplateScratchType',
     ];
 
@@ -119,6 +126,15 @@ class CreateTemplateScratchRequest extends Model
         }
         if (null !== $this->sourceTag) {
             $res['SourceTag'] = null !== $this->sourceTag ? $this->sourceTag->toMap() : null;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateScratchType) {
             $res['TemplateScratchType'] = $this->templateScratchType;
@@ -173,6 +189,15 @@ class CreateTemplateScratchRequest extends Model
         }
         if (isset($map['SourceTag'])) {
             $model->sourceTag = sourceTag::fromMap($map['SourceTag']);
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateScratchType'])) {
             $model->templateScratchType = $map['TemplateScratchType'];

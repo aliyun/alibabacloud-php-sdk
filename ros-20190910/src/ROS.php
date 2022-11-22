@@ -126,7 +126,6 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponse;
-use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetDeletionProtectionResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\SetStackPolicyRequest;
@@ -158,7 +157,6 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -556,7 +554,7 @@ class ROS extends OpenApiClient
         $request = new CreateStackGroupShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
-            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
+            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->administrationRoleName)) {
@@ -649,7 +647,7 @@ class ROS extends OpenApiClient
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
@@ -794,13 +792,13 @@ class ROS extends OpenApiClient
             $request->preferenceParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceResourceGroup)) {
-            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceResourceGroup), 'SourceResourceGroup', 'json');
+            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResourceGroup, 'SourceResourceGroup', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceResources)) {
             $request->sourceResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceTag)) {
-            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceTag), 'SourceTag', 'json');
+            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceTag, 'SourceTag', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
@@ -829,6 +827,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceTagShrink)) {
             $query['SourceTag'] = $request->sourceTagShrink;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->templateScratchType)) {
             $query['TemplateScratchType'] = $request->templateScratchType;
@@ -1025,7 +1026,7 @@ class ROS extends OpenApiClient
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
@@ -2750,6 +2751,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3263,6 +3267,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->templateScratchId)) {
             $query['TemplateScratchId'] = $request->templateScratchId;
         }
@@ -3462,25 +3469,23 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param PreviewStackRequest $tmpReq
+     * @param PreviewStackRequest $request
      * @param RuntimeOptions      $runtime
      *
      * @return PreviewStackResponse
      */
-    public function previewStackWithOptions($tmpReq, $runtime)
+    public function previewStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new PreviewStackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceConfigRules)) {
-            $request->resourceConfigRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceConfigRules, 'ResourceConfigRules', 'json');
-        }
+        Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->disableRollback)) {
             $query['DisableRollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->enablePreConfig)) {
+            $query['EnablePreConfig'] = $request->enablePreConfig;
         }
         if (!Utils::isUnset($request->parallelism)) {
             $query['Parallelism'] = $request->parallelism;
@@ -3490,9 +3495,6 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceConfigRulesShrink)) {
-            $query['ResourceConfigRules'] = $request->resourceConfigRulesShrink;
         }
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
@@ -4039,10 +4041,10 @@ class ROS extends OpenApiClient
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
-            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
+            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
@@ -4150,7 +4152,7 @@ class ROS extends OpenApiClient
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
@@ -4347,13 +4349,13 @@ class ROS extends OpenApiClient
             $request->preferenceParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceResourceGroup)) {
-            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceResourceGroup), 'SourceResourceGroup', 'json');
+            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResourceGroup, 'SourceResourceGroup', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceResources)) {
             $request->sourceResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
         }
         if (!Utils::isUnset($tmpReq->sourceTag)) {
-            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceTag), 'SourceTag', 'json');
+            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceTag, 'SourceTag', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {

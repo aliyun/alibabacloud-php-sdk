@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest\parameters;
-use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackRequest\resourceConfigRules;
 use AlibabaCloud\Tea\Model;
 
 class PreviewStackRequest extends Model
@@ -21,6 +20,11 @@ class PreviewStackRequest extends Model
     public $disableRollback;
 
     /**
+     * @var bool
+     */
+    public $enablePreConfig;
+
+    /**
      * @var int
      */
     public $parallelism;
@@ -34,11 +38,6 @@ class PreviewStackRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var resourceConfigRules[]
-     */
-    public $resourceConfigRules;
 
     /**
      * @var string
@@ -97,10 +96,10 @@ class PreviewStackRequest extends Model
     protected $_name = [
         'clientToken'             => 'ClientToken',
         'disableRollback'         => 'DisableRollback',
+        'enablePreConfig'         => 'EnablePreConfig',
         'parallelism'             => 'Parallelism',
         'parameters'              => 'Parameters',
         'regionId'                => 'RegionId',
-        'resourceConfigRules'     => 'ResourceConfigRules',
         'stackId'                 => 'StackId',
         'stackName'               => 'StackName',
         'stackPolicyBody'         => 'StackPolicyBody',
@@ -127,6 +126,9 @@ class PreviewStackRequest extends Model
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
         }
+        if (null !== $this->enablePreConfig) {
+            $res['EnablePreConfig'] = $this->enablePreConfig;
+        }
         if (null !== $this->parallelism) {
             $res['Parallelism'] = $this->parallelism;
         }
@@ -141,15 +143,6 @@ class PreviewStackRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceConfigRules) {
-            $res['ResourceConfigRules'] = [];
-            if (null !== $this->resourceConfigRules && \is_array($this->resourceConfigRules)) {
-                $n = 0;
-                foreach ($this->resourceConfigRules as $item) {
-                    $res['ResourceConfigRules'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
@@ -202,6 +195,9 @@ class PreviewStackRequest extends Model
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
         }
+        if (isset($map['EnablePreConfig'])) {
+            $model->enablePreConfig = $map['EnablePreConfig'];
+        }
         if (isset($map['Parallelism'])) {
             $model->parallelism = $map['Parallelism'];
         }
@@ -216,15 +212,6 @@ class PreviewStackRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceConfigRules'])) {
-            if (!empty($map['ResourceConfigRules'])) {
-                $model->resourceConfigRules = [];
-                $n                          = 0;
-                foreach ($map['ResourceConfigRules'] as $item) {
-                    $model->resourceConfigRules[$n++] = null !== $item ? resourceConfigRules::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];

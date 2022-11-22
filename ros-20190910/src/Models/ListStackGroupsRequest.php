@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackGroupsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListStackGroupsRequest extends Model
@@ -32,12 +33,18 @@ class ListStackGroupsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'status'          => 'Status',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -61,6 +68,15 @@ class ListStackGroupsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -88,6 +104,15 @@ class ListStackGroupsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
