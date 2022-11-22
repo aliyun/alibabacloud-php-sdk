@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceRequest\DBNode;
 use AlibabaCloud\Tea\Model;
 
 class DescribePriceRequest extends Model
@@ -37,6 +38,11 @@ class DescribePriceRequest extends Model
      * @var string
      */
     public $DBInstanceStorageType;
+
+    /**
+     * @var DBNode[]
+     */
+    public $DBNode;
 
     /**
      * @var string
@@ -114,6 +120,7 @@ class DescribePriceRequest extends Model
         'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceStorage'     => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'DBNode'                => 'DBNode',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
         'instanceUsedType'      => 'InstanceUsedType',
@@ -154,6 +161,15 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->DBInstanceStorageType) {
             $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
+        }
+        if (null !== $this->DBNode) {
+            $res['DBNode'] = [];
+            if (null !== $this->DBNode && \is_array($this->DBNode)) {
+                $n = 0;
+                foreach ($this->DBNode as $item) {
+                    $res['DBNode'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -226,6 +242,15 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['DBInstanceStorageType'])) {
             $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
+        }
+        if (isset($map['DBNode'])) {
+            if (!empty($map['DBNode'])) {
+                $model->DBNode = [];
+                $n             = 0;
+                foreach ($map['DBNode'] as $item) {
+                    $model->DBNode[$n++] = null !== $item ? DBNode::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

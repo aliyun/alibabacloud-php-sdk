@@ -24,6 +24,11 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $key;
 
     /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -36,6 +41,7 @@ class DescribeDBInstancePerformanceRequest extends Model
         'DBInstanceId'    => 'DBInstanceId',
         'endTime'         => 'EndTime',
         'key'             => 'Key',
+        'nodeId'          => 'NodeId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'startTime'       => 'StartTime',
     ];
@@ -55,6 +61,9 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -82,6 +91,9 @@ class DescribeDBInstancePerformanceRequest extends Model
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

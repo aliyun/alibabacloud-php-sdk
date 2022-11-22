@@ -22,6 +22,21 @@ class database extends Model
     /**
      * @var string
      */
+    public $collate;
+
+    /**
+     * @var string
+     */
+    public $connLimit;
+
+    /**
+     * @var string
+     */
+    public $ctype;
+
+    /**
+     * @var string
+     */
     public $DBDescription;
 
     /**
@@ -60,12 +75,20 @@ class database extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $tablespace;
+
+    /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'accounts'         => 'Accounts',
         'characterSetName' => 'CharacterSetName',
+        'collate'          => 'Collate',
+        'connLimit'        => 'ConnLimit',
+        'ctype'            => 'Ctype',
         'DBDescription'    => 'DBDescription',
         'DBInstanceId'     => 'DBInstanceId',
         'DBName'           => 'DBName',
@@ -74,6 +97,7 @@ class database extends Model
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'resourceGroupId'  => 'ResourceGroupId',
+        'tablespace'       => 'Tablespace',
         'totalCount'       => 'TotalCount',
     ];
 
@@ -89,6 +113,15 @@ class database extends Model
         }
         if (null !== $this->characterSetName) {
             $res['CharacterSetName'] = $this->characterSetName;
+        }
+        if (null !== $this->collate) {
+            $res['Collate'] = $this->collate;
+        }
+        if (null !== $this->connLimit) {
+            $res['ConnLimit'] = $this->connLimit;
+        }
+        if (null !== $this->ctype) {
+            $res['Ctype'] = $this->ctype;
         }
         if (null !== $this->DBDescription) {
             $res['DBDescription'] = $this->DBDescription;
@@ -114,6 +147,9 @@ class database extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->tablespace) {
+            $res['Tablespace'] = $this->tablespace;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -134,6 +170,15 @@ class database extends Model
         }
         if (isset($map['CharacterSetName'])) {
             $model->characterSetName = $map['CharacterSetName'];
+        }
+        if (isset($map['Collate'])) {
+            $model->collate = $map['Collate'];
+        }
+        if (isset($map['ConnLimit'])) {
+            $model->connLimit = $map['ConnLimit'];
+        }
+        if (isset($map['Ctype'])) {
+            $model->ctype = $map['Ctype'];
         }
         if (isset($map['DBDescription'])) {
             $model->DBDescription = $map['DBDescription'];
@@ -158,6 +203,9 @@ class database extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tablespace'])) {
+            $model->tablespace = $map['Tablespace'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

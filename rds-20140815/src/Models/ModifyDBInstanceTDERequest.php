@@ -29,6 +29,11 @@ class ModifyDBInstanceTDERequest extends Model
     public $encryptionKey;
 
     /**
+     * @var bool
+     */
+    public $isRotate;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -72,6 +77,7 @@ class ModifyDBInstanceTDERequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBName'               => 'DBName',
         'encryptionKey'        => 'EncryptionKey',
+        'isRotate'             => 'IsRotate',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'passWord'             => 'PassWord',
@@ -100,6 +106,9 @@ class ModifyDBInstanceTDERequest extends Model
         }
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->isRotate) {
+            $res['IsRotate'] = $this->isRotate;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -148,6 +157,9 @@ class ModifyDBInstanceTDERequest extends Model
         }
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['IsRotate'])) {
+            $model->isRotate = $map['IsRotate'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

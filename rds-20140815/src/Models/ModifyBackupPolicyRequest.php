@@ -69,6 +69,11 @@ class ModifyBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
+     * @var bool
+     */
+    public $enableIncrementDataBackup;
+
+    /**
      * @var string
      */
     public $highSpaceUsageProtection;
@@ -145,6 +150,7 @@ class ModifyBackupPolicyRequest extends Model
         'compressType'                  => 'CompressType',
         'DBInstanceId'                  => 'DBInstanceId',
         'enableBackupLog'               => 'EnableBackupLog',
+        'enableIncrementDataBackup'     => 'EnableIncrementDataBackup',
         'highSpaceUsageProtection'      => 'HighSpaceUsageProtection',
         'localLogRetentionHours'        => 'LocalLogRetentionHours',
         'localLogRetentionSpace'        => 'LocalLogRetentionSpace',
@@ -202,6 +208,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+        if (null !== $this->enableIncrementDataBackup) {
+            $res['EnableIncrementDataBackup'] = $this->enableIncrementDataBackup;
         }
         if (null !== $this->highSpaceUsageProtection) {
             $res['HighSpaceUsageProtection'] = $this->highSpaceUsageProtection;
@@ -289,6 +298,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+        if (isset($map['EnableIncrementDataBackup'])) {
+            $model->enableIncrementDataBackup = $map['EnableIncrementDataBackup'];
         }
         if (isset($map['HighSpaceUsageProtection'])) {
             $model->highSpaceUsageProtection = $map['HighSpaceUsageProtection'];

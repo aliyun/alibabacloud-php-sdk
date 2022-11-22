@@ -11,6 +11,11 @@ class minorVersionItems extends Model
     /**
      * @var string
      */
+    public $communityMinorVersion;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -47,15 +52,22 @@ class minorVersionItems extends Model
      * @var string
      */
     public $statusDesc;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
-        'engine'          => 'Engine',
-        'engineVersion'   => 'EngineVersion',
-        'isHotfixVersion' => 'IsHotfixVersion',
-        'minorVersion'    => 'MinorVersion',
-        'nodeType'        => 'NodeType',
-        'releaseNote'     => 'ReleaseNote',
-        'releaseType'     => 'ReleaseType',
-        'statusDesc'      => 'StatusDesc',
+        'communityMinorVersion' => 'CommunityMinorVersion',
+        'engine'                => 'Engine',
+        'engineVersion'         => 'EngineVersion',
+        'isHotfixVersion'       => 'IsHotfixVersion',
+        'minorVersion'          => 'MinorVersion',
+        'nodeType'              => 'NodeType',
+        'releaseNote'           => 'ReleaseNote',
+        'releaseType'           => 'ReleaseType',
+        'statusDesc'            => 'StatusDesc',
+        'tag'                   => 'Tag',
     ];
 
     public function validate()
@@ -65,6 +77,9 @@ class minorVersionItems extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->communityMinorVersion) {
+            $res['CommunityMinorVersion'] = $this->communityMinorVersion;
+        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
@@ -89,6 +104,9 @@ class minorVersionItems extends Model
         if (null !== $this->statusDesc) {
             $res['StatusDesc'] = $this->statusDesc;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
+        }
 
         return $res;
     }
@@ -101,6 +119,9 @@ class minorVersionItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommunityMinorVersion'])) {
+            $model->communityMinorVersion = $map['CommunityMinorVersion'];
+        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
@@ -124,6 +145,9 @@ class minorVersionItems extends Model
         }
         if (isset($map['StatusDesc'])) {
             $model->statusDesc = $map['StatusDesc'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

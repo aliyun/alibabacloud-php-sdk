@@ -26,6 +26,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $encryptedMemory;
+
+    /**
+     * @var string
+     */
+    public $instructionSetArch;
+
+    /**
+     * @var string
+     */
     public $maxConnections;
 
     /**
@@ -48,14 +58,16 @@ class items extends Model
      */
     public $referencePrice;
     protected $_name = [
-        'classCode'      => 'ClassCode',
-        'classGroup'     => 'ClassGroup',
-        'cpu'            => 'Cpu',
-        'maxConnections' => 'MaxConnections',
-        'maxIOMBPS'      => 'MaxIOMBPS',
-        'maxIOPS'        => 'MaxIOPS',
-        'memoryClass'    => 'MemoryClass',
-        'referencePrice' => 'ReferencePrice',
+        'classCode'          => 'ClassCode',
+        'classGroup'         => 'ClassGroup',
+        'cpu'                => 'Cpu',
+        'encryptedMemory'    => 'EncryptedMemory',
+        'instructionSetArch' => 'InstructionSetArch',
+        'maxConnections'     => 'MaxConnections',
+        'maxIOMBPS'          => 'MaxIOMBPS',
+        'maxIOPS'            => 'MaxIOPS',
+        'memoryClass'        => 'MemoryClass',
+        'referencePrice'     => 'ReferencePrice',
     ];
 
     public function validate()
@@ -73,6 +85,12 @@ class items extends Model
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->encryptedMemory) {
+            $res['EncryptedMemory'] = $this->encryptedMemory;
+        }
+        if (null !== $this->instructionSetArch) {
+            $res['InstructionSetArch'] = $this->instructionSetArch;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
@@ -109,6 +127,12 @@ class items extends Model
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['EncryptedMemory'])) {
+            $model->encryptedMemory = $map['EncryptedMemory'];
+        }
+        if (isset($map['InstructionSetArch'])) {
+            $model->instructionSetArch = $map['InstructionSetArch'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];

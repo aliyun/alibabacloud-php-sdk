@@ -16,6 +16,11 @@ class DeleteSecretRequest extends Model
     /**
      * @var string
      */
+    public $dbInstanceId;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -49,6 +54,7 @@ class DeleteSecretRequest extends Model
     public $secretName;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'dbInstanceId'         => 'DbInstanceId',
         'engine'               => 'Engine',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -67,6 +73,9 @@ class DeleteSecretRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dbInstanceId) {
+            $res['DbInstanceId'] = $this->dbInstanceId;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -103,6 +112,9 @@ class DeleteSecretRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DbInstanceId'])) {
+            $model->dbInstanceId = $map['DbInstanceId'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

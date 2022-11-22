@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items;
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\babelfishConfig;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\DBClusterNodes;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\extra;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\readOnlyDBInstanceIds;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponseBody\items\DBInstanceAttribute\serverlessConfig;
@@ -72,6 +73,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $currentKernelVersion;
+
+    /**
+     * @var DBClusterNodes
+     */
+    public $DBClusterNodes;
 
     /**
      * @var string
@@ -187,6 +193,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $instanceNetworkType;
+
+    /**
+     * @var string
+     */
+    public $instructionSetArch;
 
     /**
      * @var string
@@ -350,6 +361,7 @@ class DBInstanceAttribute extends Model
         'consoleVersion'                 => 'ConsoleVersion',
         'creationTime'                   => 'CreationTime',
         'currentKernelVersion'           => 'CurrentKernelVersion',
+        'DBClusterNodes'                 => 'DBClusterNodes',
         'DBInstanceCPU'                  => 'DBInstanceCPU',
         'DBInstanceClass'                => 'DBInstanceClass',
         'DBInstanceClassType'            => 'DBInstanceClassType',
@@ -373,6 +385,7 @@ class DBInstanceAttribute extends Model
         'IPType'                         => 'IPType',
         'incrementSourceDBInstanceId'    => 'IncrementSourceDBInstanceId',
         'instanceNetworkType'            => 'InstanceNetworkType',
+        'instructionSetArch'             => 'InstructionSetArch',
         'latestKernelVersion'            => 'LatestKernelVersion',
         'lockMode'                       => 'LockMode',
         'lockReason'                     => 'LockReason',
@@ -448,6 +461,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->currentKernelVersion) {
             $res['CurrentKernelVersion'] = $this->currentKernelVersion;
         }
+        if (null !== $this->DBClusterNodes) {
+            $res['DBClusterNodes'] = null !== $this->DBClusterNodes ? $this->DBClusterNodes->toMap() : null;
+        }
         if (null !== $this->DBInstanceCPU) {
             $res['DBInstanceCPU'] = $this->DBInstanceCPU;
         }
@@ -516,6 +532,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
+        }
+        if (null !== $this->instructionSetArch) {
+            $res['InstructionSetArch'] = $this->instructionSetArch;
         }
         if (null !== $this->latestKernelVersion) {
             $res['LatestKernelVersion'] = $this->latestKernelVersion;
@@ -655,6 +674,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['CurrentKernelVersion'])) {
             $model->currentKernelVersion = $map['CurrentKernelVersion'];
         }
+        if (isset($map['DBClusterNodes'])) {
+            $model->DBClusterNodes = DBClusterNodes::fromMap($map['DBClusterNodes']);
+        }
         if (isset($map['DBInstanceCPU'])) {
             $model->DBInstanceCPU = $map['DBInstanceCPU'];
         }
@@ -723,6 +745,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
+        }
+        if (isset($map['InstructionSetArch'])) {
+            $model->instructionSetArch = $map['InstructionSetArch'];
         }
         if (isset($map['LatestKernelVersion'])) {
             $model->latestKernelVersion = $map['LatestKernelVersion'];

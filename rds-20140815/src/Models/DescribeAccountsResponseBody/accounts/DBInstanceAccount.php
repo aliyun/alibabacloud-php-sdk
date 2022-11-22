@@ -32,6 +32,21 @@ class DBInstanceAccount extends Model
     /**
      * @var string
      */
+    public $bypassRLS;
+
+    /**
+     * @var string
+     */
+    public $createDB;
+
+    /**
+     * @var string
+     */
+    public $createRole;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -43,14 +58,29 @@ class DBInstanceAccount extends Model
      * @var string
      */
     public $privExceeded;
+
+    /**
+     * @var string
+     */
+    public $replication;
+
+    /**
+     * @var string
+     */
+    public $validUntil;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
         'accountStatus'      => 'AccountStatus',
         'accountType'        => 'AccountType',
+        'bypassRLS'          => 'BypassRLS',
+        'createDB'           => 'CreateDB',
+        'createRole'         => 'CreateRole',
         'DBInstanceId'       => 'DBInstanceId',
         'databasePrivileges' => 'DatabasePrivileges',
         'privExceeded'       => 'PrivExceeded',
+        'replication'        => 'Replication',
+        'validUntil'         => 'ValidUntil',
     ];
 
     public function validate()
@@ -72,6 +102,15 @@ class DBInstanceAccount extends Model
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+        if (null !== $this->bypassRLS) {
+            $res['BypassRLS'] = $this->bypassRLS;
+        }
+        if (null !== $this->createDB) {
+            $res['CreateDB'] = $this->createDB;
+        }
+        if (null !== $this->createRole) {
+            $res['CreateRole'] = $this->createRole;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -80,6 +119,12 @@ class DBInstanceAccount extends Model
         }
         if (null !== $this->privExceeded) {
             $res['PrivExceeded'] = $this->privExceeded;
+        }
+        if (null !== $this->replication) {
+            $res['Replication'] = $this->replication;
+        }
+        if (null !== $this->validUntil) {
+            $res['ValidUntil'] = $this->validUntil;
         }
 
         return $res;
@@ -105,6 +150,15 @@ class DBInstanceAccount extends Model
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+        if (isset($map['BypassRLS'])) {
+            $model->bypassRLS = $map['BypassRLS'];
+        }
+        if (isset($map['CreateDB'])) {
+            $model->createDB = $map['CreateDB'];
+        }
+        if (isset($map['CreateRole'])) {
+            $model->createRole = $map['CreateRole'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
@@ -113,6 +167,12 @@ class DBInstanceAccount extends Model
         }
         if (isset($map['PrivExceeded'])) {
             $model->privExceeded = $map['PrivExceeded'];
+        }
+        if (isset($map['Replication'])) {
+            $model->replication = $map['Replication'];
+        }
+        if (isset($map['ValidUntil'])) {
+            $model->validUntil = $map['ValidUntil'];
         }
 
         return $model;

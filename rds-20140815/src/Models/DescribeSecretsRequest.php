@@ -21,6 +21,11 @@ class DescribeSecretsRequest extends Model
     /**
      * @var string
      */
+    public $dbInstanceId;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -60,6 +65,7 @@ class DescribeSecretsRequest extends Model
     protected $_name = [
         'acceptLanguage'       => 'AcceptLanguage',
         'clientToken'          => 'ClientToken',
+        'dbInstanceId'         => 'DbInstanceId',
         'engine'               => 'Engine',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -82,6 +88,9 @@ class DescribeSecretsRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dbInstanceId) {
+            $res['DbInstanceId'] = $this->dbInstanceId;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -124,6 +133,9 @@ class DescribeSecretsRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DbInstanceId'])) {
+            $model->dbInstanceId = $map['DbInstanceId'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

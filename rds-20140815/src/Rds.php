@@ -52,6 +52,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateCloudMigrationTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateCloudMigrationTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDatabaseResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointAddressRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointAddressResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceShrinkRequest;
@@ -89,6 +94,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDatabaseRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDatabaseResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointAddressRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointAddressResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBProxyEndpointAddressRequest;
@@ -157,6 +166,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEncryptionKeyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEncryptionKeyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEndpointsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceEndpointsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceHAConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceHAConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceIPArrayListRequest;
@@ -219,10 +230,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHADiagnoseConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHASwitchConfigResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksStatRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHistoryTasksStatResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceCrossBackupPolicyRequest;
@@ -257,6 +264,7 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayRequest;
@@ -355,6 +363,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDeletionProtectionRequ
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDeletionProtectionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceDescriptionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceEndpointAddressRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceEndpointAddressResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceEndpointRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceEndpointResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceEndpointShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceHAConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceHAConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceMaintainTimeRequest;
@@ -488,7 +501,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1331,7 +1343,7 @@ class Rds extends OpenApiClient
         $request = new CloneDBInstanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->serverlessConfig)) {
-            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->serverlessConfig), 'ServerlessConfig', 'json');
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->backupId)) {
@@ -1929,7 +1941,7 @@ class Rds extends OpenApiClient
         $request = new CreateDBInstanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->serverlessConfig)) {
-            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->serverlessConfig), 'ServerlessConfig', 'json');
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->amount)) {
@@ -1952,6 +1964,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->connectionMode)) {
             $query['ConnectionMode'] = $request->connectionMode;
+        }
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
         if (!Utils::isUnset($request->createStrategy)) {
             $query['CreateStrategy'] = $request->createStrategy;
@@ -2104,6 +2119,145 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDBInstanceEndpointRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDBInstanceEndpointResponse
+     */
+    public function createDBInstanceEndpointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDBInstanceEndpointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodeItems)) {
+            $request->nodeItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeItems, 'NodeItems', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointDescription)) {
+            $query['DBInstanceEndpointDescription'] = $request->DBInstanceEndpointDescription;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointType)) {
+            $query['DBInstanceEndpointType'] = $request->DBInstanceEndpointType;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->nodeItemsShrink)) {
+            $query['NodeItems'] = $request->nodeItemsShrink;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBInstanceEndpoint',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDBInstanceEndpointRequest $request
+     *
+     * @return CreateDBInstanceEndpointResponse
+     */
+    public function createDBInstanceEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBInstanceEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDBInstanceEndpointAddressRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateDBInstanceEndpointAddressResponse
+     */
+    public function createDBInstanceEndpointAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointId)) {
+            $query['DBInstanceEndpointId'] = $request->DBInstanceEndpointId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ipType)) {
+            $query['IpType'] = $request->ipType;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBInstanceEndpointAddress',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBInstanceEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDBInstanceEndpointAddressRequest $request
+     *
+     * @return CreateDBInstanceEndpointAddressResponse
+     */
+    public function createDBInstanceEndpointAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBInstanceEndpointAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -3385,6 +3539,115 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DeleteDBInstanceEndpointRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDBInstanceEndpointResponse
+     */
+    public function deleteDBInstanceEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointId)) {
+            $query['DBInstanceEndpointId'] = $request->DBInstanceEndpointId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBInstanceEndpoint',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDBInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDBInstanceEndpointRequest $request
+     *
+     * @return DeleteDBInstanceEndpointResponse
+     */
+    public function deleteDBInstanceEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBInstanceEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDBInstanceEndpointAddressRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteDBInstanceEndpointAddressResponse
+     */
+    public function deleteDBInstanceEndpointAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $body['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointId)) {
+            $body['DBInstanceEndpointId'] = $request->DBInstanceEndpointId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBInstanceEndpointAddress',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDBInstanceEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDBInstanceEndpointAddressRequest $request
+     *
+     * @return DeleteDBInstanceEndpointAddressResponse
+     */
+    public function deleteDBInstanceEndpointAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBInstanceEndpointAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDBProxyEndpointAddressRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3604,6 +3867,9 @@ class Rds extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
         }
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
@@ -5404,6 +5670,58 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBInstanceEndpointsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBInstanceEndpointsResponse
+     */
+    public function describeDBInstanceEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointId)) {
+            $query['DBInstanceEndpointId'] = $request->DBInstanceEndpointId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceEndpoints',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBInstanceEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstanceEndpointsRequest $request
+     *
+     * @return DescribeDBInstanceEndpointsResponse
+     */
+    public function describeDBInstanceEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBInstanceHAConfigRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -5827,6 +6145,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->key)) {
             $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -7497,155 +7818,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeHistoryTasksResponse
-     */
-    public function describeHistoryTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fromExecTime)) {
-            $query['FromExecTime'] = $request->fromExecTime;
-        }
-        if (!Utils::isUnset($request->fromStartTime)) {
-            $query['FromStartTime'] = $request->fromStartTime;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        if (!Utils::isUnset($request->toExecTime)) {
-            $query['ToExecTime'] = $request->toExecTime;
-        }
-        if (!Utils::isUnset($request->toStartTime)) {
-            $query['ToStartTime'] = $request->toStartTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeHistoryTasks',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHistoryTasksRequest $request
-     *
-     * @return DescribeHistoryTasksResponse
-     */
-    public function describeHistoryTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHistoryTasksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHistoryTasksStatRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeHistoryTasksStatResponse
-     */
-    public function describeHistoryTasksStatWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fromExecTime)) {
-            $query['FromExecTime'] = $request->fromExecTime;
-        }
-        if (!Utils::isUnset($request->fromStartTime)) {
-            $query['FromStartTime'] = $request->fromStartTime;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
-        }
-        if (!Utils::isUnset($request->toExecTime)) {
-            $query['ToExecTime'] = $request->toExecTime;
-        }
-        if (!Utils::isUnset($request->toStartTime)) {
-            $query['ToStartTime'] = $request->toStartTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeHistoryTasksStat',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHistoryTasksStatRequest $request
-     *
-     * @return DescribeHistoryTasksStatResponse
-     */
-    public function describeHistoryTasksStat($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHistoryTasksStatWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeInstanceAutoRenewalAttributeRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -8646,14 +8818,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * @param DescribePriceRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return DescribePriceResponse
      */
-    public function describePriceWithOptions($request, $runtime)
+    public function describePriceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribePriceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->DBNode)) {
+            $request->DBNodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBNode, 'DBNode', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -8672,6 +8849,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceStorageType)) {
             $query['DBInstanceStorageType'] = $request->DBInstanceStorageType;
+        }
+        if (!Utils::isUnset($request->DBNodeShrink)) {
+            $query['DBNode'] = $request->DBNodeShrink;
         }
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
@@ -9455,6 +9635,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
         }
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
@@ -11260,6 +11443,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->enableBackupLog)) {
             $query['EnableBackupLog'] = $request->enableBackupLog;
         }
+        if (!Utils::isUnset($request->enableIncrementDataBackup)) {
+            $query['EnableIncrementDataBackup'] = $request->enableIncrementDataBackup;
+        }
         if (!Utils::isUnset($request->highSpaceUsageProtection)) {
             $query['HighSpaceUsageProtection'] = $request->highSpaceUsageProtection;
         }
@@ -11806,6 +11992,139 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceEndpointRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDBInstanceEndpointResponse
+     */
+    public function modifyDBInstanceEndpointWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDBInstanceEndpointShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodeItems)) {
+            $request->nodeItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeItems, 'NodeItems', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointDescription)) {
+            $query['DBInstanceEndpointDescription'] = $request->DBInstanceEndpointDescription;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointId)) {
+            $query['DBInstanceEndpointId'] = $request->DBInstanceEndpointId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->nodeItemsShrink)) {
+            $query['NodeItems'] = $request->nodeItemsShrink;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceEndpoint',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceEndpointRequest $request
+     *
+     * @return ModifyDBInstanceEndpointResponse
+     */
+    public function modifyDBInstanceEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceEndpointAddressRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyDBInstanceEndpointAddressResponse
+     */
+    public function modifyDBInstanceEndpointAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+        if (!Utils::isUnset($request->DBInstanceEndpointId)) {
+            $query['DBInstanceEndpointId'] = $request->DBInstanceEndpointId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceEndpointAddress',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceEndpointAddressRequest $request
+     *
+     * @return ModifyDBInstanceEndpointAddressResponse
+     */
+    public function modifyDBInstanceEndpointAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceEndpointAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -12396,7 +12715,7 @@ class Rds extends OpenApiClient
         $request = new ModifyDBInstanceSpecShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->serverlessConfiguration)) {
-            $request->serverlessConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->serverlessConfiguration), 'ServerlessConfiguration', 'json');
+            $request->serverlessConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfiguration, 'ServerlessConfiguration', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->category)) {
@@ -12510,6 +12829,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->encryptionKey)) {
             $query['EncryptionKey'] = $request->encryptionKey;
+        }
+        if (!Utils::isUnset($request->isRotate)) {
+            $query['IsRotate'] = $request->isRotate;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

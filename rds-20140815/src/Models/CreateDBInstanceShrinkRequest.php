@@ -47,6 +47,11 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
     public $createStrategy;
 
     /**
@@ -256,6 +261,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'category'                       => 'Category',
         'clientToken'                    => 'ClientToken',
         'connectionMode'                 => 'ConnectionMode',
+        'connectionString'               => 'ConnectionString',
         'createStrategy'                 => 'CreateStrategy',
         'DBInstanceClass'                => 'DBInstanceClass',
         'DBInstanceDescription'          => 'DBInstanceDescription',
@@ -326,6 +332,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
+        }
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
         }
         if (null !== $this->createStrategy) {
             $res['CreateStrategy'] = $this->createStrategy;
@@ -488,6 +497,9 @@ class CreateDBInstanceShrinkRequest extends Model
         }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
+        }
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
         }
         if (isset($map['CreateStrategy'])) {
             $model->createStrategy = $map['CreateStrategy'];
