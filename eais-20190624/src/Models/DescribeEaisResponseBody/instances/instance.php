@@ -72,6 +72,11 @@ class instance extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -101,6 +106,7 @@ class instance extends Model
         'jupyterUrl'                   => 'JupyterUrl',
         'regionId'                     => 'RegionId',
         'securityGroupId'              => 'SecurityGroupId',
+        'startTime'                    => 'StartTime',
         'status'                       => 'Status',
         'tags'                         => 'Tags',
         'vSwitchId'                    => 'VSwitchId',
@@ -149,6 +155,9 @@ class instance extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -209,6 +218,9 @@ class instance extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
