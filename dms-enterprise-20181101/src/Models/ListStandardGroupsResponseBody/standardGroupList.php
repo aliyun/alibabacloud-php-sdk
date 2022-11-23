@@ -19,6 +19,11 @@ class standardGroupList extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $groupId;
+
+    /**
      * @var string
      */
     public $groupMode;
@@ -35,6 +40,7 @@ class standardGroupList extends Model
     protected $_name = [
         'dbType'       => 'DbType',
         'description'  => 'Description',
+        'groupId'      => 'GroupId',
         'groupMode'    => 'GroupMode',
         'groupName'    => 'GroupName',
         'lastMenderId' => 'LastMenderId',
@@ -52,6 +58,9 @@ class standardGroupList extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->groupMode) {
             $res['GroupMode'] = $this->groupMode;
@@ -79,6 +88,9 @@ class standardGroupList extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['GroupMode'])) {
             $model->groupMode = $map['GroupMode'];

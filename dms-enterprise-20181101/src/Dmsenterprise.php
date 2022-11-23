@@ -125,10 +125,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectBackupFilesRes
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectBackupFilesShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectRollbackFileRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectRollbackFileResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectSQLFileRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectSQLFileResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectTaskDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectTaskDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearConfigRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearConfigResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearTaskDetailListRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCronClearTaskDetailListResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportDownloadURLRequest;
@@ -153,6 +157,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableDetailInfoReques
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableDetailInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderAttachmentFileRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderAttachmentFileResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderBaseInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderBaseInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOwnerApplyOrderDetailRequest;
@@ -1000,7 +1006,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateDataCorrectOrderShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
@@ -1063,7 +1069,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateDataCronClearOrderShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
@@ -1126,7 +1132,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateDataImportOrderShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
@@ -1189,7 +1195,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateFreeLockCorrectOrderShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
@@ -1600,7 +1606,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateSQLReviewOrderShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
@@ -1761,7 +1767,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateStructSyncOrderShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->param)) {
-            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->param), 'Param', 'json');
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
         }
         if (!Utils::isUnset($tmpReq->relatedUserList)) {
             $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
@@ -1992,7 +1998,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new CreateUploadOSSFileJobShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->uploadTarget)) {
-            $request->uploadTargetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->uploadTarget), 'UploadTarget', 'json');
+            $request->uploadTargetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uploadTarget, 'UploadTarget', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->fileName)) {
@@ -3212,6 +3218,52 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param GetDataCorrectRollbackFileRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDataCorrectRollbackFileResponse
+     */
+    public function getDataCorrectRollbackFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataCorrectRollbackFile',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataCorrectRollbackFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataCorrectRollbackFileRequest $request
+     *
+     * @return GetDataCorrectRollbackFileResponse
+     */
+    public function getDataCorrectRollbackFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataCorrectRollbackFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetDataCorrectSQLFileRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3301,6 +3353,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataCorrectTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataCronClearConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDataCronClearConfigResponse
+     */
+    public function getDataCronClearConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataCronClearConfig',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataCronClearConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataCronClearConfigRequest $request
+     *
+     * @return GetDataCronClearConfigResponse
+     */
+    public function getDataCronClearConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataCronClearConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3842,6 +3940,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOpLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOrderAttachmentFileRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetOrderAttachmentFileResponse
+     */
+    public function getOrderAttachmentFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOrderAttachmentFile',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOrderAttachmentFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOrderAttachmentFileRequest $request
+     *
+     * @return GetOrderAttachmentFileResponse
+     */
+    public function getOrderAttachmentFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOrderAttachmentFileWithOptions($request, $runtime);
     }
 
     /**
@@ -6396,7 +6540,7 @@ class Dmsenterprise extends OpenApiClient
         $request = new ListSQLReviewOriginSQLShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->orderActionDetail)) {
-            $request->orderActionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->orderActionDetail), 'OrderActionDetail', 'json');
+            $request->orderActionDetailShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderActionDetail, 'OrderActionDetail', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->orderActionDetailShrink)) {
