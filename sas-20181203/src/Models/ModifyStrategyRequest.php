@@ -26,6 +26,11 @@ class ModifyStrategyRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -47,15 +52,28 @@ class ModifyStrategyRequest extends Model
      * @var string
      */
     public $sourceIp;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $targetType;
     protected $_name = [
         'customType'       => 'CustomType',
         'cycleDays'        => 'CycleDays',
         'cycleStartTime'   => 'CycleStartTime',
+        'endTime'          => 'EndTime',
         'id'               => 'Id',
         'name'             => 'Name',
         'riskCustomParams' => 'RiskCustomParams',
         'riskSubTypeName'  => 'RiskSubTypeName',
         'sourceIp'         => 'SourceIp',
+        'startTime'        => 'StartTime',
+        'targetType'       => 'TargetType',
     ];
 
     public function validate()
@@ -74,6 +92,9 @@ class ModifyStrategyRequest extends Model
         if (null !== $this->cycleStartTime) {
             $res['CycleStartTime'] = $this->cycleStartTime;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -88,6 +109,12 @@ class ModifyStrategyRequest extends Model
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
 
         return $res;
@@ -110,6 +137,9 @@ class ModifyStrategyRequest extends Model
         if (isset($map['CycleStartTime'])) {
             $model->cycleStartTime = $map['CycleStartTime'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -124,6 +154,12 @@ class ModifyStrategyRequest extends Model
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
 
         return $model;

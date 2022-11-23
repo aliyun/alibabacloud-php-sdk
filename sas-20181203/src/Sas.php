@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
@@ -155,9 +156,18 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageFixTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageGroupedVulListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListBySensitiveFileShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListWithBaselineNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageListWithBaselineNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileByKeyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileByKeyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileByKeyShrinkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileListShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageVulListResponse;
@@ -172,6 +182,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLoginBaseConfigsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogMetaRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogMetaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
@@ -195,6 +207,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyProcItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyProcItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScheduleConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertySoftwareDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertySoftwareDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertySoftwareItemRequest;
@@ -233,6 +247,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationStatusRe
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityStatInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityStatInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeServiceLinkedRoleStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeServiceLinkedRoleStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSimilarEventScenariosResponse;
@@ -273,6 +288,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotCriteriaResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcHoneyPotListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVpcListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulDetailsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulExportInfoRequest;
@@ -392,6 +409,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyWebLockUpdateConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OpenSensitiveFileScanRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OpenSensitiveFileScanResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateCommonOverallConfigRequest;
@@ -1285,13 +1304,21 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param CreateServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
      *
      * @return CreateServiceLinkedRoleResponse
      */
-    public function createServiceLinkedRoleWithOptions($runtime)
+    public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceLinkedRole)) {
+            $query['ServiceLinkedRole'] = $request->serviceLinkedRole;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'CreateServiceLinkedRole',
             'version'     => '2018-12-03',
@@ -1308,13 +1335,15 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CreateServiceLinkedRoleRequest $request
+     *
      * @return CreateServiceLinkedRoleResponse
      */
-    public function createServiceLinkedRole()
+    public function createServiceLinkedRole($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createServiceLinkedRoleWithOptions($runtime);
+        return $this->createServiceLinkedRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -2096,6 +2125,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->remark)) {
             $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sortColumn)) {
+            $query['SortColumn'] = $request->sortColumn;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
@@ -4614,6 +4649,81 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeImageListBySensitiveFileRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeImageListBySensitiveFileResponse
+     */
+    public function describeImageListBySensitiveFileWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeImageListBySensitiveFileShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scanRange)) {
+            $request->scanRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scanRange, 'ScanRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->imageDigest)) {
+            $query['ImageDigest'] = $request->imageDigest;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->repoInstanceId)) {
+            $query['RepoInstanceId'] = $request->repoInstanceId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespace)) {
+            $query['RepoNamespace'] = $request->repoNamespace;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->scanRangeShrink)) {
+            $query['ScanRange'] = $request->scanRangeShrink;
+        }
+        if (!Utils::isUnset($request->sensitiveFileKey)) {
+            $query['SensitiveFileKey'] = $request->sensitiveFileKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageListBySensitiveFile',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageListBySensitiveFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageListBySensitiveFileRequest $request
+     *
+     * @return DescribeImageListBySensitiveFileResponse
+     */
+    public function describeImageListBySensitiveFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageListBySensitiveFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeImageListWithBaselineNameRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -4735,6 +4845,138 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageScanAuthCountWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeImageSensitiveFileByKeyRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeImageSensitiveFileByKeyResponse
+     */
+    public function describeImageSensitiveFileByKeyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeImageSensitiveFileByKeyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scanRange)) {
+            $request->scanRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scanRange, 'ScanRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->imageUuid)) {
+            $query['ImageUuid'] = $request->imageUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scanRangeShrink)) {
+            $query['ScanRange'] = $request->scanRangeShrink;
+        }
+        if (!Utils::isUnset($request->sensitiveFileKey)) {
+            $query['SensitiveFileKey'] = $request->sensitiveFileKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageSensitiveFileByKey',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageSensitiveFileByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageSensitiveFileByKeyRequest $request
+     *
+     * @return DescribeImageSensitiveFileByKeyResponse
+     */
+    public function describeImageSensitiveFileByKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageSensitiveFileByKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeImageSensitiveFileListRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeImageSensitiveFileListResponse
+     */
+    public function describeImageSensitiveFileListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeImageSensitiveFileListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scanRange)) {
+            $request->scanRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scanRange, 'ScanRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->criteria)) {
+            $query['Criteria'] = $request->criteria;
+        }
+        if (!Utils::isUnset($request->criteriaType)) {
+            $query['CriteriaType'] = $request->criteriaType;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->imageUuid)) {
+            $query['ImageUuid'] = $request->imageUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->scanRangeShrink)) {
+            $query['ScanRange'] = $request->scanRangeShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageSensitiveFileList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageSensitiveFileListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageSensitiveFileListRequest $request
+     *
+     * @return DescribeImageSensitiveFileListResponse
+     */
+    public function describeImageSensitiveFileList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageSensitiveFileListWithOptions($request, $runtime);
     }
 
     /**
@@ -5124,6 +5366,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLogMetaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeLogMetaResponse
+     */
+    public function describeLogMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogMeta',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLogMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLogMetaRequest $request
+     *
+     * @return DescribeLogMetaResponse
+     */
+    public function describeLogMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogMetaWithOptions($request, $runtime);
     }
 
     /**
@@ -5865,6 +6156,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePropertyScaDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePropertyScheduleConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribePropertyScheduleConfigResponse
+     */
+    public function describePropertyScheduleConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePropertyScheduleConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePropertyScheduleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePropertyScheduleConfigRequest $request
+     *
+     * @return DescribePropertyScheduleConfigResponse
+     */
+    public function describePropertyScheduleConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePropertyScheduleConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -6883,13 +7217,21 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeServiceLinkedRoleStatusRequest $request
+     * @param RuntimeOptions                         $runtime
      *
      * @return DescribeServiceLinkedRoleStatusResponse
      */
-    public function describeServiceLinkedRoleStatusWithOptions($runtime)
+    public function describeServiceLinkedRoleStatusWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceLinkedRole)) {
+            $query['ServiceLinkedRole'] = $request->serviceLinkedRole;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeServiceLinkedRoleStatus',
             'version'     => '2018-12-03',
@@ -6906,13 +7248,15 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeServiceLinkedRoleStatusRequest $request
+     *
      * @return DescribeServiceLinkedRoleStatusResponse
      */
-    public function describeServiceLinkedRoleStatus()
+    public function describeServiceLinkedRoleStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeServiceLinkedRoleStatusWithOptions($runtime);
+        return $this->describeServiceLinkedRoleStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -7489,6 +7833,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->remark)) {
             $query['Remark'] = $request->remark;
         }
+        if (!Utils::isUnset($request->sortColumn)) {
+            $query['SortColumn'] = $request->sortColumn;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
+        }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
@@ -8054,6 +8404,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcListWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeVulConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVulConfigResponse
+     */
+    public function describeVulConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVulConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVulConfigRequest $request
+     *
+     * @return DescribeVulConfigResponse
+     */
+    public function describeVulConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -10747,6 +11143,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->cycleStartTime)) {
             $query['CycleStartTime'] = $request->cycleStartTime;
         }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
@@ -10761,6 +11160,12 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -11321,6 +11726,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param OpenSensitiveFileScanRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return OpenSensitiveFileScanResponse
+     */
+    public function openSensitiveFileScanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->switchOn)) {
+            $query['SwitchOn'] = $request->switchOn;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenSensitiveFileScan',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenSensitiveFileScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenSensitiveFileScanRequest $request
+     *
+     * @return OpenSensitiveFileScanResponse
+     */
+    public function openSensitiveFileScan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openSensitiveFileScanWithOptions($request, $runtime);
+    }
+
+    /**
      * @param OperateAgentClientInstallRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -11332,6 +11780,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->uuids)) {
             $query['Uuids'] = $request->uuids;

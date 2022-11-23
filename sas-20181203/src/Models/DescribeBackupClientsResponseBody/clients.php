@@ -21,6 +21,11 @@ class clients extends Model
     /**
      * @var string
      */
+    public $clientVersion;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -28,10 +33,11 @@ class clients extends Model
      */
     public $uuid;
     protected $_name = [
-        'clientId'     => 'ClientId',
-        'clientStatus' => 'ClientStatus',
-        'instanceId'   => 'InstanceId',
-        'uuid'         => 'Uuid',
+        'clientId'      => 'ClientId',
+        'clientStatus'  => 'ClientStatus',
+        'clientVersion' => 'ClientVersion',
+        'instanceId'    => 'InstanceId',
+        'uuid'          => 'Uuid',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class clients extends Model
         }
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
+        }
+        if (null !== $this->clientVersion) {
+            $res['ClientVersion'] = $this->clientVersion;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -70,6 +79,9 @@ class clients extends Model
         }
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
+        }
+        if (isset($map['ClientVersion'])) {
+            $model->clientVersion = $map['ClientVersion'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

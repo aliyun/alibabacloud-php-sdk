@@ -55,6 +55,11 @@ class checks extends Model
     public $taskId;
 
     /**
+     * @var bool
+     */
+    public $trialPermission;
+
+    /**
      * @var string
      */
     public $vendor;
@@ -73,6 +78,7 @@ class checks extends Model
         'riskLevel'       => 'RiskLevel',
         'status'          => 'Status',
         'taskId'          => 'TaskId',
+        'trialPermission' => 'TrialPermission',
         'vendor'          => 'Vendor',
         'vendorShowName'  => 'VendorShowName',
     ];
@@ -116,6 +122,9 @@ class checks extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->trialPermission) {
+            $res['TrialPermission'] = $this->trialPermission;
         }
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
@@ -167,6 +176,9 @@ class checks extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TrialPermission'])) {
+            $model->trialPermission = $map['TrialPermission'];
         }
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];

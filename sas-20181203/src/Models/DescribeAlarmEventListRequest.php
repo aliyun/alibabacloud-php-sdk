@@ -81,6 +81,16 @@ class DescribeAlarmEventListRequest extends Model
     /**
      * @var string
      */
+    public $sortColumn;
+
+    /**
+     * @var string
+     */
+    public $sortType;
+
+    /**
+     * @var string
+     */
     public $sourceIp;
 
     /**
@@ -122,6 +132,8 @@ class DescribeAlarmEventListRequest extends Model
         'operateTimeStart'     => 'OperateTimeStart',
         'pageSize'             => 'PageSize',
         'remark'               => 'Remark',
+        'sortColumn'           => 'SortColumn',
+        'sortType'             => 'SortType',
         'sourceIp'             => 'SourceIp',
         'tacticId'             => 'TacticId',
         'timeEnd'              => 'TimeEnd',
@@ -178,6 +190,12 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->sortColumn) {
+            $res['SortColumn'] = $this->sortColumn;
+        }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -252,6 +270,12 @@ class DescribeAlarmEventListRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['SortColumn'])) {
+            $model->sortColumn = $map['SortColumn'];
+        }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

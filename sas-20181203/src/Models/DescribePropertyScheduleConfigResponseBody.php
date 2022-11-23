@@ -4,23 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\SDK\Sas\V20181203\Models\CreateBackupPolicyResponseBody\backupPolicy;
 use AlibabaCloud\Tea\Model;
 
-class CreateBackupPolicyResponseBody extends Model
+class DescribePropertyScheduleConfigResponseBody extends Model
 {
     /**
-     * @var backupPolicy
+     * @var string
      */
-    public $backupPolicy;
+    public $config;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'backupPolicy' => 'BackupPolicy',
-        'requestId'    => 'RequestId',
+        'config'    => 'Config',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,8 +29,8 @@ class CreateBackupPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->backupPolicy) {
-            $res['BackupPolicy'] = null !== $this->backupPolicy ? $this->backupPolicy->toMap() : null;
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -43,13 +42,13 @@ class CreateBackupPolicyResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateBackupPolicyResponseBody
+     * @return DescribePropertyScheduleConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BackupPolicy'])) {
-            $model->backupPolicy = backupPolicy::fromMap($map['BackupPolicy']);
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

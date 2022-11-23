@@ -111,6 +111,16 @@ class DescribeSuspEventsRequest extends Model
     /**
      * @var string
      */
+    public $sortColumn;
+
+    /**
+     * @var string
+     */
+    public $sortType;
+
+    /**
+     * @var string
+     */
     public $source;
 
     /**
@@ -173,6 +183,8 @@ class DescribeSuspEventsRequest extends Model
         'pageSize'             => 'PageSize',
         'parentEventTypes'     => 'ParentEventTypes',
         'remark'               => 'Remark',
+        'sortColumn'           => 'SortColumn',
+        'sortType'             => 'SortType',
         'source'               => 'Source',
         'sourceIp'             => 'SourceIp',
         'status'               => 'Status',
@@ -250,6 +262,12 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->sortColumn) {
+            $res['SortColumn'] = $this->sortColumn;
+        }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -353,6 +371,12 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['SortColumn'])) {
+            $model->sortColumn = $map['SortColumn'];
+        }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

@@ -35,6 +35,11 @@ class strategies extends Model
     public $ecsCount;
 
     /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
     public $execStatus;
@@ -65,6 +70,11 @@ class strategies extends Model
     public $riskCount;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @var int
      */
     public $type;
@@ -74,12 +84,14 @@ class strategies extends Model
         'cycleDays'      => 'CycleDays',
         'cycleStartTime' => 'CycleStartTime',
         'ecsCount'       => 'EcsCount',
+        'endTime'        => 'EndTime',
         'execStatus'     => 'ExecStatus',
         'id'             => 'Id',
         'name'           => 'Name',
         'passRate'       => 'PassRate',
         'processRate'    => 'ProcessRate',
         'riskCount'      => 'RiskCount',
+        'startTime'      => 'StartTime',
         'type'           => 'Type',
     ];
 
@@ -111,6 +123,9 @@ class strategies extends Model
         if (null !== $this->ecsCount) {
             $res['EcsCount'] = $this->ecsCount;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->execStatus) {
             $res['ExecStatus'] = $this->execStatus;
         }
@@ -128,6 +143,9 @@ class strategies extends Model
         }
         if (null !== $this->riskCount) {
             $res['RiskCount'] = $this->riskCount;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -165,6 +183,9 @@ class strategies extends Model
         if (isset($map['EcsCount'])) {
             $model->ecsCount = $map['EcsCount'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['ExecStatus'])) {
             $model->execStatus = $map['ExecStatus'];
         }
@@ -182,6 +203,9 @@ class strategies extends Model
         }
         if (isset($map['RiskCount'])) {
             $model->riskCount = $map['RiskCount'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

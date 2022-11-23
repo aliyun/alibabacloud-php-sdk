@@ -64,6 +64,11 @@ class policies extends Model
     public $remarkedUuidList;
 
     /**
+     * @var string
+     */
+    public $serverType;
+
+    /**
      * @var int
      */
     public $serviceErrorCount;
@@ -99,6 +104,7 @@ class policies extends Model
         'policyRegionId'       => 'PolicyRegionId',
         'policyVersion'        => 'PolicyVersion',
         'remarkedUuidList'     => 'RemarkedUuidList',
+        'serverType'           => 'ServerType',
         'serviceErrorCount'    => 'ServiceErrorCount',
         'serviceErrorUuidList' => 'ServiceErrorUuidList',
         'status'               => 'Status',
@@ -145,6 +151,9 @@ class policies extends Model
         }
         if (null !== $this->remarkedUuidList) {
             $res['RemarkedUuidList'] = $this->remarkedUuidList;
+        }
+        if (null !== $this->serverType) {
+            $res['ServerType'] = $this->serverType;
         }
         if (null !== $this->serviceErrorCount) {
             $res['ServiceErrorCount'] = $this->serviceErrorCount;
@@ -211,6 +220,9 @@ class policies extends Model
             if (!empty($map['RemarkedUuidList'])) {
                 $model->remarkedUuidList = $map['RemarkedUuidList'];
             }
+        }
+        if (isset($map['ServerType'])) {
+            $model->serverType = $map['ServerType'];
         }
         if (isset($map['ServiceErrorCount'])) {
             $model->serviceErrorCount = $map['ServiceErrorCount'];

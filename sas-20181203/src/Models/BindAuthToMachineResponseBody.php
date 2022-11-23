@@ -21,11 +21,6 @@ class BindAuthToMachineResponseBody extends Model
     /**
      * @var int
      */
-    public $insufficientCount;
-
-    /**
-     * @var int
-     */
     public $insufficientEcsCount;
 
     /**
@@ -45,7 +40,6 @@ class BindAuthToMachineResponseBody extends Model
     protected $_name = [
         'bindCount'             => 'BindCount',
         'insufficientCoreCount' => 'InsufficientCoreCount',
-        'insufficientCount'     => 'InsufficientCount',
         'insufficientEcsCount'  => 'InsufficientEcsCount',
         'requestId'             => 'RequestId',
         'resultCode'            => 'ResultCode',
@@ -64,9 +58,6 @@ class BindAuthToMachineResponseBody extends Model
         }
         if (null !== $this->insufficientCoreCount) {
             $res['InsufficientCoreCount'] = $this->insufficientCoreCount;
-        }
-        if (null !== $this->insufficientCount) {
-            $res['InsufficientCount'] = $this->insufficientCount;
         }
         if (null !== $this->insufficientEcsCount) {
             $res['InsufficientEcsCount'] = $this->insufficientEcsCount;
@@ -97,9 +88,6 @@ class BindAuthToMachineResponseBody extends Model
         }
         if (isset($map['InsufficientCoreCount'])) {
             $model->insufficientCoreCount = $map['InsufficientCoreCount'];
-        }
-        if (isset($map['InsufficientCount'])) {
-            $model->insufficientCount = $map['InsufficientCount'];
         }
         if (isset($map['InsufficientEcsCount'])) {
             $model->insufficientEcsCount = $map['InsufficientEcsCount'];

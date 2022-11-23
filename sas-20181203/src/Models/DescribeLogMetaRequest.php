@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class OperateAgentClientInstallRequest extends Model
+class DescribeLogMetaRequest extends Model
 {
     /**
      * @var string
      */
-    public $instanceIds;
+    public $from;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class OperateAgentClientInstallRequest extends Model
     /**
      * @var string
      */
-    public $uuids;
+    public $sourceIp;
     protected $_name = [
-        'instanceIds' => 'InstanceIds',
-        'lang'        => 'Lang',
-        'uuids'       => 'Uuids',
+        'from'     => 'From',
+        'lang'     => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class OperateAgentClientInstallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->uuids) {
-            $res['Uuids'] = $this->uuids;
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class OperateAgentClientInstallRequest extends Model
     /**
      * @param array $map
      *
-     * @return OperateAgentClientInstallRequest
+     * @return DescribeLogMetaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceIds'])) {
-            $model->instanceIds = $map['InstanceIds'];
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['Uuids'])) {
-            $model->uuids = $map['Uuids'];
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;
