@@ -27,6 +27,11 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $parametersOrderShrink;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -52,6 +57,7 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
         'clientToken'               => 'ClientToken',
         'parameters'                => 'Parameters',
         'parametersKeyFilterShrink' => 'ParametersKeyFilter',
+        'parametersOrderShrink'     => 'ParametersOrder',
         'regionId'                  => 'RegionId',
         'templateBody'              => 'TemplateBody',
         'templateId'                => 'TemplateId',
@@ -80,6 +86,9 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
         }
         if (null !== $this->parametersKeyFilterShrink) {
             $res['ParametersKeyFilter'] = $this->parametersKeyFilterShrink;
+        }
+        if (null !== $this->parametersOrderShrink) {
+            $res['ParametersOrder'] = $this->parametersOrderShrink;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -122,6 +131,9 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
         }
         if (isset($map['ParametersKeyFilter'])) {
             $model->parametersKeyFilterShrink = $map['ParametersKeyFilter'];
+        }
+        if (isset($map['ParametersOrder'])) {
+            $model->parametersOrderShrink = $map['ParametersOrder'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

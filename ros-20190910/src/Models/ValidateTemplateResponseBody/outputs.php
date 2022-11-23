@@ -16,9 +16,15 @@ class outputs extends Model
     /**
      * @var string
      */
+    public $label;
+
+    /**
+     * @var string
+     */
     public $outputKey;
     protected $_name = [
         'description' => 'Description',
+        'label'       => 'Label',
         'outputKey'   => 'OutputKey',
     ];
 
@@ -31,6 +37,9 @@ class outputs extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->outputKey) {
             $res['OutputKey'] = $this->outputKey;
@@ -49,6 +58,9 @@ class outputs extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['OutputKey'])) {
             $model->outputKey = $map['OutputKey'];

@@ -25,6 +25,11 @@ class GetTemplateParameterConstraintsRequest extends Model
     public $parametersKeyFilter;
 
     /**
+     * @var string[]
+     */
+    public $parametersOrder;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -52,6 +57,7 @@ class GetTemplateParameterConstraintsRequest extends Model
         'clientToken'         => 'ClientToken',
         'parameters'          => 'Parameters',
         'parametersKeyFilter' => 'ParametersKeyFilter',
+        'parametersOrder'     => 'ParametersOrder',
         'regionId'            => 'RegionId',
         'templateBody'        => 'TemplateBody',
         'templateId'          => 'TemplateId',
@@ -80,6 +86,9 @@ class GetTemplateParameterConstraintsRequest extends Model
         }
         if (null !== $this->parametersKeyFilter) {
             $res['ParametersKeyFilter'] = $this->parametersKeyFilter;
+        }
+        if (null !== $this->parametersOrder) {
+            $res['ParametersOrder'] = $this->parametersOrder;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -123,6 +132,11 @@ class GetTemplateParameterConstraintsRequest extends Model
         if (isset($map['ParametersKeyFilter'])) {
             if (!empty($map['ParametersKeyFilter'])) {
                 $model->parametersKeyFilter = $map['ParametersKeyFilter'];
+            }
+        }
+        if (isset($map['ParametersOrder'])) {
+            if (!empty($map['ParametersOrder'])) {
+                $model->parametersOrder = $map['ParametersOrder'];
             }
         }
         if (isset($map['RegionId'])) {

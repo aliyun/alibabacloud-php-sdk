@@ -2280,6 +2280,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->parametersKeyFilter)) {
             $request->parametersKeyFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersKeyFilter, 'ParametersKeyFilter', 'json');
         }
+        if (!Utils::isUnset($tmpReq->parametersOrder)) {
+            $request->parametersOrderShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersOrder, 'ParametersOrder', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -2289,6 +2292,9 @@ class ROS extends OpenApiClient
         }
         if (!Utils::isUnset($request->parametersKeyFilterShrink)) {
             $query['ParametersKeyFilter'] = $request->parametersKeyFilterShrink;
+        }
+        if (!Utils::isUnset($request->parametersOrderShrink)) {
+            $query['ParametersOrder'] = $request->parametersOrderShrink;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
