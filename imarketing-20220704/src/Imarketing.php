@@ -40,7 +40,6 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\UpdateAdxCreativeContentRequest
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\UpdateAdxCreativeContentResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifySmsCodeRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifySmsCodeResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -626,10 +625,10 @@ class Imarketing extends OpenApiClient
         $request = new ListAdvertisingShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         if (!Utils::isUnset($tmpReq->device)) {
-            $request->deviceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->device), 'Device', 'json');
+            $request->deviceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->device, 'Device', 'json');
         }
         if (!Utils::isUnset($tmpReq->ext)) {
             $request->extShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
@@ -638,7 +637,7 @@ class Imarketing extends OpenApiClient
             $request->impShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imp, 'Imp', 'json');
         }
         if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->user), 'User', 'json');
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
