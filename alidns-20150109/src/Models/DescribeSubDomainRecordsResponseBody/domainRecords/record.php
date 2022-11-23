@@ -41,6 +41,11 @@ class record extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -69,6 +74,7 @@ class record extends Model
         'priority'   => 'Priority',
         'RR'         => 'RR',
         'recordId'   => 'RecordId',
+        'remark'     => 'Remark',
         'status'     => 'Status',
         'TTL'        => 'TTL',
         'type'       => 'Type',
@@ -100,6 +106,9 @@ class record extends Model
         }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -145,6 +154,9 @@ class record extends Model
         }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
