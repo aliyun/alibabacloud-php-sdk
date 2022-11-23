@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingShrinkRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SyncInfoRequest;
@@ -714,6 +716,49 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReportImpressionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReportImpressionResponse
+     */
+    public function reportImpressionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->impressionlink)) {
+            $query['Impressionlink'] = $request->impressionlink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportImpression',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReportImpressionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReportImpressionRequest $request
+     *
+     * @return ReportImpressionResponse
+     */
+    public function reportImpression($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reportImpressionWithOptions($request, $runtime);
     }
 
     /**
