@@ -15,6 +15,11 @@ class RecognizeIdcardRequest extends Model
     public $outputFigure;
 
     /**
+     * @var bool
+     */
+    public $outputQualityInfo;
+
+    /**
      * @var string
      */
     public $url;
@@ -24,9 +29,10 @@ class RecognizeIdcardRequest extends Model
      */
     public $body;
     protected $_name = [
-        'outputFigure' => 'OutputFigure',
-        'url'          => 'Url',
-        'body'         => 'body',
+        'outputFigure'      => 'OutputFigure',
+        'outputQualityInfo' => 'OutputQualityInfo',
+        'url'               => 'Url',
+        'body'              => 'body',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class RecognizeIdcardRequest extends Model
         $res = [];
         if (null !== $this->outputFigure) {
             $res['OutputFigure'] = $this->outputFigure;
+        }
+        if (null !== $this->outputQualityInfo) {
+            $res['OutputQualityInfo'] = $this->outputQualityInfo;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -59,6 +68,9 @@ class RecognizeIdcardRequest extends Model
         $model = new self();
         if (isset($map['OutputFigure'])) {
             $model->outputFigure = $map['OutputFigure'];
+        }
+        if (isset($map['OutputQualityInfo'])) {
+            $model->outputQualityInfo = $map['OutputQualityInfo'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

@@ -149,6 +149,10 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleRegistrationRequest
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleRegistrationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeWaybillRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeWaybillResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyBusinessLicenseRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyBusinessLicenseResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyVATInvoiceRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyVATInvoiceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1932,6 +1936,9 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($request->outputFigure)) {
             $query['OutputFigure'] = $request->outputFigure;
         }
+        if (!Utils::isUnset($request->outputQualityInfo)) {
+            $query['OutputQualityInfo'] = $request->outputQualityInfo;
+        }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
         }
@@ -3575,5 +3582,109 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeWaybillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyBusinessLicenseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VerifyBusinessLicenseResponse
+     */
+    public function verifyBusinessLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->companyName)) {
+            $query['CompanyName'] = $request->companyName;
+        }
+        if (!Utils::isUnset($request->creditCode)) {
+            $query['CreditCode'] = $request->creditCode;
+        }
+        if (!Utils::isUnset($request->legalPerson)) {
+            $query['LegalPerson'] = $request->legalPerson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyBusinessLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyBusinessLicenseRequest $request
+     *
+     * @return VerifyBusinessLicenseResponse
+     */
+    public function verifyBusinessLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyBusinessLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyVATInvoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return VerifyVATInvoiceResponse
+     */
+    public function verifyVATInvoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->invoiceCode)) {
+            $query['InvoiceCode'] = $request->invoiceCode;
+        }
+        if (!Utils::isUnset($request->invoiceDate)) {
+            $query['InvoiceDate'] = $request->invoiceDate;
+        }
+        if (!Utils::isUnset($request->invoiceNo)) {
+            $query['InvoiceNo'] = $request->invoiceNo;
+        }
+        if (!Utils::isUnset($request->invoiceSum)) {
+            $query['InvoiceSum'] = $request->invoiceSum;
+        }
+        if (!Utils::isUnset($request->verifyCode)) {
+            $query['VerifyCode'] = $request->verifyCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyVATInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyVATInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyVATInvoiceRequest $request
+     *
+     * @return VerifyVATInvoiceResponse
+     */
+    public function verifyVATInvoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyVATInvoiceWithOptions($request, $runtime);
     }
 }
