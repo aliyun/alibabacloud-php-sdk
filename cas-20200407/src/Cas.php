@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteUserCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteUserCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
@@ -31,6 +33,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseRequest;
@@ -45,6 +49,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -633,6 +639,49 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * @param DeleteUserCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteUserCertificateResponse
+     */
+    public function deleteUserCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserCertificate',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteUserCertificateRequest $request
+     *
+     * @return DeleteUserCertificateResponse
+     */
+    public function deleteUserCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCertificateStateRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -801,6 +850,49 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCertWarehouseQuotaWithOptions($runtime);
+    }
+
+    /**
+     * @param GetUserCertificateDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetUserCertificateDetailResponse
+     */
+    public function getUserCertificateDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserCertificateDetail',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserCertificateDetailRequest $request
+     *
+     * @return GetUserCertificateDetailResponse
+     */
+    public function getUserCertificateDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserCertificateDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -1162,6 +1254,67 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadPCACertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UploadUserCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UploadUserCertificateResponse
+     */
+    public function uploadUserCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cert)) {
+            $query['Cert'] = $request->cert;
+        }
+        if (!Utils::isUnset($request->encryptCert)) {
+            $query['EncryptCert'] = $request->encryptCert;
+        }
+        if (!Utils::isUnset($request->encryptPrivateKey)) {
+            $query['EncryptPrivateKey'] = $request->encryptPrivateKey;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->signCert)) {
+            $query['SignCert'] = $request->signCert;
+        }
+        if (!Utils::isUnset($request->signPrivateKey)) {
+            $query['SignPrivateKey'] = $request->signPrivateKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadUserCertificate',
+            'version'     => '2020-04-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadUserCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadUserCertificateRequest $request
+     *
+     * @return UploadUserCertificateResponse
+     */
+    public function uploadUserCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadUserCertificateWithOptions($request, $runtime);
     }
 
     /**
