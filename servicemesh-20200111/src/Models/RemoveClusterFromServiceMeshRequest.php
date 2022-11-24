@@ -14,12 +14,18 @@ class RemoveClusterFromServiceMeshRequest extends Model
     public $clusterId;
 
     /**
+     * @var bool
+     */
+    public $reserveNamespace;
+
+    /**
      * @var string
      */
     public $serviceMeshId;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'serviceMeshId' => 'ServiceMeshId',
+        'clusterId'        => 'ClusterId',
+        'reserveNamespace' => 'ReserveNamespace',
+        'serviceMeshId'    => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class RemoveClusterFromServiceMeshRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->reserveNamespace) {
+            $res['ReserveNamespace'] = $this->reserveNamespace;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
@@ -49,6 +58,9 @@ class RemoveClusterFromServiceMeshRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ReserveNamespace'])) {
+            $model->reserveNamespace = $map['ReserveNamespace'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];

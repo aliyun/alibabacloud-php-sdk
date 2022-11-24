@@ -159,6 +159,31 @@ class CreateServiceMeshRequest extends Model
     public $excludeOutboundPorts;
 
     /**
+     * @var string
+     */
+    public $existingCaCert;
+
+    /**
+     * @var string
+     */
+    public $existingCaKey;
+
+    /**
+     * @var string
+     */
+    public $existingCaType;
+
+    /**
+     * @var string
+     */
+    public $existingRootCaCert;
+
+    /**
+     * @var string
+     */
+    public $existingRootCaKey;
+
+    /**
      * @var bool
      */
     public $filterGatewayClusterConfig;
@@ -324,6 +349,11 @@ class CreateServiceMeshRequest extends Model
     public $tracing;
 
     /**
+     * @var bool
+     */
+    public $useExistingCA;
+
+    /**
      * @var string
      */
     public $vSwitches;
@@ -368,6 +398,11 @@ class CreateServiceMeshRequest extends Model
         'excludeIPRanges'            => 'ExcludeIPRanges',
         'excludeInboundPorts'        => 'ExcludeInboundPorts',
         'excludeOutboundPorts'       => 'ExcludeOutboundPorts',
+        'existingCaCert'             => 'ExistingCaCert',
+        'existingCaKey'              => 'ExistingCaKey',
+        'existingCaType'             => 'ExistingCaType',
+        'existingRootCaCert'         => 'ExistingRootCaCert',
+        'existingRootCaKey'          => 'ExistingRootCaKey',
         'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
         'gatewayAPIEnabled'          => 'GatewayAPIEnabled',
         'globalRateLimitEnabled'     => 'GlobalRateLimitEnabled',
@@ -401,6 +436,7 @@ class CreateServiceMeshRequest extends Model
         'thriftFilterEnabled'        => 'ThriftFilterEnabled',
         'traceSampling'              => 'TraceSampling',
         'tracing'                    => 'Tracing',
+        'useExistingCA'              => 'UseExistingCA',
         'vSwitches'                  => 'VSwitches',
         'vpcId'                      => 'VpcId',
         'webAssemblyFilterEnabled'   => 'WebAssemblyFilterEnabled',
@@ -503,6 +539,21 @@ class CreateServiceMeshRequest extends Model
         if (null !== $this->excludeOutboundPorts) {
             $res['ExcludeOutboundPorts'] = $this->excludeOutboundPorts;
         }
+        if (null !== $this->existingCaCert) {
+            $res['ExistingCaCert'] = $this->existingCaCert;
+        }
+        if (null !== $this->existingCaKey) {
+            $res['ExistingCaKey'] = $this->existingCaKey;
+        }
+        if (null !== $this->existingCaType) {
+            $res['ExistingCaType'] = $this->existingCaType;
+        }
+        if (null !== $this->existingRootCaCert) {
+            $res['ExistingRootCaCert'] = $this->existingRootCaCert;
+        }
+        if (null !== $this->existingRootCaKey) {
+            $res['ExistingRootCaKey'] = $this->existingRootCaKey;
+        }
         if (null !== $this->filterGatewayClusterConfig) {
             $res['FilterGatewayClusterConfig'] = $this->filterGatewayClusterConfig;
         }
@@ -601,6 +652,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->tracing) {
             $res['Tracing'] = $this->tracing;
+        }
+        if (null !== $this->useExistingCA) {
+            $res['UseExistingCA'] = $this->useExistingCA;
         }
         if (null !== $this->vSwitches) {
             $res['VSwitches'] = $this->vSwitches;
@@ -713,6 +767,21 @@ class CreateServiceMeshRequest extends Model
         if (isset($map['ExcludeOutboundPorts'])) {
             $model->excludeOutboundPorts = $map['ExcludeOutboundPorts'];
         }
+        if (isset($map['ExistingCaCert'])) {
+            $model->existingCaCert = $map['ExistingCaCert'];
+        }
+        if (isset($map['ExistingCaKey'])) {
+            $model->existingCaKey = $map['ExistingCaKey'];
+        }
+        if (isset($map['ExistingCaType'])) {
+            $model->existingCaType = $map['ExistingCaType'];
+        }
+        if (isset($map['ExistingRootCaCert'])) {
+            $model->existingRootCaCert = $map['ExistingRootCaCert'];
+        }
+        if (isset($map['ExistingRootCaKey'])) {
+            $model->existingRootCaKey = $map['ExistingRootCaKey'];
+        }
         if (isset($map['FilterGatewayClusterConfig'])) {
             $model->filterGatewayClusterConfig = $map['FilterGatewayClusterConfig'];
         }
@@ -811,6 +880,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['Tracing'])) {
             $model->tracing = $map['Tracing'];
+        }
+        if (isset($map['UseExistingCA'])) {
+            $model->useExistingCA = $map['UseExistingCA'];
         }
         if (isset($map['VSwitches'])) {
             $model->vSwitches = $map['VSwitches'];

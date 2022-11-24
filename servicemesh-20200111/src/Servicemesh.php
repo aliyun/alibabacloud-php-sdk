@@ -73,6 +73,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetai
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRoutesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRoutesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeMetadataResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNamespaceScopeSidecarConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeNodesInstanceTypeRequest;
@@ -153,6 +154,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMNamespaceFromGuestClu
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesShrinkRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioInjectionConfigRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioInjectionConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioRouteAdditionalStatusRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioRouteAdditionalStatusResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateMeshCRAggregationRequest;
@@ -169,7 +172,6 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshEditionPartiallyReq
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshEditionPartiallyResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpgradeMeshVersionResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -222,6 +224,9 @@ class Servicemesh extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->clusterId)) {
             $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->ignoreNamespaceCheck)) {
+            $body['IgnoreNamespaceCheck'] = $request->ignoreNamespaceCheck;
         }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
@@ -488,7 +493,7 @@ class Servicemesh extends OpenApiClient
         $request = new CreateIstioGatewayRoutesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->gatewayRoute)) {
-            $request->gatewayRouteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayRoute), 'GatewayRoute', 'json');
+            $request->gatewayRouteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->gatewayRoute, 'GatewayRoute', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->description)) {
@@ -639,6 +644,21 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->excludeOutboundPorts)) {
             $body['ExcludeOutboundPorts'] = $request->excludeOutboundPorts;
         }
+        if (!Utils::isUnset($request->existingCaCert)) {
+            $body['ExistingCaCert'] = $request->existingCaCert;
+        }
+        if (!Utils::isUnset($request->existingCaKey)) {
+            $body['ExistingCaKey'] = $request->existingCaKey;
+        }
+        if (!Utils::isUnset($request->existingCaType)) {
+            $body['ExistingCaType'] = $request->existingCaType;
+        }
+        if (!Utils::isUnset($request->existingRootCaCert)) {
+            $body['ExistingRootCaCert'] = $request->existingRootCaCert;
+        }
+        if (!Utils::isUnset($request->existingRootCaKey)) {
+            $body['ExistingRootCaKey'] = $request->existingRootCaKey;
+        }
         if (!Utils::isUnset($request->filterGatewayClusterConfig)) {
             $body['FilterGatewayClusterConfig'] = $request->filterGatewayClusterConfig;
         }
@@ -737,6 +757,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->tracing)) {
             $body['Tracing'] = $request->tracing;
+        }
+        if (!Utils::isUnset($request->useExistingCA)) {
+            $body['UseExistingCA'] = $request->useExistingCA;
         }
         if (!Utils::isUnset($request->vSwitches)) {
             $body['VSwitches'] = $request->vSwitches;
@@ -2022,6 +2045,39 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIstioGatewayRoutesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeMetadataResponse
+     */
+    public function describeMetadataWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeMetadata',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeMetadataResponse
+     */
+    public function describeMetadata()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetadataWithOptions($runtime);
     }
 
     /**
@@ -3523,6 +3579,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $body['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->reserveNamespace)) {
+            $body['ReserveNamespace'] = $request->reserveNamespace;
+        }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
         }
@@ -3807,7 +3866,7 @@ class Servicemesh extends OpenApiClient
         $request = new UpdateIstioGatewayRoutesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->gatewayRoute)) {
-            $request->gatewayRouteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayRoute), 'GatewayRoute', 'json');
+            $request->gatewayRouteShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->gatewayRoute, 'GatewayRoute', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->description)) {
@@ -3856,6 +3915,58 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIstioGatewayRoutesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateIstioInjectionConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateIstioInjectionConfigResponse
+     */
+    public function updateIstioInjectionConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enableIstioInjection)) {
+            $body['EnableIstioInjection'] = $request->enableIstioInjection;
+        }
+        if (!Utils::isUnset($request->enableSidecarSetInjection)) {
+            $body['EnableSidecarSetInjection'] = $request->enableSidecarSetInjection;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIstioInjectionConfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIstioInjectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIstioInjectionConfigRequest $request
+     *
+     * @return UpdateIstioInjectionConfigResponse
+     */
+    public function updateIstioInjectionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIstioInjectionConfigWithOptions($request, $runtime);
     }
 
     /**
