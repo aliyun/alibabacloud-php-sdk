@@ -42,6 +42,11 @@ class images extends Model
      * @var string
      */
     public $imageCategory;
+
+    /**
+     * @var string
+     */
+    public $architecture;
     protected $_name = [
         'imageId'       => 'image_id',
         'imageName'     => 'image_name',
@@ -50,6 +55,7 @@ class images extends Model
         'imageType'     => 'image_type',
         'osType'        => 'os_type',
         'imageCategory' => 'image_category',
+        'architecture'  => 'architecture',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class images extends Model
         }
         if (null !== $this->imageCategory) {
             $res['image_category'] = $this->imageCategory;
+        }
+        if (null !== $this->architecture) {
+            $res['architecture'] = $this->architecture;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class images extends Model
         }
         if (isset($map['image_category'])) {
             $model->imageCategory = $map['image_category'];
+        }
+        if (isset($map['architecture'])) {
+            $model->architecture = $map['architecture'];
         }
 
         return $model;

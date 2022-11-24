@@ -169,6 +169,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -5546,5 +5548,61 @@ class CS extends OpenApiClient
         ]);
 
         return UpgradeClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $ClusterId
+     * @param string                        $NodepoolId
+     * @param UpgradeClusterNodepoolRequest $request
+     *
+     * @return UpgradeClusterNodepoolResponse
+     */
+    public function upgradeClusterNodepool($ClusterId, $NodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $ClusterId
+     * @param string                        $NodepoolId
+     * @param UpgradeClusterNodepoolRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeClusterNodepoolResponse
+     */
+    public function upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageId)) {
+            $body['image_id'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->kubernetesVersion)) {
+            $body['kubernetes_version'] = $request->kubernetesVersion;
+        }
+        if (!Utils::isUnset($request->runtimeVersion)) {
+            $body['runtime_version'] = $request->runtimeVersion;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeClusterNodepool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/upgrade',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeClusterNodepoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
