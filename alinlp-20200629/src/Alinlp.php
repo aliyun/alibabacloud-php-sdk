@@ -94,11 +94,7 @@ use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaEcomRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaEcomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralRequest;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\GetWsCustomizedSeaGeneralResponse;
-use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomRequest;
-use AlibabaCloud\SDK\Alinlp\V20200629\Models\InsertCustomResponse;
 use AlibabaCloud\SDK\Alinlp\V20200629\Models\OpenAlinlpServiceResponse;
-use AlibabaCloud\SDK\Alinlp\V20200629\Models\UpdateCustomRequest;
-use AlibabaCloud\SDK\Alinlp\V20200629\Models\UpdateCustomResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2325,64 +2321,6 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param InsertCustomRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return InsertCustomResponse
-     */
-    public function insertCustomWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->apiId)) {
-            $body['ApiId'] = $request->apiId;
-        }
-        if (!Utils::isUnset($request->customFileName)) {
-            $body['CustomFileName'] = $request->customFileName;
-        }
-        if (!Utils::isUnset($request->customUrl)) {
-            $body['CustomUrl'] = $request->customUrl;
-        }
-        if (!Utils::isUnset($request->regFileName)) {
-            $body['RegFileName'] = $request->regFileName;
-        }
-        if (!Utils::isUnset($request->regUrl)) {
-            $body['RegUrl'] = $request->regUrl;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'InsertCustom',
-            'version'     => '2020-06-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return InsertCustomResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param InsertCustomRequest $request
-     *
-     * @return InsertCustomResponse
-     */
-    public function insertCustom($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->insertCustomWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RuntimeOptions $runtime
      *
      * @return OpenAlinlpServiceResponse
@@ -2413,63 +2351,5 @@ class Alinlp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openAlinlpServiceWithOptions($runtime);
-    }
-
-    /**
-     * @param UpdateCustomRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateCustomResponse
-     */
-    public function updateCustomWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->customFileName)) {
-            $body['CustomFileName'] = $request->customFileName;
-        }
-        if (!Utils::isUnset($request->customId)) {
-            $body['CustomId'] = $request->customId;
-        }
-        if (!Utils::isUnset($request->customUrl)) {
-            $body['CustomUrl'] = $request->customUrl;
-        }
-        if (!Utils::isUnset($request->regFileName)) {
-            $body['RegFileName'] = $request->regFileName;
-        }
-        if (!Utils::isUnset($request->regUrl)) {
-            $body['RegUrl'] = $request->regUrl;
-        }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['ServiceCode'] = $request->serviceCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateCustom',
-            'version'     => '2020-06-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateCustomResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateCustomRequest $request
-     *
-     * @return UpdateCustomResponse
-     */
-    public function updateCustom($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateCustomWithOptions($request, $runtime);
     }
 }
