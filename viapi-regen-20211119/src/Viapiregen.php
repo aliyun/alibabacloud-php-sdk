@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
 use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CheckDatasetOssBucketCORSRequest;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CheckDatasetOssBucketCORSResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\CreateLabelsetRequest;
@@ -85,6 +87,7 @@ use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetTrainTaskRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetTrainTaskResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetUploadPolicyRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetUploadPolicyResponse;
+use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Viapiregen\V20211119\Models\ListDataReflowDatasRequest;
@@ -219,6 +222,49 @@ class Viapiregen extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CheckDatasetOssBucketCORSRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CheckDatasetOssBucketCORSResponse
+     */
+    public function checkDatasetOssBucketCORSWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->labelsetId)) {
+            $body['LabelsetId'] = $request->labelsetId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckDatasetOssBucketCORS',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckDatasetOssBucketCORSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckDatasetOssBucketCORSRequest $request
+     *
+     * @return CheckDatasetOssBucketCORSResponse
+     */
+    public function checkDatasetOssBucketCORS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDatasetOssBucketCORSWithOptions($request, $runtime);
     }
 
     /**
@@ -2063,6 +2109,39 @@ class Viapiregen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUploadPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserInfoResponse
+     */
+    public function getUserInfoWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetUserInfo',
+            'version'     => '2021-11-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetUserInfoResponse
+     */
+    public function getUserInfo()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserInfoWithOptions($runtime);
     }
 
     /**
