@@ -35,7 +35,6 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskShrink
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -87,7 +86,7 @@ class Avatar extends OpenApiClient
         $request = new CancelVideoTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
@@ -144,7 +143,7 @@ class Avatar extends OpenApiClient
             $request->customKeywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customKeywords, 'CustomKeywords', 'json');
         }
         if (!Utils::isUnset($tmpReq->dialogContext)) {
-            $request->dialogContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->dialogContext), 'DialogContext', 'json');
+            $request->dialogContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dialogContext, 'DialogContext', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
@@ -219,7 +218,7 @@ class Avatar extends OpenApiClient
         $request = new GetVideoTaskInfoShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
@@ -264,7 +263,7 @@ class Avatar extends OpenApiClient
         $request = new QueryRunningInstanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
@@ -318,10 +317,10 @@ class Avatar extends OpenApiClient
         $request = new SendMessageShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->textRequest)) {
-            $request->textRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->textRequest), 'TextRequest', 'json');
+            $request->textRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textRequest, 'TextRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->VAMLRequest)) {
-            $request->VAMLRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->VAMLRequest), 'VAMLRequest', 'json');
+            $request->VAMLRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->VAMLRequest, 'VAMLRequest', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->sessionId)) {
@@ -378,16 +377,16 @@ class Avatar extends OpenApiClient
         $request = new StartInstanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         if (!Utils::isUnset($tmpReq->channel)) {
-            $request->channelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->channel), 'Channel', 'json');
+            $request->channelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channel, 'Channel', 'json');
         }
         if (!Utils::isUnset($tmpReq->commandRequest)) {
-            $request->commandRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->commandRequest), 'CommandRequest', 'json');
+            $request->commandRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commandRequest, 'CommandRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->user), 'User', 'json');
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
@@ -493,14 +492,26 @@ class Avatar extends OpenApiClient
         $request = new SubmitTextTo2DAvatarVideoTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->audioInfo)) {
+            $request->audioInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->audioInfo, 'AudioInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->avatarInfo)) {
+            $request->avatarInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->avatarInfo, 'AvatarInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->videoInfo)) {
-            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->videoInfo), 'VideoInfo', 'json');
+            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoInfo, 'VideoInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
             $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->audioInfoShrink)) {
+            $query['AudioInfo'] = $request->audioInfoShrink;
+        }
+        if (!Utils::isUnset($request->avatarInfoShrink)) {
+            $query['AvatarInfo'] = $request->avatarInfoShrink;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;
@@ -556,10 +567,10 @@ class Avatar extends OpenApiClient
         $request = new SubmitTextTo3DAvatarVideoTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         if (!Utils::isUnset($tmpReq->videoInfo)) {
-            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->videoInfo), 'VideoInfo', 'json');
+            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoInfo, 'VideoInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
@@ -619,10 +630,10 @@ class Avatar extends OpenApiClient
         $request = new SubmitTextToSignVideoTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->app), 'App', 'json');
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
         if (!Utils::isUnset($tmpReq->videoInfo)) {
-            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->videoInfo), 'VideoInfo', 'json');
+            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoInfo, 'VideoInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {

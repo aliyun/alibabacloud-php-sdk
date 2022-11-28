@@ -14,6 +14,16 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
     public $appShrink;
 
     /**
+     * @var string
+     */
+    public $audioInfoShrink;
+
+    /**
+     * @var string
+     */
+    public $avatarInfoShrink;
+
+    /**
      * @var int
      */
     public $tenantId;
@@ -33,11 +43,13 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
      */
     public $videoInfoShrink;
     protected $_name = [
-        'appShrink'       => 'App',
-        'tenantId'        => 'TenantId',
-        'text'            => 'Text',
-        'title'           => 'Title',
-        'videoInfoShrink' => 'VideoInfo',
+        'appShrink'        => 'App',
+        'audioInfoShrink'  => 'AudioInfo',
+        'avatarInfoShrink' => 'AvatarInfo',
+        'tenantId'         => 'TenantId',
+        'text'             => 'Text',
+        'title'            => 'Title',
+        'videoInfoShrink'  => 'VideoInfo',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->appShrink) {
             $res['App'] = $this->appShrink;
+        }
+        if (null !== $this->audioInfoShrink) {
+            $res['AudioInfo'] = $this->audioInfoShrink;
+        }
+        if (null !== $this->avatarInfoShrink) {
+            $res['AvatarInfo'] = $this->avatarInfoShrink;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -76,6 +94,12 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->appShrink = $map['App'];
+        }
+        if (isset($map['AudioInfo'])) {
+            $model->audioInfoShrink = $map['AudioInfo'];
+        }
+        if (isset($map['AvatarInfo'])) {
+            $model->avatarInfoShrink = $map['AvatarInfo'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
