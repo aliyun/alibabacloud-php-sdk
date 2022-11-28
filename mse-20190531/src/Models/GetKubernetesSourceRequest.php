@@ -17,9 +17,15 @@ class GetKubernetesSourceRequest extends Model
      * @var string
      */
     public $gatewayUniqueId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class GetKubernetesSourceRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class GetKubernetesSourceRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

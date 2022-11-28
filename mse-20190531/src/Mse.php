@@ -204,6 +204,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSSLCertResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListZkTrackRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListZkTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterRequest;
@@ -3705,6 +3707,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
         }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5736,6 +5741,46 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListZkTrackRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListZkTrackResponse
+     */
+    public function listZkTrackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListZkTrack',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListZkTrackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListZkTrackRequest $request
+     *
+     * @return ListZkTrackResponse
+     */
+    public function listZkTrack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listZkTrackWithOptions($request, $runtime);
     }
 
     /**
