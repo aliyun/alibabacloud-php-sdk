@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetSymUploadParamRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetSymUploadParamResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetTodayStatTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetTodayStatTrendResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\UpdateAlertPlanRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\UpdateAlertPlanResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -214,5 +216,57 @@ class Umengapm extends OpenApiClient
         ]);
 
         return GetTodayStatTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAlertPlanRequest $request
+     *
+     * @return UpdateAlertPlanResponse
+     */
+    public function updateAlertPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateAlertPlanRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAlertPlanResponse
+     */
+    public function updateAlertPlanWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->planId)) {
+            $query['planId'] = $request->planId;
+        }
+        if (!Utils::isUnset($request->versions)) {
+            $query['versions'] = $request->versions;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAlertPlan',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/updateAlertPlan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAlertPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
