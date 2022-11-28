@@ -46,6 +46,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarOrderQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CitySearchResponse;
@@ -110,6 +113,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelExceedApplyQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
@@ -163,7 +169,6 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainStationSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -402,10 +407,10 @@ class BtripOpen extends OpenApiClient
             $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
         if (!Utils::isUnset($tmpReq->externalTravelerStandard)) {
-            $request->externalTravelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->externalTravelerStandard), 'external_traveler_standard', 'json');
+            $request->externalTravelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerStandard, 'external_traveler_standard', 'json');
         }
         if (!Utils::isUnset($tmpReq->hotelShare)) {
-            $request->hotelShareShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->hotelShare), 'hotel_share', 'json');
+            $request->hotelShareShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelShare, 'hotel_share', 'json');
         }
         if (!Utils::isUnset($tmpReq->itineraryList)) {
             $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
@@ -721,10 +726,10 @@ class BtripOpen extends OpenApiClient
             $request->externalTravelerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerList, 'external_traveler_list', 'json');
         }
         if (!Utils::isUnset($tmpReq->externalTravelerStandard)) {
-            $request->externalTravelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->externalTravelerStandard), 'external_traveler_standard', 'json');
+            $request->externalTravelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalTravelerStandard, 'external_traveler_standard', 'json');
         }
         if (!Utils::isUnset($tmpReq->hotelShare)) {
-            $request->hotelShareShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->hotelShare), 'hotel_share', 'json');
+            $request->hotelShareShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotelShare, 'hotel_share', 'json');
         }
         if (!Utils::isUnset($tmpReq->itineraryList)) {
             $request->itineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->itineraryList, 'itinerary_list', 'json');
@@ -1285,6 +1290,62 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return CarOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CarOrderQueryRequest $request
+     *
+     * @return CarOrderQueryResponse
+     */
+    public function carOrderQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CarOrderQueryHeaders([]);
+
+        return $this->carOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CarOrderQueryRequest $request
+     * @param CarOrderQueryHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CarOrderQueryResponse
+     */
+    public function carOrderQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->subOrderId)) {
+            $query['sub_order_id'] = $request->subOrderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CarOrderQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/car/v1/order',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CarOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2535,6 +2596,59 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return HotelOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelOrderQueryRequest $request
+     *
+     * @return HotelOrderQueryResponse
+     */
+    public function hotelOrderQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelOrderQueryHeaders([]);
+
+        return $this->hotelOrderQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelOrderQueryRequest $request
+     * @param HotelOrderQueryHeaders $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HotelOrderQueryResponse
+     */
+    public function hotelOrderQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelOrderQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/hotel/v1/order',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelOrderQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
