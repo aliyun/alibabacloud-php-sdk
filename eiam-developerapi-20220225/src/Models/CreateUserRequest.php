@@ -4,10 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserRequest\customFields;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserRequest\passwordInitializationConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateUserRequest extends Model
 {
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
+
     /**
      * @var string
      */
@@ -32,6 +39,11 @@ class CreateUserRequest extends Model
      * @var string
      */
     public $password;
+
+    /**
+     * @var passwordInitializationConfig
+     */
+    public $passwordInitializationConfig;
 
     /**
      * @var string
@@ -63,17 +75,19 @@ class CreateUserRequest extends Model
      */
     public $username;
     protected $_name = [
-        'description'                 => 'description',
-        'displayName'                 => 'displayName',
-        'email'                       => 'email',
-        'emailVerified'               => 'emailVerified',
-        'password'                    => 'password',
-        'phoneNumber'                 => 'phoneNumber',
-        'phoneNumberVerified'         => 'phoneNumberVerified',
-        'phoneRegion'                 => 'phoneRegion',
-        'primaryOrganizationalUnitId' => 'primaryOrganizationalUnitId',
-        'userExternalId'              => 'userExternalId',
-        'username'                    => 'username',
+        'customFields'                 => 'customFields',
+        'description'                  => 'description',
+        'displayName'                  => 'displayName',
+        'email'                        => 'email',
+        'emailVerified'                => 'emailVerified',
+        'password'                     => 'password',
+        'passwordInitializationConfig' => 'passwordInitializationConfig',
+        'phoneNumber'                  => 'phoneNumber',
+        'phoneNumberVerified'          => 'phoneNumberVerified',
+        'phoneRegion'                  => 'phoneRegion',
+        'primaryOrganizationalUnitId'  => 'primaryOrganizationalUnitId',
+        'userExternalId'               => 'userExternalId',
+        'username'                     => 'username',
     ];
 
     public function validate()
@@ -83,6 +97,15 @@ class CreateUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customFields) {
+            $res['customFields'] = [];
+            if (null !== $this->customFields && \is_array($this->customFields)) {
+                $n = 0;
+                foreach ($this->customFields as $item) {
+                    $res['customFields'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -97,6 +120,9 @@ class CreateUserRequest extends Model
         }
         if (null !== $this->password) {
             $res['password'] = $this->password;
+        }
+        if (null !== $this->passwordInitializationConfig) {
+            $res['passwordInitializationConfig'] = null !== $this->passwordInitializationConfig ? $this->passwordInitializationConfig->toMap() : null;
         }
         if (null !== $this->phoneNumber) {
             $res['phoneNumber'] = $this->phoneNumber;
@@ -128,6 +154,15 @@ class CreateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customFields'])) {
+            if (!empty($map['customFields'])) {
+                $model->customFields = [];
+                $n                   = 0;
+                foreach ($map['customFields'] as $item) {
+                    $model->customFields[$n++] = null !== $item ? customFields::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -142,6 +177,9 @@ class CreateUserRequest extends Model
         }
         if (isset($map['password'])) {
             $model->password = $map['password'];
+        }
+        if (isset($map['passwordInitializationConfig'])) {
+            $model->passwordInitializationConfig = passwordInitializationConfig::fromMap($map['passwordInitializationConfig']);
         }
         if (isset($map['phoneNumber'])) {
             $model->phoneNumber = $map['phoneNumber'];

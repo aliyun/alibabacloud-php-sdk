@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponseBody\customFields;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponseBody\organizationalUnits;
 use AlibabaCloud\Tea\Model;
 
@@ -18,6 +19,11 @@ class GetUserResponseBody extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
 
     /**
      * @var string
@@ -53,6 +59,11 @@ class GetUserResponseBody extends Model
      * @var organizationalUnits[]
      */
     public $organizationalUnits;
+
+    /**
+     * @var bool
+     */
+    public $passwordSet;
 
     /**
      * @var string
@@ -116,6 +127,7 @@ class GetUserResponseBody extends Model
     protected $_name = [
         'accountExpireTime'           => 'accountExpireTime',
         'createTime'                  => 'createTime',
+        'customFields'                => 'customFields',
         'description'                 => 'description',
         'displayName'                 => 'displayName',
         'email'                       => 'email',
@@ -123,6 +135,7 @@ class GetUserResponseBody extends Model
         'instanceId'                  => 'instanceId',
         'lockExpireTime'              => 'lockExpireTime',
         'organizationalUnits'         => 'organizationalUnits',
+        'passwordSet'                 => 'passwordSet',
         'phoneNumber'                 => 'phoneNumber',
         'phoneNumberVerified'         => 'phoneNumberVerified',
         'phoneRegion'                 => 'phoneRegion',
@@ -150,6 +163,15 @@ class GetUserResponseBody extends Model
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+        if (null !== $this->customFields) {
+            $res['customFields'] = [];
+            if (null !== $this->customFields && \is_array($this->customFields)) {
+                $n = 0;
+                foreach ($this->customFields as $item) {
+                    $res['customFields'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -176,6 +198,9 @@ class GetUserResponseBody extends Model
                     $res['organizationalUnits'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->passwordSet) {
+            $res['passwordSet'] = $this->passwordSet;
         }
         if (null !== $this->phoneNumber) {
             $res['phoneNumber'] = $this->phoneNumber;
@@ -231,6 +256,15 @@ class GetUserResponseBody extends Model
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+        if (isset($map['customFields'])) {
+            if (!empty($map['customFields'])) {
+                $model->customFields = [];
+                $n                   = 0;
+                foreach ($map['customFields'] as $item) {
+                    $model->customFields[$n++] = null !== $item ? customFields::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -257,6 +291,9 @@ class GetUserResponseBody extends Model
                     $model->organizationalUnits[$n++] = null !== $item ? organizationalUnits::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['passwordSet'])) {
+            $model->passwordSet = $map['passwordSet'];
         }
         if (isset($map['phoneNumber'])) {
             $model->phoneNumber = $map['phoneNumber'];

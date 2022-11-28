@@ -49,6 +49,11 @@ class data extends Model
     public $lockExpireTime;
 
     /**
+     * @var bool
+     */
+    public $passwordSet;
+
+    /**
      * @var string
      */
     public $phoneNumber;
@@ -111,6 +116,7 @@ class data extends Model
         'emailVerified'       => 'emailVerified',
         'instanceId'          => 'instanceId',
         'lockExpireTime'      => 'lockExpireTime',
+        'passwordSet'         => 'passwordSet',
         'phoneNumber'         => 'phoneNumber',
         'phoneNumberVerified' => 'phoneNumberVerified',
         'phoneRegion'         => 'phoneRegion',
@@ -154,6 +160,9 @@ class data extends Model
         }
         if (null !== $this->lockExpireTime) {
             $res['lockExpireTime'] = $this->lockExpireTime;
+        }
+        if (null !== $this->passwordSet) {
+            $res['passwordSet'] = $this->passwordSet;
         }
         if (null !== $this->phoneNumber) {
             $res['phoneNumber'] = $this->phoneNumber;
@@ -223,6 +232,9 @@ class data extends Model
         }
         if (isset($map['lockExpireTime'])) {
             $model->lockExpireTime = $map['lockExpireTime'];
+        }
+        if (isset($map['passwordSet'])) {
+            $model->passwordSet = $map['passwordSet'];
         }
         if (isset($map['phoneNumber'])) {
             $model->phoneNumber = $map['phoneNumber'];

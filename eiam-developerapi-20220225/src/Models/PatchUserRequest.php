@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserRequest\customFields;
 use AlibabaCloud\Tea\Model;
 
 class PatchUserRequest extends Model
 {
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
+
     /**
      * @var string
      */
@@ -43,6 +49,7 @@ class PatchUserRequest extends Model
      */
     public $username;
     protected $_name = [
+        'customFields'        => 'customFields',
         'displayName'         => 'displayName',
         'email'               => 'email',
         'emailVerified'       => 'emailVerified',
@@ -59,6 +66,15 @@ class PatchUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customFields) {
+            $res['customFields'] = [];
+            if (null !== $this->customFields && \is_array($this->customFields)) {
+                $n = 0;
+                foreach ($this->customFields as $item) {
+                    $res['customFields'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -92,6 +108,15 @@ class PatchUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customFields'])) {
+            if (!empty($map['customFields'])) {
+                $model->customFields = [];
+                $n                   = 0;
+                foreach ($map['customFields'] as $item) {
+                    $model->customFields[$n++] = null !== $item ? customFields::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

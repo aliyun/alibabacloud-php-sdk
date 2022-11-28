@@ -16,6 +16,10 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteOrganizationalUnitH
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DisableUserHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DisableUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\EnableUserHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateDeviceCodeRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateDeviceCodeResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenRequest;
@@ -126,9 +130,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function createOrganizationalUnitWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -156,7 +158,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'CreateOrganizationalUnit',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -194,9 +196,10 @@ class Eiamdeveloperapi extends OpenApiClient
     public function createUserWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
+        if (!Utils::isUnset($request->customFields)) {
+            $body['customFields'] = $request->customFields;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -211,6 +214,9 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->password)) {
             $body['password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->passwordInitializationConfig)) {
+            $body['passwordInitializationConfig'] = $request->passwordInitializationConfig;
         }
         if (!Utils::isUnset($request->phoneNumber)) {
             $body['phoneNumber'] = $request->phoneNumber;
@@ -245,7 +251,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'CreateUser',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -282,10 +288,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function deleteOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime)
     {
-        $instanceId           = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId        = OpenApiUtilClient::getEncodeParam($applicationId);
-        $organizationalUnitId = OpenApiUtilClient::getEncodeParam($organizationalUnitId);
-        $realHeaders          = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -299,7 +302,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'DeleteOrganizationalUnit',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits/' . $organizationalUnitId . '',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
             'method'      => 'DELETE',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -336,10 +339,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function deleteUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
     {
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $userId        = OpenApiUtilClient::getEncodeParam($userId);
-        $realHeaders   = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -353,7 +353,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'DeleteUser',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/' . $userId . '',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
             'method'      => 'DELETE',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -362,6 +362,108 @@ class Eiamdeveloperapi extends OpenApiClient
         ]);
 
         return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $userId
+     *
+     * @return DisableUserResponse
+     */
+    public function disableUser($instanceId, $applicationId, $userId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DisableUserHeaders([]);
+
+        return $this->disableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param string             $applicationId
+     * @param string             $userId
+     * @param DisableUserHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableUserResponse
+     */
+    public function disableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DisableUser',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/disable',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $userId
+     *
+     * @return EnableUserResponse
+     */
+    public function enableUser($instanceId, $applicationId, $userId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new EnableUserHeaders([]);
+
+        return $this->enableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
+    }
+
+    /**
+     * @param string            $instanceId
+     * @param string            $applicationId
+     * @param string            $userId
+     * @param EnableUserHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EnableUserResponse
+     */
+    public function enableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'EnableUser',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/enable',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -391,9 +493,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function generateDeviceCodeWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->scope)) {
             $query['scope'] = $request->scope;
         }
@@ -405,7 +505,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GenerateDeviceCode',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/oauth2/device/code',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/device/code',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -443,9 +543,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function generateTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->clientId)) {
             $query['client_id'] = $request->clientId;
         }
@@ -490,7 +588,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GenerateToken',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/oauth2/token',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/token',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -525,9 +623,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function getApplicationProvisioningScopeWithOptions($instanceId, $applicationId, $headers, $runtime)
     {
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $realHeaders   = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -541,7 +637,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetApplicationProvisioningScope',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/provisioningScope',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/provisioningScope',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -578,10 +674,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function getOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime)
     {
-        $instanceId           = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId        = OpenApiUtilClient::getEncodeParam($applicationId);
-        $organizationalUnitId = OpenApiUtilClient::getEncodeParam($organizationalUnitId);
-        $realHeaders          = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -595,7 +688,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetOrganizationalUnit',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits/' . $organizationalUnitId . '',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -633,9 +726,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function getOrganizationalUnitIdByExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->organizationalUnitExternalId)) {
             $body['organizationalUnitExternalId'] = $request->organizationalUnitExternalId;
         }
@@ -660,7 +751,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetOrganizationalUnitIdByExternalId',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -697,10 +788,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function getUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
     {
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $userId        = OpenApiUtilClient::getEncodeParam($userId);
-        $realHeaders   = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -714,7 +802,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetUser',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/' . $userId . '',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -752,9 +840,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function getUserIdByEmailWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->email)) {
             $body['email'] = $request->email;
         }
@@ -773,7 +859,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetUserIdByEmail',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByEmail',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByEmail',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -811,9 +897,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function getUserIdByPhoneNumberWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->phoneNumber)) {
             $body['phoneNumber'] = $request->phoneNumber;
         }
@@ -832,7 +916,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetUserIdByPhoneNumber',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByPhoneNumber',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByPhoneNumber',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -870,9 +954,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function getUserIdByUserExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->userExternalId)) {
             $body['userExternalId'] = $request->userExternalId;
         }
@@ -897,7 +979,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetUserIdByUserExternalId',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByExternalId',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByExternalId',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -935,9 +1017,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function getUserIdByUsernameWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $body          = [];
+        $body = [];
         if (!Utils::isUnset($request->username)) {
             $body['username'] = $request->username;
         }
@@ -956,7 +1036,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetUserIdByUsername',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/_/actions/getUserIdByUsername',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByUsername',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -991,9 +1071,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function getUserInfoWithOptions($instanceId, $applicationId, $headers, $runtime)
     {
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $realHeaders   = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -1007,7 +1085,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'GetUserInfo',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/oauth2/userinfo',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/userinfo',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -1044,10 +1122,7 @@ class Eiamdeveloperapi extends OpenApiClient
      */
     public function listOrganizationalUnitParentIdsWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime)
     {
-        $instanceId           = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId        = OpenApiUtilClient::getEncodeParam($applicationId);
-        $organizationalUnitId = OpenApiUtilClient::getEncodeParam($organizationalUnitId);
-        $realHeaders          = [];
+        $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
@@ -1061,7 +1136,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'ListOrganizationalUnitParentIds',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits/' . $organizationalUnitId . '/parentIds',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '/parentIds',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -1099,9 +1174,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function listOrganizationalUnitsWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -1126,7 +1199,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'ListOrganizationalUnits',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -1164,9 +1237,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function listUsersWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->organizationalUnitId)) {
             $query['organizationalUnitId'] = $request->organizationalUnitId;
         }
@@ -1191,7 +1262,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'ListUsers',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users',
             'method'      => 'GET',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -1231,10 +1302,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function patchOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId           = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId        = OpenApiUtilClient::getEncodeParam($applicationId);
-        $organizationalUnitId = OpenApiUtilClient::getEncodeParam($organizationalUnitId);
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -1256,7 +1324,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'PatchOrganizationalUnit',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/organizationalUnits/' . $organizationalUnitId . '',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
             'method'      => 'PATCH',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -1296,10 +1364,10 @@ class Eiamdeveloperapi extends OpenApiClient
     public function patchUserWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $userId        = OpenApiUtilClient::getEncodeParam($userId);
-        $body          = [];
+        $body = [];
+        if (!Utils::isUnset($request->customFields)) {
+            $body['customFields'] = $request->customFields;
+        }
         if (!Utils::isUnset($request->displayName)) {
             $body['displayName'] = $request->displayName;
         }
@@ -1336,7 +1404,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'PatchUser',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/users/' . $userId . '',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
             'method'      => 'PATCH',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
@@ -1374,9 +1442,7 @@ class Eiamdeveloperapi extends OpenApiClient
     public function revokeTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $instanceId    = OpenApiUtilClient::getEncodeParam($instanceId);
-        $applicationId = OpenApiUtilClient::getEncodeParam($applicationId);
-        $query         = [];
+        $query = [];
         if (!Utils::isUnset($request->clientId)) {
             $query['client_id'] = $request->clientId;
         }
@@ -1397,7 +1463,7 @@ class Eiamdeveloperapi extends OpenApiClient
             'action'      => 'RevokeToken',
             'version'     => '2022-02-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . $instanceId . '/' . $applicationId . '/oauth2/revoke',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/revoke',
             'method'      => 'POST',
             'authType'    => 'Anonymous',
             'style'       => 'ROA',
