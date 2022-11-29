@@ -17,9 +17,15 @@ class acl extends Model
      * @var string
      */
     public $aclName;
+
+    /**
+     * @var string
+     */
+    public $addressIPVersion;
     protected $_name = [
-        'aclId'   => 'AclId',
-        'aclName' => 'AclName',
+        'aclId'            => 'AclId',
+        'aclName'          => 'AclName',
+        'addressIPVersion' => 'AddressIPVersion',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class acl extends Model
         }
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class acl extends Model
         }
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
         }
 
         return $model;

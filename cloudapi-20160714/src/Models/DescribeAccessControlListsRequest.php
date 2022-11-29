@@ -14,6 +14,11 @@ class DescribeAccessControlListsRequest extends Model
     public $aclName;
 
     /**
+     * @var string
+     */
+    public $addressIPVersion;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,10 +33,11 @@ class DescribeAccessControlListsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclName'       => 'AclName',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'securityToken' => 'SecurityToken',
+        'aclName'          => 'AclName',
+        'addressIPVersion' => 'AddressIPVersion',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'securityToken'    => 'SecurityToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DescribeAccessControlListsRequest extends Model
         $res = [];
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -67,6 +76,9 @@ class DescribeAccessControlListsRequest extends Model
         $model = new self();
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

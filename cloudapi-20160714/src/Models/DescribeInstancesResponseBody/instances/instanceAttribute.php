@@ -57,6 +57,26 @@ class instanceAttribute extends Model
     /**
      * @var string
      */
+    public $IPV6AclId;
+
+    /**
+     * @var string
+     */
+    public $IPV6AclName;
+
+    /**
+     * @var string
+     */
+    public $IPV6AclStatus;
+
+    /**
+     * @var string
+     */
+    public $IPV6AclType;
+
+    /**
+     * @var string
+     */
     public $instanceChargeType;
 
     /**
@@ -168,6 +188,10 @@ class instanceAttribute extends Model
         'egressIpv6Enable'       => 'EgressIpv6Enable',
         'expiredTime'            => 'ExpiredTime',
         'httpsPolicies'          => 'HttpsPolicies',
+        'IPV6AclId'              => 'IPV6AclId',
+        'IPV6AclName'            => 'IPV6AclName',
+        'IPV6AclStatus'          => 'IPV6AclStatus',
+        'IPV6AclType'            => 'IPV6AclType',
         'instanceChargeType'     => 'InstanceChargeType',
         'instanceId'             => 'InstanceId',
         'instanceName'           => 'InstanceName',
@@ -224,6 +248,18 @@ class instanceAttribute extends Model
         }
         if (null !== $this->httpsPolicies) {
             $res['HttpsPolicies'] = $this->httpsPolicies;
+        }
+        if (null !== $this->IPV6AclId) {
+            $res['IPV6AclId'] = $this->IPV6AclId;
+        }
+        if (null !== $this->IPV6AclName) {
+            $res['IPV6AclName'] = $this->IPV6AclName;
+        }
+        if (null !== $this->IPV6AclStatus) {
+            $res['IPV6AclStatus'] = $this->IPV6AclStatus;
+        }
+        if (null !== $this->IPV6AclType) {
+            $res['IPV6AclType'] = $this->IPV6AclType;
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -326,6 +362,18 @@ class instanceAttribute extends Model
         }
         if (isset($map['HttpsPolicies'])) {
             $model->httpsPolicies = $map['HttpsPolicies'];
+        }
+        if (isset($map['IPV6AclId'])) {
+            $model->IPV6AclId = $map['IPV6AclId'];
+        }
+        if (isset($map['IPV6AclName'])) {
+            $model->IPV6AclName = $map['IPV6AclName'];
+        }
+        if (isset($map['IPV6AclStatus'])) {
+            $model->IPV6AclStatus = $map['IPV6AclStatus'];
+        }
+        if (isset($map['IPV6AclType'])) {
+            $model->IPV6AclType = $map['IPV6AclType'];
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];

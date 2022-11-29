@@ -192,6 +192,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeMarketRemainsQuotaRequest
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeMarketRemainsQuotaResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeModelsResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginApisRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginsByApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePluginSchemasRequest;
@@ -780,6 +782,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->aclName)) {
             $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
@@ -3000,6 +3005,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->aclName)) {
             $query['AclName'] = $request->aclName;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -5415,6 +5423,76 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @param DescribePluginApisRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePluginApisResponse
+     */
+    public function describePluginApisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->method)) {
+            $query['Method'] = $request->method;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->pluginId)) {
+            $query['PluginId'] = $request->pluginId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePluginApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePluginApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePluginApisRequest $request
+     *
+     * @return DescribePluginApisResponse
+     */
+    public function describePluginApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePluginApisWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribePluginSchemasRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -6363,6 +6441,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->aclId)) {
             $query['AclId'] = $request->aclId;
         }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -6479,6 +6560,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->aclType)) {
             $query['AclType'] = $request->aclType;
+        }
+        if (!Utils::isUnset($request->addressIPVersion)) {
+            $query['AddressIPVersion'] = $request->addressIPVersion;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;

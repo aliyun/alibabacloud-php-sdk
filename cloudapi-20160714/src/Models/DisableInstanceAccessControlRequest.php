@@ -16,6 +16,11 @@ class DisableInstanceAccessControlRequest extends Model
     /**
      * @var string
      */
+    public $addressIPVersion;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,9 +28,10 @@ class DisableInstanceAccessControlRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclId'         => 'AclId',
-        'instanceId'    => 'InstanceId',
-        'securityToken' => 'SecurityToken',
+        'aclId'            => 'AclId',
+        'addressIPVersion' => 'AddressIPVersion',
+        'instanceId'       => 'InstanceId',
+        'securityToken'    => 'SecurityToken',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class DisableInstanceAccessControlRequest extends Model
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -58,6 +67,9 @@ class DisableInstanceAccessControlRequest extends Model
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
