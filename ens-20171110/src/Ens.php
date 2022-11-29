@@ -50,6 +50,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateForwardEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateImageResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceActiveOpsTaskRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceActiveOpsTaskResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceActiveOpsTaskShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateKeyPairRequest;
@@ -399,7 +402,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1657,6 +1659,54 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateInstanceActiveOpsTaskRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateInstanceActiveOpsTaskResponse
+     */
+    public function createInstanceActiveOpsTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateInstanceActiveOpsTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstanceActiveOpsTask',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstanceActiveOpsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceActiveOpsTaskRequest $request
+     *
+     * @return CreateInstanceActiveOpsTaskResponse
+     */
+    public function createInstanceActiveOpsTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstanceActiveOpsTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -9383,7 +9433,7 @@ class Ens extends OpenApiClient
             $request->dataDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataDisk, 'DataDisk', 'json');
         }
         if (!Utils::isUnset($tmpReq->systemDisk)) {
-            $request->systemDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->systemDisk), 'SystemDisk', 'json');
+            $request->systemDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemDisk, 'SystemDisk', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->amount)) {
