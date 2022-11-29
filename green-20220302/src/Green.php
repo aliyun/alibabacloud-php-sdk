@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Green\V20220302;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -65,6 +67,52 @@ class Green extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param ImageModerationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ImageModerationResponse
+     */
+    public function imageModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImageModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImageModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImageModerationRequest $request
+     *
+     * @return ImageModerationResponse
+     */
+    public function imageModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageModerationWithOptions($request, $runtime);
     }
 
     /**
