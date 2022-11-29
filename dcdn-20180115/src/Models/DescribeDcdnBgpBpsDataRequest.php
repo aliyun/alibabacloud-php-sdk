@@ -34,11 +34,6 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     public $isp;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -48,7 +43,6 @@ class DescribeDcdnBgpBpsDataRequest extends Model
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
         'isp'        => 'Isp',
-        'ownerId'    => 'OwnerId',
         'startTime'  => 'StartTime',
     ];
 
@@ -73,9 +67,6 @@ class DescribeDcdnBgpBpsDataRequest extends Model
         }
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -106,9 +97,6 @@ class DescribeDcdnBgpBpsDataRequest extends Model
         }
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

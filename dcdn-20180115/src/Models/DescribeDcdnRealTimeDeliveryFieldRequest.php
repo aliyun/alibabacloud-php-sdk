@@ -12,14 +12,8 @@ class DescribeDcdnRealTimeDeliveryFieldRequest extends Model
      * @var string
      */
     public $businessType;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeDcdnRealTimeDeliveryFieldRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeDcdnRealTimeDeliveryFieldRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -6,8 +6,13 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDcdnDeletedDomainsRequest extends Model
+class DescribeRDDomainsRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $ownerId;
+
     /**
      * @var int
      */
@@ -18,6 +23,7 @@ class DescribeDcdnDeletedDomainsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
     ];
@@ -29,6 +35,9 @@ class DescribeDcdnDeletedDomainsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -42,11 +51,14 @@ class DescribeDcdnDeletedDomainsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDcdnDeletedDomainsRequest
+     * @return DescribeRDDomainsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

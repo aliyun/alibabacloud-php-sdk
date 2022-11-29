@@ -12,14 +12,8 @@ class DescribeUserErStatusRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeUserErStatusRequest extends Model
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeUserErStatusRequest extends Model
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

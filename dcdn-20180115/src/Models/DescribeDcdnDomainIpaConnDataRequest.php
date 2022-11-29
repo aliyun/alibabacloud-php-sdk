@@ -19,11 +19,6 @@ class DescribeDcdnDomainIpaConnDataRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $splitBy;
@@ -35,7 +30,6 @@ class DescribeDcdnDomainIpaConnDataRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
         'splitBy'    => 'SplitBy',
         'startTime'  => 'StartTime',
     ];
@@ -52,9 +46,6 @@ class DescribeDcdnDomainIpaConnDataRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->splitBy) {
             $res['SplitBy'] = $this->splitBy;
@@ -79,9 +70,6 @@ class DescribeDcdnDomainIpaConnDataRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SplitBy'])) {
             $model->splitBy = $map['SplitBy'];

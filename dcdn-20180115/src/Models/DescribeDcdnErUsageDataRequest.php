@@ -14,11 +14,6 @@ class DescribeDcdnErUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $routineID;
@@ -39,7 +34,6 @@ class DescribeDcdnErUsageDataRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'ownerId'   => 'OwnerId',
         'routineID' => 'RoutineID',
         'spec'      => 'Spec',
         'splitBy'   => 'SplitBy',
@@ -55,9 +49,6 @@ class DescribeDcdnErUsageDataRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->routineID) {
             $res['RoutineID'] = $this->routineID;
@@ -85,9 +76,6 @@ class DescribeDcdnErUsageDataRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RoutineID'])) {
             $model->routineID = $map['RoutineID'];
