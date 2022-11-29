@@ -41,6 +41,16 @@ class certificate extends Model
     /**
      * @var string
      */
+    public $crlStatus;
+
+    /**
+     * @var string
+     */
+    public $crlUrl;
+
+    /**
+     * @var string
+     */
     public $identifier;
 
     /**
@@ -112,11 +122,6 @@ class certificate extends Model
      * @var string
      */
     public $x509Certificate;
-
-    /**
-     * @var int
-     */
-    public $years;
     protected $_name = [
         'afterDate'        => 'AfterDate',
         'algorithm'        => 'Algorithm',
@@ -124,6 +129,8 @@ class certificate extends Model
         'certificateType'  => 'CertificateType',
         'commonName'       => 'CommonName',
         'countryCode'      => 'CountryCode',
+        'crlStatus'        => 'CrlStatus',
+        'crlUrl'           => 'CrlUrl',
         'identifier'       => 'Identifier',
         'keySize'          => 'KeySize',
         'locality'         => 'Locality',
@@ -139,7 +146,6 @@ class certificate extends Model
         'status'           => 'Status',
         'subjectDN'        => 'SubjectDN',
         'x509Certificate'  => 'X509Certificate',
-        'years'            => 'Years',
     ];
 
     public function validate()
@@ -166,6 +172,12 @@ class certificate extends Model
         }
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
+        }
+        if (null !== $this->crlStatus) {
+            $res['CrlStatus'] = $this->crlStatus;
+        }
+        if (null !== $this->crlUrl) {
+            $res['CrlUrl'] = $this->crlUrl;
         }
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
@@ -212,9 +224,6 @@ class certificate extends Model
         if (null !== $this->x509Certificate) {
             $res['X509Certificate'] = $this->x509Certificate;
         }
-        if (null !== $this->years) {
-            $res['Years'] = $this->years;
-        }
 
         return $res;
     }
@@ -244,6 +253,12 @@ class certificate extends Model
         }
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
+        }
+        if (isset($map['CrlStatus'])) {
+            $model->crlStatus = $map['CrlStatus'];
+        }
+        if (isset($map['CrlUrl'])) {
+            $model->crlUrl = $map['CrlUrl'];
         }
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
@@ -289,9 +304,6 @@ class certificate extends Model
         }
         if (isset($map['X509Certificate'])) {
             $model->x509Certificate = $map['X509Certificate'];
-        }
-        if (isset($map['Years'])) {
-            $model->years = $map['Years'];
         }
 
         return $model;

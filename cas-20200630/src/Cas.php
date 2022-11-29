@@ -6,8 +6,6 @@ namespace AlibabaCloud\SDK\Cas\V20200630;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCertificateWithExtensionRequest;
-use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCertificateWithExtensionResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateClientCertificateWithCsrRequest;
@@ -31,18 +29,12 @@ use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCACertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCACertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCertificatePrivateKeyRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeCertificatePrivateKeyResponse;
-use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateForSerialNumberRequest;
-use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateForSerialNumberResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateResponse;
-use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusForSerialNumberRequest;
-use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusForSerialNumberResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\DescribeClientCertificateStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\GetCAInstanceStatusResponse;
-use AlibabaCloud\SDK\Cas\V20200630\Models\ListCACertificateLogRequest;
-use AlibabaCloud\SDK\Cas\V20200630\Models\ListCACertificateLogResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200630\Models\ListRevokeCertificateRequest;
@@ -140,62 +132,6 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param CreateCertificateWithExtensionRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateCertificateWithExtensionResponse
-     */
-    public function createCertificateWithExtensionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                             = [];
-        $query['AfterTime']                = $request->afterTime;
-        $query['AlgorithmKeySize']         = $request->algorithmKeySize;
-        $query['AliasName']                = $request->aliasName;
-        $query['AppendCrl']                = $request->appendCrl;
-        $query['BasicConstraintsCritical'] = $request->basicConstraintsCritical;
-        $query['BeforeTime']               = $request->beforeTime;
-        $query['CertType']                 = $request->certType;
-        $query['CommonName']               = $request->commonName;
-        $query['CountryCode']              = $request->countryCode;
-        $query['CsrPemString']             = $request->csrPemString;
-        $query['Locality']                 = $request->locality;
-        $query['Organization']             = $request->organization;
-        $query['OrganizationUnit']         = $request->organizationUnit;
-        $query['ParentIdentifier']         = $request->parentIdentifier;
-        $query['Sans']                     = $request->sans;
-        $query['State']                    = $request->state;
-        $req                               = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCertificateWithExtension',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateCertificateWithExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateCertificateWithExtensionRequest $request
-     *
-     * @return CreateCertificateWithExtensionResponse
-     */
-    public function createCertificateWithExtension($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCertificateWithExtensionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateClientCertificateRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -204,16 +140,59 @@ class Cas extends OpenApiClient
     public function createClientCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AfterTime']        = $request->afterTime;
-        $query['Algorithm']        = $request->algorithm;
-        $query['BeforeTime']       = $request->beforeTime;
-        $query['CommonName']       = $request->commonName;
-        $query['Days']             = $request->days;
-        $query['ParentIdentifier'] = $request->parentIdentifier;
-        $query['SanType']          = $request->sanType;
-        $query['SanValue']         = $request->sanValue;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
+        }
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->sanType)) {
+            $query['SanType'] = $request->sanType;
+        }
+        if (!Utils::isUnset($request->sanValue)) {
+            $query['SanValue'] = $request->sanValue;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -252,15 +231,62 @@ class Cas extends OpenApiClient
     public function createClientCertificateWithCsrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AfterTime']        = $request->afterTime;
-        $query['BeforeTime']       = $request->beforeTime;
-        $query['Csr']              = $request->csr;
-        $query['Days']             = $request->days;
-        $query['ParentIdentifier'] = $request->parentIdentifier;
-        $query['SanType']          = $request->sanType;
-        $query['SanValue']         = $request->sanValue;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
+        }
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->csr1)) {
+            $query['Csr1'] = $request->csr1;
+        }
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->sanType)) {
+            $query['SanType'] = $request->sanType;
+        }
+        if (!Utils::isUnset($request->sanValue)) {
+            $query['SanValue'] = $request->sanValue;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -299,9 +325,11 @@ class Cas extends OpenApiClient
     public function createRevokeClientCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -340,16 +368,32 @@ class Cas extends OpenApiClient
     public function createRootCACertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['Algorithm']        = $request->algorithm;
-        $query['CommonName']       = $request->commonName;
-        $query['CountryCode']      = $request->countryCode;
-        $query['Locality']         = $request->locality;
-        $query['Organization']     = $request->organization;
-        $query['OrganizationUnit'] = $request->organizationUnit;
-        $query['State']            = $request->state;
-        $query['Years']            = $request->years;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -388,15 +432,56 @@ class Cas extends OpenApiClient
     public function createServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AfterTime']        = $request->afterTime;
-        $query['Algorithm']        = $request->algorithm;
-        $query['BeforeTime']       = $request->beforeTime;
-        $query['CommonName']       = $request->commonName;
-        $query['Days']             = $request->days;
-        $query['Domain']           = $request->domain;
-        $query['ParentIdentifier'] = $request->parentIdentifier;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
+        }
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -435,14 +520,59 @@ class Cas extends OpenApiClient
     public function createServerCertificateWithCsrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['AfterTime']        = $request->afterTime;
-        $query['BeforeTime']       = $request->beforeTime;
-        $query['Csr']              = $request->csr;
-        $query['Days']             = $request->days;
-        $query['Domain']           = $request->domain;
-        $query['ParentIdentifier'] = $request->parentIdentifier;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->afterTime)) {
+            $query['AfterTime'] = $request->afterTime;
+        }
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->beforeTime)) {
+            $query['BeforeTime'] = $request->beforeTime;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->country)) {
+            $query['Country'] = $request->country;
+        }
+        if (!Utils::isUnset($request->csr)) {
+            $query['Csr'] = $request->csr;
+        }
+        if (!Utils::isUnset($request->csr1)) {
+            $query['Csr1'] = $request->csr1;
+        }
+        if (!Utils::isUnset($request->days)) {
+            $query['Days'] = $request->days;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->months)) {
+            $query['Months'] = $request->months;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -481,17 +611,35 @@ class Cas extends OpenApiClient
     public function createSubCACertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['Algorithm']        = $request->algorithm;
-        $query['CommonName']       = $request->commonName;
-        $query['CountryCode']      = $request->countryCode;
-        $query['Locality']         = $request->locality;
-        $query['Organization']     = $request->organization;
-        $query['OrganizationUnit'] = $request->organizationUnit;
-        $query['ParentIdentifier'] = $request->parentIdentifier;
-        $query['State']            = $request->state;
-        $query['Years']            = $request->years;
-        $req                       = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->algorithm)) {
+            $query['Algorithm'] = $request->algorithm;
+        }
+        if (!Utils::isUnset($request->commonName)) {
+            $query['CommonName'] = $request->commonName;
+        }
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->locality)) {
+            $query['Locality'] = $request->locality;
+        }
+        if (!Utils::isUnset($request->organization)) {
+            $query['Organization'] = $request->organization;
+        }
+        if (!Utils::isUnset($request->organizationUnit)) {
+            $query['OrganizationUnit'] = $request->organizationUnit;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->years)) {
+            $query['Years'] = $request->years;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -530,9 +678,11 @@ class Cas extends OpenApiClient
     public function deleteClientCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -571,9 +721,11 @@ class Cas extends OpenApiClient
     public function describeCACertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -645,10 +797,14 @@ class Cas extends OpenApiClient
     public function describeCACertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CurrentPage'] = $request->currentPage;
-        $query['ShowSize']    = $request->showSize;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -687,10 +843,14 @@ class Cas extends OpenApiClient
     public function describeCertificatePrivateKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['EncryptedCode'] = $request->encryptedCode;
-        $query['Identifier']    = $request->identifier;
-        $req                    = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->encryptedCode)) {
+            $query['EncryptedCode'] = $request->encryptedCode;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -729,9 +889,11 @@ class Cas extends OpenApiClient
     public function describeClientCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -762,47 +924,6 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClientCertificateForSerialNumberRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribeClientCertificateForSerialNumberResponse
-     */
-    public function describeClientCertificateForSerialNumberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                 = [];
-        $query['SerialNumber'] = $request->serialNumber;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeClientCertificateForSerialNumber',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeClientCertificateForSerialNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClientCertificateForSerialNumberRequest $request
-     *
-     * @return DescribeClientCertificateForSerialNumberResponse
-     */
-    public function describeClientCertificateForSerialNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClientCertificateForSerialNumberWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeClientCertificateStatusRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -811,9 +932,11 @@ class Cas extends OpenApiClient
     public function describeClientCertificateStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -844,47 +967,6 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param DescribeClientCertificateStatusForSerialNumberRequest $request
-     * @param RuntimeOptions                                        $runtime
-     *
-     * @return DescribeClientCertificateStatusForSerialNumberResponse
-     */
-    public function describeClientCertificateStatusForSerialNumberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                 = [];
-        $query['SerialNumber'] = $request->serialNumber;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeClientCertificateStatusForSerialNumber',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeClientCertificateStatusForSerialNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClientCertificateStatusForSerialNumberRequest $request
-     *
-     * @return DescribeClientCertificateStatusForSerialNumberResponse
-     */
-    public function describeClientCertificateStatusForSerialNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClientCertificateStatusForSerialNumberWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetCAInstanceStatusRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -893,9 +975,11 @@ class Cas extends OpenApiClient
     public function getCAInstanceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['InstanceId'] = $request->instanceId;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -926,47 +1010,6 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @param ListCACertificateLogRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListCACertificateLogResponse
-     */
-    public function listCACertificateLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $req                 = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListCACertificateLog',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListCACertificateLogResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListCACertificateLogRequest $request
-     *
-     * @return ListCACertificateLogResponse
-     */
-    public function listCACertificateLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCACertificateLogWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListClientCertificateRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -975,10 +1018,14 @@ class Cas extends OpenApiClient
     public function listClientCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CurrentPage'] = $request->currentPage;
-        $query['ShowSize']    = $request->showSize;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1017,10 +1064,14 @@ class Cas extends OpenApiClient
     public function listRevokeCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                = [];
-        $query['CurrentPage'] = $request->currentPage;
-        $query['ShowSize']    = $request->showSize;
-        $req                  = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->showSize)) {
+            $query['ShowSize'] = $request->showSize;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1059,10 +1110,14 @@ class Cas extends OpenApiClient
     public function updateCACertificateStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query               = [];
-        $query['Identifier'] = $request->identifier;
-        $query['Status']     = $request->status;
-        $req                 = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

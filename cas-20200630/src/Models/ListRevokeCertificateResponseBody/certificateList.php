@@ -26,6 +26,11 @@ class certificateList extends Model
     /**
      * @var string
      */
+    public $certificateType;
+
+    /**
+     * @var string
+     */
     public $commonName;
 
     /**
@@ -66,6 +71,11 @@ class certificateList extends Model
     /**
      * @var string
      */
+    public $parentIdentifier;
+
+    /**
+     * @var string
+     */
     public $revokeDate;
 
     /**
@@ -96,11 +106,17 @@ class certificateList extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $subjectDN;
     protected $_name = [
         'afterDate'        => 'AfterDate',
         'algorithm'        => 'Algorithm',
         'beforeDate'       => 'BeforeDate',
+        'certificateType'  => 'CertificateType',
         'commonName'       => 'CommonName',
         'countryCode'      => 'CountryCode',
         'identifier'       => 'Identifier',
@@ -109,12 +125,14 @@ class certificateList extends Model
         'md5'              => 'Md5',
         'organization'     => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
+        'parentIdentifier' => 'ParentIdentifier',
         'revokeDate'       => 'RevokeDate',
         'sans'             => 'Sans',
         'serialNumber'     => 'SerialNumber',
         'sha2'             => 'Sha2',
         'signAlgorithm'    => 'SignAlgorithm',
         'state'            => 'State',
+        'status'           => 'Status',
         'subjectDN'        => 'SubjectDN',
     ];
 
@@ -133,6 +151,9 @@ class certificateList extends Model
         }
         if (null !== $this->beforeDate) {
             $res['BeforeDate'] = $this->beforeDate;
+        }
+        if (null !== $this->certificateType) {
+            $res['CertificateType'] = $this->certificateType;
         }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
@@ -158,6 +179,9 @@ class certificateList extends Model
         if (null !== $this->organizationUnit) {
             $res['OrganizationUnit'] = $this->organizationUnit;
         }
+        if (null !== $this->parentIdentifier) {
+            $res['ParentIdentifier'] = $this->parentIdentifier;
+        }
         if (null !== $this->revokeDate) {
             $res['RevokeDate'] = $this->revokeDate;
         }
@@ -175,6 +199,9 @@ class certificateList extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->subjectDN) {
             $res['SubjectDN'] = $this->subjectDN;
@@ -200,6 +227,9 @@ class certificateList extends Model
         if (isset($map['BeforeDate'])) {
             $model->beforeDate = $map['BeforeDate'];
         }
+        if (isset($map['CertificateType'])) {
+            $model->certificateType = $map['CertificateType'];
+        }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
@@ -224,6 +254,9 @@ class certificateList extends Model
         if (isset($map['OrganizationUnit'])) {
             $model->organizationUnit = $map['OrganizationUnit'];
         }
+        if (isset($map['ParentIdentifier'])) {
+            $model->parentIdentifier = $map['ParentIdentifier'];
+        }
         if (isset($map['RevokeDate'])) {
             $model->revokeDate = $map['RevokeDate'];
         }
@@ -241,6 +274,9 @@ class certificateList extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['SubjectDN'])) {
             $model->subjectDN = $map['SubjectDN'];
