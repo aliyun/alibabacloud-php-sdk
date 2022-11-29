@@ -569,12 +569,18 @@ class Avatar extends OpenApiClient
         if (!Utils::isUnset($tmpReq->app)) {
             $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
         }
+        if (!Utils::isUnset($tmpReq->avatarInfo)) {
+            $request->avatarInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->avatarInfo, 'AvatarInfo', 'json');
+        }
         if (!Utils::isUnset($tmpReq->videoInfo)) {
             $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoInfo, 'VideoInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->appShrink)) {
             $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->avatarInfoShrink)) {
+            $query['AvatarInfo'] = $request->avatarInfoShrink;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;

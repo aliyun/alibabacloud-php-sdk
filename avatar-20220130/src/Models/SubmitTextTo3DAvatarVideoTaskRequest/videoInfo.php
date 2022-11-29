@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class videoInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $alphaFormat;
+
+    /**
      * @var string
      */
     public $backgroundImageUrl;
@@ -28,6 +33,7 @@ class videoInfo extends Model
      */
     public $resolution;
     protected $_name = [
+        'alphaFormat'        => 'AlphaFormat',
         'backgroundImageUrl' => 'BackgroundImageUrl',
         'isAlpha'            => 'IsAlpha',
         'isSubtitles'        => 'IsSubtitles',
@@ -41,6 +47,9 @@ class videoInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alphaFormat) {
+            $res['AlphaFormat'] = $this->alphaFormat;
+        }
         if (null !== $this->backgroundImageUrl) {
             $res['BackgroundImageUrl'] = $this->backgroundImageUrl;
         }
@@ -65,6 +74,9 @@ class videoInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlphaFormat'])) {
+            $model->alphaFormat = $map['AlphaFormat'];
+        }
         if (isset($map['BackgroundImageUrl'])) {
             $model->backgroundImageUrl = $map['BackgroundImageUrl'];
         }

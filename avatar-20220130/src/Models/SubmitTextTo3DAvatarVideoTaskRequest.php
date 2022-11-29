@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\app;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\avatarInfo;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\videoInfo;
 use AlibabaCloud\Tea\Model;
 
@@ -14,6 +15,11 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
      * @var app
      */
     public $app;
+
+    /**
+     * @var avatarInfo
+     */
+    public $avatarInfo;
 
     /**
      * @var int
@@ -35,11 +41,12 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
      */
     public $videoInfo;
     protected $_name = [
-        'app'       => 'App',
-        'tenantId'  => 'TenantId',
-        'text'      => 'Text',
-        'title'     => 'Title',
-        'videoInfo' => 'VideoInfo',
+        'app'        => 'App',
+        'avatarInfo' => 'AvatarInfo',
+        'tenantId'   => 'TenantId',
+        'text'       => 'Text',
+        'title'      => 'Title',
+        'videoInfo'  => 'VideoInfo',
     ];
 
     public function validate()
@@ -51,6 +58,9 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
         $res = [];
         if (null !== $this->app) {
             $res['App'] = null !== $this->app ? $this->app->toMap() : null;
+        }
+        if (null !== $this->avatarInfo) {
+            $res['AvatarInfo'] = null !== $this->avatarInfo ? $this->avatarInfo->toMap() : null;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -78,6 +88,9 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->app = app::fromMap($map['App']);
+        }
+        if (isset($map['AvatarInfo'])) {
+            $model->avatarInfo = avatarInfo::fromMap($map['AvatarInfo']);
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

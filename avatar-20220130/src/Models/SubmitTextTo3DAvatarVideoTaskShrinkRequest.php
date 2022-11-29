@@ -14,6 +14,11 @@ class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends Model
     public $appShrink;
 
     /**
+     * @var string
+     */
+    public $avatarInfoShrink;
+
+    /**
      * @var int
      */
     public $tenantId;
@@ -33,11 +38,12 @@ class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends Model
      */
     public $videoInfoShrink;
     protected $_name = [
-        'appShrink'       => 'App',
-        'tenantId'        => 'TenantId',
-        'text'            => 'Text',
-        'title'           => 'Title',
-        'videoInfoShrink' => 'VideoInfo',
+        'appShrink'        => 'App',
+        'avatarInfoShrink' => 'AvatarInfo',
+        'tenantId'         => 'TenantId',
+        'text'             => 'Text',
+        'title'            => 'Title',
+        'videoInfoShrink'  => 'VideoInfo',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->appShrink) {
             $res['App'] = $this->appShrink;
+        }
+        if (null !== $this->avatarInfoShrink) {
+            $res['AvatarInfo'] = $this->avatarInfoShrink;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -76,6 +85,9 @@ class SubmitTextTo3DAvatarVideoTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['App'])) {
             $model->appShrink = $map['App'];
+        }
+        if (isset($map['AvatarInfo'])) {
+            $model->avatarInfoShrink = $map['AvatarInfo'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
