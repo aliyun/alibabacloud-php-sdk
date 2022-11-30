@@ -30,7 +30,7 @@ class SubmitTextTo2DAvatarVideoTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
