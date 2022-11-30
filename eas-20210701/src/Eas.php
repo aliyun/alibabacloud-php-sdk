@@ -77,6 +77,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceDLinkResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceInstanceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceAutoScalerRequest;
@@ -87,6 +89,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceMirrorRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceSafetyLockRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceSafetyLockResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateServiceVersionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1576,8 +1580,8 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->fileter)) {
-            $query['Fileter'] = $request->fileter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -1745,6 +1749,12 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -1852,6 +1862,12 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceName)) {
+            $query['ResourceName'] = $request->resourceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2416,6 +2432,58 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string                        $ClusterId
+     * @param string                        $ResourceId
+     * @param string                        $InstanceId
+     * @param UpdateResourceInstanceRequest $request
+     *
+     * @return UpdateResourceInstanceResponse
+     */
+    public function updateResourceInstance($ClusterId, $ResourceId, $InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $ClusterId
+     * @param string                        $ResourceId
+     * @param string                        $InstanceId
+     * @param UpdateResourceInstanceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateResourceInstanceResponse
+     */
+    public function updateResourceInstanceWithOptions($ClusterId, $ResourceId, $InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->action)) {
+            $body['Action'] = $request->action;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceInstance',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/resources/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ResourceId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateResourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string               $ClusterId
      * @param string               $ServiceName
      * @param UpdateServiceRequest $request
@@ -2621,6 +2689,56 @@ class Eas extends OpenApiClient
         ]);
 
         return UpdateServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $ClusterId
+     * @param string                         $ServiceName
+     * @param UpdateServiceSafetyLockRequest $request
+     *
+     * @return UpdateServiceSafetyLockResponse
+     */
+    public function updateServiceSafetyLock($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceSafetyLockWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $ClusterId
+     * @param string                         $ServiceName
+     * @param UpdateServiceSafetyLockRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateServiceSafetyLockResponse
+     */
+    public function updateServiceSafetyLockWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->lock)) {
+            $body['Lock'] = $request->lock;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceSafetyLock',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/lock',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceSafetyLockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

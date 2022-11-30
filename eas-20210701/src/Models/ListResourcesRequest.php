@@ -17,9 +17,21 @@ class ListResourcesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceName;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'resourceId'   => 'ResourceId',
+        'resourceName' => 'ResourceName',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class ListResourcesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class ListResourcesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class ListBenchmarkTaskRequest extends Model
     /**
      * @var string
      */
-    public $fileter;
+    public $filter;
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class ListBenchmarkTaskRequest extends Model
      */
     public $serviceName;
     protected $_name = [
-        'fileter'     => 'Fileter',
+        'filter'      => 'Filter',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
         'serviceName' => 'ServiceName',
@@ -41,8 +41,8 @@ class ListBenchmarkTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileter) {
-            $res['Fileter'] = $this->fileter;
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,8 +65,8 @@ class ListBenchmarkTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Fileter'])) {
-            $model->fileter = $map['Fileter'];
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

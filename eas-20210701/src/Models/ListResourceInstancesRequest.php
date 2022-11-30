@@ -14,6 +14,16 @@ class ListResourceInstancesRequest extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -23,9 +33,11 @@ class ListResourceInstancesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'chargeType' => 'ChargeType',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'chargeType'   => 'ChargeType',
+        'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
     ];
 
     public function validate()
@@ -37,6 +49,12 @@ class ListResourceInstancesRequest extends Model
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -58,6 +76,12 @@ class ListResourceInstancesRequest extends Model
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

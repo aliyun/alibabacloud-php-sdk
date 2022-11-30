@@ -131,6 +131,11 @@ class Service extends Model
     /**
      * @var string
      */
+    public $safetyLock;
+
+    /**
+     * @var string
+     */
     public $serviceConfig;
 
     /**
@@ -202,6 +207,7 @@ class Service extends Model
         'role'             => 'Role',
         'roleAttrs'        => 'RoleAttrs',
         'runningInstance'  => 'RunningInstance',
+        'safetyLock'       => 'SafetyLock',
         'serviceConfig'    => 'ServiceConfig',
         'serviceGroup'     => 'ServiceGroup',
         'serviceId'        => 'ServiceId',
@@ -292,6 +298,9 @@ class Service extends Model
         }
         if (null !== $this->runningInstance) {
             $res['RunningInstance'] = $this->runningInstance;
+        }
+        if (null !== $this->safetyLock) {
+            $res['SafetyLock'] = $this->safetyLock;
         }
         if (null !== $this->serviceConfig) {
             $res['ServiceConfig'] = $this->serviceConfig;
@@ -406,6 +415,9 @@ class Service extends Model
         }
         if (isset($map['RunningInstance'])) {
             $model->runningInstance = $map['RunningInstance'];
+        }
+        if (isset($map['SafetyLock'])) {
+            $model->safetyLock = $map['SafetyLock'];
         }
         if (isset($map['ServiceConfig'])) {
             $model->serviceConfig = $map['ServiceConfig'];
