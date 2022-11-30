@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddressGetResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AirportSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AirportSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AirportSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AllBaseCityInfoQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AllBaseCityInfoQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddResponse;
@@ -379,6 +381,50 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return AirportSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return AllBaseCityInfoQueryResponse
+     */
+    public function allBaseCityInfoQuery()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AllBaseCityInfoQueryHeaders([]);
+
+        return $this->allBaseCityInfoQueryWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param AllBaseCityInfoQueryHeaders $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AllBaseCityInfoQueryResponse
+     */
+    public function allBaseCityInfoQueryWithOptions($headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
+            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'AllBaseCityInfoQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/city/v1/code',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AllBaseCityInfoQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
