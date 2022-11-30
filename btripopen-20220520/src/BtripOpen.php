@@ -89,6 +89,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncResponse;
@@ -2076,6 +2079,77 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return EntitySetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EstimatedPriceQueryRequest $request
+     *
+     * @return EstimatedPriceQueryResponse
+     */
+    public function estimatedPriceQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new EstimatedPriceQueryHeaders([]);
+
+        return $this->estimatedPriceQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param EstimatedPriceQueryRequest $request
+     * @param EstimatedPriceQueryHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EstimatedPriceQueryResponse
+     */
+    public function estimatedPriceQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->arrCity)) {
+            $query['arr_city'] = $request->arrCity;
+        }
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->depCity)) {
+            $query['dep_city'] = $request->depCity;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['end_time'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->itineraryId)) {
+            $query['itinerary_id'] = $request->itineraryId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['start_time'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EstimatedPriceQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/costcenter/v1/estimated-price',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return EstimatedPriceQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
