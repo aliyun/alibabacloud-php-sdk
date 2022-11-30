@@ -24,6 +24,11 @@ class ListUserCertificateOrderRequest extends Model
     public $orderType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $showSize;
@@ -33,11 +38,12 @@ class ListUserCertificateOrderRequest extends Model
      */
     public $status;
     protected $_name = [
-        'currentPage' => 'CurrentPage',
-        'keyword'     => 'Keyword',
-        'orderType'   => 'OrderType',
-        'showSize'    => 'ShowSize',
-        'status'      => 'Status',
+        'currentPage'     => 'CurrentPage',
+        'keyword'         => 'Keyword',
+        'orderType'       => 'OrderType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'showSize'        => 'ShowSize',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ListUserCertificateOrderRequest extends Model
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
@@ -82,6 +91,9 @@ class ListUserCertificateOrderRequest extends Model
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];

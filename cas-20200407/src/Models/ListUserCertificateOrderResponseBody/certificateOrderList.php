@@ -136,6 +136,11 @@ class certificateOrderList extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $rootBrand;
 
     /**
@@ -208,6 +213,7 @@ class certificateOrderList extends Model
         'productCode'     => 'ProductCode',
         'productName'     => 'ProductName',
         'province'        => 'Province',
+        'resourceGroupId' => 'ResourceGroupId',
         'rootBrand'       => 'RootBrand',
         'sans'            => 'Sans',
         'serialNo'        => 'SerialNo',
@@ -301,6 +307,9 @@ class certificateOrderList extends Model
         }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->rootBrand) {
             $res['RootBrand'] = $this->rootBrand;
@@ -418,6 +427,9 @@ class certificateOrderList extends Model
         }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['RootBrand'])) {
             $model->rootBrand = $map['RootBrand'];

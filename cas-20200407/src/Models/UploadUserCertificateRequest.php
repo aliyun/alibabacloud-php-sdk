@@ -36,6 +36,11 @@ class UploadUserCertificateRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $signCert;
 
     /**
@@ -48,6 +53,7 @@ class UploadUserCertificateRequest extends Model
         'encryptPrivateKey' => 'EncryptPrivateKey',
         'key'               => 'Key',
         'name'              => 'Name',
+        'resourceGroupId'   => 'ResourceGroupId',
         'signCert'          => 'SignCert',
         'signPrivateKey'    => 'SignPrivateKey',
     ];
@@ -73,6 +79,9 @@ class UploadUserCertificateRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->signCert) {
             $res['SignCert'] = $this->signCert;
@@ -106,6 +115,9 @@ class UploadUserCertificateRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SignCert'])) {
             $model->signCert = $map['SignCert'];

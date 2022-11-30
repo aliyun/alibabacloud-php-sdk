@@ -1027,6 +1027,9 @@ class Cas extends OpenApiClient
         if (!Utils::isUnset($request->orderType)) {
             $query['OrderType'] = $request->orderType;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->showSize)) {
             $query['ShowSize'] = $request->showSize;
         }
@@ -1280,6 +1283,9 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->signCert)) {
             $query['SignCert'] = $request->signCert;
