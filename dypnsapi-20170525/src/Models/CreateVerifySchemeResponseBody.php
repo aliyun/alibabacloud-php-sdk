@@ -20,6 +20,11 @@ class CreateVerifySchemeResponseBody extends Model
     public $gateVerifySchemeDTO;
 
     /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var string
      */
     public $message;
@@ -28,11 +33,18 @@ class CreateVerifySchemeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'code'                => 'Code',
         'gateVerifySchemeDTO' => 'GateVerifySchemeDTO',
+        'httpStatusCode'      => 'HttpStatusCode',
         'message'             => 'Message',
         'requestId'           => 'RequestId',
+        'success'             => 'Success',
     ];
 
     public function validate()
@@ -48,11 +60,17 @@ class CreateVerifySchemeResponseBody extends Model
         if (null !== $this->gateVerifySchemeDTO) {
             $res['GateVerifySchemeDTO'] = null !== $this->gateVerifySchemeDTO ? $this->gateVerifySchemeDTO->toMap() : null;
         }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -72,11 +90,17 @@ class CreateVerifySchemeResponseBody extends Model
         if (isset($map['GateVerifySchemeDTO'])) {
             $model->gateVerifySchemeDTO = gateVerifySchemeDTO::fromMap($map['GateVerifySchemeDTO']);
         }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

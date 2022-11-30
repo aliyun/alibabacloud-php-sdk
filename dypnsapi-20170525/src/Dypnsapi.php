@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetCertifyResultRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetCertifyResultResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetMobileResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetSmsAuthTokensResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicRequest;
@@ -43,7 +45,8 @@ class Dypnsapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dypnsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -84,8 +87,29 @@ class Dypnsapi extends OpenApiClient
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
         }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
         if (!Utils::isUnset($request->bundleId)) {
             $query['BundleId'] = $request->bundleId;
+        }
+        if (!Utils::isUnset($request->cmApiCode)) {
+            $query['CmApiCode'] = $request->cmApiCode;
+        }
+        if (!Utils::isUnset($request->ctApiCode)) {
+            $query['CtApiCode'] = $request->ctApiCode;
+        }
+        if (!Utils::isUnset($request->cuApiCode)) {
+            $query['CuApiCode'] = $request->cuApiCode;
+        }
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->ipWhiteList)) {
+            $query['IpWhiteList'] = $request->ipWhiteList;
+        }
+        if (!Utils::isUnset($request->origin)) {
+            $query['Origin'] = $request->origin;
         }
         if (!Utils::isUnset($request->osType)) {
             $query['OsType'] = $request->osType;
@@ -105,8 +129,17 @@ class Dypnsapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->sceneType)) {
+            $query['SceneType'] = $request->sceneType;
+        }
         if (!Utils::isUnset($request->schemeName)) {
             $query['SchemeName'] = $request->schemeName;
+        }
+        if (!Utils::isUnset($request->smsSignName)) {
+            $query['SmsSignName'] = $request->smsSignName;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -466,6 +499,58 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMobileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPhoneWithTokenRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetPhoneWithTokenResponse
+     */
+    public function getPhoneWithTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->spToken)) {
+            $query['SpToken'] = $request->spToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPhoneWithToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPhoneWithTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPhoneWithTokenRequest $request
+     *
+     * @return GetPhoneWithTokenResponse
+     */
+    public function getPhoneWithToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPhoneWithTokenWithOptions($request, $runtime);
     }
 
     /**
