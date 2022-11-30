@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\ContinueCreateStackResponseBody\dryRunResult;
 use AlibabaCloud\Tea\Model;
 
 class ContinueCreateStackResponseBody extends Model
 {
+    /**
+     * @var dryRunResult
+     */
+    public $dryRunResult;
+
     /**
      * @var string
      */
@@ -18,8 +24,9 @@ class ContinueCreateStackResponseBody extends Model
      */
     public $stackId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'stackId'   => 'StackId',
+        'dryRunResult' => 'DryRunResult',
+        'requestId'    => 'RequestId',
+        'stackId'      => 'StackId',
     ];
 
     public function validate()
@@ -29,6 +36,9 @@ class ContinueCreateStackResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRunResult) {
+            $res['DryRunResult'] = null !== $this->dryRunResult ? $this->dryRunResult->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,6 +57,9 @@ class ContinueCreateStackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRunResult'])) {
+            $model->dryRunResult = dryRunResult::fromMap($map['DryRunResult']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
