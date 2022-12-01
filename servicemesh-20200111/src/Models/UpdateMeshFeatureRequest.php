@@ -209,6 +209,11 @@ class UpdateMeshFeatureRequest extends Model
     public $integrateKiali;
 
     /**
+     * @var string
+     */
+    public $interceptionMode;
+
+    /**
      * @var bool
      */
     public $kialiEnabled;
@@ -513,6 +518,7 @@ class UpdateMeshFeatureRequest extends Model
         'includeInboundPorts'             => 'IncludeInboundPorts',
         'includeOutboundPorts'            => 'IncludeOutboundPorts',
         'integrateKiali'                  => 'IntegrateKiali',
+        'interceptionMode'                => 'InterceptionMode',
         'kialiEnabled'                    => 'KialiEnabled',
         'lifecycle'                       => 'Lifecycle',
         'localityLBConf'                  => 'LocalityLBConf',
@@ -694,6 +700,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->integrateKiali) {
             $res['IntegrateKiali'] = $this->integrateKiali;
+        }
+        if (null !== $this->interceptionMode) {
+            $res['InterceptionMode'] = $this->interceptionMode;
         }
         if (null !== $this->kialiEnabled) {
             $res['KialiEnabled'] = $this->kialiEnabled;
@@ -985,6 +994,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['IntegrateKiali'])) {
             $model->integrateKiali = $map['IntegrateKiali'];
+        }
+        if (isset($map['InterceptionMode'])) {
+            $model->interceptionMode = $map['InterceptionMode'];
         }
         if (isset($map['KialiEnabled'])) {
             $model->kialiEnabled = $map['KialiEnabled'];

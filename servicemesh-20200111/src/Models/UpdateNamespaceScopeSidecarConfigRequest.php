@@ -49,6 +49,11 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $includeOutboundPorts;
 
     /**
+     * @var string
+     */
+    public $interceptionMode;
+
+    /**
      * @var bool
      */
     public $istioDNSProxyEnabled;
@@ -146,6 +151,7 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         'includeIPRanges'                   => 'IncludeIPRanges',
         'includeInboundPorts'               => 'IncludeInboundPorts',
         'includeOutboundPorts'              => 'IncludeOutboundPorts',
+        'interceptionMode'                  => 'InterceptionMode',
         'istioDNSProxyEnabled'              => 'IstioDNSProxyEnabled',
         'lifecycle'                         => 'Lifecycle',
         'logLevel'                          => 'LogLevel',
@@ -196,6 +202,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (null !== $this->includeOutboundPorts) {
             $res['IncludeOutboundPorts'] = $this->includeOutboundPorts;
+        }
+        if (null !== $this->interceptionMode) {
+            $res['InterceptionMode'] = $this->interceptionMode;
         }
         if (null !== $this->istioDNSProxyEnabled) {
             $res['IstioDNSProxyEnabled'] = $this->istioDNSProxyEnabled;
@@ -286,6 +295,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (isset($map['IncludeOutboundPorts'])) {
             $model->includeOutboundPorts = $map['IncludeOutboundPorts'];
+        }
+        if (isset($map['InterceptionMode'])) {
+            $model->interceptionMode = $map['InterceptionMode'];
         }
         if (isset($map['IstioDNSProxyEnabled'])) {
             $model->istioDNSProxyEnabled = $map['IstioDNSProxyEnabled'];

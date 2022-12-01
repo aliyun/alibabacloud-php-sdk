@@ -4220,6 +4220,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->integrateKiali)) {
             $body['IntegrateKiali'] = $request->integrateKiali;
         }
+        if (!Utils::isUnset($request->interceptionMode)) {
+            $body['InterceptionMode'] = $request->interceptionMode;
+        }
         if (!Utils::isUnset($request->kialiEnabled)) {
             $body['KialiEnabled'] = $request->kialiEnabled;
         }
@@ -4442,6 +4445,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->includeOutboundPorts)) {
             $body['IncludeOutboundPorts'] = $request->includeOutboundPorts;
+        }
+        if (!Utils::isUnset($request->interceptionMode)) {
+            $body['InterceptionMode'] = $request->interceptionMode;
         }
         if (!Utils::isUnset($request->istioDNSProxyEnabled)) {
             $body['IstioDNSProxyEnabled'] = $request->istioDNSProxyEnabled;
