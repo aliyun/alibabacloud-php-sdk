@@ -17,9 +17,15 @@ class delegatedService extends Model
      * @var string
      */
     public $servicePrincipal;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'delegationEnabledTime' => 'DelegationEnabledTime',
         'servicePrincipal'      => 'ServicePrincipal',
+        'status'                => 'Status',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class delegatedService extends Model
         }
         if (null !== $this->servicePrincipal) {
             $res['ServicePrincipal'] = $this->servicePrincipal;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class delegatedService extends Model
         }
         if (isset($map['ServicePrincipal'])) {
             $model->servicePrincipal = $map['ServicePrincipal'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

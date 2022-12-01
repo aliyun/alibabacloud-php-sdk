@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelHandshakeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelPromoteResourceAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CancelPromoteResourceAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CheckAccountDeleteRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CheckAccountDeleteResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateCloudAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateControlPolicyRequest;
@@ -40,6 +42,9 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleReq
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeclineHandshakeResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteAccountShrinkRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DeleteFolderRequest;
@@ -65,6 +70,10 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\DisableControlPolicyRespon
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\EnableResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionCheckResultResponse;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionStatusRequest;
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountDeletionStatusResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetAccountResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetControlPolicyEnablementStatusResponse;
@@ -553,6 +562,49 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelPromoteResourceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckAccountDeleteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckAccountDeleteResponse
+     */
+    public function checkAccountDeleteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckAccountDelete',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckAccountDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckAccountDeleteRequest $request
+     *
+     * @return CheckAccountDeleteResponse
+     */
+    public function checkAccountDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkAccountDeleteWithOptions($request, $runtime);
     }
 
     /**
@@ -1046,6 +1098,57 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->declineHandshakeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAccountRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccountWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAccountShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->abandonableCheckId)) {
+            $request->abandonableCheckIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->abandonableCheckId, 'AbandonableCheckId', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->abandonableCheckIdShrink)) {
+            $query['AbandonableCheckId'] = $request->abandonableCheckIdShrink;
+        }
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccount',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
+     */
+    public function deleteAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -1694,6 +1797,92 @@ class ResourceManager extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccountDeletionCheckResultRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAccountDeletionCheckResultResponse
+     */
+    public function getAccountDeletionCheckResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountDeletionCheckResult',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountDeletionCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccountDeletionCheckResultRequest $request
+     *
+     * @return GetAccountDeletionCheckResultResponse
+     */
+    public function getAccountDeletionCheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountDeletionCheckResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAccountDeletionStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAccountDeletionStatusResponse
+     */
+    public function getAccountDeletionStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountDeletionStatus',
+            'version'     => '2020-03-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAccountDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAccountDeletionStatusRequest $request
+     *
+     * @return GetAccountDeletionStatusResponse
+     */
+    public function getAccountDeletionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountDeletionStatusWithOptions($request, $runtime);
     }
 
     /**
