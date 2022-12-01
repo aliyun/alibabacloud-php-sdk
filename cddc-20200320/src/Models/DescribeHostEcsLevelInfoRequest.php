@@ -11,11 +11,6 @@ class DescribeHostEcsLevelInfoRequest extends Model
     /**
      * @var string
      */
-    public $commodityCode;
-
-    /**
-     * @var string
-     */
     public $dbType;
 
     /**
@@ -27,11 +22,6 @@ class DescribeHostEcsLevelInfoRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $payType;
 
     /**
      * @var string
@@ -58,11 +48,9 @@ class DescribeHostEcsLevelInfoRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'commodityCode'        => 'CommodityCode',
         'dbType'               => 'DbType',
         'imageCategory'        => 'ImageCategory',
         'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -77,9 +65,6 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
-        }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
@@ -88,9 +73,6 @@ class DescribeHostEcsLevelInfoRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -119,9 +101,6 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
-        }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
@@ -130,9 +109,6 @@ class DescribeHostEcsLevelInfoRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

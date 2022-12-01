@@ -41,12 +41,27 @@ class CreateMyBaseShrinkRequest extends Model
     /**
      * @var string
      */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $keyPairName;
+
+    /**
+     * @var string
+     */
     public $osPassword;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $passwordInherit;
 
     /**
      * @var string
@@ -104,8 +119,11 @@ class CreateMyBaseShrinkRequest extends Model
         'dedicatedHostGroupId'          => 'DedicatedHostGroupId',
         'ECSClassListShrink'            => 'ECSClassList',
         'engine'                        => 'Engine',
+        'imageId'                       => 'ImageId',
+        'keyPairName'                   => 'KeyPairName',
         'osPassword'                    => 'OsPassword',
         'ownerId'                       => 'OwnerId',
+        'passwordInherit'               => 'PasswordInherit',
         'payType'                       => 'PayType',
         'period'                        => 'Period',
         'periodType'                    => 'PeriodType',
@@ -143,11 +161,20 @@ class CreateMyBaseShrinkRequest extends Model
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
         if (null !== $this->osPassword) {
             $res['OsPassword'] = $this->osPassword;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->passwordInherit) {
+            $res['PasswordInherit'] = $this->passwordInherit;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -209,11 +236,20 @@ class CreateMyBaseShrinkRequest extends Model
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
         if (isset($map['OsPassword'])) {
             $model->osPassword = $map['OsPassword'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PasswordInherit'])) {
+            $model->passwordInherit = $map['PasswordInherit'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

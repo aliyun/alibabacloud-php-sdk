@@ -29,18 +29,10 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostSecurityGroupAttributeRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseHostOverViewRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseHostOverViewResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseInstanceOverViewRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseInstanceOverViewResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ListRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ListResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostAccountRequest;
@@ -61,14 +53,10 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\ReplaceDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ReplaceDedicatedHostResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\RestartDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\RestartDedicatedHostResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\TagRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -384,11 +372,20 @@ class Cddc extends OpenApiClient
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
         }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
         if (!Utils::isUnset($request->osPassword)) {
             $query['OsPassword'] = $request->osPassword;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->passwordInherit)) {
+            $query['PasswordInherit'] = $request->passwordInherit;
         }
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;
@@ -829,9 +826,6 @@ class Cddc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->commodityCode)) {
-            $query['CommodityCode'] = $request->commodityCode;
-        }
         if (!Utils::isUnset($request->dbType)) {
             $query['DbType'] = $request->dbType;
         }
@@ -840,9 +834,6 @@ class Cddc extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -887,61 +878,6 @@ class Cddc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHostEcsLevelInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHostSecurityGroupAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeHostSecurityGroupAttributeResponse
-     */
-    public function describeHostSecurityGroupAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dedicatedHostId)) {
-            $query['DedicatedHostId'] = $request->dedicatedHostId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeHostSecurityGroupAttribute',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeHostSecurityGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHostSecurityGroupAttributeRequest $request
-     *
-     * @return DescribeHostSecurityGroupAttributeResponse
-     */
-    public function describeHostSecurityGroupAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHostSecurityGroupAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -1000,116 +936,6 @@ class Cddc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHostWebShellWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMyBaseHostOverViewRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeMyBaseHostOverViewResponse
-     */
-    public function describeMyBaseHostOverViewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMyBaseHostOverView',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMyBaseHostOverViewResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMyBaseHostOverViewRequest $request
-     *
-     * @return DescribeMyBaseHostOverViewResponse
-     */
-    public function describeMyBaseHostOverView($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMyBaseHostOverViewWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMyBaseInstanceOverViewRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeMyBaseInstanceOverViewResponse
-     */
-    public function describeMyBaseInstanceOverViewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeMyBaseInstanceOverView',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeMyBaseInstanceOverViewResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMyBaseInstanceOverViewRequest $request
-     *
-     * @return DescribeMyBaseInstanceOverViewResponse
-     */
-    public function describeMyBaseInstanceOverView($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMyBaseInstanceOverViewWithOptions($request, $runtime);
     }
 
     /**
@@ -1888,221 +1714,5 @@ class Cddc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRequest    $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListResponse
-     */
-    public function listWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->bid)) {
-            $query['Bid'] = $request->bid;
-        }
-        if (!Utils::isUnset($request->keys)) {
-            $query['Keys'] = $request->keys;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->values)) {
-            $query['Values'] = $request->values;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'list',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListRequest $request
-     *
-     * @return ListResponse
-     */
-    public function list_($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagRequest     $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return TagResponse
-     */
-    public function tagWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->bid)) {
-            $query['Bid'] = $request->bid;
-        }
-        if (!Utils::isUnset($request->keys)) {
-            $query['Keys'] = $request->keys;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->values)) {
-            $query['Values'] = $request->values;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'tag',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TagResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param TagRequest $request
-     *
-     * @return TagResponse
-     */
-    public function tag($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UntagRequest   $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return UntagResponse
-     */
-    public function untagWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
-        }
-        if (!Utils::isUnset($request->bid)) {
-            $query['Bid'] = $request->bid;
-        }
-        if (!Utils::isUnset($request->keys)) {
-            $query['Keys'] = $request->keys;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->release)) {
-            $query['Release'] = $request->release;
-        }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
-        }
-        if (!Utils::isUnset($request->values)) {
-            $query['Values'] = $request->values;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'untag',
-            'version'     => '2020-03-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UntagResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UntagRequest $request
-     *
-     * @return UntagResponse
-     */
-    public function untag($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->untagWithOptions($request, $runtime);
     }
 }
