@@ -12,8 +12,14 @@ class RenewAppGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $result;
     protected $_name = [
         'requestId' => 'requestId',
+        'result'    => 'result',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class RenewAppGroupResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->result) {
+            $res['result'] = $this->result;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class RenewAppGroupResponseBody extends Model
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['result'])) {
+            $model->result = $map['result'];
         }
 
         return $model;

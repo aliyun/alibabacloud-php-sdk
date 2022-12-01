@@ -22,10 +22,16 @@ class result extends Model
      * @var string
      */
     public $modifyTime;
+
+    /**
+     * @var string
+     */
+    public $pathName;
     protected $_name = [
         'createTime' => 'createTime',
         'fileName'   => 'fileName',
         'modifyTime' => 'modifyTime',
+        'pathName'   => 'pathName',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class result extends Model
         }
         if (null !== $this->modifyTime) {
             $res['modifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->pathName) {
+            $res['pathName'] = $this->pathName;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class result extends Model
         }
         if (isset($map['modifyTime'])) {
             $model->modifyTime = $map['modifyTime'];
+        }
+        if (isset($map['pathName'])) {
+            $model->pathName = $map['pathName'];
         }
 
         return $model;
