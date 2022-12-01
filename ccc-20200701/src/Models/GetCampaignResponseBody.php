@@ -28,17 +28,11 @@ class GetCampaignResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'           => 'Code',
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'requestId'      => 'RequestId',
-        'success'        => 'Success',
     ];
 
     public function validate()
@@ -59,9 +53,6 @@ class GetCampaignResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -86,9 +77,6 @@ class GetCampaignResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

@@ -109,6 +109,11 @@ class list_ extends Model
     public $releaseInitiator;
 
     /**
+     * @var string
+     */
+    public $releaseReason;
+
+    /**
      * @var int
      */
     public $releaseTime;
@@ -178,6 +183,7 @@ class list_ extends Model
         'recordingDuration'         => 'RecordingDuration',
         'recordingReady'            => 'RecordingReady',
         'releaseInitiator'          => 'ReleaseInitiator',
+        'releaseReason'             => 'ReleaseReason',
         'releaseTime'               => 'ReleaseTime',
         'ringTime'                  => 'RingTime',
         'satisfactionDescription'   => 'SatisfactionDescription',
@@ -256,6 +262,9 @@ class list_ extends Model
         }
         if (null !== $this->releaseInitiator) {
             $res['ReleaseInitiator'] = $this->releaseInitiator;
+        }
+        if (null !== $this->releaseReason) {
+            $res['ReleaseReason'] = $this->releaseReason;
         }
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
@@ -358,6 +367,9 @@ class list_ extends Model
         }
         if (isset($map['ReleaseInitiator'])) {
             $model->releaseInitiator = $map['ReleaseInitiator'];
+        }
+        if (isset($map['ReleaseReason'])) {
+            $model->releaseReason = $map['ReleaseReason'];
         }
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];

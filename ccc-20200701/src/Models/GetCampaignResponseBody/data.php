@@ -19,8 +19,6 @@ class data extends Model
     public $actualStartTime;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $campaignId;

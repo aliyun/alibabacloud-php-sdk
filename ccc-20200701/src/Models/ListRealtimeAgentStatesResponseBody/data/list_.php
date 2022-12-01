@@ -21,7 +21,17 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $callType;
+
+    /**
+     * @var string
+     */
     public $counterParty;
+
+    /**
+     * @var int
+     */
+    public $duration;
 
     /**
      * @var string
@@ -32,6 +42,16 @@ class list_ extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var bool
+     */
+    public $outboundScenario;
 
     /**
      * @var string[]
@@ -57,17 +77,27 @@ class list_ extends Model
      * @var int
      */
     public $stateTime;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
         'agentId'            => 'AgentId',
         'agentName'          => 'AgentName',
+        'callType'           => 'CallType',
         'counterParty'       => 'CounterParty',
+        'duration'           => 'Duration',
         'extension'          => 'Extension',
         'instanceId'         => 'InstanceId',
+        'mobile'             => 'Mobile',
+        'outboundScenario'   => 'OutboundScenario',
         'skillGroupIdList'   => 'SkillGroupIdList',
         'skillGroupNameList' => 'SkillGroupNameList',
         'state'              => 'State',
         'stateCode'          => 'StateCode',
         'stateTime'          => 'StateTime',
+        'workMode'           => 'WorkMode',
     ];
 
     public function validate()
@@ -83,14 +113,26 @@ class list_ extends Model
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->callType) {
+            $res['CallType'] = $this->callType;
+        }
         if (null !== $this->counterParty) {
             $res['CounterParty'] = $this->counterParty;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->outboundScenario) {
+            $res['OutboundScenario'] = $this->outboundScenario;
         }
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
@@ -106,6 +148,9 @@ class list_ extends Model
         }
         if (null !== $this->stateTime) {
             $res['StateTime'] = $this->stateTime;
+        }
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
         }
 
         return $res;
@@ -125,14 +170,26 @@ class list_ extends Model
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['CallType'])) {
+            $model->callType = $map['CallType'];
+        }
         if (isset($map['CounterParty'])) {
             $model->counterParty = $map['CounterParty'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['OutboundScenario'])) {
+            $model->outboundScenario = $map['OutboundScenario'];
         }
         if (isset($map['SkillGroupIdList'])) {
             if (!empty($map['SkillGroupIdList'])) {
@@ -152,6 +209,9 @@ class list_ extends Model
         }
         if (isset($map['StateTime'])) {
             $model->stateTime = $map['StateTime'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;

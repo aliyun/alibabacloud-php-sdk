@@ -40,13 +40,25 @@ class list_ extends Model
      * @var overall
      */
     public $overall;
+
+    /**
+     * @var string
+     */
+    public $skillGroupIds;
+
+    /**
+     * @var string
+     */
+    public $skillGroupNames;
     protected $_name = [
-        'agentId'   => 'AgentId',
-        'agentName' => 'AgentName',
-        'displayId' => 'DisplayId',
-        'inbound'   => 'Inbound',
-        'outbound'  => 'Outbound',
-        'overall'   => 'Overall',
+        'agentId'         => 'AgentId',
+        'agentName'       => 'AgentName',
+        'displayId'       => 'DisplayId',
+        'inbound'         => 'Inbound',
+        'outbound'        => 'Outbound',
+        'overall'         => 'Overall',
+        'skillGroupIds'   => 'SkillGroupIds',
+        'skillGroupNames' => 'SkillGroupNames',
     ];
 
     public function validate()
@@ -73,6 +85,12 @@ class list_ extends Model
         }
         if (null !== $this->overall) {
             $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
+        }
+        if (null !== $this->skillGroupIds) {
+            $res['SkillGroupIds'] = $this->skillGroupIds;
+        }
+        if (null !== $this->skillGroupNames) {
+            $res['SkillGroupNames'] = $this->skillGroupNames;
         }
 
         return $res;
@@ -103,6 +121,12 @@ class list_ extends Model
         }
         if (isset($map['Overall'])) {
             $model->overall = overall::fromMap($map['Overall']);
+        }
+        if (isset($map['SkillGroupIds'])) {
+            $model->skillGroupIds = $map['SkillGroupIds'];
+        }
+        if (isset($map['SkillGroupNames'])) {
+            $model->skillGroupNames = $map['SkillGroupNames'];
         }
 
         return $model;

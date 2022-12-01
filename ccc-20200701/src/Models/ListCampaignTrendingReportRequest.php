@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListCampaignTrendingReportRequest extends Model
 {
     /**
-     * @description 活动ID
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;

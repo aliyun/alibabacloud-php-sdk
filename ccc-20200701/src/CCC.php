@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddCasesShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddNumbersToSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddNumbersToSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddPersonalNumbersToUserRequest;
@@ -36,6 +39,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateAudioFileRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateAudioFileResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCallTagsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignRequest;
@@ -49,22 +54,34 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteAudioFileRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteAudioFileResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCallTagRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCallTagResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\EndConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ExportDoNotCallNumbersResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileDownloadUrlRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileDownloadUrlResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileUploadParametersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetAudioFileUploadParametersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCaseFileUploadUrlResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportRequest;
@@ -95,8 +112,12 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnCredentialsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnServerListRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetTurnServerListResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetUploadAudioDataParamsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetUploadAudioDataParamsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetUserResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetVoicemailRecordingRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetVoicemailRecordingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsRequest;
@@ -121,6 +142,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightRe
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentSummaryReportsSinceMidnightResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAudioFilesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAudioFilesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsRequest;
@@ -159,6 +182,12 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIntervalSkillGroupReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIvrTrackingDetailsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListIvrTrackingDetailsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentEventLogsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentEventLogsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentStatusLogsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyAgentStatusLogsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyQueueEventLogsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListLegacyQueueEventLogsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsRequest;
@@ -183,10 +212,6 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListRecentCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListRecentCallDetailRecordsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListRolesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListRolesResponse;
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipCallRecordsRequest;
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipCallRecordsResponse;
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesRequest;
-use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupStatesRequest;
@@ -203,6 +228,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListUsersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MakeCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyAudioFileRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyAudioFileResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ModifyInstanceRequest;
@@ -255,6 +282,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ResetAgentStateRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetAgentStateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetUserPasswordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetUserPasswordResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RestoreArchivedRecordingsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\RestoreArchivedRecordingsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RetrieveCallRequest;
@@ -275,10 +304,16 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\SignOutGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SignOutGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPredictiveCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPredictiveCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartPrivacyCallRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\StartPrivacyCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SubmitCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SubmitCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SwitchToConferenceRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SwitchToConferenceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallRequest;
@@ -394,6 +429,60 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->abortCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddCasesRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return AddCasesResponse
+     */
+    public function addCasesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddCasesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->caseList)) {
+            $request->caseListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->caseList, 'CaseList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->campaignId)) {
+            $query['CampaignId'] = $request->campaignId;
+        }
+        if (!Utils::isUnset($request->caseListShrink)) {
+            $query['CaseList'] = $request->caseListShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCases',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCasesRequest $request
+     *
+     * @return AddCasesResponse
+     */
+    public function addCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCasesWithOptions($request, $runtime);
     }
 
     /**
@@ -990,6 +1079,12 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->signedSkillGroupIdList)) {
+            $query['SignedSkillGroupIdList'] = $request->signedSkillGroupIdList;
+        }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
         }
@@ -1134,6 +1229,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->completeAttendedTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAudioFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAudioFileResponse
+     */
+    public function createAudioFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioFileName)) {
+            $query['AudioFileName'] = $request->audioFileName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossFileKey)) {
+            $query['OssFileKey'] = $request->ossFileKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAudioFile',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAudioFileRequest $request
+     *
+     * @return CreateAudioFileResponse
+     */
+    public function createAudioFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAudioFileWithOptions($request, $runtime);
     }
 
     /**
@@ -1496,6 +1643,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteAudioFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAudioFileResponse
+     */
+    public function deleteAudioFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioResourceId)) {
+            $query['AudioResourceId'] = $request->audioResourceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAudioFile',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAudioFileRequest $request
+     *
+     * @return DeleteAudioFileResponse
+     */
+    public function deleteAudioFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAudioFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCallTagRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1637,6 +1830,55 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param EndConferenceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return EndConferenceResponse
+     */
+    public function endConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EndConference',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EndConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EndConferenceRequest $request
+     *
+     * @return EndConferenceResponse
+     */
+    public function endConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->endConferenceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ExportCustomCallTaggingRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1726,6 +1968,144 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportDoNotCallNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAudioFileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAudioFileResponse
+     */
+    public function getAudioFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioResourceId)) {
+            $query['AudioResourceId'] = $request->audioResourceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAudioFile',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAudioFileRequest $request
+     *
+     * @return GetAudioFileResponse
+     */
+    public function getAudioFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAudioFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAudioFileDownloadUrlRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAudioFileDownloadUrlResponse
+     */
+    public function getAudioFileDownloadUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioResourceId)) {
+            $query['AudioResourceId'] = $request->audioResourceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAudioFileDownloadUrl',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAudioFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAudioFileDownloadUrlRequest $request
+     *
+     * @return GetAudioFileDownloadUrlResponse
+     */
+    public function getAudioFileDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAudioFileDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAudioFileUploadParametersRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAudioFileUploadParametersResponse
+     */
+    public function getAudioFileUploadParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioFileName)) {
+            $query['AudioFileName'] = $request->audioFileName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAudioFileUploadParameters',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAudioFileUploadParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAudioFileUploadParametersRequest $request
+     *
+     * @return GetAudioFileUploadParametersResponse
+     */
+    public function getAudioFileUploadParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAudioFileUploadParametersWithOptions($request, $runtime);
     }
 
     /**
@@ -1864,6 +2244,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCaseFileUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetConversationDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetConversationDetailResponse
+     */
+    public function getConversationDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConversationDetail',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConversationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetConversationDetailRequest $request
+     *
+     * @return GetConversationDetailResponse
+     */
+    public function getConversationDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConversationDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -2548,6 +2974,46 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param GetUploadAudioDataParamsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetUploadAudioDataParamsResponse
+     */
+    public function getUploadAudioDataParamsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUploadAudioDataParams',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUploadAudioDataParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUploadAudioDataParamsRequest $request
+     *
+     * @return GetUploadAudioDataParamsResponse
+     */
+    public function getUploadAudioDataParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUploadAudioDataParamsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetUserRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -2594,6 +3060,52 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVoicemailRecordingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetVoicemailRecordingResponse
+     */
+    public function getVoicemailRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVoicemailRecording',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVoicemailRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVoicemailRecordingRequest $request
+     *
+     * @return GetVoicemailRecordingResponse
+     */
+    public function getVoicemailRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVoicemailRecordingWithOptions($request, $runtime);
     }
 
     /**
@@ -3104,6 +3616,9 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->agentIds)) {
             $query['AgentIds'] = $request->agentIds;
         }
+        if (!Utils::isUnset($request->excludeOfflineUsers)) {
+            $query['ExcludeOfflineUsers'] = $request->excludeOfflineUsers;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -3227,6 +3742,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAttemptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAudioFilesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAudioFilesResponse
+     */
+    public function listAudioFilesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAudioFiles',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAudioFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAudioFilesRequest $request
+     *
+     * @return ListAudioFilesResponse
+     */
+    public function listAudioFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAudioFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -4282,6 +4846,180 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param ListLegacyAgentEventLogsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListLegacyAgentEventLogsResponse
+     */
+    public function listLegacyAgentEventLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentId)) {
+            $query['AgentId'] = $request->agentId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLegacyAgentEventLogs',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLegacyAgentEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLegacyAgentEventLogsRequest $request
+     *
+     * @return ListLegacyAgentEventLogsResponse
+     */
+    public function listLegacyAgentEventLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLegacyAgentEventLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLegacyAgentStatusLogsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLegacyAgentStatusLogsResponse
+     */
+    public function listLegacyAgentStatusLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentId)) {
+            $query['AgentId'] = $request->agentId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLegacyAgentStatusLogs',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLegacyAgentStatusLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLegacyAgentStatusLogsRequest $request
+     *
+     * @return ListLegacyAgentStatusLogsResponse
+     */
+    public function listLegacyAgentStatusLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLegacyAgentStatusLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListLegacyQueueEventLogsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListLegacyQueueEventLogsResponse
+     */
+    public function listLegacyQueueEventLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->skillGroupId)) {
+            $query['SkillGroupId'] = $request->skillGroupId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLegacyQueueEventLogs',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLegacyQueueEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLegacyQueueEventLogsRequest $request
+     *
+     * @return ListLegacyQueueEventLogsResponse
+     */
+    public function listLegacyQueueEventLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLegacyQueueEventLogsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListMonoRecordingsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4713,8 +5451,14 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->agentName)) {
             $query['AgentName'] = $request->agentName;
         }
+        if (!Utils::isUnset($request->callTypeList)) {
+            $query['CallTypeList'] = $request->callTypeList;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->outboundScenario)) {
+            $query['OutboundScenario'] = $request->outboundScenario;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -4722,8 +5466,14 @@ class CCC extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
         if (!Utils::isUnset($request->skillGroupId)) {
             $query['SkillGroupId'] = $request->skillGroupId;
+        }
+        if (!Utils::isUnset($request->workModeList)) {
+            $query['WorkModeList'] = $request->workModeList;
         }
         $body = [];
         if (!Utils::isUnset($request->agentIdList)) {
@@ -4918,98 +5668,6 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRolesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSipCallRecordsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListSipCallRecordsResponse
-     */
-    public function listSipCallRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->contactIdList)) {
-            $query['ContactIdList'] = $request->contactIdList;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListSipCallRecords',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListSipCallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListSipCallRecordsRequest $request
-     *
-     * @return ListSipCallRecordsResponse
-     */
-    public function listSipCallRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSipCallRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSipTracesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListSipTracesResponse
-     */
-    public function listSipTracesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListSipTraces',
-            'version'     => '2020-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListSipTracesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListSipTracesRequest $request
-     *
-     * @return ListSipTracesResponse
-     */
-    public function listSipTraces($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSipTracesWithOptions($request, $runtime);
     }
 
     /**
@@ -5212,9 +5870,6 @@ class CCC extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -5426,6 +6081,61 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->makeCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAudioFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyAudioFileResponse
+     */
+    public function modifyAudioFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioFileName)) {
+            $query['AudioFileName'] = $request->audioFileName;
+        }
+        if (!Utils::isUnset($request->audioResourceId)) {
+            $query['AudioResourceId'] = $request->audioResourceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->ossFileKey)) {
+            $query['OssFileKey'] = $request->ossFileKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAudioFile',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAudioFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAudioFileRequest $request
+     *
+     * @return ModifyAudioFileResponse
+     */
+    public function modifyAudioFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAudioFileWithOptions($request, $runtime);
     }
 
     /**
@@ -6739,6 +7449,52 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param RestoreArchivedRecordingsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RestoreArchivedRecordingsResponse
+     */
+    public function restoreArchivedRecordingsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->contactIds)) {
+            $query['ContactIds'] = $request->contactIds;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestoreArchivedRecordings',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestoreArchivedRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestoreArchivedRecordingsRequest $request
+     *
+     * @return RestoreArchivedRecordingsResponse
+     */
+    public function restoreArchivedRecordings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreArchivedRecordingsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResumeCampaignRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -7298,6 +8054,61 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param StartConferenceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StartConferenceResponse
+     */
+    public function startConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->participantListJson)) {
+            $query['ParticipantListJson'] = $request->participantListJson;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->timeoutSeconds)) {
+            $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartConference',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartConferenceRequest $request
+     *
+     * @return StartConferenceResponse
+     */
+    public function startConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startConferenceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StartPredictiveCallRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -7365,6 +8176,58 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param StartPrivacyCallRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StartPrivacyCallResponse
+     */
+    public function startPrivacyCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->callee)) {
+            $query['Callee'] = $request->callee;
+        }
+        if (!Utils::isUnset($request->caller)) {
+            $query['Caller'] = $request->caller;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartPrivacyCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartPrivacyCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartPrivacyCallRequest $request
+     *
+     * @return StartPrivacyCallResponse
+     */
+    public function startPrivacyCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPrivacyCallWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitCampaignRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -7408,6 +8271,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchToConferenceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SwitchToConferenceResponse
+     */
+    public function switchToConferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchToConference',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchToConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchToConferenceRequest $request
+     *
+     * @return SwitchToConferenceResponse
+     */
+    public function switchToConference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchToConferenceWithOptions($request, $runtime);
     }
 
     /**

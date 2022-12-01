@@ -39,6 +39,11 @@ class outbound extends Model
     public $callsDialed;
 
     /**
+     * @var string
+     */
+    public $callsServiceLevel30;
+
+    /**
      * @var int
      */
     public $maxDialingTime;
@@ -89,6 +94,7 @@ class outbound extends Model
         'averageWorkTime'              => 'AverageWorkTime',
         'callsAnswered'                => 'CallsAnswered',
         'callsDialed'                  => 'CallsDialed',
+        'callsServiceLevel30'          => 'CallsServiceLevel30',
         'maxDialingTime'               => 'MaxDialingTime',
         'maxTalkTime'                  => 'MaxTalkTime',
         'maxWorkTime'                  => 'MaxWorkTime',
@@ -124,6 +130,9 @@ class outbound extends Model
         }
         if (null !== $this->callsDialed) {
             $res['CallsDialed'] = $this->callsDialed;
+        }
+        if (null !== $this->callsServiceLevel30) {
+            $res['CallsServiceLevel30'] = $this->callsServiceLevel30;
         }
         if (null !== $this->maxDialingTime) {
             $res['MaxDialingTime'] = $this->maxDialingTime;
@@ -181,6 +190,9 @@ class outbound extends Model
         }
         if (isset($map['CallsDialed'])) {
             $model->callsDialed = $map['CallsDialed'];
+        }
+        if (isset($map['CallsServiceLevel30'])) {
+            $model->callsServiceLevel30 = $map['CallsServiceLevel30'];
         }
         if (isset($map['MaxDialingTime'])) {
             $model->maxDialingTime = $map['MaxDialingTime'];

@@ -21,7 +21,17 @@ class ListRealtimeAgentStatesRequest extends Model
     /**
      * @var string
      */
+    public $callTypeList;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $outboundScenario;
 
     /**
      * @var int
@@ -36,20 +46,34 @@ class ListRealtimeAgentStatesRequest extends Model
     /**
      * @var string
      */
+    public $query;
+
+    /**
+     * @var string
+     */
     public $skillGroupId;
 
     /**
      * @var string
      */
     public $stateList;
+
+    /**
+     * @var string
+     */
+    public $workModeList;
     protected $_name = [
-        'agentIdList'  => 'AgentIdList',
-        'agentName'    => 'AgentName',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'skillGroupId' => 'SkillGroupId',
-        'stateList'    => 'StateList',
+        'agentIdList'      => 'AgentIdList',
+        'agentName'        => 'AgentName',
+        'callTypeList'     => 'CallTypeList',
+        'instanceId'       => 'InstanceId',
+        'outboundScenario' => 'OutboundScenario',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'query'            => 'Query',
+        'skillGroupId'     => 'SkillGroupId',
+        'stateList'        => 'StateList',
+        'workModeList'     => 'WorkModeList',
     ];
 
     public function validate()
@@ -65,8 +89,14 @@ class ListRealtimeAgentStatesRequest extends Model
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->callTypeList) {
+            $res['CallTypeList'] = $this->callTypeList;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->outboundScenario) {
+            $res['OutboundScenario'] = $this->outboundScenario;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +104,17 @@ class ListRealtimeAgentStatesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
+        }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->stateList) {
             $res['StateList'] = $this->stateList;
+        }
+        if (null !== $this->workModeList) {
+            $res['WorkModeList'] = $this->workModeList;
         }
 
         return $res;
@@ -98,8 +134,14 @@ class ListRealtimeAgentStatesRequest extends Model
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['CallTypeList'])) {
+            $model->callTypeList = $map['CallTypeList'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OutboundScenario'])) {
+            $model->outboundScenario = $map['OutboundScenario'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -107,11 +149,17 @@ class ListRealtimeAgentStatesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
+        }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['StateList'])) {
             $model->stateList = $map['StateList'];
+        }
+        if (isset($map['WorkModeList'])) {
+            $model->workModeList = $map['WorkModeList'];
         }
 
         return $model;

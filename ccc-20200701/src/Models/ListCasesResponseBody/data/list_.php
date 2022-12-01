@@ -31,11 +31,6 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $expandInfo;
-
-    /**
-     * @var string
-     */
     public $failureReason;
 
     /**
@@ -52,7 +47,6 @@ class list_ extends Model
         'attemptCount'    => 'AttemptCount',
         'caseId'          => 'CaseId',
         'customVariables' => 'CustomVariables',
-        'expandInfo'      => 'ExpandInfo',
         'failureReason'   => 'FailureReason',
         'phoneNumber'     => 'PhoneNumber',
         'state'           => 'State',
@@ -76,9 +70,6 @@ class list_ extends Model
         }
         if (null !== $this->customVariables) {
             $res['CustomVariables'] = $this->customVariables;
-        }
-        if (null !== $this->expandInfo) {
-            $res['ExpandInfo'] = $this->expandInfo;
         }
         if (null !== $this->failureReason) {
             $res['FailureReason'] = $this->failureReason;
@@ -112,9 +103,6 @@ class list_ extends Model
         }
         if (isset($map['CustomVariables'])) {
             $model->customVariables = $map['CustomVariables'];
-        }
-        if (isset($map['ExpandInfo'])) {
-            $model->expandInfo = $map['ExpandInfo'];
         }
         if (isset($map['FailureReason'])) {
             $model->failureReason = $map['FailureReason'];

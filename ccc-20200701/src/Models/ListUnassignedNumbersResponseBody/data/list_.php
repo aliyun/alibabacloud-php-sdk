@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var bool
-     */
-    public $active;
-
-    /**
      * @var string
      */
     public $city;
@@ -27,17 +22,10 @@ class list_ extends Model
      * @var string
      */
     public $province;
-
-    /**
-     * @var bool
-     */
-    public $usage;
     protected $_name = [
-        'active'   => 'Active',
         'city'     => 'City',
         'number'   => 'Number',
         'province' => 'Province',
-        'usage'    => 'Usage',
     ];
 
     public function validate()
@@ -47,9 +35,6 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->active) {
-            $res['Active'] = $this->active;
-        }
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
@@ -58,9 +43,6 @@ class list_ extends Model
         }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
-        }
-        if (null !== $this->usage) {
-            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -74,9 +56,6 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Active'])) {
-            $model->active = $map['Active'];
-        }
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
@@ -85,9 +64,6 @@ class list_ extends Model
         }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
-        }
-        if (isset($map['Usage'])) {
-            $model->usage = $map['Usage'];
         }
 
         return $model;

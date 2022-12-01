@@ -15,6 +15,11 @@ class callContext extends Model
     public $callType;
 
     /**
+     * @var string
+     */
+    public $callVariables;
+
+    /**
      * @var channelContexts[]
      */
     public $channelContexts;
@@ -30,6 +35,7 @@ class callContext extends Model
     public $jobId;
     protected $_name = [
         'callType'        => 'CallType',
+        'callVariables'   => 'CallVariables',
         'channelContexts' => 'ChannelContexts',
         'instanceId'      => 'InstanceId',
         'jobId'           => 'JobId',
@@ -44,6 +50,9 @@ class callContext extends Model
         $res = [];
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
+        }
+        if (null !== $this->callVariables) {
+            $res['CallVariables'] = $this->callVariables;
         }
         if (null !== $this->channelContexts) {
             $res['ChannelContexts'] = [];
@@ -74,6 +83,9 @@ class callContext extends Model
         $model = new self();
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
+        }
+        if (isset($map['CallVariables'])) {
+            $model->callVariables = $map['CallVariables'];
         }
         if (isset($map['ChannelContexts'])) {
             if (!empty($map['ChannelContexts'])) {

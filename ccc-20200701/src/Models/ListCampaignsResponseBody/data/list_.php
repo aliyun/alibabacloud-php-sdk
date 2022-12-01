@@ -19,8 +19,6 @@ class list_ extends Model
     public $actualStartTime;
 
     /**
-     * @description id
-     *
      * @var string
      */
     public $campaignId;
@@ -81,8 +79,6 @@ class list_ extends Model
     public $simulation;
 
     /**
-     * @description state
-     *
      * @var string
      */
     public $state;

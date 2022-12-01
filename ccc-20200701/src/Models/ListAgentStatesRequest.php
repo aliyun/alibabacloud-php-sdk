@@ -14,6 +14,11 @@ class ListAgentStatesRequest extends Model
     public $agentIds;
 
     /**
+     * @var bool
+     */
+    public $excludeOfflineUsers;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -38,12 +43,13 @@ class ListAgentStatesRequest extends Model
      */
     public $state;
     protected $_name = [
-        'agentIds'     => 'AgentIds',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'skillGroupId' => 'SkillGroupId',
-        'state'        => 'State',
+        'agentIds'            => 'AgentIds',
+        'excludeOfflineUsers' => 'ExcludeOfflineUsers',
+        'instanceId'          => 'InstanceId',
+        'pageNumber'          => 'PageNumber',
+        'pageSize'            => 'PageSize',
+        'skillGroupId'        => 'SkillGroupId',
+        'state'               => 'State',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ListAgentStatesRequest extends Model
         $res = [];
         if (null !== $this->agentIds) {
             $res['AgentIds'] = $this->agentIds;
+        }
+        if (null !== $this->excludeOfflineUsers) {
+            $res['ExcludeOfflineUsers'] = $this->excludeOfflineUsers;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -85,6 +94,9 @@ class ListAgentStatesRequest extends Model
         $model = new self();
         if (isset($map['AgentIds'])) {
             $model->agentIds = $map['AgentIds'];
+        }
+        if (isset($map['ExcludeOfflineUsers'])) {
+            $model->excludeOfflineUsers = $map['ExcludeOfflineUsers'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

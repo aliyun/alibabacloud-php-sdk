@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ResumeCampaignResponseBody extends Model
 {
     /**
-     * @description code
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description httpStatusCode
-     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
-     * @description message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

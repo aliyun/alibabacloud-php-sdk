@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetHistoricalCampaignReportRequest extends Model
 {
     /**
-     * @description 活动ID
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;

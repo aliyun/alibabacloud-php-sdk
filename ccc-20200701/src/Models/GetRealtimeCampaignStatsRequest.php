@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetRealtimeCampaignStatsRequest extends Model
 {
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 活动ID
-     *
      * @var string
      */
     public $queueId;

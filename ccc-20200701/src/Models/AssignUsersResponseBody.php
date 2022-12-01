@@ -36,11 +36,6 @@ class AssignUsersResponseBody extends Model
     /**
      * @var string
      */
-    public $sync;
-
-    /**
-     * @var string
-     */
     public $workflowId;
     protected $_name = [
         'code'           => 'Code',
@@ -48,7 +43,6 @@ class AssignUsersResponseBody extends Model
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'sync'           => 'Sync',
         'workflowId'     => 'WorkflowId',
     ];
 
@@ -73,9 +67,6 @@ class AssignUsersResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->sync) {
-            $res['Sync'] = $this->sync;
         }
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
@@ -106,9 +97,6 @@ class AssignUsersResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Sync'])) {
-            $model->sync = $map['Sync'];
         }
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];

@@ -108,6 +108,11 @@ class data extends Model
     public $releaseInitiator;
 
     /**
+     * @var string
+     */
+    public $releaseReason;
+
+    /**
      * @var int
      */
     public $releaseTime;
@@ -161,6 +166,7 @@ class data extends Model
         'queueEvents'               => 'QueueEvents',
         'recordingReady'            => 'RecordingReady',
         'releaseInitiator'          => 'ReleaseInitiator',
+        'releaseReason'             => 'ReleaseReason',
         'releaseTime'               => 'ReleaseTime',
         'satisfaction'              => 'Satisfaction',
         'satisfactionSurveyChannel' => 'SatisfactionSurveyChannel',
@@ -257,6 +263,9 @@ class data extends Model
         }
         if (null !== $this->releaseInitiator) {
             $res['ReleaseInitiator'] = $this->releaseInitiator;
+        }
+        if (null !== $this->releaseReason) {
+            $res['ReleaseReason'] = $this->releaseReason;
         }
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
@@ -371,6 +380,9 @@ class data extends Model
         }
         if (isset($map['ReleaseInitiator'])) {
             $model->releaseInitiator = $map['ReleaseInitiator'];
+        }
+        if (isset($map['ReleaseReason'])) {
+            $model->releaseReason = $map['ReleaseReason'];
         }
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];

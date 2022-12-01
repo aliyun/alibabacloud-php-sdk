@@ -31,6 +31,11 @@ class list_ extends Model
     /**
      * @var int
      */
+    public $outboundScenarioReadyAgents;
+
+    /**
+     * @var int
+     */
     public $readyAgents;
 
     /**
@@ -58,16 +63,17 @@ class list_ extends Model
      */
     public $workingAgents;
     protected $_name = [
-        'breakingAgents'     => 'BreakingAgents',
-        'instanceId'         => 'InstanceId',
-        'loggedInAgents'     => 'LoggedInAgents',
-        'longestWaitingTime' => 'LongestWaitingTime',
-        'readyAgents'        => 'ReadyAgents',
-        'skillGroupId'       => 'SkillGroupId',
-        'skillGroupName'     => 'SkillGroupName',
-        'talkingAgents'      => 'TalkingAgents',
-        'waitingCalls'       => 'WaitingCalls',
-        'workingAgents'      => 'WorkingAgents',
+        'breakingAgents'              => 'BreakingAgents',
+        'instanceId'                  => 'InstanceId',
+        'loggedInAgents'              => 'LoggedInAgents',
+        'longestWaitingTime'          => 'LongestWaitingTime',
+        'outboundScenarioReadyAgents' => 'OutboundScenarioReadyAgents',
+        'readyAgents'                 => 'ReadyAgents',
+        'skillGroupId'                => 'SkillGroupId',
+        'skillGroupName'              => 'SkillGroupName',
+        'talkingAgents'               => 'TalkingAgents',
+        'waitingCalls'                => 'WaitingCalls',
+        'workingAgents'               => 'WorkingAgents',
     ];
 
     public function validate()
@@ -88,6 +94,9 @@ class list_ extends Model
         }
         if (null !== $this->longestWaitingTime) {
             $res['LongestWaitingTime'] = $this->longestWaitingTime;
+        }
+        if (null !== $this->outboundScenarioReadyAgents) {
+            $res['OutboundScenarioReadyAgents'] = $this->outboundScenarioReadyAgents;
         }
         if (null !== $this->readyAgents) {
             $res['ReadyAgents'] = $this->readyAgents;
@@ -130,6 +139,9 @@ class list_ extends Model
         }
         if (isset($map['LongestWaitingTime'])) {
             $model->longestWaitingTime = $map['LongestWaitingTime'];
+        }
+        if (isset($map['OutboundScenarioReadyAgents'])) {
+            $model->outboundScenarioReadyAgents = $map['OutboundScenarioReadyAgents'];
         }
         if (isset($map['ReadyAgents'])) {
             $model->readyAgents = $map['ReadyAgents'];

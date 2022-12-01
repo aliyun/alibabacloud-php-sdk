@@ -66,11 +66,6 @@ class userContext extends Model
     /**
      * @var string
      */
-    public $uri;
-
-    /**
-     * @var string
-     */
     public $userId;
 
     /**
@@ -94,7 +89,6 @@ class userContext extends Model
         'outboundScenario'       => 'OutboundScenario',
         'reserved'               => 'Reserved',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
-        'uri'                    => 'Uri',
         'userId'                 => 'UserId',
         'userState'              => 'UserState',
         'workMode'               => 'WorkMode',
@@ -139,9 +133,6 @@ class userContext extends Model
         }
         if (null !== $this->signedSkillGroupIdList) {
             $res['SignedSkillGroupIdList'] = $this->signedSkillGroupIdList;
-        }
-        if (null !== $this->uri) {
-            $res['Uri'] = $this->uri;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -198,9 +189,6 @@ class userContext extends Model
             if (!empty($map['SignedSkillGroupIdList'])) {
                 $model->signedSkillGroupIdList = $map['SignedSkillGroupIdList'];
             }
-        }
-        if (isset($map['Uri'])) {
-            $model->uri = $map['Uri'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

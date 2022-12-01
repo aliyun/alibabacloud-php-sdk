@@ -21,6 +21,16 @@ class ChangeWorkModeRequest extends Model
     /**
      * @var string
      */
+    public $mobile;
+
+    /**
+     * @var string
+     */
+    public $signedSkillGroupIdList;
+
+    /**
+     * @var string
+     */
     public $userId;
 
     /**
@@ -28,10 +38,12 @@ class ChangeWorkModeRequest extends Model
      */
     public $workMode;
     protected $_name = [
-        'deviceId'   => 'DeviceId',
-        'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
-        'workMode'   => 'WorkMode',
+        'deviceId'               => 'DeviceId',
+        'instanceId'             => 'InstanceId',
+        'mobile'                 => 'Mobile',
+        'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
+        'userId'                 => 'UserId',
+        'workMode'               => 'WorkMode',
     ];
 
     public function validate()
@@ -46,6 +58,12 @@ class ChangeWorkModeRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->signedSkillGroupIdList) {
+            $res['SignedSkillGroupIdList'] = $this->signedSkillGroupIdList;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -70,6 +88,12 @@ class ChangeWorkModeRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['SignedSkillGroupIdList'])) {
+            $model->signedSkillGroupIdList = $map['SignedSkillGroupIdList'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

@@ -21,6 +21,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $breakCode;
+
+    /**
+     * @var string
+     */
     public $dn;
 
     /**
@@ -34,6 +39,11 @@ class list_ extends Model
     public $loginName;
 
     /**
+     * @var bool
+     */
+    public $outboundScenario;
+
+    /**
      * @var string
      */
     public $state;
@@ -43,13 +53,15 @@ class list_ extends Model
      */
     public $stateDuration;
     protected $_name = [
-        'agentId'       => 'AgentId',
-        'agentName'     => 'AgentName',
-        'dn'            => 'Dn',
-        'instanceId'    => 'InstanceId',
-        'loginName'     => 'LoginName',
-        'state'         => 'State',
-        'stateDuration' => 'StateDuration',
+        'agentId'          => 'AgentId',
+        'agentName'        => 'AgentName',
+        'breakCode'        => 'BreakCode',
+        'dn'               => 'Dn',
+        'instanceId'       => 'InstanceId',
+        'loginName'        => 'LoginName',
+        'outboundScenario' => 'OutboundScenario',
+        'state'            => 'State',
+        'stateDuration'    => 'StateDuration',
     ];
 
     public function validate()
@@ -65,6 +77,9 @@ class list_ extends Model
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
+        if (null !== $this->breakCode) {
+            $res['BreakCode'] = $this->breakCode;
+        }
         if (null !== $this->dn) {
             $res['Dn'] = $this->dn;
         }
@@ -73,6 +88,9 @@ class list_ extends Model
         }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
+        }
+        if (null !== $this->outboundScenario) {
+            $res['OutboundScenario'] = $this->outboundScenario;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -98,6 +116,9 @@ class list_ extends Model
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
+        if (isset($map['BreakCode'])) {
+            $model->breakCode = $map['BreakCode'];
+        }
         if (isset($map['Dn'])) {
             $model->dn = $map['Dn'];
         }
@@ -106,6 +127,9 @@ class list_ extends Model
         }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
+        }
+        if (isset($map['OutboundScenario'])) {
+            $model->outboundScenario = $map['OutboundScenario'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

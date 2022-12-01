@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListUnassignedNumbersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -28,7 +23,6 @@ class ListUnassignedNumbersRequest extends Model
      */
     public $searchPattern;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'searchPattern' => 'SearchPattern',
@@ -41,9 +35,6 @@ class ListUnassignedNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -65,9 +56,6 @@ class ListUnassignedNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

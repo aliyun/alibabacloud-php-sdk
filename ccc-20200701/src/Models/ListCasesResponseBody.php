@@ -15,8 +15,6 @@ class ListCasesResponseBody extends Model
     public $code;
 
     /**
-     * @description data
-     *
      * @var data
      */
     public $data;
@@ -35,18 +33,12 @@ class ListCasesResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'code'           => 'Code',
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'success'        => 'Success',
     ];
 
     public function validate()
@@ -70,9 +62,6 @@ class ListCasesResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -100,9 +89,6 @@ class ListCasesResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

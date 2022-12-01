@@ -21,6 +21,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $ramId;
+
+    /**
+     * @var string
+     */
     public $roleId;
 
     /**
@@ -50,6 +55,7 @@ class list_ extends Model
     protected $_name = [
         'displayName'    => 'DisplayName',
         'loginName'      => 'LoginName',
+        'ramId'          => 'RamId',
         'roleId'         => 'RoleId',
         'roleName'       => 'RoleName',
         'skillGroupId'   => 'SkillGroupId',
@@ -70,6 +76,9 @@ class list_ extends Model
         }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
+        }
+        if (null !== $this->ramId) {
+            $res['RamId'] = $this->ramId;
         }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
@@ -106,6 +115,9 @@ class list_ extends Model
         }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
+        }
+        if (isset($map['RamId'])) {
+            $model->ramId = $map['RamId'];
         }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];

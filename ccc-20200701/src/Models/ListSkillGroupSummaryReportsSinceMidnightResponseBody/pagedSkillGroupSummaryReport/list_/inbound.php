@@ -46,12 +46,27 @@ class inbound extends Model
     /**
      * @var int
      */
+    public $callsAttendedTransferOut;
+
+    /**
+     * @var int
+     */
+    public $callsBlindTransferOut;
+
+    /**
+     * @var int
+     */
     public $callsHandled;
 
     /**
      * @var int
      */
     public $callsOffered;
+
+    /**
+     * @var int
+     */
+    public $callsServiceLevel10;
 
     /**
      * @var int
@@ -150,8 +165,11 @@ class inbound extends Model
         'averageRingTime'                           => 'AverageRingTime',
         'averageTalkTime'                           => 'AverageTalkTime',
         'averageWorkTime'                           => 'AverageWorkTime',
+        'callsAttendedTransferOut'                  => 'CallsAttendedTransferOut',
+        'callsBlindTransferOut'                     => 'CallsBlindTransferOut',
         'callsHandled'                              => 'CallsHandled',
         'callsOffered'                              => 'CallsOffered',
+        'callsServiceLevel10'                       => 'CallsServiceLevel10',
         'callsServiceLevel20'                       => 'CallsServiceLevel20',
         'callsServiceLevel30'                       => 'CallsServiceLevel30',
         'giveUpByAgentOfQueueCount'                 => 'GiveUpByAgentOfQueueCount',
@@ -200,11 +218,20 @@ class inbound extends Model
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
         }
+        if (null !== $this->callsAttendedTransferOut) {
+            $res['CallsAttendedTransferOut'] = $this->callsAttendedTransferOut;
+        }
+        if (null !== $this->callsBlindTransferOut) {
+            $res['CallsBlindTransferOut'] = $this->callsBlindTransferOut;
+        }
         if (null !== $this->callsHandled) {
             $res['CallsHandled'] = $this->callsHandled;
         }
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
+        }
+        if (null !== $this->callsServiceLevel10) {
+            $res['CallsServiceLevel10'] = $this->callsServiceLevel10;
         }
         if (null !== $this->callsServiceLevel20) {
             $res['CallsServiceLevel20'] = $this->callsServiceLevel20;
@@ -293,11 +320,20 @@ class inbound extends Model
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
         }
+        if (isset($map['CallsAttendedTransferOut'])) {
+            $model->callsAttendedTransferOut = $map['CallsAttendedTransferOut'];
+        }
+        if (isset($map['CallsBlindTransferOut'])) {
+            $model->callsBlindTransferOut = $map['CallsBlindTransferOut'];
+        }
         if (isset($map['CallsHandled'])) {
             $model->callsHandled = $map['CallsHandled'];
         }
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
+        }
+        if (isset($map['CallsServiceLevel10'])) {
+            $model->callsServiceLevel10 = $map['CallsServiceLevel10'];
         }
         if (isset($map['CallsServiceLevel20'])) {
             $model->callsServiceLevel20 = $map['CallsServiceLevel20'];

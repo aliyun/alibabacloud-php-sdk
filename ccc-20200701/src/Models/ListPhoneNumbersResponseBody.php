@@ -30,16 +30,6 @@ class ListPhoneNumbersResponseBody extends Model
     public $message;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -48,8 +38,6 @@ class ListPhoneNumbersResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
         'requestId'      => 'RequestId',
     ];
 
@@ -71,12 +59,6 @@ class ListPhoneNumbersResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -104,12 +86,6 @@ class ListPhoneNumbersResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

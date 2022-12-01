@@ -9,92 +9,66 @@ use AlibabaCloud\Tea\Model;
 class ListAttemptsRequest extends Model
 {
     /**
-     * @description 坐席ID
-     *
      * @var string
      */
     public $agentId;
 
     /**
-     * @description 记录ID
-     *
      * @var string
      */
     public $attemptId;
 
     /**
-     * @description 被叫
-     *
      * @var string
      */
     public $callee;
 
     /**
-     * @description 主叫
-     *
      * @var string
      */
     public $caller;
 
     /**
-     * @description 活动ID
-     *
      * @var string
      */
     public $campaignId;
 
     /**
-     * @description CaseID
-     *
      * @var string
      */
     public $caseId;
 
     /**
-     * @description 话务ID
-     *
      * @var string
      */
     public $contactId;
 
     /**
-     * @description 结束时间
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 实例ID
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 页码
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页大小
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 队列ID
-     *
      * @var string
      */
     public $queueId;
 
     /**
-     * @description 开始时间
-     *
      * @var int
      */
     public $startTime;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class channelContexts extends Model
 {
     /**
-     * @var mixed[]
-     */
-    public $associatedData;
-
-    /**
      * @var string
      */
     public $callType;
@@ -68,7 +63,6 @@ class channelContexts extends Model
      */
     public $userId;
     protected $_name = [
-        'associatedData'   => 'AssociatedData',
         'callType'         => 'CallType',
         'channelId'        => 'ChannelId',
         'channelState'     => 'ChannelState',
@@ -89,9 +83,6 @@ class channelContexts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->associatedData) {
-            $res['AssociatedData'] = $this->associatedData;
-        }
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
         }
@@ -137,9 +128,6 @@ class channelContexts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssociatedData'])) {
-            $model->associatedData = $map['AssociatedData'];
-        }
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
         }

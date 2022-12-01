@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCampaignResponseBody extends Model
 {
     /**
-     * @description code
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description campaign id
-     *
      * @var string
      */
     public $data;
@@ -28,15 +24,11 @@ class CreateCampaignResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

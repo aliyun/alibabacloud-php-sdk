@@ -29,11 +29,6 @@ class GetTurnServerListResponseBody extends Model
     public $message;
 
     /**
-     * @var string[]
-     */
-    public $params;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -42,7 +37,6 @@ class GetTurnServerListResponseBody extends Model
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
-        'params'         => 'Params',
         'requestId'      => 'RequestId',
     ];
 
@@ -64,9 +58,6 @@ class GetTurnServerListResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -94,11 +85,6 @@ class GetTurnServerListResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['Params'])) {
-            if (!empty($map['Params'])) {
-                $model->params = $map['Params'];
-            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
