@@ -527,6 +527,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicesHotStorageDataRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicesHotStorageDataResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicesHotStorageDataStatusRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicesHotStorageDataStatusResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceSpeechRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceSpeechResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceStatisticsRequest;
@@ -790,6 +794,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingScriptRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateThingScriptResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\WriteDevicesHotStorageDataRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\WriteDevicesHotStorageDataResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -14686,6 +14692,143 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QueryDevicesHotStorageDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryDevicesHotStorageDataResponse
+     */
+    public function queryDevicesHotStorageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->identifier)) {
+            $query['Identifier'] = $request->identifier;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userTopic)) {
+            $query['UserTopic'] = $request->userTopic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicesHotStorageData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDevicesHotStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDevicesHotStorageDataRequest $request
+     *
+     * @return QueryDevicesHotStorageDataResponse
+     */
+    public function queryDevicesHotStorageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDevicesHotStorageDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryDevicesHotStorageDataStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryDevicesHotStorageDataStatusResponse
+     */
+    public function queryDevicesHotStorageDataStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->asc)) {
+            $query['Asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $query['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->userTopic)) {
+            $query['UserTopic'] = $request->userTopic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDevicesHotStorageDataStatus',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDevicesHotStorageDataStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryDevicesHotStorageDataStatusRequest $request
+     *
+     * @return QueryDevicesHotStorageDataStatusResponse
+     */
+    public function queryDevicesHotStorageDataStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDevicesHotStorageDataStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryDynamicGroupDevicesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -21418,5 +21561,63 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateThingScriptWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param WriteDevicesHotStorageDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return WriteDevicesHotStorageDataResponse
+     */
+    public function writeDevicesHotStorageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotId)) {
+            $query['IotId'] = $request->iotId;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->items)) {
+            $query['Items'] = $request->items;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->userTopic)) {
+            $query['UserTopic'] = $request->userTopic;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'WriteDevicesHotStorageData',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return WriteDevicesHotStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param WriteDevicesHotStorageDataRequest $request
+     *
+     * @return WriteDevicesHotStorageDataResponse
+     */
+    public function writeDevicesHotStorageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->writeDevicesHotStorageDataWithOptions($request, $runtime);
     }
 }

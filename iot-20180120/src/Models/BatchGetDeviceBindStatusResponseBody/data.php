@@ -16,9 +16,15 @@ class data extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $iotId;
     protected $_name = [
         'bindStatus' => 'BindStatus',
+        'instanceId' => 'InstanceId',
         'iotId'      => 'IotId',
     ];
 
@@ -31,6 +37,9 @@ class data extends Model
         $res = [];
         if (null !== $this->bindStatus) {
             $res['BindStatus'] = $this->bindStatus;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
@@ -49,6 +58,9 @@ class data extends Model
         $model = new self();
         if (isset($map['BindStatus'])) {
             $model->bindStatus = $map['BindStatus'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
