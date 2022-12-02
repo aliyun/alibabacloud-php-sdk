@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ChangeResourceManagerResourceGroupRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ChangeResourceManagerResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckMetaPartitionRequest;
@@ -496,7 +498,6 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
@@ -757,6 +758,55 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approvePermissionApplyOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeResourceManagerResourceGroupRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ChangeResourceManagerResourceGroupResponse
+     */
+    public function changeResourceManagerResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceManagerResourceGroup',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceManagerResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceManagerResourceGroupRequest $request
+     *
+     * @return ChangeResourceManagerResourceGroupResponse
+     */
+    public function changeResourceManagerResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceManagerResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -6247,7 +6297,7 @@ class Dataworkspublic extends OpenApiClient
         $request = new GetMetaTablePartitionShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->sortCriterion)) {
-            $request->sortCriterionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sortCriterion), 'SortCriterion', 'json');
+            $request->sortCriterionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sortCriterion, 'SortCriterion', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
@@ -7606,9 +7656,6 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->priority)) {
             $body['Priority'] = $request->priority;
-        }
-        if (!Utils::isUnset($request->projectEnv)) {
-            $body['ProjectEnv'] = $request->projectEnv;
         }
         if (!Utils::isUnset($request->projectId)) {
             $body['ProjectId'] = $request->projectId;
@@ -10038,6 +10085,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->tagsShrink)) {
             $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->typeNames)) {
+            $query['TypeNames'] = $request->typeNames;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

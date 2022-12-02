@@ -33,12 +33,18 @@ class ListResourceGroupsRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $typeNames;
     protected $_name = [
         'bizExtKey'                      => 'BizExtKey',
         'keyword'                        => 'Keyword',
         'resourceGroupType'              => 'ResourceGroupType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'tags'                           => 'Tags',
+        'typeNames'                      => 'TypeNames',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class ListResourceGroupsRequest extends Model
                     $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->typeNames) {
+            $res['TypeNames'] = $this->typeNames;
         }
 
         return $res;
@@ -101,6 +110,9 @@ class ListResourceGroupsRequest extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TypeNames'])) {
+            $model->typeNames = $map['TypeNames'];
         }
 
         return $model;

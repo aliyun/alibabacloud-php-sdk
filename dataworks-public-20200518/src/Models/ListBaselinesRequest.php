@@ -39,11 +39,6 @@ class ListBaselinesRequest extends Model
     public $priority;
 
     /**
-     * @var string
-     */
-    public $projectEnv;
-
-    /**
      * @var int
      */
     public $projectId;
@@ -59,7 +54,6 @@ class ListBaselinesRequest extends Model
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'priority'      => 'Priority',
-        'projectEnv'    => 'ProjectEnv',
         'projectId'     => 'ProjectId',
         'searchText'    => 'SearchText',
     ];
@@ -88,9 +82,6 @@ class ListBaselinesRequest extends Model
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->projectEnv) {
-            $res['ProjectEnv'] = $this->projectEnv;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -127,9 +118,6 @@ class ListBaselinesRequest extends Model
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
-        }
-        if (isset($map['ProjectEnv'])) {
-            $model->projectEnv = $map['ProjectEnv'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

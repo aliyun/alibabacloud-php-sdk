@@ -32,12 +32,18 @@ class ListResourceGroupsShrinkRequest extends Model
      * @var string
      */
     public $tagsShrink;
+
+    /**
+     * @var string
+     */
+    public $typeNames;
     protected $_name = [
         'bizExtKey'                      => 'BizExtKey',
         'keyword'                        => 'Keyword',
         'resourceGroupType'              => 'ResourceGroupType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'tagsShrink'                     => 'Tags',
+        'typeNames'                      => 'TypeNames',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class ListResourceGroupsShrinkRequest extends Model
         }
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
+        }
+        if (null !== $this->typeNames) {
+            $res['TypeNames'] = $this->typeNames;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class ListResourceGroupsShrinkRequest extends Model
         }
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
+        }
+        if (isset($map['TypeNames'])) {
+            $model->typeNames = $map['TypeNames'];
         }
 
         return $model;
