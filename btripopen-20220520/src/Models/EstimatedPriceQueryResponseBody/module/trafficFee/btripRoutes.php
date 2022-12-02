@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class btripRoutes extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $arrDate;
 
@@ -26,7 +26,7 @@ class btripRoutes extends Model
     public $cheapest;
 
     /**
-     * @var string
+     * @var int
      */
     public $depDate;
 

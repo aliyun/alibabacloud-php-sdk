@@ -156,6 +156,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\SyncSingleUserShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TrainBillSettlementQueryResponse;
@@ -3446,6 +3450,94 @@ class BtripOpen extends OpenApiClient
         ]);
 
         return ProjectModifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SyncSingleUserRequest $request
+     *
+     * @return SyncSingleUserResponse
+     */
+    public function syncSingleUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SyncSingleUserHeaders([]);
+
+        return $this->syncSingleUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SyncSingleUserRequest $tmpReq
+     * @param SyncSingleUserHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SyncSingleUserResponse
+     */
+    public function syncSingleUserWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SyncSingleUserShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->thirdDepartIdList)) {
+            $request->thirdDepartIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdDepartIdList, 'third_depart_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->email)) {
+            $body['email'] = $request->email;
+        }
+        if (!Utils::isUnset($request->jobNo)) {
+            $body['job_no'] = $request->jobNo;
+        }
+        if (!Utils::isUnset($request->leaveStatus)) {
+            $body['leave_status'] = $request->leaveStatus;
+        }
+        if (!Utils::isUnset($request->managerUserId)) {
+            $body['manager_user_id'] = $request->managerUserId;
+        }
+        if (!Utils::isUnset($request->phone)) {
+            $body['phone'] = $request->phone;
+        }
+        if (!Utils::isUnset($request->position)) {
+            $body['position'] = $request->position;
+        }
+        if (!Utils::isUnset($request->positionLevel)) {
+            $body['position_level'] = $request->positionLevel;
+        }
+        if (!Utils::isUnset($request->realNameEn)) {
+            $body['real_name_en'] = $request->realNameEn;
+        }
+        if (!Utils::isUnset($request->thirdDepartIdListShrink)) {
+            $body['third_depart_id_list'] = $request->thirdDepartIdListShrink;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['user_name'] = $request->userName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncSingleUser',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/single-user/action/sync',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncSingleUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
