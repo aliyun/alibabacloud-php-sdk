@@ -26,6 +26,11 @@ class DatasetItemVO extends Model
     /**
      * @var string
      */
+    public $digest;
+
+    /**
+     * @var string
+     */
     public $fileSystem;
 
     /**
@@ -81,6 +86,7 @@ class DatasetItemVO extends Model
         'asyncTaskList'    => 'AsyncTaskList',
         'datasetStatus'    => 'DatasetStatus',
         'datasetType'      => 'DatasetType',
+        'digest'           => 'Digest',
         'fileSystem'       => 'FileSystem',
         'id'               => 'Id',
         'keyName'          => 'KeyName',
@@ -115,6 +121,9 @@ class DatasetItemVO extends Model
         }
         if (null !== $this->datasetType) {
             $res['DatasetType'] = $this->datasetType;
+        }
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
         }
         if (null !== $this->fileSystem) {
             $res['FileSystem'] = $this->fileSystem;
@@ -181,6 +190,9 @@ class DatasetItemVO extends Model
         }
         if (isset($map['DatasetType'])) {
             $model->datasetType = $map['DatasetType'];
+        }
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
         }
         if (isset($map['FileSystem'])) {
             $model->fileSystem = $map['FileSystem'];

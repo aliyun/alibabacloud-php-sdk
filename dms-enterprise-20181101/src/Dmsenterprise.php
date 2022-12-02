@@ -155,6 +155,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableColumnRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableColumnResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableDetailInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetMetaTableDetailInfoResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOnlineDDLProgressRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOnlineDDLProgressResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOrderAttachmentFileRequest;
@@ -3882,6 +3884,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMetaTableDetailInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetOnlineDDLProgressRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetOnlineDDLProgressResponse
+     */
+    public function getOnlineDDLProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobDetailId)) {
+            $query['JobDetailId'] = $request->jobDetailId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOnlineDDLProgress',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOnlineDDLProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOnlineDDLProgressRequest $request
+     *
+     * @return GetOnlineDDLProgressResponse
+     */
+    public function getOnlineDDLProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOnlineDDLProgressWithOptions($request, $runtime);
     }
 
     /**

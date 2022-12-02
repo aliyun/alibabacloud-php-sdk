@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList;
 
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList\logicDatabase\databaseIds;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList\logicDatabase\ownerIdList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList\logicDatabase\ownerNameList;
 use AlibabaCloud\Tea\Model;
@@ -19,6 +20,11 @@ class logicDatabase extends Model
      * @var string
      */
     public $databaseId;
+
+    /**
+     * @var databaseIds
+     */
+    public $databaseIds;
 
     /**
      * @var string
@@ -57,6 +63,7 @@ class logicDatabase extends Model
     protected $_name = [
         'alias'         => 'Alias',
         'databaseId'    => 'DatabaseId',
+        'databaseIds'   => 'DatabaseIds',
         'dbType'        => 'DbType',
         'envType'       => 'EnvType',
         'logic'         => 'Logic',
@@ -78,6 +85,9 @@ class logicDatabase extends Model
         }
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
+        }
+        if (null !== $this->databaseIds) {
+            $res['DatabaseIds'] = null !== $this->databaseIds ? $this->databaseIds->toMap() : null;
         }
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
@@ -117,6 +127,9 @@ class logicDatabase extends Model
         }
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
+        }
+        if (isset($map['DatabaseIds'])) {
+            $model->databaseIds = databaseIds::fromMap($map['DatabaseIds']);
         }
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
