@@ -13,14 +13,8 @@ class AddFaceImageTemplateAdvanceRequest extends Model
      * @var Stream
      */
     public $imageURLObject;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'imageURLObject' => 'ImageURL',
-        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -32,9 +26,6 @@ class AddFaceImageTemplateAdvanceRequest extends Model
         $res = [];
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -50,9 +41,6 @@ class AddFaceImageTemplateAdvanceRequest extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURLObject = $map['ImageURL'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

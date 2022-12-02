@@ -18,15 +18,9 @@ class MergeImageFaceAdvanceRequest extends Model
      * @var string
      */
     public $templateId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'imageURLObject' => 'ImageURL',
         'templateId'     => 'TemplateId',
-        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -41,9 +35,6 @@ class MergeImageFaceAdvanceRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -62,9 +53,6 @@ class MergeImageFaceAdvanceRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

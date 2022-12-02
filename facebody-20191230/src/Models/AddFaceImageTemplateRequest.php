@@ -12,14 +12,8 @@ class AddFaceImageTemplateRequest extends Model
      * @var string
      */
     public $imageURL;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'imageURL' => 'ImageURL',
-        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class AddFaceImageTemplateRequest extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class AddFaceImageTemplateRequest extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

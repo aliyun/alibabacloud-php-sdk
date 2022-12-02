@@ -405,9 +405,6 @@ class Facebody extends OpenApiClient
         if (!Utils::isUnset($request->imageURL)) {
             $body['ImageURL'] = $request->imageURL;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1461,9 +1458,6 @@ class Facebody extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -4263,9 +4257,6 @@ class Facebody extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
