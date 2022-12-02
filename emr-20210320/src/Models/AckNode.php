@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\SDK\Emr\V20210320\Models\AckNode\nodeSelector;
 use AlibabaCloud\Tea\Model;
 
 class AckNode extends Model
@@ -15,7 +14,7 @@ class AckNode extends Model
     public $nodeId;
 
     /**
-     * @var nodeSelector
+     * @var AckNodeSelector
      */
     public $nodeSelector;
     protected $_name = [
@@ -52,7 +51,7 @@ class AckNode extends Model
             $model->nodeId = $map['NodeId'];
         }
         if (isset($map['NodeSelector'])) {
-            $model->nodeSelector = nodeSelector::fromMap($map['NodeSelector']);
+            $model->nodeSelector = AckNodeSelector::fromMap($map['NodeSelector']);
         }
 
         return $model;

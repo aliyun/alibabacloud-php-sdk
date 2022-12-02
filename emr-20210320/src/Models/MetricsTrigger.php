@@ -34,6 +34,11 @@ class MetricsTrigger extends Model
     public $statistics;
 
     /**
+     * @var Tag[]
+     */
+    public $tags;
+
+    /**
      * @var float
      */
     public $threshold;
@@ -48,6 +53,7 @@ class MetricsTrigger extends Model
         'evaluationCount'    => 'EvaluationCount',
         'metricName'         => 'MetricName',
         'statistics'         => 'Statistics',
+        'tags'               => 'Tags',
         'threshold'          => 'Threshold',
         'timeWindow'         => 'TimeWindow',
     ];
@@ -73,6 +79,15 @@ class MetricsTrigger extends Model
         }
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
@@ -106,6 +121,15 @@ class MetricsTrigger extends Model
         }
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
