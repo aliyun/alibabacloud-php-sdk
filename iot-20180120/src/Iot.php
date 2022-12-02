@@ -12237,6 +12237,9 @@ class Iot extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
         if (!Utils::isUnset($request->correlationData)) {
             $query['CorrelationData'] = $request->correlationData;
         }
@@ -12245,6 +12248,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->payloadFormatIndicator)) {
+            $query['PayloadFormatIndicator'] = $request->payloadFormatIndicator;
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;

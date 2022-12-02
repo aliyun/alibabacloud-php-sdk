@@ -12,6 +12,11 @@ class PubRequest extends Model
     /**
      * @var string
      */
+    public $contentType;
+
+    /**
+     * @var string
+     */
     public $correlationData;
 
     /**
@@ -28,6 +33,11 @@ class PubRequest extends Model
      * @var string
      */
     public $messageContent;
+
+    /**
+     * @var int
+     */
+    public $payloadFormatIndicator;
 
     /**
      * @var string
@@ -54,15 +64,17 @@ class PubRequest extends Model
      */
     public $userProp;
     protected $_name = [
-        'correlationData' => 'CorrelationData',
-        'deviceName'      => 'DeviceName',
-        'iotInstanceId'   => 'IotInstanceId',
-        'messageContent'  => 'MessageContent',
-        'productKey'      => 'ProductKey',
-        'qos'             => 'Qos',
-        'responseTopic'   => 'ResponseTopic',
-        'topicFullName'   => 'TopicFullName',
-        'userProp'        => 'UserProp',
+        'contentType'            => 'ContentType',
+        'correlationData'        => 'CorrelationData',
+        'deviceName'             => 'DeviceName',
+        'iotInstanceId'          => 'IotInstanceId',
+        'messageContent'         => 'MessageContent',
+        'payloadFormatIndicator' => 'PayloadFormatIndicator',
+        'productKey'             => 'ProductKey',
+        'qos'                    => 'Qos',
+        'responseTopic'          => 'ResponseTopic',
+        'topicFullName'          => 'TopicFullName',
+        'userProp'               => 'UserProp',
     ];
 
     public function validate()
@@ -72,6 +84,9 @@ class PubRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
         if (null !== $this->correlationData) {
             $res['CorrelationData'] = $this->correlationData;
         }
@@ -83,6 +98,9 @@ class PubRequest extends Model
         }
         if (null !== $this->messageContent) {
             $res['MessageContent'] = $this->messageContent;
+        }
+        if (null !== $this->payloadFormatIndicator) {
+            $res['PayloadFormatIndicator'] = $this->payloadFormatIndicator;
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
@@ -117,6 +135,9 @@ class PubRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
         if (isset($map['CorrelationData'])) {
             $model->correlationData = $map['CorrelationData'];
         }
@@ -128,6 +149,9 @@ class PubRequest extends Model
         }
         if (isset($map['MessageContent'])) {
             $model->messageContent = $map['MessageContent'];
+        }
+        if (isset($map['PayloadFormatIndicator'])) {
+            $model->payloadFormatIndicator = $map['PayloadFormatIndicator'];
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
