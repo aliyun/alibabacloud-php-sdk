@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCreateVulWhitelistResponseBody\vulWhitelistList;
 use AlibabaCloud\Tea\Model;
 
 class ModifyCreateVulWhitelistResponseBody extends Model
@@ -12,8 +13,14 @@ class ModifyCreateVulWhitelistResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var vulWhitelistList[]
+     */
+    public $vulWhitelistList;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'        => 'RequestId',
+        'vulWhitelistList' => 'VulWhitelistList',
     ];
 
     public function validate()
@@ -25,6 +32,15 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vulWhitelistList) {
+            $res['VulWhitelistList'] = [];
+            if (null !== $this->vulWhitelistList && \is_array($this->vulWhitelistList)) {
+                $n = 0;
+                foreach ($this->vulWhitelistList as $item) {
+                    $res['VulWhitelistList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -40,6 +56,15 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VulWhitelistList'])) {
+            if (!empty($map['VulWhitelistList'])) {
+                $model->vulWhitelistList = [];
+                $n                       = 0;
+                foreach ($map['VulWhitelistList'] as $item) {
+                    $model->vulWhitelistList[$n++] = null !== $item ? vulWhitelistList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

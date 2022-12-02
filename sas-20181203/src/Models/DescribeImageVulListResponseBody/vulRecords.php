@@ -60,6 +60,21 @@ class vulRecords extends Model
     public $imageDigest;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
      * @var int
      */
     public $lastTs;
@@ -68,6 +83,11 @@ class vulRecords extends Model
      * @var string[]
      */
     public $layers;
+
+    /**
+     * @var string
+     */
+    public $maliciousSource;
 
     /**
      * @var int
@@ -117,12 +137,32 @@ class vulRecords extends Model
     /**
      * @var int
      */
+    public $scanTime;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
      * @var string
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $targetId;
+
+    /**
+     * @var string
+     */
+    public $targetName;
+
+    /**
+     * @var string
+     */
+    public $targetType;
 
     /**
      * @var string
@@ -144,8 +184,12 @@ class vulRecords extends Model
         'firstTs'           => 'FirstTs',
         'image'             => 'Image',
         'imageDigest'       => 'ImageDigest',
+        'instanceName'      => 'InstanceName',
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
         'lastTs'            => 'LastTs',
         'layers'            => 'Layers',
+        'maliciousSource'   => 'MaliciousSource',
         'modifyTs'          => 'ModifyTs',
         'name'              => 'Name',
         'namespace'         => 'Namespace',
@@ -155,8 +199,12 @@ class vulRecords extends Model
         'related'           => 'Related',
         'repoName'          => 'RepoName',
         'repoNamespace'     => 'RepoNamespace',
+        'scanTime'          => 'ScanTime',
         'status'            => 'Status',
         'tag'               => 'Tag',
+        'targetId'          => 'TargetId',
+        'targetName'        => 'TargetName',
+        'targetType'        => 'TargetType',
         'type'              => 'Type',
         'uuid'              => 'Uuid',
     ];
@@ -198,11 +246,23 @@ class vulRecords extends Model
         if (null !== $this->imageDigest) {
             $res['ImageDigest'] = $this->imageDigest;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
         if (null !== $this->lastTs) {
             $res['LastTs'] = $this->lastTs;
         }
         if (null !== $this->layers) {
             $res['Layers'] = $this->layers;
+        }
+        if (null !== $this->maliciousSource) {
+            $res['MaliciousSource'] = $this->maliciousSource;
         }
         if (null !== $this->modifyTs) {
             $res['ModifyTs'] = $this->modifyTs;
@@ -231,11 +291,23 @@ class vulRecords extends Model
         if (null !== $this->repoNamespace) {
             $res['RepoNamespace'] = $this->repoNamespace;
         }
+        if (null !== $this->scanTime) {
+            $res['ScanTime'] = $this->scanTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetName) {
+            $res['TargetName'] = $this->targetName;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -285,6 +357,15 @@ class vulRecords extends Model
         if (isset($map['ImageDigest'])) {
             $model->imageDigest = $map['ImageDigest'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
         if (isset($map['LastTs'])) {
             $model->lastTs = $map['LastTs'];
         }
@@ -292,6 +373,9 @@ class vulRecords extends Model
             if (!empty($map['Layers'])) {
                 $model->layers = $map['Layers'];
             }
+        }
+        if (isset($map['MaliciousSource'])) {
+            $model->maliciousSource = $map['MaliciousSource'];
         }
         if (isset($map['ModifyTs'])) {
             $model->modifyTs = $map['ModifyTs'];
@@ -320,11 +404,23 @@ class vulRecords extends Model
         if (isset($map['RepoNamespace'])) {
             $model->repoNamespace = $map['RepoNamespace'];
         }
+        if (isset($map['ScanTime'])) {
+            $model->scanTime = $map['ScanTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetName'])) {
+            $model->targetName = $map['TargetName'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

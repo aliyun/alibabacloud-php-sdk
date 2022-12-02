@@ -12,6 +12,11 @@ class DescribeVulWhitelistResponseBody extends Model
     /**
      * @var int
      */
+    public $count;
+
+    /**
+     * @var int
+     */
     public $currentPage;
 
     /**
@@ -34,6 +39,7 @@ class DescribeVulWhitelistResponseBody extends Model
      */
     public $vulWhitelists;
     protected $_name = [
+        'count'         => 'Count',
         'currentPage'   => 'CurrentPage',
         'pageSize'      => 'PageSize',
         'requestId'     => 'RequestId',
@@ -48,6 +54,9 @@ class DescribeVulWhitelistResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -81,6 +90,9 @@ class DescribeVulWhitelistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

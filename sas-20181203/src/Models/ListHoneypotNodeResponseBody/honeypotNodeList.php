@@ -72,6 +72,11 @@ class honeypotNodeList extends Model
      * @var int
      */
     public $totalStatus;
+
+    /**
+     * @var bool
+     */
+    public $upgradeAvailable;
     protected $_name = [
         'allowHoneypotAccessInternet' => 'AllowHoneypotAccessInternet',
         'createTime'                  => 'CreateTime',
@@ -86,6 +91,7 @@ class honeypotNodeList extends Model
         'probeUsedCount'              => 'ProbeUsedCount',
         'securityGroupProbeIpList'    => 'SecurityGroupProbeIpList',
         'totalStatus'                 => 'TotalStatus',
+        'upgradeAvailable'            => 'UpgradeAvailable',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class honeypotNodeList extends Model
         }
         if (null !== $this->totalStatus) {
             $res['TotalStatus'] = $this->totalStatus;
+        }
+        if (null !== $this->upgradeAvailable) {
+            $res['UpgradeAvailable'] = $this->upgradeAvailable;
         }
 
         return $res;
@@ -186,6 +195,9 @@ class honeypotNodeList extends Model
         }
         if (isset($map['TotalStatus'])) {
             $model->totalStatus = $map['TotalStatus'];
+        }
+        if (isset($map['UpgradeAvailable'])) {
+            $model->upgradeAvailable = $map['UpgradeAvailable'];
         }
 
         return $model;

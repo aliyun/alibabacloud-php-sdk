@@ -52,6 +52,21 @@ class cves extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @var string
+     */
     public $poc;
 
     /**
@@ -92,6 +107,16 @@ class cves extends Model
     /**
      * @var string
      */
+    public $targetId;
+
+    /**
+     * @var string
+     */
+    public $targetName;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -112,6 +137,9 @@ class cves extends Model
         'cveId'             => 'CveId',
         'cvssScore'         => 'CvssScore',
         'cvssVector'        => 'CvssVector',
+        'instanceName'      => 'InstanceName',
+        'internetIp'        => 'InternetIp',
+        'intranetIp'        => 'IntranetIp',
         'poc'               => 'Poc',
         'pocCreateTime'     => 'PocCreateTime',
         'pocDisclosureTime' => 'PocDisclosureTime',
@@ -120,6 +148,8 @@ class cves extends Model
         'releaseTime'       => 'ReleaseTime',
         'solution'          => 'Solution',
         'summary'           => 'Summary',
+        'targetId'          => 'TargetId',
+        'targetName'        => 'TargetName',
         'title'             => 'Title',
         'vendor'            => 'Vendor',
         'vulLevel'          => 'VulLevel',
@@ -162,6 +192,15 @@ class cves extends Model
         if (null !== $this->cvssVector) {
             $res['CvssVector'] = $this->cvssVector;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
         if (null !== $this->poc) {
             $res['Poc'] = $this->poc;
         }
@@ -185,6 +224,12 @@ class cves extends Model
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetName) {
+            $res['TargetName'] = $this->targetName;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -237,6 +282,15 @@ class cves extends Model
         if (isset($map['CvssVector'])) {
             $model->cvssVector = $map['CvssVector'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
         if (isset($map['Poc'])) {
             $model->poc = $map['Poc'];
         }
@@ -260,6 +314,12 @@ class cves extends Model
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetName'])) {
+            $model->targetName = $map['TargetName'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

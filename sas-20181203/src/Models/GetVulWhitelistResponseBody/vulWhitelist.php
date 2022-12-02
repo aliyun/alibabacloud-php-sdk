@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulWhitelistResponseBody;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetVulWhitelistResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class vulWhitelists extends Model
+class vulWhitelist extends Model
 {
     /**
      * @var string
@@ -14,7 +14,7 @@ class vulWhitelists extends Model
     public $aliasName;
 
     /**
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -31,7 +31,7 @@ class vulWhitelists extends Model
     /**
      * @var string
      */
-    public $targetInfo;
+    public $target;
 
     /**
      * @var string
@@ -43,13 +43,13 @@ class vulWhitelists extends Model
      */
     public $whitelist;
     protected $_name = [
-        'aliasName'  => 'AliasName',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'reason'     => 'Reason',
-        'targetInfo' => 'TargetInfo',
-        'type'       => 'Type',
-        'whitelist'  => 'Whitelist',
+        'aliasName' => 'AliasName',
+        'id'        => 'Id',
+        'name'      => 'Name',
+        'reason'    => 'Reason',
+        'target'    => 'Target',
+        'type'      => 'Type',
+        'whitelist' => 'Whitelist',
     ];
 
     public function validate()
@@ -71,8 +71,8 @@ class vulWhitelists extends Model
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
-        if (null !== $this->targetInfo) {
-            $res['TargetInfo'] = $this->targetInfo;
+        if (null !== $this->target) {
+            $res['Target'] = $this->target;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -87,7 +87,7 @@ class vulWhitelists extends Model
     /**
      * @param array $map
      *
-     * @return vulWhitelists
+     * @return vulWhitelist
      */
     public static function fromMap($map = [])
     {
@@ -104,8 +104,8 @@ class vulWhitelists extends Model
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
-        if (isset($map['TargetInfo'])) {
-            $model->targetInfo = $map['TargetInfo'];
+        if (isset($map['Target'])) {
+            $model->target = $map['Target'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

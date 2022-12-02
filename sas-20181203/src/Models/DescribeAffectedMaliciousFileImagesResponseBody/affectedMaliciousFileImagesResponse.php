@@ -59,6 +59,21 @@ class affectedMaliciousFileImagesResponse extends Model
     public $imageUuid;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
      * @var int
      */
     public $latestScanTimestamp;
@@ -122,6 +137,26 @@ class affectedMaliciousFileImagesResponse extends Model
      * @var string
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $targetId;
+
+    /**
+     * @var string
+     */
+    public $targetName;
+
+    /**
+     * @var string
+     */
+    public $targetType;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'clusterId'             => 'ClusterId',
         'clusterName'           => 'ClusterName',
@@ -133,6 +168,9 @@ class affectedMaliciousFileImagesResponse extends Model
         'highLight'             => 'HighLight',
         'image'                 => 'Image',
         'imageUuid'             => 'ImageUuid',
+        'instanceName'          => 'InstanceName',
+        'internetIp'            => 'InternetIp',
+        'intranetIp'            => 'IntranetIp',
         'latestScanTimestamp'   => 'LatestScanTimestamp',
         'latestVerifyTimestamp' => 'LatestVerifyTimestamp',
         'layer'                 => 'Layer',
@@ -146,6 +184,10 @@ class affectedMaliciousFileImagesResponse extends Model
         'repoRegionId'          => 'RepoRegionId',
         'status'                => 'Status',
         'tag'                   => 'Tag',
+        'targetId'              => 'TargetId',
+        'targetName'            => 'TargetName',
+        'targetType'            => 'TargetType',
+        'uuid'                  => 'Uuid',
     ];
 
     public function validate()
@@ -185,6 +227,15 @@ class affectedMaliciousFileImagesResponse extends Model
         if (null !== $this->imageUuid) {
             $res['ImageUuid'] = $this->imageUuid;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
         if (null !== $this->latestScanTimestamp) {
             $res['LatestScanTimestamp'] = $this->latestScanTimestamp;
         }
@@ -223,6 +274,18 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetName) {
+            $res['TargetName'] = $this->targetName;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
+        }
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -266,6 +329,15 @@ class affectedMaliciousFileImagesResponse extends Model
         if (isset($map['ImageUuid'])) {
             $model->imageUuid = $map['ImageUuid'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
         if (isset($map['LatestScanTimestamp'])) {
             $model->latestScanTimestamp = $map['LatestScanTimestamp'];
         }
@@ -304,6 +376,18 @@ class affectedMaliciousFileImagesResponse extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetName'])) {
+            $model->targetName = $map['TargetName'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
+        }
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

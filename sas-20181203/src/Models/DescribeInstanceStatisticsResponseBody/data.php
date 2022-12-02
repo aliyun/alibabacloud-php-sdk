@@ -16,6 +16,31 @@ class data extends Model
     /**
      * @var int
      */
+    public $agentlessAll;
+
+    /**
+     * @var int
+     */
+    public $agentlessBaseline;
+
+    /**
+     * @var int
+     */
+    public $agentlessMalicious;
+
+    /**
+     * @var int
+     */
+    public $agentlessVulCve;
+
+    /**
+     * @var int
+     */
+    public $agentlessVulSca;
+
+    /**
+     * @var int
+     */
     public $appNum;
 
     /**
@@ -73,19 +98,24 @@ class data extends Model
      */
     public $weakPWNum;
     protected $_name = [
-        'account'    => 'Account',
-        'appNum'     => 'AppNum',
-        'cmsNum'     => 'CmsNum',
-        'cveNum'     => 'CveNum',
-        'emgNum'     => 'EmgNum',
-        'health'     => 'Health',
-        'scaNum'     => 'ScaNum',
-        'suspicious' => 'Suspicious',
-        'sysNum'     => 'SysNum',
-        'trojan'     => 'Trojan',
-        'uuid'       => 'Uuid',
-        'vul'        => 'Vul',
-        'weakPWNum'  => 'WeakPWNum',
+        'account'            => 'Account',
+        'agentlessAll'       => 'AgentlessAll',
+        'agentlessBaseline'  => 'AgentlessBaseline',
+        'agentlessMalicious' => 'AgentlessMalicious',
+        'agentlessVulCve'    => 'AgentlessVulCve',
+        'agentlessVulSca'    => 'AgentlessVulSca',
+        'appNum'             => 'AppNum',
+        'cmsNum'             => 'CmsNum',
+        'cveNum'             => 'CveNum',
+        'emgNum'             => 'EmgNum',
+        'health'             => 'Health',
+        'scaNum'             => 'ScaNum',
+        'suspicious'         => 'Suspicious',
+        'sysNum'             => 'SysNum',
+        'trojan'             => 'Trojan',
+        'uuid'               => 'Uuid',
+        'vul'                => 'Vul',
+        'weakPWNum'          => 'WeakPWNum',
     ];
 
     public function validate()
@@ -97,6 +127,21 @@ class data extends Model
         $res = [];
         if (null !== $this->account) {
             $res['Account'] = $this->account;
+        }
+        if (null !== $this->agentlessAll) {
+            $res['AgentlessAll'] = $this->agentlessAll;
+        }
+        if (null !== $this->agentlessBaseline) {
+            $res['AgentlessBaseline'] = $this->agentlessBaseline;
+        }
+        if (null !== $this->agentlessMalicious) {
+            $res['AgentlessMalicious'] = $this->agentlessMalicious;
+        }
+        if (null !== $this->agentlessVulCve) {
+            $res['AgentlessVulCve'] = $this->agentlessVulCve;
+        }
+        if (null !== $this->agentlessVulSca) {
+            $res['AgentlessVulSca'] = $this->agentlessVulSca;
         }
         if (null !== $this->appNum) {
             $res['AppNum'] = $this->appNum;
@@ -148,6 +193,21 @@ class data extends Model
         $model = new self();
         if (isset($map['Account'])) {
             $model->account = $map['Account'];
+        }
+        if (isset($map['AgentlessAll'])) {
+            $model->agentlessAll = $map['AgentlessAll'];
+        }
+        if (isset($map['AgentlessBaseline'])) {
+            $model->agentlessBaseline = $map['AgentlessBaseline'];
+        }
+        if (isset($map['AgentlessMalicious'])) {
+            $model->agentlessMalicious = $map['AgentlessMalicious'];
+        }
+        if (isset($map['AgentlessVulCve'])) {
+            $model->agentlessVulCve = $map['AgentlessVulCve'];
+        }
+        if (isset($map['AgentlessVulSca'])) {
+            $model->agentlessVulSca = $map['AgentlessVulSca'];
         }
         if (isset($map['AppNum'])) {
             $model->appNum = $map['AppNum'];

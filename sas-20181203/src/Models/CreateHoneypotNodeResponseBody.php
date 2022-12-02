@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotNodeResponseBody\honeypotNode;
 use AlibabaCloud\Tea\Model;
 
 class CreateHoneypotNodeResponseBody extends Model
@@ -12,6 +13,11 @@ class CreateHoneypotNodeResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var honeypotNode
+     */
+    public $honeypotNode;
 
     /**
      * @var int
@@ -34,6 +40,7 @@ class CreateHoneypotNodeResponseBody extends Model
     public $success;
     protected $_name = [
         'code'           => 'Code',
+        'honeypotNode'   => 'HoneypotNode',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
@@ -49,6 +56,9 @@ class CreateHoneypotNodeResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->honeypotNode) {
+            $res['HoneypotNode'] = null !== $this->honeypotNode ? $this->honeypotNode->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -76,6 +86,9 @@ class CreateHoneypotNodeResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['HoneypotNode'])) {
+            $model->honeypotNode = honeypotNode::fromMap($map['HoneypotNode']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

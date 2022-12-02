@@ -51,6 +51,11 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     /**
      * @var string
      */
+    public $maliciousMd5;
+
+    /**
+     * @var string
+     */
     public $pageSize;
 
     /**
@@ -91,6 +96,7 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         'imageTag'           => 'ImageTag',
         'lang'               => 'Lang',
         'levels'             => 'Levels',
+        'maliciousMd5'       => 'MaliciousMd5',
         'pageSize'           => 'PageSize',
         'repoId'             => 'RepoId',
         'repoInstanceId'     => 'RepoInstanceId',
@@ -130,6 +136,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         }
         if (null !== $this->levels) {
             $res['Levels'] = $this->levels;
+        }
+        if (null !== $this->maliciousMd5) {
+            $res['MaliciousMd5'] = $this->maliciousMd5;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -187,6 +196,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
         }
         if (isset($map['Levels'])) {
             $model->levels = $map['Levels'];
+        }
+        if (isset($map['MaliciousMd5'])) {
+            $model->maliciousMd5 = $map['MaliciousMd5'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

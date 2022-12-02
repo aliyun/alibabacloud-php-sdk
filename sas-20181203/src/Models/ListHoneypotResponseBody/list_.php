@@ -26,6 +26,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $honeypotImageId;
+
+    /**
+     * @var string
+     */
     public $honeypotImageName;
 
     /**
@@ -51,6 +56,7 @@ class list_ extends Model
         'controlNodeName'          => 'ControlNodeName',
         'honeypotId'               => 'HoneypotId',
         'honeypotImageDisplayName' => 'HoneypotImageDisplayName',
+        'honeypotImageId'          => 'HoneypotImageId',
         'honeypotImageName'        => 'HoneypotImageName',
         'honeypotName'             => 'HoneypotName',
         'nodeId'                   => 'NodeId',
@@ -73,6 +79,9 @@ class list_ extends Model
         }
         if (null !== $this->honeypotImageDisplayName) {
             $res['HoneypotImageDisplayName'] = $this->honeypotImageDisplayName;
+        }
+        if (null !== $this->honeypotImageId) {
+            $res['HoneypotImageId'] = $this->honeypotImageId;
         }
         if (null !== $this->honeypotImageName) {
             $res['HoneypotImageName'] = $this->honeypotImageName;
@@ -109,6 +118,9 @@ class list_ extends Model
         }
         if (isset($map['HoneypotImageDisplayName'])) {
             $model->honeypotImageDisplayName = $map['HoneypotImageDisplayName'];
+        }
+        if (isset($map['HoneypotImageId'])) {
+            $model->honeypotImageId = $map['HoneypotImageId'];
         }
         if (isset($map['HoneypotImageName'])) {
             $model->honeypotImageName = $map['HoneypotImageName'];

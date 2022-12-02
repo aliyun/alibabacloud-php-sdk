@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVulAutoRepairConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAntiBruteForceRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteBackupPolicyRequest;
@@ -57,6 +59,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulWhitelistRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccessKeyLeakDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAccesskeyLeakListRequest;
@@ -88,6 +92,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPoliciesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupRestoreCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBruteForceSummaryResponse;
@@ -189,6 +195,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeLogstoreStorageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeModuleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNoticeConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNsasSuspEventTypeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNsasSuspEventTypeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOfflineMachinesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOfflineMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeOnceTaskRequest;
@@ -326,6 +334,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulWhitelistRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulWhitelistResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsRequest;
@@ -1494,6 +1504,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DeleteAntiBruteForceRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteAntiBruteForceRuleResponse
+     */
+    public function deleteAntiBruteForceRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAntiBruteForceRule',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAntiBruteForceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAntiBruteForceRuleRequest $request
+     *
+     * @return DeleteAntiBruteForceRuleResponse
+     */
+    public function deleteAntiBruteForceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAntiBruteForceRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBackupPolicyRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1822,6 +1875,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVpcHoneyPotWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVulWhitelistRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteVulWhitelistResponse
+     */
+    public function deleteVulWhitelistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->whitelist)) {
+            $query['Whitelist'] = $request->whitelist;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVulWhitelist',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVulWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVulWhitelistRequest $request
+     *
+     * @return DeleteVulWhitelistResponse
+     */
+    public function deleteVulWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVulWhitelistWithOptions($request, $runtime);
     }
 
     /**
@@ -2733,6 +2832,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
+     */
+    public function describeBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -4174,6 +4316,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->levels)) {
             $query['Levels'] = $request->levels;
         }
+        if (!Utils::isUnset($request->maliciousMd5)) {
+            $query['MaliciousMd5'] = $request->maliciousMd5;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
@@ -5589,6 +5734,70 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNoticeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNsasSuspEventTypeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeNsasSuspEventTypeResponse
+     */
+    public function describeNsasSuspEventTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->containerFieldName)) {
+            $query['ContainerFieldName'] = $request->containerFieldName;
+        }
+        if (!Utils::isUnset($request->containerFieldValue)) {
+            $query['ContainerFieldValue'] = $request->containerFieldValue;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $query['Uuids'] = $request->uuids;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNsasSuspEventType',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNsasSuspEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNsasSuspEventTypeRequest $request
+     *
+     * @return DescribeNsasSuspEventTypeResponse
+     */
+    public function describeNsasSuspEventType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNsasSuspEventTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -9475,6 +9684,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVulStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVulWhitelistRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetVulWhitelistResponse
+     */
+    public function getVulWhitelistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->vulWhitelistId)) {
+            $query['VulWhitelistId'] = $request->vulWhitelistId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVulWhitelist',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVulWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVulWhitelistRequest $request
+     *
+     * @return GetVulWhitelistResponse
+     */
+    public function getVulWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVulWhitelistWithOptions($request, $runtime);
     }
 
     /**

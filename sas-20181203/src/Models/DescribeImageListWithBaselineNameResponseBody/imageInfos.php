@@ -64,6 +64,26 @@ class imageInfos extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @var int
+     */
+    public $lastScanTime;
+
+    /**
      * @var int
      */
     public $lowRiskImage;
@@ -124,6 +144,21 @@ class imageInfos extends Model
     public $tag;
 
     /**
+     * @var string
+     */
+    public $targetId;
+
+    /**
+     * @var string
+     */
+    public $targetName;
+
+    /**
+     * @var string
+     */
+    public $targetType;
+
+    /**
      * @var int
      */
     public $totalItemCount;
@@ -144,6 +179,10 @@ class imageInfos extends Model
         'imageSize'       => 'ImageSize',
         'imageUpdate'     => 'ImageUpdate',
         'instanceId'      => 'InstanceId',
+        'instanceName'    => 'InstanceName',
+        'internetIp'      => 'InternetIp',
+        'intranetIp'      => 'IntranetIp',
+        'lastScanTime'    => 'LastScanTime',
         'lowRiskImage'    => 'LowRiskImage',
         'middleRiskImage' => 'MiddleRiskImage',
         'namespace'       => 'Namespace',
@@ -156,6 +195,9 @@ class imageInfos extends Model
         'repoType'        => 'RepoType',
         'riskStatus'      => 'RiskStatus',
         'tag'             => 'Tag',
+        'targetId'        => 'TargetId',
+        'targetName'      => 'TargetName',
+        'targetType'      => 'TargetType',
         'totalItemCount'  => 'TotalItemCount',
         'uuid'            => 'Uuid',
     ];
@@ -200,6 +242,18 @@ class imageInfos extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->lastScanTime) {
+            $res['LastScanTime'] = $this->lastScanTime;
+        }
         if (null !== $this->lowRiskImage) {
             $res['LowRiskImage'] = $this->lowRiskImage;
         }
@@ -235,6 +289,15 @@ class imageInfos extends Model
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetName) {
+            $res['TargetName'] = $this->targetName;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
         if (null !== $this->totalItemCount) {
             $res['TotalItemCount'] = $this->totalItemCount;
@@ -287,6 +350,18 @@ class imageInfos extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['LastScanTime'])) {
+            $model->lastScanTime = $map['LastScanTime'];
+        }
         if (isset($map['LowRiskImage'])) {
             $model->lowRiskImage = $map['LowRiskImage'];
         }
@@ -322,6 +397,15 @@ class imageInfos extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetName'])) {
+            $model->targetName = $map['TargetName'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
         if (isset($map['TotalItemCount'])) {
             $model->totalItemCount = $map['TotalItemCount'];
