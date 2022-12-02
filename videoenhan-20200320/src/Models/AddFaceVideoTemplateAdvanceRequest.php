@@ -10,16 +10,10 @@ use GuzzleHttp\Psr7\Stream;
 class AddFaceVideoTemplateAdvanceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var Stream
      */
     public $videoURLObject;
     protected $_name = [
-        'userId'         => 'UserId',
         'videoURLObject' => 'VideoURL',
     ];
 
@@ -30,9 +24,6 @@ class AddFaceVideoTemplateAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->videoURLObject) {
             $res['VideoURL'] = $this->videoURLObject;
         }
@@ -48,9 +39,6 @@ class AddFaceVideoTemplateAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['VideoURL'])) {
             $model->videoURLObject = $map['VideoURL'];
         }

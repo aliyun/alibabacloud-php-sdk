@@ -11,14 +11,8 @@ class AddFaceVideoTemplateRequest extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $videoURL;
     protected $_name = [
-        'userId'   => 'UserId',
         'videoURL' => 'VideoURL',
     ];
 
@@ -29,9 +23,6 @@ class AddFaceVideoTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->videoURL) {
             $res['VideoURL'] = $this->videoURL;
         }
@@ -47,9 +38,6 @@ class AddFaceVideoTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['VideoURL'])) {
             $model->videoURL = $map['VideoURL'];
         }

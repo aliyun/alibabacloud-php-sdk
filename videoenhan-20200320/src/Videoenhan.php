@@ -368,9 +368,6 @@ class Videoenhan extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
         if (!Utils::isUnset($request->videoURL)) {
             $body['VideoURL'] = $request->videoURL;
         }
@@ -902,9 +899,6 @@ class Videoenhan extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -1854,9 +1848,6 @@ class Videoenhan extends OpenApiClient
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
-        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1977,9 +1968,6 @@ class Videoenhan extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
