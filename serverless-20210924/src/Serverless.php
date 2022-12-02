@@ -58,8 +58,16 @@ use AlibabaCloud\SDK\Serverless\V20210924\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\PutEnvironmentRequest;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\PutEnvironmentResponse;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutPipelineStatusRequest;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutPipelineStatusResponse;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutPipelineTemplateRequest;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutPipelineTemplateResponse;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\PutServiceRequest;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\PutServiceResponse;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutTaskStatusRequest;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutTaskStatusResponse;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutTaskTemplateRequest;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\PutTaskTemplateResponse;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\PutTemplateRequest;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\PutTemplateResponse;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\ResumeTaskResponse;
@@ -1480,6 +1488,104 @@ class Serverless extends OpenApiClient
     }
 
     /**
+     * @param string                   $name
+     * @param PutPipelineStatusRequest $request
+     *
+     * @return PutPipelineStatusResponse
+     */
+    public function putPipelineStatus($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putPipelineStatusWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $name
+     * @param PutPipelineStatusRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PutPipelineStatusResponse
+     */
+    public function putPipelineStatusWithOptions($name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutPipelineStatus',
+            'version'     => '2021-09-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apis/serverlessdeployment/v1/pipelines/' . OpenApiUtilClient::getEncodeParam($name) . '/status',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutPipelineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                     $name
+     * @param PutPipelineTemplateRequest $request
+     *
+     * @return PutPipelineTemplateResponse
+     */
+    public function putPipelineTemplate($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putPipelineTemplateWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $name
+     * @param PutPipelineTemplateRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PutPipelineTemplateResponse
+     */
+    public function putPipelineTemplateWithOptions($name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutPipelineTemplate',
+            'version'     => '2021-09-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apis/serverlessdeployment/v1/pipelinetemplates/' . OpenApiUtilClient::getEncodeParam($name) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutPipelineTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string            $name
      * @param PutServiceRequest $request
      *
@@ -1521,6 +1627,104 @@ class Serverless extends OpenApiClient
         ]);
 
         return PutServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $name
+     * @param PutTaskStatusRequest $request
+     *
+     * @return PutTaskStatusResponse
+     */
+    public function putTaskStatus($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putTaskStatusWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $name
+     * @param PutTaskStatusRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PutTaskStatusResponse
+     */
+    public function putTaskStatusWithOptions($name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutTaskStatus',
+            'version'     => '2021-09-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apis/serverlessdeployment/v1/tasks/' . OpenApiUtilClient::getEncodeParam($name) . '/status',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $name
+     * @param PutTaskTemplateRequest $request
+     *
+     * @return PutTaskTemplateResponse
+     */
+    public function putTaskTemplate($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putTaskTemplateWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $name
+     * @param PutTaskTemplateRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PutTaskTemplateResponse
+     */
+    public function putTaskTemplateWithOptions($name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->force)) {
+            $query['force'] = $request->force;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutTaskTemplate',
+            'version'     => '2021-09-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apis/serverlessdeployment/v1/tasktemplates/' . OpenApiUtilClient::getEncodeParam($name) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutTaskTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
