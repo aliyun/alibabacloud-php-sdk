@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListMessageRequest extends Model
+class ListMessageAppRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $appId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
     /**
      * @var int
      */
@@ -32,18 +22,10 @@ class ListMessageRequest extends Model
      * @var int
      */
     public $sortType;
-
-    /**
-     * @var int
-     */
-    public $type;
     protected $_name = [
-        'appId'    => 'AppId',
-        'groupId'  => 'GroupId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
         'sortType' => 'SortType',
-        'type'     => 'Type',
     ];
 
     public function validate()
@@ -53,12 +35,6 @@ class ListMessageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -68,9 +44,6 @@ class ListMessageRequest extends Model
         if (null !== $this->sortType) {
             $res['SortType'] = $this->sortType;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
 
         return $res;
     }
@@ -78,17 +51,11 @@ class ListMessageRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListMessageRequest
+     * @return ListMessageAppRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
@@ -97,9 +64,6 @@ class ListMessageRequest extends Model
         }
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

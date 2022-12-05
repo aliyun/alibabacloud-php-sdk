@@ -2,16 +2,26 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupResponseBody\result;
+namespace AlibabaCloud\SDK\Live\V20161101\Models\GetMessageAppResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class groupList extends Model
+class result extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $appConfig;
+
     /**
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $appName;
 
     /**
      * @var int
@@ -19,30 +29,20 @@ class groupList extends Model
     public $createTime;
 
     /**
-     * @var string
-     */
-    public $creatorId;
-
-    /**
      * @var string[]
      */
     public $extension;
-
-    /**
-     * @var string
-     */
-    public $groupId;
 
     /**
      * @var int
      */
     public $status;
     protected $_name = [
+        'appConfig'  => 'AppConfig',
         'appId'      => 'AppId',
+        'appName'    => 'AppName',
         'createTime' => 'CreateTime',
-        'creatorId'  => 'CreatorId',
         'extension'  => 'Extension',
-        'groupId'    => 'GroupId',
         'status'     => 'Status',
     ];
 
@@ -53,20 +53,20 @@ class groupList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appConfig) {
+            $res['AppConfig'] = $this->appConfig;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->creatorId) {
-            $res['CreatorId'] = $this->creatorId;
-        }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -78,25 +78,25 @@ class groupList extends Model
     /**
      * @param array $map
      *
-     * @return groupList
+     * @return result
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppConfig'])) {
+            $model->appConfig = $map['AppConfig'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['CreatorId'])) {
-            $model->creatorId = $map['CreatorId'];
-        }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

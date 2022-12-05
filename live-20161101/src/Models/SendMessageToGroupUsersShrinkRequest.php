@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListMessageRequest extends Model
+class SendMessageToGroupUsersShrinkRequest extends Model
 {
     /**
      * @var string
@@ -16,34 +16,34 @@ class ListMessageRequest extends Model
     /**
      * @var string
      */
+    public $data;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
+    public $operatorUserId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $sortType;
+    public $receiverIdListShrink;
 
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'appId'    => 'AppId',
-        'groupId'  => 'GroupId',
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
-        'sortType' => 'SortType',
-        'type'     => 'Type',
+        'appId'                => 'AppId',
+        'data'                 => 'Data',
+        'groupId'              => 'GroupId',
+        'operatorUserId'       => 'OperatorUserId',
+        'receiverIdListShrink' => 'ReceiverIdList',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -56,17 +56,17 @@ class ListMessageRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->operatorUserId) {
+            $res['OperatorUserId'] = $this->operatorUserId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->sortType) {
-            $res['SortType'] = $this->sortType;
+        if (null !== $this->receiverIdListShrink) {
+            $res['ReceiverIdList'] = $this->receiverIdListShrink;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -78,7 +78,7 @@ class ListMessageRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListMessageRequest
+     * @return SendMessageToGroupUsersShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -86,17 +86,17 @@ class ListMessageRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['OperatorUserId'])) {
+            $model->operatorUserId = $map['OperatorUserId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['SortType'])) {
-            $model->sortType = $map['SortType'];
+        if (isset($map['ReceiverIdList'])) {
+            $model->receiverIdListShrink = $map['ReceiverIdList'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

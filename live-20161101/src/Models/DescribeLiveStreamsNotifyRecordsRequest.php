@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDomainUsageDataRequest extends Model
+class DescribeLiveStreamsNotifyRecordsRequest extends Model
 {
     /**
      * @var string
      */
-    public $area;
-
-    /**
-     * @var string
-     */
-    public $dataProtocol;
+    public $appName;
 
     /**
      * @var string
@@ -29,19 +24,19 @@ class DescribeDomainUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $field;
-
-    /**
-     * @var string
-     */
-    public $interval;
+    public $ownerId;
 
     /**
      * @var int
      */
-    public $ownerId;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -51,17 +46,22 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $streamName;
     protected $_name = [
-        'area'         => 'Area',
-        'dataProtocol' => 'DataProtocol',
-        'domainName'   => 'DomainName',
-        'endTime'      => 'EndTime',
-        'field'        => 'Field',
-        'interval'     => 'Interval',
-        'ownerId'      => 'OwnerId',
-        'startTime'    => 'StartTime',
-        'type'         => 'Type',
+        'appName'    => 'AppName',
+        'domainName' => 'DomainName',
+        'endTime'    => 'EndTime',
+        'ownerId'    => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'startTime'  => 'StartTime',
+        'status'     => 'Status',
+        'streamName' => 'StreamName',
     ];
 
     public function validate()
@@ -71,11 +71,8 @@ class DescribeDomainUsageDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
-        }
-        if (null !== $this->dataProtocol) {
-            $res['DataProtocol'] = $this->dataProtocol;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -83,20 +80,23 @@ class DescribeDomainUsageDataRequest extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->field) {
-            $res['Field'] = $this->field;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->streamName) {
+            $res['StreamName'] = $this->streamName;
         }
 
         return $res;
@@ -105,16 +105,13 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDomainUsageDataRequest
+     * @return DescribeLiveStreamsNotifyRecordsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Area'])) {
-            $model->area = $map['Area'];
-        }
-        if (isset($map['DataProtocol'])) {
-            $model->dataProtocol = $map['DataProtocol'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -122,20 +119,23 @@ class DescribeDomainUsageDataRequest extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Field'])) {
-            $model->field = $map['Field'];
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StreamName'])) {
+            $model->streamName = $map['StreamName'];
         }
 
         return $model;

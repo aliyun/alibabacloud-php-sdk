@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMessageGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -28,6 +33,7 @@ class ListMessageGroupRequest extends Model
      */
     public $userId;
     protected $_name = [
+        'appId'    => 'AppId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
         'sortType' => 'SortType',
@@ -41,6 +47,9 @@ class ListMessageGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -65,6 +74,9 @@ class ListMessageGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }

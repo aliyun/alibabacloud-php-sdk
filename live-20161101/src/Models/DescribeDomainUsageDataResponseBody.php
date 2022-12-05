@@ -32,17 +32,17 @@ class DescribeDomainUsageDataResponseBody extends Model
     /**
      * @var string
      */
-    public $field;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var usageDataPerInterval
@@ -53,9 +53,9 @@ class DescribeDomainUsageDataResponseBody extends Model
         'dataInterval'         => 'DataInterval',
         'domainName'           => 'DomainName',
         'endTime'              => 'EndTime',
-        'field'                => 'Field',
         'requestId'            => 'RequestId',
         'startTime'            => 'StartTime',
+        'type'                 => 'Type',
         'usageDataPerInterval' => 'UsageDataPerInterval',
     ];
 
@@ -78,14 +78,14 @@ class DescribeDomainUsageDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->field) {
-            $res['Field'] = $this->field;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->usageDataPerInterval) {
             $res['UsageDataPerInterval'] = null !== $this->usageDataPerInterval ? $this->usageDataPerInterval->toMap() : null;
@@ -114,14 +114,14 @@ class DescribeDomainUsageDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Field'])) {
-            $model->field = $map['Field'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['UsageDataPerInterval'])) {
             $model->usageDataPerInterval = usageDataPerInterval::fromMap($map['UsageDataPerInterval']);

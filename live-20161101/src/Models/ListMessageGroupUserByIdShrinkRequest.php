@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListMessageGroupUserRequest extends Model
+class ListMessageGroupUserByIdShrinkRequest extends Model
 {
     /**
      * @var string
@@ -19,25 +19,13 @@ class ListMessageGroupUserRequest extends Model
     public $groupId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $sortType;
+    public $userIdListShrink;
     protected $_name = [
-        'appId'    => 'AppId',
-        'groupId'  => 'GroupId',
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
-        'sortType' => 'SortType',
+        'appId'            => 'AppId',
+        'groupId'          => 'GroupId',
+        'userIdListShrink' => 'UserIdList',
     ];
 
     public function validate()
@@ -53,14 +41,8 @@ class ListMessageGroupUserRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->sortType) {
-            $res['SortType'] = $this->sortType;
+        if (null !== $this->userIdListShrink) {
+            $res['UserIdList'] = $this->userIdListShrink;
         }
 
         return $res;
@@ -69,7 +51,7 @@ class ListMessageGroupUserRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListMessageGroupUserRequest
+     * @return ListMessageGroupUserByIdShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -80,14 +62,8 @@ class ListMessageGroupUserRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['SortType'])) {
-            $model->sortType = $map['SortType'];
+        if (isset($map['UserIdList'])) {
+            $model->userIdListShrink = $map['UserIdList'];
         }
 
         return $model;

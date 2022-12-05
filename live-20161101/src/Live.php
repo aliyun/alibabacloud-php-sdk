@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveRecordVodConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveRecordVodConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveSnapshotDetectPornConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveSnapshotDetectPornConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveSnapshotNotifyConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveSnapshotNotifyConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveStreamTranscodeRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveStreamTranscodeResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveStreamWatermarkRequest;
@@ -74,8 +76,6 @@ use AlibabaCloud\SDK\Live\V20161101\Models\CancelMuteAllGroupUserRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CancelMuteAllGroupUserResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CloseLiveShiftRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CloseLiveShiftResponse;
-use AlibabaCloud\SDK\Live\V20161101\Models\CloseMessageGroupRequest;
-use AlibabaCloud\SDK\Live\V20161101\Models\CloseMessageGroupResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CopyCasterRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CopyCasterResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CopyCasterSceneConfigRequest;
@@ -92,6 +92,9 @@ use AlibabaCloud\SDK\Live\V20161101\Models\CreateLiveStreamRecordIndexFilesReque
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateLiveStreamRecordIndexFilesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageAppRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageAppResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageAppShrinkRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageGroupRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageGroupResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageGroupShrinkRequest;
@@ -147,6 +150,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveRecordVodConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveRecordVodConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveSnapshotDetectPornConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveSnapshotDetectPornConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveSnapshotNotifyConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveSnapshotNotifyConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveSpecificStagingConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveSpecificStagingConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveStreamMonitorRequest;
@@ -301,6 +306,10 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotDetectPornConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotDetectPornConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotNotifyConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotNotifyConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamAuthCheckingRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamAuthCheckingResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamBitRateDataRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamBitRateDataResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamCountRequest;
@@ -327,6 +336,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsControlHistoryRequ
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsControlHistoryResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamSnapshotInfoRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamSnapshotInfoResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyRecordsRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyRecordsResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyUrlConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsOnlineListRequest;
@@ -416,12 +427,12 @@ use AlibabaCloud\SDK\Live\V20161101\Models\GetCustomTemplateRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetCustomTemplateResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetEditingJobInfoRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetEditingJobInfoResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageAppRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageAppResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageGroupRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageGroupResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageTokenRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageTokenResponse;
-use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageUserInfoRequest;
-use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageUserInfoResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMultiRateConfigRequest;
@@ -440,8 +451,13 @@ use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryInfosReque
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryInfosResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageAppRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageAppResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupUserByIdRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupUserByIdResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupUserByIdShrinkRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupUserRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupUserResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageRequest;
@@ -474,6 +490,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\PlayChoosenShowRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\PlayChoosenShowResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\PublishLiveStagingConfigToProductionRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\PublishLiveStagingConfigToProductionResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\QueryMessageAppRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\QueryMessageAppResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\QuerySnapshotCallbackAuthRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\QuerySnapshotCallbackAuthResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\RealTimeRecordCommandRequest;
@@ -482,10 +500,19 @@ use AlibabaCloud\SDK\Live\V20161101\Models\RealTimeSnapshotCommandRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\RealTimeSnapshotCommandResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\RemoveShowFromShowListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\RemoveShowFromShowListResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\RestartCasterRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\RestartCasterResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\ResumeLiveStreamRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\ResumeLiveStreamResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\RollbackLiveStagingConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\RollbackLiveStagingConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendLikeRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendLikeResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendMessageToGroupRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendMessageToGroupResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendMessageToGroupUsersRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendMessageToGroupUsersResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\SendMessageToGroupUsersShrinkRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\SendRoomNotificationRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\SendRoomNotificationResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\SendRoomUserNotificationRequest;
@@ -558,6 +585,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveRecordNotifyConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveRecordNotifyConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveSnapshotDetectPornConfigRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveSnapshotDetectPornConfigResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveSnapshotNotifyConfigRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveSnapshotNotifyConfigResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveStreamMonitorRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveStreamMonitorResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveStreamWatermarkRequest;
@@ -566,6 +595,12 @@ use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveStreamWatermarkRuleRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveStreamWatermarkRuleResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveTopLevelDomainRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveTopLevelDomainResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMessageAppRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMessageAppResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMessageAppShrinkRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMessageGroupRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMessageGroupResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMessageGroupShrinkRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMixStreamRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateMixStreamResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\VerifyLiveDomainOwnerRequest;
@@ -1949,6 +1984,61 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param AddLiveSnapshotNotifyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddLiveSnapshotNotifyConfigResponse
+     */
+    public function addLiveSnapshotNotifyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->notifyAuthKey)) {
+            $query['NotifyAuthKey'] = $request->notifyAuthKey;
+        }
+        if (!Utils::isUnset($request->notifyReqAuth)) {
+            $query['NotifyReqAuth'] = $request->notifyReqAuth;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddLiveSnapshotNotifyConfig',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddLiveSnapshotNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddLiveSnapshotNotifyConfigRequest $request
+     *
+     * @return AddLiveSnapshotNotifyConfigResponse
+     */
+    public function addLiveSnapshotNotifyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addLiveSnapshotNotifyConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddLiveStreamTranscodeRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2827,52 +2917,6 @@ class Live extends OpenApiClient
     }
 
     /**
-     * @param CloseMessageGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CloseMessageGroupResponse
-     */
-    public function closeMessageGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $body['GroupId'] = $request->groupId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CloseMessageGroup',
-            'version'     => '2016-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CloseMessageGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CloseMessageGroupRequest $request
-     *
-     * @return CloseMessageGroupResponse
-     */
-    public function closeMessageGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->closeMessageGroupWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CopyCasterRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3310,6 +3354,63 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createLiveTranscodeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMessageAppRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMessageAppResponse
+     */
+    public function createMessageAppWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateMessageAppShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->appConfig)) {
+            $request->appConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appConfig, 'AppConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appConfigShrink)) {
+            $body['AppConfig'] = $request->appConfigShrink;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMessageApp',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMessageAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateMessageAppRequest $request
+     *
+     * @return CreateMessageAppResponse
+     */
+    public function createMessageApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMessageAppWithOptions($request, $runtime);
     }
 
     /**
@@ -4641,6 +4742,52 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLiveSnapshotDetectPornConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteLiveSnapshotNotifyConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteLiveSnapshotNotifyConfigResponse
+     */
+    public function deleteLiveSnapshotNotifyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLiveSnapshotNotifyConfig',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLiveSnapshotNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLiveSnapshotNotifyConfigRequest $request
+     *
+     * @return DeleteLiveSnapshotNotifyConfigResponse
+     */
+    public function deleteLiveSnapshotNotifyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLiveSnapshotNotifyConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -6078,6 +6225,9 @@ class Live extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->area)) {
             $query['Area'] = $request->area;
+        }
+        if (!Utils::isUnset($request->dataProtocol)) {
+            $query['DataProtocol'] = $request->dataProtocol;
         }
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
@@ -8666,6 +8816,101 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param DescribeLiveSnapshotNotifyConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeLiveSnapshotNotifyConfigResponse
+     */
+    public function describeLiveSnapshotNotifyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLiveSnapshotNotifyConfig',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLiveSnapshotNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveSnapshotNotifyConfigRequest $request
+     *
+     * @return DescribeLiveSnapshotNotifyConfigResponse
+     */
+    public function describeLiveSnapshotNotifyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveSnapshotNotifyConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLiveStreamAuthCheckingRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeLiveStreamAuthCheckingResponse
+     */
+    public function describeLiveStreamAuthCheckingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLiveStreamAuthChecking',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLiveStreamAuthCheckingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveStreamAuthCheckingRequest $request
+     *
+     * @return DescribeLiveStreamAuthCheckingResponse
+     */
+    public function describeLiveStreamAuthChecking($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveStreamAuthCheckingWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeLiveStreamBitRateDataRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -9650,6 +9895,73 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLiveStreamsControlHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLiveStreamsNotifyRecordsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeLiveStreamsNotifyRecordsResponse
+     */
+    public function describeLiveStreamsNotifyRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->streamName)) {
+            $query['StreamName'] = $request->streamName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLiveStreamsNotifyRecords',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLiveStreamsNotifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLiveStreamsNotifyRecordsRequest $request
+     *
+     * @return DescribeLiveStreamsNotifyRecordsResponse
+     */
+    public function describeLiveStreamsNotifyRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLiveStreamsNotifyRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -11680,6 +11992,49 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param GetMessageAppRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMessageAppResponse
+     */
+    public function getMessageAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMessageApp',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMessageAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMessageAppRequest $request
+     *
+     * @return GetMessageAppResponse
+     */
+    public function getMessageApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMessageAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetMessageGroupRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -11775,49 +12130,6 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMessageTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMessageUserInfoRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetMessageUserInfoResponse
-     */
-    public function getMessageUserInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->cloudUid)) {
-            $body['CloudUid'] = $request->cloudUid;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMessageUserInfo',
-            'version'     => '2016-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetMessageUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetMessageUserInfoRequest $request
-     *
-     * @return GetMessageUserInfoResponse
-     */
-    public function getMessageUserInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMessageUserInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -12286,6 +12598,9 @@ class Live extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
         if (!Utils::isUnset($request->groupId)) {
             $body['GroupId'] = $request->groupId;
         }
@@ -12332,6 +12647,55 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param ListMessageAppRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMessageAppResponse
+     */
+    public function listMessageAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $body['SortType'] = $request->sortType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMessageApp',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMessageAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMessageAppRequest $request
+     *
+     * @return ListMessageAppResponse
+     */
+    public function listMessageApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMessageAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListMessageGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -12341,6 +12705,9 @@ class Live extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
         if (!Utils::isUnset($request->pageNum)) {
             $body['PageNum'] = $request->pageNum;
         }
@@ -12408,9 +12775,6 @@ class Live extends OpenApiClient
         if (!Utils::isUnset($request->sortType)) {
             $body['SortType'] = $request->sortType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
-        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -12439,6 +12803,60 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMessageGroupUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListMessageGroupUserByIdRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListMessageGroupUserByIdResponse
+     */
+    public function listMessageGroupUserByIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListMessageGroupUserByIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userIdList)) {
+            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'simple');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->userIdListShrink)) {
+            $body['UserIdList'] = $request->userIdListShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMessageGroupUserById',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMessageGroupUserByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListMessageGroupUserByIdRequest $request
+     *
+     * @return ListMessageGroupUserByIdResponse
+     */
+    public function listMessageGroupUserById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMessageGroupUserByIdWithOptions($request, $runtime);
     }
 
     /**
@@ -13239,6 +13657,61 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param QueryMessageAppRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryMessageAppResponse
+     */
+    public function queryMessageAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $body['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $body['SortType'] = $request->sortType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMessageApp',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMessageAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryMessageAppRequest $request
+     *
+     * @return QueryMessageAppResponse
+     */
+    public function queryMessageApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMessageAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySnapshotCallbackAuthRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -13459,6 +13932,52 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param RestartCasterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RestartCasterResponse
+     */
+    public function restartCasterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->casterId)) {
+            $query['CasterId'] = $request->casterId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartCaster',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartCasterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestartCasterRequest $request
+     *
+     * @return RestartCasterResponse
+     */
+    public function restartCaster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartCasterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResumeLiveStreamRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -13563,6 +14082,179 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackLiveStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendLikeRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendLikeResponse
+     */
+    public function sendLikeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->broadCastType)) {
+            $body['BroadCastType'] = $request->broadCastType;
+        }
+        if (!Utils::isUnset($request->count)) {
+            $body['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['OperatorUserId'] = $request->operatorUserId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendLike',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendLikeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendLikeRequest $request
+     *
+     * @return SendLikeResponse
+     */
+    public function sendLike($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendLikeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendMessageToGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SendMessageToGroupResponse
+     */
+    public function sendMessageToGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['OperatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendMessageToGroup',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendMessageToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendMessageToGroupRequest $request
+     *
+     * @return SendMessageToGroupResponse
+     */
+    public function sendMessageToGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendMessageToGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendMessageToGroupUsersRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SendMessageToGroupUsersResponse
+     */
+    public function sendMessageToGroupUsersWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendMessageToGroupUsersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->receiverIdList)) {
+            $request->receiverIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->receiverIdList, 'ReceiverIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->data)) {
+            $body['Data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->operatorUserId)) {
+            $body['OperatorUserId'] = $request->operatorUserId;
+        }
+        if (!Utils::isUnset($request->receiverIdListShrink)) {
+            $body['ReceiverIdList'] = $request->receiverIdListShrink;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendMessageToGroupUsers',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendMessageToGroupUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendMessageToGroupUsersRequest $request
+     *
+     * @return SendMessageToGroupUsersResponse
+     */
+    public function sendMessageToGroupUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendMessageToGroupUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -15555,6 +16247,61 @@ class Live extends OpenApiClient
     }
 
     /**
+     * @param UpdateLiveSnapshotNotifyConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateLiveSnapshotNotifyConfigResponse
+     */
+    public function updateLiveSnapshotNotifyConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->notifyAuthKey)) {
+            $query['NotifyAuthKey'] = $request->notifyAuthKey;
+        }
+        if (!Utils::isUnset($request->notifyReqAuth)) {
+            $query['NotifyReqAuth'] = $request->notifyReqAuth;
+        }
+        if (!Utils::isUnset($request->notifyUrl)) {
+            $query['NotifyUrl'] = $request->notifyUrl;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLiveSnapshotNotifyConfig',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateLiveSnapshotNotifyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateLiveSnapshotNotifyConfigRequest $request
+     *
+     * @return UpdateLiveSnapshotNotifyConfigResponse
+     */
+    public function updateLiveSnapshotNotifyConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLiveSnapshotNotifyConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateLiveStreamMonitorRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -15796,6 +16543,120 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLiveTopLevelDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMessageAppRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMessageAppResponse
+     */
+    public function updateMessageAppWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateMessageAppShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->appConfig)) {
+            $request->appConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appConfig, 'AppConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appConfigShrink)) {
+            $body['AppConfig'] = $request->appConfigShrink;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $body['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMessageApp',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMessageAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMessageAppRequest $request
+     *
+     * @return UpdateMessageAppResponse
+     */
+    public function updateMessageApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMessageAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateMessageGroupRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateMessageGroupResponse
+     */
+    public function updateMessageGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateMessageGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extension)) {
+            $request->extensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extension, 'Extension', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->extensionShrink)) {
+            $body['Extension'] = $request->extensionShrink;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $body['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMessageGroup',
+            'version'     => '2016-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateMessageGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateMessageGroupRequest $request
+     *
+     * @return UpdateMessageGroupResponse
+     */
+    public function updateMessageGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMessageGroupWithOptions($request, $runtime);
     }
 
     /**
