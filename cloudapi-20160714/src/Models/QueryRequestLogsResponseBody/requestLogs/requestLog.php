@@ -19,7 +19,7 @@ class requestLog extends Model
     public $apiName;
 
     /**
-     * @var int
+     * @var string
      */
     public $clientIp;
 
