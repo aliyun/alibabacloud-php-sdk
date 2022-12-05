@@ -102,7 +102,6 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -394,10 +393,10 @@ class Wafopenapi extends OpenApiClient
         $request = new CreateDomainShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->listen)) {
-            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->listen), 'Listen', 'json');
+            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
         }
         if (!Utils::isUnset($tmpReq->redirect)) {
-            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->redirect), 'Redirect', 'json');
+            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->accessType)) {
@@ -657,6 +656,9 @@ class Wafopenapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accessType)) {
+            $query['AccessType'] = $request->accessType;
+        }
         if (!Utils::isUnset($request->domain)) {
             $query['Domain'] = $request->domain;
         }
@@ -2409,10 +2411,10 @@ class Wafopenapi extends OpenApiClient
         $request = new ModifyDomainShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->listen)) {
-            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->listen), 'Listen', 'json');
+            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
         }
         if (!Utils::isUnset($tmpReq->redirect)) {
-            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->redirect), 'Redirect', 'json');
+            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->accessType)) {

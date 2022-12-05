@@ -25,6 +25,21 @@ class redirect extends Model
     public $focusHttpBackend;
 
     /**
+     * @var bool
+     */
+    public $keepalive;
+
+    /**
+     * @var int
+     */
+    public $keepaliveRequests;
+
+    /**
+     * @var int
+     */
+    public $keepaliveTimeout;
+
+    /**
      * @var string
      */
     public $loadbalance;
@@ -42,6 +57,11 @@ class redirect extends Model
     /**
      * @var bool
      */
+    public $retry;
+
+    /**
+     * @var bool
+     */
     public $sniEnabled;
 
     /**
@@ -54,15 +74,19 @@ class redirect extends Model
      */
     public $writeTimeout;
     protected $_name = [
-        'backends'         => 'Backends',
-        'connectTimeout'   => 'ConnectTimeout',
-        'focusHttpBackend' => 'FocusHttpBackend',
-        'loadbalance'      => 'Loadbalance',
-        'readTimeout'      => 'ReadTimeout',
-        'requestHeaders'   => 'RequestHeaders',
-        'sniEnabled'       => 'SniEnabled',
-        'sniHost'          => 'SniHost',
-        'writeTimeout'     => 'WriteTimeout',
+        'backends'          => 'Backends',
+        'connectTimeout'    => 'ConnectTimeout',
+        'focusHttpBackend'  => 'FocusHttpBackend',
+        'keepalive'         => 'Keepalive',
+        'keepaliveRequests' => 'KeepaliveRequests',
+        'keepaliveTimeout'  => 'KeepaliveTimeout',
+        'loadbalance'       => 'Loadbalance',
+        'readTimeout'       => 'ReadTimeout',
+        'requestHeaders'    => 'RequestHeaders',
+        'retry'             => 'Retry',
+        'sniEnabled'        => 'SniEnabled',
+        'sniHost'           => 'SniHost',
+        'writeTimeout'      => 'WriteTimeout',
     ];
 
     public function validate()
@@ -81,6 +105,15 @@ class redirect extends Model
         if (null !== $this->focusHttpBackend) {
             $res['FocusHttpBackend'] = $this->focusHttpBackend;
         }
+        if (null !== $this->keepalive) {
+            $res['Keepalive'] = $this->keepalive;
+        }
+        if (null !== $this->keepaliveRequests) {
+            $res['KeepaliveRequests'] = $this->keepaliveRequests;
+        }
+        if (null !== $this->keepaliveTimeout) {
+            $res['KeepaliveTimeout'] = $this->keepaliveTimeout;
+        }
         if (null !== $this->loadbalance) {
             $res['Loadbalance'] = $this->loadbalance;
         }
@@ -95,6 +128,9 @@ class redirect extends Model
                     $res['RequestHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->retry) {
+            $res['Retry'] = $this->retry;
         }
         if (null !== $this->sniEnabled) {
             $res['SniEnabled'] = $this->sniEnabled;
@@ -128,6 +164,15 @@ class redirect extends Model
         if (isset($map['FocusHttpBackend'])) {
             $model->focusHttpBackend = $map['FocusHttpBackend'];
         }
+        if (isset($map['Keepalive'])) {
+            $model->keepalive = $map['Keepalive'];
+        }
+        if (isset($map['KeepaliveRequests'])) {
+            $model->keepaliveRequests = $map['KeepaliveRequests'];
+        }
+        if (isset($map['KeepaliveTimeout'])) {
+            $model->keepaliveTimeout = $map['KeepaliveTimeout'];
+        }
         if (isset($map['Loadbalance'])) {
             $model->loadbalance = $map['Loadbalance'];
         }
@@ -142,6 +187,9 @@ class redirect extends Model
                     $model->requestHeaders[$n++] = null !== $item ? requestHeaders::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Retry'])) {
+            $model->retry = $map['Retry'];
         }
         if (isset($map['SniEnabled'])) {
             $model->sniEnabled = $map['SniEnabled'];

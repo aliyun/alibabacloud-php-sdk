@@ -15,6 +15,11 @@ class redirect extends Model
     public $backends;
 
     /**
+     * @var bool
+     */
+    public $cnameEnabled;
+
+    /**
      * @var int
      */
     public $connectTimeout;
@@ -23,6 +28,21 @@ class redirect extends Model
      * @var bool
      */
     public $focusHttpBackend;
+
+    /**
+     * @var bool
+     */
+    public $keepalive;
+
+    /**
+     * @var int
+     */
+    public $keepaliveRequests;
+
+    /**
+     * @var int
+     */
+    public $keepaliveTimeout;
 
     /**
      * @var string
@@ -42,6 +62,16 @@ class redirect extends Model
     /**
      * @var bool
      */
+    public $retry;
+
+    /**
+     * @var string
+     */
+    public $routingRules;
+
+    /**
+     * @var bool
+     */
     public $sniEnabled;
 
     /**
@@ -54,15 +84,21 @@ class redirect extends Model
      */
     public $writeTimeout;
     protected $_name = [
-        'backends'         => 'Backends',
-        'connectTimeout'   => 'ConnectTimeout',
-        'focusHttpBackend' => 'FocusHttpBackend',
-        'loadbalance'      => 'Loadbalance',
-        'readTimeout'      => 'ReadTimeout',
-        'requestHeaders'   => 'RequestHeaders',
-        'sniEnabled'       => 'SniEnabled',
-        'sniHost'          => 'SniHost',
-        'writeTimeout'     => 'WriteTimeout',
+        'backends'          => 'Backends',
+        'cnameEnabled'      => 'CnameEnabled',
+        'connectTimeout'    => 'ConnectTimeout',
+        'focusHttpBackend'  => 'FocusHttpBackend',
+        'keepalive'         => 'Keepalive',
+        'keepaliveRequests' => 'KeepaliveRequests',
+        'keepaliveTimeout'  => 'KeepaliveTimeout',
+        'loadbalance'       => 'Loadbalance',
+        'readTimeout'       => 'ReadTimeout',
+        'requestHeaders'    => 'RequestHeaders',
+        'retry'             => 'Retry',
+        'routingRules'      => 'RoutingRules',
+        'sniEnabled'        => 'SniEnabled',
+        'sniHost'           => 'SniHost',
+        'writeTimeout'      => 'WriteTimeout',
     ];
 
     public function validate()
@@ -75,11 +111,23 @@ class redirect extends Model
         if (null !== $this->backends) {
             $res['Backends'] = $this->backends;
         }
+        if (null !== $this->cnameEnabled) {
+            $res['CnameEnabled'] = $this->cnameEnabled;
+        }
         if (null !== $this->connectTimeout) {
             $res['ConnectTimeout'] = $this->connectTimeout;
         }
         if (null !== $this->focusHttpBackend) {
             $res['FocusHttpBackend'] = $this->focusHttpBackend;
+        }
+        if (null !== $this->keepalive) {
+            $res['Keepalive'] = $this->keepalive;
+        }
+        if (null !== $this->keepaliveRequests) {
+            $res['KeepaliveRequests'] = $this->keepaliveRequests;
+        }
+        if (null !== $this->keepaliveTimeout) {
+            $res['KeepaliveTimeout'] = $this->keepaliveTimeout;
         }
         if (null !== $this->loadbalance) {
             $res['Loadbalance'] = $this->loadbalance;
@@ -95,6 +143,12 @@ class redirect extends Model
                     $res['RequestHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->retry) {
+            $res['Retry'] = $this->retry;
+        }
+        if (null !== $this->routingRules) {
+            $res['RoutingRules'] = $this->routingRules;
         }
         if (null !== $this->sniEnabled) {
             $res['SniEnabled'] = $this->sniEnabled;
@@ -122,11 +176,23 @@ class redirect extends Model
                 $model->backends = $map['Backends'];
             }
         }
+        if (isset($map['CnameEnabled'])) {
+            $model->cnameEnabled = $map['CnameEnabled'];
+        }
         if (isset($map['ConnectTimeout'])) {
             $model->connectTimeout = $map['ConnectTimeout'];
         }
         if (isset($map['FocusHttpBackend'])) {
             $model->focusHttpBackend = $map['FocusHttpBackend'];
+        }
+        if (isset($map['Keepalive'])) {
+            $model->keepalive = $map['Keepalive'];
+        }
+        if (isset($map['KeepaliveRequests'])) {
+            $model->keepaliveRequests = $map['KeepaliveRequests'];
+        }
+        if (isset($map['KeepaliveTimeout'])) {
+            $model->keepaliveTimeout = $map['KeepaliveTimeout'];
         }
         if (isset($map['Loadbalance'])) {
             $model->loadbalance = $map['Loadbalance'];
@@ -142,6 +208,12 @@ class redirect extends Model
                     $model->requestHeaders[$n++] = null !== $item ? requestHeaders::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Retry'])) {
+            $model->retry = $map['Retry'];
+        }
+        if (isset($map['RoutingRules'])) {
+            $model->routingRules = $map['RoutingRules'];
         }
         if (isset($map['SniEnabled'])) {
             $model->sniEnabled = $map['SniEnabled'];

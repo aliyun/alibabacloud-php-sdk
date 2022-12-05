@@ -11,6 +11,11 @@ class DeleteDomainRequest extends Model
     /**
      * @var string
      */
+    public $accessType;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
@@ -23,6 +28,7 @@ class DeleteDomainRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'accessType' => 'AccessType',
         'domain'     => 'Domain',
         'instanceId' => 'InstanceId',
         'regionId'   => 'RegionId',
@@ -35,6 +41,9 @@ class DeleteDomainRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
+        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -56,6 +65,9 @@ class DeleteDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
+        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
