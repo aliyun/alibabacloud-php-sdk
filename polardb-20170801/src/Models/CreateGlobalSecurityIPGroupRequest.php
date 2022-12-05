@@ -6,22 +6,17 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SwitchOverGlobalDatabaseNetworkRequest extends Model
+class CreateGlobalSecurityIPGroupRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var bool
-     */
-    public $forced;
+    public $GIpList;
 
     /**
      * @var string
      */
-    public $GDNId;
+    public $globalIgName;
 
     /**
      * @var string
@@ -58,9 +53,8 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'forced'               => 'Forced',
-        'GDNId'                => 'GDNId',
+        'GIpList'              => 'GIpList',
+        'globalIgName'         => 'GlobalIgName',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -77,14 +71,11 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->GIpList) {
+            $res['GIpList'] = $this->GIpList;
         }
-        if (null !== $this->forced) {
-            $res['Forced'] = $this->forced;
-        }
-        if (null !== $this->GDNId) {
-            $res['GDNId'] = $this->GDNId;
+        if (null !== $this->globalIgName) {
+            $res['GlobalIgName'] = $this->globalIgName;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -114,19 +105,16 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     /**
      * @param array $map
      *
-     * @return SwitchOverGlobalDatabaseNetworkRequest
+     * @return CreateGlobalSecurityIPGroupRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['GIpList'])) {
+            $model->GIpList = $map['GIpList'];
         }
-        if (isset($map['Forced'])) {
-            $model->forced = $map['Forced'];
-        }
-        if (isset($map['GDNId'])) {
-            $model->GDNId = $map['GDNId'];
+        if (isset($map['GlobalIgName'])) {
+            $model->globalIgName = $map['GlobalIgName'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

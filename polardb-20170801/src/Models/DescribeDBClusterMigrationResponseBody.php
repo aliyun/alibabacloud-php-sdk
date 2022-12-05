@@ -73,6 +73,11 @@ class DescribeDBClusterMigrationResponseBody extends Model
     /**
      * @var string
      */
+    public $srcDbType;
+
+    /**
+     * @var string
+     */
     public $topologies;
     protected $_name = [
         'comment'                => 'Comment',
@@ -87,6 +92,7 @@ class DescribeDBClusterMigrationResponseBody extends Model
         'rdsReadWriteMode'       => 'RdsReadWriteMode',
         'requestId'              => 'RequestId',
         'sourceRDSDBInstanceId'  => 'SourceRDSDBInstanceId',
+        'srcDbType'              => 'SrcDbType',
         'topologies'             => 'Topologies',
     ];
 
@@ -144,6 +150,9 @@ class DescribeDBClusterMigrationResponseBody extends Model
         }
         if (null !== $this->sourceRDSDBInstanceId) {
             $res['SourceRDSDBInstanceId'] = $this->sourceRDSDBInstanceId;
+        }
+        if (null !== $this->srcDbType) {
+            $res['SrcDbType'] = $this->srcDbType;
         }
         if (null !== $this->topologies) {
             $res['Topologies'] = $this->topologies;
@@ -207,6 +216,9 @@ class DescribeDBClusterMigrationResponseBody extends Model
         }
         if (isset($map['SourceRDSDBInstanceId'])) {
             $model->sourceRDSDBInstanceId = $map['SourceRDSDBInstanceId'];
+        }
+        if (isset($map['SrcDbType'])) {
+            $model->srcDbType = $map['SrcDbType'];
         }
         if (isset($map['Topologies'])) {
             $model->topologies = $map['Topologies'];

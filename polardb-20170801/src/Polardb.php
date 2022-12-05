@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
@@ -56,6 +58,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBNodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
@@ -98,6 +102,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterParametersRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPerformanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterServerlessConfRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClustersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterSSLRequest;
@@ -124,6 +130,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelationRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRelationResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMaskingRulesRequest;
@@ -196,6 +206,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterPrimaryZoneRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterPrimaryZoneResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterResourceGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterResourceGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterServerlessConfRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterSSLRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterSSLResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterTDERequest;
@@ -212,6 +224,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesParametersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupNameRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupNameResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRelationRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRelationResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyMaskingRulesRequest;
@@ -770,6 +788,9 @@ class Polardb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allowShutDown)) {
+            $query['AllowShutDown'] = $request->allowShutDown;
+        }
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
         }
@@ -842,11 +863,29 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->scaleMax)) {
+            $query['ScaleMax'] = $request->scaleMax;
+        }
+        if (!Utils::isUnset($request->scaleMin)) {
+            $query['ScaleMin'] = $request->scaleMin;
+        }
+        if (!Utils::isUnset($request->scaleRoNumMax)) {
+            $query['ScaleRoNumMax'] = $request->scaleRoNumMax;
+        }
+        if (!Utils::isUnset($request->scaleRoNumMin)) {
+            $query['ScaleRoNumMin'] = $request->scaleRoNumMin;
+        }
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
         }
+        if (!Utils::isUnset($request->serverlessType)) {
+            $query['ServerlessType'] = $request->serverlessType;
+        }
         if (!Utils::isUnset($request->sourceResourceId)) {
             $query['SourceResourceId'] = $request->sourceResourceId;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
         if (!Utils::isUnset($request->TDEStatus)) {
             $query['TDEStatus'] = $request->TDEStatus;
@@ -1341,6 +1380,73 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateGlobalSecurityIPGroupResponse
+     */
+    public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
+        }
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGlobalSecurityIPGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGlobalSecurityIPGroupRequest $request
+     *
+     * @return CreateGlobalSecurityIPGroupResponse
+     */
+    public function createGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGlobalSecurityIPGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2012,6 +2118,73 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteGlobalSecurityIPGroupResponse
+     */
+    public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGlobalSecurityIPGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGlobalSecurityIPGroupRequest $request
+     *
+     * @return DeleteGlobalSecurityIPGroupResponse
+     */
+    public function deleteGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGlobalSecurityIPGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3245,6 +3418,61 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBClusterServerlessConfRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDBClusterServerlessConfResponse
+     */
+    public function describeDBClusterServerlessConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterServerlessConf',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterServerlessConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterServerlessConfRequest $request
+     *
+     * @return DescribeDBClusterServerlessConfResponse
+     */
+    public function describeDBClusterServerlessConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterServerlessConfWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBClusterTDERequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3364,6 +3592,9 @@ class Polardb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
         if (!Utils::isUnset($request->DBClusterDescription)) {
             $query['DBClusterDescription'] = $request->DBClusterDescription;
         }
@@ -3378,6 +3609,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBType)) {
             $query['DBType'] = $request->DBType;
+        }
+        if (!Utils::isUnset($request->DBVersion)) {
+            $query['DBVersion'] = $request->DBVersion;
         }
         if (!Utils::isUnset($request->expired)) {
             $query['Expired'] = $request->expired;
@@ -4080,6 +4314,134 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGlobalDatabaseNetworksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeGlobalSecurityIPGroupResponse
+     */
+    public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGlobalSecurityIPGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRequest $request
+     *
+     * @return DescribeGlobalSecurityIPGroupResponse
+     */
+    public function describeGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     */
+    public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGlobalSecurityIPGroupRelation',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     *
+     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     */
+    public function describeGlobalSecurityIPGroupRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -6508,6 +6870,79 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param ModifyDBClusterServerlessConfRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyDBClusterServerlessConfResponse
+     */
+    public function modifyDBClusterServerlessConfWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowShutDown)) {
+            $query['AllowShutDown'] = $request->allowShutDown;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scaleMax)) {
+            $query['ScaleMax'] = $request->scaleMax;
+        }
+        if (!Utils::isUnset($request->scaleMin)) {
+            $query['ScaleMin'] = $request->scaleMin;
+        }
+        if (!Utils::isUnset($request->scaleRoNumMax)) {
+            $query['ScaleRoNumMax'] = $request->scaleRoNumMax;
+        }
+        if (!Utils::isUnset($request->scaleRoNumMin)) {
+            $query['ScaleRoNumMin'] = $request->scaleRoNumMin;
+        }
+        if (!Utils::isUnset($request->secondsUntilAutoPause)) {
+            $query['SecondsUntilAutoPause'] = $request->secondsUntilAutoPause;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterServerlessConf',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterServerlessConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBClusterServerlessConfRequest $request
+     *
+     * @return ModifyDBClusterServerlessConfResponse
+     */
+    public function modifyDBClusterServerlessConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterServerlessConfWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDBClusterTDERequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -6989,6 +7424,210 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyGlobalSecurityIPGroupResponse
+     */
+    public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
+        }
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGlobalSecurityIPGroup',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRequest $request
+     *
+     * @return ModifyGlobalSecurityIPGroupResponse
+     */
+    public function modifyGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyGlobalSecurityIPGroupNameResponse
+     */
+    public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGlobalSecurityIPGroupName',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     *
+     * @return ModifyGlobalSecurityIPGroupNameResponse
+     */
+    public function modifyGlobalSecurityIPGroupName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     */
+    public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGlobalSecurityIPGroupRelation',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     *
+     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     */
+    public function modifyGlobalSecurityIPGroupRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -7616,6 +8255,9 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->forced)) {
+            $query['Forced'] = $request->forced;
         }
         if (!Utils::isUnset($request->GDNId)) {
             $query['GDNId'] = $request->GDNId;

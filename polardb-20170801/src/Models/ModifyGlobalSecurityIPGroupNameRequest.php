@@ -6,22 +6,17 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SwitchOverGlobalDatabaseNetworkRequest extends Model
+class ModifyGlobalSecurityIPGroupNameRequest extends Model
 {
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var bool
-     */
-    public $forced;
+    public $globalIgName;
 
     /**
      * @var string
      */
-    public $GDNId;
+    public $globalSecurityGroupId;
 
     /**
      * @var string
@@ -58,16 +53,15 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'forced'               => 'Forced',
-        'GDNId'                => 'GDNId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
+        'globalIgName'          => 'GlobalIgName',
+        'globalSecurityGroupId' => 'GlobalSecurityGroupId',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'securityToken'         => 'SecurityToken',
     ];
 
     public function validate()
@@ -77,14 +71,11 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->globalIgName) {
+            $res['GlobalIgName'] = $this->globalIgName;
         }
-        if (null !== $this->forced) {
-            $res['Forced'] = $this->forced;
-        }
-        if (null !== $this->GDNId) {
-            $res['GDNId'] = $this->GDNId;
+        if (null !== $this->globalSecurityGroupId) {
+            $res['GlobalSecurityGroupId'] = $this->globalSecurityGroupId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -114,19 +105,16 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     /**
      * @param array $map
      *
-     * @return SwitchOverGlobalDatabaseNetworkRequest
+     * @return ModifyGlobalSecurityIPGroupNameRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['GlobalIgName'])) {
+            $model->globalIgName = $map['GlobalIgName'];
         }
-        if (isset($map['Forced'])) {
-            $model->forced = $map['Forced'];
-        }
-        if (isset($map['GDNId'])) {
-            $model->GDNId = $map['GDNId'];
+        if (isset($map['GlobalSecurityGroupId'])) {
+            $model->globalSecurityGroupId = $map['GlobalSecurityGroupId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

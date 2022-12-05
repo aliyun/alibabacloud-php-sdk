@@ -12,6 +12,11 @@ class DescribeDBClustersRequest extends Model
     /**
      * @var string
      */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
     public $DBClusterDescription;
 
     /**
@@ -33,6 +38,11 @@ class DescribeDBClustersRequest extends Model
      * @var string
      */
     public $DBType;
+
+    /**
+     * @var string
+     */
+    public $DBVersion;
 
     /**
      * @var bool
@@ -99,11 +109,13 @@ class DescribeDBClustersRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'connectionString'         => 'ConnectionString',
         'DBClusterDescription'     => 'DBClusterDescription',
         'DBClusterIds'             => 'DBClusterIds',
         'DBClusterStatus'          => 'DBClusterStatus',
         'DBNodeIds'                => 'DBNodeIds',
         'DBType'                   => 'DBType',
+        'DBVersion'                => 'DBVersion',
         'expired'                  => 'Expired',
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
@@ -126,6 +138,9 @@ class DescribeDBClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
         if (null !== $this->DBClusterDescription) {
             $res['DBClusterDescription'] = $this->DBClusterDescription;
         }
@@ -140,6 +155,9 @@ class DescribeDBClustersRequest extends Model
         }
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
+        }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
@@ -198,6 +216,9 @@ class DescribeDBClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
         if (isset($map['DBClusterDescription'])) {
             $model->DBClusterDescription = $map['DBClusterDescription'];
         }
@@ -212,6 +233,9 @@ class DescribeDBClustersRequest extends Model
         }
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
+        }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];

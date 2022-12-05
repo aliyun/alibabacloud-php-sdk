@@ -76,6 +76,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $serverWeight;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'addedCpuCores'    => 'AddedCpuCores',
@@ -91,6 +96,7 @@ class DBNodes extends Model
         'maxConnections'   => 'MaxConnections',
         'maxIOPS'          => 'MaxIOPS',
         'sccMode'          => 'SccMode',
+        'serverWeight'     => 'ServerWeight',
         'zoneId'           => 'ZoneId',
     ];
 
@@ -139,6 +145,9 @@ class DBNodes extends Model
         }
         if (null !== $this->sccMode) {
             $res['SccMode'] = $this->sccMode;
+        }
+        if (null !== $this->serverWeight) {
+            $res['ServerWeight'] = $this->serverWeight;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -193,6 +202,9 @@ class DBNodes extends Model
         }
         if (isset($map['SccMode'])) {
             $model->sccMode = $map['SccMode'];
+        }
+        if (isset($map['ServerWeight'])) {
+            $model->serverWeight = $map['ServerWeight'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDBClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $allowShutDown;
+
+    /**
      * @var bool
      */
     public $autoRenew;
@@ -132,12 +137,42 @@ class CreateDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $scaleMax;
+
+    /**
+     * @var string
+     */
+    public $scaleMin;
+
+    /**
+     * @var string
+     */
+    public $scaleRoNumMax;
+
+    /**
+     * @var string
+     */
+    public $scaleRoNumMin;
+
+    /**
+     * @var string
+     */
     public $securityIPList;
 
     /**
      * @var string
      */
+    public $serverlessType;
+
+    /**
+     * @var string
+     */
     public $sourceResourceId;
+
+    /**
+     * @var string
+     */
+    public $storageType;
 
     /**
      * @var bool
@@ -169,6 +204,7 @@ class CreateDBClusterRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'allowShutDown'                          => 'AllowShutDown',
         'autoRenew'                              => 'AutoRenew',
         'backupRetentionPolicyOnClusterDeletion' => 'BackupRetentionPolicyOnClusterDeletion',
         'clientToken'                            => 'ClientToken',
@@ -193,8 +229,14 @@ class CreateDBClusterRequest extends Model
         'resourceGroupId'                        => 'ResourceGroupId',
         'resourceOwnerAccount'                   => 'ResourceOwnerAccount',
         'resourceOwnerId'                        => 'ResourceOwnerId',
+        'scaleMax'                               => 'ScaleMax',
+        'scaleMin'                               => 'ScaleMin',
+        'scaleRoNumMax'                          => 'ScaleRoNumMax',
+        'scaleRoNumMin'                          => 'ScaleRoNumMin',
         'securityIPList'                         => 'SecurityIPList',
+        'serverlessType'                         => 'ServerlessType',
         'sourceResourceId'                       => 'SourceResourceId',
+        'storageType'                            => 'StorageType',
         'TDEStatus'                              => 'TDEStatus',
         'tag'                                    => 'Tag',
         'usedTime'                               => 'UsedTime',
@@ -210,6 +252,9 @@ class CreateDBClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowShutDown) {
+            $res['AllowShutDown'] = $this->allowShutDown;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -282,11 +327,29 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->scaleMax) {
+            $res['ScaleMax'] = $this->scaleMax;
+        }
+        if (null !== $this->scaleMin) {
+            $res['ScaleMin'] = $this->scaleMin;
+        }
+        if (null !== $this->scaleRoNumMax) {
+            $res['ScaleRoNumMax'] = $this->scaleRoNumMax;
+        }
+        if (null !== $this->scaleRoNumMin) {
+            $res['ScaleRoNumMin'] = $this->scaleRoNumMin;
+        }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
+        if (null !== $this->serverlessType) {
+            $res['ServerlessType'] = $this->serverlessType;
+        }
         if (null !== $this->sourceResourceId) {
             $res['SourceResourceId'] = $this->sourceResourceId;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
@@ -324,6 +387,9 @@ class CreateDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowShutDown'])) {
+            $model->allowShutDown = $map['AllowShutDown'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -396,11 +462,29 @@ class CreateDBClusterRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+        if (isset($map['ScaleMax'])) {
+            $model->scaleMax = $map['ScaleMax'];
+        }
+        if (isset($map['ScaleMin'])) {
+            $model->scaleMin = $map['ScaleMin'];
+        }
+        if (isset($map['ScaleRoNumMax'])) {
+            $model->scaleRoNumMax = $map['ScaleRoNumMax'];
+        }
+        if (isset($map['ScaleRoNumMin'])) {
+            $model->scaleRoNumMin = $map['ScaleRoNumMin'];
+        }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }
+        if (isset($map['ServerlessType'])) {
+            $model->serverlessType = $map['ServerlessType'];
+        }
         if (isset($map['SourceResourceId'])) {
             $model->sourceResourceId = $map['SourceResourceId'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];
