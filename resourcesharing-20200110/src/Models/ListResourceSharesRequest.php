@@ -21,6 +21,11 @@ class ListResourceSharesRequest extends Model
     /**
      * @var string
      */
+    public $permissionName;
+
+    /**
+     * @var string
+     */
     public $resourceOwner;
 
     /**
@@ -40,6 +45,7 @@ class ListResourceSharesRequest extends Model
     protected $_name = [
         'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
+        'permissionName'      => 'PermissionName',
         'resourceOwner'       => 'ResourceOwner',
         'resourceShareIds'    => 'ResourceShareIds',
         'resourceShareName'   => 'ResourceShareName',
@@ -58,6 +64,9 @@ class ListResourceSharesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->permissionName) {
+            $res['PermissionName'] = $this->permissionName;
         }
         if (null !== $this->resourceOwner) {
             $res['ResourceOwner'] = $this->resourceOwner;
@@ -88,6 +97,9 @@ class ListResourceSharesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['PermissionName'])) {
+            $model->permissionName = $map['PermissionName'];
         }
         if (isset($map['ResourceOwner'])) {
             $model->resourceOwner = $map['ResourceOwner'];

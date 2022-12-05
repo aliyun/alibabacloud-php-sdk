@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AcceptResourceShareInvitationRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AcceptResourceShareInvitationResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceSharePermissionRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceSharePermissionResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest;
@@ -16,13 +18,23 @@ use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DeleteResourceShareRequest
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DeleteResourceShareResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DisassociateResourceSharePermissionRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DisassociateResourceSharePermissionResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DisassociateResourceShareRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\DisassociateResourceShareResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\EnableSharingWithResourceDirectoryResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\GetPermissionRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\GetPermissionResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListPermissionsRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListPermissionsResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListPermissionVersionsRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListPermissionVersionsResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareAssociationsRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareAssociationsResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareInvitationsRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceShareInvitationsResponse;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharePermissionsRequest;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharePermissionsResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharesRequest;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListResourceSharesResponse;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\ListSharedResourcesRequest;
@@ -125,6 +137,9 @@ class ResourceSharing extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->permissionNames)) {
+            $query['PermissionNames'] = $request->permissionNames;
+        }
         if (!Utils::isUnset($request->resourceShareId)) {
             $query['ResourceShareId'] = $request->resourceShareId;
         }
@@ -165,6 +180,55 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
+     * @param AssociateResourceSharePermissionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AssociateResourceSharePermissionResponse
+     */
+    public function associateResourceSharePermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->permissionName)) {
+            $query['PermissionName'] = $request->permissionName;
+        }
+        if (!Utils::isUnset($request->replace)) {
+            $query['Replace'] = $request->replace;
+        }
+        if (!Utils::isUnset($request->resourceShareId)) {
+            $query['ResourceShareId'] = $request->resourceShareId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateResourceSharePermission',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateResourceSharePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssociateResourceSharePermissionRequest $request
+     *
+     * @return AssociateResourceSharePermissionResponse
+     */
+    public function associateResourceSharePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateResourceSharePermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateResourceShareRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -176,6 +240,9 @@ class ResourceSharing extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->allowExternalTargets)) {
             $query['AllowExternalTargets'] = $request->allowExternalTargets;
+        }
+        if (!Utils::isUnset($request->permissionNames)) {
+            $query['PermissionNames'] = $request->permissionNames;
         }
         if (!Utils::isUnset($request->resourceShareName)) {
             $query['ResourceShareName'] = $request->resourceShareName;
@@ -355,6 +422,52 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
+     * @param DisassociateResourceSharePermissionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DisassociateResourceSharePermissionResponse
+     */
+    public function disassociateResourceSharePermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->permissionName)) {
+            $query['PermissionName'] = $request->permissionName;
+        }
+        if (!Utils::isUnset($request->resourceShareId)) {
+            $query['ResourceShareId'] = $request->resourceShareId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisassociateResourceSharePermission',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisassociateResourceSharePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisassociateResourceSharePermissionRequest $request
+     *
+     * @return DisassociateResourceSharePermissionResponse
+     */
+    public function disassociateResourceSharePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disassociateResourceSharePermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return EnableSharingWithResourceDirectoryResponse
@@ -385,6 +498,150 @@ class ResourceSharing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableSharingWithResourceDirectoryWithOptions($runtime);
+    }
+
+    /**
+     * @param GetPermissionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPermissionResponse
+     */
+    public function getPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->permissionName)) {
+            $query['PermissionName'] = $request->permissionName;
+        }
+        if (!Utils::isUnset($request->permissionVersion)) {
+            $query['PermissionVersion'] = $request->permissionVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPermission',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPermissionRequest $request
+     *
+     * @return GetPermissionResponse
+     */
+    public function getPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPermissionVersionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListPermissionVersionsResponse
+     */
+    public function listPermissionVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->permissionName)) {
+            $query['PermissionName'] = $request->permissionName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPermissionVersions',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPermissionVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPermissionVersionsRequest $request
+     *
+     * @return ListPermissionVersionsResponse
+     */
+    public function listPermissionVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPermissionVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPermissionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPermissionsResponse
+     */
+    public function listPermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPermissions',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPermissionsRequest $request
+     *
+     * @return ListPermissionsResponse
+     */
+    public function listPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPermissionsWithOptions($request, $runtime);
     }
 
     /**
@@ -501,6 +758,58 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
+     * @param ListResourceSharePermissionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListResourceSharePermissionsResponse
+     */
+    public function listResourceSharePermissionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceOwner)) {
+            $query['ResourceOwner'] = $request->resourceOwner;
+        }
+        if (!Utils::isUnset($request->resourceShareId)) {
+            $query['ResourceShareId'] = $request->resourceShareId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceSharePermissions',
+            'version'     => '2020-01-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourceSharePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceSharePermissionsRequest $request
+     *
+     * @return ListResourceSharePermissionsResponse
+     */
+    public function listResourceSharePermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceSharePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListResourceSharesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -515,6 +824,9 @@ class ResourceSharing extends OpenApiClient
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->permissionName)) {
+            $query['PermissionName'] = $request->permissionName;
         }
         if (!Utils::isUnset($request->resourceOwner)) {
             $query['ResourceOwner'] = $request->resourceOwner;

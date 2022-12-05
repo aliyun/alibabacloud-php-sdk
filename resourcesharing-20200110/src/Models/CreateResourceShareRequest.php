@@ -15,6 +15,11 @@ class CreateResourceShareRequest extends Model
     public $allowExternalTargets;
 
     /**
+     * @var string[]
+     */
+    public $permissionNames;
+
+    /**
      * @var string
      */
     public $resourceShareName;
@@ -30,6 +35,7 @@ class CreateResourceShareRequest extends Model
     public $targets;
     protected $_name = [
         'allowExternalTargets' => 'AllowExternalTargets',
+        'permissionNames'      => 'PermissionNames',
         'resourceShareName'    => 'ResourceShareName',
         'resources'            => 'Resources',
         'targets'              => 'Targets',
@@ -44,6 +50,9 @@ class CreateResourceShareRequest extends Model
         $res = [];
         if (null !== $this->allowExternalTargets) {
             $res['AllowExternalTargets'] = $this->allowExternalTargets;
+        }
+        if (null !== $this->permissionNames) {
+            $res['PermissionNames'] = $this->permissionNames;
         }
         if (null !== $this->resourceShareName) {
             $res['ResourceShareName'] = $this->resourceShareName;
@@ -74,6 +83,11 @@ class CreateResourceShareRequest extends Model
         $model = new self();
         if (isset($map['AllowExternalTargets'])) {
             $model->allowExternalTargets = $map['AllowExternalTargets'];
+        }
+        if (isset($map['PermissionNames'])) {
+            if (!empty($map['PermissionNames'])) {
+                $model->permissionNames = $map['PermissionNames'];
+            }
         }
         if (isset($map['ResourceShareName'])) {
             $model->resourceShareName = $map['ResourceShareName'];

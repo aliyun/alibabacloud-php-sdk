@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AssociateResourceShareRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $permissionNames;
+
+    /**
      * @var string
      */
     public $resourceShareId;
@@ -24,6 +29,7 @@ class AssociateResourceShareRequest extends Model
      */
     public $targets;
     protected $_name = [
+        'permissionNames' => 'PermissionNames',
         'resourceShareId' => 'ResourceShareId',
         'resources'       => 'Resources',
         'targets'         => 'Targets',
@@ -36,6 +42,9 @@ class AssociateResourceShareRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->permissionNames) {
+            $res['PermissionNames'] = $this->permissionNames;
+        }
         if (null !== $this->resourceShareId) {
             $res['ResourceShareId'] = $this->resourceShareId;
         }
@@ -63,6 +72,11 @@ class AssociateResourceShareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PermissionNames'])) {
+            if (!empty($map['PermissionNames'])) {
+                $model->permissionNames = $map['PermissionNames'];
+            }
+        }
         if (isset($map['ResourceShareId'])) {
             $model->resourceShareId = $map['ResourceShareId'];
         }
