@@ -17,11 +17,6 @@ class QuerySpaceUsageResponseBody extends Model
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -40,7 +35,6 @@ class QuerySpaceUsageResponseBody extends Model
     public $startTime;
     protected $_name = [
         'endTime'            => 'EndTime',
-        'gmtCreate'          => 'GmtCreate',
         'requestId'          => 'RequestId',
         'spaceId'            => 'SpaceId',
         'spaceUsageDataList' => 'SpaceUsageDataList',
@@ -56,9 +50,6 @@ class QuerySpaceUsageResponseBody extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -92,9 +83,6 @@ class QuerySpaceUsageResponseBody extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
