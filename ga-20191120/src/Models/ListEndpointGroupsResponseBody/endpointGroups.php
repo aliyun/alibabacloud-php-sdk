@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\endpointConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\portOverrides;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\tags;
 use AlibabaCloud\Tea\Model;
 
 class endpointGroups extends Model
@@ -106,6 +107,11 @@ class endpointGroups extends Model
     public $state;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $thresholdCount;
@@ -134,6 +140,7 @@ class endpointGroups extends Model
         'name'                           => 'Name',
         'portOverrides'                  => 'PortOverrides',
         'state'                          => 'State',
+        'tags'                           => 'Tags',
         'thresholdCount'                 => 'ThresholdCount',
         'trafficPercentage'              => 'TrafficPercentage',
     ];
@@ -213,6 +220,15 @@ class endpointGroups extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->thresholdCount) {
             $res['ThresholdCount'] = $this->thresholdCount;
@@ -306,6 +322,15 @@ class endpointGroups extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ThresholdCount'])) {
             $model->thresholdCount = $map['ThresholdCount'];

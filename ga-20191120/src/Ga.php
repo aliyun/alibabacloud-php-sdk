@@ -32,6 +32,12 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAccelerateIpEndpointRelationRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAccelerateIpEndpointRelationResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAccelerateIpEndpointRelationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAccelerateIpEndpointRelationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAccelerateIpRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAccelerateIpResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupRequest;
@@ -66,10 +72,16 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAccelerateIpEndpointRelationRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAccelerateIpEndpointRelationResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAccelerateIpRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAccelerateIpResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteCustomRoutingEndpointGroupDestinationsRequest;
@@ -136,6 +148,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\EnableApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\EnableApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointGroupRequest;
@@ -206,6 +220,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAdditionalCertificateWithListenerRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAdditionalCertificateWithListenerResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackagaAutoRenewAttributeRequest;
@@ -1082,6 +1098,165 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBandwidthPackageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBasicAccelerateIpRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateBasicAccelerateIpResponse
+     */
+    public function createBasicAccelerateIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicAccelerateIp',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicAccelerateIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicAccelerateIpRequest $request
+     *
+     * @return CreateBasicAccelerateIpResponse
+     */
+    public function createBasicAccelerateIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicAccelerateIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBasicAccelerateIpEndpointRelationRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return CreateBasicAccelerateIpEndpointRelationResponse
+     */
+    public function createBasicAccelerateIpEndpointRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicAccelerateIpEndpointRelation',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicAccelerateIpEndpointRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicAccelerateIpEndpointRelationRequest $request
+     *
+     * @return CreateBasicAccelerateIpEndpointRelationResponse
+     */
+    public function createBasicAccelerateIpEndpointRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicAccelerateIpEndpointRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBasicAccelerateIpEndpointRelationsRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return CreateBasicAccelerateIpEndpointRelationsResponse
+     */
+    public function createBasicAccelerateIpEndpointRelationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpEndpointRelations)) {
+            $query['AccelerateIpEndpointRelations'] = $request->accelerateIpEndpointRelations;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicAccelerateIpEndpointRelations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicAccelerateIpEndpointRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicAccelerateIpEndpointRelationsRequest $request
+     *
+     * @return CreateBasicAccelerateIpEndpointRelationsResponse
+     */
+    public function createBasicAccelerateIpEndpointRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicAccelerateIpEndpointRelationsWithOptions($request, $runtime);
     }
 
     /**
@@ -2092,6 +2267,110 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DeleteBasicAccelerateIpRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteBasicAccelerateIpResponse
+     */
+    public function deleteBasicAccelerateIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBasicAccelerateIp',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBasicAccelerateIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBasicAccelerateIpRequest $request
+     *
+     * @return DeleteBasicAccelerateIpResponse
+     */
+    public function deleteBasicAccelerateIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBasicAccelerateIpWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBasicAccelerateIpEndpointRelationRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DeleteBasicAccelerateIpEndpointRelationResponse
+     */
+    public function deleteBasicAccelerateIpEndpointRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBasicAccelerateIpEndpointRelation',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBasicAccelerateIpEndpointRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBasicAccelerateIpEndpointRelationRequest $request
+     *
+     * @return DeleteBasicAccelerateIpEndpointRelationResponse
+     */
+    public function deleteBasicAccelerateIpEndpointRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBasicAccelerateIpEndpointRelationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteBasicAcceleratorRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2135,6 +2414,58 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBasicEndpointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteBasicEndpointResponse
+     */
+    public function deleteBasicEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBasicEndpoint',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBasicEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBasicEndpointRequest $request
+     *
+     * @return DeleteBasicEndpointResponse
+     */
+    public function deleteBasicEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBasicEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -3807,6 +4138,55 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param GetBasicAccelerateIpRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetBasicAccelerateIpResponse
+     */
+    public function getBasicAccelerateIpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicAccelerateIp',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicAccelerateIpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicAccelerateIpRequest $request
+     *
+     * @return GetBasicAccelerateIpResponse
+     */
+    public function getBasicAccelerateIp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicAccelerateIpWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBasicAcceleratorRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5041,6 +5421,9 @@ class Ga extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5726,6 +6109,67 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAclAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAdditionalCertificateWithListenerRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return UpdateAdditionalCertificateWithListenerResponse
+     */
+    public function updateAdditionalCertificateWithListenerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->certificateId)) {
+            $query['CertificateId'] = $request->certificateId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAdditionalCertificateWithListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAdditionalCertificateWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAdditionalCertificateWithListenerRequest $request
+     *
+     * @return UpdateAdditionalCertificateWithListenerResponse
+     */
+    public function updateAdditionalCertificateWithListener($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAdditionalCertificateWithListenerWithOptions($request, $runtime);
     }
 
     /**
