@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class workitemTime extends Model
 {
     /**
-     * @var int
+     * @var float
      */
     public $actualTime;
 
