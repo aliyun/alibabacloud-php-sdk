@@ -1,3 +1,6 @@
+2022-12-06 Version: 1.0.5
+- Generated php 2021-05-20 for Linkcard.
+
 2022-11-15 Version: 1.0.4
 - Generated php 2021-05-20 for Linkcard.
 

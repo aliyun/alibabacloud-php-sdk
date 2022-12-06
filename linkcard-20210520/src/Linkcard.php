@@ -6,6 +6,11 @@ namespace AlibabaCloud\SDK\Linkcard\V20210520;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddCardToDirectionalGroupRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddCardToDirectionalGroupResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddCardToDirectionalGroupShrinkRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalAddressRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalAddressResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalCardShrinkRequest;
@@ -13,6 +18,10 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\AddDirectionalGroupResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\BatchAddDirectionalAddressResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\DeleteDirectionalAddressRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\DeleteDirectionalAddressResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\DeleteDirectionalGroupRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\DeleteDirectionalGroupResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ForceActivationRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ForceActivationResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\GetCardDetailRequest;
@@ -84,6 +93,129 @@ class Linkcard extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddCardToDirectionalGroupRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddCardToDirectionalGroupResponse
+     */
+    public function addCardToDirectionalGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddCardToDirectionalGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->iccidList)) {
+            $request->iccidListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iccidList, 'IccidList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->addType)) {
+            $query['AddType'] = $request->addType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->iccidListShrink)) {
+            $query['IccidList'] = $request->iccidListShrink;
+        }
+        if (!Utils::isUnset($request->msgNotify)) {
+            $query['MsgNotify'] = $request->msgNotify;
+        }
+        if (!Utils::isUnset($request->serialNo)) {
+            $query['SerialNo'] = $request->serialNo;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->apiProduct)) {
+            $body['ApiProduct'] = $request->apiProduct;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCardToDirectionalGroup',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCardToDirectionalGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCardToDirectionalGroupRequest $request
+     *
+     * @return AddCardToDirectionalGroupResponse
+     */
+    public function addCardToDirectionalGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCardToDirectionalGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddDirectionalAddressRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddDirectionalAddressResponse
+     */
+    public function addDirectionalAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->msgNotify)) {
+            $query['MsgNotify'] = $request->msgNotify;
+        }
+        if (!Utils::isUnset($request->serialNo)) {
+            $query['SerialNo'] = $request->serialNo;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDirectionalAddress',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDirectionalAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddDirectionalAddressRequest $request
+     *
+     * @return AddDirectionalAddressResponse
+     */
+    public function addDirectionalAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDirectionalAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -248,6 +380,101 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchAddDirectionalAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDirectionalAddressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteDirectionalAddressResponse
+     */
+    public function deleteDirectionalAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->msgNotify)) {
+            $query['MsgNotify'] = $request->msgNotify;
+        }
+        if (!Utils::isUnset($request->serialNo)) {
+            $query['SerialNo'] = $request->serialNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDirectionalAddress',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDirectionalAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDirectionalAddressRequest $request
+     *
+     * @return DeleteDirectionalAddressResponse
+     */
+    public function deleteDirectionalAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDirectionalAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDirectionalGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDirectionalGroupResponse
+     */
+    public function deleteDirectionalGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDirectionalGroup',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDirectionalGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDirectionalGroupRequest $request
+     *
+     * @return DeleteDirectionalGroupResponse
+     */
+    public function deleteDirectionalGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDirectionalGroupWithOptions($request, $runtime);
     }
 
     /**
