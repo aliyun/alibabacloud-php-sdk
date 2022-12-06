@@ -29,15 +29,21 @@ class QueryConfigRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $needRunningConf;
+
+    /**
      * @var string
      */
     public $requestPars;
     protected $_name = [
-        'acceptLanguage' => 'AcceptLanguage',
-        'clusterId'      => 'ClusterId',
-        'configType'     => 'ConfigType',
-        'instanceId'     => 'InstanceId',
-        'requestPars'    => 'RequestPars',
+        'acceptLanguage'  => 'AcceptLanguage',
+        'clusterId'       => 'ClusterId',
+        'configType'      => 'ConfigType',
+        'instanceId'      => 'InstanceId',
+        'needRunningConf' => 'NeedRunningConf',
+        'requestPars'     => 'RequestPars',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class QueryConfigRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->needRunningConf) {
+            $res['NeedRunningConf'] = $this->needRunningConf;
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
@@ -85,6 +94,9 @@ class QueryConfigRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NeedRunningConf'])) {
+            $model->needRunningConf = $map['NeedRunningConf'];
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];

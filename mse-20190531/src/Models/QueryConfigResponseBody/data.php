@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigResponseBody\data\nacosRunningEnv;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -32,6 +33,11 @@ class data extends Model
      * @var bool
      */
     public $configAuthSupported;
+
+    /**
+     * @var int
+     */
+    public $configContentLimit;
 
     /**
      * @var bool
@@ -82,6 +88,11 @@ class data extends Model
      * @var string
      */
     public $minSessionTimeout;
+
+    /**
+     * @var nacosRunningEnv
+     */
+    public $nacosRunningEnv;
 
     /**
      * @var bool
@@ -138,6 +149,7 @@ class data extends Model
         'clusterName'                  => 'ClusterName',
         'configAuthEnabled'            => 'ConfigAuthEnabled',
         'configAuthSupported'          => 'ConfigAuthSupported',
+        'configContentLimit'           => 'ConfigContentLimit',
         'configSecretEnabled'          => 'ConfigSecretEnabled',
         'configSecretSupported'        => 'ConfigSecretSupported',
         'initLimit'                    => 'InitLimit',
@@ -148,6 +160,7 @@ class data extends Model
         'maxClientCnxns'               => 'MaxClientCnxns',
         'maxSessionTimeout'            => 'MaxSessionTimeout',
         'minSessionTimeout'            => 'MinSessionTimeout',
+        'nacosRunningEnv'              => 'NacosRunningEnv',
         'namingAuthEnabled'            => 'NamingAuthEnabled',
         'namingAuthSupported'          => 'NamingAuthSupported',
         'namingCreateServiceSupported' => 'NamingCreateServiceSupported',
@@ -182,6 +195,9 @@ class data extends Model
         if (null !== $this->configAuthSupported) {
             $res['ConfigAuthSupported'] = $this->configAuthSupported;
         }
+        if (null !== $this->configContentLimit) {
+            $res['ConfigContentLimit'] = $this->configContentLimit;
+        }
         if (null !== $this->configSecretEnabled) {
             $res['ConfigSecretEnabled'] = $this->configSecretEnabled;
         }
@@ -211,6 +227,9 @@ class data extends Model
         }
         if (null !== $this->minSessionTimeout) {
             $res['MinSessionTimeout'] = $this->minSessionTimeout;
+        }
+        if (null !== $this->nacosRunningEnv) {
+            $res['NacosRunningEnv'] = null !== $this->nacosRunningEnv ? $this->nacosRunningEnv->toMap() : null;
         }
         if (null !== $this->namingAuthEnabled) {
             $res['NamingAuthEnabled'] = $this->namingAuthEnabled;
@@ -269,6 +288,9 @@ class data extends Model
         if (isset($map['ConfigAuthSupported'])) {
             $model->configAuthSupported = $map['ConfigAuthSupported'];
         }
+        if (isset($map['ConfigContentLimit'])) {
+            $model->configContentLimit = $map['ConfigContentLimit'];
+        }
         if (isset($map['ConfigSecretEnabled'])) {
             $model->configSecretEnabled = $map['ConfigSecretEnabled'];
         }
@@ -298,6 +320,9 @@ class data extends Model
         }
         if (isset($map['MinSessionTimeout'])) {
             $model->minSessionTimeout = $map['MinSessionTimeout'];
+        }
+        if (isset($map['NacosRunningEnv'])) {
+            $model->nacosRunningEnv = nacosRunningEnv::fromMap($map['NacosRunningEnv']);
         }
         if (isset($map['NamingAuthEnabled'])) {
             $model->namingAuthEnabled = $map['NamingAuthEnabled'];
