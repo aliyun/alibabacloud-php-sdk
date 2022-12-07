@@ -14,6 +14,11 @@ class SubmitJobRequest extends Model
     public $arrayRequest;
 
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $clockTime;
@@ -32,6 +37,11 @@ class SubmitJobRequest extends Model
      * @var string
      */
     public $containerId;
+
+    /**
+     * @var int
+     */
+    public $cpu;
 
     /**
      * @var int
@@ -124,10 +134,12 @@ class SubmitJobRequest extends Model
     public $variables;
     protected $_name = [
         'arrayRequest'       => 'ArrayRequest',
+        'async'              => 'Async',
         'clockTime'          => 'ClockTime',
         'clusterId'          => 'ClusterId',
         'commandLine'        => 'CommandLine',
         'containerId'        => 'ContainerId',
+        'cpu'                => 'Cpu',
         'gpu'                => 'Gpu',
         'inputFileUrl'       => 'InputFileUrl',
         'jobQueue'           => 'JobQueue',
@@ -158,6 +170,9 @@ class SubmitJobRequest extends Model
         if (null !== $this->arrayRequest) {
             $res['ArrayRequest'] = $this->arrayRequest;
         }
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
         if (null !== $this->clockTime) {
             $res['ClockTime'] = $this->clockTime;
         }
@@ -169,6 +184,9 @@ class SubmitJobRequest extends Model
         }
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
+        }
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
         }
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
@@ -239,6 +257,9 @@ class SubmitJobRequest extends Model
         if (isset($map['ArrayRequest'])) {
             $model->arrayRequest = $map['ArrayRequest'];
         }
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
         if (isset($map['ClockTime'])) {
             $model->clockTime = $map['ClockTime'];
         }
@@ -250,6 +271,9 @@ class SubmitJobRequest extends Model
         }
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
+        }
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
         }
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
