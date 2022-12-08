@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Serverless\V20210924;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Serverless\V20210924\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Serverless\V20210924\Models\CreatePipelineRequest;
@@ -112,6 +113,46 @@ class Serverless extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return CancelTaskResponse
+     */
+    public function cancelTask($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelTaskWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CancelTaskResponse
+     */
+    public function cancelTaskWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CancelTask',
+            'version'     => '2021-09-24',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/apis/serverlessdeployment/v1/tasks/' . OpenApiUtilClient::getEncodeParam($name) . '/cancel',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
