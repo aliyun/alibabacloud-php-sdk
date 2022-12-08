@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ExtractFingerPrintRequest extends Model
 {
     /**
-     * @var int[]
+     * @var string
      */
     public $imageData;
 

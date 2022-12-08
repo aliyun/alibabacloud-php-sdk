@@ -10,12 +10,12 @@ use GuzzleHttp\Psr7\Stream;
 class CompareFaceAdvanceRequest extends Model
 {
     /**
-     * @var int[]
+     * @var string
      */
     public $imageDataA;
 
     /**
-     * @var int[]
+     * @var string
      */
     public $imageDataB;
 

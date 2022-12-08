@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CompareFaceRequest extends Model
 {
     /**
-     * @var int[]
+     * @var string
      */
     public $imageDataA;
 
     /**
-     * @var int[]
+     * @var string
      */
     public $imageDataB;
 

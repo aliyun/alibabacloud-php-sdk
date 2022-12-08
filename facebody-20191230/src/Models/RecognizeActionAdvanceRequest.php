@@ -20,7 +20,7 @@ class RecognizeActionAdvanceRequest extends Model
     public $URLList;
 
     /**
-     * @var int[]
+     * @var string
      */
     public $videoData;
 

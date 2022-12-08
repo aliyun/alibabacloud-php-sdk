@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @var int[]
+     * @var string
      */
     public $imageData;
 

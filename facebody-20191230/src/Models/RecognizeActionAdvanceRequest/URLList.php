@@ -15,7 +15,7 @@ class URLList extends Model
     public $URLObject;
 
     /**
-     * @var int[]
+     * @var string
      */
     public $imageData;
     protected $_name = [
