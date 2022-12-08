@@ -42,6 +42,10 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateCustomRoutingEndpointGroupDestinationsRequest;
@@ -148,12 +152,18 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\EnableApplicationMonitorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\EnableApplicationMonitorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpEndpointRelationRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpEndpointRelationResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpIdleCountRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpIdleCountResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAccelerateIpResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusRequest;
@@ -178,8 +188,14 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthackagesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthackagesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAccelerateIpEndpointRelationsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAccelerateIpEndpointRelationsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAccelerateIpsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAccelerateIpsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAcceleratorsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAcceleratorsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicEndpointsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicEndpointsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupDestinationsRequest;
@@ -232,6 +248,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicIpSetRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateCustomRoutingEndpointGroupAttributeRequest;
@@ -1330,6 +1348,76 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param CreateBasicEndpointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBasicEndpointResponse
+     */
+    public function createBasicEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointAddress)) {
+            $query['EndpointAddress'] = $request->endpointAddress;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointSubAddress)) {
+            $query['EndpointSubAddress'] = $request->endpointSubAddress;
+        }
+        if (!Utils::isUnset($request->endpointSubAddressType)) {
+            $query['EndpointSubAddressType'] = $request->endpointSubAddressType;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->endpointZoneId)) {
+            $query['EndpointZoneId'] = $request->endpointZoneId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicEndpoint',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicEndpointRequest $request
+     *
+     * @return CreateBasicEndpointResponse
+     */
+    public function createBasicEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicEndpointWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBasicEndpointGroupRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1394,6 +1482,61 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBasicEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBasicEndpointsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateBasicEndpointsResponse
+     */
+    public function createBasicEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpoints)) {
+            $query['Endpoints'] = $request->endpoints;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicEndpoints',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicEndpointsRequest $request
+     *
+     * @return CreateBasicEndpointsResponse
+     */
+    public function createBasicEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicEndpointsWithOptions($request, $runtime);
     }
 
     /**
@@ -4187,6 +4330,110 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param GetBasicAccelerateIpEndpointRelationRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetBasicAccelerateIpEndpointRelationResponse
+     */
+    public function getBasicAccelerateIpEndpointRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicAccelerateIpEndpointRelation',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicAccelerateIpEndpointRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicAccelerateIpEndpointRelationRequest $request
+     *
+     * @return GetBasicAccelerateIpEndpointRelationResponse
+     */
+    public function getBasicAccelerateIpEndpointRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicAccelerateIpEndpointRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBasicAccelerateIpIdleCountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetBasicAccelerateIpIdleCountResponse
+     */
+    public function getBasicAccelerateIpIdleCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicAccelerateIpIdleCount',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicAccelerateIpIdleCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicAccelerateIpIdleCountRequest $request
+     *
+     * @return GetBasicAccelerateIpIdleCountResponse
+     */
+    public function getBasicAccelerateIpIdleCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicAccelerateIpIdleCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetBasicAcceleratorRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4230,6 +4477,55 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBasicEndpointRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetBasicEndpointResponse
+     */
+    public function getBasicEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicEndpoint',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicEndpointRequest $request
+     *
+     * @return GetBasicEndpointResponse
+     */
+    public function getBasicEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -4924,6 +5220,128 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param ListBasicAccelerateIpEndpointRelationsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListBasicAccelerateIpEndpointRelationsResponse
+     */
+    public function listBasicAccelerateIpEndpointRelationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBasicAccelerateIpEndpointRelations',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBasicAccelerateIpEndpointRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBasicAccelerateIpEndpointRelationsRequest $request
+     *
+     * @return ListBasicAccelerateIpEndpointRelationsResponse
+     */
+    public function listBasicAccelerateIpEndpointRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBasicAccelerateIpEndpointRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBasicAccelerateIpsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListBasicAccelerateIpsResponse
+     */
+    public function listBasicAccelerateIpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accelerateIpAddress)) {
+            $query['AccelerateIpAddress'] = $request->accelerateIpAddress;
+        }
+        if (!Utils::isUnset($request->accelerateIpId)) {
+            $query['AccelerateIpId'] = $request->accelerateIpId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ipSetId)) {
+            $query['IpSetId'] = $request->ipSetId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBasicAccelerateIps',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBasicAccelerateIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBasicAccelerateIpsRequest $request
+     *
+     * @return ListBasicAccelerateIpsResponse
+     */
+    public function listBasicAccelerateIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBasicAccelerateIpsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListBasicAcceleratorsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4982,6 +5400,70 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBasicAcceleratorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBasicEndpointsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListBasicEndpointsResponse
+     */
+    public function listBasicEndpointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBasicEndpoints',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBasicEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBasicEndpointsRequest $request
+     *
+     * @return ListBasicEndpointsResponse
+     */
+    public function listBasicEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBasicEndpointsWithOptions($request, $runtime);
     }
 
     /**
@@ -6423,6 +6905,61 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateBasicEndpointRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateBasicEndpointResponse
+     */
+    public function updateBasicEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->endpointGroupId)) {
+            $query['EndpointGroupId'] = $request->endpointGroupId;
+        }
+        if (!Utils::isUnset($request->endpointId)) {
+            $query['EndpointId'] = $request->endpointId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBasicEndpoint',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBasicEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBasicEndpointRequest $request
+     *
+     * @return UpdateBasicEndpointResponse
+     */
+    public function updateBasicEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBasicEndpointWithOptions($request, $runtime);
     }
 
     /**

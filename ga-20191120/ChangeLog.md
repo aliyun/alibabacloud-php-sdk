@@ -1,3 +1,6 @@
+2022-12-08 Version: 1.0.16
+- Update sdk.
+
 2022-12-06 Version: 1.0.15
 - Tags for endpoint groups.
 
