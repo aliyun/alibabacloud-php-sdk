@@ -13,6 +13,11 @@ class supportedInstanceClasses extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -40,6 +45,7 @@ class supportedInstanceClasses extends Model
      */
     public $storageType;
     protected $_name = [
+        'category'      => 'Category',
         'description'   => 'Description',
         'displayClass'  => 'DisplayClass',
         'instanceClass' => 'InstanceClass',
@@ -55,6 +61,9 @@ class supportedInstanceClasses extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -85,6 +94,9 @@ class supportedInstanceClasses extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
