@@ -19,7 +19,7 @@ class GetTableUnderstandingResultResponseBody extends Model
     public $completed;
 
     /**
-     * @var mixed
+     * @var mixed[]
      */
     public $data;
 

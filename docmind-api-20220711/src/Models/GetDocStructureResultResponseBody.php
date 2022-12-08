@@ -19,7 +19,7 @@ class GetDocStructureResultResponseBody extends Model
     public $completed;
 
     /**
-     * @var mixed
+     * @var mixed[]
      */
     public $data;
 
