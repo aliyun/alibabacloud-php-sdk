@@ -66,6 +66,11 @@ class policys extends Model
     /**
      * @var string
      */
+    public $destinationGroupType;
+
+    /**
+     * @var string
+     */
     public $destinationType;
 
     /**
@@ -106,6 +111,11 @@ class policys extends Model
     /**
      * @var string
      */
+    public $sourceGroupType;
+
+    /**
+     * @var string
+     */
     public $sourceType;
     protected $_name = [
         'aclAction'             => 'AclAction',
@@ -119,6 +129,7 @@ class policys extends Model
         'destPortType'          => 'DestPortType',
         'destination'           => 'Destination',
         'destinationGroupCidrs' => 'DestinationGroupCidrs',
+        'destinationGroupType'  => 'DestinationGroupType',
         'destinationType'       => 'DestinationType',
         'hitTimes'              => 'HitTimes',
         'memberUid'             => 'MemberUid',
@@ -127,6 +138,7 @@ class policys extends Model
         'release'               => 'Release',
         'source'                => 'Source',
         'sourceGroupCidrs'      => 'SourceGroupCidrs',
+        'sourceGroupType'       => 'SourceGroupType',
         'sourceType'            => 'SourceType',
     ];
 
@@ -170,6 +182,9 @@ class policys extends Model
         if (null !== $this->destinationGroupCidrs) {
             $res['DestinationGroupCidrs'] = $this->destinationGroupCidrs;
         }
+        if (null !== $this->destinationGroupType) {
+            $res['DestinationGroupType'] = $this->destinationGroupType;
+        }
         if (null !== $this->destinationType) {
             $res['DestinationType'] = $this->destinationType;
         }
@@ -193,6 +208,9 @@ class policys extends Model
         }
         if (null !== $this->sourceGroupCidrs) {
             $res['SourceGroupCidrs'] = $this->sourceGroupCidrs;
+        }
+        if (null !== $this->sourceGroupType) {
+            $res['SourceGroupType'] = $this->sourceGroupType;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -246,6 +264,9 @@ class policys extends Model
                 $model->destinationGroupCidrs = $map['DestinationGroupCidrs'];
             }
         }
+        if (isset($map['DestinationGroupType'])) {
+            $model->destinationGroupType = $map['DestinationGroupType'];
+        }
         if (isset($map['DestinationType'])) {
             $model->destinationType = $map['DestinationType'];
         }
@@ -271,6 +292,9 @@ class policys extends Model
             if (!empty($map['SourceGroupCidrs'])) {
                 $model->sourceGroupCidrs = $map['SourceGroupCidrs'];
             }
+        }
+        if (isset($map['SourceGroupType'])) {
+            $model->sourceGroupType = $map['SourceGroupType'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

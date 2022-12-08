@@ -98,6 +98,11 @@ class dataList extends Model
     public $srcIP;
 
     /**
+     * @var string
+     */
+    public $srcIPTag;
+
+    /**
      * @var string[]
      */
     public $srcPrivateIPList;
@@ -139,6 +144,7 @@ class dataList extends Model
         'ruleResult'            => 'RuleResult',
         'ruleSource'            => 'RuleSource',
         'srcIP'                 => 'SrcIP',
+        'srcIPTag'              => 'SrcIPTag',
         'srcPrivateIPList'      => 'SrcPrivateIPList',
         'tag'                   => 'Tag',
         'vpcDstInfo'            => 'VpcDstInfo',
@@ -209,6 +215,9 @@ class dataList extends Model
         }
         if (null !== $this->srcIP) {
             $res['SrcIP'] = $this->srcIP;
+        }
+        if (null !== $this->srcIPTag) {
+            $res['SrcIPTag'] = $this->srcIPTag;
         }
         if (null !== $this->srcPrivateIPList) {
             $res['SrcPrivateIPList'] = $this->srcPrivateIPList;
@@ -293,6 +302,9 @@ class dataList extends Model
         }
         if (isset($map['SrcIP'])) {
             $model->srcIP = $map['SrcIP'];
+        }
+        if (isset($map['SrcIPTag'])) {
+            $model->srcIPTag = $map['SrcIPTag'];
         }
         if (isset($map['SrcPrivateIPList'])) {
             if (!empty($map['SrcPrivateIPList'])) {

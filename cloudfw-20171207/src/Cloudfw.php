@@ -16,8 +16,6 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureResponse;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureRequest;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
@@ -464,76 +462,6 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVpcFirewallCenConfigureWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateVpcFirewallConfigureRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateVpcFirewallConfigureResponse
-     */
-    public function createVpcFirewallConfigureWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->firewallSwitch)) {
-            $query['FirewallSwitch'] = $request->firewallSwitch;
-        }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->localVpcCidrTableList)) {
-            $query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
-        }
-        if (!Utils::isUnset($request->localVpcId)) {
-            $query['LocalVpcId'] = $request->localVpcId;
-        }
-        if (!Utils::isUnset($request->localVpcRegion)) {
-            $query['LocalVpcRegion'] = $request->localVpcRegion;
-        }
-        if (!Utils::isUnset($request->memberUid)) {
-            $query['MemberUid'] = $request->memberUid;
-        }
-        if (!Utils::isUnset($request->peerVpcCidrTableList)) {
-            $query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
-        }
-        if (!Utils::isUnset($request->peerVpcId)) {
-            $query['PeerVpcId'] = $request->peerVpcId;
-        }
-        if (!Utils::isUnset($request->peerVpcRegion)) {
-            $query['PeerVpcRegion'] = $request->peerVpcRegion;
-        }
-        if (!Utils::isUnset($request->vpcFirewallName)) {
-            $query['VpcFirewallName'] = $request->vpcFirewallName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateVpcFirewallConfigure',
-            'version'     => '2017-12-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateVpcFirewallConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateVpcFirewallConfigureRequest $request
-     *
-     * @return CreateVpcFirewallConfigureResponse
-     */
-    public function createVpcFirewallConfigure($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createVpcFirewallConfigureWithOptions($request, $runtime);
     }
 
     /**
@@ -2092,6 +2020,9 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->connectSubType)) {
+            $query['ConnectSubType'] = $request->connectSubType;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -2109,6 +2040,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->peerUid)) {
+            $query['PeerUid'] = $request->peerUid;
         }
         if (!Utils::isUnset($request->regionNo)) {
             $query['RegionNo'] = $request->regionNo;

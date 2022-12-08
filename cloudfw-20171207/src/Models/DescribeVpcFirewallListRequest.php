@@ -11,6 +11,11 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @var string
      */
+    public $connectSubType;
+
+    /**
+     * @var string
+     */
     public $currentPage;
 
     /**
@@ -36,6 +41,11 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @var string
      */
+    public $peerUid;
+
+    /**
+     * @var string
+     */
     public $regionNo;
 
     /**
@@ -53,11 +63,13 @@ class DescribeVpcFirewallListRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'connectSubType'       => 'ConnectSubType',
         'currentPage'          => 'CurrentPage',
         'firewallSwitchStatus' => 'FirewallSwitchStatus',
         'lang'                 => 'Lang',
         'memberUid'            => 'MemberUid',
         'pageSize'             => 'PageSize',
+        'peerUid'              => 'PeerUid',
         'regionNo'             => 'RegionNo',
         'vpcFirewallId'        => 'VpcFirewallId',
         'vpcFirewallName'      => 'VpcFirewallName',
@@ -71,6 +83,9 @@ class DescribeVpcFirewallListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectSubType) {
+            $res['ConnectSubType'] = $this->connectSubType;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -85,6 +100,9 @@ class DescribeVpcFirewallListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->peerUid) {
+            $res['PeerUid'] = $this->peerUid;
         }
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
@@ -110,6 +128,9 @@ class DescribeVpcFirewallListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectSubType'])) {
+            $model->connectSubType = $map['ConnectSubType'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
@@ -124,6 +145,9 @@ class DescribeVpcFirewallListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PeerUid'])) {
+            $model->peerUid = $map['PeerUid'];
         }
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];

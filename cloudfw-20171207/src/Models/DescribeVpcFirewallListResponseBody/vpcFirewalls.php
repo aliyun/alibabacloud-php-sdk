@@ -19,6 +19,11 @@ class vpcFirewalls extends Model
     /**
      * @var string
      */
+    public $connectSubType;
+
+    /**
+     * @var string
+     */
     public $connectType;
 
     /**
@@ -54,6 +59,11 @@ class vpcFirewalls extends Model
     /**
      * @var string
      */
+    public $resultCode;
+
+    /**
+     * @var string
+     */
     public $vpcFirewallId;
 
     /**
@@ -62,6 +72,7 @@ class vpcFirewalls extends Model
     public $vpcFirewallName;
     protected $_name = [
         'bandwidth'            => 'Bandwidth',
+        'connectSubType'       => 'ConnectSubType',
         'connectType'          => 'ConnectType',
         'firewallSwitchStatus' => 'FirewallSwitchStatus',
         'ipsConfig'            => 'IpsConfig',
@@ -69,6 +80,7 @@ class vpcFirewalls extends Model
         'memberUid'            => 'MemberUid',
         'peerVpc'              => 'PeerVpc',
         'regionStatus'         => 'RegionStatus',
+        'resultCode'           => 'ResultCode',
         'vpcFirewallId'        => 'VpcFirewallId',
         'vpcFirewallName'      => 'VpcFirewallName',
     ];
@@ -82,6 +94,9 @@ class vpcFirewalls extends Model
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->connectSubType) {
+            $res['ConnectSubType'] = $this->connectSubType;
         }
         if (null !== $this->connectType) {
             $res['ConnectType'] = $this->connectType;
@@ -104,6 +119,9 @@ class vpcFirewalls extends Model
         if (null !== $this->regionStatus) {
             $res['RegionStatus'] = $this->regionStatus;
         }
+        if (null !== $this->resultCode) {
+            $res['ResultCode'] = $this->resultCode;
+        }
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
@@ -125,6 +143,9 @@ class vpcFirewalls extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+        if (isset($map['ConnectSubType'])) {
+            $model->connectSubType = $map['ConnectSubType'];
+        }
         if (isset($map['ConnectType'])) {
             $model->connectType = $map['ConnectType'];
         }
@@ -145,6 +166,9 @@ class vpcFirewalls extends Model
         }
         if (isset($map['RegionStatus'])) {
             $model->regionStatus = $map['RegionStatus'];
+        }
+        if (isset($map['ResultCode'])) {
+            $model->resultCode = $map['ResultCode'];
         }
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];

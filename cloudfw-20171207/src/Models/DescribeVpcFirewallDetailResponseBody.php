@@ -31,6 +31,11 @@ class DescribeVpcFirewallDetailResponseBody extends Model
     public $localVpc;
 
     /**
+     * @var string
+     */
+    public $memberUid;
+
+    /**
      * @var peerVpc
      */
     public $peerVpc;
@@ -54,6 +59,7 @@ class DescribeVpcFirewallDetailResponseBody extends Model
         'connectType'          => 'ConnectType',
         'firewallSwitchStatus' => 'FirewallSwitchStatus',
         'localVpc'             => 'LocalVpc',
+        'memberUid'            => 'MemberUid',
         'peerVpc'              => 'PeerVpc',
         'requestId'            => 'RequestId',
         'vpcFirewallId'        => 'VpcFirewallId',
@@ -78,6 +84,9 @@ class DescribeVpcFirewallDetailResponseBody extends Model
         }
         if (null !== $this->localVpc) {
             $res['LocalVpc'] = null !== $this->localVpc ? $this->localVpc->toMap() : null;
+        }
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
         }
         if (null !== $this->peerVpc) {
             $res['PeerVpc'] = null !== $this->peerVpc ? $this->peerVpc->toMap() : null;
@@ -114,6 +123,9 @@ class DescribeVpcFirewallDetailResponseBody extends Model
         }
         if (isset($map['LocalVpc'])) {
             $model->localVpc = localVpc::fromMap($map['LocalVpc']);
+        }
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
         }
         if (isset($map['PeerVpc'])) {
             $model->peerVpc = peerVpc::fromMap($map['PeerVpc']);
