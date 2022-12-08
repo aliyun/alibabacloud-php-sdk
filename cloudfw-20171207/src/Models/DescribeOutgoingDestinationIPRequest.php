@@ -16,6 +16,11 @@ class DescribeOutgoingDestinationIPRequest extends Model
     /**
      * @var string
      */
+    public $categoryId;
+
+    /**
+     * @var string
+     */
     public $currentPage;
 
     /**
@@ -67,8 +72,14 @@ class DescribeOutgoingDestinationIPRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $tagIdNew;
     protected $_name = [
         'applicationName' => 'ApplicationName',
+        'categoryId'      => 'CategoryId',
         'currentPage'     => 'CurrentPage',
         'dstIP'           => 'DstIP',
         'endTime'         => 'EndTime',
@@ -80,6 +91,7 @@ class DescribeOutgoingDestinationIPRequest extends Model
         'publicIP'        => 'PublicIP',
         'sort'            => 'Sort',
         'startTime'       => 'StartTime',
+        'tagIdNew'        => 'TagIdNew',
     ];
 
     public function validate()
@@ -91,6 +103,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -125,6 +140,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->tagIdNew) {
+            $res['TagIdNew'] = $this->tagIdNew;
+        }
 
         return $res;
     }
@@ -139,6 +157,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
+        }
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
@@ -172,6 +193,9 @@ class DescribeOutgoingDestinationIPRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TagIdNew'])) {
+            $model->tagIdNew = $map['TagIdNew'];
         }
 
         return $model;

@@ -70,6 +70,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPolicyPriorUsedResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVulnerabilityProtectedListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
@@ -1267,6 +1269,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->applicationName)) {
             $query['ApplicationName'] = $request->applicationName;
         }
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -1299,6 +1304,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagIdNew)) {
+            $query['TagIdNew'] = $request->tagIdNew;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1340,6 +1348,9 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }
@@ -1366,6 +1377,9 @@ class Cloudfw extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tagIdNew)) {
+            $query['TagIdNew'] = $request->tagIdNew;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2130,6 +2144,97 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcFirewallPolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVulnerabilityProtectedListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeVulnerabilityProtectedListResponse
+     */
+    public function describeVulnerabilityProtectedListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->attackType)) {
+            $query['AttackType'] = $request->attackType;
+        }
+        if (!Utils::isUnset($request->buyVersion)) {
+            $query['BuyVersion'] = $request->buyVersion;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortKey)) {
+            $query['SortKey'] = $request->sortKey;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        if (!Utils::isUnset($request->vulnCveName)) {
+            $query['VulnCveName'] = $request->vulnCveName;
+        }
+        if (!Utils::isUnset($request->vulnLevel)) {
+            $query['VulnLevel'] = $request->vulnLevel;
+        }
+        if (!Utils::isUnset($request->vulnResource)) {
+            $query['VulnResource'] = $request->vulnResource;
+        }
+        if (!Utils::isUnset($request->vulnStatus)) {
+            $query['VulnStatus'] = $request->vulnStatus;
+        }
+        if (!Utils::isUnset($request->vulnType)) {
+            $query['VulnType'] = $request->vulnType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVulnerabilityProtectedList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVulnerabilityProtectedListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVulnerabilityProtectedListRequest $request
+     *
+     * @return DescribeVulnerabilityProtectedListResponse
+     */
+    public function describeVulnerabilityProtectedList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVulnerabilityProtectedListWithOptions($request, $runtime);
     }
 
     /**
