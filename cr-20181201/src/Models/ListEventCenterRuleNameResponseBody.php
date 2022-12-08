@@ -20,8 +20,6 @@ class ListEventCenterRuleNameResponseBody extends Model
     public $isSuccess;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;

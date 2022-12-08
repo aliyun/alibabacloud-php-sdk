@@ -32,12 +32,18 @@ class UpdateChainRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string[]
+     */
+    public $scopeExclude;
     protected $_name = [
-        'chainConfig' => 'ChainConfig',
-        'chainId'     => 'ChainId',
-        'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
+        'chainConfig'  => 'ChainConfig',
+        'chainId'      => 'ChainId',
+        'description'  => 'Description',
+        'instanceId'   => 'InstanceId',
+        'name'         => 'Name',
+        'scopeExclude' => 'ScopeExclude',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class UpdateChainRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->scopeExclude) {
+            $res['ScopeExclude'] = $this->scopeExclude;
         }
 
         return $res;
@@ -88,6 +97,11 @@ class UpdateChainRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ScopeExclude'])) {
+            if (!empty($map['ScopeExclude'])) {
+                $model->scopeExclude = $map['ScopeExclude'];
+            }
         }
 
         return $model;

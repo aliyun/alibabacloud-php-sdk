@@ -17,9 +17,21 @@ class DeleteRepositoryRequest extends Model
      * @var string
      */
     public $repoId;
+
+    /**
+     * @var string
+     */
+    public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoNamespaceName;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'repoId'     => 'RepoId',
+        'instanceId'        => 'InstanceId',
+        'repoId'            => 'RepoId',
+        'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
@@ -34,6 +46,12 @@ class DeleteRepositoryRequest extends Model
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
 
         return $res;
@@ -52,6 +70,12 @@ class DeleteRepositoryRequest extends Model
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
 
         return $model;

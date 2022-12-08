@@ -60,6 +60,11 @@ class GetChainResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string[]
+     */
+    public $scopeExclude;
+
+    /**
      * @var string
      */
     public $scopeId;
@@ -79,6 +84,7 @@ class GetChainResponseBody extends Model
         'modifiedTime' => 'ModifiedTime',
         'name'         => 'Name',
         'requestId'    => 'RequestId',
+        'scopeExclude' => 'ScopeExclude',
         'scopeId'      => 'ScopeId',
         'scopeType'    => 'ScopeType',
     ];
@@ -119,6 +125,9 @@ class GetChainResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->scopeExclude) {
+            $res['ScopeExclude'] = $this->scopeExclude;
         }
         if (null !== $this->scopeId) {
             $res['ScopeId'] = $this->scopeId;
@@ -167,6 +176,11 @@ class GetChainResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ScopeExclude'])) {
+            if (!empty($map['ScopeExclude'])) {
+                $model->scopeExclude = $map['ScopeExclude'];
+            }
         }
         if (isset($map['ScopeId'])) {
             $model->scopeId = $map['ScopeId'];

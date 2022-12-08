@@ -37,6 +37,11 @@ class CreateChainRequest extends Model
      * @var string
      */
     public $repoNamespaceName;
+
+    /**
+     * @var string[]
+     */
+    public $scopeExclude;
     protected $_name = [
         'chainConfig'       => 'ChainConfig',
         'description'       => 'Description',
@@ -44,6 +49,7 @@ class CreateChainRequest extends Model
         'name'              => 'Name',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
+        'scopeExclude'      => 'ScopeExclude',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class CreateChainRequest extends Model
         }
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
+        }
+        if (null !== $this->scopeExclude) {
+            $res['ScopeExclude'] = $this->scopeExclude;
         }
 
         return $res;
@@ -100,6 +109,11 @@ class CreateChainRequest extends Model
         }
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
+        }
+        if (isset($map['ScopeExclude'])) {
+            if (!empty($map['ScopeExclude'])) {
+                $model->scopeExclude = $map['ScopeExclude'];
+            }
         }
 
         return $model;

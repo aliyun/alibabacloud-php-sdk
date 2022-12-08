@@ -66,6 +66,11 @@ class GetChartRepositoryResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $summary;
     protected $_name = [
         'code'              => 'Code',
@@ -79,6 +84,7 @@ class GetChartRepositoryResponseBody extends Model
         'repoStatus'        => 'RepoStatus',
         'repoType'          => 'RepoType',
         'requestId'         => 'RequestId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'summary'           => 'Summary',
     ];
 
@@ -121,6 +127,9 @@ class GetChartRepositoryResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
@@ -169,6 +178,9 @@ class GetChartRepositoryResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];

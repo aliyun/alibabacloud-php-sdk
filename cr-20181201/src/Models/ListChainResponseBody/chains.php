@@ -39,6 +39,11 @@ class chains extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $scopeExclude;
+
+    /**
      * @var string
      */
     public $scopeId;
@@ -54,6 +59,7 @@ class chains extends Model
         'instanceId'   => 'InstanceId',
         'modifiedTime' => 'ModifiedTime',
         'name'         => 'Name',
+        'scopeExclude' => 'ScopeExclude',
         'scopeId'      => 'ScopeId',
         'scopeType'    => 'ScopeType',
     ];
@@ -82,6 +88,9 @@ class chains extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->scopeExclude) {
+            $res['ScopeExclude'] = $this->scopeExclude;
         }
         if (null !== $this->scopeId) {
             $res['ScopeId'] = $this->scopeId;
@@ -118,6 +127,11 @@ class chains extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ScopeExclude'])) {
+            if (!empty($map['ScopeExclude'])) {
+                $model->scopeExclude = $map['ScopeExclude'];
+            }
         }
         if (isset($map['ScopeId'])) {
             $model->scopeId = $map['ScopeId'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteChartNamespaceResponse extends Model
+class ChangeResourceGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteChartNamespaceResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteChartNamespaceResponseBody
+     * @var ChangeResourceGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DeleteChartNamespaceResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeleteChartNamespaceResponse
+     * @return ChangeResourceGroupResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DeleteChartNamespaceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeleteChartNamespaceResponseBody::fromMap($map['body']);
+            $model->body = ChangeResourceGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

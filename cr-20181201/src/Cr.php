@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CancelArtifactBuildTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelArtifactBuildTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChainRequest;
@@ -121,8 +123,6 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartReleaseRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartReleaseResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartRepositoryResponse;
-use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartRequest;
-use AlibabaCloud\SDK\Cr\V20181201\Models\ListChartResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListEventCenterRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListEventCenterRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListEventCenterRuleNameRequest;
@@ -311,6 +311,55 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceRegionId)) {
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBuildRecordByRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -387,6 +436,9 @@ class Cr extends OpenApiClient
         if (!Utils::isUnset($request->repoNamespaceName)) {
             $query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+        if (!Utils::isUnset($request->scopeExclude)) {
+            $query['ScopeExclude'] = $request->scopeExclude;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -438,9 +490,6 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespaceName)) {
             $query['NamespaceName'] = $request->namespaceName;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -658,9 +707,6 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespaceName)) {
             $query['NamespaceName'] = $request->namespaceName;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1213,9 +1259,6 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoType)) {
             $query['RepoType'] = $request->repoType;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->summary)) {
             $query['Summary'] = $request->summary;
@@ -1853,6 +1896,12 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoId)) {
             $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3015,61 +3064,6 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param ListChartRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListChartResponse
-     */
-    public function listChartWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
-        }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListChart',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListChartResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListChartRequest $request
-     *
-     * @return ListChartResponse
-     */
-    public function listChart($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listChartWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListChartNamespaceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3488,12 +3482,6 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4002,9 +3990,6 @@ class Cr extends OpenApiClient
         if (!Utils::isUnset($request->repoStatus)) {
             $query['RepoStatus'] = $request->repoStatus;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4105,6 +4090,9 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->scopeExclude)) {
+            $query['ScopeExclude'] = $request->scopeExclude;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4641,6 +4629,12 @@ class Cr extends OpenApiClient
         }
         if (!Utils::isUnset($request->repoId)) {
             $query['RepoId'] = $request->repoId;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        if (!Utils::isUnset($request->repoNamespaceName)) {
+            $query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
         if (!Utils::isUnset($request->repoType)) {
             $query['RepoType'] = $request->repoType;

@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\SDK\Cr\V20181201\Models\GetNamespaceResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetNamespaceResponseBody extends Model
@@ -58,11 +57,6 @@ class GetNamespaceResponseBody extends Model
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
     protected $_name = [
         'autoCreateRepo'  => 'AutoCreateRepo',
         'code'            => 'Code',
@@ -74,7 +68,6 @@ class GetNamespaceResponseBody extends Model
         'namespaceStatus' => 'NamespaceStatus',
         'requestId'       => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -113,15 +106,6 @@ class GetNamespaceResponseBody extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -164,15 +148,6 @@ class GetNamespaceResponseBody extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

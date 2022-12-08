@@ -35,8 +35,6 @@ class ListEventCenterRecordResponseBody extends Model
     public $records;
 
     /**
-     * @description Id of the request
-     *
      * @var string
      */
     public $requestId;
