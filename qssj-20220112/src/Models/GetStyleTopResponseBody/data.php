@@ -11,6 +11,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $attributeContent;
+
+    /**
+     * @var string
+     */
+    public $brandName;
+
+    /**
+     * @var string
+     */
     public $buyerTags;
 
     /**
@@ -34,6 +44,11 @@ class data extends Model
     public $material;
 
     /**
+     * @var float
+     */
+    public $price;
+
+    /**
      * @var string
      */
     public $productLink;
@@ -51,6 +66,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $shopName;
+
+    /**
+     * @var string
+     */
     public $style;
 
     /**
@@ -58,16 +78,20 @@ class data extends Model
      */
     public $title;
     protected $_name = [
-        'buyerTags'    => 'BuyerTags',
-        'cateName'     => 'CateName',
-        'color'        => 'Color',
-        'images'       => 'Images',
-        'material'     => 'Material',
-        'productLink'  => 'ProductLink',
-        'salesVolume'  => 'SalesVolume',
-        'searchVolume' => 'SearchVolume',
-        'style'        => 'Style',
-        'title'        => 'Title',
+        'attributeContent' => 'AttributeContent',
+        'brandName'        => 'BrandName',
+        'buyerTags'        => 'BuyerTags',
+        'cateName'         => 'CateName',
+        'color'            => 'Color',
+        'images'           => 'Images',
+        'material'         => 'Material',
+        'price'            => 'Price',
+        'productLink'      => 'ProductLink',
+        'salesVolume'      => 'SalesVolume',
+        'searchVolume'     => 'SearchVolume',
+        'shopName'         => 'ShopName',
+        'style'            => 'Style',
+        'title'            => 'Title',
     ];
 
     public function validate()
@@ -77,6 +101,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attributeContent) {
+            $res['AttributeContent'] = $this->attributeContent;
+        }
+        if (null !== $this->brandName) {
+            $res['BrandName'] = $this->brandName;
+        }
         if (null !== $this->buyerTags) {
             $res['BuyerTags'] = $this->buyerTags;
         }
@@ -92,6 +122,9 @@ class data extends Model
         if (null !== $this->material) {
             $res['Material'] = $this->material;
         }
+        if (null !== $this->price) {
+            $res['Price'] = $this->price;
+        }
         if (null !== $this->productLink) {
             $res['ProductLink'] = $this->productLink;
         }
@@ -100,6 +133,9 @@ class data extends Model
         }
         if (null !== $this->searchVolume) {
             $res['SearchVolume'] = $this->searchVolume;
+        }
+        if (null !== $this->shopName) {
+            $res['ShopName'] = $this->shopName;
         }
         if (null !== $this->style) {
             $res['Style'] = $this->style;
@@ -119,6 +155,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttributeContent'])) {
+            $model->attributeContent = $map['AttributeContent'];
+        }
+        if (isset($map['BrandName'])) {
+            $model->brandName = $map['BrandName'];
+        }
         if (isset($map['BuyerTags'])) {
             $model->buyerTags = $map['BuyerTags'];
         }
@@ -136,6 +178,9 @@ class data extends Model
         if (isset($map['Material'])) {
             $model->material = $map['Material'];
         }
+        if (isset($map['Price'])) {
+            $model->price = $map['Price'];
+        }
         if (isset($map['ProductLink'])) {
             $model->productLink = $map['ProductLink'];
         }
@@ -144,6 +189,9 @@ class data extends Model
         }
         if (isset($map['SearchVolume'])) {
             $model->searchVolume = $map['SearchVolume'];
+        }
+        if (isset($map['ShopName'])) {
+            $model->shopName = $map['ShopName'];
         }
         if (isset($map['Style'])) {
             $model->style = $map['Style'];
