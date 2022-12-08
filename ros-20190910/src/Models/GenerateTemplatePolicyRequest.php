@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GenerateTemplatePolicyRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $operationTypes;
+
+    /**
      * @var string
      */
     public $templateBody;
@@ -28,6 +33,7 @@ class GenerateTemplatePolicyRequest extends Model
      */
     public $templateVersion;
     protected $_name = [
+        'operationTypes'  => 'OperationTypes',
         'templateBody'    => 'TemplateBody',
         'templateId'      => 'TemplateId',
         'templateURL'     => 'TemplateURL',
@@ -41,6 +47,9 @@ class GenerateTemplatePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->operationTypes) {
+            $res['OperationTypes'] = $this->operationTypes;
+        }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
@@ -65,6 +74,11 @@ class GenerateTemplatePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OperationTypes'])) {
+            if (!empty($map['OperationTypes'])) {
+                $model->operationTypes = $map['OperationTypes'];
+            }
+        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }

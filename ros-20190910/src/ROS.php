@@ -1493,6 +1493,9 @@ class ROS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->operationTypes)) {
+            $query['OperationTypes'] = $request->operationTypes;
+        }
         if (!Utils::isUnset($request->templateBody)) {
             $query['TemplateBody'] = $request->templateBody;
         }
