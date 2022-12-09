@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class TagDcdnResourcesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string[]
      */
     public $resourceId;
@@ -29,7 +24,6 @@ class TagDcdnResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
@@ -42,9 +36,6 @@ class TagDcdnResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -72,9 +63,6 @@ class TagDcdnResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];

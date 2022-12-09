@@ -9,16 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDcdnWafRulesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $ruleIds;
     protected $_name = [
-        'ownerId' => 'OwnerId',
         'ruleIds' => 'RuleIds',
     ];
 
@@ -29,9 +23,6 @@ class BatchDeleteDcdnWafRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = $this->ruleIds;
         }
@@ -47,9 +38,6 @@ class BatchDeleteDcdnWafRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['RuleIds'])) {
             $model->ruleIds = $map['RuleIds'];
         }

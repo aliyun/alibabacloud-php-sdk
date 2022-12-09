@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainByCertificateRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $SSLPub;
@@ -23,7 +18,6 @@ class DescribeDcdnDomainByCertificateRequest extends Model
      */
     public $SSLStatus;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'SSLPub'    => 'SSLPub',
         'SSLStatus' => 'SSLStatus',
     ];
@@ -35,9 +29,6 @@ class DescribeDcdnDomainByCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
         }
@@ -56,9 +47,6 @@ class DescribeDcdnDomainByCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
         }

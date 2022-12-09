@@ -12,14 +12,8 @@ class DescribeDcdnBlockedRegionsRequest extends Model
      * @var string
      */
     public $language;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'language' => 'Language',
-        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeDcdnBlockedRegionsRequest extends Model
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeDcdnBlockedRegionsRequest extends Model
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -9,16 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetRoutineSubdomainRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var mixed[]
      */
     public $subdomains;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'subdomains' => 'Subdomains',
     ];
 
@@ -29,9 +23,6 @@ class SetRoutineSubdomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->subdomains) {
             $res['Subdomains'] = $this->subdomains;
         }
@@ -47,9 +38,6 @@ class SetRoutineSubdomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Subdomains'])) {
             $model->subdomains = $map['Subdomains'];
         }

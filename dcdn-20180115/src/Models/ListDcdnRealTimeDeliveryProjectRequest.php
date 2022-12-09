@@ -21,11 +21,6 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
@@ -35,7 +30,6 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
     protected $_name = [
         'businessType' => 'BusinessType',
         'domainName'   => 'DomainName',
-        'ownerId'      => 'OwnerId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
     ];
@@ -52,9 +46,6 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -79,9 +70,6 @@ class ListDcdnRealTimeDeliveryProjectRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

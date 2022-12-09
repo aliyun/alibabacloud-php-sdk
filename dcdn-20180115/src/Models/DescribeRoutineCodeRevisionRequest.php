@@ -14,17 +14,11 @@ class DescribeRoutineCodeRevisionRequest extends Model
     public $name;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $selectCodeRevision;
     protected $_name = [
         'name'               => 'Name',
-        'ownerId'            => 'OwnerId',
         'selectCodeRevision' => 'SelectCodeRevision',
     ];
 
@@ -37,9 +31,6 @@ class DescribeRoutineCodeRevisionRequest extends Model
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->selectCodeRevision) {
             $res['SelectCodeRevision'] = $this->selectCodeRevision;
@@ -58,9 +49,6 @@ class DescribeRoutineCodeRevisionRequest extends Model
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SelectCodeRevision'])) {
             $model->selectCodeRevision = $map['SelectCodeRevision'];

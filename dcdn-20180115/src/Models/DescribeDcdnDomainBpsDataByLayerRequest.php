@@ -39,11 +39,6 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $locationNameEn;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $startTime;
@@ -54,7 +49,6 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
         'ispNameEn'      => 'IspNameEn',
         'layer'          => 'Layer',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
     ];
 
@@ -82,9 +76,6 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
         }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -118,9 +109,6 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
         }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

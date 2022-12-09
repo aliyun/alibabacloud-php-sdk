@@ -14,11 +14,6 @@ class CreateDcdnWafPolicyRequest extends Model
     public $defenseScene;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $policyName;
@@ -34,7 +29,6 @@ class CreateDcdnWafPolicyRequest extends Model
     public $policyType;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
-        'ownerId'      => 'OwnerId',
         'policyName'   => 'PolicyName',
         'policyStatus' => 'PolicyStatus',
         'policyType'   => 'PolicyType',
@@ -49,9 +43,6 @@ class CreateDcdnWafPolicyRequest extends Model
         $res = [];
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
@@ -76,9 +67,6 @@ class CreateDcdnWafPolicyRequest extends Model
         $model = new self();
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];

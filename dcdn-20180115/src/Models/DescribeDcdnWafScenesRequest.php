@@ -12,14 +12,8 @@ class DescribeDcdnWafScenesRequest extends Model
      * @var string
      */
     public $defenseScenes;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'defenseScenes' => 'DefenseScenes',
-        'ownerId'       => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeDcdnWafScenesRequest extends Model
         $res = [];
         if (null !== $this->defenseScenes) {
             $res['DefenseScenes'] = $this->defenseScenes;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeDcdnWafScenesRequest extends Model
         $model = new self();
         if (isset($map['DefenseScenes'])) {
             $model->defenseScenes = $map['DefenseScenes'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

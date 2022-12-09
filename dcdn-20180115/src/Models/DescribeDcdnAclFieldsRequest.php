@@ -12,14 +12,8 @@ class DescribeDcdnAclFieldsRequest extends Model
      * @var string
      */
     public $lang;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
-        'lang'    => 'Lang',
-        'ownerId' => 'OwnerId',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DescribeDcdnAclFieldsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DescribeDcdnAclFieldsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

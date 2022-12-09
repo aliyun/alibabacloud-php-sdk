@@ -21,11 +21,6 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
@@ -55,7 +50,6 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     protected $_name = [
         'domainName'    => 'DomainName',
         'endTime'       => 'EndTime',
-        'ownerId'       => 'OwnerId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'ruleName'      => 'RuleName',
@@ -76,9 +70,6 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -115,9 +106,6 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

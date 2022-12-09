@@ -17,15 +17,9 @@ class DeleteRoutineConfEnvsRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
-        'envs'    => 'Envs',
-        'name'    => 'Name',
-        'ownerId' => 'OwnerId',
+        'envs' => 'Envs',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DeleteRoutineConfEnvsRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DeleteRoutineConfEnvsRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -29,11 +29,6 @@ class UpdateDcdnDeliverTaskRequest extends Model
     public $name;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $reports;
@@ -47,7 +42,6 @@ class UpdateDcdnDeliverTaskRequest extends Model
         'deliverId'  => 'DeliverId',
         'domainName' => 'DomainName',
         'name'       => 'Name',
-        'ownerId'    => 'OwnerId',
         'reports'    => 'Reports',
         'schedule'   => 'Schedule',
     ];
@@ -70,9 +64,6 @@ class UpdateDcdnDeliverTaskRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->reports) {
             $res['Reports'] = $this->reports;
@@ -103,9 +94,6 @@ class UpdateDcdnDeliverTaskRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Reports'])) {
             $model->reports = $map['Reports'];

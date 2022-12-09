@@ -17,15 +17,9 @@ class DescribeDcdnWafFilterInfoRequest extends Model
      * @var string
      */
     public $language;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'defenseScenes' => 'DefenseScenes',
         'language'      => 'Language',
-        'ownerId'       => 'OwnerId',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DescribeDcdnWafFilterInfoRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DescribeDcdnWafFilterInfoRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

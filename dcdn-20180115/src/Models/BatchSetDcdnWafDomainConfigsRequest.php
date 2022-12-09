@@ -22,16 +22,10 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
      * @var string
      */
     public $domainNames;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'clientIpTag'   => 'ClientIpTag',
         'defenseStatus' => 'DefenseStatus',
         'domainNames'   => 'DomainNames',
-        'ownerId'       => 'OwnerId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
         }
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
         }
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -14,11 +14,6 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $sortBy;
@@ -29,7 +24,6 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
         'sortBy'     => 'SortBy',
         'startTime'  => 'StartTime',
     ];
@@ -43,9 +37,6 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -67,9 +58,6 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

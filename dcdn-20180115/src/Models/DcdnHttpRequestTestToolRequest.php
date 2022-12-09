@@ -34,11 +34,6 @@ class DcdnHttpRequestTestToolRequest extends Model
     public $method;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $proxyIp;
@@ -58,7 +53,6 @@ class DcdnHttpRequestTestToolRequest extends Model
         'header'  => 'Header',
         'host'    => 'Host',
         'method'  => 'Method',
-        'ownerId' => 'OwnerId',
         'proxyIp' => 'ProxyIp',
         'scheme'  => 'Scheme',
         'uri'     => 'Uri',
@@ -85,9 +79,6 @@ class DcdnHttpRequestTestToolRequest extends Model
         }
         if (null !== $this->method) {
             $res['Method'] = $this->method;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->proxyIp) {
             $res['ProxyIp'] = $this->proxyIp;
@@ -124,9 +115,6 @@ class DcdnHttpRequestTestToolRequest extends Model
         }
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProxyIp'])) {
             $model->proxyIp = $map['ProxyIp'];

@@ -17,15 +17,9 @@ class SetDcdnDomainStagingConfigRequest extends Model
      * @var string
      */
     public $functions;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'domainName' => 'DomainName',
         'functions'  => 'Functions',
-        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class SetDcdnDomainStagingConfigRequest extends Model
         }
         if (null !== $this->functions) {
             $res['Functions'] = $this->functions;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class SetDcdnDomainStagingConfigRequest extends Model
         }
         if (isset($map['Functions'])) {
             $model->functions = $map['Functions'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

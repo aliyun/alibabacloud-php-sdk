@@ -19,11 +19,6 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $projectName;
@@ -50,7 +45,6 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     protected $_name = [
         'dataCenter'   => 'DataCenter',
         'domainName'   => 'DomainName',
-        'ownerId'      => 'OwnerId',
         'projectName'  => 'ProjectName',
         'SLSLogStore'  => 'SLSLogStore',
         'SLSProject'   => 'SLSProject',
@@ -70,9 +64,6 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -106,9 +97,6 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

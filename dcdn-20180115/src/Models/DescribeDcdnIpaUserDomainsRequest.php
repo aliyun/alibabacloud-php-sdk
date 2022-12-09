@@ -60,11 +60,6 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var tag[]
      */
     public $tag;
@@ -79,7 +74,6 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'resourceGroupId'  => 'ResourceGroupId',
-        'securityToken'    => 'SecurityToken',
         'tag'              => 'Tag',
     ];
 
@@ -119,9 +113,6 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -173,9 +164,6 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

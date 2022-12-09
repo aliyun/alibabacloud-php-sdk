@@ -24,11 +24,6 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
     public $domainName;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $projectName;
@@ -56,7 +51,6 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
         'businessType' => 'BusinessType',
         'dataCenter'   => 'DataCenter',
         'domainName'   => 'DomainName',
-        'ownerId'      => 'OwnerId',
         'projectName'  => 'ProjectName',
         'SLSLogStore'  => 'SLSLogStore',
         'SLSProject'   => 'SLSProject',
@@ -79,9 +73,6 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -118,9 +109,6 @@ class CreateDcdnSLSRealTimeLogDeliveryRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

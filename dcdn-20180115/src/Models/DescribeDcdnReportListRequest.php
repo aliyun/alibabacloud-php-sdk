@@ -11,14 +11,8 @@ class DescribeDcdnReportListRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $reportId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'reportId' => 'ReportId',
     ];
 
@@ -29,9 +23,6 @@ class DescribeDcdnReportListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
@@ -47,9 +38,6 @@ class DescribeDcdnReportListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }

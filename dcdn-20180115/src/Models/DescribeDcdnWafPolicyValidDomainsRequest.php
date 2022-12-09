@@ -21,11 +21,6 @@ class DescribeDcdnWafPolicyValidDomainsRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
@@ -35,7 +30,6 @@ class DescribeDcdnWafPolicyValidDomainsRequest extends Model
     protected $_name = [
         'defenseScene'   => 'DefenseScene',
         'domainNameLike' => 'DomainNameLike',
-        'ownerId'        => 'OwnerId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
     ];
@@ -52,9 +46,6 @@ class DescribeDcdnWafPolicyValidDomainsRequest extends Model
         }
         if (null !== $this->domainNameLike) {
             $res['DomainNameLike'] = $this->domainNameLike;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -79,9 +70,6 @@ class DescribeDcdnWafPolicyValidDomainsRequest extends Model
         }
         if (isset($map['DomainNameLike'])) {
             $model->domainNameLike = $map['DomainNameLike'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

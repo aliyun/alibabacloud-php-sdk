@@ -12,14 +12,8 @@ class DeleteDcdnDeliverTaskRequest extends Model
      * @var int
      */
     public $deliverId;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'deliverId' => 'DeliverId',
-        'ownerId'   => 'OwnerId',
     ];
 
     public function validate()
@@ -31,9 +25,6 @@ class DeleteDcdnDeliverTaskRequest extends Model
         $res = [];
         if (null !== $this->deliverId) {
             $res['DeliverId'] = $this->deliverId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -49,9 +40,6 @@ class DeleteDcdnDeliverTaskRequest extends Model
         $model = new self();
         if (isset($map['DeliverId'])) {
             $model->deliverId = $map['DeliverId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

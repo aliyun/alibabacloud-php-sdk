@@ -31,11 +31,6 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $pageNumber;
 
     /**
@@ -62,7 +57,6 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
         'endTime'    => 'EndTime',
         'lang'       => 'Lang',
         'object'     => 'Object',
-        'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'ruleName'   => 'RuleName',
@@ -88,9 +82,6 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
         }
         if (null !== $this->object) {
             $res['Object'] = $this->object;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -130,9 +121,6 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
         }
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

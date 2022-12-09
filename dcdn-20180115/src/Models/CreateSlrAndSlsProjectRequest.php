@@ -14,17 +14,11 @@ class CreateSlrAndSlsProjectRequest extends Model
     public $businessType;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $region;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'ownerId'      => 'OwnerId',
         'region'       => 'Region',
     ];
 
@@ -37,9 +31,6 @@ class CreateSlrAndSlsProjectRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -58,9 +49,6 @@ class CreateSlrAndSlsProjectRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

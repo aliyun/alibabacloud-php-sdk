@@ -22,16 +22,10 @@ class EditRoutineConfShrinkRequest extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
     protected $_name = [
         'description'   => 'Description',
         'envConfShrink' => 'EnvConf',
         'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class EditRoutineConfShrinkRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class EditRoutineConfShrinkRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -16,11 +16,6 @@ class ModifyDcdnWafPolicyDomainsRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $policyId;
 
     /**
@@ -29,7 +24,6 @@ class ModifyDcdnWafPolicyDomainsRequest extends Model
     public $unbindDomains;
     protected $_name = [
         'bindDomains'   => 'BindDomains',
-        'ownerId'       => 'OwnerId',
         'policyId'      => 'PolicyId',
         'unbindDomains' => 'UnbindDomains',
     ];
@@ -43,9 +37,6 @@ class ModifyDcdnWafPolicyDomainsRequest extends Model
         $res = [];
         if (null !== $this->bindDomains) {
             $res['BindDomains'] = $this->bindDomains;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
@@ -67,9 +58,6 @@ class ModifyDcdnWafPolicyDomainsRequest extends Model
         $model = new self();
         if (isset($map['BindDomains'])) {
             $model->bindDomains = $map['BindDomains'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];

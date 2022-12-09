@@ -19,18 +19,12 @@ class DescribeDcdnTopDomainsByFlowRequest extends Model
     public $limit;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
         'limit'     => 'Limit',
-        'ownerId'   => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
@@ -46,9 +40,6 @@ class DescribeDcdnTopDomainsByFlowRequest extends Model
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -70,9 +61,6 @@ class DescribeDcdnTopDomainsByFlowRequest extends Model
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
