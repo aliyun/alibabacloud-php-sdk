@@ -16,6 +16,11 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     /**
      * @var string
      */
+    public $acceleratorId;
+
+    /**
+     * @var string
+     */
     public $endpointAddress;
 
     /**
@@ -64,6 +69,7 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
     public $state;
     protected $_name = [
         'accelerateIpId'         => 'AccelerateIpId',
+        'acceleratorId'          => 'AcceleratorId',
         'endpointAddress'        => 'EndpointAddress',
         'endpointId'             => 'EndpointId',
         'endpointName'           => 'EndpointName',
@@ -85,6 +91,9 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
         $res = [];
         if (null !== $this->accelerateIpId) {
             $res['AccelerateIpId'] = $this->accelerateIpId;
+        }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->endpointAddress) {
             $res['EndpointAddress'] = $this->endpointAddress;
@@ -130,6 +139,9 @@ class GetBasicAccelerateIpEndpointRelationResponseBody extends Model
         $model = new self();
         if (isset($map['AccelerateIpId'])) {
             $model->accelerateIpId = $map['AccelerateIpId'];
+        }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['EndpointAddress'])) {
             $model->endpointAddress = $map['EndpointAddress'];

@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAccelerateIpsResponseBody;
 
-use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAccelerateIpsResponseBody\accelerateIps\endpoint;
 use AlibabaCloud\Tea\Model;
 
 class accelerateIps extends Model
@@ -25,11 +24,6 @@ class accelerateIps extends Model
     public $acceleratorId;
 
     /**
-     * @var endpoint
-     */
-    public $endpoint;
-
-    /**
      * @var string
      */
     public $ipSetId;
@@ -42,7 +36,6 @@ class accelerateIps extends Model
         'accelerateIpAddress' => 'AccelerateIpAddress',
         'accelerateIpId'      => 'AccelerateIpId',
         'acceleratorId'       => 'AcceleratorId',
-        'endpoint'            => 'Endpoint',
         'ipSetId'             => 'IpSetId',
         'state'               => 'State',
     ];
@@ -62,9 +55,6 @@ class accelerateIps extends Model
         }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = null !== $this->endpoint ? $this->endpoint->toMap() : null;
         }
         if (null !== $this->ipSetId) {
             $res['IpSetId'] = $this->ipSetId;
@@ -92,9 +82,6 @@ class accelerateIps extends Model
         }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = endpoint::fromMap($map['Endpoint']);
         }
         if (isset($map['IpSetId'])) {
             $model->ipSetId = $map['IpSetId'];
