@@ -22,16 +22,10 @@ class DeleteCdnDomainRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
+        'domainName'   => 'DomainName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -49,9 +43,6 @@ class DeleteCdnDomainRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -73,9 +64,6 @@ class DeleteCdnDomainRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

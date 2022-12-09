@@ -58,8 +58,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUsageDetailDataExportTaskRequest
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUsageDetailDataExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUserUsageDataExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUserUsageDataExportTaskResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeActiveVersionOfConfigGroupRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeActiveVersionOfConfigGroupResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailRequest;
@@ -116,10 +114,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnWafDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnWafDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigGroupDetailRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigGroupDetailResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigOfVersionRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigOfVersionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomLogConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainAverageResponseTimeRequest;
@@ -152,8 +146,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMultiUsageDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMultiUsageDataResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainNamesOfVersionRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainNamesOfVersionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainPathDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainPathDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainPvDataRequest;
@@ -232,8 +224,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspService
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRangeDataByLocateAndIspServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeDeliveryAccRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeDeliveryAccResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeLogAuthorizedRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRealtimeLogAuthorizedResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshQuotaRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshQuotaResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeRefreshTaskByIdRequest;
@@ -282,6 +272,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\OpenCdnServiceResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PublishStagingConfigToProductionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\PushObjectCacheRequest;
@@ -296,8 +288,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetConfigOfVersionRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\SetConfigOfVersionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetDomainServerCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigRequest;
@@ -1368,9 +1358,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1764,55 +1751,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserUsageDataExportTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeActiveVersionOfConfigGroupRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeActiveVersionOfConfigGroupResponse
-     */
-    public function describeActiveVersionOfConfigGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configGroupId)) {
-            $query['ConfigGroupId'] = $request->configGroupId;
-        }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeActiveVersionOfConfigGroup',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeActiveVersionOfConfigGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeActiveVersionOfConfigGroupRequest $request
-     *
-     * @return DescribeActiveVersionOfConfigGroupResponse
-     */
-    public function describeActiveVersionOfConfigGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeActiveVersionOfConfigGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3194,113 +3132,6 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigGroupDetailRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeConfigGroupDetailResponse
-     */
-    public function describeConfigGroupDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configGroupId)) {
-            $query['ConfigGroupId'] = $request->configGroupId;
-        }
-        if (!Utils::isUnset($request->configGroupName)) {
-            $query['ConfigGroupName'] = $request->configGroupName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeConfigGroupDetail',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeConfigGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeConfigGroupDetailRequest $request
-     *
-     * @return DescribeConfigGroupDetailResponse
-     */
-    public function describeConfigGroupDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeConfigGroupDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeConfigOfVersionRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeConfigOfVersionResponse
-     */
-    public function describeConfigOfVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionId)) {
-            $query['FunctionId'] = $request->functionId;
-        }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeConfigOfVersion',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeConfigOfVersionRequest $request
-     *
-     * @return DescribeConfigOfVersionResponse
-     */
-    public function describeConfigOfVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeConfigOfVersionWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeCustomLogConfigRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4169,58 +4000,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainMultiUsageDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDomainNamesOfVersionRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeDomainNamesOfVersionResponse
-     */
-    public function describeDomainNamesOfVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDomainNamesOfVersion',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDomainNamesOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDomainNamesOfVersionRequest $request
-     *
-     * @return DescribeDomainNamesOfVersionResponse
-     */
-    public function describeDomainNamesOfVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainNamesOfVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -5995,12 +5774,6 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->IP)) {
             $query['IP'] = $request->IP;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6234,46 +6007,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRealtimeDeliveryAccWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRealtimeLogAuthorizedRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeRealtimeLogAuthorizedResponse
-     */
-    public function describeRealtimeLogAuthorizedWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeRealtimeLogAuthorized',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeRealtimeLogAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRealtimeLogAuthorizedRequest $request
-     *
-     * @return DescribeRealtimeLogAuthorizedResponse
-     */
-    public function describeRealtimeLogAuthorized($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRealtimeLogAuthorizedWithOptions($request, $runtime);
     }
 
     /**
@@ -7423,6 +7156,55 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param OpenCdnServiceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return OpenCdnServiceResponse
+     */
+    public function openCdnServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenCdnService',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenCdnServiceRequest $request
+     *
+     * @return OpenCdnServiceResponse
+     */
+    public function openCdnService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openCdnServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param PublishStagingConfigToProductionRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -7772,70 +7554,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setCdnDomainStagingConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetConfigOfVersionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetConfigOfVersionResponse
-     */
-    public function setConfigOfVersionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
-        }
-        if (!Utils::isUnset($request->functionArgs)) {
-            $query['FunctionArgs'] = $request->functionArgs;
-        }
-        if (!Utils::isUnset($request->functionId)) {
-            $query['FunctionId'] = $request->functionId;
-        }
-        if (!Utils::isUnset($request->functionName)) {
-            $query['FunctionName'] = $request->functionName;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetConfigOfVersion',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetConfigOfVersionRequest $request
-     *
-     * @return SetConfigOfVersionResponse
-     */
-    public function setConfigOfVersion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setConfigOfVersionWithOptions($request, $runtime);
     }
 
     /**
