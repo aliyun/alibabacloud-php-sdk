@@ -31,6 +31,11 @@ class skuModels extends Model
     /**
      * @var int
      */
+    public $lowGuideRetailPrice;
+
+    /**
+     * @var int
+     */
     public $priceCent;
 
     /**
@@ -53,15 +58,16 @@ class skuModels extends Model
      */
     public $status;
     protected $_name = [
-        'distributionMallId' => 'DistributionMallId',
-        'guideRetailPrice'   => 'GuideRetailPrice',
-        'itemId'             => 'ItemId',
-        'lmItemId'           => 'LmItemId',
-        'priceCent'          => 'PriceCent',
-        'reservedPrice'      => 'ReservedPrice',
-        'skuId'              => 'SkuId',
-        'skuTitle'           => 'SkuTitle',
-        'status'             => 'Status',
+        'distributionMallId'  => 'DistributionMallId',
+        'guideRetailPrice'    => 'GuideRetailPrice',
+        'itemId'              => 'ItemId',
+        'lmItemId'            => 'LmItemId',
+        'lowGuideRetailPrice' => 'LowGuideRetailPrice',
+        'priceCent'           => 'PriceCent',
+        'reservedPrice'       => 'ReservedPrice',
+        'skuId'               => 'SkuId',
+        'skuTitle'            => 'SkuTitle',
+        'status'              => 'Status',
     ];
 
     public function validate()
@@ -82,6 +88,9 @@ class skuModels extends Model
         }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->lowGuideRetailPrice) {
+            $res['LowGuideRetailPrice'] = $this->lowGuideRetailPrice;
         }
         if (null !== $this->priceCent) {
             $res['PriceCent'] = $this->priceCent;
@@ -121,6 +130,9 @@ class skuModels extends Model
         }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['LowGuideRetailPrice'])) {
+            $model->lowGuideRetailPrice = $map['LowGuideRetailPrice'];
         }
         if (isset($map['PriceCent'])) {
             $model->priceCent = $map['PriceCent'];

@@ -175,6 +175,9 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($request->deliveryAddress)) {
             $body['DeliveryAddress'] = $request->deliveryAddress;
         }
+        if (!Utils::isUnset($request->distributionOutTradeId)) {
+            $body['DistributionOutTradeId'] = $request->distributionOutTradeId;
+        }
         if (!Utils::isUnset($request->distributionSupplierId)) {
             $body['DistributionSupplierId'] = $request->distributionSupplierId;
         }

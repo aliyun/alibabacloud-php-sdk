@@ -35,6 +35,11 @@ class model_ extends Model
     public $lmItemId;
 
     /**
+     * @var string
+     */
+    public $lowGuideRetailPriceScope;
+
+    /**
      * @var int
      */
     public $reservedPrice;
@@ -49,14 +54,15 @@ class model_ extends Model
      */
     public $skuModels;
     protected $_name = [
-        'distributionMallId'    => 'DistributionMallId',
-        'guideRetailPriceScope' => 'GuideRetailPriceScope',
-        'itemId'                => 'ItemId',
-        'itemTitle'             => 'ItemTitle',
-        'lmItemId'              => 'LmItemId',
-        'reservedPrice'         => 'ReservedPrice',
-        'reservedPriceScope'    => 'ReservedPriceScope',
-        'skuModels'             => 'SkuModels',
+        'distributionMallId'       => 'DistributionMallId',
+        'guideRetailPriceScope'    => 'GuideRetailPriceScope',
+        'itemId'                   => 'ItemId',
+        'itemTitle'                => 'ItemTitle',
+        'lmItemId'                 => 'LmItemId',
+        'lowGuideRetailPriceScope' => 'LowGuideRetailPriceScope',
+        'reservedPrice'            => 'ReservedPrice',
+        'reservedPriceScope'       => 'ReservedPriceScope',
+        'skuModels'                => 'SkuModels',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class model_ extends Model
         }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->lowGuideRetailPriceScope) {
+            $res['LowGuideRetailPriceScope'] = $this->lowGuideRetailPriceScope;
         }
         if (null !== $this->reservedPrice) {
             $res['ReservedPrice'] = $this->reservedPrice;
@@ -122,6 +131,9 @@ class model_ extends Model
         }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['LowGuideRetailPriceScope'])) {
+            $model->lowGuideRetailPriceScope = $map['LowGuideRetailPriceScope'];
         }
         if (isset($map['ReservedPrice'])) {
             $model->reservedPrice = $map['ReservedPrice'];

@@ -1,3 +1,6 @@
+2022-12-09 Version: 1.0.8
+- Modify QueryItemGuideRetailPrice.
+
 2022-11-18 Version: 1.0.7
 - ADD QueryDistributionBillDetail .
 

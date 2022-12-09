@@ -21,6 +21,11 @@ class ApplyCreateDistributionOrderShrinkRequest extends Model
     /**
      * @var string
      */
+    public $distributionOutTradeId;
+
+    /**
+     * @var string
+     */
     public $distributionSupplierId;
 
     /**
@@ -45,6 +50,7 @@ class ApplyCreateDistributionOrderShrinkRequest extends Model
     protected $_name = [
         'buyerId'                => 'BuyerId',
         'deliveryAddress'        => 'DeliveryAddress',
+        'distributionOutTradeId' => 'DistributionOutTradeId',
         'distributionSupplierId' => 'DistributionSupplierId',
         'distributorId'          => 'DistributorId',
         'extInfo'                => 'ExtInfo',
@@ -64,6 +70,9 @@ class ApplyCreateDistributionOrderShrinkRequest extends Model
         }
         if (null !== $this->deliveryAddress) {
             $res['DeliveryAddress'] = $this->deliveryAddress;
+        }
+        if (null !== $this->distributionOutTradeId) {
+            $res['DistributionOutTradeId'] = $this->distributionOutTradeId;
         }
         if (null !== $this->distributionSupplierId) {
             $res['DistributionSupplierId'] = $this->distributionSupplierId;
@@ -97,6 +106,9 @@ class ApplyCreateDistributionOrderShrinkRequest extends Model
         }
         if (isset($map['DeliveryAddress'])) {
             $model->deliveryAddress = $map['DeliveryAddress'];
+        }
+        if (isset($map['DistributionOutTradeId'])) {
+            $model->distributionOutTradeId = $map['DistributionOutTradeId'];
         }
         if (isset($map['DistributionSupplierId'])) {
             $model->distributionSupplierId = $map['DistributionSupplierId'];
