@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstancesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTenantModesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTenantModesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyRequest;
@@ -89,6 +91,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantTagsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUserRolesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersResponse;
@@ -106,6 +110,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseUserRolesReques
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseUserRolesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNameRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceNameResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifySecurityIpsRequest;
@@ -114,6 +120,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneReques
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantResourceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantResourceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantTagsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserDescriptionRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserDescriptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserPasswordRequest;
@@ -1387,6 +1395,52 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceTagsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeInstanceTagsResponse
+     */
+    public function describeInstanceTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceIds)) {
+            $body['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceTags',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceTagsRequest $request
+     *
+     * @return DescribeInstanceTagsResponse
+     */
+    public function describeInstanceTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstanceTenantModesRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2373,6 +2427,55 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeTenantTagsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeTenantTagsResponse
+     */
+    public function describeTenantTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->tenantIds)) {
+            $body['TenantIds'] = $request->tenantIds;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTenantTags',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTenantTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTenantTagsRequest $request
+     *
+     * @return DescribeTenantTagsResponse
+     */
+    public function describeTenantTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTenantTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeTenantUserRolesResponse
@@ -2884,6 +2987,52 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param ModifyInstanceTagsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceTagsResponse
+     */
+    public function modifyInstanceTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceTags',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceTagsRequest $request
+     *
+     * @return ModifyInstanceTagsResponse
+     */
+    public function modifyInstanceTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyParametersRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3095,6 +3244,55 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTenantResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyTenantTagsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyTenantTagsResponse
+     */
+    public function modifyTenantTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTenantTags',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTenantTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTenantTagsRequest $request
+     *
+     * @return ModifyTenantTagsResponse
+     */
+    public function modifyTenantTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTenantTagsWithOptions($request, $runtime);
     }
 
     /**
