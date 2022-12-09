@@ -15,12 +15,12 @@ class ErasePersonAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var string
+     * @var Stream
      */
-    public $userMask;
+    public $userMaskObject;
     protected $_name = [
         'imageURLObject' => 'ImageURL',
-        'userMask'       => 'UserMask',
+        'userMaskObject' => 'UserMask',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class ErasePersonAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURL'] = $this->imageURLObject;
         }
-        if (null !== $this->userMask) {
-            $res['UserMask'] = $this->userMask;
+        if (null !== $this->userMaskObject) {
+            $res['UserMask'] = $this->userMaskObject;
         }
 
         return $res;
@@ -52,7 +52,7 @@ class ErasePersonAdvanceRequest extends Model
             $model->imageURLObject = $map['ImageURL'];
         }
         if (isset($map['UserMask'])) {
-            $model->userMask = $map['UserMask'];
+            $model->userMaskObject = $map['UserMask'];
         }
 
         return $model;
