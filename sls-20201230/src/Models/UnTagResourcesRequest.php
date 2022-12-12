@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UnTagResourcesRequest extends Model
+class UntagResourcesRequest extends Model
 {
     /**
      * @var bool
@@ -14,7 +14,7 @@ class UnTagResourcesRequest extends Model
     public $all;
 
     /**
-     * @var string[]
+     * @var string
      */
     public $resourceId;
 
@@ -60,7 +60,7 @@ class UnTagResourcesRequest extends Model
     /**
      * @param array $map
      *
-     * @return UnTagResourcesRequest
+     * @return UntagResourcesRequest
      */
     public static function fromMap($map = [])
     {
@@ -69,9 +69,7 @@ class UnTagResourcesRequest extends Model
             $model->all = $map['all'];
         }
         if (isset($map['resourceId'])) {
-            if (!empty($map['resourceId'])) {
-                $model->resourceId = $map['resourceId'];
-            }
+            $model->resourceId = $map['resourceId'];
         }
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];

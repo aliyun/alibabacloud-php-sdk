@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UnTagResourcesResponse extends Model
+class UntagResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -44,7 +44,7 @@ class UnTagResourcesResponse extends Model
     /**
      * @param array $map
      *
-     * @return UnTagResourcesResponse
+     * @return UntagResourcesResponse
      */
     public static function fromMap($map = [])
     {
