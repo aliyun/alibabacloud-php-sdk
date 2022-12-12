@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 484256DA-D816-44D2-9D86-B6EE4D5B****
+     *
      * @var string
      */
     public $requestId;

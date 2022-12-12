@@ -9,121 +9,169 @@ use AlibabaCloud\Tea\Model;
 class replicaPairs extends Model
 {
     /**
+     * @example 10240
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 1649750977
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example d-asdfjl2342kj2l3k4****
+     *
      * @var string
      */
     public $destinationDiskId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $destinationRegion;
 
     /**
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $destinationZoneId;
 
     /**
+     * @example 1649750977
+     *
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @example 1649751977
+     *
      * @var int
      */
     public $lastRecoverPoint;
 
     /**
+     * @example TestReplicaPair
+     *
      * @var string
      */
     public $pairName;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $primaryRegion;
 
     /**
+     * @example cn-beijing-a
+     *
      * @var string
      */
     public $primaryZone;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $RPO;
 
     /**
+     * @example pg-xxxx****
+     *
      * @var string
      */
     public $replicaGroupId;
 
     /**
+     * @example pg-name****
+     *
      * @var string
      */
     public $replicaGroupName;
 
     /**
+     * @example pair-cn-dsa****
+     *
      * @var string
      */
     public $replicaPairId;
 
     /**
+     * @example production
+     *
      * @var string
      */
     public $site;
 
     /**
+     * @example d-bp131n0q38u3a4zi****
+     *
      * @var string
      */
     public $sourceDiskId;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $sourceRegion;
 
     /**
+     * @example cn-beijing-a
+     *
      * @var string
      */
     public $sourceZoneId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $standbyRegion;
 
     /**
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $standbyZone;
 
     /**
+     * @example created
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example PrePayOrderExpired
+     *
      * @var string
      */
     public $statusMessage;

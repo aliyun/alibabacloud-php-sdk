@@ -15,16 +15,22 @@ class TagResourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example disk-123
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @example ear
+     *
      * @var string
      */
     public $resourceType;

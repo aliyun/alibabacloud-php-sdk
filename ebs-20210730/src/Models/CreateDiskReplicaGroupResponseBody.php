@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskReplicaGroupResponseBody extends Model
 {
     /**
+     * @example pg-xxxxxxx
+     *
      * @var string
      */
     public $replicaGroupId;
 
     /**
+     * @example C123F94F-4E38-19AE-942A-A8D6F44F****
+     *
      * @var string
      */
     public $requestId;

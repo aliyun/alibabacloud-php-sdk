@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairProgressResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example 1661917424
+     *
      * @var int
      */
     public $recoverPoint;
 
     /**
+     * @example AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
+     *
      * @var string
      */
     public $requestId;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskReplicaGroupRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $destinationZoneId;
 
     /**
+     * @example myreplicagrouptest
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $RPO;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-beijing-f
+     *
      * @var string
      */
     public $sourceZoneId;

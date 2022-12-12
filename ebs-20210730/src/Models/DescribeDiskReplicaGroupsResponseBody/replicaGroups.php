@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class replicaGroups extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $destinationZoneId;
 
     /**
+     * @example myreplicagrouptest
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 1637835114
+     *
      * @var int
      */
     public $lastRecoverPoint;
@@ -44,56 +56,78 @@ class replicaGroups extends Model
     public $pairIds;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pairNumber;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $primaryRegion;
 
     /**
+     * @example cn-beijing-h
+     *
      * @var string
      */
     public $primaryZone;
 
     /**
+     * @example 180
+     *
      * @var int
      */
     public $RPO;
 
     /**
+     * @example pg-myreplica****
+     *
      * @var string
      */
     public $replicaGroupId;
 
     /**
+     * @example production
+     *
      * @var string
      */
     public $site;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $sourceRegionId;
 
     /**
+     * @example cn-beijing-f
+     *
      * @var string
      */
     public $sourceZoneId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $standbyRegion;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $standbyZone;
 
     /**
+     * @example created
+     *
      * @var string
      */
     public $status;

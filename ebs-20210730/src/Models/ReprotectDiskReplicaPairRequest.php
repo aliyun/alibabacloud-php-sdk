@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ReprotectDiskReplicaPairRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pair-cn-dsa****
+     *
      * @var string
      */
     public $replicaPairId;

@@ -15,11 +15,15 @@ class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
     public $disks;
 
     /**
+     * @example AAAAAdDWBF2
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 11B55F58-D3A4-4A9B-9596-342420D0****
+     *
      * @var string
      */
     public $requestId;

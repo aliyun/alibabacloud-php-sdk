@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskReplicaPairRequest extends Model
 {
     /**
+     * @example 10240
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example PrePay
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example d-sa1f82p58p1tdw9g****
+     *
      * @var string
      */
     public $destinationDiskId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $destinationRegionId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $destinationZoneId;
 
     /**
+     * @example d-iq80sgp4d0xbk24q****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example TestReplicaPair
+     *
      * @var string
      */
     public $pairName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $RPO;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-beijing-f
+     *
      * @var string
      */
     public $sourceZoneId;

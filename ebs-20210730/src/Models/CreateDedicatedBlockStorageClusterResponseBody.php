@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedBlockStorageClusterResponseBody extends Model
 {
     /**
+     * @example dbsc-f8z4d3k4nsgg9okb****
+     *
      * @var string
      */
     public $dbscId;
 
     /**
+     * @example 50155660025****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
+     *
      * @var string
      */
     public $requestId;

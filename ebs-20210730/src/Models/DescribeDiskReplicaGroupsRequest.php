@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaGroupsRequest extends Model
 {
     /**
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $groupIds;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example production
+     *
      * @var string
      */
     public $site;

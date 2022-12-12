@@ -5,16 +5,21 @@
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersResponseBody;
 
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersResponseBody\dedicatedBlockStorageClusters\dedicatedBlockStorageClusterCapacity;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersResponseBody\dedicatedBlockStorageClusters\tags;
 use AlibabaCloud\Tea\Model;
 
 class dedicatedBlockStorageClusters extends Model
 {
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 1657113211
+     *
      * @var string
      */
     public $createTime;
@@ -25,31 +30,43 @@ class dedicatedBlockStorageClusters extends Model
     public $dedicatedBlockStorageClusterCapacity;
 
     /**
+     * @example dbsc-f8z4d3k4nsgg9okb****
+     *
      * @var string
      */
     public $dedicatedBlockStorageClusterId;
 
     /**
+     * @example myDBSCCluster
+     *
      * @var string
      */
     public $dedicatedBlockStorageClusterName;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1673020800
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example PL0
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $regionId;
@@ -57,19 +74,37 @@ class dedicatedBlockStorageClusters extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example Running
+     *
+     * @var string
+     */
     public $status;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $supportedCategory;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @example Standard
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example cn-heyuan-b
+     *
      * @var string
      */
     public $zoneId;
@@ -83,8 +118,10 @@ class dedicatedBlockStorageClusters extends Model
         'expiredTime'                          => 'ExpiredTime',
         'performanceLevel'                     => 'PerformanceLevel',
         'regionId'                             => 'RegionId',
+        'resourceGroupId'                      => 'ResourceGroupId',
         'status'                               => 'Status',
         'supportedCategory'                    => 'SupportedCategory',
+        'tags'                                 => 'Tags',
         'type'                                 => 'Type',
         'zoneId'                               => 'ZoneId',
     ];
@@ -123,11 +160,23 @@ class dedicatedBlockStorageClusters extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->supportedCategory) {
             $res['SupportedCategory'] = $this->supportedCategory;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -174,11 +223,23 @@ class dedicatedBlockStorageClusters extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['SupportedCategory'])) {
             $model->supportedCategory = $map['SupportedCategory'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

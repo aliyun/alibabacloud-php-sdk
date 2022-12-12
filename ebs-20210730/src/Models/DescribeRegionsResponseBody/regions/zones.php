@@ -14,12 +14,20 @@ class zones extends Model
     public $localName;
 
     /**
+     * @var string[]
+     */
+    public $resourceTypes;
+
+    /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'localName' => 'LocalName',
-        'zoneId'    => 'ZoneId',
+        'localName'     => 'LocalName',
+        'resourceTypes' => 'ResourceTypes',
+        'zoneId'        => 'ZoneId',
     ];
 
     public function validate()
@@ -31,6 +39,9 @@ class zones extends Model
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = $this->resourceTypes;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -49,6 +60,11 @@ class zones extends Model
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+        if (isset($map['ResourceTypes'])) {
+            if (!empty($map['ResourceTypes'])) {
+                $model->resourceTypes = $map['ResourceTypes'];
+            }
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

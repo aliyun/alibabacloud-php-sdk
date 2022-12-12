@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedBlockStorageClusterAttributeRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example dbsc-cn-od43bf****
+     *
      * @var string
      */
     public $dbscId;
 
     /**
+     * @example my-test-dbsc
+     *
      * @var string
      */
     public $dbscName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dedicatedBlockStorageClusterCapacity extends Model
 {
     /**
+     * @example 61440
+     *
      * @var int
      */
     public $availableCapacity;
@@ -19,6 +21,8 @@ class dedicatedBlockStorageClusterCapacity extends Model
     public $deliveryCapacity;
 
     /**
+     * @example 61440
+     *
      * @var int
      */
     public $totalCapacity;

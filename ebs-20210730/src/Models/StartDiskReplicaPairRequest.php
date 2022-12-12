@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class StartDiskReplicaPairRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $oneShot;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pair-cn-dsa****
+     *
      * @var string
      */
     public $replicaPairId;

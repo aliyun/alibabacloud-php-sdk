@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
 {
     /**
+     * @example dbsc-cn-od43bf****
+     *
      * @var string
      */
     public $dbscId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example AAAAAdDWBF2
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $regionId;

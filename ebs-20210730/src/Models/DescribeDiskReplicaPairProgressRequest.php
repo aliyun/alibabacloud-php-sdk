@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairProgressRequest extends Model
 {
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pair-cn-tl32ribst0z
+     *
      * @var string
      */
     public $replicaPairId;

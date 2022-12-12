@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskReplicaGroupRequest extends Model
 {
     /**
+     * @example -
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example myreplicagrouptest
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $RPO;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pg-myreplica****
+     *
      * @var string
      */
     public $replicaGroupId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskReplicaPairRequest extends Model
 {
     /**
+     * @example 10240
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example TestReplicaPair
+     *
      * @var string
      */
     public $pairName;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $RPO;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pair-cn-dsa****
+     *
      * @var string
      */
     public $replicaPairId;

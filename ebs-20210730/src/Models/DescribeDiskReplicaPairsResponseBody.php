@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsResponseBody extends Model
 {
     /**
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -30,11 +36,15 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $replicaPairs;
 
     /**
+     * @example AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $totalCount;

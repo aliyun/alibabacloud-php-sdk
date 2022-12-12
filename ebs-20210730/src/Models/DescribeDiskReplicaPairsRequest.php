@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example pair-cn-dsa****
+     *
      * @var string
      */
     public $pairIds;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pg-****
+     *
      * @var string
      */
     public $replicaGroupId;
 
     /**
+     * @example production
+     *
      * @var string
      */
     public $site;

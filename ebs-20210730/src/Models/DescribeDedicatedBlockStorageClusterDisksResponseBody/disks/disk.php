@@ -10,141 +10,197 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
+     * @example 2021-06-07T06:08:56Z
+     *
      * @var string
      */
     public $attachedTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $bdfId;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deleteAutoSnapshot;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
+     * @example testDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2021-06-07T21:01:22Z
+     *
      * @var string
      */
     public $detachedTime;
 
     /**
+     * @example /dev/xvdb
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $diskChargeType;
 
     /**
+     * @example d-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example testDiskName
+     *
      * @var string
      */
     public $diskName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableAutoSnapshot;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $encrypted;
 
     /**
+     * @example 4000
+     *
      * @var int
      */
     public $IOPS;
 
     /**
+     * @example m-bp13aqm171qynt3u***
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example i-bp67acfmxazb4q****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
      * @var string
      */
     public $KMSKeyId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $mountInstanceNum;
 
     /**
+     * @example Disabled
+     *
      * @var string
      */
     public $multiAttach;
 
     /**
+     * @example PL0
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $portable;
 
     /**
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example s-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $sourceSnapshotId;
 
     /**
+     * @example In_use
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example dbsc-j5e1sf2vaf5he8m2****
+     *
      * @var string
      */
     public $storageClusterId;
 
     /**
+     * @example ss-i-bp1j4i2jdf3owlhe****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @example 11
+     *
      * @var int
      */
     public $storageSetPartitionNumber;
@@ -155,11 +211,15 @@ class disk extends Model
     public $tags;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example cn-heyuan-i
+     *
      * @var string
      */
     public $zoneId;

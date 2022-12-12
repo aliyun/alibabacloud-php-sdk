@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedBlockStorageClusterRequest extends Model
 {
     /**
+     * @example cn-heyuan-b
+     *
      * @var string
      */
     public $azone;
 
     /**
+     * @example 61440
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @example test1233
+     *
      * @var string
      */
     public $dbscId;
 
     /**
+     * @example myDBSCCluster
+     *
      * @var string
      */
     public $dbscName;
 
     /**
+     * @example cn-heyuan
+     *
      * @var string
      */
     public $regionId;
@@ -36,14 +46,22 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @example Premium
+     *
+     * @var string
+     */
     public $type;
     protected $_name = [
-        'azone'    => 'Azone',
-        'capacity' => 'Capacity',
-        'dbscId'   => 'DbscId',
-        'dbscName' => 'DbscName',
-        'regionId' => 'RegionId',
-        'type'     => 'Type',
+        'azone'           => 'Azone',
+        'capacity'        => 'Capacity',
+        'dbscId'          => 'DbscId',
+        'dbscName'        => 'DbscName',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -67,6 +85,9 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -97,6 +118,9 @@ class CreateDedicatedBlockStorageClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
