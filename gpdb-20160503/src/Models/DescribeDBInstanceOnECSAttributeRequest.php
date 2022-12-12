@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceOnECSAttributeRequest extends Model
 {
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;

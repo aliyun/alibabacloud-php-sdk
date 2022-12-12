@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageResponseBody extends Model
 {
     /**
+     * @example 26624
+     *
      * @var int
      */
     public $backupSize;
 
     /**
+     * @example gp-rj***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 405798912
+     *
      * @var int
      */
     public $dataSize;
 
     /**
+     * @example 607125504
+     *
      * @var int
      */
     public $diskUsed;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 201326592
+     *
      * @var int
      */
     public $logSize;
 
     /**
+     * @example 47AB1806-37FF-5E92-A91E-F2**********
+     *
      * @var string
      */
     public $requestId;

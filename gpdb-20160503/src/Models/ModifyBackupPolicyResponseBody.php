@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyResponseBody extends Model
 {
     /**
+     * @example DA147739-AEAD-4417-9089-65E9B1D8240D
+     *
      * @var string
      */
     public $requestId;

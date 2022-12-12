@@ -15,16 +15,22 @@ class DescribeSlowSQLLogsResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 07F6177E-****-****-****-0723301340F3
+     *
      * @var string
      */
     public $requestId;

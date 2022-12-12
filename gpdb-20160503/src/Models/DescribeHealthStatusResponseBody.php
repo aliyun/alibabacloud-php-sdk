@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthStatusResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example D97B4191-104D-10CE-8BC5-53**********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {"node_master_connection_status":{"Status":"healthy","Value":1.6}}
+     *
      * @var status
      */
     public $status;

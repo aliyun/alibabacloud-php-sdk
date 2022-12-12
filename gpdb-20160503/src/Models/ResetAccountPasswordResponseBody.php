@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordResponseBody extends Model
 {
     /**
+     * @example 187C80FC-75C4-477C-BBF2-A368A36D041C
+     *
      * @var string
      */
     public $requestId;

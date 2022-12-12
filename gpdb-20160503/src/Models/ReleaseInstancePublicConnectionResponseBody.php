@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionResponseBody extends Model
 {
     /**
+     * @example 9CEF7037-4158-4A65-BEC7-2A**********
+     *
      * @var string
      */
     public $requestId;

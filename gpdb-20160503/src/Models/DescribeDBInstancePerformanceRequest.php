@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 2022-07-09T03:47Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example CpuUsage,MemoryUsage,Gpdb_SpaceUsage,Gpdb_IOPS,Gpdb_session
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 2022-07-08T03:47Z
+     *
      * @var string
      */
     public $startTime;

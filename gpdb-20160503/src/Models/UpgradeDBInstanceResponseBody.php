@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceResponseBody extends Model
 {
     /**
+     * @example gp-rj***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example *********
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 25C11EE5-B7E8-481A-A07C-BD**********
+     *
      * @var string
      */
     public $requestId;

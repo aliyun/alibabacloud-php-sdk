@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsResponseBody extends Model
 {
     /**
+     * @example A29EC547-B392-4340-AA4F-7C0A7B626E74
+     *
      * @var string
      */
     public $requestId;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example CREATE INDEX idx1 ON schema1.tab1_ptr_2010
+     *
      * @var string
      */
     public $indexDef;
 
     /**
+     * @example idx1
+     *
      * @var string
      */
     public $indexName;
 
     /**
+     * @example 50000
+     *
      * @var int
      */
     public $indexScanTimes;
 
     /**
+     * @example 10000
+     *
      * @var string
      */
     public $indexSize;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isPartitionTable;
 
     /**
+     * @example tab1
+     *
      * @var string
      */
     public $parentTableName;
 
     /**
+     * @example schema1
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example tab1_ptr_2010
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 2022-08-08T20:00:00Z
+     *
      * @var string
      */
     public $timeLastUpdated;

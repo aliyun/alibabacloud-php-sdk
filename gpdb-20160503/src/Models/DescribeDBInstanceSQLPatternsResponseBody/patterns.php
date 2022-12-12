@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class patterns extends Model
 {
     /**
+     * @example Database_Ratio
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example { "postgres": 2 }
+     *
      * @var mixed[]
      */
     public $values;

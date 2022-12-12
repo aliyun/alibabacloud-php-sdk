@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example testadmin
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example adbpgadmin
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $DBRole;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $executeCost;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $executeState;
 
     /**
+     * @example DQL
+     *
      * @var string
      */
     public $operationClass;
 
     /**
+     * @example 2021-03-15T17:02:32Z
+     *
      * @var string
      */
     public $operationExecuteTime;
 
     /**
+     * @example select
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @example 111111
+     *
      * @var string
      */
     public $queryId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $SQLPlan;
 
     /**
+     * @example select ** from **
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $scanRowCounts;
@@ -79,11 +105,15 @@ class items extends Model
     public $sliceIds;
 
     /**
+     * @example 192.**.**.121
+     *
      * @var string
      */
     public $sourceIP;
 
     /**
+     * @example 50514
+     *
      * @var int
      */
     public $sourcePort;

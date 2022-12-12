@@ -9,56 +9,80 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @example 192.**.**.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $izNo;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description vSwitch ID。
+     *
+     * @example vsw-bp*******************
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vsw-name
+     *
      * @var string
      */
     public $vSwitchName;

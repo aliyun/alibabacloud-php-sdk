@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceErrorLogRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2022-04-25T06:59Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example error
+     *
      * @var string
      */
     public $keywords;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $logLevel;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2022-04-24T06:59Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $user;

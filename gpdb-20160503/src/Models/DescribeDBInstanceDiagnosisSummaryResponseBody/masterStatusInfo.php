@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class masterStatusInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $exceptionNodeNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $normalNodeNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $notPreferredNodeNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $notSyncingNodeNum;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $preferredNodeNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $syncedNodeNum;

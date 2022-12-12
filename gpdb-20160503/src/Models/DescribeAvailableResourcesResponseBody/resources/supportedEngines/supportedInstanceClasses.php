@@ -21,11 +21,15 @@ class supportedInstanceClasses extends Model
     public $description;
 
     /**
+     * @example 4C32G
+     *
      * @var string
      */
     public $displayClass;
 
     /**
+     * @example 4C32G
+     *
      * @var string
      */
     public $instanceClass;
@@ -41,6 +45,8 @@ class supportedInstanceClasses extends Model
     public $storageSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $storageType;

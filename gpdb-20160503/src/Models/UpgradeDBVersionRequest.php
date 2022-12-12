@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBVersionRequest extends Model
 {
     /**
+     * @example gp-wz9kmr708m155j***
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $majorVersion;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $minorVersion;
@@ -29,16 +35,22 @@ class UpgradeDBVersionRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $switchTimeMode;

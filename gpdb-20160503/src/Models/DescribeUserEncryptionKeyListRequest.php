@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserEncryptionKeyListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;

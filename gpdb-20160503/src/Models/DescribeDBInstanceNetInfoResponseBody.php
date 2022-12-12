@@ -15,11 +15,15 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $DBInstanceNetInfos;
 
     /**
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
+     *
      * @var string
      */
     public $requestId;

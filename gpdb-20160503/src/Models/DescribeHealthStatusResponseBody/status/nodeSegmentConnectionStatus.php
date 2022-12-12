@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodeSegmentConnectionStatus extends Model
 {
     /**
+     * @example healthy
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0.48
+     *
      * @var float
      */
     public $value;

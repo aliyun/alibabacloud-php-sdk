@@ -10,136 +10,190 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAttribute extends Model
 {
     /**
+     * @example LVS
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @example gp-bp***************-master.gpdb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cpuCores;
 
     /**
+     * @example 2021-09-15T08:30:00Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $DBInstanceCategory;
 
     /**
+     * @example adbpg.cluster.eni.2c16g
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @example 9fc356bf-b59c-42e0-9659-************
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example CloudDisk
+     *
      * @var string
      */
     public $encryptionType;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 2021-10-15T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $instanceDeployType;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterNodeNum;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memorySize;
 
     /**
+     * @example 6.3.4.10-202109231235
+     *
      * @var string
      */
     public $minorVersion;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 5432
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $segNodeNum;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $storageSize;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportRestore;
@@ -150,16 +204,26 @@ class DBInstanceAttribute extends Model
     public $tags;
 
     /**
+     * @description vSwitch ID。
+     *
+     * @example vsw-bp*******************
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp*******************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

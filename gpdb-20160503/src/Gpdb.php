@@ -125,6 +125,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Request;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Response;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListRequest;
@@ -247,10 +249,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param AddBuDBInstanceRelationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return AddBuDBInstanceRelationResponse
+     * @param AddBuDBInstanceRelationRequest $request AddBuDBInstanceRelationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddBuDBInstanceRelationResponse AddBuDBInstanceRelationResponse
      */
     public function addBuDBInstanceRelationWithOptions($request, $runtime)
     {
@@ -284,9 +290,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param AddBuDBInstanceRelationRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return AddBuDBInstanceRelationResponse
+     * @param AddBuDBInstanceRelationRequest $request AddBuDBInstanceRelationRequest
+     *
+     * @return AddBuDBInstanceRelationResponse AddBuDBInstanceRelationResponse
      */
     public function addBuDBInstanceRelation($request)
     {
@@ -975,10 +985,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DeleteDatabaseResponse
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabaseWithOptions($request, $runtime)
     {
@@ -1012,9 +1026,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DeleteDatabaseResponse
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
+     *
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabase($request)
     {
@@ -3659,6 +3677,52 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSpecificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSupportFeaturesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSupportFeaturesResponse
+     */
+    public function describeSupportFeaturesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSupportFeatures',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSupportFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSupportFeaturesRequest $request
+     *
+     * @return DescribeSupportFeaturesResponse
+     */
+    public function describeSupportFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupportFeaturesWithOptions($request, $runtime);
     }
 
     /**

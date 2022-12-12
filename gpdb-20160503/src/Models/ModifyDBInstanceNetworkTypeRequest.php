@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetworkTypeRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example 10.10.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp19ame5m1r3oejns****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example vsw-bp1cpq8mr64paltkb****
+     *
      * @var string
      */
     public $vSwitchId;

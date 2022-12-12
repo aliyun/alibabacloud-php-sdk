@@ -22,11 +22,15 @@ class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
     public $masterStatusInfo;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 070534EC-78D5-5519-83CC-E7B1A9213483
+     *
      * @var string
      */
     public $requestId;
@@ -37,6 +41,8 @@ class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
     public $segmentStatusInfo;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $totalCount;

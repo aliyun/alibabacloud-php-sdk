@@ -15,21 +15,29 @@ class DescribeDataBackupsResponseBody extends Model
     public $items;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $totalCount;

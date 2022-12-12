@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowRecord extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2018-07-09T09:00:08Z
+     *
      * @var string
      */
     public $executionStartTime;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $lockTimes;
 
     /**
+     * @example 125
+     *
      * @var int
      */
     public $parseRowCounts;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $queryTimes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @example update test.zxb set id=0 limit 1
+     *
      * @var string
      */
     public $SQLText;

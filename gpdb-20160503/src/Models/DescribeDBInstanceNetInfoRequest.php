@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

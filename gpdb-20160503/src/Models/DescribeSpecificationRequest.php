@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpecificationRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cpuCores;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,11 +28,15 @@ class DescribeSpecificationRequest extends Model
     public $ownerId;
 
     /**
+     * @example SSD
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalNodeNum;

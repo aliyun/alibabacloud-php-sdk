@@ -6,30 +6,22 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDatabaseRequest extends Model
+class DescribeSupportFeaturesRequest extends Model
 {
     /**
-     * @example gp-xxxxxxxxxxx
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @example testdb01
-     *
-     * @var string
+     * @var int
      */
-    public $DBName;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $ownerId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'DBName'          => 'DBName',
-        'resourceGroupId' => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -42,11 +34,8 @@ class DeleteDatabaseRequest extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->DBName) {
-            $res['DBName'] = $this->DBName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -55,7 +44,7 @@ class DeleteDatabaseRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDatabaseRequest
+     * @return DescribeSupportFeaturesRequest
      */
     public static function fromMap($map = [])
     {
@@ -63,11 +52,8 @@ class DeleteDatabaseRequest extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['DBName'])) {
-            $model->DBName = $map['DBName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

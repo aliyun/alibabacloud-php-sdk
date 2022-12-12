@@ -20,11 +20,15 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example gp-xxxxxxxxxx
+     *
      * @var string[]
      */
     public $resourceId;
@@ -40,6 +44,8 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

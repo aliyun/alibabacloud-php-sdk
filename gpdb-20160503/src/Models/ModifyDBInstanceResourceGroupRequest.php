@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceResourceGroupRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example rg-bp67acfmxazb4b****
+     *
      * @var string
      */
     public $newResourceGroupId;
@@ -29,6 +33,8 @@ class ModifyDBInstanceResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

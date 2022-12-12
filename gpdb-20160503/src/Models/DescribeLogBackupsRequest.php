@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupsRequest extends Model
 {
     /**
+     * @example gp-xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 2011-06-15T16:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2011-06-15T15:00Z
+     *
      * @var string
      */
     public $startTime;

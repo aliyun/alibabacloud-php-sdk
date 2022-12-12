@@ -9,71 +9,99 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowSQLLogsRequest extends Model
 {
     /**
+     * @example gp-****************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example adbpgadmin
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2021-03-17T06:30:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $executeState;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $maxExecuteCost;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $minExecuteCost;
 
     /**
+     * @example DQL
+     *
      * @var string
      */
     public $operationClass;
 
     /**
+     * @example SELECT
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example *****
+     *
      * @var string
      */
     public $queryKeywords;
 
     /**
+     * @example 192.**.**.121
+     *
      * @var string
      */
     public $sourceIP;
 
     /**
+     * @example 2021-03-10T06:30:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example testadmin
+     *
      * @var string
      */
     public $user;

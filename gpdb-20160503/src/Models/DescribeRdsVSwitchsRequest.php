@@ -19,11 +19,15 @@ class DescribeRdsVSwitchsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -44,11 +48,15 @@ class DescribeRdsVSwitchsRequest extends Model
     public $securityToken;
 
     /**
+     * @example vpc-bp*******************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

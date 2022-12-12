@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthStatusRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example node_master_status,node_master_connection_status,node_segment_connection_status,node_segment_disk_status
+     *
      * @var string
      */
     public $key;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class storageNotice extends Model
 {
     /**
+     * @example 2 CPU Cores/16GB Memory/160GB SSD Storage
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example 2 CPU Cores/16GB Memory/160GB SSD Storage
+     *
      * @var string
      */
     public $value;

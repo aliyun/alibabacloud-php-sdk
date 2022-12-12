@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example DataGrip 2022.1.5
+     *
      * @var string
      */
     public $application;
 
     /**
+     * @example DataGrip 2022.1.5
+     *
      * @var string
      */
     public $blockedByApplication;
 
     /**
+     * @example 110
+     *
      * @var string
      */
     public $blockedByPID;
 
     /**
+     * @example Select * from t1;
+     *
      * @var string
      */
     public $blockedBySQLStmt;
 
     /**
+     * @example testUser1
+     *
      * @var string
      */
     public $blockedByUser;
 
     /**
+     * @example ShareLock,AccessExclusiveLock
+     *
      * @var string
      */
     public $grantLocks;
 
     /**
+     * @example AccessShareLock
+     *
      * @var string
      */
     public $notGrantLocks;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $PID;
 
     /**
+     * @example Select * from t1,t2 where t1.id=t2.id;
+     *
      * @var string
      */
     public $SQLStmt;
 
     /**
+     * @example testUser
+     *
      * @var string
      */
     public $user;

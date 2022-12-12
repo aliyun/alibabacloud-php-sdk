@@ -10,131 +10,183 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAttribute extends Model
 {
     /**
+     * @example 100.0%
+     *
      * @var string
      */
     public $availabilityValue;
 
     /**
+     * @example LVS
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @example gp-bp13ue79qk8y1****-master.gpdb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example mm.v6.3.10.1-202207141918
+     *
      * @var string
      */
     public $coreVersion;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cpuCores;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cpuCoresPerNode;
 
     /**
+     * @example 2022-08-11T09:16:26Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $DBInstanceCategory;
 
     /**
+     * @example gpdb.group.segsdx1
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @example x
+     *
      * @var string
      */
     public $DBInstanceClassType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $DBInstanceCpuCores;
 
     /**
+     * @example gp-bp13ue79qk8y1****
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $DBInstanceDiskMBPS;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $DBInstanceGroupCount;
 
     /**
+     * @example gp-bp13ue79qk8y1****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $DBInstanceMemory;
 
     /**
+     * @example StorageElastic
+     *
      * @var string
      */
     public $DBInstanceMode;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @example 0d2470df-da7b-4786-b981-************
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example CloudDisk
+     *
      * @var string
      */
     public $encryptionType;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 2999-09-08T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $hostType;
@@ -145,101 +197,141 @@ class DBInstanceAttribute extends Model
     public $idleTime;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example 22:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 18:00Z
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterNodeNum;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $memoryPerNode;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memorySize;
 
     /**
+     * @example GB
+     *
      * @var string
      */
     public $memoryUnit;
 
     /**
+     * @example 6.3.10.1-202207141918
+     *
      * @var string
      */
     public $minorVersion;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 5432
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $readDelayTime;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 4 days 22:58:55
+     *
      * @var string
      */
     public $runningTime;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $segNodeNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $segmentCounts;
@@ -255,31 +347,43 @@ class DBInstanceAttribute extends Model
     public $serverlessResource;
 
     /**
+     * @example 2022-08-11T09:26:43Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $storagePerNode;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $storageSize;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example GB SSD
+     *
      * @var string
      */
     public $storageUnit;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportRestore;
@@ -290,16 +394,26 @@ class DBInstanceAttribute extends Model
     public $tags;
 
     /**
+     * @description vSwitch ID。
+     *
+     * @example vsw-bp1cpq8mr64paltkb****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp19ame5m1r3oejns****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $zoneId;

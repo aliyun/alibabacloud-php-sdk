@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetworkTypeResponseBody extends Model
 {
     /**
+     * @example 2d0c35a9-f5da-44ba-852d-741e27b7eb0b
+     *
      * @var string
      */
     public $requestId;

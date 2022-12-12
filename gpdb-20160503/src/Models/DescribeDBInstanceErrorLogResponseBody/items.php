@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example unsupported frontend protocol 2689.28208: server supports 1.0 to 3.0
+     *
      * @var string
      */
     public $logContext;
 
     /**
+     * @example FATAL
+     *
      * @var string
      */
     public $logLevel;
 
     /**
+     * @example 2022-04-24 11:28:14
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $user;

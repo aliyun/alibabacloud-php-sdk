@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class SQLRecord extends Model
 {
     /**
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2018-07-09T08:50:20Z
+     *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @example 122
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @example update test.zxb set id=0 limit 1
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @example 723
+     *
      * @var string
      */
     public $threadID;
 
     /**
+     * @example 130
+     *
      * @var int
      */
     public $totalExecutionTimes;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class changelogs extends Model
 {
     /**
+     * @example 2020-05-05T11:22:22Z
+     *
      * @var string
      */
     public $effectTime;
 
     /**
+     * @example testkey
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $parameterValid;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $parameterValueAfter;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $parameterValueBefore;

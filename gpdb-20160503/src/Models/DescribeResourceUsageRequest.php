@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageRequest extends Model
 {
     /**
+     * @example gp-rj***************
+     *
      * @var string
      */
     public $DBInstanceId;

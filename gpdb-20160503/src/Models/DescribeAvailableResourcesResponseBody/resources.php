@@ -15,6 +15,8 @@ class resources extends Model
     public $supportedEngines;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

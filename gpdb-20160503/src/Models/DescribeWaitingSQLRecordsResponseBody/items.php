@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $PID;
 
     /**
+     * @example Select * from t1,t2 where t1.id=t2.id;
+     *
      * @var string
      */
     public $SQLStmt;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $sessionID;
 
     /**
+     * @example 1660902033374
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example LockWaiting
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example testUser
+     *
      * @var string
      */
     public $user;
 
     /**
+     * @example 26911000
+     *
      * @var int
      */
     public $waitingTime;

@@ -22,6 +22,8 @@ class DescribeSpecificationResponseBody extends Model
     public $DBInstanceGroupCount;
 
     /**
+     * @example 2EC38F35-C2D3-56A1-A49E-61**********
+     *
      * @var string
      */
     public $requestId;

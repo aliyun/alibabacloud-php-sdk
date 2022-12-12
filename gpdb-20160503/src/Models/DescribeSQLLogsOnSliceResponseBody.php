@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsOnSliceResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 07F6177E-6DE4-408A-BB4F-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $requestId;

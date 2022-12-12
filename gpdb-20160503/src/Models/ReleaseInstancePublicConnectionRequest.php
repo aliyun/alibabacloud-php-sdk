@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionRequest extends Model
 {
     /**
+     * @example Intranet
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @example gp-**********.gpdb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $currentConnectionString;
 
     /**
+     * @example gp-**********
+     *
      * @var string
      */
     public $DBInstanceId;

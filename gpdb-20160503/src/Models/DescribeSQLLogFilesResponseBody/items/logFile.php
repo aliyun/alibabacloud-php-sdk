@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class logFile extends Model
 {
     /**
+     * @example 1023423423
+     *
      * @var string
      */
     public $fileID;
 
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $logDownloadURL;
 
     /**
+     * @example 2019-02-24T14:10Z
+     *
      * @var string
      */
     public $logEndTime;
 
     /**
+     * @example 100210
+     *
      * @var string
      */
     public $logSize;
 
     /**
+     * @example 2019-02-24T12:10Z
+     *
      * @var string
      */
     public $logStartTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $logStatus;

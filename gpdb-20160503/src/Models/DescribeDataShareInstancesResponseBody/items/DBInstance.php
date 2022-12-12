@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example Serverless
+     *
      * @var string
      */
     public $DBInstanceMode;
 
     /**
+     * @example opened
+     *
      * @var string
      */
     public $dataShareStatus;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $zoneId;

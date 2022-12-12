@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceDiagnosisSummaryRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $rolePreferd;
 
     /**
+     * @example UP
+     *
      * @var string
      */
     public $startStatus;
 
     /**
+     * @example synced
+     *
      * @var string
      */
     public $syncMode;

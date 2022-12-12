@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListRequest extends Model
 {
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

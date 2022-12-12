@@ -10,46 +10,64 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $createSampleData;
 
     /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $DBInstanceCategory;
 
     /**
+     * @example gpdb.group.segsdx1
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $DBInstanceGroupCount;
 
     /**
+     * @example StorageElastic
+     *
      * @var string
      */
     public $DBInstanceMode;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $engineVersion;
@@ -60,16 +78,22 @@ class CreateDBInstanceRequest extends Model
     public $idleTime;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example 2C16G
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $masterNodeNum;
@@ -80,41 +104,57 @@ class CreateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 1.1.1.*
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $segNodeNum;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $segStorageType;
@@ -130,11 +170,15 @@ class CreateDBInstanceRequest extends Model
     public $serverlessResource;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $storageSize;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $storageType;
@@ -145,21 +189,29 @@ class CreateDBInstanceRequest extends Model
     public $tag;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $usedTime;
 
     /**
+     * @example vpc-bp*******************
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example vsw-bp*******************
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

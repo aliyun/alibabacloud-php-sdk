@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddBuDBInstanceRelationRequest extends Model
 {
     /**
+     * @example BusinessUnit
+     *
      * @var string
      */
     public $businessUnit;
 
     /**
+     * @example gp-xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

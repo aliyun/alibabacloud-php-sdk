@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSQLPatternsRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example test_db
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2021-08-04T09:25Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example sql_pattern
+     *
      * @var string
      */
     public $queryKeywords;
 
     /**
+     * @example 10.**.**.10
+     *
      * @var string
      */
     public $sourceIP;
 
     /**
+     * @example 2021-08-03T09:25Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example test_user
+     *
      * @var string
      */
     public $user;

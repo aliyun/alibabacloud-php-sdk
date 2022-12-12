@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateDBInstancePlanResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example 34b32a0a-08ef-4a87-b6be-cdd9f56fc3ad
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

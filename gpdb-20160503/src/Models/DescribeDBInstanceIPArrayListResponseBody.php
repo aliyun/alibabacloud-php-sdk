@@ -15,6 +15,8 @@ class DescribeDBInstanceIPArrayListResponseBody extends Model
     public $items;
 
     /**
+     * @example CB7AA0BF-BE41-480E-A3DC-C97BF85A391B
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class adbpgSegmentStatus extends Model
 {
     /**
+     * @example healthy
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $value;

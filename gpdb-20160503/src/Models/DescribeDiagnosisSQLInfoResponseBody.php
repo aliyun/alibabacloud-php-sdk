@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSQLInfoResponseBody extends Model
 {
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $maxOutputRows;
 
     /**
+     * @example 71403480878****
+     *
      * @var string
      */
     public $queryID;
 
     /**
+     * @example {\"children\":********\"startTime\":1660719602199}
+     *
      * @var string
      */
     public $queryPlan;
 
     /**
+     * @example 425AAA6A-63E0-1929-A1CE-3D9036CBC463
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example select n_live_tup, n_live_tup + n_dead_tup, pg_relation_size(table_name), last_vacuum from pg_stat_user_tables where relid = table_name::regclass
+     *
      * @var string
      */
     public $SQLStmt;
 
     /**
+     * @example 658****
+     *
      * @var string
      */
     public $sessionID;
 
     /**
+     * @example {\"costSort\":******:\"Seq Scan-9\",\"value\":0.0}]}
+     *
      * @var string
      */
     public $sortedMetrics;
 
     /**
+     * @example 1660719602199
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $textPlan;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $user;

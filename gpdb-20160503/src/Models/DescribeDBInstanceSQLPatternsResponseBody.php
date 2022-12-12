@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSQLPatternsResponseBody extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2021-08-03T09:31Z
+     *
      * @var string
      */
     public $endTime;
@@ -25,11 +29,15 @@ class DescribeDBInstanceSQLPatternsResponseBody extends Model
     public $patterns;
 
     /**
+     * @example 4BBA1119-65FD-50B4-8A1D-B4**********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-08-03T09:30Z
+     *
      * @var string
      */
     public $startTime;

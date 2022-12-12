@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSQLInfoRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 71403480878****
+     *
      * @var string
      */
     public $queryID;

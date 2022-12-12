@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifySQLCollectorPolicyRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example Enable
+     *
      * @var string
      */
     public $SQLCollectorStatus;

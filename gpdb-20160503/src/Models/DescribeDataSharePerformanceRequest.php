@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataSharePerformanceRequest extends Model
 {
     /**
+     * @example 2022-08-03T15:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example adbpg_datashare_topic_count
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 2022-08-03T15:00Z
+     *
      * @var string
      */
     public $startTime;

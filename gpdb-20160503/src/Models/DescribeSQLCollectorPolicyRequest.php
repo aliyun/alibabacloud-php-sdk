@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLCollectorPolicyRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

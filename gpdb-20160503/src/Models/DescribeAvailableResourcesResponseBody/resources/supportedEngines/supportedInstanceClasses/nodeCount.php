@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class nodeCount extends Model
 {
     /**
+     * @example 128
+     *
      * @var string
      */
     public $maxCount;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $minCount;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $step;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 2022-07-09T03:47Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
@@ -29,11 +35,15 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $performanceKeys;
 
     /**
+     * @example 5E85244A-AB47-46A3-A3AD-5F307DCB407E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2022-07-08T03:47Z
+     *
      * @var string
      */
     public $startTime;

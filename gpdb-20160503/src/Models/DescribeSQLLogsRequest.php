@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example adbpgadmin
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2021-03-17T06:30Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $executeCost;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $executeState;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $maxExecuteCost;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $minExecuteCost;
 
     /**
+     * @example DQL
+     *
      * @var string
      */
     public $operationClass;
 
     /**
+     * @example SELECT
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example select 1
+     *
      * @var string
      */
     public $queryKeywords;
 
     /**
+     * @example 100.**.**.90
+     *
      * @var string
      */
     public $sourceIP;
 
     /**
+     * @example 2021-03-10T06:30Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example testadmin
+     *
      * @var string
      */
     public $user;

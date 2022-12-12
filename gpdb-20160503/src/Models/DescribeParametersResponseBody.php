@@ -15,6 +15,8 @@ class DescribeParametersResponseBody extends Model
     public $parameters;
 
     /**
+     * @example 62506167-D284-562A-B7C2-0A**********
+     *
      * @var string
      */
     public $requestId;

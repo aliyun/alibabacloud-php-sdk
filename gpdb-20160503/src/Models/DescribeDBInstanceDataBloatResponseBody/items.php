@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 1.03
+     *
      * @var string
      */
     public $bloatCeoff;
 
     /**
+     * @example 0.2MB
+     *
      * @var string
      */
     public $bloatSize;
 
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example 1MB
+     *
      * @var string
      */
     public $expectTableSize;
 
     /**
+     * @example 1.2MB
+     *
      * @var string
      */
     public $realTableSize;
 
     /**
+     * @example schema1
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example Heap
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $suggestedAction;
 
     /**
+     * @example tab1
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 2022-08-08T20:00:00Z
+     *
      * @var string
      */
     public $timeLastUpdated;
 
     /**
+     * @example 2022-08-08T16:00:00Z
+     *
      * @var string
      */
     public $timeLastVacuumed;

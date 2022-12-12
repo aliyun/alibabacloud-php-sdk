@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestartDBInstanceRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example gp-xxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

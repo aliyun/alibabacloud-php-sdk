@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2022042612465401000000012903151998970
+     *
      * @var string
      */
     public $queryID;
 
     /**
+     * @example SELECT * FROM t1,t2 WHERE t1.id=t2.id;
+     *
      * @var string
      */
     public $SQLStmt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $SQLTruncated;
 
     /**
+     * @example 5120
+     *
      * @var int
      */
     public $SQLTruncatedThreshold;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $sessionID;
 
     /**
+     * @example 1651877940000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $user;

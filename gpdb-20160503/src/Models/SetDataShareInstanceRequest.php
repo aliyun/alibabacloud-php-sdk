@@ -14,6 +14,8 @@ class SetDataShareInstanceRequest extends Model
     public $instanceList;
 
     /**
+     * @example add
+     *
      * @var string
      */
     public $operationType;
@@ -24,6 +26,8 @@ class SetDataShareInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

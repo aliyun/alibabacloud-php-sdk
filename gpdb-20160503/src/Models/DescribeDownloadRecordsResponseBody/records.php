@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @example 1150
+     *
      * @var int
      */
     public $downloadId;
 
     /**
+     * @example https://perth-download-task.oss-cn-beijing.aliyuncs.com/*****
+     *
      * @var string
      */
     public $downloadUrl;
 
     /**
+     * @example Error message
+     *
      * @var string
      */
     public $exceptionMsg;
 
     /**
+     * @example 20220509113448-20220509173448.csv
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example finished
+     *
      * @var string
      */
     public $status;

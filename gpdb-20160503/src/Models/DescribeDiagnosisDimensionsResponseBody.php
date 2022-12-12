@@ -14,6 +14,8 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
     public $databases;
 
     /**
+     * @example 9ADCAACA-E0E8-5319-AE3B-E260E957BDF9
+     *
      * @var string
      */
     public $requestId;

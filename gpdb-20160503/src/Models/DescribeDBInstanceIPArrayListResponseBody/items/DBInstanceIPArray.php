@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceIPArray extends Model
 {
     /**
+     * @example hidden
+     *
      * @var string
      */
     public $DBInstanceIPArrayAttribute;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $DBInstanceIPArrayName;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $securityIPList;

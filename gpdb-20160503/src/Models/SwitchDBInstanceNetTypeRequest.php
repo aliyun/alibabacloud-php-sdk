@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceNetTypeRequest extends Model
 {
     /**
+     * @example test1234
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $port;

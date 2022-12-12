@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogRequest extends Model
 {
     /**
+     * @example gp-xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 2020-05-05T11:22:22Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2020-02-02T11:22:22Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @example 10800000
+     *
      * @var string
      */
     public $currentValue;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $forceRestartInstance;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isChangeableConfig;
 
     /**
+     * @example [0-2147483647]
+     *
      * @var string
      */
     public $optionalRange;
 
     /**
+     * @example Sets the maximum allowed duration of any statement，A value of 0 turns off the timeout.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example statement_timeout
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example 10800000
+     *
      * @var string
      */
     public $parameterValue;

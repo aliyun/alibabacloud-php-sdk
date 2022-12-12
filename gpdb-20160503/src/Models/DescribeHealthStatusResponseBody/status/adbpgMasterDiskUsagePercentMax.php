@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class adbpgMasterDiskUsagePercentMax extends Model
 {
     /**
+     * @example healthy
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1.34
+     *
      * @var float
      */
     public $value;

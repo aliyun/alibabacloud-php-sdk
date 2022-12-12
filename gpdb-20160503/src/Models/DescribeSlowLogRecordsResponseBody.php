@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
@@ -20,21 +22,29 @@ class DescribeSlowLogRecordsResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 542BB8D6-4268-45CC-A557-B03EFD7AB30A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

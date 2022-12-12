@@ -9,36 +9,52 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @example gp-xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2018-07-19T09:00:08Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description SQL ID。
+     *
+     * @example 143242632
+     *
      * @var int
      */
     public $SQLId;
 
     /**
+     * @example 2018-07-09T09:00:08Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UnloadSampleDataResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example ********
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 4E42ABC3-4DBD-5343-9BCA-66B7D091311F_6914
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;

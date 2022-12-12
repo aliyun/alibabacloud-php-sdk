@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadRecordsRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;

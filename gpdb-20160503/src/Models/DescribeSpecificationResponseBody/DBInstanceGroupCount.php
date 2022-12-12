@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceGroupCount extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $value;

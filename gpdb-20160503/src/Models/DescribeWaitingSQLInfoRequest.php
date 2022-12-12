@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeWaitingSQLInfoRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $PID;

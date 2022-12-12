@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class supportedEngines extends Model
 {
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $supportedEngineVersion;

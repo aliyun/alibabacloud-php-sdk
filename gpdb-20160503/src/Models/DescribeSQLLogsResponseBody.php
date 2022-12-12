@@ -15,16 +15,22 @@ class DescribeSQLLogsResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example A7941C94-B92F-46A0-BD3E-2D**********
+     *
      * @var string
      */
     public $requestId;

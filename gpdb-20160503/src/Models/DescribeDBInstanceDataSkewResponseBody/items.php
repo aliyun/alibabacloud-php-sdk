@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @example ItemId
+     *
      * @var string
      */
     public $distributeKey;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example schema1
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example tab1
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example 100000
+     *
      * @var string
      */
     public $tableSize;
 
     /**
+     * @example 10.23
+     *
      * @var string
      */
     public $tableSkew;
 
     /**
+     * @example 2020-09-08T20:00:00Z
+     *
      * @var string
      */
     public $timeLastUpdated;

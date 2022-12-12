@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDBInstancePlanStatusRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,11 +21,15 @@ class SetDBInstancePlanStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example disable
+     *
      * @var string
      */
     public $planStatus;

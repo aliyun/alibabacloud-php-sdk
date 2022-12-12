@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example gp-t4np568qe9710****-master-100984919
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $nodeAddress;
 
     /**
+     * @example -1
+     *
      * @var string
      */
     public $nodeCID;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $nodeID;
 
     /**
+     * @example ap-southeast-1.i-t4n4c4ryr0yr441d****
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @example 3000
+     *
      * @var string
      */
     public $nodePort;
 
     /**
+     * @example primary
+     *
      * @var string
      */
     public $nodePreferredRole;
 
     /**
+     * @example Synced
+     *
      * @var string
      */
     public $nodeReplicationMode;
 
     /**
+     * @example primary
+     *
      * @var string
      */
     public $nodeRole;
 
     /**
+     * @example UP
+     *
      * @var string
      */
     public $nodeStatus;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $nodeType;

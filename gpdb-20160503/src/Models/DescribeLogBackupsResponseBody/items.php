@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 327329803
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example gp-xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 000000010000000300000006
+     *
      * @var string
      */
     public $logFileName;
 
     /**
+     * @example 2167808
+     *
      * @var int
      */
     public $logFileSize;
 
     /**
+     * @example 2021-02-24T10:55:47Z
+     *
      * @var string
      */
     public $logTime;
 
     /**
+     * @example segment-x
+     *
      * @var string
      */
     public $segmentName;

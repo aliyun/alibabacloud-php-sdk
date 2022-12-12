@@ -10,41 +10,57 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $bid;
 
     /**
+     * @example 10.**.**.0/8
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
@@ -55,11 +71,17 @@ class vpc extends Model
     public $vSwitchs;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp*******************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vpc-name
+     *
      * @var string
      */
     public $vpcName;

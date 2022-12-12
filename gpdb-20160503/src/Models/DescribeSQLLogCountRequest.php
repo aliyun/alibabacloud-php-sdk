@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogCountRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2020-12-14T11:22Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $executeCost;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $executeState;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $maxExecuteCost;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $minExecuteCost;
 
     /**
+     * @example DQL
+     *
      * @var string
      */
     public $operationClass;
 
     /**
+     * @example SELECT
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $queryKeywords;
 
     /**
+     * @example 10.**.**.13
+     *
      * @var string
      */
     public $sourceIP;
 
     /**
+     * @example 2020-12-12T11:22Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example adbpgadmin
+     *
      * @var string
      */
     public $user;

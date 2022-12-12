@@ -10,101 +10,141 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @example 2021-10-09T04:54:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $DBInstanceCategory;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example StorageElastic
+     *
      * @var string
      */
     public $DBInstanceMode;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 2999-09-08T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $instanceDeployType;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterNodeNum;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $segNodeNum;
@@ -115,11 +155,15 @@ class DBInstance extends Model
     public $serverlessMode;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $storageSize;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $storageType;
@@ -130,16 +174,26 @@ class DBInstance extends Model
     public $tags;
 
     /**
+     * @description vSwitch ID。
+     *
+     * @example vsw-bp*******************
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-bp*******************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

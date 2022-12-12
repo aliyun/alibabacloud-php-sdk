@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyParametersRequest extends Model
 {
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $forceRestartInstance;
 
     /**
+     * @example {"statement_timeout":"11800010"}
+     *
      * @var string
      */
     public $parameters;

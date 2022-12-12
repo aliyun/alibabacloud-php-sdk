@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class storageSize extends Model
 {
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $maxCount;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $minCount;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $step;

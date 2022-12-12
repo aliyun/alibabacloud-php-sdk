@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class sliceLogItems extends Model
 {
     /**
+     * @example 100
+     *
      * @var float
      */
     public $executeCost;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $executeStatus;
 
     /**
+     * @example 2021-08-12T04:37:02Z
+     *
      * @var string
      */
     public $operationExecuteEndTime;
 
     /**
+     * @example 2021-08-12T04:37:02Z
+     *
      * @var string
      */
     public $operationExecuteTime;
 
     /**
+     * @example 128B
+     *
      * @var float
      */
     public $peakMemory;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @description Segment ID。
+     *
+     * @example gp-xxxxxxxxxx
+     *
      * @var string
      */
     public $segmentId;
 
     /**
+     * @example gp-xxxxxxxxxx
+     *
      * @var string
      */
     public $segmentName;

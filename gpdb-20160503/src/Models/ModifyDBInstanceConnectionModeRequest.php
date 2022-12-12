@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionModeRequest extends Model
 {
     /**
+     * @example Safe
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @example gp-rj***************
+     *
      * @var string
      */
     public $DBInstanceId;

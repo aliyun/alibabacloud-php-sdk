@@ -15,6 +15,8 @@ class DescribeSQLLogByQueryIdResponseBody extends Model
     public $items;
 
     /**
+     * @example 07F6177E-****-****-****-0723301340F3
+     *
      * @var string
      */
     public $requestId;

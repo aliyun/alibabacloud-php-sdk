@@ -19,11 +19,15 @@ class DescribeTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,6 +43,8 @@ class DescribeTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

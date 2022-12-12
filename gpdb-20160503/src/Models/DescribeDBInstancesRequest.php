@@ -15,11 +15,15 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceCategories;
 
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceIds;
@@ -40,6 +44,8 @@ class DescribeDBInstancesRequest extends Model
     public $instanceDeployTypes;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
@@ -50,21 +56,29 @@ class DescribeDBInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

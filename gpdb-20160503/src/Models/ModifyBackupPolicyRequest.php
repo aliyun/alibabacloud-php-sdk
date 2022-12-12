@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @example 7
+     *
      * @var int
      */
     public $backupRetentionPeriod;
 
     /**
+     * @example gp-xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRecoveryPoint;
 
     /**
+     * @example Tuesday，Thursday，Saturday
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @example 15:00Z-16:00Z
+     *
      * @var string
      */
     public $preferredBackupTime;
 
     /**
+     * @example 8
+     *
      * @var string
      */
     public $recoveryPointPeriod;

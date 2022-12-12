@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateECSDBInstanceResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 111111111111
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 5432
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example 5414A4E5-4C36-4461-95FC-************
+     *
      * @var string
      */
     public $requestId;

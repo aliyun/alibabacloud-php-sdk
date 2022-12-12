@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @example master-10*******
+     *
      * @var string
      */
     public $name;

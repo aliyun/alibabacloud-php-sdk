@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateSampleDataResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example *********
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 15A6881F-AAAB-5E4D-9B3F-6DCC1BDF4F2E_99
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;

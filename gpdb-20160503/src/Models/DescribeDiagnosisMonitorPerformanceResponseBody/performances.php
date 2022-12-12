@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cost;
 
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2022042612465401000000012903151998970
+     *
      * @var string
      */
     public $queryID;
 
     /**
+     * @example 1651877940000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $user;

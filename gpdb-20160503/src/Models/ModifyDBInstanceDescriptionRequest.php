@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDescriptionRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

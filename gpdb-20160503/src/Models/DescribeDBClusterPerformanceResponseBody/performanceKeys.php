@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class performanceKeys extends Model
 {
     /**
+     * @example adbpg_group_cpu_used_percent
+     *
      * @var string
      */
     public $name;
@@ -20,6 +22,8 @@ class performanceKeys extends Model
     public $series;
 
     /**
+     * @example %
+     *
      * @var string
      */
     public $unit;

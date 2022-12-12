@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogCountResponseBody extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example 2020-12-14T11:22Z
+     *
      * @var string
      */
     public $endTime;
@@ -25,11 +29,15 @@ class DescribeSQLLogCountResponseBody extends Model
     public $items;
 
     /**
+     * @example 7565770E-7C45-462D-BA4A-8A**********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2020-12-12T11:22Z
+     *
      * @var string
      */
     public $startTime;

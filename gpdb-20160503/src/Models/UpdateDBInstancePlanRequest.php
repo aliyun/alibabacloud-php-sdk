@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDBInstancePlanRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,31 +21,43 @@ class UpdateDBInstancePlanRequest extends Model
     public $ownerId;
 
     /**
+     * @example {"pause":{"executeTime":"2022-08-30T16:00:00Z"}}
+     *
      * @var string
      */
     public $planConfig;
 
     /**
+     * @example this is a test plan
+     *
      * @var string
      */
     public $planDesc;
 
     /**
+     * @example 2023-04-17T23:00Z
+     *
      * @var string
      */
     public $planEndDate;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example test-plan
+     *
      * @var string
      */
     public $planName;
 
     /**
+     * @example 2022-04-17T23:00Z
+     *
      * @var string
      */
     public $planStartDate;

@@ -15,16 +15,22 @@ class DescribeDBInstanceIndexUsageResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

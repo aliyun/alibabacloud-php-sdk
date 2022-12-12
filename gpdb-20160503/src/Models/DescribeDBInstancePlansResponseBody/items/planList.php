@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class planList extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example {"pause":{"planCronTime":"0 22 * * 5"},"resume":{"planCronTime":"0 23 * * 5"}}
+     *
      * @var string
      */
     public $planConfig;
 
     /**
+     * @example this is a test plan
+     *
      * @var string
      */
     public $planDesc;
 
     /**
+     * @example 2023-04-17T23:00Z
+     *
      * @var string
      */
     public $planEndDate;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @example test-plan
+     *
      * @var string
      */
     public $planName;
 
     /**
+     * @example Regular
+     *
      * @var string
      */
     public $planScheduleType;
 
     /**
+     * @example 2022-04-17T23:00Z
+     *
      * @var string
      */
     public $planStartDate;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $planStatus;
 
     /**
+     * @example PauseResume
+     *
      * @var string
      */
     public $planType;

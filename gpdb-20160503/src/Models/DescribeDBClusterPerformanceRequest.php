@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 2021-11-03T15:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example adbpg_conn_count
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example top10
+     *
      * @var string
      */
     public $nodes;
 
     /**
+     * @example 2021-11-03T15:00Z
+     *
      * @var string
      */
     public $startTime;

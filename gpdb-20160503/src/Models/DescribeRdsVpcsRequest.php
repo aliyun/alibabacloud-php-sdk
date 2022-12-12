@@ -19,11 +19,15 @@ class DescribeRdsVpcsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -44,6 +48,8 @@ class DescribeRdsVpcsRequest extends Model
     public $securityToken;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

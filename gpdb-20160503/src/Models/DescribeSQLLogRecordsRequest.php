@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogRecordsRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2018-07-09T08:50:20Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example Stream
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example keywords1
+     *
      * @var string
      */
     public $queryKeywords;
 
     /**
+     * @example 2018-07-09T04:50:20Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example testacc
+     *
      * @var string
      */
     public $user;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PauseInstanceResponseBody extends Model
+class DescribeSupportFeaturesResponseBody extends Model
 {
     /**
      * @example gp-bp12ga6v69h86****
@@ -16,30 +16,22 @@ class PauseInstanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @example *******
-     *
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @example 34b32a0a-08ef-4a87-b6be-cdd9********
+     * @example 63E5BE60-91FF-57F1-B873-7F1EB734B93D_2724
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
+     * @example [ "sample_data", "diagnose_and_optimize" ]
      *
-     * @var bool
+     * @var string
      */
-    public $status;
+    public $supportFeatureList;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'DBInstanceId'       => 'DBInstanceId',
+        'requestId'          => 'RequestId',
+        'supportFeatureList' => 'SupportFeatureList',
     ];
 
     public function validate()
@@ -52,14 +44,11 @@ class PauseInstanceResponseBody extends Model
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->supportFeatureList) {
+            $res['SupportFeatureList'] = $this->supportFeatureList;
         }
 
         return $res;
@@ -68,7 +57,7 @@ class PauseInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return PauseInstanceResponseBody
+     * @return DescribeSupportFeaturesResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -76,14 +65,11 @@ class PauseInstanceResponseBody extends Model
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['SupportFeatureList'])) {
+            $model->supportFeatureList = $map['SupportFeatureList'];
         }
 
         return $model;

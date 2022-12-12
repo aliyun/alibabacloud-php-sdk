@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetDataShareInstanceResponseBody extends Model
 {
     /**
+     * @example error message
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @example B4CAF581-2AC7-41AD-8940-D5**********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @example adbpg_datashare_topic_count
+     *
      * @var string
      */
     public $name;

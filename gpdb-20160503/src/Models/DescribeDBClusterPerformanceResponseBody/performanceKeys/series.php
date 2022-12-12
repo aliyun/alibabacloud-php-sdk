@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @example standby-********-cpu
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example standby
+     *
      * @var string
      */
     public $role;

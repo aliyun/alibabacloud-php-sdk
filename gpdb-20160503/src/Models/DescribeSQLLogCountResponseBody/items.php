@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $name;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsVSwitchsResponseBody extends Model
 {
     /**
+     * @example B0BA251D-6854-5A99-A964-3C**********
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSSLRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxxxxx-master.gpdbmaster.singapore.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example gp-xxxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $SSLEnabled;

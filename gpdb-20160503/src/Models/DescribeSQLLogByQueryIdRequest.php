@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogByQueryIdRequest extends Model
 {
     /**
+     * @example gp-****************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 111111
+     *
      * @var string
      */
     public $queryId;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class segmentStatusInfo extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $exceptionNodeNum;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $normalNodeNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $notPreferredNodeNum;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $notSyncingNodeNum;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $preferredNodeNum;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $syncedNodeNum;

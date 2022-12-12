@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsOnSliceRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $executeState;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $maxExecuteCost;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $minExecuteCost;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 11111
+     *
      * @var string
      */
     public $queryId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $sliceId;

@@ -15,16 +15,22 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
     public $performances;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $performancesThreshold;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $performancesTruncated;
 
     /**
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
      * @var string
      */
     public $requestId;

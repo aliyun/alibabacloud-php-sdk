@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePlansResponseBody extends Model
 {
     /**
+     * @example ****
+     *
      * @var string
      */
     public $errorMessage;
@@ -20,26 +22,36 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 34b32a0a-08ef-4a87-b6be-cdd988888888
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

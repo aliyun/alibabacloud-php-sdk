@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSSLResponseBody extends Model
 {
     /**
+     * @example *.gpdbmaster.xxx.rds.aliyuncs.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @example gp-xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example gp-xxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example D5FF8636-37F6-4CE0-8002-F8734C62C686
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $SSLEnabled;
 
     /**
+     * @example 2020-08-05T09:05:53Z
+     *
      * @var string
      */
     public $SSLExpiredTime;

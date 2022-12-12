@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNodeRequest extends Model
 {
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $nodeType;

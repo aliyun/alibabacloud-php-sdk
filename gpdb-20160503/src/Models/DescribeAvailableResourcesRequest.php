@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourcesRequest extends Model
 {
     /**
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeWaitingSQLRecordsRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2022-08-20T07:59Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example table
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example {"Field":"StartTime","Type":"Desc"}
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example {"Type":"maxCost","Value":"10"}
+     *
      * @var string
      */
     public $queryCondition;
 
     /**
+     * @example 2022-08-15T06:59Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example testUser
+     *
      * @var string
      */
     public $user;

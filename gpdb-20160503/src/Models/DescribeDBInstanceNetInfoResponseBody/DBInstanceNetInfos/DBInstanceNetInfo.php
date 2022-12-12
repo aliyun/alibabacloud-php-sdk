@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceNetInfo extends Model
 {
     /**
+     * @example Intranet
+     *
      * @var string
      */
     public $addressType;
 
     /**
+     * @example gp-xxxxxxx.gpdb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @example Inner
+     *
      * @var string
      */
     public $IPType;
 
     /**
+     * @example 3432
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-xxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example vsw-xxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-xxxxxxx
+     *
      * @var string
      */
     public $vpcInstanceId;

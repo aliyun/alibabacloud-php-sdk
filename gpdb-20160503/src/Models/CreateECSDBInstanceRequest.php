@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateECSDBInstanceRequest extends Model
 {
     /**
+     * @example 1111111111
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88888888****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $DBInstanceCategory;
@@ -30,36 +36,50 @@ class CreateECSDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @example 0d2470df-da7b-4786-b981-88888888****
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example CloudDisk
+     *
      * @var string
      */
     public $encryptionType;
 
     /**
+     * @example gpdb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 6.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @example 2C16G
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterNodeNum;
@@ -70,51 +90,71 @@ class CreateECSDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 10.10.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $segNodeNum;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $segStorageType;
 
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $srcDbInstanceName;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $storageSize;
@@ -125,21 +165,29 @@ class CreateECSDBInstanceRequest extends Model
     public $tag;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $usedTime;
 
     /**
+     * @example vpc-bp19ame5m1r3oejns****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example vsw-bp1cpq8mr64paltkb****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

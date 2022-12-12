@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceClass extends Model
 {
     /**
+     * @example gpdb.group.segsdx1
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example 1x1C SSD
+     *
      * @var string
      */
     public $value;

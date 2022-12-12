@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
+     * @example testacc02
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @example testacc02
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example Pw123456
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example test01
+     *
      * @var string
      */
     public $databaseName;
@@ -39,6 +49,8 @@ class CreateAccountRequest extends Model
     public $ownerId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;

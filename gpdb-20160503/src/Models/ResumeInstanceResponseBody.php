@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ResumeInstanceResponseBody extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 34b32a0a-08ef-4a87-b6be-cdd9********
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $status;

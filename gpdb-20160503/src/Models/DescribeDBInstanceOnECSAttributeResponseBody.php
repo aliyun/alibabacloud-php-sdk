@@ -15,6 +15,8 @@ class DescribeDBInstanceOnECSAttributeResponseBody extends Model
     public $items;
 
     /**
+     * @example 5850BF81-1A2B-5ACE-AF41-57**********
+     *
      * @var string
      */
     public $requestId;

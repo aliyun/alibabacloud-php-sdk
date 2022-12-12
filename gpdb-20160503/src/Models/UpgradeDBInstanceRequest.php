@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceRequest extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $DBInstanceGroupCount;
 
     /**
+     * @example gp-rj***************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 4C16G
+     *
      * @var string
      */
     public $instanceSpec;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $masterNodeNum;
@@ -39,31 +49,43 @@ class UpgradeDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $segNodeNum;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $storageSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $upgradeType;

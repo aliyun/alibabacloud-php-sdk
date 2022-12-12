@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogFilesRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example log20200202
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

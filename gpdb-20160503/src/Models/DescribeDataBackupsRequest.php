@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataBackupsRequest extends Model
 {
     /**
+     * @example 327329803
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @example gp-xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example DATA
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @example 2011-06-01T16:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2011-06-01T15:00Z
+     *
      * @var string
      */
     public $startTime;

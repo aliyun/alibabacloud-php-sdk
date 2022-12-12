@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisMonitorPerformanceRequest extends Model
 {
     /**
+     * @example gp-bp12ga6v69h86****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example adbtest
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @example 2022-05-07T07:59Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example {"Type":"maxCost", "Value":"100"}
+     *
      * @var string
      */
     public $queryCondition;
 
     /**
+     * @example 2022-05-07T06:59Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example adbpguser
+     *
      * @var string
      */
     public $user;
